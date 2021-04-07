@@ -16,7 +16,6 @@ export * from "./jitRequest";
 export * from "../types/enums/solutions";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160901preview from "./v20160901preview";
 import * as v20170901 from "./v20170901";
 import * as v20180601 from "./v20180601";
@@ -24,7 +23,6 @@ import * as v20190701 from "./v20190701";
 import * as v20200821preview from "./v20200821preview";
 
 export {
-    latest,
     v20160901preview,
     v20170901,
     v20180601,

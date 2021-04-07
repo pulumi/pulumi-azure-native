@@ -82,7 +82,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

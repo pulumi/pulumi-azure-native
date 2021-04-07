@@ -91,7 +91,7 @@ export class AccessPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-native:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20200515:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20200515:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }

@@ -208,7 +208,6 @@ export * from "./zone";
 export * from "../types/enums/network";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150501preview from "./v20150501preview";
 import * as v20150504preview from "./v20150504preview";
 import * as v20150615 from "./v20150615";
@@ -261,7 +260,6 @@ import * as v20201101 from "./v20201101";
 import * as v20210201preview from "./v20210201preview";
 
 export {
-    latest,
     v20150501preview,
     v20150504preview,
     v20150615,

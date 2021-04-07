@@ -91,7 +91,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack/v20200601preview:CustomerSubscription" }, { type: "azure-native:azurestack:CustomerSubscription" }, { type: "azure-nextgen:azurestack:CustomerSubscription" }, { type: "azure-native:azurestack/latest:CustomerSubscription" }, { type: "azure-nextgen:azurestack/latest:CustomerSubscription" }, { type: "azure-native:azurestack/v20170601:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack/v20200601preview:CustomerSubscription" }, { type: "azure-native:azurestack:CustomerSubscription" }, { type: "azure-nextgen:azurestack:CustomerSubscription" }, { type: "azure-native:azurestack/v20170601:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomerSubscription.__pulumiType, name, inputs, opts);
     }

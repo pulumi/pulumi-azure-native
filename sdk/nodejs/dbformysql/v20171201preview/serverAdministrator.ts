@@ -108,7 +108,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator" }, { type: "azure-native:dbformysql:ServerAdministrator" }, { type: "azure-nextgen:dbformysql:ServerAdministrator" }, { type: "azure-native:dbformysql/latest:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/latest:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201:ServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator" }, { type: "azure-native:dbformysql:ServerAdministrator" }, { type: "azure-nextgen:dbformysql:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201:ServerAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAdministrator.__pulumiType, name, inputs, opts);
     }

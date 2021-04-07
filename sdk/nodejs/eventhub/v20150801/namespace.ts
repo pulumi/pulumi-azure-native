@@ -129,7 +129,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20150801:Namespace" }, { type: "azure-native:eventhub:Namespace" }, { type: "azure-nextgen:eventhub:Namespace" }, { type: "azure-native:eventhub/latest:Namespace" }, { type: "azure-nextgen:eventhub/latest:Namespace" }, { type: "azure-native:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-native:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-native:eventhub/v20180101preview:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }, { type: "azure-native:eventhub/v20210101preview:Namespace" }, { type: "azure-nextgen:eventhub/v20210101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20150801:Namespace" }, { type: "azure-native:eventhub:Namespace" }, { type: "azure-nextgen:eventhub:Namespace" }, { type: "azure-native:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-native:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-native:eventhub/v20180101preview:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }, { type: "azure-native:eventhub/v20210101preview:Namespace" }, { type: "azure-nextgen:eventhub/v20210101preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, inputs, opts);
     }

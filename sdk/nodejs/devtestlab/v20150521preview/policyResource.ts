@@ -131,7 +131,7 @@ export class PolicyResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:PolicyResource" }, { type: "azure-native:devtestlab:PolicyResource" }, { type: "azure-nextgen:devtestlab:PolicyResource" }, { type: "azure-native:devtestlab/latest:PolicyResource" }, { type: "azure-nextgen:devtestlab/latest:PolicyResource" }, { type: "azure-native:devtestlab/v20160515:PolicyResource" }, { type: "azure-nextgen:devtestlab/v20160515:PolicyResource" }, { type: "azure-native:devtestlab/v20180915:PolicyResource" }, { type: "azure-nextgen:devtestlab/v20180915:PolicyResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:PolicyResource" }, { type: "azure-native:devtestlab:PolicyResource" }, { type: "azure-nextgen:devtestlab:PolicyResource" }, { type: "azure-native:devtestlab/v20160515:PolicyResource" }, { type: "azure-nextgen:devtestlab/v20160515:PolicyResource" }, { type: "azure-native:devtestlab/v20180915:PolicyResource" }, { type: "azure-nextgen:devtestlab/v20180915:PolicyResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyResource.__pulumiType, name, inputs, opts);
     }

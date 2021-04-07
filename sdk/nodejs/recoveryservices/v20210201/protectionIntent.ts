@@ -101,7 +101,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20210201:ProtectionIntent" }, { type: "azure-native:recoveryservices:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices:ProtectionIntent" }, { type: "azure-native:recoveryservices/latest:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20170701:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/v20170701:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210201preview:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/v20210201preview:ProtectionIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20210201:ProtectionIntent" }, { type: "azure-native:recoveryservices:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20170701:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/v20170701:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210201preview:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/v20210201preview:ProtectionIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectionIntent.__pulumiType, name, inputs, opts);
     }

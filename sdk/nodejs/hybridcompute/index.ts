@@ -20,7 +20,6 @@ export * from "./privateLinkScopedResource";
 export * from "../types/enums/hybridcompute";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20190318preview from "./v20190318preview";
 import * as v20190802preview from "./v20190802preview";
 import * as v20191212 from "./v20191212";
@@ -31,7 +30,6 @@ import * as v20210128preview from "./v20210128preview";
 import * as v20210325preview from "./v20210325preview";
 
 export {
-    latest,
     v20190318preview,
     v20190802preview,
     v20191212,

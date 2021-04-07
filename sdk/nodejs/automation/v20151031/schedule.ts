@@ -166,7 +166,7 @@ export class Schedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Schedule" }, { type: "azure-native:automation:Schedule" }, { type: "azure-nextgen:automation:Schedule" }, { type: "azure-native:automation/latest:Schedule" }, { type: "azure-nextgen:automation/latest:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-nextgen:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-nextgen:automation/v20200113preview:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Schedule" }, { type: "azure-native:automation:Schedule" }, { type: "azure-nextgen:automation:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-nextgen:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-nextgen:automation/v20200113preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, inputs, opts);
     }

@@ -153,7 +153,6 @@ export * from "./webAppVnetConnectionSlot";
 export * from "../types/enums/web";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150801 from "./v20150801";
 import * as v20150801preview from "./v20150801preview";
 import * as v20160301 from "./v20160301";
@@ -169,7 +168,6 @@ import * as v20201001 from "./v20201001";
 import * as v20201201 from "./v20201201";
 
 export {
-    latest,
     v20150801,
     v20150801preview,
     v20160301,

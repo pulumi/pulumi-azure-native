@@ -40,7 +40,6 @@ export * from "./roleManagementPolicyAssignment";
 export * from "../types/enums/authorization";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150101 from "./v20150101";
 import * as v20150701 from "./v20150701";
 import * as v20151001preview from "./v20151001preview";
@@ -67,7 +66,6 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
 
 export {
-    latest,
     v20150101,
     v20150701,
     v20151001preview,

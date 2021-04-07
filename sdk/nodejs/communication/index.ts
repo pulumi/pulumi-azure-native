@@ -10,12 +10,10 @@ export * from "./getCommunicationService";
 export * from "./listCommunicationServiceKeys";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20200820 from "./v20200820";
 import * as v20200820preview from "./v20200820preview";
 
 export {
-    latest,
     v20200820,
     v20200820preview,
 };

@@ -102,7 +102,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20210101:RegisteredPrefix" }, { type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-nextgen:peering:RegisteredPrefix" }, { type: "azure-native:peering/latest:RegisteredPrefix" }, { type: "azure-nextgen:peering/latest:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20210101:RegisteredPrefix" }, { type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-nextgen:peering:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredPrefix.__pulumiType, name, inputs, opts);
     }

@@ -68,7 +68,6 @@ export * from "./workbookTemplate";
 export * from "../types/enums/insights";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20140401 from "./v20140401";
 import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
@@ -97,7 +96,6 @@ import * as v20201020 from "./v20201020";
 import * as v20210201preview from "./v20210201preview";
 
 export {
-    latest,
     v20140401,
     v20150401,
     v20150501,

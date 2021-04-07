@@ -10,11 +10,9 @@ export * from "./listOpenShiftClusterCredentials";
 export * from "./openShiftCluster";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20200430 from "./v20200430";
 
 export {
-    latest,
     v20200430,
 };
 

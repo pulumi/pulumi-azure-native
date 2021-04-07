@@ -12,11 +12,9 @@ export * from "./serialPort";
 export * from "../types/enums/serialconsole";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180501 from "./v20180501";
 
 export {
-    latest,
     v20180501,
 };
 

@@ -93,7 +93,7 @@ export class Trigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:Trigger" }, { type: "azure-native:datashare/latest:Trigger" }, { type: "azure-nextgen:datashare/latest:Trigger" }, { type: "azure-native:datashare/v20181101preview:Trigger" }, { type: "azure-nextgen:datashare/v20181101preview:Trigger" }, { type: "azure-native:datashare/v20191101:Trigger" }, { type: "azure-nextgen:datashare/v20191101:Trigger" }, { type: "azure-native:datashare/v20200901:Trigger" }, { type: "azure-nextgen:datashare/v20200901:Trigger" }, { type: "azure-native:datashare/v20201001preview:Trigger" }, { type: "azure-nextgen:datashare/v20201001preview:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:Trigger" }, { type: "azure-native:datashare/v20181101preview:Trigger" }, { type: "azure-nextgen:datashare/v20181101preview:Trigger" }, { type: "azure-native:datashare/v20191101:Trigger" }, { type: "azure-nextgen:datashare/v20191101:Trigger" }, { type: "azure-native:datashare/v20200901:Trigger" }, { type: "azure-nextgen:datashare/v20200901:Trigger" }, { type: "azure-native:datashare/v20201001preview:Trigger" }, { type: "azure-nextgen:datashare/v20201001preview:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, inputs, opts);
     }

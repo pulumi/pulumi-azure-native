@@ -93,7 +93,7 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/latest:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationProtectedItem.__pulumiType, name, inputs, opts);
     }

@@ -12,7 +12,6 @@ export * from "./getBudget";
 export * from "../types/enums/consumption";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20171230preview from "./v20171230preview";
 import * as v20180131 from "./v20180131";
 import * as v20180331 from "./v20180331";
@@ -28,7 +27,6 @@ import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 
 export {
-    latest,
     v20171230preview,
     v20180131,
     v20180331,

@@ -14,12 +14,10 @@ export * from "./privateEndpointConnection";
 export * from "../types/enums/attestation";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180901preview from "./v20180901preview";
 import * as v20201001 from "./v20201001";
 
 export {
-    latest,
     v20180901preview,
     v20201001,
 };

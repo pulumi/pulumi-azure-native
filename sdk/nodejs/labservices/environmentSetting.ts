@@ -153,7 +153,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:EnvironmentSetting" }, { type: "azure-native:labservices/latest:EnvironmentSetting" }, { type: "azure-nextgen:labservices/latest:EnvironmentSetting" }, { type: "azure-native:labservices/v20181015:EnvironmentSetting" }, { type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:EnvironmentSetting" }, { type: "azure-native:labservices/v20181015:EnvironmentSetting" }, { type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentSetting.__pulumiType, name, inputs, opts);
     }

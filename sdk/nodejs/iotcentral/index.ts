@@ -12,12 +12,10 @@ export * from "./getApp";
 export * from "../types/enums/iotcentral";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20170701privatepreview from "./v20170701privatepreview";
 import * as v20180901 from "./v20180901";
 
 export {
-    latest,
     v20170701privatepreview,
     v20180901,
 };

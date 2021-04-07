@@ -175,7 +175,7 @@ export class ShareSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:ShareSubscription" }, { type: "azure-native:datashare:ShareSubscription" }, { type: "azure-nextgen:datashare:ShareSubscription" }, { type: "azure-native:datashare/latest:ShareSubscription" }, { type: "azure-nextgen:datashare/latest:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20200901:ShareSubscription" }, { type: "azure-nextgen:datashare/v20200901:ShareSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:ShareSubscription" }, { type: "azure-native:datashare:ShareSubscription" }, { type: "azure-nextgen:datashare:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20200901:ShareSubscription" }, { type: "azure-nextgen:datashare/v20200901:ShareSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ShareSubscription.__pulumiType, name, inputs, opts);
     }

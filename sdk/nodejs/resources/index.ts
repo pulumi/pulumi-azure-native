@@ -32,7 +32,6 @@ export * from "./templateSpecVersion";
 export * from "../types/enums/resources";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20151101 from "./v20151101";
 import * as v20160201 from "./v20160201";
 import * as v20160701 from "./v20160701";
@@ -54,7 +53,6 @@ import * as v20201001 from "./v20201001";
 import * as v20210101 from "./v20210101";
 
 export {
-    latest,
     v20151101,
     v20160201,
     v20160701,

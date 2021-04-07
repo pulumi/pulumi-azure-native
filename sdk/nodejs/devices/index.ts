@@ -28,7 +28,6 @@ export * from "./privateEndpointConnection";
 export * from "../types/enums/devices";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160203 from "./v20160203";
 import * as v20170119 from "./v20170119";
 import * as v20170701 from "./v20170701";
@@ -54,7 +53,6 @@ import * as v20210201preview from "./v20210201preview";
 import * as v20210303preview from "./v20210303preview";
 
 export {
-    latest,
     v20160203,
     v20170119,
     v20170701,

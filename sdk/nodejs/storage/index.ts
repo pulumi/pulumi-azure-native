@@ -45,7 +45,6 @@ export * from "./tableServiceProperties";
 export * from "../types/enums/storage";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150501preview from "./v20150501preview";
 import * as v20150615 from "./v20150615";
 import * as v20160101 from "./v20160101";
@@ -64,7 +63,6 @@ import * as v20210101 from "./v20210101";
 import * as v20210201 from "./v20210201";
 
 export {
-    latest,
     v20150501preview,
     v20150615,
     v20160101,

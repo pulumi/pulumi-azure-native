@@ -14,11 +14,9 @@ export * from "./workspace";
 export * from "../types/enums/databricks";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180401 from "./v20180401";
 
 export {
-    latest,
     v20180401,
 };
 

@@ -72,7 +72,7 @@ export class NotificationRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/v20201120:NotificationRegistration" }, { type: "azure-native:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub:NotificationRegistration" }, { type: "azure-native:providerhub/latest:NotificationRegistration" }, { type: "azure-nextgen:providerhub/latest:NotificationRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/v20201120:NotificationRegistration" }, { type: "azure-native:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub:NotificationRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRegistration.__pulumiType, name, inputs, opts);
     }

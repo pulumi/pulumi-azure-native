@@ -117,7 +117,7 @@ export class View extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:View" }, { type: "azure-native:customerinsights/latest:View" }, { type: "azure-nextgen:customerinsights/latest:View" }, { type: "azure-native:customerinsights/v20170101:View" }, { type: "azure-nextgen:customerinsights/v20170101:View" }, { type: "azure-native:customerinsights/v20170426:View" }, { type: "azure-nextgen:customerinsights/v20170426:View" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:View" }, { type: "azure-native:customerinsights/v20170101:View" }, { type: "azure-nextgen:customerinsights/v20170101:View" }, { type: "azure-native:customerinsights/v20170426:View" }, { type: "azure-nextgen:customerinsights/v20170426:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, inputs, opts);
     }

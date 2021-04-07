@@ -15,14 +15,12 @@ export * from "./signalRPrivateEndpointConnection";
 export * from "../types/enums/signalrservice";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180301preview from "./v20180301preview";
 import * as v20181001 from "./v20181001";
 import * as v20200501 from "./v20200501";
 import * as v20200701preview from "./v20200701preview";
 
 export {
-    latest,
     v20180301preview,
     v20181001,
     v20200501,

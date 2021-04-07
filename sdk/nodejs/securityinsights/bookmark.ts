@@ -164,7 +164,7 @@ export class Bookmark extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Bookmark" }, { type: "azure-native:securityinsights/latest:Bookmark" }, { type: "azure-nextgen:securityinsights/latest:Bookmark" }, { type: "azure-native:securityinsights/v20200101:Bookmark" }, { type: "azure-nextgen:securityinsights/v20200101:Bookmark" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Bookmark" }, { type: "azure-native:securityinsights/v20200101:Bookmark" }, { type: "azure-nextgen:securityinsights/v20200101:Bookmark" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bookmark.__pulumiType, name, inputs, opts);
     }

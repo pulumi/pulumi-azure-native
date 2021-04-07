@@ -44,7 +44,6 @@ export * from "./workspaceSetting";
 export * from "../types/enums/security";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150601preview from "./v20150601preview";
 import * as v20170801preview from "./v20170801preview";
 import * as v20190101preview from "./v20190101preview";
@@ -55,7 +54,6 @@ import * as v20200701preview from "./v20200701preview";
 import * as v20200806preview from "./v20200806preview";
 
 export {
-    latest,
     v20150601preview,
     v20170801preview,
     v20190101preview,

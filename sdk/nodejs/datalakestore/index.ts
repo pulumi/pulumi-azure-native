@@ -18,11 +18,9 @@ export * from "./virtualNetworkRule";
 export * from "../types/enums/datalakestore";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20161101 from "./v20161101";
 
 export {
-    latest,
     v20161101,
 };
 

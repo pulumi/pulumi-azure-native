@@ -27,13 +27,11 @@ export * from "./wcfrelayAuthorizationRule";
 export * from "../types/enums/relay";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160701 from "./v20160701";
 import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
 
 export {
-    latest,
     v20160701,
     v20170401,
     v20180101preview,

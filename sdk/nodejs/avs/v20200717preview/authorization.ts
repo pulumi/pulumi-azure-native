@@ -90,7 +90,7 @@ export class Authorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200717preview:Authorization" }, { type: "azure-native:avs:Authorization" }, { type: "azure-nextgen:avs:Authorization" }, { type: "azure-native:avs/latest:Authorization" }, { type: "azure-nextgen:avs/latest:Authorization" }, { type: "azure-native:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-native:avs/v20210101preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200717preview:Authorization" }, { type: "azure-native:avs:Authorization" }, { type: "azure-nextgen:avs:Authorization" }, { type: "azure-native:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-native:avs/v20210101preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Authorization.__pulumiType, name, inputs, opts);
     }

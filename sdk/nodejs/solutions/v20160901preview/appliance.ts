@@ -150,7 +150,7 @@ export class Appliance extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions/v20160901preview:Appliance" }, { type: "azure-native:solutions:Appliance" }, { type: "azure-nextgen:solutions:Appliance" }, { type: "azure-native:solutions/latest:Appliance" }, { type: "azure-nextgen:solutions/latest:Appliance" }, { type: "azure-native:solutions/v20170901:Appliance" }, { type: "azure-nextgen:solutions/v20170901:Appliance" }, { type: "azure-native:solutions/v20180601:Appliance" }, { type: "azure-nextgen:solutions/v20180601:Appliance" }, { type: "azure-native:solutions/v20190701:Appliance" }, { type: "azure-nextgen:solutions/v20190701:Appliance" }, { type: "azure-native:solutions/v20200821preview:Appliance" }, { type: "azure-nextgen:solutions/v20200821preview:Appliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions/v20160901preview:Appliance" }, { type: "azure-native:solutions:Appliance" }, { type: "azure-nextgen:solutions:Appliance" }, { type: "azure-native:solutions/v20170901:Appliance" }, { type: "azure-nextgen:solutions/v20170901:Appliance" }, { type: "azure-native:solutions/v20180601:Appliance" }, { type: "azure-nextgen:solutions/v20180601:Appliance" }, { type: "azure-native:solutions/v20190701:Appliance" }, { type: "azure-nextgen:solutions/v20190701:Appliance" }, { type: "azure-native:solutions/v20200821preview:Appliance" }, { type: "azure-nextgen:solutions/v20200821preview:Appliance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Appliance.__pulumiType, name, inputs, opts);
     }

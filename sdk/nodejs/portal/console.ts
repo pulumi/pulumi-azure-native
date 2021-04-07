@@ -63,7 +63,7 @@ export class Console extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:Console" }, { type: "azure-native:portal/latest:Console" }, { type: "azure-nextgen:portal/latest:Console" }, { type: "azure-native:portal/v20181001:Console" }, { type: "azure-nextgen:portal/v20181001:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:Console" }, { type: "azure-native:portal/v20181001:Console" }, { type: "azure-nextgen:portal/v20181001:Console" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Console.__pulumiType, name, inputs, opts);
     }

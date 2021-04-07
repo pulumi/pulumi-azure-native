@@ -77,7 +77,7 @@ export class ManagementLock extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20150101:ManagementLock" }, { type: "azure-native:authorization:ManagementLock" }, { type: "azure-nextgen:authorization:ManagementLock" }, { type: "azure-native:authorization/latest:ManagementLock" }, { type: "azure-nextgen:authorization/latest:ManagementLock" }, { type: "azure-native:authorization/v20160901:ManagementLock" }, { type: "azure-nextgen:authorization/v20160901:ManagementLock" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20150101:ManagementLock" }, { type: "azure-native:authorization:ManagementLock" }, { type: "azure-nextgen:authorization:ManagementLock" }, { type: "azure-native:authorization/v20160901:ManagementLock" }, { type: "azure-nextgen:authorization/v20160901:ManagementLock" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLock.__pulumiType, name, inputs, opts);
     }

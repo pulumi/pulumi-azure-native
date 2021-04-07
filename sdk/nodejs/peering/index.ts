@@ -22,7 +22,6 @@ export * from "./registeredPrefix";
 export * from "../types/enums/peering";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20190801preview from "./v20190801preview";
 import * as v20190901preview from "./v20190901preview";
 import * as v20200101preview from "./v20200101preview";
@@ -31,7 +30,6 @@ import * as v20201001 from "./v20201001";
 import * as v20210101 from "./v20210101";
 
 export {
-    latest,
     v20190801preview,
     v20190901preview,
     v20200101preview,

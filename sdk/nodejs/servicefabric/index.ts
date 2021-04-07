@@ -25,7 +25,6 @@ export * from "./service";
 export * from "../types/enums/servicefabric";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160901 from "./v20160901";
 import * as v20170701preview from "./v20170701preview";
 import * as v20180201 from "./v20180201";
@@ -38,7 +37,6 @@ import * as v20200301 from "./v20200301";
 import * as v20201201preview from "./v20201201preview";
 
 export {
-    latest,
     v20160901,
     v20170701preview,
     v20180201,

@@ -181,7 +181,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170426:Profile" }, { type: "azure-native:customerinsights:Profile" }, { type: "azure-nextgen:customerinsights:Profile" }, { type: "azure-native:customerinsights/latest:Profile" }, { type: "azure-nextgen:customerinsights/latest:Profile" }, { type: "azure-native:customerinsights/v20170101:Profile" }, { type: "azure-nextgen:customerinsights/v20170101:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170426:Profile" }, { type: "azure-native:customerinsights:Profile" }, { type: "azure-nextgen:customerinsights:Profile" }, { type: "azure-native:customerinsights/v20170101:Profile" }, { type: "azure-nextgen:customerinsights/v20170101:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, inputs, opts);
     }

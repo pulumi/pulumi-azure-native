@@ -18,7 +18,6 @@ export * from "./task";
 export * from "../types/enums/datamigration";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20171115preview from "./v20171115preview";
 import * as v20180315preview from "./v20180315preview";
 import * as v20180331preview from "./v20180331preview";
@@ -26,7 +25,6 @@ import * as v20180419 from "./v20180419";
 import * as v20180715preview from "./v20180715preview";
 
 export {
-    latest,
     v20171115preview,
     v20180315preview,
     v20180331preview,
