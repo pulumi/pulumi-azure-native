@@ -9,17 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
-    public static class GetRecordSet
+    public static class GetPrivateRecordSet
     {
         /// <summary>
         /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
         /// </summary>
-        public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network/v20200601:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
+        public static Task<GetPrivateRecordSetResult> InvokeAsync(GetPrivateRecordSetArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateRecordSetResult>("azure-native:network/v20200601:getPrivateRecordSet", args ?? new GetPrivateRecordSetArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetRecordSetArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateRecordSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.Network.V20200601
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetRecordSetArgs()
+        public GetPrivateRecordSetArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetRecordSetResult
+    public sealed class GetPrivateRecordSetResult
     {
         /// <summary>
         /// The list of A records in the record set.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Network.V20200601
         public readonly string Type;
 
         [OutputConstructor]
-        private GetRecordSetResult(
+        private GetPrivateRecordSetResult(
             ImmutableArray<Outputs.ARecordResponse> aRecords,
 
             ImmutableArray<Outputs.AaaaRecordResponse> aaaaRecords,

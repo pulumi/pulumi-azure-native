@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-    /// API Version: 2020-06-01.
+    /// Describes a DNS record set (a collection of DNS records with the same name and type).
+    /// API Version: 2018-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
@@ -29,13 +29,19 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.AaaaRecordResponse>> AaaaRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The CNAME record in the record set.
+        /// The list of CAA records in the record set.
+        /// </summary>
+        [Output("caaRecords")]
+        public Output<ImmutableArray<Outputs.CaaRecordResponse>> CaaRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The CNAME record in the  record set.
         /// </summary>
         [Output("cnameRecord")]
         public Output<Outputs.CnameRecordResponse?> CnameRecord { get; private set; } = null!;
 
         /// <summary>
-        /// The ETag of the record set.
+        /// The etag of the record set.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
@@ -45,12 +51,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// Is the record set auto-registered in the Private DNS zone through a virtual network link?
-        /// </summary>
-        [Output("isAutoRegistered")]
-        public Output<bool> IsAutoRegistered { get; private set; } = null!;
 
         /// <summary>
         /// The metadata attached to the record set.
@@ -65,10 +65,22 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.MxRecordResponse>> MxRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// The name of the record set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of NS records in the record set.
+        /// </summary>
+        [Output("nsRecords")]
+        public Output<ImmutableArray<Outputs.NsRecordResponse>> NsRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// provisioning State of the record set.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The list of PTR records in the record set.
@@ -89,6 +101,12 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.SrvRecordResponse>> SrvRecords { get; private set; } = null!;
 
         /// <summary>
+        /// A reference to an azure resource from where the dns resource value is taken.
+        /// </summary>
+        [Output("targetResource")]
+        public Output<Outputs.SubResourceResponse?> TargetResource { get; private set; } = null!;
+
+        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Output("ttl")]
@@ -101,7 +119,7 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.TxtRecordResponse>> TxtRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        /// The type of the record set.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,12 +150,18 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180901:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200101:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150504preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160401:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160401:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180301preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180501:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -185,14 +209,26 @@ namespace Pulumi.AzureNative.Network
             set => _aaaaRecords = value;
         }
 
+        [Input("caaRecords")]
+        private InputList<Inputs.CaaRecordArgs>? _caaRecords;
+
         /// <summary>
-        /// The CNAME record in the record set.
+        /// The list of CAA records in the record set.
+        /// </summary>
+        public InputList<Inputs.CaaRecordArgs> CaaRecords
+        {
+            get => _caaRecords ?? (_caaRecords = new InputList<Inputs.CaaRecordArgs>());
+            set => _caaRecords = value;
+        }
+
+        /// <summary>
+        /// The CNAME record in the  record set.
         /// </summary>
         [Input("cnameRecord")]
         public Input<Inputs.CnameRecordArgs>? CnameRecord { get; set; }
 
         /// <summary>
-        /// The ETag of the record set.
+        /// The etag of the record set.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -221,11 +257,17 @@ namespace Pulumi.AzureNative.Network
             set => _mxRecords = value;
         }
 
+        [Input("nsRecords")]
+        private InputList<Inputs.NsRecordArgs>? _nsRecords;
+
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// The list of NS records in the record set.
         /// </summary>
-        [Input("privateZoneName", required: true)]
-        public Input<string> PrivateZoneName { get; set; } = null!;
+        public InputList<Inputs.NsRecordArgs> NsRecords
+        {
+            get => _nsRecords ?? (_nsRecords = new InputList<Inputs.NsRecordArgs>());
+            set => _nsRecords = value;
+        }
 
         [Input("ptrRecords")]
         private InputList<Inputs.PtrRecordArgs>? _ptrRecords;
@@ -240,7 +282,7 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
-        /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+        /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
         /// </summary>
         [Input("recordType", required: true)]
         public Input<string> RecordType { get; set; } = null!;
@@ -276,6 +318,12 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
+        /// A reference to an azure resource from where the dns resource value is taken.
+        /// </summary>
+        [Input("targetResource")]
+        public Input<Inputs.SubResourceArgs>? TargetResource { get; set; }
+
+        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Input("ttl")]
@@ -292,6 +340,12 @@ namespace Pulumi.AzureNative.Network
             get => _txtRecords ?? (_txtRecords = new InputList<Inputs.TxtRecordArgs>());
             set => _txtRecords = value;
         }
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
 
         public RecordSetArgs()
         {

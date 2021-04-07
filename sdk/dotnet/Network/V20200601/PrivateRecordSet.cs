@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Network.V20171001
+namespace Pulumi.AzureNative.Network.V20200601
 {
     /// <summary>
-    /// Describes a DNS record set (a collection of DNS records with the same name and type).
+    /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// </summary>
-    [AzureNativeResourceType("azure-native:network/v20171001:RecordSet")]
-    public partial class RecordSet : Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:network/v20200601:PrivateRecordSet")]
+    public partial class PrivateRecordSet : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of A records in the record set.
@@ -28,19 +28,13 @@ namespace Pulumi.AzureNative.Network.V20171001
         public Output<ImmutableArray<Outputs.AaaaRecordResponse>> AaaaRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The list of CAA records in the record set.
-        /// </summary>
-        [Output("caaRecords")]
-        public Output<ImmutableArray<Outputs.CaaRecordResponse>> CaaRecords { get; private set; } = null!;
-
-        /// <summary>
-        /// The CNAME record in the  record set.
+        /// The CNAME record in the record set.
         /// </summary>
         [Output("cnameRecord")]
         public Output<Outputs.CnameRecordResponse?> CnameRecord { get; private set; } = null!;
 
         /// <summary>
-        /// The etag of the record set.
+        /// The ETag of the record set.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
@@ -50,6 +44,12 @@ namespace Pulumi.AzureNative.Network.V20171001
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the record set auto-registered in the Private DNS zone through a virtual network link?
+        /// </summary>
+        [Output("isAutoRegistered")]
+        public Output<bool> IsAutoRegistered { get; private set; } = null!;
 
         /// <summary>
         /// The metadata attached to the record set.
@@ -64,16 +64,10 @@ namespace Pulumi.AzureNative.Network.V20171001
         public Output<ImmutableArray<Outputs.MxRecordResponse>> MxRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the record set.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of NS records in the record set.
-        /// </summary>
-        [Output("nsRecords")]
-        public Output<ImmutableArray<Outputs.NsRecordResponse>> NsRecords { get; private set; } = null!;
 
         /// <summary>
         /// The list of PTR records in the record set.
@@ -106,26 +100,26 @@ namespace Pulumi.AzureNative.Network.V20171001
         public Output<ImmutableArray<Outputs.TxtRecordResponse>> TxtRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the record set.
+        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
-        /// Create a RecordSet resource with the given unique name, arguments, and options.
+        /// Create a PrivateRecordSet resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RecordSet(string name, RecordSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:network/v20171001:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
+        public PrivateRecordSet(string name, PrivateRecordSetArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:network/v20200601:PrivateRecordSet", name, args ?? new PrivateRecordSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private RecordSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:network/v20171001:RecordSet", name, null, MakeResourceOptions(options, id))
+        private PrivateRecordSet(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:network/v20200601:PrivateRecordSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,19 +130,13 @@ namespace Pulumi.AzureNative.Network.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150504preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160401:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160401:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180301preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180301preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180501:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateRecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -157,20 +145,20 @@ namespace Pulumi.AzureNative.Network.V20171001
             return merged;
         }
         /// <summary>
-        /// Get an existing RecordSet resource's state with the given name, ID, and optional extra
+        /// Get an existing PrivateRecordSet resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static RecordSet Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static PrivateRecordSet Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new RecordSet(name, id, options);
+            return new PrivateRecordSet(name, id, options);
         }
     }
 
-    public sealed class RecordSetArgs : Pulumi.ResourceArgs
+    public sealed class PrivateRecordSetArgs : Pulumi.ResourceArgs
     {
         [Input("aRecords")]
         private InputList<Inputs.ARecordArgs>? _aRecords;
@@ -196,26 +184,14 @@ namespace Pulumi.AzureNative.Network.V20171001
             set => _aaaaRecords = value;
         }
 
-        [Input("caaRecords")]
-        private InputList<Inputs.CaaRecordArgs>? _caaRecords;
-
         /// <summary>
-        /// The list of CAA records in the record set.
-        /// </summary>
-        public InputList<Inputs.CaaRecordArgs> CaaRecords
-        {
-            get => _caaRecords ?? (_caaRecords = new InputList<Inputs.CaaRecordArgs>());
-            set => _caaRecords = value;
-        }
-
-        /// <summary>
-        /// The CNAME record in the  record set.
+        /// The CNAME record in the record set.
         /// </summary>
         [Input("cnameRecord")]
         public Input<Inputs.CnameRecordArgs>? CnameRecord { get; set; }
 
         /// <summary>
-        /// The etag of the record set.
+        /// The ETag of the record set.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -244,17 +220,11 @@ namespace Pulumi.AzureNative.Network.V20171001
             set => _mxRecords = value;
         }
 
-        [Input("nsRecords")]
-        private InputList<Inputs.NsRecordArgs>? _nsRecords;
-
         /// <summary>
-        /// The list of NS records in the record set.
+        /// The name of the Private DNS zone (without a terminating dot).
         /// </summary>
-        public InputList<Inputs.NsRecordArgs> NsRecords
-        {
-            get => _nsRecords ?? (_nsRecords = new InputList<Inputs.NsRecordArgs>());
-            set => _nsRecords = value;
-        }
+        [Input("privateZoneName", required: true)]
+        public Input<string> PrivateZoneName { get; set; } = null!;
 
         [Input("ptrRecords")]
         private InputList<Inputs.PtrRecordArgs>? _ptrRecords;
@@ -269,7 +239,7 @@ namespace Pulumi.AzureNative.Network.V20171001
         }
 
         /// <summary>
-        /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
+        /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
         /// </summary>
         [Input("recordType", required: true)]
         public Input<string> RecordType { get; set; } = null!;
@@ -281,7 +251,7 @@ namespace Pulumi.AzureNative.Network.V20171001
         public Input<string>? RelativeRecordSetName { get; set; }
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -322,13 +292,7 @@ namespace Pulumi.AzureNative.Network.V20171001
             set => _txtRecords = value;
         }
 
-        /// <summary>
-        /// The name of the DNS zone (without a terminating dot).
-        /// </summary>
-        [Input("zoneName", required: true)]
-        public Input<string> ZoneName { get; set; } = null!;
-
-        public RecordSetArgs()
+        public PrivateRecordSetArgs()
         {
         }
     }
