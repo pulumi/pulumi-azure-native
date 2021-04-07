@@ -189,6 +189,14 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 
 			typeName := resources.ResourceName(pathItem.Get.ID)
+
+			// Manual override to resolve ambiguity between public and private RecordSet.
+			// See https://github.com/pulumi/pulumi-azure-native/issues/583.
+			// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
+			if typeName == "RecordSet" && strings.Contains(path, "privateDns") {
+				typeName = "PrivateRecordSet"
+			}
+
 			if typeName != "" && (hasDelete || hasDefault) {
 				version.Resources[typeName] = &ResourceSpec{
 					Path:        path,
