@@ -92,6 +92,7 @@ export * from "./getPrivateDnsZoneGroup";
 export * from "./getPrivateEndpoint";
 export * from "./getPrivateLinkService";
 export * from "./getPrivateLinkServicePrivateEndpointConnection";
+export * from "./getPrivateRecordSet";
 export * from "./getPrivateZone";
 export * from "./getProfile";
 export * from "./getPublicIPAddress";
@@ -165,6 +166,7 @@ export * from "./privateDnsZoneGroup";
 export * from "./privateEndpoint";
 export * from "./privateLinkService";
 export * from "./privateLinkServicePrivateEndpointConnection";
+export * from "./privateRecordSet";
 export * from "./privateZone";
 export * from "./profile";
 export * from "./publicIPAddress";
@@ -367,6 +369,7 @@ import { PrivateDnsZoneGroup } from "./privateDnsZoneGroup";
 import { PrivateEndpoint } from "./privateEndpoint";
 import { PrivateLinkService } from "./privateLinkService";
 import { PrivateLinkServicePrivateEndpointConnection } from "./privateLinkServicePrivateEndpointConnection";
+import { PrivateRecordSet } from "./privateRecordSet";
 import { PrivateZone } from "./privateZone";
 import { Profile } from "./profile";
 import { PublicIPAddress } from "./publicIPAddress";
@@ -518,6 +521,8 @@ const _module = {
                 return new PrivateLinkService(name, <any>undefined, { urn })
             case "azure-native:network:PrivateLinkServicePrivateEndpointConnection":
                 return new PrivateLinkServicePrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:network:PrivateRecordSet":
+                return new PrivateRecordSet(name, <any>undefined, { urn })
             case "azure-native:network:PrivateZone":
                 return new PrivateZone(name, <any>undefined, { urn })
             case "azure-native:network:Profile":

@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
- * API Version: 2020-06-01.
+ * Describes a DNS record set (a collection of DNS records with the same name and type).
+ * API Version: 2018-05-01.
  */
 export class RecordSet extends pulumi.CustomResource {
     /**
@@ -45,21 +45,21 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly aaaaRecords!: pulumi.Output<outputs.network.AaaaRecordResponse[] | undefined>;
     /**
-     * The CNAME record in the record set.
+     * The list of CAA records in the record set.
+     */
+    public readonly caaRecords!: pulumi.Output<outputs.network.CaaRecordResponse[] | undefined>;
+    /**
+     * The CNAME record in the  record set.
      */
     public readonly cnameRecord!: pulumi.Output<outputs.network.CnameRecordResponse | undefined>;
     /**
-     * The ETag of the record set.
+     * The etag of the record set.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the record set.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
-    /**
-     * Is the record set auto-registered in the Private DNS zone through a virtual network link?
-     */
-    public /*out*/ readonly isAutoRegistered!: pulumi.Output<boolean>;
     /**
      * The metadata attached to the record set.
      */
@@ -69,9 +69,17 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly mxRecords!: pulumi.Output<outputs.network.MxRecordResponse[] | undefined>;
     /**
-     * The name of the resource
+     * The name of the record set.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The list of NS records in the record set.
+     */
+    public readonly nsRecords!: pulumi.Output<outputs.network.NsRecordResponse[] | undefined>;
+    /**
+     * provisioning State of the record set.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The list of PTR records in the record set.
      */
@@ -85,6 +93,10 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly srvRecords!: pulumi.Output<outputs.network.SrvRecordResponse[] | undefined>;
     /**
+     * A reference to an azure resource from where the dns resource value is taken.
+     */
+    public readonly targetResource!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     public readonly ttl!: pulumi.Output<number | undefined>;
@@ -93,7 +105,7 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly txtRecords!: pulumi.Output<outputs.network.TxtRecordResponse[] | undefined>;
     /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the record set.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -108,47 +120,53 @@ export class RecordSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateZoneName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'privateZoneName'");
-            }
             if ((!args || args.recordType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.zoneName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'zoneName'");
+            }
             inputs["aRecords"] = args ? args.aRecords : undefined;
             inputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
+            inputs["caaRecords"] = args ? args.caaRecords : undefined;
             inputs["cnameRecord"] = args ? args.cnameRecord : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mxRecords"] = args ? args.mxRecords : undefined;
-            inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
+            inputs["nsRecords"] = args ? args.nsRecords : undefined;
             inputs["ptrRecords"] = args ? args.ptrRecords : undefined;
             inputs["recordType"] = args ? args.recordType : undefined;
             inputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["soaRecord"] = args ? args.soaRecord : undefined;
             inputs["srvRecords"] = args ? args.srvRecords : undefined;
+            inputs["targetResource"] = args ? args.targetResource : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["txtRecords"] = args ? args.txtRecords : undefined;
+            inputs["zoneName"] = args ? args.zoneName : undefined;
             inputs["fqdn"] = undefined /*out*/;
-            inputs["isAutoRegistered"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["aRecords"] = undefined /*out*/;
             inputs["aaaaRecords"] = undefined /*out*/;
+            inputs["caaRecords"] = undefined /*out*/;
             inputs["cnameRecord"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["fqdn"] = undefined /*out*/;
-            inputs["isAutoRegistered"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["mxRecords"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["nsRecords"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["ptrRecords"] = undefined /*out*/;
             inputs["soaRecord"] = undefined /*out*/;
             inputs["srvRecords"] = undefined /*out*/;
+            inputs["targetResource"] = undefined /*out*/;
             inputs["ttl"] = undefined /*out*/;
             inputs["txtRecords"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -156,7 +174,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:RecordSet" }, { type: "azure-native:network/v20180901:RecordSet" }, { type: "azure-nextgen:network/v20180901:RecordSet" }, { type: "azure-native:network/v20200101:RecordSet" }, { type: "azure-nextgen:network/v20200101:RecordSet" }, { type: "azure-native:network/v20200601:RecordSet" }, { type: "azure-nextgen:network/v20200601:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:RecordSet" }, { type: "azure-native:network/v20150504preview:RecordSet" }, { type: "azure-nextgen:network/v20150504preview:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-nextgen:network/v20160401:RecordSet" }, { type: "azure-native:network/v20170901:RecordSet" }, { type: "azure-nextgen:network/v20170901:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-nextgen:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180301preview:RecordSet" }, { type: "azure-nextgen:network/v20180301preview:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-nextgen:network/v20180501:RecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RecordSet.__pulumiType, name, inputs, opts);
     }
@@ -175,11 +193,15 @@ export interface RecordSetArgs {
      */
     readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.AaaaRecord>[]>;
     /**
-     * The CNAME record in the record set.
+     * The list of CAA records in the record set.
+     */
+    readonly caaRecords?: pulumi.Input<pulumi.Input<inputs.network.CaaRecord>[]>;
+    /**
+     * The CNAME record in the  record set.
      */
     readonly cnameRecord?: pulumi.Input<inputs.network.CnameRecord>;
     /**
-     * The ETag of the record set.
+     * The etag of the record set.
      */
     readonly etag?: pulumi.Input<string>;
     /**
@@ -191,15 +213,15 @@ export interface RecordSetArgs {
      */
     readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.MxRecord>[]>;
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * The list of NS records in the record set.
      */
-    readonly privateZoneName: pulumi.Input<string>;
+    readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.NsRecord>[]>;
     /**
      * The list of PTR records in the record set.
      */
     readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.PtrRecord>[]>;
     /**
-     * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+     * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
      */
     readonly recordType: pulumi.Input<string>;
     /**
@@ -219,6 +241,10 @@ export interface RecordSetArgs {
      */
     readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.SrvRecord>[]>;
     /**
+     * A reference to an azure resource from where the dns resource value is taken.
+     */
+    readonly targetResource?: pulumi.Input<inputs.network.SubResource>;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     readonly ttl?: pulumi.Input<number>;
@@ -226,4 +252,8 @@ export interface RecordSetArgs {
      * The list of TXT records in the record set.
      */
     readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.TxtRecord>[]>;
+    /**
+     * The name of the DNS zone (without a terminating dot).
+     */
+    readonly zoneName: pulumi.Input<string>;
 }

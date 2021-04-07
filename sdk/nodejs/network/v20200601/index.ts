@@ -73,10 +73,10 @@ export * from "./getPrivateDnsZoneGroup";
 export * from "./getPrivateEndpoint";
 export * from "./getPrivateLinkService";
 export * from "./getPrivateLinkServicePrivateEndpointConnection";
+export * from "./getPrivateRecordSet";
 export * from "./getPrivateZone";
 export * from "./getPublicIPAddress";
 export * from "./getPublicIPPrefix";
-export * from "./getRecordSet";
 export * from "./getRoute";
 export * from "./getRouteFilter";
 export * from "./getRouteFilterRule";
@@ -131,10 +131,10 @@ export * from "./privateDnsZoneGroup";
 export * from "./privateEndpoint";
 export * from "./privateLinkService";
 export * from "./privateLinkServicePrivateEndpointConnection";
+export * from "./privateRecordSet";
 export * from "./privateZone";
 export * from "./publicIPAddress";
 export * from "./publicIPPrefix";
-export * from "./recordSet";
 export * from "./route";
 export * from "./routeFilter";
 export * from "./routeFilterRule";
@@ -210,10 +210,10 @@ import { PrivateDnsZoneGroup } from "./privateDnsZoneGroup";
 import { PrivateEndpoint } from "./privateEndpoint";
 import { PrivateLinkService } from "./privateLinkService";
 import { PrivateLinkServicePrivateEndpointConnection } from "./privateLinkServicePrivateEndpointConnection";
+import { PrivateRecordSet } from "./privateRecordSet";
 import { PrivateZone } from "./privateZone";
 import { PublicIPAddress } from "./publicIPAddress";
 import { PublicIPPrefix } from "./publicIPPrefix";
-import { RecordSet } from "./recordSet";
 import { Route } from "./route";
 import { RouteFilter } from "./routeFilter";
 import { RouteFilterRule } from "./routeFilterRule";
@@ -331,14 +331,14 @@ const _module = {
                 return new PrivateLinkService(name, <any>undefined, { urn })
             case "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection":
                 return new PrivateLinkServicePrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:network/v20200601:PrivateRecordSet":
+                return new PrivateRecordSet(name, <any>undefined, { urn })
             case "azure-native:network/v20200601:PrivateZone":
                 return new PrivateZone(name, <any>undefined, { urn })
             case "azure-native:network/v20200601:PublicIPAddress":
                 return new PublicIPAddress(name, <any>undefined, { urn })
             case "azure-native:network/v20200601:PublicIPPrefix":
                 return new PublicIPPrefix(name, <any>undefined, { urn })
-            case "azure-native:network/v20200601:RecordSet":
-                return new RecordSet(name, <any>undefined, { urn })
             case "azure-native:network/v20200601:Route":
                 return new Route(name, <any>undefined, { urn })
             case "azure-native:network/v20200601:RouteFilter":

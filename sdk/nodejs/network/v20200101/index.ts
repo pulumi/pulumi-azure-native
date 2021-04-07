@@ -7,12 +7,12 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./frontDoor";
 export * from "./getFrontDoor";
+export * from "./getPrivateRecordSet";
 export * from "./getPrivateZone";
-export * from "./getRecordSet";
 export * from "./getRulesEngine";
 export * from "./getVirtualNetworkLink";
+export * from "./privateRecordSet";
 export * from "./privateZone";
-export * from "./recordSet";
 export * from "./rulesEngine";
 export * from "./virtualNetworkLink";
 
@@ -21,8 +21,8 @@ export * from "../../types/enums/network/v20200101";
 
 // Import resources to register:
 import { FrontDoor } from "./frontDoor";
+import { PrivateRecordSet } from "./privateRecordSet";
 import { PrivateZone } from "./privateZone";
-import { RecordSet } from "./recordSet";
 import { RulesEngine } from "./rulesEngine";
 import { VirtualNetworkLink } from "./virtualNetworkLink";
 
@@ -32,10 +32,10 @@ const _module = {
         switch (type) {
             case "azure-native:network/v20200101:FrontDoor":
                 return new FrontDoor(name, <any>undefined, { urn })
+            case "azure-native:network/v20200101:PrivateRecordSet":
+                return new PrivateRecordSet(name, <any>undefined, { urn })
             case "azure-native:network/v20200101:PrivateZone":
                 return new PrivateZone(name, <any>undefined, { urn })
-            case "azure-native:network/v20200101:RecordSet":
-                return new RecordSet(name, <any>undefined, { urn })
             case "azure-native:network/v20200101:RulesEngine":
                 return new RulesEngine(name, <any>undefined, { urn })
             case "azure-native:network/v20200101:VirtualNetworkLink":
