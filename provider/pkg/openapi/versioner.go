@@ -114,8 +114,8 @@ var deprecatedResources = codegen.NewStringSet(
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
-func (c *versioner) calculateLatestVersions(provider string, versionMap ProviderVersions, invokes,
-	preview bool) (latestResources map[string]*ResourceSpec) {
+func (c *versioner) calculateLatestVersions(provider string, versionMap ProviderVersions,
+	invokes bool) (latestResources map[string]*ResourceSpec) {
 	deprecatedVersions := codegen.NewStringSet()
 	if v, ok := deprecatedProviderVersions[provider]; ok {
 		deprecatedVersions = codegen.NewStringSet(v...)
@@ -137,7 +137,7 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 			previews = append(previews, version)
 		case !IsPreview(version):
 			stables = append(stables, version)
-		case preview:
+		default:
 			previews = append(previews, version)
 		}
 	}

@@ -14,7 +14,7 @@ import (
 
 var stripScopeRegex = regexp.MustCompile(`.*providers/`)
 
-var isLatestRegex = regexp.MustCompile(`azure-native:[^/]*(/latest)?:.*`)
+var isLatestRegex = regexp.MustCompile(`azure-native:[^/]*:.*`)
 
 func newResourceTokenConverter(metadata *resources.AzureAPIMetadata) *resourceTokenConverter {
 	stableResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
