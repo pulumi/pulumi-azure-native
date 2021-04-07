@@ -8,7 +8,6 @@ from .support_plan_type import *
 
 # Make subpackages available:
 from . import (
-    latest,
     v20170515,
     v20180301,
 )

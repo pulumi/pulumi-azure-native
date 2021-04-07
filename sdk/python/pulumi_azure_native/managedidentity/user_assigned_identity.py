@@ -61,7 +61,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__['principal_id'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedidentity:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/latest:UserAssignedIdentity"), pulumi.Alias(type_="azure-nextgen:managedidentity/latest:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-nextgen:managedidentity/v20181130:UserAssignedIdentity")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedidentity:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-nextgen:managedidentity/v20181130:UserAssignedIdentity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserAssignedIdentity, __self__).__init__(
             'azure-native:managedidentity:UserAssignedIdentity',

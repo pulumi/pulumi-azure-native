@@ -69,7 +69,7 @@ class WebAppPrivateEndpointConnectionSlot(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppPrivateEndpointConnectionSlot"), pulumi.Alias(type_="azure-native:web:WebAppPrivateEndpointConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppPrivateEndpointConnectionSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppPrivateEndpointConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPrivateEndpointConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppPrivateEndpointConnectionSlot"), pulumi.Alias(type_="azure-native:web:WebAppPrivateEndpointConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppPrivateEndpointConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPrivateEndpointConnectionSlot, __self__).__init__(
             'azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot',

@@ -8,7 +8,6 @@ from .partner import *
 
 # Make subpackages available:
 from . import (
-    latest,
     v20180201,
 )
 

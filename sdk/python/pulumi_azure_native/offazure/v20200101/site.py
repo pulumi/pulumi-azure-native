@@ -66,7 +66,7 @@ class Site(pulumi.CustomResource):
             __props__['site_name'] = site_name
             __props__['tags'] = tags
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure/v20200101:Site"), pulumi.Alias(type_="azure-native:offazure:Site"), pulumi.Alias(type_="azure-nextgen:offazure:Site"), pulumi.Alias(type_="azure-native:offazure/latest:Site"), pulumi.Alias(type_="azure-nextgen:offazure/latest:Site"), pulumi.Alias(type_="azure-native:offazure/v20200707:Site"), pulumi.Alias(type_="azure-nextgen:offazure/v20200707:Site")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure/v20200101:Site"), pulumi.Alias(type_="azure-native:offazure:Site"), pulumi.Alias(type_="azure-nextgen:offazure:Site"), pulumi.Alias(type_="azure-native:offazure/v20200707:Site"), pulumi.Alias(type_="azure-nextgen:offazure/v20200707:Site")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Site, __self__).__init__(
             'azure-native:offazure/v20200101:Site',

@@ -16,7 +16,6 @@ from . import outputs
 
 # Make subpackages available:
 from . import (
-    latest,
     v20151001preview,
     v20161101,
 )

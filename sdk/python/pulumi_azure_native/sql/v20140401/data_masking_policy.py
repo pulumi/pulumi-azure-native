@@ -74,7 +74,7 @@ class DataMaskingPolicy(pulumi.CustomResource):
             __props__['masking_level'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:DataMaskingPolicy"), pulumi.Alias(type_="azure-native:sql:DataMaskingPolicy"), pulumi.Alias(type_="azure-nextgen:sql:DataMaskingPolicy"), pulumi.Alias(type_="azure-native:sql/latest:DataMaskingPolicy"), pulumi.Alias(type_="azure-nextgen:sql/latest:DataMaskingPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:DataMaskingPolicy"), pulumi.Alias(type_="azure-native:sql:DataMaskingPolicy"), pulumi.Alias(type_="azure-nextgen:sql:DataMaskingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataMaskingPolicy, __self__).__init__(
             'azure-native:sql/v20140401:DataMaskingPolicy',

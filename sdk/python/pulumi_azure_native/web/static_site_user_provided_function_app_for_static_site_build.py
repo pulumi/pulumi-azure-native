@@ -74,7 +74,7 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuild(pulumi.CustomResource)
             __props__['resource_group_name'] = resource_group_name
             __props__['created_on'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild"), pulumi.Alias(type_="azure-native:web/latest:StaticSiteUserProvidedFunctionAppForStaticSiteBuild"), pulumi.Alias(type_="azure-nextgen:web/latest:StaticSiteUserProvidedFunctionAppForStaticSiteBuild"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild"), pulumi.Alias(type_="azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild"), pulumi.Alias(type_="azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteUserProvidedFunctionAppForStaticSiteBuild, __self__).__init__(
             'azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild',

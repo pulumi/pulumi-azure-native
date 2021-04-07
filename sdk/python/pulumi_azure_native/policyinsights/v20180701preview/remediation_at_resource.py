@@ -68,7 +68,7 @@ class RemediationAtResource(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights/v20180701preview:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/latest:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights/latest:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20190701:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20190701:RemediationAtResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights/v20180701preview:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20190701:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20190701:RemediationAtResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemediationAtResource, __self__).__init__(
             'azure-native:policyinsights/v20180701preview:RemediationAtResource',

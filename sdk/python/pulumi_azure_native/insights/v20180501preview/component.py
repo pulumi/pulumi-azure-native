@@ -118,7 +118,7 @@ class Component(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-native:insights:Component"), pulumi.Alias(type_="azure-nextgen:insights:Component"), pulumi.Alias(type_="azure-native:insights/latest:Component"), pulumi.Alias(type_="azure-nextgen:insights/latest:Component"), pulumi.Alias(type_="azure-native:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-native:insights/v20200202preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-native:insights:Component"), pulumi.Alias(type_="azure-nextgen:insights:Component"), pulumi.Alias(type_="azure-native:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-native:insights/v20200202preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Component, __self__).__init__(
             'azure-native:insights/v20180501preview:Component',

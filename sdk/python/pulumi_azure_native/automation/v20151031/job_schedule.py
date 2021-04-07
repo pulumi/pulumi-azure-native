@@ -74,7 +74,7 @@ class JobSchedule(pulumi.CustomResource):
             __props__['schedule'] = schedule
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-native:automation:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation:JobSchedule"), pulumi.Alias(type_="azure-native:automation/latest:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/latest:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20200113preview:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:JobSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-native:automation:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20200113preview:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:JobSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobSchedule, __self__).__init__(
             'azure-native:automation/v20151031:JobSchedule',

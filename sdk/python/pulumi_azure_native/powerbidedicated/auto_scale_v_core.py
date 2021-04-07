@@ -76,7 +76,7 @@ class AutoScaleVCore(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbidedicated:AutoScaleVCore"), pulumi.Alias(type_="azure-native:powerbidedicated/latest:AutoScaleVCore"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/latest:AutoScaleVCore"), pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:AutoScaleVCore"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20210101:AutoScaleVCore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbidedicated:AutoScaleVCore"), pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:AutoScaleVCore"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20210101:AutoScaleVCore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoScaleVCore, __self__).__init__(
             'azure-native:powerbidedicated:AutoScaleVCore',

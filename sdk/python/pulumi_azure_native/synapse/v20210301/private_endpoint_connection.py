@@ -63,7 +63,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse/v20201201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:synapse/v20201201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:synapse/v20210301:PrivateEndpointConnection',

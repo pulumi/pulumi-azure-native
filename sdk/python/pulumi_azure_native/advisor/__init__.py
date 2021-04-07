@@ -8,7 +8,6 @@ from .suppression import *
 
 # Make subpackages available:
 from . import (
-    latest,
     v20160712preview,
     v20170331,
     v20170419,

@@ -61,7 +61,7 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
             __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationServiceEnvironmentManagedApi, __self__).__init__(
             'azure-native:logic:IntegrationServiceEnvironmentManagedApi',

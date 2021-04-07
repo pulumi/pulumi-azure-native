@@ -75,7 +75,7 @@ class Connection(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Connection"), pulumi.Alias(type_="azure-native:automation:Connection"), pulumi.Alias(type_="azure-nextgen:automation:Connection"), pulumi.Alias(type_="azure-native:automation/latest:Connection"), pulumi.Alias(type_="azure-nextgen:automation/latest:Connection"), pulumi.Alias(type_="azure-native:automation/v20151031:Connection"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Connection"), pulumi.Alias(type_="azure-native:automation/v20190601:Connection"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Connection"), pulumi.Alias(type_="azure-native:automation:Connection"), pulumi.Alias(type_="azure-nextgen:automation:Connection"), pulumi.Alias(type_="azure-native:automation/v20151031:Connection"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Connection"), pulumi.Alias(type_="azure-native:automation/v20190601:Connection"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azure-native:automation/v20200113preview:Connection',
