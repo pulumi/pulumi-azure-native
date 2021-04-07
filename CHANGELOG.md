@@ -12,7 +12,14 @@ CHANGELOG
 - The ambiguous resource `network.RecordSet` is split into `network.PrivateRecordSet` (private DNS)
   and `network.RecordSet` (public DNS).
   [#583](https://github.com/pulumi/pulumi-azure-native/issues/583)
-  
+
+#### Improvements
+
+- New resources: `sql.BackupShortTermRetentionPolicy`, `sql.DatabaseBlobAuditingPolicy`,
+  `sql.ExtendedDatabaseBlobAuditingPolicy`, `sql.ExtendedServerBlobAuditingPolicy`,
+  `sql.LongTermRetentionPolicy`, `sql.ServerBlobAuditingPolicy`, `sql.ServerSecurityAlertPolicy`.
+  [#725](https://github.com/pulumi/pulumi-azure-native/issues/725)
+
 ---
 
 ## 0.8.0 (2020-04-02)
