@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Module"},
                     new Pulumi.Alias { Type = "azure-native:automation:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Module"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:Module"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Module"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Module"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Module"},

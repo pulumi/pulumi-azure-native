@@ -108,8 +108,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:Experiment"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:Experiment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Experiment"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191101:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:Experiment"},
                 },

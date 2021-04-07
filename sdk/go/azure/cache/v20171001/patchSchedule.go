@@ -50,12 +50,6 @@ func NewPatchSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:PatchSchedule"),
 		},
 		{
-			Type: pulumi.String("azure-native:cache/latest:PatchSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/latest:PatchSchedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20180301:PatchSchedule"),
 		},
 		{

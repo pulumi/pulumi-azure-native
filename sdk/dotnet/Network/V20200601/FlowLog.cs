@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FlowLog"},
                     new Pulumi.Alias { Type = "azure-native:network:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:FlowLog"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191101:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:FlowLog"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191201:FlowLog"},

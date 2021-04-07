@@ -67,12 +67,6 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineExtension"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:VirtualMachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20150615:VirtualMachineExtension"),
 		},
 		{

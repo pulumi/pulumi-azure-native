@@ -82,12 +82,6 @@ func NewAgreement(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:Agreement"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:Agreement"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:Agreement"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Agreement"),
 		},
 		{

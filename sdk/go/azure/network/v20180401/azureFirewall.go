@@ -56,12 +56,6 @@ func NewAzureFirewall(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:AzureFirewall"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:AzureFirewall"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:AzureFirewall"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:AzureFirewall"),
 		},
 		{

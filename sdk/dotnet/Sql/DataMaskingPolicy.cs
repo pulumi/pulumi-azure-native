@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DataMaskingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:DataMaskingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DataMaskingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DataMaskingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DataMaskingPolicy"},
                 },

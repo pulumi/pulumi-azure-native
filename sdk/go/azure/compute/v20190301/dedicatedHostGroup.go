@@ -55,12 +55,6 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:DedicatedHostGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHostGroup"),
 		},
 		{

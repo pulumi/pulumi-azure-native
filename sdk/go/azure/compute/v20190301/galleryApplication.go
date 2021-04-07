@@ -61,12 +61,6 @@ func NewGalleryApplication(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:GalleryApplication"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:GalleryApplication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:GalleryApplication"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190701:GalleryApplication"),
 		},
 		{

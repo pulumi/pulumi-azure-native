@@ -57,12 +57,6 @@ func NewCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Certificate"),
 		},
 		{

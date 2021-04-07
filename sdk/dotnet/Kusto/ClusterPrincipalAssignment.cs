@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.Kusto
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/latest:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20191109:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200215:ClusterPrincipalAssignment"},

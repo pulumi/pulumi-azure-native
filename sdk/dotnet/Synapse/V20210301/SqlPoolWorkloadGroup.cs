@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Synapse.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolWorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolWorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadGroup"},

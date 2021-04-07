@@ -73,7 +73,7 @@ class BackupVault(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/latest:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/latest:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupVault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupVault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupVault, __self__).__init__(
             'azure-native:dataprotection/v20210201preview:BackupVault',

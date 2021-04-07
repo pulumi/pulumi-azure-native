@@ -81,12 +81,6 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:StreamingEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:StreamingEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:StreamingEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:StreamingEndpoint"),
 		},
 		{

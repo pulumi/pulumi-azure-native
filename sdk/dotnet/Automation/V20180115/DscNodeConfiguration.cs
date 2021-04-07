@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Automation.V20180115
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180115:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscNodeConfiguration"},

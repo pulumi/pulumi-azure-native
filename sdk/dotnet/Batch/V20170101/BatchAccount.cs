@@ -106,8 +106,6 @@ namespace Pulumi.AzureNative.Batch.V20170101
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/latest:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20151201:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20170501:BatchAccount"},

@@ -199,8 +199,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

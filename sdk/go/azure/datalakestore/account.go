@@ -79,12 +79,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datalakestore:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:datalakestore/latest:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakestore/latest:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:datalakestore/v20161101:Account"),
 		},
 		{

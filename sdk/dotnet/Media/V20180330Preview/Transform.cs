@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Transform"},
                     new Pulumi.Alias { Type = "azure-native:media:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Transform"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:Transform"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:Transform"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Transform"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:Transform"},

@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:View"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:View"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:View"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:View"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:View"},
                 },

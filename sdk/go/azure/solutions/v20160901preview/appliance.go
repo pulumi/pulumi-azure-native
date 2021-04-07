@@ -71,12 +71,6 @@ func NewAppliance(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:solutions:Appliance"),
 		},
 		{
-			Type: pulumi.String("azure-native:solutions/latest:Appliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/latest:Appliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20170901:Appliance"),
 		},
 		{

@@ -93,8 +93,6 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/latest:Rule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Rule"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Rule"},
                 },

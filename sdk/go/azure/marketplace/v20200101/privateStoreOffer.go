@@ -63,12 +63,6 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:marketplace:PrivateStoreOffer"),
 		},
-		{
-			Type: pulumi.String("azure-native:marketplace/latest:PrivateStoreOffer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:marketplace/latest:PrivateStoreOffer"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateStoreOffer

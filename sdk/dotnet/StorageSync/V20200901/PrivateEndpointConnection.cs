@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storagesync:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:PrivateEndpointConnection"},
                 },

@@ -187,8 +187,6 @@ namespace Pulumi.AzureNative.Batch.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Pool"},
                     new Pulumi.Alias { Type = "azure-native:batch:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/latest:Pool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Pool"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20181201:Pool"},

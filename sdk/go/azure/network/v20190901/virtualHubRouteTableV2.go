@@ -51,12 +51,6 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:VirtualHubRouteTableV2"),
 		},
 		{

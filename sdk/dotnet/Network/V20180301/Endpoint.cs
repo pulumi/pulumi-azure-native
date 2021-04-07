@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Network.V20180301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},

@@ -150,8 +150,6 @@ namespace Pulumi.AzureNative.CostManagement
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ViewByScope"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/latest:ViewByScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:ViewByScope"},

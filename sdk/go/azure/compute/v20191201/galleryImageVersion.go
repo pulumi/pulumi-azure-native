@@ -63,12 +63,6 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:GalleryImageVersion"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:GalleryImageVersion"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:GalleryImageVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20180601:GalleryImageVersion"),
 		},
 		{

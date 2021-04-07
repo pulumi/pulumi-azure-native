@@ -76,8 +76,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200101
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200101:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure:HyperVSite"},
-                    new Pulumi.Alias { Type = "azure-native:offazure/latest:HyperVSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:HyperVSite"},
                 },

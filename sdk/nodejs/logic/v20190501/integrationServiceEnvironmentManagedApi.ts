@@ -91,7 +91,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-native:logic:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-native:logic:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
     }

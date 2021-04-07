@@ -57,12 +57,6 @@ func NewConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformariadb:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformariadb/latest:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/latest:Configuration"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:Configuration"),
 		},
 		{

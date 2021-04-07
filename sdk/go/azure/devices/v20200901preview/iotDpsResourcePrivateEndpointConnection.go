@@ -50,12 +50,6 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"),
 		},
 		{

@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},

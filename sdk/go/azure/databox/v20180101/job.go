@@ -67,12 +67,6 @@ func NewJob(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databox:Job"),
 		},
 		{
-			Type: pulumi.String("azure-native:databox/latest:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databox/latest:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:databox/v20190901:Job"),
 		},
 		{

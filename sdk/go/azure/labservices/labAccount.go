@@ -51,12 +51,6 @@ func NewLabAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:labservices:LabAccount"),
 		},
 		{
-			Type: pulumi.String("azure-native:labservices/latest:LabAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/latest:LabAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:labservices/v20181015:LabAccount"),
 		},
 		{

@@ -56,12 +56,6 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:security:AdaptiveApplicationControl"),
 		},
 		{
-			Type: pulumi.String("azure-native:security/latest:AdaptiveApplicationControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/latest:AdaptiveApplicationControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20150601preview:AdaptiveApplicationControl"),
 		},
 		{

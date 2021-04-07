@@ -58,12 +58,6 @@ func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteRelayServiceConnection"),
 		},
 		{

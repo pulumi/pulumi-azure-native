@@ -88,12 +88,6 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppSiteExtension"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSiteExtension"),
 		},
 		{

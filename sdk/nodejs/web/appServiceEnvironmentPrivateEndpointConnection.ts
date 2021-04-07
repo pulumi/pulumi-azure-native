@@ -100,7 +100,7 @@ export class AppServiceEnvironmentPrivateEndpointConnection extends pulumi.Custo
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/latest:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web/latest:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceEnvironmentPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

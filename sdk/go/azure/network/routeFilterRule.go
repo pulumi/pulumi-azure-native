@@ -59,12 +59,6 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20161201:RouteFilterRule"),
 		},
 		{

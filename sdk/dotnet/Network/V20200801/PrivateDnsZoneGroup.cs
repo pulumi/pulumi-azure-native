@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Network.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateDnsZoneGroup"},

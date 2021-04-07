@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ProtectionContainer"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ProtectionContainer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20161201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20161201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:ProtectionContainer"},

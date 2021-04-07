@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiTagDescription"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiTagDescription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiTagDescription"},

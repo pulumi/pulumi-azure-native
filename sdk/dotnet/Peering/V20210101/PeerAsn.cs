@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Peering.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20210101:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/latest:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeerAsn"},

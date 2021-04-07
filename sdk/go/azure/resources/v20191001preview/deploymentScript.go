@@ -58,12 +58,6 @@ func NewDeploymentScript(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources:DeploymentScript"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/latest:DeploymentScript"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentScript"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20201001:DeploymentScript"),
 		},
 		{

@@ -65,12 +65,6 @@ func NewMap(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:Map"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:Map"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:Map"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Map"),
 		},
 		{

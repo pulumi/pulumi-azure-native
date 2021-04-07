@@ -24,7 +24,6 @@ export * from "./privateEndpointConnection";
 export * from "../types/enums/containerservice";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20151101preview from "./v20151101preview";
 import * as v20160330 from "./v20160330";
 import * as v20160930 from "./v20160930";
@@ -55,7 +54,6 @@ import * as v20210201 from "./v20210201";
 import * as v20210301 from "./v20210301";
 
 export {
-    latest,
     v20151101preview,
     v20160330,
     v20160930,

@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Subnet"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:Subnet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:Subnet"},

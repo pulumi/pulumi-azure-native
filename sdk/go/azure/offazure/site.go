@@ -44,12 +44,6 @@ func NewSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:offazure:Site"),
 		},
 		{
-			Type: pulumi.String("azure-native:offazure/latest:Site"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:offazure/latest:Site"),
-		},
-		{
 			Type: pulumi.String("azure-native:offazure/v20200101:Site"),
 		},
 		{

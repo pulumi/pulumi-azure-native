@@ -156,8 +156,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ExportConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:ExportConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ExportConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:ExportConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:ExportConfiguration"},
                 },

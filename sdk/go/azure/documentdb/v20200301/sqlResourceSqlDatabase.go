@@ -57,12 +57,6 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:SqlResourceSqlDatabase"),
 		},
 		{

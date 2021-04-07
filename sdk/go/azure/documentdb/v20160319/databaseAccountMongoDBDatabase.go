@@ -55,12 +55,6 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountMongoDBDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountMongoDBDatabase"),
 		},
 		{

@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Authorization.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/latest:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20160401:PolicyAssignment"},

@@ -110,8 +110,6 @@ namespace Pulumi.AzureNative.Web.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnection"},

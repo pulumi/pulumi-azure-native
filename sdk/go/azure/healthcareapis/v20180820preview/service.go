@@ -54,12 +54,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:healthcareapis:Service"),
 		},
 		{
-			Type: pulumi.String("azure-native:healthcareapis/latest:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthcareapis/latest:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthcareapis/v20190916:Service"),
 		},
 		{

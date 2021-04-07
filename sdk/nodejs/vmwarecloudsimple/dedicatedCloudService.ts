@@ -108,7 +108,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-native:vmwarecloudsimple/latest:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService" }, { type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedCloudService.__pulumiType, name, inputs, opts);
     }

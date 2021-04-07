@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20181101:ManagementPolicy"},

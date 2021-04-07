@@ -98,12 +98,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:VirtualMachine"),
 		},
-		{
-			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachine

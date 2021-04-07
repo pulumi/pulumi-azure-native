@@ -76,7 +76,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['sku'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule',

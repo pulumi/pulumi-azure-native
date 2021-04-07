@@ -12,11 +12,9 @@ export * from "./privateStoreOffer";
 export * from "../types/enums/marketplace";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20200101 from "./v20200101";
 
 export {
-    latest,
     v20200101,
 };
 

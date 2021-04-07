@@ -151,8 +151,6 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkInterface"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkInterface"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:NetworkInterface"},

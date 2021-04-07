@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI"},
                 },

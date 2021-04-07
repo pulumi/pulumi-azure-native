@@ -56,12 +56,6 @@ func NewTagDescription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:TagDescription"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:TagDescription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagDescription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:TagDescription"),
 		},
 		{

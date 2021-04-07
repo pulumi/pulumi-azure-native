@@ -58,12 +58,6 @@ func NewProfile(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:Profile"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:Profile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:Profile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20151101:Profile"),
 		},
 		{

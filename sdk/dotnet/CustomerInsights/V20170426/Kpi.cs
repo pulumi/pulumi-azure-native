@@ -169,8 +169,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Kpi"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Kpi"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Kpi"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Kpi"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Kpi"},
                 },

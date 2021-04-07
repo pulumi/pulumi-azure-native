@@ -75,7 +75,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['rule_definitions'] = rule_definitions
             __props__['send_emails_to_subscription_owners'] = send_emails_to_subscription_owners
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/latest:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-nextgen:insights/latest:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:ProactiveDetectionConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:ProactiveDetectionConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProactiveDetectionConfiguration, __self__).__init__(
             'azure-native:insights:ProactiveDetectionConfiguration',

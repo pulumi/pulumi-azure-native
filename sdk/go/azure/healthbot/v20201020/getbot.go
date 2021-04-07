@@ -52,12 +52,6 @@ func NewGetbot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:healthbot:getbot"),
 		},
 		{
-			Type: pulumi.String("azure-native:healthbot/latest:getbot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthbot/latest:getbot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot/v20201020preview:getbot"),
 		},
 		{

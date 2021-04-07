@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Project"},
                     new Pulumi.Alias { Type = "azure-native:migrate:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:Project"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/latest:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

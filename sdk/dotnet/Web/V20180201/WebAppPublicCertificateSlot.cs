@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Web.V20180201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificateSlot"},

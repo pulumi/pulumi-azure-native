@@ -88,7 +88,7 @@ export class DataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20200101:DataConnector" }, { type: "azure-native:securityinsights:DataConnector" }, { type: "azure-nextgen:securityinsights:DataConnector" }, { type: "azure-native:securityinsights/latest:DataConnector" }, { type: "azure-nextgen:securityinsights/latest:DataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20200101:DataConnector" }, { type: "azure-native:securityinsights:DataConnector" }, { type: "azure-nextgen:securityinsights:DataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataConnector.__pulumiType, name, inputs, opts);
     }

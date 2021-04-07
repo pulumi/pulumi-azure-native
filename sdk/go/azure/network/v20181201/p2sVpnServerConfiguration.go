@@ -64,12 +64,6 @@ func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:P2sVpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:P2sVpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:P2sVpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:P2sVpnServerConfiguration"),
 		},
 		{

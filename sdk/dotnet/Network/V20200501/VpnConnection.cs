@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-native:network:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VpnConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VpnConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:VpnConnection"},

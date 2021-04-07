@@ -80,8 +80,6 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:security:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:security/latest:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:security/v20150601preview:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200101:JitNetworkAccessPolicy"},

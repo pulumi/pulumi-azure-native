@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Security.V20200101
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:AssessmentMetadataInSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:security/latest:AssessmentMetadataInSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription"},
                 },

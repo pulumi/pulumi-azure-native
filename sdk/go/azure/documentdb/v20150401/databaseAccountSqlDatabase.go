@@ -65,12 +65,6 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase"),
 		},
 		{

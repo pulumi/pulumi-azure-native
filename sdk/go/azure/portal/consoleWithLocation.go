@@ -35,12 +35,6 @@ func NewConsoleWithLocation(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:portal:ConsoleWithLocation"),
 		},
 		{
-			Type: pulumi.String("azure-native:portal/latest:ConsoleWithLocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:portal/latest:ConsoleWithLocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:portal/v20181001:ConsoleWithLocation"),
 		},
 		{

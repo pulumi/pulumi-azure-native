@@ -24,7 +24,6 @@ export * from "./volume";
 export * from "../types/enums/netapp";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20170815 from "./v20170815";
 import * as v20190501 from "./v20190501";
 import * as v20190601 from "./v20190601";
@@ -43,7 +42,6 @@ import * as v20201101 from "./v20201101";
 import * as v20201201 from "./v20201201";
 
 export {
-    latest,
     v20170815,
     v20190501,
     v20190601,

@@ -53,12 +53,6 @@ func NewSiteAppSettings(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteAppSettings"),
 		},
 		{

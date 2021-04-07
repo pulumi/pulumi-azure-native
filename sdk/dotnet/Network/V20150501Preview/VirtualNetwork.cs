@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetwork"},

@@ -193,8 +193,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:Queue"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue"},

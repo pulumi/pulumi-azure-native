@@ -94,12 +94,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:vmwarecloudsimple/v20190401:VirtualMachine"),
 		},
 		{

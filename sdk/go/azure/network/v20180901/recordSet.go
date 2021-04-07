@@ -74,12 +74,6 @@ func NewRecordSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:RecordSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:RecordSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:RecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200101:RecordSet"),
 		},
 		{

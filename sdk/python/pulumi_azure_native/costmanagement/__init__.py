@@ -29,7 +29,6 @@ from . import outputs
 
 # Make subpackages available:
 from . import (
-    latest,
     v20180531,
     v20180801preview,
     v20190101,

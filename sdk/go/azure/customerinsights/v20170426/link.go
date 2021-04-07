@@ -80,12 +80,6 @@ func NewLink(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Link"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Link"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Link"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170101:Link"),
 		},
 		{

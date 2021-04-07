@@ -56,12 +56,6 @@ func NewControllerDetails(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:delegatednetwork:ControllerDetails"),
 		},
 		{
-			Type: pulumi.String("azure-native:delegatednetwork/latest:ControllerDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork/latest:ControllerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:delegatednetwork/v20210315:ControllerDetails"),
 		},
 		{

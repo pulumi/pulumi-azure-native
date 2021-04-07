@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForEDM"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM"},
                 },

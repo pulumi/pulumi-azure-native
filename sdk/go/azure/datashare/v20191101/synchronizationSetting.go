@@ -53,12 +53,6 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datashare:SynchronizationSetting"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/latest:SynchronizationSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/latest:SynchronizationSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:SynchronizationSetting"),
 		},
 		{

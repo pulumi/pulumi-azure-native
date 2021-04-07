@@ -49,12 +49,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:VirtualNetworkRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/latest:VirtualNetworkRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:VirtualNetworkRule"),
 		},
 		{

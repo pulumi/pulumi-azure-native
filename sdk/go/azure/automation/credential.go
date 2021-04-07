@@ -57,12 +57,6 @@ func NewCredential(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Credential"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Credential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Credential"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:Credential"),
 		},
 		{

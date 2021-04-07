@@ -50,12 +50,6 @@ func NewZone(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:Zone"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:Zone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160401:Zone"),
 		},
 		{

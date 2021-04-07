@@ -54,12 +54,6 @@ func NewCache(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Cache"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Cache"),
 		},
 		{

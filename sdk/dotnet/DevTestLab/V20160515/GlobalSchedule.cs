@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:GlobalSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:GlobalSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:GlobalSchedule"},
                 },

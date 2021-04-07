@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.NetApp.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Backup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Backup"},

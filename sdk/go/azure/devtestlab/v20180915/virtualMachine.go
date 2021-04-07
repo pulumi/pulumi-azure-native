@@ -128,12 +128,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:VirtualMachine"),
 		},
 		{

@@ -65,12 +65,6 @@ func NewServerAdministrator(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:ServerAdministrator"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/latest:ServerAdministrator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/latest:ServerAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20171201:ServerAdministrator"),
 		},
 		{

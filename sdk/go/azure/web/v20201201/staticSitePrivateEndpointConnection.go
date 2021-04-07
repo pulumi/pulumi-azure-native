@@ -53,12 +53,6 @@ func NewStaticSitePrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web:StaticSitePrivateEndpointConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:web/latest:StaticSitePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:StaticSitePrivateEndpointConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource StaticSitePrivateEndpointConnection

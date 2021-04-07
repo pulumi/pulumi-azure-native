@@ -85,7 +85,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/latest:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/latest:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20201201:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20201201:MonitoringConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20201201:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20201201:MonitoringConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoringConfig.__pulumiType, name, inputs, opts);
     }

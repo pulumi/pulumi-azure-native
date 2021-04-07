@@ -44,12 +44,6 @@ func NewReplicationFabric(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationFabric"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationFabric"),
 		},
 		{

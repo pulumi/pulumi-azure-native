@@ -47,12 +47,6 @@ func NewCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:appplatform:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-native:appplatform/latest:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:appplatform/latest:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20190501preview:Certificate"),
 		},
 		{

@@ -134,12 +134,6 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteAuthSettingsSlot"),
 		},
 		{

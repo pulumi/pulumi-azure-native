@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Cluster"},

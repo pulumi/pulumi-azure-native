@@ -51,12 +51,6 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ExpressRouteCircuitAuthorization"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ExpressRouteCircuitAuthorization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ExpressRouteCircuitAuthorization"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150615:ExpressRouteCircuitAuthorization"),
 		},
 		{

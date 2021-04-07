@@ -66,12 +66,6 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiIssueAttachment"),
 		},
 		{

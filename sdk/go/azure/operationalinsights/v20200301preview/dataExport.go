@@ -65,12 +65,6 @@ func NewDataExport(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:operationalinsights:DataExport"),
 		},
 		{
-			Type: pulumi.String("azure-native:operationalinsights/latest:DataExport"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/latest:DataExport"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20190801preview:DataExport"),
 		},
 		{

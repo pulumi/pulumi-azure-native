@@ -57,12 +57,6 @@ func NewMediaService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:MediaService"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:MediaService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:MediaService"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20151001:MediaService"),
 		},
 		{

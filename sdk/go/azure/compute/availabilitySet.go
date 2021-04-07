@@ -53,12 +53,6 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:AvailabilitySet"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:AvailabilitySet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20150615:AvailabilitySet"),
 		},
 		{

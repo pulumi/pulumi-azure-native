@@ -70,12 +70,6 @@ func NewBudget(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:consumption:Budget"),
 		},
 		{
-			Type: pulumi.String("azure-native:consumption/latest:Budget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:consumption/latest:Budget"),
-		},
-		{
 			Type: pulumi.String("azure-native:consumption/v20190101:Budget"),
 		},
 		{

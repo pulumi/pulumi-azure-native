@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180701:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:PublicIPPrefix"},

@@ -82,8 +82,6 @@ namespace Pulumi.AzureNative.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnection"},

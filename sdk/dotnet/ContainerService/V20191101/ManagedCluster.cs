@@ -181,8 +181,6 @@ namespace Pulumi.AzureNative.ContainerService.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191101:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20170831:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170831:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20180331:ManagedCluster"},

@@ -53,12 +53,6 @@ func NewSiteMetadata(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteMetadata"),
 		},
 		{

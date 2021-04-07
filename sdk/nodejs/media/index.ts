@@ -46,7 +46,6 @@ export * from "./transform";
 export * from "../types/enums/media";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20151001 from "./v20151001";
 import * as v20180330preview from "./v20180330preview";
 import * as v20180601preview from "./v20180601preview";
@@ -57,7 +56,6 @@ import * as v20200201preview from "./v20200201preview";
 import * as v20200501 from "./v20200501";
 
 export {
-    latest,
     v20151001,
     v20180330preview,
     v20180601preview,

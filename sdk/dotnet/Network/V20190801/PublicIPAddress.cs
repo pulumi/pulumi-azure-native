@@ -151,8 +151,6 @@ namespace Pulumi.AzureNative.Network.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-native:network:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:PublicIPAddress"},

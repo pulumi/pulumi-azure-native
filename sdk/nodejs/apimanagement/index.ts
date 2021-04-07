@@ -107,7 +107,6 @@ export * from "./user";
 export * from "../types/enums/apimanagement";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160707 from "./v20160707";
 import * as v20161010 from "./v20161010";
 import * as v20170301 from "./v20170301";
@@ -121,7 +120,6 @@ import * as v20201201 from "./v20201201";
 import * as v20210101preview from "./v20210101preview";
 
 export {
-    latest,
     v20160707,
     v20161010,
     v20170301,

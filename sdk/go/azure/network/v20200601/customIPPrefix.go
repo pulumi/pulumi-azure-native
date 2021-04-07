@@ -60,12 +60,6 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:CustomIPPrefix"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:CustomIPPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:CustomIPPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:CustomIPPrefix"),
 		},
 		{

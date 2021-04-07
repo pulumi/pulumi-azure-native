@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Relay.V20160701
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:relay/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:relay/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},

@@ -54,12 +54,6 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppAzureStorageAccountsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppAzureStorageAccountsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"),
 		},
 		{

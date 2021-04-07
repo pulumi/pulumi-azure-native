@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"},

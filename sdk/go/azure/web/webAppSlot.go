@@ -145,12 +145,6 @@ func NewWebAppSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSlot"),
 		},
 		{

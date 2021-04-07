@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:Rule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Rule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule"},

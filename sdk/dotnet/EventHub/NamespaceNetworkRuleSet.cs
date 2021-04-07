@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.EventHub
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"},

@@ -115,7 +115,7 @@ export class EventHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20140901:EventHub" }, { type: "azure-native:eventhub:EventHub" }, { type: "azure-nextgen:eventhub:EventHub" }, { type: "azure-native:eventhub/latest:EventHub" }, { type: "azure-nextgen:eventhub/latest:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-nextgen:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-nextgen:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHub" }, { type: "azure-native:eventhub/v20210101preview:EventHub" }, { type: "azure-nextgen:eventhub/v20210101preview:EventHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20140901:EventHub" }, { type: "azure-native:eventhub:EventHub" }, { type: "azure-nextgen:eventhub:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-nextgen:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-nextgen:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHub" }, { type: "azure-native:eventhub/v20210101preview:EventHub" }, { type: "azure-nextgen:eventhub/v20210101preview:EventHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHub.__pulumiType, name, inputs, opts);
     }

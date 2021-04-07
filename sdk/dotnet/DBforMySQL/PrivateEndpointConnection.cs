@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20180601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20180601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection"},

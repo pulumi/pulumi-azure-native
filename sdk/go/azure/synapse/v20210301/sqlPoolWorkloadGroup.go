@@ -69,12 +69,6 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolWorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolWorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"),
 		},
 		{

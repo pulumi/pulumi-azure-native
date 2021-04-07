@@ -44,12 +44,6 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:avs:HcxEnterpriseSite"),
 		},
 		{
-			Type: pulumi.String("azure-native:avs/latest:HcxEnterpriseSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/latest:HcxEnterpriseSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20200320:HcxEnterpriseSite"),
 		},
 		{

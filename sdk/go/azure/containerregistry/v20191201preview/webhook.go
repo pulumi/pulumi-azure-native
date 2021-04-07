@@ -65,12 +65,6 @@ func NewWebhook(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerregistry:Webhook"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerregistry/latest:Webhook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/latest:Webhook"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Webhook"),
 		},
 		{

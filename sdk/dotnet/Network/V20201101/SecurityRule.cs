@@ -157,8 +157,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-native:network:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:SecurityRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:SecurityRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:SecurityRule"},

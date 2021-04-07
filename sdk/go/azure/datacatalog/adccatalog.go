@@ -55,12 +55,6 @@ func NewADCCatalog(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datacatalog:ADCCatalog"),
 		},
 		{
-			Type: pulumi.String("azure-native:datacatalog/latest:ADCCatalog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datacatalog/latest:ADCCatalog"),
-		},
-		{
 			Type: pulumi.String("azure-native:datacatalog/v20160330:ADCCatalog"),
 		},
 		{

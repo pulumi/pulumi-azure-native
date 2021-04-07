@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningCompute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:MachineLearningCompute"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:MachineLearningCompute"},

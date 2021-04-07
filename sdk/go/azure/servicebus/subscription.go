@@ -77,12 +77,6 @@ func NewSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicebus:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/latest:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/latest:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20140901:Subscription"),
 		},
 		{

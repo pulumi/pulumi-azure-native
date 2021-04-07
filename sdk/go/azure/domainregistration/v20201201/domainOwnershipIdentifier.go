@@ -49,12 +49,6 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:domainregistration:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-native:domainregistration/latest:DomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"),
 		},
 		{

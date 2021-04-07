@@ -98,8 +98,6 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:security:AdaptiveApplicationControl"},
-                    new Pulumi.Alias { Type = "azure-native:security/latest:AdaptiveApplicationControl"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-native:security/v20150601preview:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200101:AdaptiveApplicationControl"},

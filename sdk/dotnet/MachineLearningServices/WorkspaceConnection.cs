@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:WorkspaceConnection"},

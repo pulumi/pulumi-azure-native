@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.Addons.V20180301
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20180301:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-native:addons:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons:SupportPlanType"},
-                    new Pulumi.Alias { Type = "azure-native:addons/latest:SupportPlanType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:addons/latest:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-native:addons/v20170515:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20170515:SupportPlanType"},
                 },

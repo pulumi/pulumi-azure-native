@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:RemediationAtSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtSubscription"},

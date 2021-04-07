@@ -63,12 +63,6 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift:OpenShiftCluster"),
 		},
-		{
-			Type: pulumi.String("azure-native:redhatopenshift/latest:OpenShiftCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:redhatopenshift/latest:OpenShiftCluster"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource OpenShiftCluster

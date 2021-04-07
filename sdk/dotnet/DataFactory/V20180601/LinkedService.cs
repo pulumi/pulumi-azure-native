@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:LinkedService"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:LinkedService"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:LinkedService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:LinkedService"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:LinkedService"},
                 },

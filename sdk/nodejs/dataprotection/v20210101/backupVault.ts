@@ -114,7 +114,7 @@ export class BackupVault extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dataprotection/v20210101:BackupVault" }, { type: "azure-native:dataprotection:BackupVault" }, { type: "azure-nextgen:dataprotection:BackupVault" }, { type: "azure-native:dataprotection/latest:BackupVault" }, { type: "azure-nextgen:dataprotection/latest:BackupVault" }, { type: "azure-native:dataprotection/v20210201preview:BackupVault" }, { type: "azure-nextgen:dataprotection/v20210201preview:BackupVault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dataprotection/v20210101:BackupVault" }, { type: "azure-native:dataprotection:BackupVault" }, { type: "azure-nextgen:dataprotection:BackupVault" }, { type: "azure-native:dataprotection/v20210201preview:BackupVault" }, { type: "azure-nextgen:dataprotection/v20210201preview:BackupVault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupVault.__pulumiType, name, inputs, opts);
     }

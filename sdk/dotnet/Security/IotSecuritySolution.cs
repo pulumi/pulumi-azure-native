@@ -138,8 +138,6 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:security:IotSecuritySolution"},
-                    new Pulumi.Alias { Type = "azure-native:security/latest:IotSecuritySolution"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-native:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution"},

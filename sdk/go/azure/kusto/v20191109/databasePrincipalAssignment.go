@@ -71,12 +71,6 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:kusto:DatabasePrincipalAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/latest:DatabasePrincipalAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/latest:DatabasePrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200215:DatabasePrincipalAssignment"),
 		},
 		{

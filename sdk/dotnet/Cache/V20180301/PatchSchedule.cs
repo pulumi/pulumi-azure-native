@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.Cache.V20180301
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-native:cache:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/latest:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20171001:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20190701:PatchSchedule"},

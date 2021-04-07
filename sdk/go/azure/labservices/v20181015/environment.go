@@ -78,12 +78,6 @@ func NewEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:labservices:Environment"),
 		},
-		{
-			Type: pulumi.String("azure-native:labservices/latest:Environment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/latest:Environment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Environment

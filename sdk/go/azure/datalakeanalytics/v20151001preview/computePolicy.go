@@ -59,12 +59,6 @@ func NewComputePolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datalakeanalytics:ComputePolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:datalakeanalytics/latest:ComputePolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:ComputePolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:datalakeanalytics/v20161101:ComputePolicy"),
 		},
 		{

@@ -180,8 +180,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:StreamingJob"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/latest:StreamingJob"},
-                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob"},

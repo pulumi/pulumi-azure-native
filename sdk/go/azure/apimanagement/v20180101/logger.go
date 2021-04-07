@@ -60,12 +60,6 @@ func NewLogger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Logger"),
 		},
 		{

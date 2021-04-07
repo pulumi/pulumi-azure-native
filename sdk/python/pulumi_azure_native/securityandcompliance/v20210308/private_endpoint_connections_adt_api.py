@@ -67,7 +67,7 @@ class PrivateEndpointConnectionsAdtAPI(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-native:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionsAdtAPI, __self__).__init__(
             'azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI',

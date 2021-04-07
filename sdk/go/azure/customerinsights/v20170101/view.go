@@ -62,12 +62,6 @@ func NewView(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:View"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:View"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:View"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:View"),
 		},
 		{

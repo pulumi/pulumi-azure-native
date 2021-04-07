@@ -68,12 +68,6 @@ func NewConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Connector"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Connector"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Connector"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170101:Connector"),
 		},
 		{

@@ -74,12 +74,6 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountSqlContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountSqlContainer"),
 		},
 		{

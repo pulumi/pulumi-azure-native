@@ -60,12 +60,6 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql:Server"),
 		},
 		{
-			Type: pulumi.String("azure-native:sql/latest:Server"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/latest:Server"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:Server"),
 		},
 		{

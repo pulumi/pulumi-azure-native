@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:ControllerDetails"},
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:ControllerDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:ControllerDetails"},

@@ -120,8 +120,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift:OpenShiftCluster"},
-                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/latest:OpenShiftCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/latest:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster"},
                 },

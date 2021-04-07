@@ -58,12 +58,6 @@ func NewProductPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ProductPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ProductPolicy"),
 		},
 		{

@@ -202,7 +202,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Component" }, { type: "azure-native:insights/latest:Component" }, { type: "azure-nextgen:insights/latest:Component" }, { type: "azure-native:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-native:insights/v20180501preview:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }, { type: "azure-native:insights/v20200202preview:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Component" }, { type: "azure-native:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-native:insights/v20180501preview:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }, { type: "azure-native:insights/v20200202preview:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Component.__pulumiType, name, inputs, opts);
     }

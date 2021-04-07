@@ -89,12 +89,6 @@ func NewIncident(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights:Incident"),
 		},
-		{
-			Type: pulumi.String("azure-native:securityinsights/latest:Incident"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/latest:Incident"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Incident

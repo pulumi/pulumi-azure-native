@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"},

@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"},

@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},

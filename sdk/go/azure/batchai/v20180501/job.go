@@ -117,12 +117,6 @@ func NewJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batchai:Job"),
 		},
-		{
-			Type: pulumi.String("azure-native:batchai/latest:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Job"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Job

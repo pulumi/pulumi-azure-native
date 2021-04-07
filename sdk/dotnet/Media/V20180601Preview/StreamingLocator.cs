@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-native:media:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingLocator"},

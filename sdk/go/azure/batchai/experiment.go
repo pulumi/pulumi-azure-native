@@ -46,12 +46,6 @@ func NewExperiment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:batchai:Experiment"),
 		},
 		{
-			Type: pulumi.String("azure-native:batchai/latest:Experiment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Experiment"),
-		},
-		{
 			Type: pulumi.String("azure-native:batchai/v20180501:Experiment"),
 		},
 		{

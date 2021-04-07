@@ -52,12 +52,6 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:PolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:PolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:PolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20151001preview:PolicyDefinition"),
 		},
 		{

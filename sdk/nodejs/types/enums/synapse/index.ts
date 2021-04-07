@@ -2,13 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20190601preview from "./v20190601preview";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
 
 export {
-    latest,
     v20190601preview,
     v20201201,
     v20210301,

@@ -67,12 +67,6 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppHybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppHybridConnection"),
 		},
 		{

@@ -52,12 +52,6 @@ func NewMoveCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:migrate:MoveCollection"),
 		},
 		{
-			Type: pulumi.String("azure-native:migrate/latest:MoveCollection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:MoveCollection"),
-		},
-		{
 			Type: pulumi.String("azure-native:migrate/v20191001preview:MoveCollection"),
 		},
 		{

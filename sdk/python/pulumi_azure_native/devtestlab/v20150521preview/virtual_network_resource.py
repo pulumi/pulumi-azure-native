@@ -84,7 +84,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
             __props__['subnet_overrides'] = subnet_overrides
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/latest:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualNetworkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualNetworkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkResource, __self__).__init__(
             'azure-native:devtestlab/v20150521preview:VirtualNetworkResource',

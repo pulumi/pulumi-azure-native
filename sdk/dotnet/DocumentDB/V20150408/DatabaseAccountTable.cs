@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountTable"},

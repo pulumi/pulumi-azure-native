@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:MasterSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure:MasterSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure:MasterSite"},
-                    new Pulumi.Alias { Type = "azure-native:offazure/latest:MasterSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:MasterSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

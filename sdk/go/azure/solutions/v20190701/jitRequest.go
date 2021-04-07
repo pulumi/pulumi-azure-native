@@ -71,12 +71,6 @@ func NewJitRequest(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:solutions:JitRequest"),
 		},
 		{
-			Type: pulumi.String("azure-native:solutions/latest:JitRequest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/latest:JitRequest"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:JitRequest"),
 		},
 		{

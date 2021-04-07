@@ -56,12 +56,6 @@ func NewPrivateEndpointConnectionsAdtAPI(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsAdtAPI"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI"),
 		},
 		{

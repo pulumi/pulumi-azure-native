@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.BatchAI
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Experiment"},
-                    new Pulumi.Alias { Type = "azure-native:batchai/latest:Experiment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Experiment"},
                     new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Experiment"},
                 },

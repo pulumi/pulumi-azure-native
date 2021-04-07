@@ -67,7 +67,7 @@ func TestFindingKnownLatestResourceVersions(t *testing.T) {
 		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 	}
 
-	actual := checker.calculateLatestVersions("test", versionMap, false /* invokes */, false /* preview */)
+	actual := checker.calculateLatestVersions("test", versionMap, false /* invokes */)
 	assert.Equal(t, expected, actual)
 }
 
@@ -80,7 +80,7 @@ func TestFindingUnknownLatestResourceVersions(t *testing.T) {
 		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
 	}
 
-	actual := checker.calculateLatestVersions("test", versionMap, false /* invokes */, false /* preview */)
+	actual := checker.calculateLatestVersions("test", versionMap, false /* invokes */)
 	assert.Equal(t, expected, actual)
 }
 

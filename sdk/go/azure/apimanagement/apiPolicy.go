@@ -53,12 +53,6 @@ func NewApiPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiPolicy"),
 		},
 		{

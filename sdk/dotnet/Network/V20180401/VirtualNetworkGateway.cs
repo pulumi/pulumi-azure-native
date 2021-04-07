@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.Network.V20180401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetworkGateway"},

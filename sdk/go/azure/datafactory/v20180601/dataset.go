@@ -52,12 +52,6 @@ func NewDataset(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datafactory:Dataset"),
 		},
 		{
-			Type: pulumi.String("azure-native:datafactory/latest:Dataset"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:Dataset"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20170901preview:Dataset"),
 		},
 		{

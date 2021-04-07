@@ -156,8 +156,6 @@ namespace Pulumi.AzureNative.AVS
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-native:avs/latest:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},

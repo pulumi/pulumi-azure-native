@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.MixedReality.V20200406Preview
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality:RemoteRenderingAccount"},
-                    new Pulumi.Alias { Type = "azure-native:mixedreality/latest:RemoteRenderingAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/latest:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},

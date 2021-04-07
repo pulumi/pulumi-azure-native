@@ -59,12 +59,6 @@ func NewNatGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NatGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NatGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NatGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:NatGateway"),
 		},
 		{

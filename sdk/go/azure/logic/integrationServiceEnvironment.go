@@ -45,12 +45,6 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:IntegrationServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20190501:IntegrationServiceEnvironment"),
 		},
 		{

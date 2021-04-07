@@ -48,12 +48,6 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:relay:HybridConnectionAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:relay/latest:HybridConnectionAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:relay/latest:HybridConnectionAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20160701:HybridConnectionAuthorizationRule"),
 		},
 		{

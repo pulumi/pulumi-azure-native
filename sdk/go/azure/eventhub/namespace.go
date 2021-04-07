@@ -59,12 +59,6 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:eventhub:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventhub/latest:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/latest:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20140901:Namespace"),
 		},
 		{

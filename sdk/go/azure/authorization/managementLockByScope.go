@@ -46,12 +46,6 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:ManagementLockByScope"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:ManagementLockByScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLockByScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockByScope"),
 		},
 		{

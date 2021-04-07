@@ -50,12 +50,6 @@ func NewAssessment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:migrate:Assessment"),
 		},
 		{
-			Type: pulumi.String("azure-native:migrate/latest:Assessment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:Assessment"),
-		},
-		{
 			Type: pulumi.String("azure-native:migrate/v20191001:Assessment"),
 		},
 		{

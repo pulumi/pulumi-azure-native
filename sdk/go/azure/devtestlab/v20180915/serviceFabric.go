@@ -61,12 +61,6 @@ func NewServiceFabric(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabric"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/latest:ServiceFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceFabric"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabric

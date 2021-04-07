@@ -510,7 +510,6 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
 		Aliases:            aliases,
-		DeprecationMessage: g.formatDeprecationMessage("resource", prov, typeName),
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
@@ -544,7 +543,6 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	if path.Get != nil && responseFunction != nil {
 		functionSpec := pschema.FunctionSpec{
 			Description:        g.formatDescription(resourceResponse, swagger.Info),
-			DeprecationMessage: g.formatDeprecationMessage("function", prov, fmt.Sprintf("get%s", typeName)),
 			Inputs: &pschema.ObjectTypeSpec{
 				Description: requestFunction.description,
 				Type:        "object",
@@ -687,7 +685,6 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 
 	functionSpec := pschema.FunctionSpec{
 		Description:        g.formatDescription(response, swagger.Info),
-		DeprecationMessage: g.formatDeprecationMessage("function", prov, typeName),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
@@ -724,21 +721,10 @@ func providerApiToModule(prov, apiVersion string) string {
 }
 
 func (g *packageGenerator) formatDescription(response *propertyBag, info *spec.Info) string {
-	switch g.apiVersion {
-	case "":
+	if g.apiVersion == "" {
 		return fmt.Sprintf("%s\nAPI Version: %s.", response.description, info.Version)
-	case "latest":
-		return fmt.Sprintf("%s\nLatest API Version: %s.", response.description, info.Version)
 	}
 	return response.description
-}
-
-func (g *packageGenerator) formatDeprecationMessage(kind, prov, typeName string) string {
-	if g.apiVersion == "latest" {
-		topToken := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, providerApiToModule(prov, ""), typeName)
-		return fmt.Sprintf("The 'latest' version is deprecated. Please migrate to the %s in the top-level module: '%s'.", kind, topToken)
-	}
-	return ""
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {

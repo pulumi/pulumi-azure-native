@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"},

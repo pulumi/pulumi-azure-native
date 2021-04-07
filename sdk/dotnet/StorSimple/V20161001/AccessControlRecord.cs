@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:AccessControlRecord"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:AccessControlRecord"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:AccessControlRecord"},
                 },

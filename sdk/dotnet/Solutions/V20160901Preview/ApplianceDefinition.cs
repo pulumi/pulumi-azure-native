@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/latest:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplianceDefinition"},

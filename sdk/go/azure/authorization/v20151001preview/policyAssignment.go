@@ -48,12 +48,6 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:PolicyAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:PolicyAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:PolicyAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20160401:PolicyAssignment"),
 		},
 		{

@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.Automation.V20151031
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:automation:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Schedule"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:Schedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Schedule"},

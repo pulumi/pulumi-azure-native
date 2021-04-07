@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:LiveEvent"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:LiveEvent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},

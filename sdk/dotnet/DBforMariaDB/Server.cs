@@ -144,8 +144,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Server"},

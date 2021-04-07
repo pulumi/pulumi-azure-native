@@ -53,12 +53,6 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualRouterPeering"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualRouterPeering"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualRouterPeering"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:VirtualRouterPeering"),
 		},
 		{

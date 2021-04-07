@@ -254,8 +254,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160901:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:ManagedHostingEnvironment"},

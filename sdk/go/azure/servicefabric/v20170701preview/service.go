@@ -71,12 +71,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicefabric:Service"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicefabric/latest:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/latest:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20190301:Service"),
 		},
 		{

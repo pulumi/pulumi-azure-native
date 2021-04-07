@@ -50,12 +50,6 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:softwareplan:HybridUseBenefit"),
 		},
 		{
-			Type: pulumi.String("azure-native:softwareplan/latest:HybridUseBenefit"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:softwareplan/latest:HybridUseBenefit"),
-		},
-		{
 			Type: pulumi.String("azure-native:softwareplan/v20190601preview:HybridUseBenefit"),
 		},
 		{

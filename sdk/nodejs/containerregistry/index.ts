@@ -49,7 +49,6 @@ export * from "./webhook";
 export * from "../types/enums/containerregistry";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160627preview from "./v20160627preview";
 import * as v20170301 from "./v20170301";
 import * as v20170601preview from "./v20170601preview";
@@ -64,7 +63,6 @@ import * as v20191201preview from "./v20191201preview";
 import * as v20201101preview from "./v20201101preview";
 
 export {
-    latest,
     v20160627preview,
     v20170301,
     v20170601preview,

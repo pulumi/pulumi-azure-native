@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountBatchConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountBatchConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"},

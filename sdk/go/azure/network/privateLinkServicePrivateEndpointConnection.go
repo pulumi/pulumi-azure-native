@@ -50,12 +50,6 @@ func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:PrivateLinkServicePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{

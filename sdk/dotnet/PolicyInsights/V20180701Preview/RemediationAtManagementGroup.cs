@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:RemediationAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup"},
                 },

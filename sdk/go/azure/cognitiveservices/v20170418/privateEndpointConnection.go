@@ -50,12 +50,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cognitiveservices:PrivateEndpointConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:cognitiveservices/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices/latest:PrivateEndpointConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection

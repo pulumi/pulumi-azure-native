@@ -57,12 +57,6 @@ func NewConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/latest:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/latest:Configuration"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20171201:Configuration"),
 		},
 		{

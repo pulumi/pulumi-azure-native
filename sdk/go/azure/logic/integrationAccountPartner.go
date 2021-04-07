@@ -60,12 +60,6 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountPartner"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountPartner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountPartner"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountPartner"),
 		},
 		{

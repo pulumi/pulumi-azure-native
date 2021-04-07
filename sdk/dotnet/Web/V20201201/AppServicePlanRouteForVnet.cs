@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlanRouteForVnet"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:AppServicePlanRouteForVnet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlanRouteForVnet"},

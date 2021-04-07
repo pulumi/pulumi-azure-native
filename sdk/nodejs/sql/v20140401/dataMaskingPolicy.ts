@@ -116,7 +116,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql:DataMaskingPolicy" }, { type: "azure-nextgen:sql:DataMaskingPolicy" }, { type: "azure-native:sql/latest:DataMaskingPolicy" }, { type: "azure-nextgen:sql/latest:DataMaskingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql:DataMaskingPolicy" }, { type: "azure-nextgen:sql:DataMaskingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataMaskingPolicy.__pulumiType, name, inputs, opts);
     }

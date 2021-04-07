@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolsV3"},

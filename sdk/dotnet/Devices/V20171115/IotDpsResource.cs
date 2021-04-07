@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Devices.V20171115
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/latest:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20170821preview:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20180122:IotDpsResource"},

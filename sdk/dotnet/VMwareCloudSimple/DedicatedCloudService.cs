@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:DedicatedCloudService"},
-                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:DedicatedCloudService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService"},
                     new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService"},
                 },

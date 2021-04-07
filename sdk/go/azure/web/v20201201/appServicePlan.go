@@ -103,12 +103,6 @@ func NewAppServicePlan(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:AppServicePlan"),
 		},
 		{

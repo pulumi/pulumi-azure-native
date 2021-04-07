@@ -51,12 +51,6 @@ func NewAuthorization(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:avs:Authorization"),
 		},
 		{
-			Type: pulumi.String("azure-native:avs/latest:Authorization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/latest:Authorization"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:Authorization"),
 		},
 		{

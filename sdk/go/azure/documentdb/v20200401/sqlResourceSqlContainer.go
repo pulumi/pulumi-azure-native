@@ -60,12 +60,6 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:SqlResourceSqlContainer"),
 		},
 		{

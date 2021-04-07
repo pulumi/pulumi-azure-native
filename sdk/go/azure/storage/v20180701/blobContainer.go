@@ -67,12 +67,6 @@ func NewBlobContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:BlobContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20180201:BlobContainer"),
 		},
 		{

@@ -49,12 +49,6 @@ func NewBot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:botservice:Bot"),
 		},
 		{
-			Type: pulumi.String("azure-native:botservice/latest:Bot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/latest:Bot"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20171201:Bot"),
 		},
 		{

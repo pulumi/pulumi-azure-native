@@ -50,12 +50,6 @@ func NewNotificationRecipientUser(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:NotificationRecipientUser"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:NotificationRecipientUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:NotificationRecipientUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:NotificationRecipientUser"),
 		},
 		{

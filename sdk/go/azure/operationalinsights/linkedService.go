@@ -48,12 +48,6 @@ func NewLinkedService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:operationalinsights:LinkedService"),
 		},
 		{
-			Type: pulumi.String("azure-native:operationalinsights/latest:LinkedService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/latest:LinkedService"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20151101preview:LinkedService"),
 		},
 		{

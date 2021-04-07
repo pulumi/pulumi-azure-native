@@ -124,8 +124,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191001:Policy"},

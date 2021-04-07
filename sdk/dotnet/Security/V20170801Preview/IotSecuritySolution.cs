@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:IotSecuritySolution"},
-                    new Pulumi.Alias { Type = "azure-native:security/latest:IotSecuritySolution"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },

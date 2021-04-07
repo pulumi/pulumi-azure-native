@@ -48,12 +48,6 @@ func NewProactiveDetectionConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:ProactiveDetectionConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:ProactiveDetectionConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:ProactiveDetectionConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150501:ProactiveDetectionConfiguration"),
 		},
 		{

@@ -68,12 +68,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:machinelearning:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:machinelearning/latest:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearning/latest:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearning/v20191001:Workspace"),
 		},
 		{

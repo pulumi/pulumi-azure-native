@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20201201preview:ApplicationTypeVersion"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:ApplicationTypeVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/latest:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:ApplicationTypeVersion"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:ApplicationTypeVersion"},

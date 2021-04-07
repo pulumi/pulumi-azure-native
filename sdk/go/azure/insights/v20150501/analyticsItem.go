@@ -59,12 +59,6 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:AnalyticsItem"),
 		},
-		{
-			Type: pulumi.String("azure-native:insights/latest:AnalyticsItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:AnalyticsItem"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AnalyticsItem

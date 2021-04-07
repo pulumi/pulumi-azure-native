@@ -120,7 +120,7 @@ class BigDataPool(pulumi.CustomResource):
             __props__['last_succeeded_timestamp'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:BigDataPool"), pulumi.Alias(type_="azure-native:synapse:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/latest:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/latest:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/v20201201:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:BigDataPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:BigDataPool"), pulumi.Alias(type_="azure-native:synapse:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/v20201201:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:BigDataPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BigDataPool, __self__).__init__(
             'azure-native:synapse/v20210301:BigDataPool',

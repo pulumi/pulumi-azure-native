@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:TrafficManagerUserMetricsKey"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:TrafficManagerUserMetricsKey"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:TrafficManagerUserMetricsKey"},

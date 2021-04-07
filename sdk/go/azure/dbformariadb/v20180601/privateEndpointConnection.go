@@ -51,12 +51,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformariadb:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformariadb/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection"),
 		},
 		{

@@ -151,8 +151,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode"},
                     new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudNode"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"},
-                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:DedicatedCloudNode"},
-                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

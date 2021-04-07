@@ -16,12 +16,10 @@ export * from "./orchestratorInstanceServiceDetails";
 export * from "../types/enums/delegatednetwork";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20200808preview from "./v20200808preview";
 import * as v20210315 from "./v20210315";
 
 export {
-    latest,
     v20200808preview,
     v20210315,
 };

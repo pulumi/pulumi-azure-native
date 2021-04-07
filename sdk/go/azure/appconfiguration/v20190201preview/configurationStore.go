@@ -52,12 +52,6 @@ func NewConfigurationStore(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:appconfiguration:ConfigurationStore"),
 		},
 		{
-			Type: pulumi.String("azure-native:appconfiguration/latest:ConfigurationStore"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:appconfiguration/latest:ConfigurationStore"),
-		},
-		{
 			Type: pulumi.String("azure-native:appconfiguration/v20191001:ConfigurationStore"),
 		},
 		{

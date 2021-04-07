@@ -136,7 +136,7 @@ export class BuildTask extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20180201preview:BuildTask" }, { type: "azure-native:containerregistry:BuildTask" }, { type: "azure-nextgen:containerregistry:BuildTask" }, { type: "azure-native:containerregistry/latest:BuildTask" }, { type: "azure-nextgen:containerregistry/latest:BuildTask" }, { type: "azure-native:containerregistry/v20180901:BuildTask" }, { type: "azure-nextgen:containerregistry/v20180901:BuildTask" }, { type: "azure-native:containerregistry/v20190401:BuildTask" }, { type: "azure-nextgen:containerregistry/v20190401:BuildTask" }, { type: "azure-native:containerregistry/v20190601preview:BuildTask" }, { type: "azure-nextgen:containerregistry/v20190601preview:BuildTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20180201preview:BuildTask" }, { type: "azure-native:containerregistry:BuildTask" }, { type: "azure-nextgen:containerregistry:BuildTask" }, { type: "azure-native:containerregistry/v20180901:BuildTask" }, { type: "azure-nextgen:containerregistry/v20180901:BuildTask" }, { type: "azure-native:containerregistry/v20190401:BuildTask" }, { type: "azure-nextgen:containerregistry/v20190401:BuildTask" }, { type: "azure-native:containerregistry/v20190601preview:BuildTask" }, { type: "azure-nextgen:containerregistry/v20190601preview:BuildTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildTask.__pulumiType, name, inputs, opts);
     }

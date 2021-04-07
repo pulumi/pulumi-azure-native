@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppConnectionStrings"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppConnectionStrings"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStrings"},

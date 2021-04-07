@@ -70,12 +70,6 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppHostNameBindingSlot"),
 		},
 		{

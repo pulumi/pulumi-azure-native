@@ -145,8 +145,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Workflow"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:Workflow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150201preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:Workflow"},

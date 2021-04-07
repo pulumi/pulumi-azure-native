@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:BuildTask"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:BuildTask"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180901:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:BuildTask"},

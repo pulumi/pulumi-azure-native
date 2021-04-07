@@ -53,12 +53,6 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge:MonitoringConfig"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/latest:MonitoringConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/latest:MonitoringConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:MonitoringConfig"),
 		},
 		{

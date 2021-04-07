@@ -82,12 +82,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ApplicationGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ApplicationGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150501preview:ApplicationGateway"),
 		},
 		{

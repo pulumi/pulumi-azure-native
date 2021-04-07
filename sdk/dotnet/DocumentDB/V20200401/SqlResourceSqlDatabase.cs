@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:SqlResourceSqlDatabase"},

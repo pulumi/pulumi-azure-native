@@ -105,7 +105,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/latest:DelegatedSubnetServiceDetails" }, { type: "azure-nextgen:delegatednetwork/latest:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }, { type: "azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }, { type: "azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DelegatedSubnetServiceDetails.__pulumiType, name, inputs, opts);
     }

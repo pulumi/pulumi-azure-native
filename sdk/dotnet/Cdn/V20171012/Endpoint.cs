@@ -157,8 +157,6 @@ namespace Pulumi.AzureNative.Cdn.V20171012
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/latest:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},

@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Replication"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Replication"},

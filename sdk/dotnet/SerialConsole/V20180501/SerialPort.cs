@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
                     new Pulumi.Alias { Type = "azure-nextgen:serialconsole/v20180501:SerialPort"},
                     new Pulumi.Alias { Type = "azure-native:serialconsole:SerialPort"},
                     new Pulumi.Alias { Type = "azure-nextgen:serialconsole:SerialPort"},
-                    new Pulumi.Alias { Type = "azure-native:serialconsole/latest:SerialPort"},
-                    new Pulumi.Alias { Type = "azure-nextgen:serialconsole/latest:SerialPort"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

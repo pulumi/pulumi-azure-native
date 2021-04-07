@@ -53,12 +53,6 @@ func NewDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datashare:DataSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/latest:DataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/latest:DataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:DataSet"),
 		},
 		{

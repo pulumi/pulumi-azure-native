@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnection"},

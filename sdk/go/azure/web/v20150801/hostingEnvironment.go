@@ -109,12 +109,6 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:HostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:HostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:HostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160901:HostingEnvironment"),
 		},
 		{

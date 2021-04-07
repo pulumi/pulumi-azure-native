@@ -54,12 +54,6 @@ func NewEventSource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:EventSource"),
 		},
 		{
-			Type: pulumi.String("azure-native:timeseriesinsights/latest:EventSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:EventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:EventSource"),
 		},
 		{

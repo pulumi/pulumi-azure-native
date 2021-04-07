@@ -48,12 +48,6 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSlotConfigurationNames"),
 		},
 		{

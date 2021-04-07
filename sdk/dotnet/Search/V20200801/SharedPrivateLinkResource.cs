@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.Search.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-native:search:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search:SharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-native:search/latest:SharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/latest:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource"},
                 },

@@ -112,8 +112,6 @@ namespace Pulumi.AzureNative.Network.V20171101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20171001:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180101:ConnectionMonitor"},

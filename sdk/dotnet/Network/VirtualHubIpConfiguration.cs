@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubIpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubIpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubIpConfiguration"},

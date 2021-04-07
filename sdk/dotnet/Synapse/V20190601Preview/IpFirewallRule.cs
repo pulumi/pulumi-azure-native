@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:synapse:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:IpFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/latest:IpFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:IpFirewallRule"},

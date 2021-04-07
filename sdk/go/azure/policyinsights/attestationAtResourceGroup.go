@@ -60,12 +60,6 @@ func NewAttestationAtResourceGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:policyinsights:AttestationAtResourceGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:policyinsights/latest:AttestationAtResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/latest:AttestationAtResourceGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20210101:AttestationAtResourceGroup"),
 		},
 		{

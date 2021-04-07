@@ -54,12 +54,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:VirtualNetworkRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/latest:VirtualNetworkRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/latest:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20171201preview:VirtualNetworkRule"),
 		},
 		{

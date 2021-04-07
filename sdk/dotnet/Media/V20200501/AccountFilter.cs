@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-native:media:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:AccountFilter"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:AccountFilter"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:AccountFilter"},
                 },

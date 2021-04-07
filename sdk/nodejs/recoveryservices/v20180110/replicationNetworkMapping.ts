@@ -93,7 +93,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/latest:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationNetworkMapping.__pulumiType, name, inputs, opts);
     }

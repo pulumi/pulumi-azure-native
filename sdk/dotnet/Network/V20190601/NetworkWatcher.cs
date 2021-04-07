@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkWatcher"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkWatcher"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-native:network/v20161201:NetworkWatcher"},

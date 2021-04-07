@@ -74,12 +74,6 @@ func NewEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:Endpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:Endpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:Endpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20160402:Endpoint"),
 		},
 		{

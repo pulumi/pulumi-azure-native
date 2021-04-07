@@ -42,12 +42,6 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:portal:UserSettingsWithLocation"),
 		},
-		{
-			Type: pulumi.String("azure-native:portal/latest:UserSettingsWithLocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:portal/latest:UserSettingsWithLocation"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource UserSettingsWithLocation

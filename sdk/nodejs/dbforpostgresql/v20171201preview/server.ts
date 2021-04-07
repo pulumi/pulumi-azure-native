@@ -187,7 +187,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20171201preview:Server" }, { type: "azure-native:dbforpostgresql:Server" }, { type: "azure-nextgen:dbforpostgresql:Server" }, { type: "azure-native:dbforpostgresql/latest:Server" }, { type: "azure-nextgen:dbforpostgresql/latest:Server" }, { type: "azure-native:dbforpostgresql/v20171201:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20171201preview:Server" }, { type: "azure-native:dbforpostgresql:Server" }, { type: "azure-nextgen:dbforpostgresql:Server" }, { type: "azure-native:dbforpostgresql/v20171201:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, inputs, opts);
     }

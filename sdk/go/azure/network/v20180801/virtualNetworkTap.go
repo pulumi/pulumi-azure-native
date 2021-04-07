@@ -60,12 +60,6 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkTap"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualNetworkTap"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkTap"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:VirtualNetworkTap"),
 		},
 		{

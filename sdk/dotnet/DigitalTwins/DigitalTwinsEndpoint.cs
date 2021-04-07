@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.DigitalTwins
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:DigitalTwinsEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/latest:DigitalTwinsEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint"},

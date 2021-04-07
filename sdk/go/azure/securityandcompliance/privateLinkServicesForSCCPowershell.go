@@ -51,12 +51,6 @@ func NewPrivateLinkServicesForSCCPowershell(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:privateLinkServicesForSCCPowershell"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:privateLinkServicesForSCCPowershell"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForSCCPowershell"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"),
 		},
 		{

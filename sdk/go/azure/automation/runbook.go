@@ -79,12 +79,6 @@ func NewRunbook(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Runbook"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Runbook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Runbook"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:Runbook"),
 		},
 		{

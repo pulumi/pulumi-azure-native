@@ -58,12 +58,6 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationMigrationItem"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationMigrationItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationMigrationItem"),
 		},
 		{

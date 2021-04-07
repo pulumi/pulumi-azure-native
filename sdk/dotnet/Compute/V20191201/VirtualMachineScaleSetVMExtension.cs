@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Compute.V20191201
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineScaleSetVMExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachineScaleSetVMExtension"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"},

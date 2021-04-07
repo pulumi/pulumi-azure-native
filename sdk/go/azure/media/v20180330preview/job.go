@@ -68,12 +68,6 @@ func NewJob(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:Job"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180601preview:Job"),
 		},
 		{

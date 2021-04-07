@@ -113,7 +113,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['type'] = None
             __props__['vm_id'] = None
             __props__['vmwaretools'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple:VirtualMachine"), pulumi.Alias(type_="azure-native:vmwarecloudsimple/latest:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"), pulumi.Alias(type_="azure-native:vmwarecloudsimple/v20190401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple:VirtualMachine"), pulumi.Alias(type_="azure-native:vmwarecloudsimple/v20190401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-native:vmwarecloudsimple:VirtualMachine',

@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Network.V20180901
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-native:network:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PrivateZone"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:PrivateZone"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone"},

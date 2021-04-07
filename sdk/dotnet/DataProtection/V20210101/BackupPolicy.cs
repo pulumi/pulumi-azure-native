@@ -70,8 +70,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210101:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection:BackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/latest:BackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/latest:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210201preview:BackupPolicy"},
                 },

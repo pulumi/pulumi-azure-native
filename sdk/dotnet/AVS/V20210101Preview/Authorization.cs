@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Authorization"},
                     new Pulumi.Alias { Type = "azure-native:avs:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/latest:Authorization"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:Authorization"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Authorization"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization"},

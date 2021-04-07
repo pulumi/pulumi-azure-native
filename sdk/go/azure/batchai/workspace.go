@@ -47,12 +47,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:batchai:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:batchai/latest:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:batchai/v20180501:Workspace"),
 		},
 		{

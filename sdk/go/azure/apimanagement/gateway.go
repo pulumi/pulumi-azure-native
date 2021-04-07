@@ -44,12 +44,6 @@ func NewGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Gateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Gateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Gateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Gateway"),
 		},
 		{

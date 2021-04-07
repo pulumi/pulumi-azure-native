@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:Account"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:Account"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/latest:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/latest:Account"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20160201preview:Account"},
                 },

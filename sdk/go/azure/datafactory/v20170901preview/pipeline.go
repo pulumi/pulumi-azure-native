@@ -57,12 +57,6 @@ func NewPipeline(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datafactory:Pipeline"),
 		},
 		{
-			Type: pulumi.String("azure-native:datafactory/latest:Pipeline"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:Pipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20180601:Pipeline"),
 		},
 		{

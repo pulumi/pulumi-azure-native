@@ -47,12 +47,6 @@ func NewMasterSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:offazure:MasterSite"),
 		},
-		{
-			Type: pulumi.String("azure-native:offazure/latest:MasterSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:offazure/latest:MasterSite"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource MasterSite

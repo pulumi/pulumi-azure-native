@@ -55,12 +55,6 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{

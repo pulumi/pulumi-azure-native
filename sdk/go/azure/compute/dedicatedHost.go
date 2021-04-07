@@ -65,12 +65,6 @@ func NewDedicatedHost(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:DedicatedHost"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:DedicatedHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHost"),
 		},
 		{

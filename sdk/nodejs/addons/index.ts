@@ -9,12 +9,10 @@ export * from "./getSupportPlanType";
 export * from "./supportPlanType";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20170515 from "./v20170515";
 import * as v20180301 from "./v20180301";
 
 export {
-    latest,
     v20170515,
     v20180301,
 };

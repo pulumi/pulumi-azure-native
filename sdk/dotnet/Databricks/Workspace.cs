@@ -138,8 +138,6 @@ namespace Pulumi.AzureNative.Databricks
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:databricks:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:databricks/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databricks/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:Workspace"},
                 },

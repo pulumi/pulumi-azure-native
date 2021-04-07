@@ -46,12 +46,6 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/latest:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190301:DeploymentAtSubscriptionScope"),
 		},
 		{

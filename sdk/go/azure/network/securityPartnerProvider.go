@@ -51,12 +51,6 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:SecurityPartnerProvider"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:SecurityPartnerProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:SecurityPartnerProvider"),
 		},
 		{

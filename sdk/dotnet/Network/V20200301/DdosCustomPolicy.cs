@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.Network.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181101:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181201:DdosCustomPolicy"},

@@ -132,8 +132,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180901:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:RecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:RecordSet"},

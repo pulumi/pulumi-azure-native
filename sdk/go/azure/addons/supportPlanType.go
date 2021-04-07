@@ -39,12 +39,6 @@ func NewSupportPlanType(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:addons:SupportPlanType"),
 		},
 		{
-			Type: pulumi.String("azure-native:addons/latest:SupportPlanType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:addons/latest:SupportPlanType"),
-		},
-		{
 			Type: pulumi.String("azure-native:addons/v20170515:SupportPlanType"),
 		},
 		{

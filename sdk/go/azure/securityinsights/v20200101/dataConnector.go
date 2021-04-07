@@ -51,12 +51,6 @@ func NewDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights:DataConnector"),
 		},
-		{
-			Type: pulumi.String("azure-native:securityinsights/latest:DataConnector"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/latest:DataConnector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataConnector

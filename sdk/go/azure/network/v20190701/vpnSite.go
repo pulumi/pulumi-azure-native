@@ -66,12 +66,6 @@ func NewVpnSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VpnSite"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VpnSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VpnSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:VpnSite"),
 		},
 		{

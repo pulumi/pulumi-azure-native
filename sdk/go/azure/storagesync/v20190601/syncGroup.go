@@ -49,12 +49,6 @@ func NewSyncGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagesync:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagesync/latest:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/latest:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:SyncGroup"),
 		},
 		{

@@ -57,12 +57,6 @@ func NewServiceFabric(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabric"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:ServiceFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceFabric"),
 		},
 		{

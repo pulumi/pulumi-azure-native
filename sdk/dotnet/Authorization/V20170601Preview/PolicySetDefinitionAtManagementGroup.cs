@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Authorization.V20170601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:authorization:PolicySetDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicySetDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/latest:PolicySetDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180301:PolicySetDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup"},

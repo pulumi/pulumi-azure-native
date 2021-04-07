@@ -96,7 +96,7 @@ export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.Custo
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-nextgen:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteUserProvidedFunctionAppForStaticSite.__pulumiType, name, inputs, opts);
     }

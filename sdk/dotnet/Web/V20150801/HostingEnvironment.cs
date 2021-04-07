@@ -254,8 +254,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:HostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:HostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160901:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:HostingEnvironment"},

@@ -145,8 +145,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},

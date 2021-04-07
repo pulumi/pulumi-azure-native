@@ -62,12 +62,6 @@ func NewBackupPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:BackupPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:BackupPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:BackupPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:BackupPolicy"),
 		},
 		{

@@ -174,8 +174,6 @@ namespace Pulumi.AzureNative.Synapse
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/latest:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:BigDataPool"},

@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20161201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:network:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170301:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170601:RouteFilterRule"},

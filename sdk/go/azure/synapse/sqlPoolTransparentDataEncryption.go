@@ -47,12 +47,6 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolTransparentDataEncryption"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:SqlPoolTransparentDataEncryption"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"),
 		},
 		{

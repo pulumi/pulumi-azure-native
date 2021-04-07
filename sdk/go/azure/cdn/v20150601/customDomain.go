@@ -57,12 +57,6 @@ func NewCustomDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20160402:CustomDomain"),
 		},
 		{

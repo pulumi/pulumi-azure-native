@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:DscConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:DscConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscConfiguration"},
                 },

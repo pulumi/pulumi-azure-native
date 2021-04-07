@@ -50,12 +50,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:cache/latest:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/latest:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20160401:FirewallRule"),
 		},
 		{

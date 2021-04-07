@@ -57,12 +57,6 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:HubVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:HubVirtualNetworkConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:HubVirtualNetworkConnection"),
 		},
 		{

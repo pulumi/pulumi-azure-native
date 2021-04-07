@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:User"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:User"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:User"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:User"},

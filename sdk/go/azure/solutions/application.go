@@ -84,12 +84,6 @@ func NewApplication(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:solutions:Application"),
 		},
 		{
-			Type: pulumi.String("azure-native:solutions/latest:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/latest:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20160901preview:Application"),
 		},
 		{

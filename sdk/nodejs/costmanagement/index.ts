@@ -30,7 +30,6 @@ export * from "./viewByScope";
 export * from "../types/enums/costmanagement";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180531 from "./v20180531";
 import * as v20180801preview from "./v20180801preview";
 import * as v20190101 from "./v20190101";
@@ -43,7 +42,6 @@ import * as v20200301preview from "./v20200301preview";
 import * as v20200601 from "./v20200601";
 
 export {
-    latest,
     v20180531,
     v20180801preview,
     v20190101,

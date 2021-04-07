@@ -76,12 +76,6 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabricSchedule"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/latest:ServiceFabricSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceFabricSchedule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabricSchedule

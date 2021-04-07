@@ -55,12 +55,6 @@ func NewLabAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:labservices:LabAccount"),
 		},
-		{
-			Type: pulumi.String("azure-native:labservices/latest:LabAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/latest:LabAccount"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource LabAccount

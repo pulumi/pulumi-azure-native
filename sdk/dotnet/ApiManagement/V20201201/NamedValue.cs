@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:NamedValue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NamedValue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:NamedValue"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NamedValue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:NamedValue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NamedValue"},

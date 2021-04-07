@@ -16,14 +16,12 @@ export * from "./maintenanceConfiguration";
 export * from "../types/enums/maintenance";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180601preview from "./v20180601preview";
 import * as v20200401 from "./v20200401";
 import * as v20200701preview from "./v20200701preview";
 import * as v20210401preview from "./v20210401preview";
 
 export {
-    latest,
     v20180601preview,
     v20200401,
     v20200701preview,

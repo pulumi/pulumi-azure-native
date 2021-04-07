@@ -70,12 +70,6 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ExpressRoutePort"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ExpressRoutePort"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ExpressRoutePort"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:ExpressRoutePort"),
 		},
 		{

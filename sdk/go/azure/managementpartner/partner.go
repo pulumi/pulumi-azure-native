@@ -49,12 +49,6 @@ func NewPartner(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:managementpartner:Partner"),
 		},
 		{
-			Type: pulumi.String("azure-native:managementpartner/latest:Partner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managementpartner/latest:Partner"),
-		},
-		{
 			Type: pulumi.String("azure-native:managementpartner/v20180201:Partner"),
 		},
 		{

@@ -57,12 +57,6 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:relay:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-native:relay/latest:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:relay/latest:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20160701:Namespace"),
 		},
 		{

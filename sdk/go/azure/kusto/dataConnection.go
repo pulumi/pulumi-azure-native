@@ -50,12 +50,6 @@ func NewDataConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:kusto:DataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/latest:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/latest:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190121:DataConnection"),
 		},
 		{

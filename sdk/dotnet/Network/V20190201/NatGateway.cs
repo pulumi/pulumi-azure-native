@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Network.V20190201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NatGateway"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NatGateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190401:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190601:NatGateway"},

@@ -67,12 +67,6 @@ func NewDisk(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:Disk"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:Disk"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:Disk"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20160430preview:Disk"),
 		},
 		{

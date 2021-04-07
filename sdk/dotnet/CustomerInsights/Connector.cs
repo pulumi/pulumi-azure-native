@@ -120,8 +120,6 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Connector"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Connector"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Connector"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Connector"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Connector"},

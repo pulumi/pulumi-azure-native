@@ -63,12 +63,6 @@ func NewCustomImageResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:CustomImageResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:CustomImageResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:CustomImageResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:CustomImageResource"),
 		},
 		{

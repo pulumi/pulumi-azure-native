@@ -279,8 +279,6 @@ namespace Pulumi.AzureNative.Web.V20160901
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServiceEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:AppServiceEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServiceEnvironment"},

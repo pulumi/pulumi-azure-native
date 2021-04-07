@@ -54,12 +54,6 @@ func NewAssessment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:migrate:Assessment"),
 		},
-		{
-			Type: pulumi.String("azure-native:migrate/latest:Assessment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:Assessment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Assessment

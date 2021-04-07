@@ -59,12 +59,6 @@ func NewADCCatalog(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datacatalog:ADCCatalog"),
 		},
-		{
-			Type: pulumi.String("azure-native:datacatalog/latest:ADCCatalog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datacatalog/latest:ADCCatalog"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ADCCatalog

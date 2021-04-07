@@ -62,12 +62,6 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteBackupConfiguration"),
 		},
 		{

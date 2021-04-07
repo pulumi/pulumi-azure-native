@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate"},
-                    new Pulumi.Alias { Type = "azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},

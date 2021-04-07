@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Network.V20180801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationSecurityGroup"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:ApplicationSecurityGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20171001:ApplicationSecurityGroup"},

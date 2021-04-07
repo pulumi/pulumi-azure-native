@@ -55,12 +55,6 @@ func NewSession(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:Session"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:Session"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:Session"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:Session"),
 		},
 		{

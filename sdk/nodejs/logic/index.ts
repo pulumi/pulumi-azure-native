@@ -51,7 +51,6 @@ export * from "./workflowAccessKey";
 export * from "../types/enums/logic";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150201preview from "./v20150201preview";
 import * as v20150801preview from "./v20150801preview";
 import * as v20160601 from "./v20160601";
@@ -59,7 +58,6 @@ import * as v20180701preview from "./v20180701preview";
 import * as v20190501 from "./v20190501";
 
 export {
-    latest,
     v20150201preview,
     v20150801preview,
     v20160601,

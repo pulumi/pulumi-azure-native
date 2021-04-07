@@ -67,12 +67,6 @@ func NewWorkflow(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:Workflow"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:Workflow"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:Workflow"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20160601:Workflow"),
 		},
 		{

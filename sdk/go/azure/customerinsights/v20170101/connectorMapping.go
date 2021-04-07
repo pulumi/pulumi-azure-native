@@ -84,12 +84,6 @@ func NewConnectorMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:ConnectorMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:ConnectorMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:ConnectorMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:ConnectorMapping"),
 		},
 		{

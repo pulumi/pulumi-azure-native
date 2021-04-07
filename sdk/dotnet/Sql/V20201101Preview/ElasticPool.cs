@@ -127,8 +127,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ElasticPool"},

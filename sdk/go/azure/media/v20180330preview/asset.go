@@ -61,12 +61,6 @@ func NewAsset(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:Asset"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:Asset"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:Asset"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180601preview:Asset"),
 		},
 		{

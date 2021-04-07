@@ -75,12 +75,6 @@ func NewRelationship(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Relationship"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Relationship"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Relationship"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:Relationship"),
 		},
 		{

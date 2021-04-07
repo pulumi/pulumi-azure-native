@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.Compute.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
                 },

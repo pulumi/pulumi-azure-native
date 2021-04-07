@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Kusto.V20190121
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Cluster"},

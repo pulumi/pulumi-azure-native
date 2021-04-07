@@ -22,7 +22,6 @@ export * from "./syncGroup";
 export * from "../types/enums/storagesync";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20170605preview from "./v20170605preview";
 import * as v20180402 from "./v20180402";
 import * as v20180701 from "./v20180701";
@@ -35,7 +34,6 @@ import * as v20200301 from "./v20200301";
 import * as v20200901 from "./v20200901";
 
 export {
-    latest,
     v20170605preview,
     v20180402,
     v20180701,

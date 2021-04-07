@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.PowerBIDedicated
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated:AutoScaleVCore"},
-                    new Pulumi.Alias { Type = "azure-native:powerbidedicated/latest:AutoScaleVCore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/latest:AutoScaleVCore"},
                     new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:AutoScaleVCore"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/v20210101:AutoScaleVCore"},
                 },

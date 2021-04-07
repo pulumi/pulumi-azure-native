@@ -50,12 +50,6 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:OperationByProviderRegistration"),
 		},
-		{
-			Type: pulumi.String("azure-native:providerhub/latest:OperationByProviderRegistration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:OperationByProviderRegistration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource OperationByProviderRegistration

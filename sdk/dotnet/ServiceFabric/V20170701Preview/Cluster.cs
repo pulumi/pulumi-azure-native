@@ -207,8 +207,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20180201:Cluster"},

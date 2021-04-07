@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.ContainerService.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20200701:PrivateEndpointConnection"},

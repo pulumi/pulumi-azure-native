@@ -61,12 +61,6 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteSourceControl"),
 		},
 		{

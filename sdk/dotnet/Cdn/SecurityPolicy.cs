@@ -75,8 +75,6 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:SecurityPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/latest:SecurityPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:SecurityPolicy"},
                 },

@@ -75,12 +75,6 @@ func NewBuildTask(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerregistry:BuildTask"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerregistry/latest:BuildTask"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/latest:BuildTask"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20180901:BuildTask"),
 		},
 		{

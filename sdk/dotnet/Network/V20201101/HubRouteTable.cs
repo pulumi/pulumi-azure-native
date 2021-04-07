@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:HubRouteTable"},

@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientUser"},

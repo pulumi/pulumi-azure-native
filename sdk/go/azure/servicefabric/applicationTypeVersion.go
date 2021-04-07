@@ -58,12 +58,6 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationTypeVersion"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicefabric/latest:ApplicationTypeVersion"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/latest:ApplicationTypeVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"),
 		},
 		{

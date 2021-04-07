@@ -138,8 +138,6 @@ namespace Pulumi.AzureNative.DevTestLab
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:CustomImage"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:CustomImage"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:CustomImage"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:CustomImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:CustomImage"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImage"},

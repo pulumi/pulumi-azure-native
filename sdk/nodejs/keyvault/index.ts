@@ -20,7 +20,6 @@ export * from "./vault";
 export * from "../types/enums/keyvault";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150601 from "./v20150601";
 import * as v20161001 from "./v20161001";
 import * as v20180214 from "./v20180214";
@@ -29,7 +28,6 @@ import * as v20190901 from "./v20190901";
 import * as v20200401preview from "./v20200401preview";
 
 export {
-    latest,
     v20150601,
     v20161001,
     v20180214,

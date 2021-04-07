@@ -67,12 +67,6 @@ func NewNotificationHub(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHub"),
 		},
 		{
-			Type: pulumi.String("azure-native:notificationhubs/latest:NotificationHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:notificationhubs/latest:NotificationHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:notificationhubs/v20140901:NotificationHub"),
 		},
 		{

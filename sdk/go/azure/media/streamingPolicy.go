@@ -54,12 +54,6 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:StreamingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:StreamingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:StreamingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:StreamingPolicy"),
 		},
 		{

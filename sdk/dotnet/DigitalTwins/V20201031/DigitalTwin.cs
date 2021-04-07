@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/latest:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwin"},

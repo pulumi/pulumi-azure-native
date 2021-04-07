@@ -94,7 +94,7 @@ class Job(pulumi.CustomResource):
             __props__['status'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databox/v20210301:Job"), pulumi.Alias(type_="azure-native:databox:Job"), pulumi.Alias(type_="azure-nextgen:databox:Job"), pulumi.Alias(type_="azure-native:databox/latest:Job"), pulumi.Alias(type_="azure-nextgen:databox/latest:Job"), pulumi.Alias(type_="azure-native:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-native:databox/v20190901:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20190901:Job"), pulumi.Alias(type_="azure-native:databox/v20200401:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job"), pulumi.Alias(type_="azure-native:databox/v20201101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20201101:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databox/v20210301:Job"), pulumi.Alias(type_="azure-native:databox:Job"), pulumi.Alias(type_="azure-nextgen:databox:Job"), pulumi.Alias(type_="azure-native:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-native:databox/v20190901:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20190901:Job"), pulumi.Alias(type_="azure-native:databox/v20200401:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job"), pulumi.Alias(type_="azure-native:databox/v20201101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20201101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:databox/v20210301:Job',

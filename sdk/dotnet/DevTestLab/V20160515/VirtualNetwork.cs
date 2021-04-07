@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualNetwork"},

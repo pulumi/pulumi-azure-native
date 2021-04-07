@@ -114,8 +114,6 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:AttestationAtSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:AttestationAtSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:AttestationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20210101:AttestationAtSubscription"},
                 },

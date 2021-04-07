@@ -36,7 +36,6 @@ export * from "./user";
 export * from "../types/enums/databoxedge";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20190301 from "./v20190301";
 import * as v20190701 from "./v20190701";
 import * as v20190801 from "./v20190801";
@@ -46,7 +45,6 @@ import * as v20200901preview from "./v20200901preview";
 import * as v20201201 from "./v20201201";
 
 export {
-    latest,
     v20190301,
     v20190701,
     v20190801,

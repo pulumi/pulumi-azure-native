@@ -64,12 +64,6 @@ func NewAttestationAtResourceGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights:AttestationAtResourceGroup"),
 		},
-		{
-			Type: pulumi.String("azure-native:policyinsights/latest:AttestationAtResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/latest:AttestationAtResourceGroup"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AttestationAtResourceGroup

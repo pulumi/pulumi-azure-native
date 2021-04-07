@@ -56,8 +56,6 @@ namespace Pulumi.AzureNative.ProviderHub
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:ResourceTypeRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:ResourceTypeRegistration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:ResourceTypeRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:ResourceTypeRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:ResourceTypeRegistration"},
                 },

@@ -64,12 +64,6 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
 		},
 		{

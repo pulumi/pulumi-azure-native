@@ -49,12 +49,6 @@ func NewProject(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:migrate:Project"),
 		},
-		{
-			Type: pulumi.String("azure-native:migrate/latest:Project"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:Project"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Project

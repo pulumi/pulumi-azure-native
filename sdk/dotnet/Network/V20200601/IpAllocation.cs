@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation"},

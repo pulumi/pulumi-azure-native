@@ -58,12 +58,6 @@ func NewSecret(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:Secret"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:Secret"),
 		},
 		{

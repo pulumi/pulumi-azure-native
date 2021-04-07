@@ -48,12 +48,6 @@ func NewConnectionGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web:ConnectionGateway"),
 		},
-		{
-			Type: pulumi.String("azure-native:web/latest:ConnectionGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:ConnectionGateway"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionGateway

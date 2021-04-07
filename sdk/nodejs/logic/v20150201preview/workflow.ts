@@ -145,7 +145,7 @@ export class Workflow extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150201preview:Workflow" }, { type: "azure-native:logic:Workflow" }, { type: "azure-nextgen:logic:Workflow" }, { type: "azure-native:logic/latest:Workflow" }, { type: "azure-nextgen:logic/latest:Workflow" }, { type: "azure-native:logic/v20160601:Workflow" }, { type: "azure-nextgen:logic/v20160601:Workflow" }, { type: "azure-native:logic/v20180701preview:Workflow" }, { type: "azure-nextgen:logic/v20180701preview:Workflow" }, { type: "azure-native:logic/v20190501:Workflow" }, { type: "azure-nextgen:logic/v20190501:Workflow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150201preview:Workflow" }, { type: "azure-native:logic:Workflow" }, { type: "azure-nextgen:logic:Workflow" }, { type: "azure-native:logic/v20160601:Workflow" }, { type: "azure-nextgen:logic/v20160601:Workflow" }, { type: "azure-native:logic/v20180701preview:Workflow" }, { type: "azure-nextgen:logic/v20180701preview:Workflow" }, { type: "azure-native:logic/v20190501:Workflow" }, { type: "azure-nextgen:logic/v20190501:Workflow" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workflow.__pulumiType, name, inputs, opts);
     }

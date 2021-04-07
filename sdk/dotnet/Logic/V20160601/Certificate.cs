@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:logic:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Certificate"},

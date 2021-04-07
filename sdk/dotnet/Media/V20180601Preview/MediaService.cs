@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:MediaService"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:MediaService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20151001:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:MediaService"},

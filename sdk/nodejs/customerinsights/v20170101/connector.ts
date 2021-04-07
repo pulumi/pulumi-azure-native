@@ -144,7 +144,7 @@ export class Connector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Connector" }, { type: "azure-native:customerinsights:Connector" }, { type: "azure-nextgen:customerinsights:Connector" }, { type: "azure-native:customerinsights/latest:Connector" }, { type: "azure-nextgen:customerinsights/latest:Connector" }, { type: "azure-native:customerinsights/v20170426:Connector" }, { type: "azure-nextgen:customerinsights/v20170426:Connector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Connector" }, { type: "azure-native:customerinsights:Connector" }, { type: "azure-nextgen:customerinsights:Connector" }, { type: "azure-native:customerinsights/v20170426:Connector" }, { type: "azure-nextgen:customerinsights/v20170426:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connector.__pulumiType, name, inputs, opts);
     }

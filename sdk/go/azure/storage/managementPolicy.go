@@ -47,12 +47,6 @@ func NewManagementPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:ManagementPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:ManagementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:ManagementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20180301preview:ManagementPolicy"),
 		},
 		{

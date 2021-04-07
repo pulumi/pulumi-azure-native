@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Hub"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Hub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Hub"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Hub"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Hub"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Hub"},

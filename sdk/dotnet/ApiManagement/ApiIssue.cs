@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssue"},

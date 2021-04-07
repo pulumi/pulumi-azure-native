@@ -68,12 +68,6 @@ func NewContainerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerinstance:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerinstance/latest:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/latest:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20171001preview:ContainerGroup"),
 		},
 		{

@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.DocumentDB
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:CassandraResourceCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:CassandraResourceCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:CassandraResourceCassandraTable"},

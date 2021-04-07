@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20200301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:azurestackhci/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20201001:Cluster"},
                 },

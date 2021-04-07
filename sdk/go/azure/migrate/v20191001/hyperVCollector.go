@@ -43,12 +43,6 @@ func NewHyperVCollector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:migrate:HyperVCollector"),
 		},
-		{
-			Type: pulumi.String("azure-native:migrate/latest:HyperVCollector"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:HyperVCollector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource HyperVCollector

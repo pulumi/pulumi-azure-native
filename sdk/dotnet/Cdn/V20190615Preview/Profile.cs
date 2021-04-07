@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/latest:Profile"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Profile"},

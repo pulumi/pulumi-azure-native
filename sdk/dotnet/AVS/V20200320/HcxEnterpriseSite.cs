@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.AVS.V20200320
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/latest:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},

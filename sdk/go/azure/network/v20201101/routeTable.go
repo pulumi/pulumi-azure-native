@@ -58,12 +58,6 @@ func NewRouteTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:RouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:RouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150501preview:RouteTable"),
 		},
 		{

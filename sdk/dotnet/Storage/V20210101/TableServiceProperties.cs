@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.Storage.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:TableServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:TableServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:TableServiceProperties"},

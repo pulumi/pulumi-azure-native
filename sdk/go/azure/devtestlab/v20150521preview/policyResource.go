@@ -66,12 +66,6 @@ func NewPolicyResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:PolicyResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:PolicyResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:PolicyResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:PolicyResource"),
 		},
 		{

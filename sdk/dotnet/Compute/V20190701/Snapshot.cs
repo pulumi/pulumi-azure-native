@@ -145,8 +145,6 @@ namespace Pulumi.AzureNative.Compute.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20170330:Snapshot"},

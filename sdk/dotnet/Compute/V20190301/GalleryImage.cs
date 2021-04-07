@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.Compute.V20190301
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-native:compute:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage"},

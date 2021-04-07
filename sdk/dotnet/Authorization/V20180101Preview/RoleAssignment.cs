@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/latest:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},

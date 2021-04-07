@@ -50,12 +50,6 @@ func NewIotHubResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devices:IotHubResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devices/latest:IotHubResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/latest:IotHubResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20160203:IotHubResource"),
 		},
 		{

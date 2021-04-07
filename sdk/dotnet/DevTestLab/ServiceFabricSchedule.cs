@@ -132,8 +132,6 @@ namespace Pulumi.AzureNative.DevTestLab
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceFabricSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ServiceFabricSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:ServiceFabricSchedule"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabricSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule"},
                 },

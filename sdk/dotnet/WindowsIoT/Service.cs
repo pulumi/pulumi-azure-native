@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.WindowsIoT
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot:Service"},
-                    new Pulumi.Alias { Type = "azure-native:windowsiot/latest:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:windowsiot/latest:Service"},
                     new Pulumi.Alias { Type = "azure-native:windowsiot/v20180216preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20180216preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:windowsiot/v20190601:Service"},

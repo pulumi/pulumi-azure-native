@@ -87,7 +87,7 @@ class VNetPeering(pulumi.CustomResource):
             __props__['peering_state'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/latest:vNetPeering"), pulumi.Alias(type_="azure-nextgen:databricks/latest:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20180401:vNetPeering"), pulumi.Alias(type_="azure-nextgen:databricks/v20180401:vNetPeering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20180401:vNetPeering"), pulumi.Alias(type_="azure-nextgen:databricks/v20180401:vNetPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VNetPeering, __self__).__init__(
             'azure-native:databricks:vNetPeering',

@@ -127,7 +127,7 @@ export class CustomImageResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:CustomImageResource" }, { type: "azure-native:devtestlab:CustomImageResource" }, { type: "azure-nextgen:devtestlab:CustomImageResource" }, { type: "azure-native:devtestlab/latest:CustomImageResource" }, { type: "azure-nextgen:devtestlab/latest:CustomImageResource" }, { type: "azure-native:devtestlab/v20160515:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImageResource" }, { type: "azure-native:devtestlab/v20180915:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImageResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:CustomImageResource" }, { type: "azure-native:devtestlab:CustomImageResource" }, { type: "azure-nextgen:devtestlab:CustomImageResource" }, { type: "azure-native:devtestlab/v20160515:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImageResource" }, { type: "azure-native:devtestlab/v20180915:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImageResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomImageResource.__pulumiType, name, inputs, opts);
     }

@@ -14,12 +14,10 @@ export * from "./getBillingRoleAssignmentByEnrollmentAccount";
 export * from "./listBillingAccountInvoiceSectionsByCreateSubscriptionPermission";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20191001preview from "./v20191001preview";
 import * as v20200501 from "./v20200501";
 
 export {
-    latest,
     v20191001preview,
     v20200501,
 };

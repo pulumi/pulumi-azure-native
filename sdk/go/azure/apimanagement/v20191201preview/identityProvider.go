@@ -69,12 +69,6 @@ func NewIdentityProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:IdentityProvider"),
 		},
 		{

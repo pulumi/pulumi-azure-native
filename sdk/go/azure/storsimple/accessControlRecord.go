@@ -49,12 +49,6 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:AccessControlRecord"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:AccessControlRecord"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:AccessControlRecord"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20161001:AccessControlRecord"),
 		},
 		{

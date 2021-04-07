@@ -46,12 +46,6 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:ManagementLockAtResourceGroupLevel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"),
 		},
 		{

@@ -108,12 +108,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datalakeanalytics:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:datalakeanalytics/latest:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:datalakeanalytics/v20151001preview:Account"),
 		},
 		{

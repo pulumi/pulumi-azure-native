@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Credential"},
                     new Pulumi.Alias { Type = "azure-native:automation:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Credential"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:Credential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Credential"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Credential"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Credential"},

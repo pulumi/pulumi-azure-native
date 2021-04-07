@@ -28,13 +28,11 @@ export * from "./remediationAtSubscription";
 export * from "../types/enums/policyinsights";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20180701preview from "./v20180701preview";
 import * as v20190701 from "./v20190701";
 import * as v20210101 from "./v20210101";
 
 export {
-    latest,
     v20180701preview,
     v20190701,
     v20210101,

@@ -86,12 +86,6 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:logic:RosettaNetProcessConfiguration"),
 		},
-		{
-			Type: pulumi.String("azure-native:logic/latest:RosettaNetProcessConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:RosettaNetProcessConfiguration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource RosettaNetProcessConfiguration

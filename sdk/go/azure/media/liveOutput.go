@@ -69,12 +69,6 @@ func NewLiveOutput(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:LiveOutput"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:LiveOutput"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:LiveOutput"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:LiveOutput"),
 		},
 		{

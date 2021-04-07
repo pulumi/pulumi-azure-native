@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Insights.V20160301
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:AlertRule"},
                     new Pulumi.Alias { Type = "azure-native:insights:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AlertRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20140401:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AlertRule"},
                 },

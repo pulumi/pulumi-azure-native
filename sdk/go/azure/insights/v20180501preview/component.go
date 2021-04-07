@@ -109,12 +109,6 @@ func NewComponent(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:Component"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:Component"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:Component"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150501:Component"),
 		},
 		{

@@ -44,12 +44,6 @@ func NewWebAppAzureStorageAccounts(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppAzureStorageAccounts"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppAzureStorageAccounts"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppAzureStorageAccounts"),
 		},
 		{

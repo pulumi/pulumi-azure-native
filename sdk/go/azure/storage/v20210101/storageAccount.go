@@ -112,12 +112,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:StorageAccount"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:StorageAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:StorageAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20150501preview:StorageAccount"),
 		},
 		{

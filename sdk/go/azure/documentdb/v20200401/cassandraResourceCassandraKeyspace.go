@@ -57,12 +57,6 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:CassandraResourceCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace"),
 		},
 		{

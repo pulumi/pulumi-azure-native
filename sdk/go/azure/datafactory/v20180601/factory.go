@@ -64,12 +64,6 @@ func NewFactory(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datafactory:Factory"),
 		},
 		{
-			Type: pulumi.String("azure-native:datafactory/latest:Factory"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:Factory"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20170901preview:Factory"),
 		},
 		{

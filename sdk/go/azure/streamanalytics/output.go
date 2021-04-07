@@ -48,12 +48,6 @@ func NewOutput(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:streamanalytics:Output"),
 		},
 		{
-			Type: pulumi.String("azure-native:streamanalytics/latest:Output"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/latest:Output"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20160301:Output"),
 		},
 		{

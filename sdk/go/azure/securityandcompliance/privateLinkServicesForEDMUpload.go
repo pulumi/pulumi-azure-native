@@ -51,12 +51,6 @@ func NewPrivateLinkServicesForEDMUpload(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:privateLinkServicesForEDMUpload"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForEDMUpload"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"),
 		},
 		{

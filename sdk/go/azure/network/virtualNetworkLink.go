@@ -54,12 +54,6 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkLink"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualNetworkLink"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkLink"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180901:VirtualNetworkLink"),
 		},
 		{

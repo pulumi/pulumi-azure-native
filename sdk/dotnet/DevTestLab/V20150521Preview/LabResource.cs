@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:LabResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:LabResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:LabResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:LabResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:LabResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:LabResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:LabResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:LabResource"},

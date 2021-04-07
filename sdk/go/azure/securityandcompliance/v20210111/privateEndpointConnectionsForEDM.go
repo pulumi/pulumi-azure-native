@@ -56,12 +56,6 @@ func NewPrivateEndpointConnectionsForEDM(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForEDM"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM"),
 		},
 		{

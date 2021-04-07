@@ -84,12 +84,6 @@ func NewKpi(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Kpi"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Kpi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Kpi"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170101:Kpi"),
 		},
 		{

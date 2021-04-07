@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Peering.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20210101:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/latest:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn"},

@@ -47,12 +47,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:search:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:search/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:search/v20200313:PrivateEndpointConnection"),
 		},
 		{

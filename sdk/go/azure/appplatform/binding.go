@@ -45,12 +45,6 @@ func NewBinding(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:appplatform:Binding"),
 		},
 		{
-			Type: pulumi.String("azure-native:appplatform/latest:Binding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:appplatform/latest:Binding"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20190501preview:Binding"),
 		},
 		{

@@ -52,12 +52,6 @@ func NewBotConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:botservice:BotConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:botservice/latest:BotConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/latest:BotConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20171201:BotConnection"),
 		},
 		{

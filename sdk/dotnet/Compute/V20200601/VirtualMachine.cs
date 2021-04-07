@@ -211,8 +211,6 @@ namespace Pulumi.AzureNative.Compute.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachine"},

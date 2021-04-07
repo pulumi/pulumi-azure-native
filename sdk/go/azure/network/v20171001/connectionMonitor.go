@@ -76,12 +76,6 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171101:ConnectionMonitor"),
 		},
 		{

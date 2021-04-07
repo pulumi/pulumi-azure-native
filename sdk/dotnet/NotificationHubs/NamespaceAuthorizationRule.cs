@@ -126,8 +126,6 @@ namespace Pulumi.AzureNative.NotificationHubs
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule"},

@@ -56,12 +56,6 @@ func NewSiteMetadataSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteMetadataSlot"),
 		},
 		{

@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountSqlContainer"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountSqlContainer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer"},

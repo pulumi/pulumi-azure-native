@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:VolumeContainer"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:VolumeContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:VolumeContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:VolumeContainer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:VolumeContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

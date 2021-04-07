@@ -55,12 +55,6 @@ func NewSiteSlotConfigNames(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteSlotConfigNames"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteSlotConfigNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteSlotConfigNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteSlotConfigNames"),
 		},
 		{

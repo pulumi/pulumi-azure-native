@@ -132,8 +132,6 @@ namespace Pulumi.AzureNative.DevTestLab
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ArtifactSource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ArtifactSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSource"},

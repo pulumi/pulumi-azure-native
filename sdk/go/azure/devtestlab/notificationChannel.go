@@ -60,12 +60,6 @@ func NewNotificationChannel(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:NotificationChannel"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:NotificationChannel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:NotificationChannel"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:NotificationChannel"),
 		},
 		{

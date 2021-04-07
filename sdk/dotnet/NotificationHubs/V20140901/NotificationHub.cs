@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:NotificationHub"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:NotificationHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHub"},

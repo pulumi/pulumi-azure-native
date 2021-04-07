@@ -64,12 +64,6 @@ func NewApiIssue(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssue"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiIssue"),
 		},
 		{

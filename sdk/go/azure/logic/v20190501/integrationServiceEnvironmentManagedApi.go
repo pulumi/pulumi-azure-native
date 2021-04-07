@@ -50,12 +50,6 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"),
 		},
-		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationServiceEnvironmentManagedApi

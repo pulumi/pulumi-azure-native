@@ -147,7 +147,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs:Namespace" }, { type: "azure-nextgen:notificationhubs:Namespace" }, { type: "azure-native:notificationhubs/latest:Namespace" }, { type: "azure-nextgen:notificationhubs/latest:Namespace" }, { type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-nextgen:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-nextgen:notificationhubs/v20170401:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs:Namespace" }, { type: "azure-nextgen:notificationhubs:Namespace" }, { type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-nextgen:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-nextgen:notificationhubs/v20170401:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, inputs, opts);
     }

@@ -14,14 +14,12 @@ export * from "./sourceControlConfiguration";
 export * from "../types/enums/kubernetesconfiguration";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20191101preview from "./v20191101preview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210301 from "./v20210301";
 
 export {
-    latest,
     v20191101preview,
     v20200701preview,
     v20201001preview,

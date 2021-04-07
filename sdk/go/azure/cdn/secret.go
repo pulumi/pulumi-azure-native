@@ -47,12 +47,6 @@ func NewSecret(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:Secret"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:Secret"),
 		},
 		{

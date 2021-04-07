@@ -100,8 +100,6 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
                     new Pulumi.Alias { Type = "azure-nextgen:devspaces/v20190401:Controller"},
                     new Pulumi.Alias { Type = "azure-native:devspaces:Controller"},
                     new Pulumi.Alias { Type = "azure-nextgen:devspaces:Controller"},
-                    new Pulumi.Alias { Type = "azure-native:devspaces/latest:Controller"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devspaces/latest:Controller"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

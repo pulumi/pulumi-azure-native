@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Factory"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:Factory"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:Factory"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Factory"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Factory"},
                 },

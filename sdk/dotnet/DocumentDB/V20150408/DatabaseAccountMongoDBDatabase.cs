@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase"},

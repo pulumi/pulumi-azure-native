@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:StorageAccountCredential"},

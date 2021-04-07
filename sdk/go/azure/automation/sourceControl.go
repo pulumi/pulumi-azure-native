@@ -58,12 +58,6 @@ func NewSourceControl(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:SourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:SourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:SourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20170515preview:SourceControl"),
 		},
 		{

@@ -62,12 +62,6 @@ func NewFavorite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:Favorite"),
 		},
-		{
-			Type: pulumi.String("azure-native:insights/latest:Favorite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:Favorite"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Favorite

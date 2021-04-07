@@ -64,7 +64,7 @@ class SecurityPolicy(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn:SecurityPolicy"), pulumi.Alias(type_="azure-nextgen:cdn:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/latest:SecurityPolicy"), pulumi.Alias(type_="azure-nextgen:cdn/latest:SecurityPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn:SecurityPolicy"), pulumi.Alias(type_="azure-nextgen:cdn:SecurityPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityPolicy, __self__).__init__(
             'azure-native:cdn/v20200901:SecurityPolicy',

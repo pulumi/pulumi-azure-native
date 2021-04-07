@@ -93,7 +93,7 @@ export class MediaService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180701:MediaService" }, { type: "azure-native:media:MediaService" }, { type: "azure-nextgen:media:MediaService" }, { type: "azure-native:media/latest:MediaService" }, { type: "azure-nextgen:media/latest:MediaService" }, { type: "azure-native:media/v20151001:MediaService" }, { type: "azure-nextgen:media/v20151001:MediaService" }, { type: "azure-native:media/v20180330preview:MediaService" }, { type: "azure-nextgen:media/v20180330preview:MediaService" }, { type: "azure-native:media/v20180601preview:MediaService" }, { type: "azure-nextgen:media/v20180601preview:MediaService" }, { type: "azure-native:media/v20200501:MediaService" }, { type: "azure-nextgen:media/v20200501:MediaService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180701:MediaService" }, { type: "azure-native:media:MediaService" }, { type: "azure-nextgen:media:MediaService" }, { type: "azure-native:media/v20151001:MediaService" }, { type: "azure-nextgen:media/v20151001:MediaService" }, { type: "azure-native:media/v20180330preview:MediaService" }, { type: "azure-nextgen:media/v20180330preview:MediaService" }, { type: "azure-native:media/v20180601preview:MediaService" }, { type: "azure-nextgen:media/v20180601preview:MediaService" }, { type: "azure-native:media/v20200501:MediaService" }, { type: "azure-nextgen:media/v20200501:MediaService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MediaService.__pulumiType, name, inputs, opts);
     }

@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:FirewallRule"},

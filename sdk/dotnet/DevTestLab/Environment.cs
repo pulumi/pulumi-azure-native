@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.DevTestLab
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Environment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Environment"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Environment"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Environment"},

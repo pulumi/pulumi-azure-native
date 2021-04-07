@@ -59,12 +59,6 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:RedisLinkedServer"),
 		},
 		{
-			Type: pulumi.String("azure-native:cache/latest:RedisLinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/latest:RedisLinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20171001:RedisLinkedServer"),
 		},
 		{

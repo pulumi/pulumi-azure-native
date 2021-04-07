@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-native:network:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:RulesEngine"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:RulesEngine"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},

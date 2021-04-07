@@ -76,12 +76,6 @@ func NewBackupInstance(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dataprotection:BackupInstance"),
 		},
 		{
-			Type: pulumi.String("azure-native:dataprotection/latest:BackupInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/latest:BackupInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupInstance"),
 		},
 		{

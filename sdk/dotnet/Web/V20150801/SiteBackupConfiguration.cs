@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteBackupConfiguration"},

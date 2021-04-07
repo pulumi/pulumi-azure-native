@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable"},

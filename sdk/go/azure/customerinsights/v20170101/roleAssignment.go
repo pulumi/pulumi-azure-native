@@ -88,12 +88,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:RoleAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:RoleAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:RoleAssignment"),
 		},
 		{

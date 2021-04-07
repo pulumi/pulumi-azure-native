@@ -61,12 +61,6 @@ func NewJobSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:JobSchedule"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:JobSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:JobSchedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:JobSchedule"),
 		},
 		{

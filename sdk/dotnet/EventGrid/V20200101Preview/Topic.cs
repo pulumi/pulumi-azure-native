@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:Topic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},

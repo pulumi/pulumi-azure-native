@@ -73,12 +73,6 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformariadb:Server"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformariadb/latest:Server"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/latest:Server"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601:Server"),
 		},
 		{

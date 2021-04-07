@@ -55,12 +55,6 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppPublicCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppPublicCertificate"),
 		},
 		{

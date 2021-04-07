@@ -55,12 +55,6 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountTable"),
 		},
 		{

@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"},
                 },

@@ -112,8 +112,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210201preview:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/latest:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/latest:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210101:BackupInstance"},
                 },

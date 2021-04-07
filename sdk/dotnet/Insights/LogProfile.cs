@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:LogProfile"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:LogProfile"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:LogProfile"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20160301:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:LogProfile"},
                 },

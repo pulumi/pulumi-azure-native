@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql:GeoBackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:GeoBackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:GeoBackupPolicy"},
                 },

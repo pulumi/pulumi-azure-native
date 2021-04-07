@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210101preview:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig"},

@@ -52,12 +52,6 @@ func NewLinkedService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datafactory:LinkedService"),
 		},
 		{
-			Type: pulumi.String("azure-native:datafactory/latest:LinkedService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:LinkedService"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20170901preview:LinkedService"),
 		},
 		{

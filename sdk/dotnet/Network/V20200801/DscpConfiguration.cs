@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.Network.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:DscpConfiguration"},

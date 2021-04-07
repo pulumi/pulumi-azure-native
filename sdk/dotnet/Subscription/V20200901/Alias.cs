@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.Subscription.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/v20200901:Alias"},
                     new Pulumi.Alias { Type = "azure-native:subscription:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription:Alias"},
-                    new Pulumi.Alias { Type = "azure-native:subscription/latest:Alias"},
-                    new Pulumi.Alias { Type = "azure-nextgen:subscription/latest:Alias"},
                     new Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/v20191001preview:Alias"},
                 },

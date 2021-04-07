@@ -67,12 +67,6 @@ func NewSiteVNETConnectionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteVNETConnectionSlot"),
 		},
 		{

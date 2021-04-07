@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkPeering"},

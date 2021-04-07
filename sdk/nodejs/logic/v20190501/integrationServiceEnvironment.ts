@@ -93,7 +93,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironment" }, { type: "azure-native:logic:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic:IntegrationServiceEnvironment" }, { type: "azure-native:logic/latest:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironment" }, { type: "azure-native:logic:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic:IntegrationServiceEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationServiceEnvironment.__pulumiType, name, inputs, opts);
     }

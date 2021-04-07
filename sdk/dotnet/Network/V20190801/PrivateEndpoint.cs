@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Network.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:PrivateEndpoint"},

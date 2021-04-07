@@ -91,12 +91,6 @@ func NewRegisteredServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagesync:RegisteredServer"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagesync/latest:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/latest:RegisteredServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:RegisteredServer"),
 		},
 		{

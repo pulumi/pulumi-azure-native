@@ -61,12 +61,6 @@ func NewConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Connection"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Connection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Connection"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:Connection"),
 		},
 		{

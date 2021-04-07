@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:storagesync:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/latest:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:SyncGroup"},

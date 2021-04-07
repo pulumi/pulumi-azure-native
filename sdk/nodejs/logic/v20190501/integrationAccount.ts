@@ -99,7 +99,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationAccount" }, { type: "azure-native:logic:IntegrationAccount" }, { type: "azure-nextgen:logic:IntegrationAccount" }, { type: "azure-native:logic/latest:IntegrationAccount" }, { type: "azure-nextgen:logic/latest:IntegrationAccount" }, { type: "azure-native:logic/v20150801preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccount" }, { type: "azure-native:logic/v20160601:IntegrationAccount" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccount" }, { type: "azure-native:logic/v20180701preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationAccount" }, { type: "azure-native:logic:IntegrationAccount" }, { type: "azure-nextgen:logic:IntegrationAccount" }, { type: "azure-native:logic/v20150801preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccount" }, { type: "azure-native:logic/v20160601:IntegrationAccount" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccount" }, { type: "azure-native:logic/v20180701preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccount.__pulumiType, name, inputs, opts);
     }

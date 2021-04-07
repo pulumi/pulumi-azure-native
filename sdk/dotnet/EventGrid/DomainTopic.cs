@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.EventGrid
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:DomainTopic"},

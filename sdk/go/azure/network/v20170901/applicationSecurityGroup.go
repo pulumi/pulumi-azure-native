@@ -52,12 +52,6 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ApplicationSecurityGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ApplicationSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ApplicationSecurityGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171001:ApplicationSecurityGroup"),
 		},
 		{

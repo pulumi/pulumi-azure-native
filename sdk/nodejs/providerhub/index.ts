@@ -27,11 +27,9 @@ export * from "./skusNestedResourceTypeThird";
 export * from "../types/enums/providerhub";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20201120 from "./v20201120";
 
 export {
-    latest,
     v20201120,
 };
 

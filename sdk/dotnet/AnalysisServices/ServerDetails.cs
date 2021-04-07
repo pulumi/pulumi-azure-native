@@ -132,8 +132,6 @@ namespace Pulumi.AzureNative.AnalysisServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-native:analysisservices/latest:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/latest:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},

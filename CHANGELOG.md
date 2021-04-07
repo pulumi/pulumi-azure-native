@@ -3,7 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-None
+#### Breaking Changes
+
+- All `*/latest` modules are now removed. They have been deprecated since 0.7.0. If you are migrating 
+  from earlier versions, first upgrade to 0.8.0, replace all resources from `latest` modules with their
+  counterparts in top-level unnamed modules, apply the change with `pulumi up`, and then upgrade to 0.9.0+.
+  [#712](https://github.com/pulumi/pulumi-azure-native/issues/712)
 
 ---
 

@@ -51,7 +51,6 @@ export * from "./tableResourceTable";
 export * from "../types/enums/documentdb";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20150401 from "./v20150401";
 import * as v20150408 from "./v20150408";
 import * as v20151106 from "./v20151106";
@@ -69,7 +68,6 @@ import * as v20210301preview from "./v20210301preview";
 import * as v20210315 from "./v20210315";
 
 export {
-    latest,
     v20150401,
     v20150408,
     v20151106,

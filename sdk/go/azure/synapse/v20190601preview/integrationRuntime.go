@@ -52,12 +52,6 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:IntegrationRuntime"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:IntegrationRuntime"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:IntegrationRuntime"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:IntegrationRuntime"),
 		},
 		{

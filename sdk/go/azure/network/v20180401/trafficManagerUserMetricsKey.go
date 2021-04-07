@@ -40,12 +40,6 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:TrafficManagerUserMetricsKey"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:TrafficManagerUserMetricsKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:TrafficManagerUserMetricsKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:TrafficManagerUserMetricsKey"),
 		},
 		{

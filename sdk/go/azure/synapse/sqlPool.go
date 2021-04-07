@@ -66,12 +66,6 @@ func NewSqlPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:SqlPool"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPool"),
 		},
 		{

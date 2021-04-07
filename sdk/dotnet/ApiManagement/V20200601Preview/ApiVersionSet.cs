@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiVersionSet"},

@@ -50,12 +50,6 @@ func NewExperiment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batchai:Experiment"),
 		},
-		{
-			Type: pulumi.String("azure-native:batchai/latest:Experiment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Experiment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Experiment

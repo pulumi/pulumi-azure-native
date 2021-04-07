@@ -53,12 +53,6 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:botservice:EnterpriseChannel"),
 		},
-		{
-			Type: pulumi.String("azure-native:botservice/latest:EnterpriseChannel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/latest:EnterpriseChannel"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseChannel

@@ -66,12 +66,6 @@ func NewServerFarmRouteForVnet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:ServerFarmRouteForVnet"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:ServerFarmRouteForVnet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:ServerFarmRouteForVnet"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160901:ServerFarmRouteForVnet"),
 		},
 		{

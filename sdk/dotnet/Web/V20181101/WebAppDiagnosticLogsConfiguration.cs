@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration"},

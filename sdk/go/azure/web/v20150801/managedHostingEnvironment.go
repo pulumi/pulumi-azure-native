@@ -109,12 +109,6 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:ManagedHostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160901:ManagedHostingEnvironment"),
 		},
 		{

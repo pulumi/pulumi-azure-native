@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Workbook"},
                     new Pulumi.Alias { Type = "azure-native:insights:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:Workbook"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:Workbook"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Workbook"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180617preview:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180617preview:Workbook"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20201020:Workbook"},

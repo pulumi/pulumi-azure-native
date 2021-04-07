@@ -59,12 +59,6 @@ func NewLinkedServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:LinkedServer"),
 		},
 		{
-			Type: pulumi.String("azure-native:cache/latest:LinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/latest:LinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20170201:LinkedServer"),
 		},
 		{

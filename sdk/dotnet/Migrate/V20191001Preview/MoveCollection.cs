@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001preview:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-native:migrate:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:MoveCollection"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/latest:MoveCollection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20210101:MoveCollection"},
                 },

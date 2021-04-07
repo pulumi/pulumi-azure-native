@@ -95,12 +95,6 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:certificateregistration:AppServiceCertificateOrder"),
 		},
 		{
-			Type: pulumi.String("azure-native:certificateregistration/latest:AppServiceCertificateOrder"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"),
 		},
 		{

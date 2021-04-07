@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Resources.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:resources:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-native:resources/latest:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20151101:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20160201:ResourceGroup"},

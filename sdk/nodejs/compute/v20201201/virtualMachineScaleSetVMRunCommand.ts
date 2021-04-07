@@ -155,7 +155,7 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVMRunCommand.__pulumiType, name, inputs, opts);
     }

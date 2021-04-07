@@ -63,12 +63,6 @@ func NewOriginGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:OriginGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:OriginGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:OriginGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200331:OriginGroup"),
 		},
 		{

@@ -37,12 +37,6 @@ func NewProviderRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:ProviderRegistration"),
 		},
-		{
-			Type: pulumi.String("azure-native:providerhub/latest:ProviderRegistration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:ProviderRegistration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ProviderRegistration

@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Subscription"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:Subscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription"},

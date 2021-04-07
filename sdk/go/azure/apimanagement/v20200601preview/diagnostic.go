@@ -66,12 +66,6 @@ func NewDiagnostic(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Diagnostic"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Diagnostic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Diagnostic"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Diagnostic"),
 		},
 		{

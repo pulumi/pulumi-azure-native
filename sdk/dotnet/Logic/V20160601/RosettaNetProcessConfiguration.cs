@@ -127,8 +127,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:RosettaNetProcessConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:RosettaNetProcessConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:RosettaNetProcessConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -54,12 +54,6 @@ func NewIpGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:IpGroup"),
 		},
 		{

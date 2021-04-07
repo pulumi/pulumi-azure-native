@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppFunction"},

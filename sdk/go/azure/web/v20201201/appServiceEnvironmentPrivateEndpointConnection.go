@@ -53,12 +53,6 @@ func NewAppServiceEnvironmentPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web:AppServiceEnvironmentPrivateEndpointConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:web/latest:AppServiceEnvironmentPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:AppServiceEnvironmentPrivateEndpointConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceEnvironmentPrivateEndpointConnection

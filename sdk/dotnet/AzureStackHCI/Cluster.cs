@@ -168,8 +168,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:azurestackhci/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster"},

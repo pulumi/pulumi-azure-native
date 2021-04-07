@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201preview:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20170701:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20170701:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionIntent"},

@@ -47,12 +47,6 @@ func NewWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppApplicationSettingsSlot"),
 		},
 		{

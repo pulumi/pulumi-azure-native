@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:storagesync:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/latest:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:CloudEndpoint"},

@@ -66,7 +66,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/latest:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/latest:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:WorkspaceSqlAadAdmin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:WorkspaceSqlAadAdmin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceSqlAadAdmin, __self__).__init__(
             'azure-native:synapse:WorkspaceSqlAadAdmin',

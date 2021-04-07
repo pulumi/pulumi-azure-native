@@ -44,7 +44,6 @@ export * from "./vault";
 export * from "../types/enums/recoveryservices";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20160601 from "./v20160601";
 import * as v20160810 from "./v20160810";
 import * as v20161201 from "./v20161201";
@@ -61,7 +60,6 @@ import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 
 export {
-    latest,
     v20160601,
     v20160810,
     v20161201,

@@ -59,12 +59,6 @@ func NewAttestationProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:attestation:AttestationProvider"),
 		},
 		{
-			Type: pulumi.String("azure-native:attestation/latest:AttestationProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:attestation/latest:AttestationProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:attestation/v20180901preview:AttestationProvider"),
 		},
 		{

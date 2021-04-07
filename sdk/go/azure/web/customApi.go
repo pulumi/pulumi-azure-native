@@ -45,12 +45,6 @@ func NewCustomApi(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:CustomApi"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:CustomApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:CustomApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160601:CustomApi"),
 		},
 		{

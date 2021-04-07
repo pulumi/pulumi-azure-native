@@ -21,7 +21,6 @@ export * from "./pool";
 export * from "../types/enums/batch";
 
 // Export sub-modules:
-import * as latest from "./latest";
 import * as v20151201 from "./v20151201";
 import * as v20170101 from "./v20170101";
 import * as v20170501 from "./v20170501";
@@ -35,7 +34,6 @@ import * as v20200901 from "./v20200901";
 import * as v20210101 from "./v20210101";
 
 export {
-    latest,
     v20151201,
     v20170101,
     v20170501,

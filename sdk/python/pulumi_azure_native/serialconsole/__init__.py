@@ -9,7 +9,6 @@ from .serial_port import *
 
 # Make subpackages available:
 from . import (
-    latest,
     v20180501,
 )
 

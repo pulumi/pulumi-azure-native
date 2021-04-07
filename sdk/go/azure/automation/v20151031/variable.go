@@ -58,12 +58,6 @@ func NewVariable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Variable"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Variable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Variable"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20190601:Variable"),
 		},
 		{

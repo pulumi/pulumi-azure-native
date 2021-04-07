@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"},

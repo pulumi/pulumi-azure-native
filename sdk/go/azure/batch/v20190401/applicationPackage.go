@@ -60,12 +60,6 @@ func NewApplicationPackage(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:batch:ApplicationPackage"),
 		},
 		{
-			Type: pulumi.String("azure-native:batch/latest:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch/latest:ApplicationPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20151201:ApplicationPackage"),
 		},
 		{

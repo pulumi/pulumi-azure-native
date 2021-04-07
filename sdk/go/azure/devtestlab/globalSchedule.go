@@ -63,12 +63,6 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:GlobalSchedule"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:GlobalSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:GlobalSchedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:GlobalSchedule"),
 		},
 		{

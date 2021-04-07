@@ -43,12 +43,6 @@ func NewDefaultRollout(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:DefaultRollout"),
 		},
-		{
-			Type: pulumi.String("azure-native:providerhub/latest:DefaultRollout"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:DefaultRollout"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DefaultRollout

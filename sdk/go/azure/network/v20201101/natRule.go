@@ -61,12 +61,6 @@ func NewNatRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NatRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:NatRule"),
 		},
 		{

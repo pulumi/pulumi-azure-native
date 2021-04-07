@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:BastionHost"},
                     new Pulumi.Alias { Type = "azure-native:network:BastionHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:BastionHost"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:BastionHost"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:BastionHost"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190401:BastionHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:BastionHost"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190601:BastionHost"},

@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ServerAzureADAdministrator"},

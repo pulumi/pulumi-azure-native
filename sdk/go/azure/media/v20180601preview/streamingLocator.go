@@ -69,12 +69,6 @@ func NewStreamingLocator(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:StreamingLocator"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:StreamingLocator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:StreamingLocator"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:StreamingLocator"),
 		},
 		{

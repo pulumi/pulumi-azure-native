@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:IpGroup"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:IpGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:IpGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190901:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:IpGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191101:IpGroup"},

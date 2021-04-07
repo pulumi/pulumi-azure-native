@@ -52,12 +52,6 @@ func NewHubRouteTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:HubRouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:HubRouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:HubRouteTable"),
 		},
 		{

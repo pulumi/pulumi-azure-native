@@ -50,12 +50,6 @@ func NewTagByApi(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByApi"),
 		},
 		{

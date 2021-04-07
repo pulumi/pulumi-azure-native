@@ -54,12 +54,6 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:MongoDBResourceMongoDBDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:MongoDBResourceMongoDBDatabase"),
 		},
 		{

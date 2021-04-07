@@ -49,12 +49,6 @@ func NewHyperVSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:offazure:HyperVSite"),
 		},
 		{
-			Type: pulumi.String("azure-native:offazure/latest:HyperVSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:offazure/latest:HyperVSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:offazure/v20200707:HyperVSite"),
 		},
 		{

@@ -59,12 +59,6 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:ExpressRouteGateway"),
 		},
 		{

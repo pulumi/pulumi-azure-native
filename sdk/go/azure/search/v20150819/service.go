@@ -72,12 +72,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:search:Service"),
 		},
 		{
-			Type: pulumi.String("azure-native:search/latest:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search/latest:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:search/v20191001preview:Service"),
 		},
 		{

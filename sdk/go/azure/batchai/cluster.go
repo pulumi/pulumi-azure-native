@@ -80,12 +80,6 @@ func NewCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:batchai:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-native:batchai/latest:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:batchai/v20180501:Cluster"),
 		},
 		{

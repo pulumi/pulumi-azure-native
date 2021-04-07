@@ -51,12 +51,6 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:security:JitNetworkAccessPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:security/latest:JitNetworkAccessPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/latest:JitNetworkAccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20150601preview:JitNetworkAccessPolicy"),
 		},
 		{

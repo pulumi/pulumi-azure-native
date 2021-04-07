@@ -76,12 +76,6 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:ScheduledQueryRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:ScheduledQueryRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:ScheduledQueryRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20200501preview:ScheduledQueryRule"),
 		},
 		{

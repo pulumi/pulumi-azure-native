@@ -46,12 +46,6 @@ func NewWebService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:machinelearning:WebService"),
 		},
 		{
-			Type: pulumi.String("azure-native:machinelearning/latest:WebService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearning/latest:WebService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearning/v20160501preview:WebService"),
 		},
 		{

@@ -83,12 +83,6 @@ func NewConnectedCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:kubernetes:ConnectedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-native:kubernetes/latest:ConnectedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kubernetes/latest:ConnectedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetes/v20210301:ConnectedCluster"),
 		},
 		{

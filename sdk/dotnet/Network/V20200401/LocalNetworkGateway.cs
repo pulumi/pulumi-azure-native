@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160330:LocalNetworkGateway"},

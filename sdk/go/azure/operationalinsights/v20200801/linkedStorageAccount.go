@@ -49,12 +49,6 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:operationalinsights:LinkedStorageAccount"),
 		},
 		{
-			Type: pulumi.String("azure-native:operationalinsights/latest:LinkedStorageAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/latest:LinkedStorageAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"),
 		},
 		{

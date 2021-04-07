@@ -63,18 +63,9 @@ func AllVersions() AzureProviders {
 	}
 
 	for providerName, versionMap := range providers {
-		// Add a `latest` (stable) version for each resource and invoke.
-		latestResources := versionChecker.calculateLatestVersions(providerName, versionMap, false /* invokes */, false /* preview */)
-		latestInvokes := versionChecker.calculateLatestVersions(providerName, versionMap, true /* invokes */, false /* preview */)
-
 		// Add a default version for each resource and invoke.
-		defaultResources := versionChecker.calculateLatestVersions(providerName, versionMap, false /* invokes */, true /* preview */)
-		defaultInvokes := versionChecker.calculateLatestVersions(providerName, versionMap, true /* invokes */, true /* preview */)
-
-		versionMap["latest"] = VersionResources{
-			Resources: latestResources,
-			Invokes:   latestInvokes,
-		}
+		defaultResources := versionChecker.calculateLatestVersions(providerName, versionMap, false /* invokes */)
+		defaultInvokes := versionChecker.calculateLatestVersions(providerName, versionMap, true /* invokes */)
 		versionMap[""] = VersionResources{
 			Resources: defaultResources,
 			Invokes:   defaultInvokes,

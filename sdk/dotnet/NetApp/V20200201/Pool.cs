@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.NetApp.V20200201
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Pool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Pool"},

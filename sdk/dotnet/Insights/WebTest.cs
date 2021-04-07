@@ -138,8 +138,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:WebTest"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:WebTest"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:WebTest"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:WebTest"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest"},

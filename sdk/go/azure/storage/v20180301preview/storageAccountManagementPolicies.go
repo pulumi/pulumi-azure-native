@@ -49,12 +49,6 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:StorageAccountManagementPolicies"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:StorageAccountManagementPolicies"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:StorageAccountManagementPolicies"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20181101:StorageAccountManagementPolicies"),
 		},
 		{
