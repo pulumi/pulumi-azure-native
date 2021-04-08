@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'BlobAuditingPolicyState',
     'IdentityType',
     'ManagedInstanceLicenseType',
     'ManagedInstanceProxyOverride',
@@ -16,6 +17,14 @@ __all__ = [
     'SyncDirection',
     'SyncMemberDbType',
 ]
+
+
+class BlobAuditingPolicyState(str, Enum):
+    """
+    Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class IdentityType(str, Enum):

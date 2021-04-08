@@ -4,8 +4,10 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .backup_short_term_retention_policy import *
 from .database import *
 from .elastic_pool import *
+from .get_backup_short_term_retention_policy import *
 from .get_database import *
 from .get_elastic_pool import *
 from .get_instance_failover_group import *
@@ -31,7 +33,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:sql/v20171001preview:Database":
+            if typ == "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy":
+                return BackupShortTermRetentionPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20171001preview:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20171001preview:ElasticPool":
                 return ElasticPool(name, pulumi.ResourceOptions(urn=urn))

@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'BlobAuditingPolicyState',
     'CatalogCollationType',
     'CreateMode',
     'JobScheduleType',
@@ -16,8 +17,17 @@ __all__ = [
     'ManagedDatabaseCreateMode',
     'ManagedInstanceAdministratorType',
     'SampleName',
+    'SecurityAlertPolicyState',
     'SensitivityLabelRank',
 ]
+
+
+class BlobAuditingPolicyState(str, Enum):
+    """
+    Specifies the state of the policy. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class CatalogCollationType(str, Enum):
@@ -133,6 +143,15 @@ class SampleName(str, Enum):
     ADVENTURE_WORKS_LT = "AdventureWorksLT"
     WIDE_WORLD_IMPORTERS_STD = "WideWorldImportersStd"
     WIDE_WORLD_IMPORTERS_FULL = "WideWorldImportersFull"
+
+
+class SecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+    """
+    NEW = "New"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SensitivityLabelRank(str, Enum):

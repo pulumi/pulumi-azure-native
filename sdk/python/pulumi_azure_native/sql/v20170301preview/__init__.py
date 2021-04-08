@@ -4,12 +4,20 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .backup_long_term_retention_policy import *
 from .database import *
+from .database_blob_auditing_policy import *
 from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
+from .extended_database_blob_auditing_policy import *
+from .extended_server_blob_auditing_policy import *
+from .get_backup_long_term_retention_policy import *
 from .get_database import *
+from .get_database_blob_auditing_policy import *
 from .get_database_vulnerability_assessment import *
 from .get_database_vulnerability_assessment_rule_baseline import *
+from .get_extended_database_blob_auditing_policy import *
+from .get_extended_server_blob_auditing_policy import *
 from .get_job import *
 from .get_job_agent import *
 from .get_job_credential import *
@@ -18,7 +26,9 @@ from .get_job_target_group import *
 from .get_managed_database import *
 from .get_managed_instance_administrator import *
 from .get_sensitivity_label import *
+from .get_server_blob_auditing_policy import *
 from .get_server_dns_alias import *
+from .get_server_security_alert_policy import *
 from .job import *
 from .job_agent import *
 from .job_credential import *
@@ -27,7 +37,9 @@ from .job_target_group import *
 from .managed_database import *
 from .managed_instance_administrator import *
 from .sensitivity_label import *
+from .server_blob_auditing_policy import *
 from .server_dns_alias import *
+from .server_security_alert_policy import *
 from ._inputs import *
 from . import outputs
 
@@ -43,12 +55,20 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:sql/v20170301preview:Database":
+            if typ == "azure-native:sql/v20170301preview:BackupLongTermRetentionPolicy":
+                return BackupLongTermRetentionPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20170301preview:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy":
+                return DatabaseBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessment":
                 return DatabaseVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessmentRuleBaseline":
                 return DatabaseVulnerabilityAssessmentRuleBaseline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20170301preview:ExtendedDatabaseBlobAuditingPolicy":
+                return ExtendedDatabaseBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy":
+                return ExtendedServerBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20170301preview:Job":
                 return Job(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20170301preview:JobAgent":
@@ -65,8 +85,12 @@ def _register_module():
                 return ManagedInstanceAdministrator(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20170301preview:SensitivityLabel":
                 return SensitivityLabel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy":
+                return ServerBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20170301preview:ServerDnsAlias":
                 return ServerDnsAlias(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy":
+                return ServerSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

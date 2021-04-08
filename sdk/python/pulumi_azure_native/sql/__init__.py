@@ -4,23 +4,31 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .backup_short_term_retention_policy import *
 from .data_masking_policy import *
 from .database import *
+from .database_blob_auditing_policy import *
 from .database_security_alert_policy import *
 from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .disaster_recovery_configuration import *
 from .elastic_pool import *
+from .extended_database_blob_auditing_policy import *
+from .extended_server_blob_auditing_policy import *
 from .failover_group import *
 from .firewall_rule import *
 from .geo_backup_policy import *
+from .get_backup_short_term_retention_policy import *
 from .get_data_masking_policy import *
 from .get_database import *
+from .get_database_blob_auditing_policy import *
 from .get_database_security_alert_policy import *
 from .get_database_vulnerability_assessment import *
 from .get_database_vulnerability_assessment_rule_baseline import *
 from .get_disaster_recovery_configuration import *
 from .get_elastic_pool import *
+from .get_extended_database_blob_auditing_policy import *
+from .get_extended_server_blob_auditing_policy import *
 from .get_failover_group import *
 from .get_firewall_rule import *
 from .get_geo_backup_policy import *
@@ -31,6 +39,7 @@ from .get_job_agent import *
 from .get_job_credential import *
 from .get_job_step import *
 from .get_job_target_group import *
+from .get_long_term_retention_policy import *
 from .get_managed_database import *
 from .get_managed_database_sensitivity_label import *
 from .get_managed_database_vulnerability_assessment import *
@@ -46,9 +55,11 @@ from .get_sensitivity_label import *
 from .get_server import *
 from .get_server_azure_ad_administrator import *
 from .get_server_azure_ad_only_authentication import *
+from .get_server_blob_auditing_policy import *
 from .get_server_communication_link import *
 from .get_server_dns_alias import *
 from .get_server_key import *
+from .get_server_security_alert_policy import *
 from .get_server_trust_group import *
 from .get_server_vulnerability_assessment import *
 from .get_sync_agent import *
@@ -65,6 +76,7 @@ from .job_agent import *
 from .job_credential import *
 from .job_step import *
 from .job_target_group import *
+from .long_term_retention_policy import *
 from .managed_database import *
 from .managed_database_sensitivity_label import *
 from .managed_database_vulnerability_assessment import *
@@ -80,9 +92,11 @@ from .sensitivity_label import *
 from .server import *
 from .server_azure_ad_administrator import *
 from .server_azure_ad_only_authentication import *
+from .server_blob_auditing_policy import *
 from .server_communication_link import *
 from .server_dns_alias import *
 from .server_key import *
+from .server_security_alert_policy import *
 from .server_trust_group import *
 from .server_vulnerability_assessment import *
 from .sync_agent import *
@@ -120,10 +134,14 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:sql:DataMaskingPolicy":
+            if typ == "azure-native:sql:BackupShortTermRetentionPolicy":
+                return BackupShortTermRetentionPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:DataMaskingPolicy":
                 return DataMaskingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:DatabaseBlobAuditingPolicy":
+                return DatabaseBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:DatabaseSecurityAlertPolicy":
                 return DatabaseSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:DatabaseVulnerabilityAssessment":
@@ -134,6 +152,10 @@ def _register_module():
                 return DisasterRecoveryConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ElasticPool":
                 return ElasticPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:ExtendedDatabaseBlobAuditingPolicy":
+                return ExtendedDatabaseBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:ExtendedServerBlobAuditingPolicy":
+                return ExtendedServerBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:FailoverGroup":
                 return FailoverGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:FirewallRule":
@@ -154,6 +176,8 @@ def _register_module():
                 return JobStep(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:JobTargetGroup":
                 return JobTargetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:LongTermRetentionPolicy":
+                return LongTermRetentionPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ManagedDatabase":
                 return ManagedDatabase(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ManagedDatabaseSensitivityLabel":
@@ -184,12 +208,16 @@ def _register_module():
                 return ServerAzureADAdministrator(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ServerAzureADOnlyAuthentication":
                 return ServerAzureADOnlyAuthentication(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:ServerBlobAuditingPolicy":
+                return ServerBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ServerCommunicationLink":
                 return ServerCommunicationLink(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ServerDnsAlias":
                 return ServerDnsAlias(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ServerKey":
                 return ServerKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:ServerSecurityAlertPolicy":
+                return ServerSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ServerTrustGroup":
                 return ServerTrustGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:ServerVulnerabilityAssessment":
