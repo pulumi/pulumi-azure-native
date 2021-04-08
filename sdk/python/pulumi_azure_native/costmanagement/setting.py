@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['Setting']
 
@@ -15,19 +17,23 @@ class Setting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cache: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsPropertiesCacheArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
+                 start_on: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        State of Setting
+        State of the myscope setting.
         API Version: 2019-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] scope: For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsPropertiesCacheArgs']]]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
+        :param pulumi.Input[str] scope: Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         :param pulumi.Input[str] setting_name: Name of the setting. Allowed values: myscope
+        :param pulumi.Input[str] start_on: Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -46,8 +52,12 @@ class Setting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cache'] = cache
+            if scope is None and not opts.urn:
+                raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['setting_name'] = setting_name
+            __props__['start_on'] = start_on
             __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
@@ -75,17 +85,27 @@ class Setting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cache"] = None
         __props__["kind"] = None
         __props__["name"] = None
         __props__["scope"] = None
+        __props__["start_on"] = None
         __props__["type"] = None
         return Setting(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
+    def cache(self) -> pulumi.Output[Optional[Sequence['outputs.SettingsPropertiesResponseCache']]]:
+        """
+        Array of scopes with additional details used by Cost Management in the Azure portal.
+        """
+        return pulumi.get(self, "cache")
+
+    @property
+    @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Resource kind
+        Resource kind.
         """
         return pulumi.get(self, "kind")
 
@@ -93,23 +113,31 @@ class Setting(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        Resource name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional[str]]:
+    def scope(self) -> pulumi.Output[str]:
         """
-        For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="startOn")
+    def start_on(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        """
+        return pulumi.get(self, "start_on")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        Resource type.
         """
         return pulumi.get(self, "type")
 

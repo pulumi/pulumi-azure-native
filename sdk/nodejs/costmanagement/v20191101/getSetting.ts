@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * State of Setting
+ * State of the myscope setting.
  */
 export function getSetting(args: GetSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingResult> {
     if (!opts) {
@@ -29,27 +29,35 @@ export interface GetSettingArgs {
 }
 
 /**
- * State of Setting
+ * State of the myscope setting.
  */
 export interface GetSettingResult {
     /**
-     * Resource Id
+     * Array of scopes with additional details used by Cost Management in the Azure portal.
+     */
+    readonly cache?: outputs.costmanagement.v20191101.SettingsPropertiesResponseCache[];
+    /**
+     * Resource Id.
      */
     readonly id: string;
     /**
-     * Resource kind
+     * Resource kind.
      */
     readonly kind: string;
     /**
-     * Resource name
+     * Resource name.
      */
     readonly name: string;
     /**
-     * For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+     * Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
      */
-    readonly scope?: string;
+    readonly scope: string;
     /**
-     * Resource type
+     * Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+     */
+    readonly startOn?: string;
+    /**
+     * Resource type.
      */
     readonly type: string;
 }

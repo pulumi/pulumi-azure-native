@@ -7,6 +7,36 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.KeyVault
 {
+    /// <summary>
+    /// A message indicating if changes on the service provider require any updates on the consumer.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActionsRequired : IEquatable<ActionsRequired>
+    {
+        private readonly string _value;
+
+        private ActionsRequired(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionsRequired None { get; } = new ActionsRequired("None");
+
+        public static bool operator ==(ActionsRequired left, ActionsRequired right) => left.Equals(right);
+        public static bool operator !=(ActionsRequired left, ActionsRequired right) => !left.Equals(right);
+
+        public static explicit operator string(ActionsRequired value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionsRequired other && Equals(other);
+        public bool Equals(ActionsRequired other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct CertificatePermissions : IEquatable<CertificatePermissions>
     {
@@ -375,6 +405,37 @@ namespace Pulumi.AzureNative.KeyVault
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

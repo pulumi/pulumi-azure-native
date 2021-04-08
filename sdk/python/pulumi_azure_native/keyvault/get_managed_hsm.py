@@ -20,7 +20,7 @@ class GetManagedHsmResult:
     """
     Resource information with extended details.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -36,6 +36,9 @@ class GetManagedHsmResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -84,6 +87,14 @@ class GetManagedHsmResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the key vault resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -111,6 +122,7 @@ class AwaitableGetManagedHsmResult(GetManagedHsmResult):
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -120,7 +132,7 @@ def get_managed_hsm(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHsmResult:
     """
     Resource information with extended details.
-    API Version: 2020-04-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str name: The name of the managed HSM Pool.
@@ -141,5 +153,6 @@ def get_managed_hsm(name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

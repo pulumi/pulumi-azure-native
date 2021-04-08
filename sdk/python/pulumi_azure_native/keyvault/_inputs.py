@@ -14,6 +14,10 @@ __all__ = [
     'IPRuleArgs',
     'KeyAttributesArgs',
     'KeyPropertiesArgs',
+    'MHSMIPRuleArgs',
+    'MHSMNetworkRuleSetArgs',
+    'MHSMPrivateLinkServiceConnectionStateArgs',
+    'MHSMVirtualNetworkRuleArgs',
     'ManagedHsmPropertiesArgs',
     'ManagedHsmSkuArgs',
     'NetworkRuleSetArgs',
@@ -259,12 +263,188 @@ class KeyPropertiesArgs:
 
 
 @pulumi.input_type
+class MHSMIPRuleArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        """
+        A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+        :param pulumi.Input[str] value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MHSMNetworkRuleSetArgs:
+    def __init__(__self__, *,
+                 bypass: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]] = None):
+        """
+        A set of rules governing the network accessibility of a managed hsm pool.
+        :param pulumi.Input[Union[str, 'NetworkRuleBypassOptions']] bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        :param pulumi.Input[Union[str, 'NetworkRuleAction']] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        :param pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]] ip_rules: The list of IP address rules.
+        :param pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
+        """
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]]:
+        """
+        Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        """
+        return pulumi.get(self, "bypass")
+
+    @bypass.setter
+    def bypass(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]]):
+        pulumi.set(self, "bypass", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]]:
+        """
+        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]]:
+        """
+        The list of IP address rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]]:
+        """
+        The list of virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
+
+
+@pulumi.input_type
+class MHSMPrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[Union[str, 'ActionsRequired']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        An object that represents the approval state of the private link connection.
+        :param pulumi.Input[Union[str, 'ActionsRequired']] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval or rejection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[Union[str, 'ActionsRequired']]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[Union[str, 'ActionsRequired']]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval or rejection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class MHSMVirtualNetworkRuleArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+        :param pulumi.Input[str] id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class ManagedHsmPropertiesArgs:
     def __init__(__self__, *,
                  create_mode: Optional[pulumi.Input['CreateMode']] = None,
                  enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  enable_soft_delete: Optional[pulumi.Input[bool]] = None,
                  initial_admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_acls: Optional[pulumi.Input['MHSMNetworkRuleSetArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
@@ -273,6 +453,8 @@ class ManagedHsmPropertiesArgs:
         :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param pulumi.Input[bool] enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
+        :param pulumi.Input['MHSMNetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
@@ -288,6 +470,10 @@ class ManagedHsmPropertiesArgs:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
         if initial_admin_object_ids is not None:
             pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -342,6 +528,30 @@ class ManagedHsmPropertiesArgs:
     @initial_admin_object_ids.setter
     def initial_admin_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "initial_admin_object_ids", value)
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['MHSMNetworkRuleSetArgs']]:
+        """
+        Rules governing the accessibility of the key vault from specific network locations.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['MHSMNetworkRuleSetArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="softDeleteRetentionInDays")

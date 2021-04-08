@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public Input<string>? AssessmentSolutionId { get; set; }
 
         /// <summary>
+        /// The ARM id of the storage account used for interactions when public access is disabled.
+        /// </summary>
+        [Input("customerStorageAccountArmId")]
+        public Input<string>? CustomerStorageAccountArmId { get; set; }
+
+        /// <summary>
         /// The ARM id of service map workspace created by customer.
         /// </summary>
         [Input("customerWorkspaceId")]
@@ -38,6 +44,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         /// </summary>
         [Input("projectStatus")]
         public InputUnion<string, Pulumi.AzureNative.Migrate.ProjectStatus>? ProjectStatus { get; set; }
+
+        /// <summary>
+        /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         public ProjectPropertiesArgs()
         {

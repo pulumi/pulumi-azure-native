@@ -54,9 +54,9 @@ export interface GetBudgetResult {
      */
     readonly eTag?: string;
     /**
-     * May be used to filter budgets by resource group, resource, or meter.
+     * May be used to filter budgets by user-specified dimensions and/or tags.
      */
-    readonly filters?: outputs.consumption.v20190501.FiltersResponse;
+    readonly filter?: outputs.consumption.v20190501.FilterResponse;
     /**
      * Resource Id.
      */

@@ -9,11 +9,17 @@ export * from "./assessment";
 export * from "./getAssessment";
 export * from "./getGroup";
 export * from "./getHyperVCollector";
+export * from "./getImportCollector";
+export * from "./getPrivateEndpointConnection";
 export * from "./getProject";
+export * from "./getServerCollector";
 export * from "./getVMwareCollector";
 export * from "./group";
 export * from "./hyperVCollector";
+export * from "./importCollector";
+export * from "./privateEndpointConnection";
 export * from "./project";
+export * from "./serverCollector";
 export * from "./vmwareCollector";
 
 // Export enums:
@@ -23,7 +29,10 @@ export * from "../../types/enums/migrate/v20191001";
 import { Assessment } from "./assessment";
 import { Group } from "./group";
 import { HyperVCollector } from "./hyperVCollector";
+import { ImportCollector } from "./importCollector";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Project } from "./project";
+import { ServerCollector } from "./serverCollector";
 import { VMwareCollector } from "./vmwareCollector";
 
 const _module = {
@@ -36,8 +45,14 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "azure-native:migrate/v20191001:HyperVCollector":
                 return new HyperVCollector(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:ImportCollector":
+                return new ImportCollector(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:migrate/v20191001:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:ServerCollector":
+                return new ServerCollector(name, <any>undefined, { urn })
             case "azure-native:migrate/v20191001:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             default:

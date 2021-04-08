@@ -27,8 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:migrate/v20191001:HyperVCollector":
 		r, err = NewHyperVCollector(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:migrate/v20191001:ImportCollector":
+		r, err = NewImportCollector(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:migrate/v20191001:PrivateEndpointConnection":
+		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:migrate/v20191001:Project":
 		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:migrate/v20191001:ServerCollector":
+		r, err = NewServerCollector(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:migrate/v20191001:VMwareCollector":
 		r, err = NewVMwareCollector(ctx, name, nil, pulumi.URN_(urn))
 	default:

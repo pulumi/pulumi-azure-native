@@ -96,9 +96,9 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Gets the list of storage account keys creation time.
+     * Storage account keys creation time.
      */
-    public /*out*/ readonly keyCreationTime!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly keyCreationTime!: pulumi.Output<outputs.storage.v20210201.KeyCreationTimeResponse>;
     /**
      * KeyPolicy assigned to the storage account.
      */

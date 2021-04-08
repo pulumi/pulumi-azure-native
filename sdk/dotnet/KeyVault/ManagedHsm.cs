@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Resource information with extended details.
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:ManagedHsm")]
     public partial class ManagedHsm : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ManagedHsmSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the key vault resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -80,6 +86,8 @@ namespace Pulumi.AzureNative.KeyVault
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:ManagedHsm"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:ManagedHsm"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210401preview:ManagedHsm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

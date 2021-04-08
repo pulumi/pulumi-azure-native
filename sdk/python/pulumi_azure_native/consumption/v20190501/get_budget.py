@@ -20,7 +20,7 @@ class GetBudgetResult:
     """
     A budget resource.
     """
-    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filters=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filter=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
         if amount and not isinstance(amount, float):
             raise TypeError("Expected argument 'amount' to be a float")
         pulumi.set(__self__, "amount", amount)
@@ -33,9 +33,9 @@ class GetBudgetResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
-        if filters and not isinstance(filters, dict):
-            raise TypeError("Expected argument 'filters' to be a dict")
-        pulumi.set(__self__, "filters", filters)
+        if filter and not isinstance(filter, dict):
+            raise TypeError("Expected argument 'filter' to be a dict")
+        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -89,11 +89,11 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.FiltersResponse']:
+    def filter(self) -> Optional['outputs.FilterResponse']:
         """
-        May be used to filter budgets by resource group, resource, or meter.
+        May be used to filter budgets by user-specified dimensions and/or tags.
         """
-        return pulumi.get(self, "filters")
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -154,7 +154,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             category=self.category,
             current_spend=self.current_spend,
             e_tag=self.e_tag,
-            filters=self.filters,
+            filter=self.filter,
             id=self.id,
             name=self.name,
             notifications=self.notifications,
@@ -187,7 +187,7 @@ def get_budget(budget_name: Optional[str] = None,
         category=__ret__.category,
         current_spend=__ret__.current_spend,
         e_tag=__ret__.e_tag,
-        filters=__ret__.filters,
+        filter=__ret__.filter,
         id=__ret__.id,
         name=__ret__.name,
         notifications=__ret__.notifications,

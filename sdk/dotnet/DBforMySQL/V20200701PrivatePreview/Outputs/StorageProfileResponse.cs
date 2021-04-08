@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Outputs
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
+        /// The sku name of the file storage.
+        /// </summary>
+        public readonly string FileStorageSkuName;
+        /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         public readonly string? StorageAutogrow;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Outputs
         private StorageProfileResponse(
             int? backupRetentionDays,
 
+            string fileStorageSkuName,
+
             string? storageAutogrow,
 
             int? storageIops,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Outputs
             int? storageMB)
         {
             BackupRetentionDays = backupRetentionDays;
+            FileStorageSkuName = fileStorageSkuName;
             StorageAutogrow = storageAutogrow;
             StorageIops = storageIops;
             StorageMB = storageMB;

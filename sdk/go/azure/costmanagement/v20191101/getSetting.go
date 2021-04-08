@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// State of Setting
+// State of the myscope setting.
 func LookupSetting(ctx *pulumi.Context, args *LookupSettingArgs, opts ...pulumi.InvokeOption) (*LookupSettingResult, error) {
 	var rv LookupSettingResult
 	err := ctx.Invoke("azure-native:costmanagement/v20191101:getSetting", args, &rv, opts...)
@@ -22,16 +22,20 @@ type LookupSettingArgs struct {
 	SettingName string `pulumi:"settingName"`
 }
 
-// State of Setting
+// State of the myscope setting.
 type LookupSettingResult struct {
-	// Resource Id
+	// Array of scopes with additional details used by Cost Management in the Azure portal.
+	Cache []SettingsPropertiesResponseCache `pulumi:"cache"`
+	// Resource Id.
 	Id string `pulumi:"id"`
-	// Resource kind
+	// Resource kind.
 	Kind string `pulumi:"kind"`
-	// Resource name
+	// Resource name.
 	Name string `pulumi:"name"`
-	// For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
-	Scope *string `pulumi:"scope"`
-	// Resource type
+	// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+	Scope string `pulumi:"scope"`
+	// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+	StartOn *string `pulumi:"startOn"`
+	// Resource type.
 	Type string `pulumi:"type"`
 }

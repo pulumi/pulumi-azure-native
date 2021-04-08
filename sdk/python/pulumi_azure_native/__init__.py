@@ -103,6 +103,7 @@ from . import (
     labservices,
     logic,
     logz,
+    m365securityandcompliance,
     machinelearning,
     machinelearningcompute,
     machinelearningexperimentation,

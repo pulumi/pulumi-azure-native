@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2020-04-01-preview.
+// API Version: 2021-04-01-preview.
 type ManagedHsm struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type ManagedHsm struct {
 	Properties ManagedHsmPropertiesResponseOutput `pulumi:"properties"`
 	// SKU details
 	Sku ManagedHsmSkuResponsePtrOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the key vault resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type of the managed HSM Pool.
@@ -49,6 +51,12 @@ func NewManagedHsm(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:ManagedHsm"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20210401preview:ManagedHsm"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:keyvault/v20210401preview:ManagedHsm"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -82,6 +90,8 @@ type managedHsmState struct {
 	Properties *ManagedHsmPropertiesResponse `pulumi:"properties"`
 	// SKU details
 	Sku *ManagedHsmSkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the key vault resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type of the managed HSM Pool.
@@ -97,6 +107,8 @@ type ManagedHsmState struct {
 	Properties ManagedHsmPropertiesResponsePtrInput
 	// SKU details
 	Sku ManagedHsmSkuResponsePtrInput
+	// Metadata pertaining to creation and last modification of the key vault resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The resource type of the managed HSM Pool.

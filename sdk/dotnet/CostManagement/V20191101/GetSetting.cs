@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
     public static class GetSetting
     {
         /// <summary>
-        /// State of Setting
+        /// State of the myscope setting.
         /// </summary>
         public static Task<GetSettingResult> InvokeAsync(GetSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingArgs(), options.WithVersion());
@@ -37,42 +37,56 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
     public sealed class GetSettingResult
     {
         /// <summary>
-        /// Resource Id
+        /// Array of scopes with additional details used by Cost Management in the Azure portal.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SettingsPropertiesResponseCache> Cache;
+        /// <summary>
+        /// Resource Id.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource kind
+        /// Resource kind.
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource name
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        /// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         /// </summary>
-        public readonly string? Scope;
+        public readonly string Scope;
         /// <summary>
-        /// Resource type
+        /// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        /// </summary>
+        public readonly string? StartOn;
+        /// <summary>
+        /// Resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetSettingResult(
+            ImmutableArray<Outputs.SettingsPropertiesResponseCache> cache,
+
             string id,
 
             string kind,
 
             string name,
 
-            string? scope,
+            string scope,
+
+            string? startOn,
 
             string type)
         {
+            Cache = cache;
             Id = id;
             Kind = kind;
             Name = name;
             Scope = scope;
+            StartOn = startOn;
             Type = type;
         }
     }

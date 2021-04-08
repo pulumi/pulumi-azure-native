@@ -59,9 +59,9 @@ namespace Pulumi.AzureNative.Consumption.V20190501
         /// </summary>
         public readonly string? ETag;
         /// <summary>
-        /// May be used to filter budgets by resource group, resource, or meter.
+        /// May be used to filter budgets by user-specified dimensions and/or tags.
         /// </summary>
-        public readonly Outputs.FiltersResponse? Filters;
+        public readonly Outputs.FilterResponse? Filter;
         /// <summary>
         /// Resource Id.
         /// </summary>
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Consumption.V20190501
 
             string? eTag,
 
-            Outputs.FiltersResponse? filters,
+            Outputs.FilterResponse? filter,
 
             string id,
 
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Consumption.V20190501
             Category = category;
             CurrentSpend = currentSpend;
             ETag = eTag;
-            Filters = filters;
+            Filter = filter;
             Id = id;
             Name = name;
             Notifications = notifications;

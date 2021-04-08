@@ -6,12 +6,14 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getKey";
+export * from "./getMHSMPrivateEndpointConnection";
 export * from "./getManagedHsm";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSecret";
 export * from "./getVault";
 export * from "./key";
 export * from "./managedHsm";
+export * from "./mhsmprivateEndpointConnection";
 export * from "./privateEndpointConnection";
 export * from "./secret";
 export * from "./vault";
@@ -26,6 +28,7 @@ import * as v20180214 from "./v20180214";
 import * as v20180214preview from "./v20180214preview";
 import * as v20190901 from "./v20190901";
 import * as v20200401preview from "./v20200401preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20150601,
@@ -34,10 +37,12 @@ export {
     v20180214preview,
     v20190901,
     v20200401preview,
+    v20210401preview,
 };
 
 // Import resources to register:
 import { Key } from "./key";
+import { MHSMPrivateEndpointConnection } from "./mhsmprivateEndpointConnection";
 import { ManagedHsm } from "./managedHsm";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Secret } from "./secret";
@@ -49,6 +54,8 @@ const _module = {
         switch (type) {
             case "azure-native:keyvault:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:keyvault:MHSMPrivateEndpointConnection":
+                return new MHSMPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:keyvault:ManagedHsm":
                 return new ManagedHsm(name, <any>undefined, { urn })
             case "azure-native:keyvault:PrivateEndpointConnection":

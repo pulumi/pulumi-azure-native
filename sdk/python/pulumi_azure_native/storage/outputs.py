@@ -38,6 +38,7 @@ __all__ = [
     'IPRuleResponse',
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
+    'KeyCreationTimeResponse',
     'KeyPolicyResponse',
     'KeyVaultPropertiesResponse',
     'LastAccessTimeTrackingPolicyResponse',
@@ -1397,6 +1398,36 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         The immutability period for the blobs in the container since the policy creation, in days.
         """
         return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyCreationTimeResponse(dict):
+    """
+    Storage account keys creation time.
+    """
+    def __init__(__self__, *,
+                 key1: Optional[str] = None,
+                 key2: Optional[str] = None):
+        """
+        Storage account keys creation time.
+        """
+        if key1 is not None:
+            pulumi.set(__self__, "key1", key1)
+        if key2 is not None:
+            pulumi.set(__self__, "key2", key2)
+
+    @property
+    @pulumi.getter
+    def key1(self) -> Optional[str]:
+        return pulumi.get(self, "key1")
+
+    @property
+    @pulumi.getter
+    def key2(self) -> Optional[str]:
+        return pulumi.get(self, "key2")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

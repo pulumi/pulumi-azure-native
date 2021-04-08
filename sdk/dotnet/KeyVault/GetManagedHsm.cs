@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Resource information with extended details.
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
@@ -64,6 +64,10 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         public readonly Outputs.ManagedHsmSkuResponse? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the key vault resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNative.KeyVault
 
             Outputs.ManagedHsmSkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNative.KeyVault
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

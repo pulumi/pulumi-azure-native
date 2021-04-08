@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = ['Group']
 
@@ -19,6 +20,7 @@ class Group(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,6 +33,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input[pulumi.InputType['GroupPropertiesArgs']] properties: Properties of the group.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
         if __name__ is not None:
@@ -55,11 +58,13 @@ class Group(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20191001:Group"), pulumi.Alias(type_="azure-native:migrate:Group"), pulumi.Alias(type_="azure-nextgen:migrate:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

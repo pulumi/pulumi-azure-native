@@ -880,7 +880,7 @@ class ManagedClusterAgentPoolProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
                  upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
-                 vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service agent pool.
@@ -904,7 +904,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[Union[str, 'OSSKU']] os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
         :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -915,7 +915,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
         :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: Settings for upgrading the agentpool
-        :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
+        :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         pulumi.set(__self__, "name", name)
@@ -1228,7 +1228,7 @@ class ManagedClusterAgentPoolProfileArgs:
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[pulumi.Input[Union[str, 'OSDiskType']]]:
         """
-        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -1358,14 +1358,14 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]]:
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
         Size of agent VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]]):
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_size", value)
 
     @property

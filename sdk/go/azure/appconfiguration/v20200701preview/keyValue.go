@@ -64,6 +64,12 @@ func NewKeyValue(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration:KeyValue"),
 		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20210301preview:KeyValue"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:appconfiguration/v20210301preview:KeyValue"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource KeyValue

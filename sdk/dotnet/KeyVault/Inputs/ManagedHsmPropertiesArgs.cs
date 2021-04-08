@@ -46,6 +46,18 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         }
 
         /// <summary>
+        /// Rules governing the accessibility of the key vault from specific network locations.
+        /// </summary>
+        [Input("networkAcls")]
+        public Input<Inputs.MHSMNetworkRuleSetArgs>? NetworkAcls { get; set; }
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// softDelete data retention days. It accepts &gt;=7 and &lt;=90.
         /// </summary>
         [Input("softDeleteRetentionInDays")]

@@ -113,9 +113,9 @@ namespace Pulumi.AzureNative.Storage.V20210201
         /// </summary>
         public readonly bool? IsHnsEnabled;
         /// <summary>
-        /// Gets the list of storage account keys creation time.
+        /// Storage account keys creation time.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> KeyCreationTime;
+        public readonly Outputs.KeyCreationTimeResponse KeyCreationTime;
         /// <summary>
         /// KeyPolicy assigned to the storage account.
         /// </summary>
@@ -235,7 +235,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
 
             bool? isHnsEnabled,
 
-            ImmutableDictionary<string, string> keyCreationTime,
+            Outputs.KeyCreationTimeResponse keyCreationTime,
 
             Outputs.KeyPolicyResponse keyPolicy,
 

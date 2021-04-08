@@ -266,9 +266,9 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="keyCreationTime")
-    def key_creation_time(self) -> Mapping[str, str]:
+    def key_creation_time(self) -> 'outputs.KeyCreationTimeResponse':
         """
-        Gets the list of storage account keys creation time.
+        Storage account keys creation time.
         """
         return pulumi.get(self, "key_creation_time")
 

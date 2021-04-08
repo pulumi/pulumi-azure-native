@@ -7377,6 +7377,150 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHis
 	}).(UpdateHistoryPropertyResponseArrayOutput)
 }
 
+// Storage account keys creation time.
+type KeyCreationTimeResponse struct {
+	Key1 *string `pulumi:"key1"`
+	Key2 *string `pulumi:"key2"`
+}
+
+// KeyCreationTimeResponseInput is an input type that accepts KeyCreationTimeResponseArgs and KeyCreationTimeResponseOutput values.
+// You can construct a concrete instance of `KeyCreationTimeResponseInput` via:
+//
+//          KeyCreationTimeResponseArgs{...}
+type KeyCreationTimeResponseInput interface {
+	pulumi.Input
+
+	ToKeyCreationTimeResponseOutput() KeyCreationTimeResponseOutput
+	ToKeyCreationTimeResponseOutputWithContext(context.Context) KeyCreationTimeResponseOutput
+}
+
+// Storage account keys creation time.
+type KeyCreationTimeResponseArgs struct {
+	Key1 pulumi.StringPtrInput `pulumi:"key1"`
+	Key2 pulumi.StringPtrInput `pulumi:"key2"`
+}
+
+func (KeyCreationTimeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyCreationTimeResponse)(nil)).Elem()
+}
+
+func (i KeyCreationTimeResponseArgs) ToKeyCreationTimeResponseOutput() KeyCreationTimeResponseOutput {
+	return i.ToKeyCreationTimeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyCreationTimeResponseArgs) ToKeyCreationTimeResponseOutputWithContext(ctx context.Context) KeyCreationTimeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyCreationTimeResponseOutput)
+}
+
+func (i KeyCreationTimeResponseArgs) ToKeyCreationTimeResponsePtrOutput() KeyCreationTimeResponsePtrOutput {
+	return i.ToKeyCreationTimeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyCreationTimeResponseArgs) ToKeyCreationTimeResponsePtrOutputWithContext(ctx context.Context) KeyCreationTimeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyCreationTimeResponseOutput).ToKeyCreationTimeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyCreationTimeResponsePtrInput is an input type that accepts KeyCreationTimeResponseArgs, KeyCreationTimeResponsePtr and KeyCreationTimeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyCreationTimeResponsePtrInput` via:
+//
+//          KeyCreationTimeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyCreationTimeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyCreationTimeResponsePtrOutput() KeyCreationTimeResponsePtrOutput
+	ToKeyCreationTimeResponsePtrOutputWithContext(context.Context) KeyCreationTimeResponsePtrOutput
+}
+
+type keyCreationTimeResponsePtrType KeyCreationTimeResponseArgs
+
+func KeyCreationTimeResponsePtr(v *KeyCreationTimeResponseArgs) KeyCreationTimeResponsePtrInput {
+	return (*keyCreationTimeResponsePtrType)(v)
+}
+
+func (*keyCreationTimeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyCreationTimeResponse)(nil)).Elem()
+}
+
+func (i *keyCreationTimeResponsePtrType) ToKeyCreationTimeResponsePtrOutput() KeyCreationTimeResponsePtrOutput {
+	return i.ToKeyCreationTimeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyCreationTimeResponsePtrType) ToKeyCreationTimeResponsePtrOutputWithContext(ctx context.Context) KeyCreationTimeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyCreationTimeResponsePtrOutput)
+}
+
+// Storage account keys creation time.
+type KeyCreationTimeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyCreationTimeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyCreationTimeResponse)(nil)).Elem()
+}
+
+func (o KeyCreationTimeResponseOutput) ToKeyCreationTimeResponseOutput() KeyCreationTimeResponseOutput {
+	return o
+}
+
+func (o KeyCreationTimeResponseOutput) ToKeyCreationTimeResponseOutputWithContext(ctx context.Context) KeyCreationTimeResponseOutput {
+	return o
+}
+
+func (o KeyCreationTimeResponseOutput) ToKeyCreationTimeResponsePtrOutput() KeyCreationTimeResponsePtrOutput {
+	return o.ToKeyCreationTimeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyCreationTimeResponseOutput) ToKeyCreationTimeResponsePtrOutputWithContext(ctx context.Context) KeyCreationTimeResponsePtrOutput {
+	return o.ApplyT(func(v KeyCreationTimeResponse) *KeyCreationTimeResponse {
+		return &v
+	}).(KeyCreationTimeResponsePtrOutput)
+}
+func (o KeyCreationTimeResponseOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyCreationTimeResponse) *string { return v.Key1 }).(pulumi.StringPtrOutput)
+}
+
+func (o KeyCreationTimeResponseOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyCreationTimeResponse) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+}
+
+type KeyCreationTimeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyCreationTimeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyCreationTimeResponse)(nil)).Elem()
+}
+
+func (o KeyCreationTimeResponsePtrOutput) ToKeyCreationTimeResponsePtrOutput() KeyCreationTimeResponsePtrOutput {
+	return o
+}
+
+func (o KeyCreationTimeResponsePtrOutput) ToKeyCreationTimeResponsePtrOutputWithContext(ctx context.Context) KeyCreationTimeResponsePtrOutput {
+	return o
+}
+
+func (o KeyCreationTimeResponsePtrOutput) Elem() KeyCreationTimeResponseOutput {
+	return o.ApplyT(func(v *KeyCreationTimeResponse) KeyCreationTimeResponse { return *v }).(KeyCreationTimeResponseOutput)
+}
+
+func (o KeyCreationTimeResponsePtrOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyCreationTimeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key1
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyCreationTimeResponsePtrOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyCreationTimeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key2
+	}).(pulumi.StringPtrOutput)
+}
+
 // KeyPolicy assigned to the storage account.
 type KeyPolicy struct {
 	// The key expiration period in days.
@@ -16565,6 +16709,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyCreationTimeResponseOutput{})
+	pulumi.RegisterOutputType(KeyCreationTimeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyPolicyOutput{})
 	pulumi.RegisterOutputType(KeyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(KeyPolicyResponseOutput{})

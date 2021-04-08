@@ -10,32 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
-    /// State of Setting
+    /// State of the myscope setting.
     /// API Version: 2019-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Setting")]
     public partial class Setting : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource kind
+        /// Array of scopes with additional details used by Cost Management in the Azure portal.
+        /// </summary>
+        [Output("cache")]
+        public Output<ImmutableArray<Outputs.SettingsPropertiesResponseCache>> Cache { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource kind.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        /// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         /// </summary>
         [Output("scope")]
-        public Output<string?> Scope { get; private set; } = null!;
+        public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        /// </summary>
+        [Output("startOn")]
+        public Output<string?> StartOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -48,7 +60,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Setting(string name, SettingArgs? args = null, CustomResourceOptions? options = null)
+        public Setting(string name, SettingArgs args, CustomResourceOptions? options = null)
             : base("azure-native:costmanagement:Setting", name, args ?? new SettingArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -91,17 +103,35 @@ namespace Pulumi.AzureNative.CostManagement
 
     public sealed class SettingArgs : Pulumi.ResourceArgs
     {
+        [Input("cache")]
+        private InputList<Inputs.SettingsPropertiesCacheArgs>? _cache;
+
         /// <summary>
-        /// For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        /// Array of scopes with additional details used by Cost Management in the Azure portal.
         /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
+        public InputList<Inputs.SettingsPropertiesCacheArgs> Cache
+        {
+            get => _cache ?? (_cache = new InputList<Inputs.SettingsPropertiesCacheArgs>());
+            set => _cache = value;
+        }
+
+        /// <summary>
+        /// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
         /// Name of the setting. Allowed values: myscope
         /// </summary>
         [Input("settingName")]
         public Input<string>? SettingName { get; set; }
+
+        /// <summary>
+        /// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        /// </summary>
+        [Input("startOn")]
+        public Input<string>? StartOn { get; set; }
 
         public SettingArgs()
         {

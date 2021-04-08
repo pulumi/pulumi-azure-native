@@ -35,6 +35,9 @@ func NewGroup(ctx *pulumi.Context,
 	if args.ProjectName == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,6 +107,8 @@ type groupArgs struct {
 	GroupName *string `pulumi:"groupName"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
+	// Properties of the group.
+	Properties GroupProperties `pulumi:"properties"`
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -116,6 +121,8 @@ type GroupArgs struct {
 	GroupName pulumi.StringPtrInput
 	// Name of the Azure Migrate project.
 	ProjectName pulumi.StringInput
+	// Properties of the group.
+	Properties GroupPropertiesInput
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
 }

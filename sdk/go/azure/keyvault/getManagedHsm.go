@@ -8,7 +8,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2020-04-01-preview.
+// API Version: 2021-04-01-preview.
 func LookupManagedHsm(ctx *pulumi.Context, args *LookupManagedHsmArgs, opts ...pulumi.InvokeOption) (*LookupManagedHsmResult, error) {
 	var rv LookupManagedHsmResult
 	err := ctx.Invoke("azure-native:keyvault:getManagedHsm", args, &rv, opts...)
@@ -37,6 +37,8 @@ type LookupManagedHsmResult struct {
 	Properties ManagedHsmPropertiesResponse `pulumi:"properties"`
 	// SKU details
 	Sku *ManagedHsmSkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the key vault resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type of the managed HSM Pool.

@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'CategoryType',
     'OperatorType',
+    'ThresholdType',
     'TimeGrainType',
 ]
 
@@ -26,6 +27,13 @@ class OperatorType(str, Enum):
     EQUAL_TO = "EqualTo"
     GREATER_THAN = "GreaterThan"
     GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
+
+
+class ThresholdType(str, Enum):
+    """
+    The type of threshold
+    """
+    ACTUAL = "Actual"
 
 
 class TimeGrainType(str, Enum):

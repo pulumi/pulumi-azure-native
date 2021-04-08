@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
         /// </summary>
         public readonly string CreatedTimestamp;
         /// <summary>
+        /// The ARM id of the storage account used for interactions when public access is disabled.
+        /// </summary>
+        public readonly string? CustomerStorageAccountArmId;
+        /// <summary>
         /// The ARM id of service map workspace created by customer.
         /// </summary>
         public readonly string? CustomerWorkspaceId;
@@ -46,6 +50,10 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
         /// </summary>
         public readonly int NumberOfMachines;
         /// <summary>
+        /// The list of private endpoint connections to the project.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Assessment project status.
         /// </summary>
         public readonly string? ProjectStatus;
@@ -53,6 +61,10 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
         /// Provisioning state of the project.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Endpoint at which the collector agent can call agent REST API.
         /// </summary>
@@ -68,6 +80,8 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
 
             string createdTimestamp,
 
+            string? customerStorageAccountArmId,
+
             string? customerWorkspaceId,
 
             string? customerWorkspaceLocation,
@@ -80,9 +94,13 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
 
             int numberOfMachines,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string? projectStatus,
 
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             string serviceEndpoint,
 
@@ -90,14 +108,17 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
         {
             AssessmentSolutionId = assessmentSolutionId;
             CreatedTimestamp = createdTimestamp;
+            CustomerStorageAccountArmId = customerStorageAccountArmId;
             CustomerWorkspaceId = customerWorkspaceId;
             CustomerWorkspaceLocation = customerWorkspaceLocation;
             LastAssessmentTimestamp = lastAssessmentTimestamp;
             NumberOfAssessments = numberOfAssessments;
             NumberOfGroups = numberOfGroups;
             NumberOfMachines = numberOfMachines;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProjectStatus = projectStatus;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceEndpoint = serviceEndpoint;
             UpdatedTimestamp = updatedTimestamp;
         }

@@ -4239,7 +4239,7 @@ type ManagedClusterAgentPoolProfile struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
@@ -4308,7 +4308,7 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -4461,7 +4461,7 @@ func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 func (o ManagedClusterAgentPoolProfileOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
@@ -4575,7 +4575,7 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
@@ -4650,7 +4650,7 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -4812,7 +4812,7 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntP
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }

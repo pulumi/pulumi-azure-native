@@ -26023,6 +26023,7 @@
           "Brazil South",
           "Switzerland North",
           "Norway East",
+          "Norway West",
           "Australia Southeast",
           "Australia Central 2",
           "Germany West Central",
@@ -26032,7 +26033,10 @@
           "Japan West",
           "Brazil Southeast",
           "UAE North",
-          "Australia Central"
+          "Australia Central",
+          "France South",
+          "South India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "components"
@@ -26169,6 +26173,7 @@
           "Brazil South",
           "Switzerland North",
           "Norway East",
+          "Norway West",
           "Australia Southeast",
           "Australia Central 2",
           "Germany West Central",
@@ -26178,7 +26183,10 @@
           "Brazil Southeast",
           "Japan West",
           "UAE North",
-          "Australia Central"
+          "Australia Central",
+          "France South",
+          "South India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "webtests"
@@ -27203,6 +27211,7 @@
           "Brazil South",
           "Switzerland North",
           "Norway East",
+          "Norway West",
           "Australia Southeast"
         ],
         "properties": null,
@@ -27242,6 +27251,7 @@
           "Brazil South",
           "Switzerland North",
           "Norway East",
+          "Norway West",
           "Australia Southeast"
         ],
         "properties": null,
@@ -27284,6 +27294,7 @@
           "Brazil South",
           "Switzerland North",
           "Norway East",
+          "Norway West",
           "Australia Southeast"
         ],
         "properties": null,
@@ -38263,6 +38274,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-01-preview",
           "2020-08-31-preview",
           "2020-08-31",
           "2020-08-01",
@@ -38293,6 +38305,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01-preview",
           "2020-03-01",
           "2020-01-01",
           "2018-01-22",
@@ -38315,6 +38328,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-01-preview",
           "2020-08-31-preview",
           "2020-08-31",
           "2020-08-01",
@@ -38350,6 +38364,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-01-preview",
           "2020-08-31-preview",
           "2020-08-31",
           "2020-08-01",
@@ -38385,6 +38400,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-01-preview",
           "2020-08-31-preview",
           "2020-08-31",
           "2020-08-01",
@@ -38494,6 +38510,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01-preview",
           "2018-07-31",
           "2018-01-15-preview"
         ],

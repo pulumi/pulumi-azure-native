@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:keyvault:Key":
 		r, err = NewKey(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:keyvault:MHSMPrivateEndpointConnection":
+		r, err = NewMHSMPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:keyvault:ManagedHsm":
 		r, err = NewManagedHsm(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:keyvault:PrivateEndpointConnection":

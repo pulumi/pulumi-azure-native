@@ -22,7 +22,7 @@ class Budget(pulumi.CustomResource):
                  budget_name: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[Union[str, 'CategoryType']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['FiltersArgs']]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['FilterArgs']]] = None,
                  notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
@@ -39,7 +39,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[str] budget_name: Budget Name.
         :param pulumi.Input[Union[str, 'CategoryType']] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        :param pulumi.Input[pulumi.InputType['FiltersArgs']] filters: May be used to filter budgets by resource group, resource, or meter.
+        :param pulumi.Input[pulumi.InputType['FilterArgs']] filter: May be used to filter budgets by user-specified dimensions and/or tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         :param pulumi.Input[str] scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
         :param pulumi.Input[Union[str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -70,7 +70,7 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__['category'] = category
             __props__['e_tag'] = e_tag
-            __props__['filters'] = filters
+            __props__['filter'] = filter
             __props__['notifications'] = notifications
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -112,7 +112,7 @@ class Budget(pulumi.CustomResource):
         __props__["category"] = None
         __props__["current_spend"] = None
         __props__["e_tag"] = None
-        __props__["filters"] = None
+        __props__["filter"] = None
         __props__["name"] = None
         __props__["notifications"] = None
         __props__["time_grain"] = None
@@ -154,11 +154,11 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[Optional['outputs.FiltersResponse']]:
+    def filter(self) -> pulumi.Output[Optional['outputs.FilterResponse']]:
         """
-        May be used to filter budgets by resource group, resource, or meter.
+        May be used to filter budgets by user-specified dimensions and/or tags.
         """
-        return pulumi.get(self, "filters")
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter

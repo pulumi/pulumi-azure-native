@@ -60,8 +60,8 @@ type LookupStorageAccountResult struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Gets the list of storage account keys creation time.
-	KeyCreationTime map[string]string `pulumi:"keyCreationTime"`
+	// Storage account keys creation time.
+	KeyCreationTime KeyCreationTimeResponse `pulumi:"keyCreationTime"`
 	// KeyPolicy assigned to the storage account.
 	KeyPolicy KeyPolicyResponse `pulumi:"keyPolicy"`
 	// Gets the Kind.

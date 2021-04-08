@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         public Output<int?> OsDiskSizeGB { get; private set; } = null!;
 
         /// <summary>
-        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         /// </summary>
         [Output("osDiskType")]
         public Output<string?> OsDiskType { get; private set; } = null!;
@@ -423,7 +423,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         public Input<int>? OsDiskSizeGB { get; set; }
 
         /// <summary>
-        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         /// </summary>
         [Input("osDiskType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210201.OSDiskType>? OsDiskType { get; set; }

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetSettingResult',
@@ -17,9 +18,12 @@ __all__ = [
 @pulumi.output_type
 class GetSettingResult:
     """
-    State of Setting
+    State of the myscope setting.
     """
-    def __init__(__self__, id=None, kind=None, name=None, scope=None, type=None):
+    def __init__(__self__, cache=None, id=None, kind=None, name=None, scope=None, start_on=None, type=None):
+        if cache and not isinstance(cache, list):
+            raise TypeError("Expected argument 'cache' to be a list")
+        pulumi.set(__self__, "cache", cache)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,15 +36,26 @@ class GetSettingResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if start_on and not isinstance(start_on, str):
+            raise TypeError("Expected argument 'start_on' to be a str")
+        pulumi.set(__self__, "start_on", start_on)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
+    def cache(self) -> Optional[Sequence['outputs.SettingsPropertiesResponseCache']]:
+        """
+        Array of scopes with additional details used by Cost Management in the Azure portal.
+        """
+        return pulumi.get(self, "cache")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Resource Id.
         """
         return pulumi.get(self, "id")
 
@@ -48,7 +63,7 @@ class GetSettingResult:
     @pulumi.getter
     def kind(self) -> str:
         """
-        Resource kind
+        Resource kind.
         """
         return pulumi.get(self, "kind")
 
@@ -56,23 +71,31 @@ class GetSettingResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        Resource name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> str:
         """
-        For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="startOn")
+    def start_on(self) -> Optional[str]:
+        """
+        Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        """
+        return pulumi.get(self, "start_on")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        Resource type.
         """
         return pulumi.get(self, "type")
 
@@ -83,17 +106,19 @@ class AwaitableGetSettingResult(GetSettingResult):
         if False:
             yield self
         return GetSettingResult(
+            cache=self.cache,
             id=self.id,
             kind=self.kind,
             name=self.name,
             scope=self.scope,
+            start_on=self.start_on,
             type=self.type)
 
 
 def get_setting(setting_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSettingResult:
     """
-    State of Setting
+    State of the myscope setting.
 
 
     :param str setting_name: Name of the setting. Allowed values: myscope
@@ -107,8 +132,10 @@ def get_setting(setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20191101:getSetting', __args__, opts=opts, typ=GetSettingResult).value
 
     return AwaitableGetSettingResult(
+        cache=__ret__.cache,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         scope=__ret__.scope,
+        start_on=__ret__.start_on,
         type=__ret__.type)

@@ -46,8 +46,8 @@ type StorageAccount struct {
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
-	// Gets the list of storage account keys creation time.
-	KeyCreationTime pulumi.StringMapOutput `pulumi:"keyCreationTime"`
+	// Storage account keys creation time.
+	KeyCreationTime KeyCreationTimeResponseOutput `pulumi:"keyCreationTime"`
 	// KeyPolicy assigned to the storage account.
 	KeyPolicy KeyPolicyResponseOutput `pulumi:"keyPolicy"`
 	// Gets the Kind.
@@ -262,8 +262,8 @@ type storageAccountState struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Gets the list of storage account keys creation time.
-	KeyCreationTime map[string]string `pulumi:"keyCreationTime"`
+	// Storage account keys creation time.
+	KeyCreationTime *KeyCreationTimeResponse `pulumi:"keyCreationTime"`
 	// KeyPolicy assigned to the storage account.
 	KeyPolicy *KeyPolicyResponse `pulumi:"keyPolicy"`
 	// Gets the Kind.
@@ -339,8 +339,8 @@ type StorageAccountState struct {
 	Identity IdentityResponsePtrInput
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrInput
-	// Gets the list of storage account keys creation time.
-	KeyCreationTime pulumi.StringMapInput
+	// Storage account keys creation time.
+	KeyCreationTime KeyCreationTimeResponsePtrInput
 	// KeyPolicy assigned to the storage account.
 	KeyPolicy KeyPolicyResponsePtrInput
 	// Gets the Kind.

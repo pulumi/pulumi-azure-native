@@ -23,8 +23,8 @@ type Budget struct {
 	CurrentSpend CurrentSpendResponseOutput `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// May be used to filter budgets by resource group, resource, or meter.
-	Filters FiltersResponsePtrOutput `pulumi:"filters"`
+	// May be used to filter budgets by user-specified dimensions and/or tags.
+	Filter FilterResponsePtrOutput `pulumi:"filter"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
@@ -137,8 +137,8 @@ type budgetState struct {
 	CurrentSpend *CurrentSpendResponse `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
-	// May be used to filter budgets by resource group, resource, or meter.
-	Filters *FiltersResponse `pulumi:"filters"`
+	// May be used to filter budgets by user-specified dimensions and/or tags.
+	Filter *FilterResponse `pulumi:"filter"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
@@ -160,8 +160,8 @@ type BudgetState struct {
 	CurrentSpend CurrentSpendResponsePtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
-	// May be used to filter budgets by resource group, resource, or meter.
-	Filters FiltersResponsePtrInput
+	// May be used to filter budgets by user-specified dimensions and/or tags.
+	Filter FilterResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
@@ -187,8 +187,8 @@ type budgetArgs struct {
 	Category string `pulumi:"category"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
-	// May be used to filter budgets by resource group, resource, or meter.
-	Filters *Filters `pulumi:"filters"`
+	// May be used to filter budgets by user-specified dimensions and/or tags.
+	Filter *Filter `pulumi:"filter"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications map[string]Notification `pulumi:"notifications"`
 	// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
@@ -209,8 +209,8 @@ type BudgetArgs struct {
 	Category pulumi.StringInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
-	// May be used to filter budgets by resource group, resource, or meter.
-	Filters FiltersPtrInput
+	// May be used to filter budgets by user-specified dimensions and/or tags.
+	Filter FilterPtrInput
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications NotificationMapInput
 	// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.

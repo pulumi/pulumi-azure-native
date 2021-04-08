@@ -2,10 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * State of Setting
+ * State of the myscope setting.
  * API Version: 2019-11-01.
  */
 export class Setting extends pulumi.CustomResource {
@@ -36,19 +37,27 @@ export class Setting extends pulumi.CustomResource {
     }
 
     /**
-     * Resource kind
+     * Array of scopes with additional details used by Cost Management in the Azure portal.
+     */
+    public readonly cache!: pulumi.Output<outputs.costmanagement.SettingsPropertiesResponseCache[] | undefined>;
+    /**
+     * Resource kind.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
-     * Resource name
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+     * Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    public readonly scope!: pulumi.Output<string>;
     /**
-     * Resource type
+     * Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+     */
+    public readonly startOn!: pulumi.Output<string | undefined>;
+    /**
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -59,19 +68,26 @@ export class Setting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SettingArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scope'");
+            }
+            inputs["cache"] = args ? args.cache : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["settingName"] = args ? args.settingName : undefined;
+            inputs["startOn"] = args ? args.startOn : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["cache"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["scope"] = undefined /*out*/;
+            inputs["startOn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -88,11 +104,19 @@ export class Setting extends pulumi.CustomResource {
  */
 export interface SettingArgs {
     /**
-     * For the myscope setting, sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+     * Array of scopes with additional details used by Cost Management in the Azure portal.
      */
-    readonly scope?: pulumi.Input<string>;
+    readonly cache?: pulumi.Input<pulumi.Input<inputs.costmanagement.SettingsPropertiesCache>[]>;
+    /**
+     * Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+     */
+    readonly scope: pulumi.Input<string>;
     /**
      * Name of the setting. Allowed values: myscope
      */
     readonly settingName?: pulumi.Input<string>;
+    /**
+     * Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+     */
+    readonly startOn?: pulumi.Input<string>;
 }

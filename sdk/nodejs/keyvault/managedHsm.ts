@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-04-01-preview.
  */
 export class ManagedHsm extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class ManagedHsm extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.keyvault.ManagedHsmSkuResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the key vault resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.keyvault.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -81,19 +85,21 @@ export class ManagedHsm extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault:ManagedHsm" }, { type: "azure-native:keyvault/v20200401preview:ManagedHsm" }, { type: "azure-nextgen:keyvault/v20200401preview:ManagedHsm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault:ManagedHsm" }, { type: "azure-native:keyvault/v20200401preview:ManagedHsm" }, { type: "azure-nextgen:keyvault/v20200401preview:ManagedHsm" }, { type: "azure-native:keyvault/v20210401preview:ManagedHsm" }, { type: "azure-nextgen:keyvault/v20210401preview:ManagedHsm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedHsm.__pulumiType, name, inputs, opts);
     }

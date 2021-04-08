@@ -6932,6 +6932,290 @@ func (o ReportConfigTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SettingsPropertiesCache struct {
+	// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+	Channel string `pulumi:"channel"`
+	// Resource ID used by Resource Manager to uniquely identify the scope.
+	Id string `pulumi:"id"`
+	// Display name for the scope.
+	Name string `pulumi:"name"`
+	// Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+	Parent *string `pulumi:"parent"`
+	// Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+	Status *string `pulumi:"status"`
+	// Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+	Subchannel string `pulumi:"subchannel"`
+}
+
+// SettingsPropertiesCacheInput is an input type that accepts SettingsPropertiesCacheArgs and SettingsPropertiesCacheOutput values.
+// You can construct a concrete instance of `SettingsPropertiesCacheInput` via:
+//
+//          SettingsPropertiesCacheArgs{...}
+type SettingsPropertiesCacheInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesCacheOutput() SettingsPropertiesCacheOutput
+	ToSettingsPropertiesCacheOutputWithContext(context.Context) SettingsPropertiesCacheOutput
+}
+
+type SettingsPropertiesCacheArgs struct {
+	// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+	Channel pulumi.StringInput `pulumi:"channel"`
+	// Resource ID used by Resource Manager to uniquely identify the scope.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Display name for the scope.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+	Parent pulumi.StringPtrInput `pulumi:"parent"`
+	// Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+	Subchannel pulumi.StringInput `pulumi:"subchannel"`
+}
+
+func (SettingsPropertiesCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesCache)(nil)).Elem()
+}
+
+func (i SettingsPropertiesCacheArgs) ToSettingsPropertiesCacheOutput() SettingsPropertiesCacheOutput {
+	return i.ToSettingsPropertiesCacheOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesCacheArgs) ToSettingsPropertiesCacheOutputWithContext(ctx context.Context) SettingsPropertiesCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesCacheOutput)
+}
+
+// SettingsPropertiesCacheArrayInput is an input type that accepts SettingsPropertiesCacheArray and SettingsPropertiesCacheArrayOutput values.
+// You can construct a concrete instance of `SettingsPropertiesCacheArrayInput` via:
+//
+//          SettingsPropertiesCacheArray{ SettingsPropertiesCacheArgs{...} }
+type SettingsPropertiesCacheArrayInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesCacheArrayOutput() SettingsPropertiesCacheArrayOutput
+	ToSettingsPropertiesCacheArrayOutputWithContext(context.Context) SettingsPropertiesCacheArrayOutput
+}
+
+type SettingsPropertiesCacheArray []SettingsPropertiesCacheInput
+
+func (SettingsPropertiesCacheArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsPropertiesCache)(nil)).Elem()
+}
+
+func (i SettingsPropertiesCacheArray) ToSettingsPropertiesCacheArrayOutput() SettingsPropertiesCacheArrayOutput {
+	return i.ToSettingsPropertiesCacheArrayOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesCacheArray) ToSettingsPropertiesCacheArrayOutputWithContext(ctx context.Context) SettingsPropertiesCacheArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesCacheArrayOutput)
+}
+
+type SettingsPropertiesCacheOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesCache)(nil)).Elem()
+}
+
+func (o SettingsPropertiesCacheOutput) ToSettingsPropertiesCacheOutput() SettingsPropertiesCacheOutput {
+	return o
+}
+
+func (o SettingsPropertiesCacheOutput) ToSettingsPropertiesCacheOutputWithContext(ctx context.Context) SettingsPropertiesCacheOutput {
+	return o
+}
+
+// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+func (o SettingsPropertiesCacheOutput) Channel() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesCache) string { return v.Channel }).(pulumi.StringOutput)
+}
+
+// Resource ID used by Resource Manager to uniquely identify the scope.
+func (o SettingsPropertiesCacheOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesCache) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Display name for the scope.
+func (o SettingsPropertiesCacheOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesCache) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+func (o SettingsPropertiesCacheOutput) Parent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesCache) *string { return v.Parent }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+func (o SettingsPropertiesCacheOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesCache) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+func (o SettingsPropertiesCacheOutput) Subchannel() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesCache) string { return v.Subchannel }).(pulumi.StringOutput)
+}
+
+type SettingsPropertiesCacheArrayOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesCacheArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsPropertiesCache)(nil)).Elem()
+}
+
+func (o SettingsPropertiesCacheArrayOutput) ToSettingsPropertiesCacheArrayOutput() SettingsPropertiesCacheArrayOutput {
+	return o
+}
+
+func (o SettingsPropertiesCacheArrayOutput) ToSettingsPropertiesCacheArrayOutputWithContext(ctx context.Context) SettingsPropertiesCacheArrayOutput {
+	return o
+}
+
+func (o SettingsPropertiesCacheArrayOutput) Index(i pulumi.IntInput) SettingsPropertiesCacheOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsPropertiesCache {
+		return vs[0].([]SettingsPropertiesCache)[vs[1].(int)]
+	}).(SettingsPropertiesCacheOutput)
+}
+
+type SettingsPropertiesResponseCache struct {
+	// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+	Channel string `pulumi:"channel"`
+	// Resource ID used by Resource Manager to uniquely identify the scope.
+	Id string `pulumi:"id"`
+	// Display name for the scope.
+	Name string `pulumi:"name"`
+	// Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+	Parent *string `pulumi:"parent"`
+	// Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+	Status *string `pulumi:"status"`
+	// Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+	Subchannel string `pulumi:"subchannel"`
+}
+
+// SettingsPropertiesResponseCacheInput is an input type that accepts SettingsPropertiesResponseCacheArgs and SettingsPropertiesResponseCacheOutput values.
+// You can construct a concrete instance of `SettingsPropertiesResponseCacheInput` via:
+//
+//          SettingsPropertiesResponseCacheArgs{...}
+type SettingsPropertiesResponseCacheInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesResponseCacheOutput() SettingsPropertiesResponseCacheOutput
+	ToSettingsPropertiesResponseCacheOutputWithContext(context.Context) SettingsPropertiesResponseCacheOutput
+}
+
+type SettingsPropertiesResponseCacheArgs struct {
+	// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+	Channel pulumi.StringInput `pulumi:"channel"`
+	// Resource ID used by Resource Manager to uniquely identify the scope.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Display name for the scope.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+	Parent pulumi.StringPtrInput `pulumi:"parent"`
+	// Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+	Subchannel pulumi.StringInput `pulumi:"subchannel"`
+}
+
+func (SettingsPropertiesResponseCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesResponseCache)(nil)).Elem()
+}
+
+func (i SettingsPropertiesResponseCacheArgs) ToSettingsPropertiesResponseCacheOutput() SettingsPropertiesResponseCacheOutput {
+	return i.ToSettingsPropertiesResponseCacheOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesResponseCacheArgs) ToSettingsPropertiesResponseCacheOutputWithContext(ctx context.Context) SettingsPropertiesResponseCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesResponseCacheOutput)
+}
+
+// SettingsPropertiesResponseCacheArrayInput is an input type that accepts SettingsPropertiesResponseCacheArray and SettingsPropertiesResponseCacheArrayOutput values.
+// You can construct a concrete instance of `SettingsPropertiesResponseCacheArrayInput` via:
+//
+//          SettingsPropertiesResponseCacheArray{ SettingsPropertiesResponseCacheArgs{...} }
+type SettingsPropertiesResponseCacheArrayInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesResponseCacheArrayOutput() SettingsPropertiesResponseCacheArrayOutput
+	ToSettingsPropertiesResponseCacheArrayOutputWithContext(context.Context) SettingsPropertiesResponseCacheArrayOutput
+}
+
+type SettingsPropertiesResponseCacheArray []SettingsPropertiesResponseCacheInput
+
+func (SettingsPropertiesResponseCacheArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsPropertiesResponseCache)(nil)).Elem()
+}
+
+func (i SettingsPropertiesResponseCacheArray) ToSettingsPropertiesResponseCacheArrayOutput() SettingsPropertiesResponseCacheArrayOutput {
+	return i.ToSettingsPropertiesResponseCacheArrayOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesResponseCacheArray) ToSettingsPropertiesResponseCacheArrayOutputWithContext(ctx context.Context) SettingsPropertiesResponseCacheArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesResponseCacheArrayOutput)
+}
+
+type SettingsPropertiesResponseCacheOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesResponseCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesResponseCache)(nil)).Elem()
+}
+
+func (o SettingsPropertiesResponseCacheOutput) ToSettingsPropertiesResponseCacheOutput() SettingsPropertiesResponseCacheOutput {
+	return o
+}
+
+func (o SettingsPropertiesResponseCacheOutput) ToSettingsPropertiesResponseCacheOutputWithContext(ctx context.Context) SettingsPropertiesResponseCacheOutput {
+	return o
+}
+
+// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+func (o SettingsPropertiesResponseCacheOutput) Channel() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesResponseCache) string { return v.Channel }).(pulumi.StringOutput)
+}
+
+// Resource ID used by Resource Manager to uniquely identify the scope.
+func (o SettingsPropertiesResponseCacheOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesResponseCache) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Display name for the scope.
+func (o SettingsPropertiesResponseCacheOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesResponseCache) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+func (o SettingsPropertiesResponseCacheOutput) Parent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesResponseCache) *string { return v.Parent }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+func (o SettingsPropertiesResponseCacheOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesResponseCache) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+func (o SettingsPropertiesResponseCacheOutput) Subchannel() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesResponseCache) string { return v.Subchannel }).(pulumi.StringOutput)
+}
+
+type SettingsPropertiesResponseCacheArrayOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesResponseCacheArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsPropertiesResponseCache)(nil)).Elem()
+}
+
+func (o SettingsPropertiesResponseCacheArrayOutput) ToSettingsPropertiesResponseCacheArrayOutput() SettingsPropertiesResponseCacheArrayOutput {
+	return o
+}
+
+func (o SettingsPropertiesResponseCacheArrayOutput) ToSettingsPropertiesResponseCacheArrayOutputWithContext(ctx context.Context) SettingsPropertiesResponseCacheArrayOutput {
+	return o
+}
+
+func (o SettingsPropertiesResponseCacheArrayOutput) Index(i pulumi.IntInput) SettingsPropertiesResponseCacheOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsPropertiesResponseCache {
+		return vs[0].([]SettingsPropertiesResponseCache)[vs[1].(int)]
+	}).(SettingsPropertiesResponseCacheOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExportDefinitionOutput{})
 	pulumi.RegisterOutputType(ExportDefinitionPtrOutput{})
@@ -7025,4 +7309,8 @@ func init() {
 	pulumi.RegisterOutputType(ReportConfigTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponseOutput{})
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponsePtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesCacheOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesCacheArrayOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesResponseCacheOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesResponseCacheArrayOutput{})
 }

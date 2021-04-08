@@ -1467,6 +1467,8 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 type StorageProfileResponse struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// The sku name of the file storage.
+	FileStorageSkuName string `pulumi:"fileStorageSkuName"`
 	// Enable Storage Auto Grow.
 	StorageAutogrow *string `pulumi:"storageAutogrow"`
 	// Storage IOPS for a server.
@@ -1490,6 +1492,8 @@ type StorageProfileResponseInput interface {
 type StorageProfileResponseArgs struct {
 	// Backup retention days for the server.
 	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
+	// The sku name of the file storage.
+	FileStorageSkuName pulumi.StringInput `pulumi:"fileStorageSkuName"`
 	// Enable Storage Auto Grow.
 	StorageAutogrow pulumi.StringPtrInput `pulumi:"storageAutogrow"`
 	// Storage IOPS for a server.
@@ -1581,6 +1585,11 @@ func (o StorageProfileResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
+// The sku name of the file storage.
+func (o StorageProfileResponseOutput) FileStorageSkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageProfileResponse) string { return v.FileStorageSkuName }).(pulumi.StringOutput)
+}
+
 // Enable Storage Auto Grow.
 func (o StorageProfileResponseOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
@@ -1622,6 +1631,16 @@ func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutp
 		}
 		return v.BackupRetentionDays
 	}).(pulumi.IntPtrOutput)
+}
+
+// The sku name of the file storage.
+func (o StorageProfileResponsePtrOutput) FileStorageSkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileStorageSkuName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enable Storage Auto Grow.

@@ -11,7 +11,7 @@ from ._enums import *
 
 __all__ = [
     'BudgetTimePeriodArgs',
-    'FiltersArgs',
+    'FilterArgs',
     'NotificationArgs',
 ]
 
@@ -55,14 +55,14 @@ class BudgetTimePeriodArgs:
 
 
 @pulumi.input_type
-class FiltersArgs:
+class FilterArgs:
     def __init__(__self__, *,
                  meters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
-        May be used to filter budgets by resource group, resource, or meter.
+        May be used to filter budgets by user-specified dimensions and/or tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] meters: The list of filters on meters (GUID), mandatory for budgets of usage category. 
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_groups: The list of filters on resource groups, allowed at subscription level only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The list of filters on resources.
@@ -134,15 +134,17 @@ class NotificationArgs:
                  operator: pulumi.Input[Union[str, 'OperatorType']],
                  threshold: pulumi.Input[float],
                  contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 threshold_type: Optional[pulumi.Input[Union[str, 'ThresholdType']]] = None):
         """
         The notification associated with a budget.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         :param pulumi.Input[bool] enabled: The notification is enabled or not.
         :param pulumi.Input[Union[str, 'OperatorType']] operator: The comparison operator.
         :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Union[str, 'ThresholdType']] threshold_type: The type of threshold
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -152,12 +154,16 @@ class NotificationArgs:
             pulumi.set(__self__, "contact_groups", contact_groups)
         if contact_roles is not None:
             pulumi.set(__self__, "contact_roles", contact_roles)
+        if threshold_type is None:
+            threshold_type = 'Actual'
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
     def contact_emails(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Email addresses to send the budget notification to when the threshold is exceeded.
+        Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         """
         return pulumi.get(self, "contact_emails")
 
@@ -205,7 +211,7 @@ class NotificationArgs:
     @pulumi.getter(name="contactGroups")
     def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Action groups to send the budget notification to when the threshold is exceeded.
+        Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         """
         return pulumi.get(self, "contact_groups")
 
@@ -224,5 +230,17 @@ class NotificationArgs:
     @contact_roles.setter
     def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_roles", value)
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[pulumi.Input[Union[str, 'ThresholdType']]]:
+        """
+        The type of threshold
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: Optional[pulumi.Input[Union[str, 'ThresholdType']]]):
+        pulumi.set(self, "threshold_type", value)
 
 

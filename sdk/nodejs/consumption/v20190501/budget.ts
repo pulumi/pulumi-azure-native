@@ -52,9 +52,9 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
     /**
-     * May be used to filter budgets by resource group, resource, or meter.
+     * May be used to filter budgets by user-specified dimensions and/or tags.
      */
-    public readonly filters!: pulumi.Output<outputs.consumption.v20190501.FiltersResponse | undefined>;
+    public readonly filter!: pulumi.Output<outputs.consumption.v20190501.FilterResponse | undefined>;
     /**
      * Resource name.
      */
@@ -106,7 +106,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["budgetName"] = args ? args.budgetName : undefined;
             inputs["category"] = args ? args.category : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
+            inputs["filter"] = args ? args.filter : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["timeGrain"] = args ? args.timeGrain : undefined;
@@ -119,7 +119,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["category"] = undefined /*out*/;
             inputs["currentSpend"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
-            inputs["filters"] = undefined /*out*/;
+            inputs["filter"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["notifications"] = undefined /*out*/;
             inputs["timeGrain"] = undefined /*out*/;
@@ -156,9 +156,9 @@ export interface BudgetArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
-     * May be used to filter budgets by resource group, resource, or meter.
+     * May be used to filter budgets by user-specified dimensions and/or tags.
      */
-    readonly filters?: pulumi.Input<inputs.consumption.v20190501.Filters>;
+    readonly filter?: pulumi.Input<inputs.consumption.v20190501.Filter>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */

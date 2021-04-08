@@ -994,7 +994,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param Sequence[str] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param str orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param str os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        :param str os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         :param str os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param str pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -1265,7 +1265,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[str]:
         """
-        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         """
         return pulumi.get(self, "os_disk_type")
 

@@ -34,9 +34,25 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InitialAdminObjectIds;
         /// <summary>
+        /// Rules governing the accessibility of the key vault from specific network locations.
+        /// </summary>
+        public readonly Outputs.MHSMNetworkRuleSetResponse? NetworkAcls;
+        /// <summary>
+        /// List of private endpoint connections associated with the managed hsm pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MHSMPrivateEndpointConnectionItemResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// The scheduled purge date in UTC.
+        /// </summary>
+        public readonly string ScheduledPurgeDate;
         /// <summary>
         /// softDelete data retention days. It accepts &gt;=7 and &lt;=90.
         /// </summary>
@@ -62,7 +78,15 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 
             ImmutableArray<string> initialAdminObjectIds,
 
+            Outputs.MHSMNetworkRuleSetResponse? networkAcls,
+
+            ImmutableArray<Outputs.MHSMPrivateEndpointConnectionItemResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
+
+            string scheduledPurgeDate,
 
             int? softDeleteRetentionInDays,
 
@@ -75,7 +99,11 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
             EnableSoftDelete = enableSoftDelete;
             HsmUri = hsmUri;
             InitialAdminObjectIds = initialAdminObjectIds;
+            NetworkAcls = networkAcls;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
+            ScheduledPurgeDate = scheduledPurgeDate;
             SoftDeleteRetentionInDays = softDeleteRetentionInDays;
             StatusMessage = statusMessage;
             TenantId = tenantId;

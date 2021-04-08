@@ -29,7 +29,7 @@ class ManagedHsm(pulumi.CustomResource):
                  __opts__=None):
         """
         Resource information with extended details.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -65,8 +65,9 @@ class ManagedHsm(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:ManagedHsm")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210401preview:ManagedHsm")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedHsm, __self__).__init__(
             'azure-native:keyvault:ManagedHsm',
@@ -94,6 +95,7 @@ class ManagedHsm(pulumi.CustomResource):
         __props__["name"] = None
         __props__["properties"] = None
         __props__["sku"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return ManagedHsm(resource_name, opts=opts, __props__=__props__)
@@ -129,6 +131,14 @@ class ManagedHsm(pulumi.CustomResource):
         SKU details
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the key vault resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

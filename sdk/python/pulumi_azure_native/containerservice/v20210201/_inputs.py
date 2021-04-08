@@ -856,7 +856,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -1149,7 +1149,7 @@ class ManagedClusterAgentPoolProfileArgs:
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[pulumi.Input[Union[str, 'OSDiskType']]]:
         """
-        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
         """
         return pulumi.get(self, "os_disk_type")
 

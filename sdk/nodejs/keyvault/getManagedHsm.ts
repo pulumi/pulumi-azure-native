@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-04-01-preview.
  */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
     if (!opts) {
@@ -58,6 +58,10 @@ export interface GetManagedHsmResult {
      * SKU details
      */
     readonly sku?: outputs.keyvault.ManagedHsmSkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the key vault resource.
+     */
+    readonly systemData: outputs.keyvault.SystemDataResponse;
     /**
      * Resource tags
      */

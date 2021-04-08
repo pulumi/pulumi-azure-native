@@ -195,17 +195,20 @@ class StorageProfileResponse(dict):
     Storage Profile properties of a server
     """
     def __init__(__self__, *,
+                 file_storage_sku_name: str,
                  backup_retention_days: Optional[int] = None,
                  storage_autogrow: Optional[str] = None,
                  storage_iops: Optional[int] = None,
                  storage_mb: Optional[int] = None):
         """
         Storage Profile properties of a server
+        :param str file_storage_sku_name: The sku name of the file storage.
         :param int backup_retention_days: Backup retention days for the server.
         :param str storage_autogrow: Enable Storage Auto Grow.
         :param int storage_iops: Storage IOPS for a server.
         :param int storage_mb: Max storage allowed for a server.
         """
+        pulumi.set(__self__, "file_storage_sku_name", file_storage_sku_name)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if storage_autogrow is not None:
@@ -214,6 +217,14 @@ class StorageProfileResponse(dict):
             pulumi.set(__self__, "storage_iops", storage_iops)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
+
+    @property
+    @pulumi.getter(name="fileStorageSkuName")
+    def file_storage_sku_name(self) -> str:
+        """
+        The sku name of the file storage.
+        """
+        return pulumi.get(self, "file_storage_sku_name")
 
     @property
     @pulumi.getter(name="backupRetentionDays")

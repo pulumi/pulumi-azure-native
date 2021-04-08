@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string GroupStatus;
         /// <summary>
+        /// The type of group.
+        /// </summary>
+        public readonly string? GroupType;
+        /// <summary>
         /// Number of machines part of this group.
         /// </summary>
         public readonly int MachineCount;
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string groupStatus,
 
+            string? groupType,
+
             int machineCount,
 
             string updatedTimestamp)
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
             Assessments = assessments;
             CreatedTimestamp = createdTimestamp;
             GroupStatus = groupStatus;
+            GroupType = groupType;
             MachineCount = machineCount;
             UpdatedTimestamp = updatedTimestamp;
         }

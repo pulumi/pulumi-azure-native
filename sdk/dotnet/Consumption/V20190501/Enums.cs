@@ -71,6 +71,36 @@ namespace Pulumi.AzureNative.Consumption.V20190501
     }
 
     /// <summary>
+    /// The type of threshold
+    /// </summary>
+    [EnumType]
+    public readonly struct ThresholdType : IEquatable<ThresholdType>
+    {
+        private readonly string _value;
+
+        private ThresholdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThresholdType Actual { get; } = new ThresholdType("Actual");
+
+        public static bool operator ==(ThresholdType left, ThresholdType right) => left.Equals(right);
+        public static bool operator !=(ThresholdType left, ThresholdType right) => !left.Equals(right);
+
+        public static explicit operator string(ThresholdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThresholdType other && Equals(other);
+        public bool Equals(ThresholdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
     /// </summary>
     [EnumType]

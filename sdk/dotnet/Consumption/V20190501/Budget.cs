@@ -40,10 +40,10 @@ namespace Pulumi.AzureNative.Consumption.V20190501
         public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// May be used to filter budgets by resource group, resource, or meter.
+        /// May be used to filter budgets by user-specified dimensions and/or tags.
         /// </summary>
-        [Output("filters")]
-        public Output<Outputs.FiltersResponse?> Filters { get; private set; } = null!;
+        [Output("filter")]
+        public Output<Outputs.FilterResponse?> Filter { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -163,10 +163,10 @@ namespace Pulumi.AzureNative.Consumption.V20190501
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// May be used to filter budgets by resource group, resource, or meter.
+        /// May be used to filter budgets by user-specified dimensions and/or tags.
         /// </summary>
-        [Input("filters")]
-        public Input<Inputs.FiltersArgs>? Filters { get; set; }
+        [Input("filter")]
+        public Input<Inputs.FilterArgs>? Filter { get; set; }
 
         [Input("notifications")]
         private InputMap<Inputs.NotificationArgs>? _notifications;

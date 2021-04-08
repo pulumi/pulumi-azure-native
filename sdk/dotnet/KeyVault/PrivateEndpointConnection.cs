@@ -96,6 +96,8 @@ namespace Pulumi.AzureNative.KeyVault
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

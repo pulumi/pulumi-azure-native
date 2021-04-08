@@ -23,6 +23,15 @@ export const OperatorType = {
  */
 export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
+export const ThresholdType = {
+    Actual: "Actual",
+} as const;
+
+/**
+ * The type of threshold
+ */
+export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
+
 export const TimeGrainType = {
     Monthly: "Monthly",
     Quarterly: "Quarterly",

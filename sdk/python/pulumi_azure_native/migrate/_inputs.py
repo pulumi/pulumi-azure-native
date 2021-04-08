@@ -16,7 +16,9 @@ __all__ = [
     'CollectorBodyAgentSpnPropertiesArgs',
     'CollectorPropertiesArgs',
     'DiskEncryptionSetResourceSettingsArgs',
+    'GroupPropertiesArgs',
     'IdentityArgs',
+    'ImportCollectorPropertiesArgs',
     'KeyVaultResourceSettingsArgs',
     'LBBackendAddressPoolResourceSettingsArgs',
     'LBFrontendIPConfigurationResourceSettingsArgs',
@@ -33,6 +35,8 @@ __all__ = [
     'NicIpConfigurationResourceSettingsArgs',
     'NsgReferenceArgs',
     'NsgSecurityRuleArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateLinkServiceConnectionStateArgs',
     'ProjectPropertiesArgs',
     'PublicIPAddressResourceSettingsArgs',
     'PublicIpReferenceArgs',
@@ -549,6 +553,30 @@ class DiskEncryptionSetResourceSettingsArgs:
 
 
 @pulumi.input_type
+class GroupPropertiesArgs:
+    def __init__(__self__, *,
+                 group_type: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of group resource.
+        :param pulumi.Input[str] group_type: The type of group.
+        """
+        if group_type is not None:
+            pulumi.set(__self__, "group_type", group_type)
+
+    @property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of group.
+        """
+        return pulumi.get(self, "group_type")
+
+    @group_type.setter
+    def group_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_type", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -602,6 +630,23 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ImportCollectorPropertiesArgs:
+    def __init__(__self__, *,
+                 discovery_site_id: Optional[pulumi.Input[str]] = None):
+        if discovery_site_id is not None:
+            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+
+    @property
+    @pulumi.getter(name="discoverySiteId")
+    def discovery_site_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "discovery_site_id")
+
+    @discovery_site_id.setter
+    def discovery_site_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "discovery_site_id", value)
 
 
 @pulumi.input_type
@@ -1631,27 +1676,115 @@ class NsgSecurityRuleArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        Private endpoint connection properties.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: State of the private endpoint connection.
+        """
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        State of a private endpoint connection.
+        :param pulumi.Input[str] actions_required: Actions required on the private endpoint connection.
+        :param pulumi.Input[str] description: Description of the private endpoint connection.
+        :param pulumi.Input[str] status: Connection status of the private endpoint connection.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        Actions required on the private endpoint connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the private endpoint connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connection status of the private endpoint connection.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class ProjectPropertiesArgs:
     def __init__(__self__, *,
                  assessment_solution_id: Optional[pulumi.Input[str]] = None,
+                 customer_storage_account_arm_id: Optional[pulumi.Input[str]] = None,
                  customer_workspace_id: Optional[pulumi.Input[str]] = None,
                  customer_workspace_location: Optional[pulumi.Input[str]] = None,
-                 project_status: Optional[pulumi.Input[Union[str, 'ProjectStatus']]] = None):
+                 project_status: Optional[pulumi.Input[Union[str, 'ProjectStatus']]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None):
         """
         Properties of a project.
         :param pulumi.Input[str] assessment_solution_id: Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+        :param pulumi.Input[str] customer_storage_account_arm_id: The ARM id of the storage account used for interactions when public access is disabled.
         :param pulumi.Input[str] customer_workspace_id: The ARM id of service map workspace created by customer.
         :param pulumi.Input[str] customer_workspace_location: Location of service map workspace created by customer.
         :param pulumi.Input[Union[str, 'ProjectStatus']] project_status: Assessment project status.
+        :param pulumi.Input[str] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
         if assessment_solution_id is not None:
             pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+        if customer_storage_account_arm_id is not None:
+            pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
         if customer_workspace_id is not None:
             pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
             pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
         if project_status is not None:
             pulumi.set(__self__, "project_status", project_status)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="assessmentSolutionId")
@@ -1664,6 +1797,18 @@ class ProjectPropertiesArgs:
     @assessment_solution_id.setter
     def assessment_solution_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "assessment_solution_id", value)
+
+    @property
+    @pulumi.getter(name="customerStorageAccountArmId")
+    def customer_storage_account_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM id of the storage account used for interactions when public access is disabled.
+        """
+        return pulumi.get(self, "customer_storage_account_arm_id")
+
+    @customer_storage_account_arm_id.setter
+    def customer_storage_account_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_storage_account_arm_id", value)
 
     @property
     @pulumi.getter(name="customerWorkspaceId")
@@ -1700,6 +1845,18 @@ class ProjectPropertiesArgs:
     @project_status.setter
     def project_status(self, value: Optional[pulumi.Input[Union[str, 'ProjectStatus']]]):
         pulumi.set(self, "project_status", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
 
 
 @pulumi.input_type

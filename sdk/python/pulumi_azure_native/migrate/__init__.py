@@ -8,19 +8,25 @@ from .assessment import *
 from .get_assessment import *
 from .get_group import *
 from .get_hyper_v_collector import *
+from .get_import_collector import *
 from .get_migrate_project import *
 from .get_move_collection import *
 from .get_move_resource import *
+from .get_private_endpoint_connection import *
 from .get_project import *
+from .get_server_collector import *
 from .get_solution import *
 from .get_solution_config import *
 from .get_v_mware_collector import *
 from .group import *
 from .hyper_v_collector import *
+from .import_collector import *
 from .migrate_project import *
 from .move_collection import *
 from .move_resource import *
+from .private_endpoint_connection import *
 from .project import *
+from .server_collector import *
 from .solution import *
 from .v_mware_collector import *
 from ._inputs import *
@@ -54,14 +60,20 @@ def _register_module():
                 return Group(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:HyperVCollector":
                 return HyperVCollector(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:migrate:ImportCollector":
+                return ImportCollector(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:MigrateProject":
                 return MigrateProject(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:MoveCollection":
                 return MoveCollection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:MoveResource":
                 return MoveResource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:migrate:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:Project":
                 return Project(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:migrate:ServerCollector":
+                return ServerCollector(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:Solution":
                 return Solution(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:migrate:VMwareCollector":

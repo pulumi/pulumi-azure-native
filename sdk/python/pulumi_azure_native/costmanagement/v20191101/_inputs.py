@@ -32,6 +32,7 @@ __all__ = [
     'ReportConfigGroupingArgs',
     'ReportConfigSortingArgs',
     'ReportConfigTimePeriodArgs',
+    'SettingsPropertiesCacheArgs',
 ]
 
 @pulumi.input_type
@@ -1158,5 +1159,104 @@ class ReportConfigTimePeriodArgs:
     @to.setter
     def to(self, value: pulumi.Input[str]):
         pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class SettingsPropertiesCacheArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 subchannel: pulumi.Input[str],
+                 parent: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] channel: Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+        :param pulumi.Input[str] id: Resource ID used by Resource Manager to uniquely identify the scope.
+        :param pulumi.Input[str] name: Display name for the scope.
+        :param pulumi.Input[str] subchannel: Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+        :param pulumi.Input[str] parent: Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+        :param pulumi.Input[str] status: Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subchannel", subchannel)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input[str]:
+        """
+        Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID used by Resource Manager to uniquely identify the scope.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the scope.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def subchannel(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
+        """
+        return pulumi.get(self, "subchannel")
+
+    @subchannel.setter
+    def subchannel(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subchannel", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 

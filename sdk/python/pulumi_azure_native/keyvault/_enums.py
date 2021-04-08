@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ActionsRequired',
     'CertificatePermissions',
     'CreateMode',
     'JsonWebKeyCurveName',
@@ -16,12 +17,20 @@ __all__ = [
     'NetworkRuleAction',
     'NetworkRuleBypassOptions',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'SecretPermissions',
     'SkuFamily',
     'SkuName',
     'StoragePermissions',
     'VaultProvisioningState',
 ]
+
+
+class ActionsRequired(str, Enum):
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    NONE = "None"
 
 
 class CertificatePermissions(str, Enum):
@@ -144,6 +153,14 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SecretPermissions(str, Enum):

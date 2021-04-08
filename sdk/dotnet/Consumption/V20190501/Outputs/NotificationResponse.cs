@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.Consumption.V20190501.Outputs
     public sealed class NotificationResponse
     {
         /// <summary>
-        /// Email addresses to send the budget notification to when the threshold is exceeded.
+        /// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         /// </summary>
         public readonly ImmutableArray<string> ContactEmails;
         /// <summary>
-        /// Action groups to send the budget notification to when the threshold is exceeded.
+        /// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         /// </summary>
         public readonly ImmutableArray<string> ContactGroups;
         /// <summary>
@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Consumption.V20190501.Outputs
         /// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
         /// </summary>
         public readonly double Threshold;
+        /// <summary>
+        /// The type of threshold
+        /// </summary>
+        public readonly string? ThresholdType;
 
         [OutputConstructor]
         private NotificationResponse(
@@ -50,7 +54,9 @@ namespace Pulumi.AzureNative.Consumption.V20190501.Outputs
 
             string @operator,
 
-            double threshold)
+            double threshold,
+
+            string? thresholdType)
         {
             ContactEmails = contactEmails;
             ContactGroups = contactGroups;
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.Consumption.V20190501.Outputs
             Enabled = enabled;
             Operator = @operator;
             Threshold = threshold;
+            ThresholdType = thresholdType;
         }
     }
 }

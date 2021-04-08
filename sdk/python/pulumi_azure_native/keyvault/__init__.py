@@ -6,11 +6,13 @@
 from ._enums import *
 from .get_key import *
 from .get_managed_hsm import *
+from .get_mhsm_private_endpoint_connection import *
 from .get_private_endpoint_connection import *
 from .get_secret import *
 from .get_vault import *
 from .key import *
 from .managed_hsm import *
+from .mhsm_private_endpoint_connection import *
 from .private_endpoint_connection import *
 from .secret import *
 from .vault import *
@@ -25,6 +27,7 @@ from . import (
     v20180214preview,
     v20190901,
     v20200401preview,
+    v20210401preview,
 )
 
 def _register_module():
@@ -41,6 +44,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:keyvault:Key":
                 return Key(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:keyvault:MHSMPrivateEndpointConnection":
+                return MHSMPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:keyvault:ManagedHsm":
                 return ManagedHsm(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:keyvault:PrivateEndpointConnection":

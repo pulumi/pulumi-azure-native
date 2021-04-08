@@ -14,6 +14,12 @@ __all__ = [
     'AccessPolicyEntryResponse',
     'IPRuleResponse',
     'KeyAttributesResponse',
+    'MHSMIPRuleResponse',
+    'MHSMNetworkRuleSetResponse',
+    'MHSMPrivateEndpointConnectionItemResponse',
+    'MHSMPrivateEndpointResponse',
+    'MHSMPrivateLinkServiceConnectionStateResponse',
+    'MHSMVirtualNetworkRuleResponse',
     'ManagedHsmPropertiesResponse',
     'ManagedHsmSkuResponse',
     'NetworkRuleSetResponse',
@@ -24,6 +30,7 @@ __all__ = [
     'SecretAttributesResponse',
     'SecretPropertiesResponse',
     'SkuResponse',
+    'SystemDataResponse',
     'VaultPropertiesResponse',
     'VirtualNetworkRuleResponse',
 ]
@@ -196,34 +203,280 @@ class KeyAttributesResponse(dict):
 
 
 @pulumi.output_type
+class MHSMIPRuleResponse(dict):
+    """
+    A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+    """
+    def __init__(__self__, *,
+                 value: str):
+        """
+        A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+        :param str value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MHSMNetworkRuleSetResponse(dict):
+    """
+    A set of rules governing the network accessibility of a managed hsm pool.
+    """
+    def __init__(__self__, *,
+                 bypass: Optional[str] = None,
+                 default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.MHSMIPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.MHSMVirtualNetworkRuleResponse']] = None):
+        """
+        A set of rules governing the network accessibility of a managed hsm pool.
+        :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        :param Sequence['MHSMIPRuleResponseArgs'] ip_rules: The list of IP address rules.
+        :param Sequence['MHSMVirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        """
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[str]:
+        """
+        Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        """
+        return pulumi.get(self, "bypass")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.MHSMIPRuleResponse']]:
+        """
+        The list of IP address rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.MHSMVirtualNetworkRuleResponse']]:
+        """
+        The list of virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MHSMPrivateEndpointConnectionItemResponse(dict):
+    """
+    Private endpoint connection item.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.MHSMPrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.MHSMPrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Private endpoint connection item.
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param 'MHSMPrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
+        :param 'MHSMPrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.MHSMPrivateEndpointResponse']:
+        """
+        Properties of the private endpoint object.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.MHSMPrivateLinkServiceConnectionStateResponse']:
+        """
+        Approval state of the private link connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MHSMPrivateEndpointResponse(dict):
+    """
+    Private endpoint object properties.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Private endpoint object properties.
+        :param str id: Full identifier of the private endpoint resource.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Full identifier of the private endpoint resource.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MHSMPrivateLinkServiceConnectionStateResponse(dict):
+    """
+    An object that represents the approval state of the private link connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        An object that represents the approval state of the private link connection.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval or rejection.
+        :param str status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval or rejection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        """
+        return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MHSMVirtualNetworkRuleResponse(dict):
+    """
+    A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+        :param str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ManagedHsmPropertiesResponse(dict):
     """
     Properties of the managed HSM Pool
     """
     def __init__(__self__, *,
                  hsm_uri: str,
+                 private_endpoint_connections: Sequence['outputs.MHSMPrivateEndpointConnectionItemResponse'],
                  provisioning_state: str,
+                 scheduled_purge_date: str,
                  status_message: str,
                  create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
                  initial_admin_object_ids: Optional[Sequence[str]] = None,
+                 network_acls: Optional['outputs.MHSMNetworkRuleSetResponse'] = None,
+                 public_network_access: Optional[str] = None,
                  soft_delete_retention_in_days: Optional[int] = None,
                  tenant_id: Optional[str] = None):
         """
         Properties of the managed HSM Pool
         :param str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
+        :param Sequence['MHSMPrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
         :param str provisioning_state: Provisioning state.
+        :param str scheduled_purge_date: The scheduled purge date in UTC.
         :param str status_message: Resource Status Message.
         :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
+        :param 'MHSMNetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
         pulumi.set(__self__, "hsm_uri", hsm_uri)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "scheduled_purge_date", scheduled_purge_date)
         pulumi.set(__self__, "status_message", status_message)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
@@ -237,6 +490,10 @@ class ManagedHsmPropertiesResponse(dict):
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
         if initial_admin_object_ids is not None:
             pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -253,12 +510,28 @@ class ManagedHsmPropertiesResponse(dict):
         return pulumi.get(self, "hsm_uri")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.MHSMPrivateEndpointConnectionItemResponse']:
+        """
+        List of private endpoint connections associated with the managed hsm pool.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="scheduledPurgeDate")
+    def scheduled_purge_date(self) -> str:
+        """
+        The scheduled purge date in UTC.
+        """
+        return pulumi.get(self, "scheduled_purge_date")
 
     @property
     @pulumi.getter(name="statusMessage")
@@ -299,6 +572,22 @@ class ManagedHsmPropertiesResponse(dict):
         Array of initial administrators object ids for this managed hsm pool.
         """
         return pulumi.get(self, "initial_admin_object_ids")
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional['outputs.MHSMNetworkRuleSetResponse']:
+        """
+        Rules governing the accessibility of the key vault from specific network locations.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="softDeleteRetentionInDays")
@@ -803,6 +1092,92 @@ class SkuResponse(dict):
         SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the key vault resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the key vault resource.
+        :param str created_at: The timestamp of the key vault resource creation (UTC).
+        :param str created_by: The identity that created the key vault resource.
+        :param str created_by_type: The type of identity that created the key vault resource.
+        :param str last_modified_at: The timestamp of the key vault resource last modification (UTC).
+        :param str last_modified_by: The identity that last modified the key vault resource.
+        :param str last_modified_by_type: The type of identity that last modified the key vault resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of the key vault resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the key vault resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the key vault resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of the key vault resource last modification (UTC).
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the key vault resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the key vault resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

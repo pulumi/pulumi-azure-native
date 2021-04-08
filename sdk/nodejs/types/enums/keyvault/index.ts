@@ -8,6 +8,7 @@ import * as v20180214 from "./v20180214";
 import * as v20180214preview from "./v20180214preview";
 import * as v20190901 from "./v20190901";
 import * as v20200401preview from "./v20200401preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20150601,
@@ -16,7 +17,17 @@ export {
     v20180214preview,
     v20190901,
     v20200401preview,
+    v20210401preview,
 };
+
+export const ActionsRequired = {
+    None: "None",
+} as const;
+
+/**
+ * A message indicating if changes on the service provider require any updates on the consumer.
+ */
+export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
 
 export const CertificatePermissions = {
     All: "all",
@@ -161,6 +172,16 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been approved, rejected or removed by the key vault owner.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SecretPermissions = {
     All: "all",

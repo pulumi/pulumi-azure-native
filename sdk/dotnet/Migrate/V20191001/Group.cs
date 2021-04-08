@@ -109,6 +109,12 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
+        /// Properties of the group.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.GroupPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Azure Resource Group that project is part of.
         /// </summary>
         [Input("resourceGroupName", required: true)]

@@ -107,9 +107,9 @@ export interface GetStorageAccountResult {
      */
     readonly isHnsEnabled?: boolean;
     /**
-     * Gets the list of storage account keys creation time.
+     * Storage account keys creation time.
      */
-    readonly keyCreationTime: {[key: string]: string};
+    readonly keyCreationTime: outputs.storage.v20210201.KeyCreationTimeResponse;
     /**
      * KeyPolicy assigned to the storage account.
      */

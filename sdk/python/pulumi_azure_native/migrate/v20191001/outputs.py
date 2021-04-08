@@ -16,7 +16,12 @@ __all__ = [
     'CollectorBodyAgentSpnPropertiesResponse',
     'CollectorPropertiesResponse',
     'GroupPropertiesResponse',
+    'ImportCollectorPropertiesResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'ProjectPropertiesResponse',
+    'ResourceIdResponse',
     'VmUptimeResponse',
 ]
 
@@ -534,7 +539,8 @@ class GroupPropertiesResponse(dict):
                  created_timestamp: str,
                  group_status: str,
                  machine_count: int,
-                 updated_timestamp: str):
+                 updated_timestamp: str,
+                 group_type: Optional[str] = None):
         """
         Properties of group resource.
         :param bool are_assessments_running: If the assessments are in running state.
@@ -543,6 +549,7 @@ class GroupPropertiesResponse(dict):
         :param str group_status: Whether the group has been created and is valid.
         :param int machine_count: Number of machines part of this group.
         :param str updated_timestamp: Time when this group was last updated. Date-Time represented in ISO-8601 format.
+        :param str group_type: The type of group.
         """
         pulumi.set(__self__, "are_assessments_running", are_assessments_running)
         pulumi.set(__self__, "assessments", assessments)
@@ -550,6 +557,8 @@ class GroupPropertiesResponse(dict):
         pulumi.set(__self__, "group_status", group_status)
         pulumi.set(__self__, "machine_count", machine_count)
         pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        if group_type is not None:
+            pulumi.set(__self__, "group_type", group_type)
 
     @property
     @pulumi.getter(name="areAssessmentsRunning")
@@ -599,6 +608,212 @@ class GroupPropertiesResponse(dict):
         """
         return pulumi.get(self, "updated_timestamp")
 
+    @property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> Optional[str]:
+        """
+        The type of group.
+        """
+        return pulumi.get(self, "group_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImportCollectorPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 created_timestamp: str,
+                 updated_timestamp: str,
+                 discovery_site_id: Optional[str] = None):
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        if discovery_site_id is not None:
+            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        return pulumi.get(self, "updated_timestamp")
+
+    @property
+    @pulumi.getter(name="discoverySiteId")
+    def discovery_site_id(self) -> Optional[str]:
+        return pulumi.get(self, "discovery_site_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Private endpoint connection properties.
+    """
+    def __init__(__self__, *,
+                 private_endpoint: 'outputs.ResourceIdResponse',
+                 provisioning_state: str,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Private endpoint connection properties.
+        :param 'ResourceIdResponseArgs' private_endpoint: ARM id for the private endpoint resource corresponding to the connection.
+        :param str provisioning_state: Indicates whether there is an ongoing operation on the private endpoint.
+        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: State of the private endpoint connection.
+        """
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.ResourceIdResponse':
+        """
+        ARM id for the private endpoint resource corresponding to the connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Indicates whether there is an ongoing operation on the private endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    A private endpoint connection for a project.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
+                 type: str,
+                 e_tag: Optional[str] = None):
+        """
+        A private endpoint connection for a project.
+        :param str id: Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        :param str name: Name of the private endpoint endpoint connection.
+        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Properties of the private endpoint endpoint connection.
+        :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
+        :param str e_tag: For optimistic concurrency control.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the private endpoint endpoint connection.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+        """
+        Properties of the private endpoint endpoint connection.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    State of a private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        State of a private endpoint connection.
+        :param str actions_required: Actions required on the private endpoint connection.
+        :param str description: Description of the private endpoint connection.
+        :param str status: Connection status of the private endpoint connection.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        Actions required on the private endpoint connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the private endpoint connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Connection status of the private endpoint connection.
+        """
+        return pulumi.get(self, "status")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -614,13 +829,16 @@ class ProjectPropertiesResponse(dict):
                  number_of_assessments: int,
                  number_of_groups: int,
                  number_of_machines: int,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: str,
                  service_endpoint: str,
                  updated_timestamp: str,
                  assessment_solution_id: Optional[str] = None,
+                 customer_storage_account_arm_id: Optional[str] = None,
                  customer_workspace_id: Optional[str] = None,
                  customer_workspace_location: Optional[str] = None,
-                 project_status: Optional[str] = None):
+                 project_status: Optional[str] = None,
+                 public_network_access: Optional[str] = None):
         """
         Properties of a project.
         :param str created_timestamp: Time when this project was created. Date-Time represented in ISO-8601 format.
@@ -628,30 +846,38 @@ class ProjectPropertiesResponse(dict):
         :param int number_of_assessments: Number of assessments created in the project.
         :param int number_of_groups: Number of groups created in the project.
         :param int number_of_machines: Number of machines in the project.
+        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: The list of private endpoint connections to the project.
         :param str provisioning_state: Provisioning state of the project.
         :param str service_endpoint: Endpoint at which the collector agent can call agent REST API.
         :param str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.
         :param str assessment_solution_id: Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+        :param str customer_storage_account_arm_id: The ARM id of the storage account used for interactions when public access is disabled.
         :param str customer_workspace_id: The ARM id of service map workspace created by customer.
         :param str customer_workspace_location: Location of service map workspace created by customer.
         :param str project_status: Assessment project status.
+        :param str public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
         pulumi.set(__self__, "created_timestamp", created_timestamp)
         pulumi.set(__self__, "last_assessment_timestamp", last_assessment_timestamp)
         pulumi.set(__self__, "number_of_assessments", number_of_assessments)
         pulumi.set(__self__, "number_of_groups", number_of_groups)
         pulumi.set(__self__, "number_of_machines", number_of_machines)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_endpoint", service_endpoint)
         pulumi.set(__self__, "updated_timestamp", updated_timestamp)
         if assessment_solution_id is not None:
             pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+        if customer_storage_account_arm_id is not None:
+            pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
         if customer_workspace_id is not None:
             pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
             pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
         if project_status is not None:
             pulumi.set(__self__, "project_status", project_status)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -694,6 +920,14 @@ class ProjectPropertiesResponse(dict):
         return pulumi.get(self, "number_of_machines")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The list of private endpoint connections to the project.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -726,6 +960,14 @@ class ProjectPropertiesResponse(dict):
         return pulumi.get(self, "assessment_solution_id")
 
     @property
+    @pulumi.getter(name="customerStorageAccountArmId")
+    def customer_storage_account_arm_id(self) -> Optional[str]:
+        """
+        The ARM id of the storage account used for interactions when public access is disabled.
+        """
+        return pulumi.get(self, "customer_storage_account_arm_id")
+
+    @property
     @pulumi.getter(name="customerWorkspaceId")
     def customer_workspace_id(self) -> Optional[str]:
         """
@@ -748,6 +990,35 @@ class ProjectPropertiesResponse(dict):
         Assessment project status.
         """
         return pulumi.get(self, "project_status")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceIdResponse(dict):
+    """
+    ARM id for a resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        ARM id for a resource.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

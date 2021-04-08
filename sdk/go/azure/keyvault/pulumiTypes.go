@@ -1071,6 +1071,1390 @@ func (o KeyPropertiesPtrOutput) Kty() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+type MHSMIPRule struct {
+	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+	Value string `pulumi:"value"`
+}
+
+// MHSMIPRuleInput is an input type that accepts MHSMIPRuleArgs and MHSMIPRuleOutput values.
+// You can construct a concrete instance of `MHSMIPRuleInput` via:
+//
+//          MHSMIPRuleArgs{...}
+type MHSMIPRuleInput interface {
+	pulumi.Input
+
+	ToMHSMIPRuleOutput() MHSMIPRuleOutput
+	ToMHSMIPRuleOutputWithContext(context.Context) MHSMIPRuleOutput
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+type MHSMIPRuleArgs struct {
+	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MHSMIPRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMIPRule)(nil)).Elem()
+}
+
+func (i MHSMIPRuleArgs) ToMHSMIPRuleOutput() MHSMIPRuleOutput {
+	return i.ToMHSMIPRuleOutputWithContext(context.Background())
+}
+
+func (i MHSMIPRuleArgs) ToMHSMIPRuleOutputWithContext(ctx context.Context) MHSMIPRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMIPRuleOutput)
+}
+
+// MHSMIPRuleArrayInput is an input type that accepts MHSMIPRuleArray and MHSMIPRuleArrayOutput values.
+// You can construct a concrete instance of `MHSMIPRuleArrayInput` via:
+//
+//          MHSMIPRuleArray{ MHSMIPRuleArgs{...} }
+type MHSMIPRuleArrayInput interface {
+	pulumi.Input
+
+	ToMHSMIPRuleArrayOutput() MHSMIPRuleArrayOutput
+	ToMHSMIPRuleArrayOutputWithContext(context.Context) MHSMIPRuleArrayOutput
+}
+
+type MHSMIPRuleArray []MHSMIPRuleInput
+
+func (MHSMIPRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMIPRule)(nil)).Elem()
+}
+
+func (i MHSMIPRuleArray) ToMHSMIPRuleArrayOutput() MHSMIPRuleArrayOutput {
+	return i.ToMHSMIPRuleArrayOutputWithContext(context.Background())
+}
+
+func (i MHSMIPRuleArray) ToMHSMIPRuleArrayOutputWithContext(ctx context.Context) MHSMIPRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMIPRuleArrayOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+type MHSMIPRuleOutput struct{ *pulumi.OutputState }
+
+func (MHSMIPRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMIPRule)(nil)).Elem()
+}
+
+func (o MHSMIPRuleOutput) ToMHSMIPRuleOutput() MHSMIPRuleOutput {
+	return o
+}
+
+func (o MHSMIPRuleOutput) ToMHSMIPRuleOutputWithContext(ctx context.Context) MHSMIPRuleOutput {
+	return o
+}
+
+// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+func (o MHSMIPRuleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MHSMIPRule) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MHSMIPRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (MHSMIPRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMIPRule)(nil)).Elem()
+}
+
+func (o MHSMIPRuleArrayOutput) ToMHSMIPRuleArrayOutput() MHSMIPRuleArrayOutput {
+	return o
+}
+
+func (o MHSMIPRuleArrayOutput) ToMHSMIPRuleArrayOutputWithContext(ctx context.Context) MHSMIPRuleArrayOutput {
+	return o
+}
+
+func (o MHSMIPRuleArrayOutput) Index(i pulumi.IntInput) MHSMIPRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MHSMIPRule {
+		return vs[0].([]MHSMIPRule)[vs[1].(int)]
+	}).(MHSMIPRuleOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+type MHSMIPRuleResponse struct {
+	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+	Value string `pulumi:"value"`
+}
+
+// MHSMIPRuleResponseInput is an input type that accepts MHSMIPRuleResponseArgs and MHSMIPRuleResponseOutput values.
+// You can construct a concrete instance of `MHSMIPRuleResponseInput` via:
+//
+//          MHSMIPRuleResponseArgs{...}
+type MHSMIPRuleResponseInput interface {
+	pulumi.Input
+
+	ToMHSMIPRuleResponseOutput() MHSMIPRuleResponseOutput
+	ToMHSMIPRuleResponseOutputWithContext(context.Context) MHSMIPRuleResponseOutput
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+type MHSMIPRuleResponseArgs struct {
+	// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MHSMIPRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMIPRuleResponse)(nil)).Elem()
+}
+
+func (i MHSMIPRuleResponseArgs) ToMHSMIPRuleResponseOutput() MHSMIPRuleResponseOutput {
+	return i.ToMHSMIPRuleResponseOutputWithContext(context.Background())
+}
+
+func (i MHSMIPRuleResponseArgs) ToMHSMIPRuleResponseOutputWithContext(ctx context.Context) MHSMIPRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMIPRuleResponseOutput)
+}
+
+// MHSMIPRuleResponseArrayInput is an input type that accepts MHSMIPRuleResponseArray and MHSMIPRuleResponseArrayOutput values.
+// You can construct a concrete instance of `MHSMIPRuleResponseArrayInput` via:
+//
+//          MHSMIPRuleResponseArray{ MHSMIPRuleResponseArgs{...} }
+type MHSMIPRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToMHSMIPRuleResponseArrayOutput() MHSMIPRuleResponseArrayOutput
+	ToMHSMIPRuleResponseArrayOutputWithContext(context.Context) MHSMIPRuleResponseArrayOutput
+}
+
+type MHSMIPRuleResponseArray []MHSMIPRuleResponseInput
+
+func (MHSMIPRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMIPRuleResponse)(nil)).Elem()
+}
+
+func (i MHSMIPRuleResponseArray) ToMHSMIPRuleResponseArrayOutput() MHSMIPRuleResponseArrayOutput {
+	return i.ToMHSMIPRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MHSMIPRuleResponseArray) ToMHSMIPRuleResponseArrayOutputWithContext(ctx context.Context) MHSMIPRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMIPRuleResponseArrayOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+type MHSMIPRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (MHSMIPRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMIPRuleResponse)(nil)).Elem()
+}
+
+func (o MHSMIPRuleResponseOutput) ToMHSMIPRuleResponseOutput() MHSMIPRuleResponseOutput {
+	return o
+}
+
+func (o MHSMIPRuleResponseOutput) ToMHSMIPRuleResponseOutputWithContext(ctx context.Context) MHSMIPRuleResponseOutput {
+	return o
+}
+
+// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+func (o MHSMIPRuleResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MHSMIPRuleResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MHSMIPRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MHSMIPRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMIPRuleResponse)(nil)).Elem()
+}
+
+func (o MHSMIPRuleResponseArrayOutput) ToMHSMIPRuleResponseArrayOutput() MHSMIPRuleResponseArrayOutput {
+	return o
+}
+
+func (o MHSMIPRuleResponseArrayOutput) ToMHSMIPRuleResponseArrayOutputWithContext(ctx context.Context) MHSMIPRuleResponseArrayOutput {
+	return o
+}
+
+func (o MHSMIPRuleResponseArrayOutput) Index(i pulumi.IntInput) MHSMIPRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MHSMIPRuleResponse {
+		return vs[0].([]MHSMIPRuleResponse)[vs[1].(int)]
+	}).(MHSMIPRuleResponseOutput)
+}
+
+// A set of rules governing the network accessibility of a managed hsm pool.
+type MHSMNetworkRuleSet struct {
+	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+	Bypass *string `pulumi:"bypass"`
+	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// The list of IP address rules.
+	IpRules []MHSMIPRule `pulumi:"ipRules"`
+	// The list of virtual network rules.
+	VirtualNetworkRules []MHSMVirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+// MHSMNetworkRuleSetInput is an input type that accepts MHSMNetworkRuleSetArgs and MHSMNetworkRuleSetOutput values.
+// You can construct a concrete instance of `MHSMNetworkRuleSetInput` via:
+//
+//          MHSMNetworkRuleSetArgs{...}
+type MHSMNetworkRuleSetInput interface {
+	pulumi.Input
+
+	ToMHSMNetworkRuleSetOutput() MHSMNetworkRuleSetOutput
+	ToMHSMNetworkRuleSetOutputWithContext(context.Context) MHSMNetworkRuleSetOutput
+}
+
+// A set of rules governing the network accessibility of a managed hsm pool.
+type MHSMNetworkRuleSetArgs struct {
+	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
+	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// The list of IP address rules.
+	IpRules MHSMIPRuleArrayInput `pulumi:"ipRules"`
+	// The list of virtual network rules.
+	VirtualNetworkRules MHSMVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (MHSMNetworkRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMNetworkRuleSet)(nil)).Elem()
+}
+
+func (i MHSMNetworkRuleSetArgs) ToMHSMNetworkRuleSetOutput() MHSMNetworkRuleSetOutput {
+	return i.ToMHSMNetworkRuleSetOutputWithContext(context.Background())
+}
+
+func (i MHSMNetworkRuleSetArgs) ToMHSMNetworkRuleSetOutputWithContext(ctx context.Context) MHSMNetworkRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetOutput)
+}
+
+func (i MHSMNetworkRuleSetArgs) ToMHSMNetworkRuleSetPtrOutput() MHSMNetworkRuleSetPtrOutput {
+	return i.ToMHSMNetworkRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i MHSMNetworkRuleSetArgs) ToMHSMNetworkRuleSetPtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetOutput).ToMHSMNetworkRuleSetPtrOutputWithContext(ctx)
+}
+
+// MHSMNetworkRuleSetPtrInput is an input type that accepts MHSMNetworkRuleSetArgs, MHSMNetworkRuleSetPtr and MHSMNetworkRuleSetPtrOutput values.
+// You can construct a concrete instance of `MHSMNetworkRuleSetPtrInput` via:
+//
+//          MHSMNetworkRuleSetArgs{...}
+//
+//  or:
+//
+//          nil
+type MHSMNetworkRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToMHSMNetworkRuleSetPtrOutput() MHSMNetworkRuleSetPtrOutput
+	ToMHSMNetworkRuleSetPtrOutputWithContext(context.Context) MHSMNetworkRuleSetPtrOutput
+}
+
+type mhsmnetworkRuleSetPtrType MHSMNetworkRuleSetArgs
+
+func MHSMNetworkRuleSetPtr(v *MHSMNetworkRuleSetArgs) MHSMNetworkRuleSetPtrInput {
+	return (*mhsmnetworkRuleSetPtrType)(v)
+}
+
+func (*mhsmnetworkRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMNetworkRuleSet)(nil)).Elem()
+}
+
+func (i *mhsmnetworkRuleSetPtrType) ToMHSMNetworkRuleSetPtrOutput() MHSMNetworkRuleSetPtrOutput {
+	return i.ToMHSMNetworkRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *mhsmnetworkRuleSetPtrType) ToMHSMNetworkRuleSetPtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetPtrOutput)
+}
+
+// A set of rules governing the network accessibility of a managed hsm pool.
+type MHSMNetworkRuleSetOutput struct{ *pulumi.OutputState }
+
+func (MHSMNetworkRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMNetworkRuleSet)(nil)).Elem()
+}
+
+func (o MHSMNetworkRuleSetOutput) ToMHSMNetworkRuleSetOutput() MHSMNetworkRuleSetOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetOutput) ToMHSMNetworkRuleSetOutputWithContext(ctx context.Context) MHSMNetworkRuleSetOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetOutput) ToMHSMNetworkRuleSetPtrOutput() MHSMNetworkRuleSetPtrOutput {
+	return o.ToMHSMNetworkRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o MHSMNetworkRuleSetOutput) ToMHSMNetworkRuleSetPtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetPtrOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSet) *MHSMNetworkRuleSet {
+		return &v
+	}).(MHSMNetworkRuleSetPtrOutput)
+}
+
+// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+func (o MHSMNetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSet) *string { return v.Bypass }).(pulumi.StringPtrOutput)
+}
+
+// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+func (o MHSMNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// The list of IP address rules.
+func (o MHSMNetworkRuleSetOutput) IpRules() MHSMIPRuleArrayOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSet) []MHSMIPRule { return v.IpRules }).(MHSMIPRuleArrayOutput)
+}
+
+// The list of virtual network rules.
+func (o MHSMNetworkRuleSetOutput) VirtualNetworkRules() MHSMVirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSet) []MHSMVirtualNetworkRule { return v.VirtualNetworkRules }).(MHSMVirtualNetworkRuleArrayOutput)
+}
+
+type MHSMNetworkRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (MHSMNetworkRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMNetworkRuleSet)(nil)).Elem()
+}
+
+func (o MHSMNetworkRuleSetPtrOutput) ToMHSMNetworkRuleSetPtrOutput() MHSMNetworkRuleSetPtrOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetPtrOutput) ToMHSMNetworkRuleSetPtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetPtrOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetPtrOutput) Elem() MHSMNetworkRuleSetOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSet) MHSMNetworkRuleSet { return *v }).(MHSMNetworkRuleSetOutput)
+}
+
+// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+func (o MHSMNetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bypass
+	}).(pulumi.StringPtrOutput)
+}
+
+// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+func (o MHSMNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of IP address rules.
+func (o MHSMNetworkRuleSetPtrOutput) IpRules() MHSMIPRuleArrayOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSet) []MHSMIPRule {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(MHSMIPRuleArrayOutput)
+}
+
+// The list of virtual network rules.
+func (o MHSMNetworkRuleSetPtrOutput) VirtualNetworkRules() MHSMVirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSet) []MHSMVirtualNetworkRule {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkRules
+	}).(MHSMVirtualNetworkRuleArrayOutput)
+}
+
+// A set of rules governing the network accessibility of a managed hsm pool.
+type MHSMNetworkRuleSetResponse struct {
+	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+	Bypass *string `pulumi:"bypass"`
+	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// The list of IP address rules.
+	IpRules []MHSMIPRuleResponse `pulumi:"ipRules"`
+	// The list of virtual network rules.
+	VirtualNetworkRules []MHSMVirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+}
+
+// MHSMNetworkRuleSetResponseInput is an input type that accepts MHSMNetworkRuleSetResponseArgs and MHSMNetworkRuleSetResponseOutput values.
+// You can construct a concrete instance of `MHSMNetworkRuleSetResponseInput` via:
+//
+//          MHSMNetworkRuleSetResponseArgs{...}
+type MHSMNetworkRuleSetResponseInput interface {
+	pulumi.Input
+
+	ToMHSMNetworkRuleSetResponseOutput() MHSMNetworkRuleSetResponseOutput
+	ToMHSMNetworkRuleSetResponseOutputWithContext(context.Context) MHSMNetworkRuleSetResponseOutput
+}
+
+// A set of rules governing the network accessibility of a managed hsm pool.
+type MHSMNetworkRuleSetResponseArgs struct {
+	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
+	// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// The list of IP address rules.
+	IpRules MHSMIPRuleResponseArrayInput `pulumi:"ipRules"`
+	// The list of virtual network rules.
+	VirtualNetworkRules MHSMVirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (MHSMNetworkRuleSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMNetworkRuleSetResponse)(nil)).Elem()
+}
+
+func (i MHSMNetworkRuleSetResponseArgs) ToMHSMNetworkRuleSetResponseOutput() MHSMNetworkRuleSetResponseOutput {
+	return i.ToMHSMNetworkRuleSetResponseOutputWithContext(context.Background())
+}
+
+func (i MHSMNetworkRuleSetResponseArgs) ToMHSMNetworkRuleSetResponseOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetResponseOutput)
+}
+
+func (i MHSMNetworkRuleSetResponseArgs) ToMHSMNetworkRuleSetResponsePtrOutput() MHSMNetworkRuleSetResponsePtrOutput {
+	return i.ToMHSMNetworkRuleSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MHSMNetworkRuleSetResponseArgs) ToMHSMNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetResponseOutput).ToMHSMNetworkRuleSetResponsePtrOutputWithContext(ctx)
+}
+
+// MHSMNetworkRuleSetResponsePtrInput is an input type that accepts MHSMNetworkRuleSetResponseArgs, MHSMNetworkRuleSetResponsePtr and MHSMNetworkRuleSetResponsePtrOutput values.
+// You can construct a concrete instance of `MHSMNetworkRuleSetResponsePtrInput` via:
+//
+//          MHSMNetworkRuleSetResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MHSMNetworkRuleSetResponsePtrInput interface {
+	pulumi.Input
+
+	ToMHSMNetworkRuleSetResponsePtrOutput() MHSMNetworkRuleSetResponsePtrOutput
+	ToMHSMNetworkRuleSetResponsePtrOutputWithContext(context.Context) MHSMNetworkRuleSetResponsePtrOutput
+}
+
+type mhsmnetworkRuleSetResponsePtrType MHSMNetworkRuleSetResponseArgs
+
+func MHSMNetworkRuleSetResponsePtr(v *MHSMNetworkRuleSetResponseArgs) MHSMNetworkRuleSetResponsePtrInput {
+	return (*mhsmnetworkRuleSetResponsePtrType)(v)
+}
+
+func (*mhsmnetworkRuleSetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMNetworkRuleSetResponse)(nil)).Elem()
+}
+
+func (i *mhsmnetworkRuleSetResponsePtrType) ToMHSMNetworkRuleSetResponsePtrOutput() MHSMNetworkRuleSetResponsePtrOutput {
+	return i.ToMHSMNetworkRuleSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mhsmnetworkRuleSetResponsePtrType) ToMHSMNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMNetworkRuleSetResponsePtrOutput)
+}
+
+// A set of rules governing the network accessibility of a managed hsm pool.
+type MHSMNetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
+
+func (MHSMNetworkRuleSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMNetworkRuleSetResponse)(nil)).Elem()
+}
+
+func (o MHSMNetworkRuleSetResponseOutput) ToMHSMNetworkRuleSetResponseOutput() MHSMNetworkRuleSetResponseOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetResponseOutput) ToMHSMNetworkRuleSetResponseOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponseOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetResponseOutput) ToMHSMNetworkRuleSetResponsePtrOutput() MHSMNetworkRuleSetResponsePtrOutput {
+	return o.ToMHSMNetworkRuleSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MHSMNetworkRuleSetResponseOutput) ToMHSMNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponsePtrOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSetResponse) *MHSMNetworkRuleSetResponse {
+		return &v
+	}).(MHSMNetworkRuleSetResponsePtrOutput)
+}
+
+// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+func (o MHSMNetworkRuleSetResponseOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSetResponse) *string { return v.Bypass }).(pulumi.StringPtrOutput)
+}
+
+// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+func (o MHSMNetworkRuleSetResponseOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSetResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// The list of IP address rules.
+func (o MHSMNetworkRuleSetResponseOutput) IpRules() MHSMIPRuleResponseArrayOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSetResponse) []MHSMIPRuleResponse { return v.IpRules }).(MHSMIPRuleResponseArrayOutput)
+}
+
+// The list of virtual network rules.
+func (o MHSMNetworkRuleSetResponseOutput) VirtualNetworkRules() MHSMVirtualNetworkRuleResponseArrayOutput {
+	return o.ApplyT(func(v MHSMNetworkRuleSetResponse) []MHSMVirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(MHSMVirtualNetworkRuleResponseArrayOutput)
+}
+
+type MHSMNetworkRuleSetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MHSMNetworkRuleSetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMNetworkRuleSetResponse)(nil)).Elem()
+}
+
+func (o MHSMNetworkRuleSetResponsePtrOutput) ToMHSMNetworkRuleSetResponsePtrOutput() MHSMNetworkRuleSetResponsePtrOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetResponsePtrOutput) ToMHSMNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponsePtrOutput {
+	return o
+}
+
+func (o MHSMNetworkRuleSetResponsePtrOutput) Elem() MHSMNetworkRuleSetResponseOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) MHSMNetworkRuleSetResponse { return *v }).(MHSMNetworkRuleSetResponseOutput)
+}
+
+// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+func (o MHSMNetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bypass
+	}).(pulumi.StringPtrOutput)
+}
+
+// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+func (o MHSMNetworkRuleSetResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of IP address rules.
+func (o MHSMNetworkRuleSetResponsePtrOutput) IpRules() MHSMIPRuleResponseArrayOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) []MHSMIPRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(MHSMIPRuleResponseArrayOutput)
+}
+
+// The list of virtual network rules.
+func (o MHSMNetworkRuleSetResponsePtrOutput) VirtualNetworkRules() MHSMVirtualNetworkRuleResponseArrayOutput {
+	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) []MHSMVirtualNetworkRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkRules
+	}).(MHSMVirtualNetworkRuleResponseArrayOutput)
+}
+
+// Private endpoint connection item.
+type MHSMPrivateEndpointConnectionItemResponse struct {
+	// Properties of the private endpoint object.
+	PrivateEndpoint *MHSMPrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState *MHSMPrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// MHSMPrivateEndpointConnectionItemResponseInput is an input type that accepts MHSMPrivateEndpointConnectionItemResponseArgs and MHSMPrivateEndpointConnectionItemResponseOutput values.
+// You can construct a concrete instance of `MHSMPrivateEndpointConnectionItemResponseInput` via:
+//
+//          MHSMPrivateEndpointConnectionItemResponseArgs{...}
+type MHSMPrivateEndpointConnectionItemResponseInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateEndpointConnectionItemResponseOutput() MHSMPrivateEndpointConnectionItemResponseOutput
+	ToMHSMPrivateEndpointConnectionItemResponseOutputWithContext(context.Context) MHSMPrivateEndpointConnectionItemResponseOutput
+}
+
+// Private endpoint connection item.
+type MHSMPrivateEndpointConnectionItemResponseArgs struct {
+	// Properties of the private endpoint object.
+	PrivateEndpoint MHSMPrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState MHSMPrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (MHSMPrivateEndpointConnectionItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateEndpointConnectionItemResponse)(nil)).Elem()
+}
+
+func (i MHSMPrivateEndpointConnectionItemResponseArgs) ToMHSMPrivateEndpointConnectionItemResponseOutput() MHSMPrivateEndpointConnectionItemResponseOutput {
+	return i.ToMHSMPrivateEndpointConnectionItemResponseOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateEndpointConnectionItemResponseArgs) ToMHSMPrivateEndpointConnectionItemResponseOutputWithContext(ctx context.Context) MHSMPrivateEndpointConnectionItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointConnectionItemResponseOutput)
+}
+
+// MHSMPrivateEndpointConnectionItemResponseArrayInput is an input type that accepts MHSMPrivateEndpointConnectionItemResponseArray and MHSMPrivateEndpointConnectionItemResponseArrayOutput values.
+// You can construct a concrete instance of `MHSMPrivateEndpointConnectionItemResponseArrayInput` via:
+//
+//          MHSMPrivateEndpointConnectionItemResponseArray{ MHSMPrivateEndpointConnectionItemResponseArgs{...} }
+type MHSMPrivateEndpointConnectionItemResponseArrayInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateEndpointConnectionItemResponseArrayOutput() MHSMPrivateEndpointConnectionItemResponseArrayOutput
+	ToMHSMPrivateEndpointConnectionItemResponseArrayOutputWithContext(context.Context) MHSMPrivateEndpointConnectionItemResponseArrayOutput
+}
+
+type MHSMPrivateEndpointConnectionItemResponseArray []MHSMPrivateEndpointConnectionItemResponseInput
+
+func (MHSMPrivateEndpointConnectionItemResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMPrivateEndpointConnectionItemResponse)(nil)).Elem()
+}
+
+func (i MHSMPrivateEndpointConnectionItemResponseArray) ToMHSMPrivateEndpointConnectionItemResponseArrayOutput() MHSMPrivateEndpointConnectionItemResponseArrayOutput {
+	return i.ToMHSMPrivateEndpointConnectionItemResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateEndpointConnectionItemResponseArray) ToMHSMPrivateEndpointConnectionItemResponseArrayOutputWithContext(ctx context.Context) MHSMPrivateEndpointConnectionItemResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointConnectionItemResponseArrayOutput)
+}
+
+// Private endpoint connection item.
+type MHSMPrivateEndpointConnectionItemResponseOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateEndpointConnectionItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateEndpointConnectionItemResponse)(nil)).Elem()
+}
+
+func (o MHSMPrivateEndpointConnectionItemResponseOutput) ToMHSMPrivateEndpointConnectionItemResponseOutput() MHSMPrivateEndpointConnectionItemResponseOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointConnectionItemResponseOutput) ToMHSMPrivateEndpointConnectionItemResponseOutputWithContext(ctx context.Context) MHSMPrivateEndpointConnectionItemResponseOutput {
+	return o
+}
+
+// Properties of the private endpoint object.
+func (o MHSMPrivateEndpointConnectionItemResponseOutput) PrivateEndpoint() MHSMPrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v MHSMPrivateEndpointConnectionItemResponse) *MHSMPrivateEndpointResponse {
+		return v.PrivateEndpoint
+	}).(MHSMPrivateEndpointResponsePtrOutput)
+}
+
+// Approval state of the private link connection.
+func (o MHSMPrivateEndpointConnectionItemResponseOutput) PrivateLinkServiceConnectionState() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v MHSMPrivateEndpointConnectionItemResponse) *MHSMPrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the private endpoint connection.
+func (o MHSMPrivateEndpointConnectionItemResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MHSMPrivateEndpointConnectionItemResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type MHSMPrivateEndpointConnectionItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateEndpointConnectionItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMPrivateEndpointConnectionItemResponse)(nil)).Elem()
+}
+
+func (o MHSMPrivateEndpointConnectionItemResponseArrayOutput) ToMHSMPrivateEndpointConnectionItemResponseArrayOutput() MHSMPrivateEndpointConnectionItemResponseArrayOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointConnectionItemResponseArrayOutput) ToMHSMPrivateEndpointConnectionItemResponseArrayOutputWithContext(ctx context.Context) MHSMPrivateEndpointConnectionItemResponseArrayOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointConnectionItemResponseArrayOutput) Index(i pulumi.IntInput) MHSMPrivateEndpointConnectionItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MHSMPrivateEndpointConnectionItemResponse {
+		return vs[0].([]MHSMPrivateEndpointConnectionItemResponse)[vs[1].(int)]
+	}).(MHSMPrivateEndpointConnectionItemResponseOutput)
+}
+
+// Private endpoint object properties.
+type MHSMPrivateEndpointResponse struct {
+	// Full identifier of the private endpoint resource.
+	Id string `pulumi:"id"`
+}
+
+// MHSMPrivateEndpointResponseInput is an input type that accepts MHSMPrivateEndpointResponseArgs and MHSMPrivateEndpointResponseOutput values.
+// You can construct a concrete instance of `MHSMPrivateEndpointResponseInput` via:
+//
+//          MHSMPrivateEndpointResponseArgs{...}
+type MHSMPrivateEndpointResponseInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateEndpointResponseOutput() MHSMPrivateEndpointResponseOutput
+	ToMHSMPrivateEndpointResponseOutputWithContext(context.Context) MHSMPrivateEndpointResponseOutput
+}
+
+// Private endpoint object properties.
+type MHSMPrivateEndpointResponseArgs struct {
+	// Full identifier of the private endpoint resource.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (MHSMPrivateEndpointResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i MHSMPrivateEndpointResponseArgs) ToMHSMPrivateEndpointResponseOutput() MHSMPrivateEndpointResponseOutput {
+	return i.ToMHSMPrivateEndpointResponseOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateEndpointResponseArgs) ToMHSMPrivateEndpointResponseOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointResponseOutput)
+}
+
+func (i MHSMPrivateEndpointResponseArgs) ToMHSMPrivateEndpointResponsePtrOutput() MHSMPrivateEndpointResponsePtrOutput {
+	return i.ToMHSMPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateEndpointResponseArgs) ToMHSMPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointResponseOutput).ToMHSMPrivateEndpointResponsePtrOutputWithContext(ctx)
+}
+
+// MHSMPrivateEndpointResponsePtrInput is an input type that accepts MHSMPrivateEndpointResponseArgs, MHSMPrivateEndpointResponsePtr and MHSMPrivateEndpointResponsePtrOutput values.
+// You can construct a concrete instance of `MHSMPrivateEndpointResponsePtrInput` via:
+//
+//          MHSMPrivateEndpointResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MHSMPrivateEndpointResponsePtrInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateEndpointResponsePtrOutput() MHSMPrivateEndpointResponsePtrOutput
+	ToMHSMPrivateEndpointResponsePtrOutputWithContext(context.Context) MHSMPrivateEndpointResponsePtrOutput
+}
+
+type mhsmprivateEndpointResponsePtrType MHSMPrivateEndpointResponseArgs
+
+func MHSMPrivateEndpointResponsePtr(v *MHSMPrivateEndpointResponseArgs) MHSMPrivateEndpointResponsePtrInput {
+	return (*mhsmprivateEndpointResponsePtrType)(v)
+}
+
+func (*mhsmprivateEndpointResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i *mhsmprivateEndpointResponsePtrType) ToMHSMPrivateEndpointResponsePtrOutput() MHSMPrivateEndpointResponsePtrOutput {
+	return i.ToMHSMPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mhsmprivateEndpointResponsePtrType) ToMHSMPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointResponsePtrOutput)
+}
+
+// Private endpoint object properties.
+type MHSMPrivateEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o MHSMPrivateEndpointResponseOutput) ToMHSMPrivateEndpointResponseOutput() MHSMPrivateEndpointResponseOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointResponseOutput) ToMHSMPrivateEndpointResponseOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponseOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointResponseOutput) ToMHSMPrivateEndpointResponsePtrOutput() MHSMPrivateEndpointResponsePtrOutput {
+	return o.ToMHSMPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MHSMPrivateEndpointResponseOutput) ToMHSMPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v MHSMPrivateEndpointResponse) *MHSMPrivateEndpointResponse {
+		return &v
+	}).(MHSMPrivateEndpointResponsePtrOutput)
+}
+
+// Full identifier of the private endpoint resource.
+func (o MHSMPrivateEndpointResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MHSMPrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type MHSMPrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o MHSMPrivateEndpointResponsePtrOutput) ToMHSMPrivateEndpointResponsePtrOutput() MHSMPrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointResponsePtrOutput) ToMHSMPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o MHSMPrivateEndpointResponsePtrOutput) Elem() MHSMPrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointResponse) MHSMPrivateEndpointResponse { return *v }).(MHSMPrivateEndpointResponseOutput)
+}
+
+// Full identifier of the private endpoint resource.
+func (o MHSMPrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that represents the approval state of the private link connection.
+type MHSMPrivateLinkServiceConnectionState struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval or rejection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+	Status *string `pulumi:"status"`
+}
+
+// MHSMPrivateLinkServiceConnectionStateInput is an input type that accepts MHSMPrivateLinkServiceConnectionStateArgs and MHSMPrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `MHSMPrivateLinkServiceConnectionStateInput` via:
+//
+//          MHSMPrivateLinkServiceConnectionStateArgs{...}
+type MHSMPrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateLinkServiceConnectionStateOutput() MHSMPrivateLinkServiceConnectionStateOutput
+	ToMHSMPrivateLinkServiceConnectionStateOutputWithContext(context.Context) MHSMPrivateLinkServiceConnectionStateOutput
+}
+
+// An object that represents the approval state of the private link connection.
+type MHSMPrivateLinkServiceConnectionStateArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval or rejection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (MHSMPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateArgs) ToMHSMPrivateLinkServiceConnectionStateOutput() MHSMPrivateLinkServiceConnectionStateOutput {
+	return i.ToMHSMPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateArgs) ToMHSMPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStateOutput)
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateArgs) ToMHSMPrivateLinkServiceConnectionStatePtrOutput() MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateArgs) ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStateOutput).ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
+}
+
+// MHSMPrivateLinkServiceConnectionStatePtrInput is an input type that accepts MHSMPrivateLinkServiceConnectionStateArgs, MHSMPrivateLinkServiceConnectionStatePtr and MHSMPrivateLinkServiceConnectionStatePtrOutput values.
+// You can construct a concrete instance of `MHSMPrivateLinkServiceConnectionStatePtrInput` via:
+//
+//          MHSMPrivateLinkServiceConnectionStateArgs{...}
+//
+//  or:
+//
+//          nil
+type MHSMPrivateLinkServiceConnectionStatePtrInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateLinkServiceConnectionStatePtrOutput() MHSMPrivateLinkServiceConnectionStatePtrOutput
+	ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) MHSMPrivateLinkServiceConnectionStatePtrOutput
+}
+
+type mhsmprivateLinkServiceConnectionStatePtrType MHSMPrivateLinkServiceConnectionStateArgs
+
+func MHSMPrivateLinkServiceConnectionStatePtr(v *MHSMPrivateLinkServiceConnectionStateArgs) MHSMPrivateLinkServiceConnectionStatePtrInput {
+	return (*mhsmprivateLinkServiceConnectionStatePtrType)(v)
+}
+
+func (*mhsmprivateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMPrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i *mhsmprivateLinkServiceConnectionStatePtrType) ToMHSMPrivateLinkServiceConnectionStatePtrOutput() MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i *mhsmprivateLinkServiceConnectionStatePtrType) ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// An object that represents the approval state of the private link connection.
+type MHSMPrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateOutput) ToMHSMPrivateLinkServiceConnectionStateOutput() MHSMPrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateOutput) ToMHSMPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateOutput) ToMHSMPrivateLinkServiceConnectionStatePtrOutput() MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return o.ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateOutput) ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionState) *MHSMPrivateLinkServiceConnectionState {
+		return &v
+	}).(MHSMPrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o MHSMPrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval or rejection.
+func (o MHSMPrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+func (o MHSMPrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type MHSMPrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMPrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) ToMHSMPrivateLinkServiceConnectionStatePtrOutput() MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) Elem() MHSMPrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionState) MHSMPrivateLinkServiceConnectionState { return *v }).(MHSMPrivateLinkServiceConnectionStateOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval or rejection.
+func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that represents the approval state of the private link connection.
+type MHSMPrivateLinkServiceConnectionStateResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval or rejection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+	Status *string `pulumi:"status"`
+}
+
+// MHSMPrivateLinkServiceConnectionStateResponseInput is an input type that accepts MHSMPrivateLinkServiceConnectionStateResponseArgs and MHSMPrivateLinkServiceConnectionStateResponseOutput values.
+// You can construct a concrete instance of `MHSMPrivateLinkServiceConnectionStateResponseInput` via:
+//
+//          MHSMPrivateLinkServiceConnectionStateResponseArgs{...}
+type MHSMPrivateLinkServiceConnectionStateResponseInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateLinkServiceConnectionStateResponseOutput() MHSMPrivateLinkServiceConnectionStateResponseOutput
+	ToMHSMPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) MHSMPrivateLinkServiceConnectionStateResponseOutput
+}
+
+// An object that represents the approval state of the private link connection.
+type MHSMPrivateLinkServiceConnectionStateResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval or rejection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (MHSMPrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateResponseArgs) ToMHSMPrivateLinkServiceConnectionStateResponseOutput() MHSMPrivateLinkServiceConnectionStateResponseOutput {
+	return i.ToMHSMPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateResponseArgs) ToMHSMPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStateResponseOutput)
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateResponseArgs) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutput() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MHSMPrivateLinkServiceConnectionStateResponseArgs) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStateResponseOutput).ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
+}
+
+// MHSMPrivateLinkServiceConnectionStateResponsePtrInput is an input type that accepts MHSMPrivateLinkServiceConnectionStateResponseArgs, MHSMPrivateLinkServiceConnectionStateResponsePtr and MHSMPrivateLinkServiceConnectionStateResponsePtrOutput values.
+// You can construct a concrete instance of `MHSMPrivateLinkServiceConnectionStateResponsePtrInput` via:
+//
+//          MHSMPrivateLinkServiceConnectionStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MHSMPrivateLinkServiceConnectionStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutput() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput
+	ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput
+}
+
+type mhsmprivateLinkServiceConnectionStateResponsePtrType MHSMPrivateLinkServiceConnectionStateResponseArgs
+
+func MHSMPrivateLinkServiceConnectionStateResponsePtr(v *MHSMPrivateLinkServiceConnectionStateResponseArgs) MHSMPrivateLinkServiceConnectionStateResponsePtrInput {
+	return (*mhsmprivateLinkServiceConnectionStateResponsePtrType)(v)
+}
+
+func (*mhsmprivateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMPrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i *mhsmprivateLinkServiceConnectionStateResponsePtrType) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutput() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mhsmprivateLinkServiceConnectionStateResponsePtrType) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// An object that represents the approval state of the private link connection.
+type MHSMPrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMPrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ToMHSMPrivateLinkServiceConnectionStateResponseOutput() MHSMPrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ToMHSMPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutput() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionStateResponse) *MHSMPrivateLinkServiceConnectionStateResponse {
+		return &v
+	}).(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval or rejection.
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type MHSMPrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MHSMPrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutput() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) Elem() MHSMPrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionStateResponse) MHSMPrivateLinkServiceConnectionStateResponse {
+		return *v
+	}).(MHSMPrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval or rejection.
+func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+type MHSMVirtualNetworkRule struct {
+	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+	Id string `pulumi:"id"`
+}
+
+// MHSMVirtualNetworkRuleInput is an input type that accepts MHSMVirtualNetworkRuleArgs and MHSMVirtualNetworkRuleOutput values.
+// You can construct a concrete instance of `MHSMVirtualNetworkRuleInput` via:
+//
+//          MHSMVirtualNetworkRuleArgs{...}
+type MHSMVirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToMHSMVirtualNetworkRuleOutput() MHSMVirtualNetworkRuleOutput
+	ToMHSMVirtualNetworkRuleOutputWithContext(context.Context) MHSMVirtualNetworkRuleOutput
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+type MHSMVirtualNetworkRuleArgs struct {
+	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (MHSMVirtualNetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i MHSMVirtualNetworkRuleArgs) ToMHSMVirtualNetworkRuleOutput() MHSMVirtualNetworkRuleOutput {
+	return i.ToMHSMVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i MHSMVirtualNetworkRuleArgs) ToMHSMVirtualNetworkRuleOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMVirtualNetworkRuleOutput)
+}
+
+// MHSMVirtualNetworkRuleArrayInput is an input type that accepts MHSMVirtualNetworkRuleArray and MHSMVirtualNetworkRuleArrayOutput values.
+// You can construct a concrete instance of `MHSMVirtualNetworkRuleArrayInput` via:
+//
+//          MHSMVirtualNetworkRuleArray{ MHSMVirtualNetworkRuleArgs{...} }
+type MHSMVirtualNetworkRuleArrayInput interface {
+	pulumi.Input
+
+	ToMHSMVirtualNetworkRuleArrayOutput() MHSMVirtualNetworkRuleArrayOutput
+	ToMHSMVirtualNetworkRuleArrayOutputWithContext(context.Context) MHSMVirtualNetworkRuleArrayOutput
+}
+
+type MHSMVirtualNetworkRuleArray []MHSMVirtualNetworkRuleInput
+
+func (MHSMVirtualNetworkRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i MHSMVirtualNetworkRuleArray) ToMHSMVirtualNetworkRuleArrayOutput() MHSMVirtualNetworkRuleArrayOutput {
+	return i.ToMHSMVirtualNetworkRuleArrayOutputWithContext(context.Background())
+}
+
+func (i MHSMVirtualNetworkRuleArray) ToMHSMVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMVirtualNetworkRuleArrayOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+type MHSMVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (MHSMVirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMVirtualNetworkRule)(nil)).Elem()
+}
+
+func (o MHSMVirtualNetworkRuleOutput) ToMHSMVirtualNetworkRuleOutput() MHSMVirtualNetworkRuleOutput {
+	return o
+}
+
+func (o MHSMVirtualNetworkRuleOutput) ToMHSMVirtualNetworkRuleOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleOutput {
+	return o
+}
+
+// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+func (o MHSMVirtualNetworkRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MHSMVirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type MHSMVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (MHSMVirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMVirtualNetworkRule)(nil)).Elem()
+}
+
+func (o MHSMVirtualNetworkRuleArrayOutput) ToMHSMVirtualNetworkRuleArrayOutput() MHSMVirtualNetworkRuleArrayOutput {
+	return o
+}
+
+func (o MHSMVirtualNetworkRuleArrayOutput) ToMHSMVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleArrayOutput {
+	return o
+}
+
+func (o MHSMVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) MHSMVirtualNetworkRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MHSMVirtualNetworkRule {
+		return vs[0].([]MHSMVirtualNetworkRule)[vs[1].(int)]
+	}).(MHSMVirtualNetworkRuleOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+type MHSMVirtualNetworkRuleResponse struct {
+	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+	Id string `pulumi:"id"`
+}
+
+// MHSMVirtualNetworkRuleResponseInput is an input type that accepts MHSMVirtualNetworkRuleResponseArgs and MHSMVirtualNetworkRuleResponseOutput values.
+// You can construct a concrete instance of `MHSMVirtualNetworkRuleResponseInput` via:
+//
+//          MHSMVirtualNetworkRuleResponseArgs{...}
+type MHSMVirtualNetworkRuleResponseInput interface {
+	pulumi.Input
+
+	ToMHSMVirtualNetworkRuleResponseOutput() MHSMVirtualNetworkRuleResponseOutput
+	ToMHSMVirtualNetworkRuleResponseOutputWithContext(context.Context) MHSMVirtualNetworkRuleResponseOutput
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+type MHSMVirtualNetworkRuleResponseArgs struct {
+	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (MHSMVirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMVirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (i MHSMVirtualNetworkRuleResponseArgs) ToMHSMVirtualNetworkRuleResponseOutput() MHSMVirtualNetworkRuleResponseOutput {
+	return i.ToMHSMVirtualNetworkRuleResponseOutputWithContext(context.Background())
+}
+
+func (i MHSMVirtualNetworkRuleResponseArgs) ToMHSMVirtualNetworkRuleResponseOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMVirtualNetworkRuleResponseOutput)
+}
+
+// MHSMVirtualNetworkRuleResponseArrayInput is an input type that accepts MHSMVirtualNetworkRuleResponseArray and MHSMVirtualNetworkRuleResponseArrayOutput values.
+// You can construct a concrete instance of `MHSMVirtualNetworkRuleResponseArrayInput` via:
+//
+//          MHSMVirtualNetworkRuleResponseArray{ MHSMVirtualNetworkRuleResponseArgs{...} }
+type MHSMVirtualNetworkRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToMHSMVirtualNetworkRuleResponseArrayOutput() MHSMVirtualNetworkRuleResponseArrayOutput
+	ToMHSMVirtualNetworkRuleResponseArrayOutputWithContext(context.Context) MHSMVirtualNetworkRuleResponseArrayOutput
+}
+
+type MHSMVirtualNetworkRuleResponseArray []MHSMVirtualNetworkRuleResponseInput
+
+func (MHSMVirtualNetworkRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMVirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (i MHSMVirtualNetworkRuleResponseArray) ToMHSMVirtualNetworkRuleResponseArrayOutput() MHSMVirtualNetworkRuleResponseArrayOutput {
+	return i.ToMHSMVirtualNetworkRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MHSMVirtualNetworkRuleResponseArray) ToMHSMVirtualNetworkRuleResponseArrayOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MHSMVirtualNetworkRuleResponseArrayOutput)
+}
+
+// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+type MHSMVirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (MHSMVirtualNetworkRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MHSMVirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (o MHSMVirtualNetworkRuleResponseOutput) ToMHSMVirtualNetworkRuleResponseOutput() MHSMVirtualNetworkRuleResponseOutput {
+	return o
+}
+
+func (o MHSMVirtualNetworkRuleResponseOutput) ToMHSMVirtualNetworkRuleResponseOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleResponseOutput {
+	return o
+}
+
+// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+func (o MHSMVirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MHSMVirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type MHSMVirtualNetworkRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MHSMVirtualNetworkRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MHSMVirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (o MHSMVirtualNetworkRuleResponseArrayOutput) ToMHSMVirtualNetworkRuleResponseArrayOutput() MHSMVirtualNetworkRuleResponseArrayOutput {
+	return o
+}
+
+func (o MHSMVirtualNetworkRuleResponseArrayOutput) ToMHSMVirtualNetworkRuleResponseArrayOutputWithContext(ctx context.Context) MHSMVirtualNetworkRuleResponseArrayOutput {
+	return o
+}
+
+func (o MHSMVirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) MHSMVirtualNetworkRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MHSMVirtualNetworkRuleResponse {
+		return vs[0].([]MHSMVirtualNetworkRuleResponse)[vs[1].(int)]
+	}).(MHSMVirtualNetworkRuleResponseOutput)
+}
+
 // Properties of the managed HSM Pool
 type ManagedHsmProperties struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
@@ -1081,6 +2465,10 @@ type ManagedHsmProperties struct {
 	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
+	// Rules governing the accessibility of the key vault from specific network locations.
+	NetworkAcls *MHSMNetworkRuleSet `pulumi:"networkAcls"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
@@ -1108,6 +2496,10 @@ type ManagedHsmPropertiesArgs struct {
 	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
+	// Rules governing the accessibility of the key vault from specific network locations.
+	NetworkAcls MHSMNetworkRuleSetPtrInput `pulumi:"networkAcls"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
@@ -1212,6 +2604,16 @@ func (o ManagedHsmPropertiesOutput) InitialAdminObjectIds() pulumi.StringArrayOu
 	return o.ApplyT(func(v ManagedHsmProperties) []string { return v.InitialAdminObjectIds }).(pulumi.StringArrayOutput)
 }
 
+// Rules governing the accessibility of the key vault from specific network locations.
+func (o ManagedHsmPropertiesOutput) NetworkAcls() MHSMNetworkRuleSetPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *MHSMNetworkRuleSet { return v.NetworkAcls }).(MHSMNetworkRuleSetPtrOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o ManagedHsmPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
 // softDelete data retention days. It accepts >=7 and <=90.
 func (o ManagedHsmPropertiesOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedHsmProperties) *int { return v.SoftDeleteRetentionInDays }).(pulumi.IntPtrOutput)
@@ -1280,6 +2682,26 @@ func (o ManagedHsmPropertiesPtrOutput) InitialAdminObjectIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// Rules governing the accessibility of the key vault from specific network locations.
+func (o ManagedHsmPropertiesPtrOutput) NetworkAcls() MHSMNetworkRuleSetPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *MHSMNetworkRuleSet {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkAcls
+	}).(MHSMNetworkRuleSetPtrOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o ManagedHsmPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // softDelete data retention days. It accepts >=7 and <=90.
 func (o ManagedHsmPropertiesPtrOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedHsmProperties) *int {
@@ -1312,8 +2734,16 @@ type ManagedHsmPropertiesResponse struct {
 	HsmUri string `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
+	// Rules governing the accessibility of the key vault from specific network locations.
+	NetworkAcls *MHSMNetworkRuleSetResponse `pulumi:"networkAcls"`
+	// List of private endpoint connections associated with the managed hsm pool.
+	PrivateEndpointConnections []MHSMPrivateEndpointConnectionItemResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The scheduled purge date in UTC.
+	ScheduledPurgeDate string `pulumi:"scheduledPurgeDate"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// Resource Status Message.
@@ -1345,8 +2775,16 @@ type ManagedHsmPropertiesResponseArgs struct {
 	HsmUri pulumi.StringInput `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
+	// Rules governing the accessibility of the key vault from specific network locations.
+	NetworkAcls MHSMNetworkRuleSetResponsePtrInput `pulumi:"networkAcls"`
+	// List of private endpoint connections associated with the managed hsm pool.
+	PrivateEndpointConnections MHSMPrivateEndpointConnectionItemResponseArrayInput `pulumi:"privateEndpointConnections"`
 	// Provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// The scheduled purge date in UTC.
+	ScheduledPurgeDate pulumi.StringInput `pulumi:"scheduledPurgeDate"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// Resource Status Message.
@@ -1458,9 +2896,31 @@ func (o ManagedHsmPropertiesResponseOutput) InitialAdminObjectIds() pulumi.Strin
 	return o.ApplyT(func(v ManagedHsmPropertiesResponse) []string { return v.InitialAdminObjectIds }).(pulumi.StringArrayOutput)
 }
 
+// Rules governing the accessibility of the key vault from specific network locations.
+func (o ManagedHsmPropertiesResponseOutput) NetworkAcls() MHSMNetworkRuleSetResponsePtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *MHSMNetworkRuleSetResponse { return v.NetworkAcls }).(MHSMNetworkRuleSetResponsePtrOutput)
+}
+
+// List of private endpoint connections associated with the managed hsm pool.
+func (o ManagedHsmPropertiesResponseOutput) PrivateEndpointConnections() MHSMPrivateEndpointConnectionItemResponseArrayOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) []MHSMPrivateEndpointConnectionItemResponse {
+		return v.PrivateEndpointConnections
+	}).(MHSMPrivateEndpointConnectionItemResponseArrayOutput)
+}
+
 // Provisioning state.
 func (o ManagedHsmPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedHsmPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o ManagedHsmPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The scheduled purge date in UTC.
+func (o ManagedHsmPropertiesResponseOutput) ScheduledPurgeDate() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) string { return v.ScheduledPurgeDate }).(pulumi.StringOutput)
 }
 
 // softDelete data retention days. It accepts >=7 and <=90.
@@ -1546,6 +3006,26 @@ func (o ManagedHsmPropertiesResponsePtrOutput) InitialAdminObjectIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// Rules governing the accessibility of the key vault from specific network locations.
+func (o ManagedHsmPropertiesResponsePtrOutput) NetworkAcls() MHSMNetworkRuleSetResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *MHSMNetworkRuleSetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkAcls
+	}).(MHSMNetworkRuleSetResponsePtrOutput)
+}
+
+// List of private endpoint connections associated with the managed hsm pool.
+func (o ManagedHsmPropertiesResponsePtrOutput) PrivateEndpointConnections() MHSMPrivateEndpointConnectionItemResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) []MHSMPrivateEndpointConnectionItemResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointConnections
+	}).(MHSMPrivateEndpointConnectionItemResponseArrayOutput)
+}
+
 // Provisioning state.
 func (o ManagedHsmPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
@@ -1553,6 +3033,26 @@ func (o ManagedHsmPropertiesResponsePtrOutput) ProvisioningState() pulumi.String
 			return nil
 		}
 		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o ManagedHsmPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scheduled purge date in UTC.
+func (o ManagedHsmPropertiesResponsePtrOutput) ScheduledPurgeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduledPurgeDate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4126,6 +5626,235 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the key vault resource.
+type SystemDataResponse struct {
+	// The timestamp of the key vault resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the key vault resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the key vault resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of the key vault resource last modification (UTC).
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the key vault resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the key vault resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the key vault resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of the key vault resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the key vault resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the key vault resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of the key vault resource last modification (UTC).
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the key vault resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the key vault resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the key vault resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of the key vault resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the key vault resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the key vault resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the key vault resource last modification (UTC).
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the key vault resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the key vault resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of the key vault resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the key vault resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the key vault resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the key vault resource last modification (UTC).
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the key vault resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the key vault resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties of the vault
 type VaultProperties struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
@@ -5142,6 +6871,26 @@ func init() {
 	pulumi.RegisterOutputType(KeyAttributesResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MHSMIPRuleOutput{})
+	pulumi.RegisterOutputType(MHSMIPRuleArrayOutput{})
+	pulumi.RegisterOutputType(MHSMIPRuleResponseOutput{})
+	pulumi.RegisterOutputType(MHSMIPRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(MHSMNetworkRuleSetOutput{})
+	pulumi.RegisterOutputType(MHSMNetworkRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(MHSMNetworkRuleSetResponseOutput{})
+	pulumi.RegisterOutputType(MHSMNetworkRuleSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateEndpointConnectionItemResponseOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateEndpointConnectionItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleOutput{})
+	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleResponseOutput{})
+	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedHsmPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedHsmPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedHsmPropertiesResponseOutput{})
@@ -5176,6 +6925,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})
