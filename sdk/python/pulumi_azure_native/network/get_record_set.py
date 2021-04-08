@@ -18,15 +18,18 @@ __all__ = [
 @pulumi.output_type
 class GetRecordSetResult:
     """
-    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, cname_record=None, etag=None, fqdn=None, id=None, is_auto_registered=None, metadata=None, mx_records=None, name=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, target_resource=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
         if aaaa_records and not isinstance(aaaa_records, list):
             raise TypeError("Expected argument 'aaaa_records' to be a list")
         pulumi.set(__self__, "aaaa_records", aaaa_records)
+        if caa_records and not isinstance(caa_records, list):
+            raise TypeError("Expected argument 'caa_records' to be a list")
+        pulumi.set(__self__, "caa_records", caa_records)
         if cname_record and not isinstance(cname_record, dict):
             raise TypeError("Expected argument 'cname_record' to be a dict")
         pulumi.set(__self__, "cname_record", cname_record)
@@ -39,9 +42,6 @@ class GetRecordSetResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_auto_registered and not isinstance(is_auto_registered, bool):
-            raise TypeError("Expected argument 'is_auto_registered' to be a bool")
-        pulumi.set(__self__, "is_auto_registered", is_auto_registered)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
@@ -51,6 +51,12 @@ class GetRecordSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if ns_records and not isinstance(ns_records, list):
+            raise TypeError("Expected argument 'ns_records' to be a list")
+        pulumi.set(__self__, "ns_records", ns_records)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if ptr_records and not isinstance(ptr_records, list):
             raise TypeError("Expected argument 'ptr_records' to be a list")
         pulumi.set(__self__, "ptr_records", ptr_records)
@@ -60,6 +66,9 @@ class GetRecordSetResult:
         if srv_records and not isinstance(srv_records, list):
             raise TypeError("Expected argument 'srv_records' to be a list")
         pulumi.set(__self__, "srv_records", srv_records)
+        if target_resource and not isinstance(target_resource, dict):
+            raise TypeError("Expected argument 'target_resource' to be a dict")
+        pulumi.set(__self__, "target_resource", target_resource)
         if ttl and not isinstance(ttl, float):
             raise TypeError("Expected argument 'ttl' to be a float")
         pulumi.set(__self__, "ttl", ttl)
@@ -87,10 +96,18 @@ class GetRecordSetResult:
         return pulumi.get(self, "aaaa_records")
 
     @property
+    @pulumi.getter(name="caaRecords")
+    def caa_records(self) -> Optional[Sequence['outputs.CaaRecordResponse']]:
+        """
+        The list of CAA records in the record set.
+        """
+        return pulumi.get(self, "caa_records")
+
+    @property
     @pulumi.getter(name="cnameRecord")
     def cname_record(self) -> Optional['outputs.CnameRecordResponse']:
         """
-        The CNAME record in the record set.
+        The CNAME record in the  record set.
         """
         return pulumi.get(self, "cname_record")
 
@@ -98,7 +115,7 @@ class GetRecordSetResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        The ETag of the record set.
+        The etag of the record set.
         """
         return pulumi.get(self, "etag")
 
@@ -114,17 +131,9 @@ class GetRecordSetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        The ID of the record set.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="isAutoRegistered")
-    def is_auto_registered(self) -> bool:
-        """
-        Is the record set auto-registered in the Private DNS zone through a virtual network link?
-        """
-        return pulumi.get(self, "is_auto_registered")
 
     @property
     @pulumi.getter
@@ -146,9 +155,25 @@ class GetRecordSetResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        The name of the record set.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nsRecords")
+    def ns_records(self) -> Optional[Sequence['outputs.NsRecordResponse']]:
+        """
+        The list of NS records in the record set.
+        """
+        return pulumi.get(self, "ns_records")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        provisioning State of the record set.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="ptrRecords")
@@ -175,6 +200,14 @@ class GetRecordSetResult:
         return pulumi.get(self, "srv_records")
 
     @property
+    @pulumi.getter(name="targetResource")
+    def target_resource(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to an azure resource from where the dns resource value is taken.
+        """
+        return pulumi.get(self, "target_resource")
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[float]:
         """
@@ -194,7 +227,7 @@ class GetRecordSetResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the record set.
         """
         return pulumi.get(self, "type")
 
@@ -207,42 +240,45 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
         return GetRecordSetResult(
             a_records=self.a_records,
             aaaa_records=self.aaaa_records,
+            caa_records=self.caa_records,
             cname_record=self.cname_record,
             etag=self.etag,
             fqdn=self.fqdn,
             id=self.id,
-            is_auto_registered=self.is_auto_registered,
             metadata=self.metadata,
             mx_records=self.mx_records,
             name=self.name,
+            ns_records=self.ns_records,
+            provisioning_state=self.provisioning_state,
             ptr_records=self.ptr_records,
             soa_record=self.soa_record,
             srv_records=self.srv_records,
+            target_resource=self.target_resource,
             ttl=self.ttl,
             txt_records=self.txt_records,
             type=self.type)
 
 
-def get_record_set(private_zone_name: Optional[str] = None,
-                   record_type: Optional[str] = None,
+def get_record_set(record_type: Optional[str] = None,
                    relative_record_set_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
+                   zone_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
-    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-    API Version: 2020-06-01.
+    Describes a DNS record set (a collection of DNS records with the same name and type).
+    API Version: 2018-05-01.
 
 
-    :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str record_type: The type of DNS record in this record set.
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param str resource_group_name: The name of the resource group.
+    :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     __args__ = dict()
-    __args__['privateZoneName'] = private_zone_name
     __args__['recordType'] = record_type
     __args__['relativeRecordSetName'] = relative_record_set_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['zoneName'] = zone_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -252,17 +288,20 @@ def get_record_set(private_zone_name: Optional[str] = None,
     return AwaitableGetRecordSetResult(
         a_records=__ret__.a_records,
         aaaa_records=__ret__.aaaa_records,
+        caa_records=__ret__.caa_records,
         cname_record=__ret__.cname_record,
         etag=__ret__.etag,
         fqdn=__ret__.fqdn,
         id=__ret__.id,
-        is_auto_registered=__ret__.is_auto_registered,
         metadata=__ret__.metadata,
         mx_records=__ret__.mx_records,
         name=__ret__.name,
+        ns_records=__ret__.ns_records,
+        provisioning_state=__ret__.provisioning_state,
         ptr_records=__ret__.ptr_records,
         soa_record=__ret__.soa_record,
         srv_records=__ret__.srv_records,
+        target_resource=__ret__.target_resource,
         ttl=__ret__.ttl,
         txt_records=__ret__.txt_records,
         type=__ret__.type)

@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
- * API Version: 2020-06-01.
+ * Describes a DNS record set (a collection of DNS records with the same name and type).
+ * API Version: 2018-05-01.
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
     if (!opts) {
@@ -18,18 +18,14 @@ export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-native:network:getRecordSet", {
-        "privateZoneName": args.privateZoneName,
         "recordType": args.recordType,
         "relativeRecordSetName": args.relativeRecordSetName,
         "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
     }, opts);
 }
 
 export interface GetRecordSetArgs {
-    /**
-     * The name of the Private DNS zone (without a terminating dot).
-     */
-    readonly privateZoneName: string;
     /**
      * The type of DNS record in this record set.
      */
@@ -42,10 +38,14 @@ export interface GetRecordSetArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the DNS zone (without a terminating dot).
+     */
+    readonly zoneName: string;
 }
 
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+ * Describes a DNS record set (a collection of DNS records with the same name and type).
  */
 export interface GetRecordSetResult {
     /**
@@ -57,11 +57,15 @@ export interface GetRecordSetResult {
      */
     readonly aaaaRecords?: outputs.network.AaaaRecordResponse[];
     /**
-     * The CNAME record in the record set.
+     * The list of CAA records in the record set.
+     */
+    readonly caaRecords?: outputs.network.CaaRecordResponse[];
+    /**
+     * The CNAME record in the  record set.
      */
     readonly cnameRecord?: outputs.network.CnameRecordResponse;
     /**
-     * The ETag of the record set.
+     * The etag of the record set.
      */
     readonly etag?: string;
     /**
@@ -69,13 +73,9 @@ export interface GetRecordSetResult {
      */
     readonly fqdn: string;
     /**
-     * Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+     * The ID of the record set.
      */
     readonly id: string;
-    /**
-     * Is the record set auto-registered in the Private DNS zone through a virtual network link?
-     */
-    readonly isAutoRegistered: boolean;
     /**
      * The metadata attached to the record set.
      */
@@ -85,9 +85,17 @@ export interface GetRecordSetResult {
      */
     readonly mxRecords?: outputs.network.MxRecordResponse[];
     /**
-     * The name of the resource
+     * The name of the record set.
      */
     readonly name: string;
+    /**
+     * The list of NS records in the record set.
+     */
+    readonly nsRecords?: outputs.network.NsRecordResponse[];
+    /**
+     * provisioning State of the record set.
+     */
+    readonly provisioningState: string;
     /**
      * The list of PTR records in the record set.
      */
@@ -101,6 +109,10 @@ export interface GetRecordSetResult {
      */
     readonly srvRecords?: outputs.network.SrvRecordResponse[];
     /**
+     * A reference to an azure resource from where the dns resource value is taken.
+     */
+    readonly targetResource?: outputs.network.SubResourceResponse;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     readonly ttl?: number;
@@ -109,7 +121,7 @@ export interface GetRecordSetResult {
      */
     readonly txtRecords?: outputs.network.TxtRecordResponse[];
     /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the record set.
      */
     readonly type: string;
 }

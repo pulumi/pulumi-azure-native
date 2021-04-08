@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.Network
     public static class GetRecordSet
     {
         /// <summary>
-        /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-        /// API Version: 2020-06-01.
+        /// Describes a DNS record set (a collection of DNS records with the same name and type).
+        /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class GetRecordSetArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
-        /// </summary>
-        [Input("privateZoneName", required: true)]
-        public string PrivateZoneName { get; set; } = null!;
-
         /// <summary>
         /// The type of DNS record in this record set.
         /// </summary>
@@ -45,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public string ZoneName { get; set; } = null!;
 
         public GetRecordSetArgs()
         {
@@ -64,11 +64,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.AaaaRecordResponse> AaaaRecords;
         /// <summary>
-        /// The CNAME record in the record set.
+        /// The list of CAA records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CaaRecordResponse> CaaRecords;
+        /// <summary>
+        /// The CNAME record in the  record set.
         /// </summary>
         public readonly Outputs.CnameRecordResponse? CnameRecord;
         /// <summary>
-        /// The ETag of the record set.
+        /// The etag of the record set.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
@@ -76,13 +80,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        /// The ID of the record set.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Is the record set auto-registered in the Private DNS zone through a virtual network link?
-        /// </summary>
-        public readonly bool IsAutoRegistered;
         /// <summary>
         /// The metadata attached to the record set.
         /// </summary>
@@ -92,9 +92,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.MxRecordResponse> MxRecords;
         /// <summary>
-        /// The name of the resource
+        /// The name of the record set.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The list of NS records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NsRecordResponse> NsRecords;
+        /// <summary>
+        /// provisioning State of the record set.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The list of PTR records in the record set.
         /// </summary>
@@ -108,6 +116,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.SrvRecordResponse> SrvRecords;
         /// <summary>
+        /// A reference to an azure resource from where the dns resource value is taken.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? TargetResource;
+        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         public readonly double? Ttl;
@@ -116,7 +128,7 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.TxtRecordResponse> TxtRecords;
         /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        /// The type of the record set.
         /// </summary>
         public readonly string Type;
 
@@ -126,6 +138,8 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.AaaaRecordResponse> aaaaRecords,
 
+            ImmutableArray<Outputs.CaaRecordResponse> caaRecords,
+
             Outputs.CnameRecordResponse? cnameRecord,
 
             string? etag,
@@ -134,19 +148,23 @@ namespace Pulumi.AzureNative.Network
 
             string id,
 
-            bool isAutoRegistered,
-
             ImmutableDictionary<string, string>? metadata,
 
             ImmutableArray<Outputs.MxRecordResponse> mxRecords,
 
             string name,
 
+            ImmutableArray<Outputs.NsRecordResponse> nsRecords,
+
+            string provisioningState,
+
             ImmutableArray<Outputs.PtrRecordResponse> ptrRecords,
 
             Outputs.SoaRecordResponse? soaRecord,
 
             ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
+
+            Outputs.SubResourceResponse? targetResource,
 
             double? ttl,
 
@@ -156,17 +174,20 @@ namespace Pulumi.AzureNative.Network
         {
             ARecords = aRecords;
             AaaaRecords = aaaaRecords;
+            CaaRecords = caaRecords;
             CnameRecord = cnameRecord;
             Etag = etag;
             Fqdn = fqdn;
             Id = id;
-            IsAutoRegistered = isAutoRegistered;
             Metadata = metadata;
             MxRecords = mxRecords;
             Name = name;
+            NsRecords = nsRecords;
+            ProvisioningState = provisioningState;
             PtrRecords = ptrRecords;
             SoaRecord = soaRecord;
             SrvRecords = srvRecords;
+            TargetResource = targetResource;
             Ttl = ttl;
             TxtRecords = txtRecords;
             Type = type;

@@ -5,26 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getPrivateRecordSet";
 export * from "./getPrivateZone";
-export * from "./getRecordSet";
 export * from "./getVirtualNetworkLink";
+export * from "./privateRecordSet";
 export * from "./privateZone";
-export * from "./recordSet";
 export * from "./virtualNetworkLink";
 
 // Import resources to register:
+import { PrivateRecordSet } from "./privateRecordSet";
 import { PrivateZone } from "./privateZone";
-import { RecordSet } from "./recordSet";
 import { VirtualNetworkLink } from "./virtualNetworkLink";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:network/v20180901:PrivateRecordSet":
+                return new PrivateRecordSet(name, <any>undefined, { urn })
             case "azure-native:network/v20180901:PrivateZone":
                 return new PrivateZone(name, <any>undefined, { urn })
-            case "azure-native:network/v20180901:RecordSet":
-                return new RecordSet(name, <any>undefined, { urn })
             case "azure-native:network/v20180901:VirtualNetworkLink":
                 return new VirtualNetworkLink(name, <any>undefined, { urn })
             default:

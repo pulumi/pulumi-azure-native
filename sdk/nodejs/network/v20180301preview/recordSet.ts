@@ -161,7 +161,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180301preview:RecordSet" }, { type: "azure-native:network/v20150504preview:RecordSet" }, { type: "azure-nextgen:network/v20150504preview:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-nextgen:network/v20160401:RecordSet" }, { type: "azure-native:network/v20170901:RecordSet" }, { type: "azure-nextgen:network/v20170901:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-nextgen:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-nextgen:network/v20180501:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180301preview:RecordSet" }, { type: "azure-native:network:RecordSet" }, { type: "azure-nextgen:network:RecordSet" }, { type: "azure-native:network/v20150504preview:RecordSet" }, { type: "azure-nextgen:network/v20150504preview:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-nextgen:network/v20160401:RecordSet" }, { type: "azure-native:network/v20170901:RecordSet" }, { type: "azure-nextgen:network/v20170901:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-nextgen:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-nextgen:network/v20180501:RecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

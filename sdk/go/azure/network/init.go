@@ -129,6 +129,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPrivateLinkService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:PrivateLinkServicePrivateEndpointConnection":
 		r, err = NewPrivateLinkServicePrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network:PrivateRecordSet":
+		r, err = NewPrivateRecordSet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:PrivateZone":
 		r, err = NewPrivateZone(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:Profile":

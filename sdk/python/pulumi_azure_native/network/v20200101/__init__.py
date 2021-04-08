@@ -6,12 +6,12 @@
 from ._enums import *
 from .front_door import *
 from .get_front_door import *
+from .get_private_record_set import *
 from .get_private_zone import *
-from .get_record_set import *
 from .get_rules_engine import *
 from .get_virtual_network_link import *
+from .private_record_set import *
 from .private_zone import *
-from .record_set import *
 from .rules_engine import *
 from .virtual_network_link import *
 from ._inputs import *
@@ -31,10 +31,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:network/v20200101:FrontDoor":
                 return FrontDoor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network/v20200101:PrivateRecordSet":
+                return PrivateRecordSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200101:PrivateZone":
                 return PrivateZone(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:network/v20200101:RecordSet":
-                return RecordSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200101:RulesEngine":
                 return RulesEngine(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200101:VirtualNetworkLink":
