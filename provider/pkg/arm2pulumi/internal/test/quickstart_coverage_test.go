@@ -28,6 +28,12 @@ var excluded = map[string]bool{
 	"../testdata/azure-quickstart-templates/101-attestation-provider-create/azuredeploy.json": true,
 	"../testdata/azure-quickstart-templates/101-logic-app-sql-proc/azuredeploy.json":          true,
 	"../testdata/azure-quickstart-templates/101-private-endpoint-sql/azuredeploy.json":        true,
+	// Following templates are removed bc of non-deterministic output: https://github.com/pulumi/arm2pulumi/issues/28
+	"../testdata/azure-quickstart-templates/101-asev2-appservice-sql-vpngw/azuredeploy.json":  true,
+	"../testdata/azure-quickstart-templates/101-functions-managed-identity/azuredeploy.json":  true,
+	"../testdata/azure-quickstart-templates/101-redis-cache/azuredeploy.json": 				   true,
+	"../testdata/azure-quickstart-templates/101-sql-logical-server/azuredeploy.json": 		   true,
+	"../testdata/azure-quickstart-templates/101-custom-rp-with-function/azuredeploy.json":	   true,
 }
 
 func TestQuickstartTemplateCoverage(t *testing.T) {
@@ -187,7 +193,6 @@ CREATE TABLE errors(
 	// Stores JSON result in "results.json" file in current directory.
 	err = ioutil.WriteFile("results.json", file, 0600)
 	require.NoError(t, err)
-
 
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetCaption(true, "Overall Summary of Conversions")

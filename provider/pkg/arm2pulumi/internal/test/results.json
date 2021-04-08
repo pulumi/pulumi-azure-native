@@ -1,19 +1,19 @@
 {
 	"NoErrors": {
 		"Number": 91,
-		"Pct": 23.636364
+		"Pct": 23.947369
 	},
 	"LowSevErrors": {
-		"Number": 230,
-		"Pct": 59.740257
+		"Number": 227,
+		"Pct": 59.736843
 	},
 	"HighSevErrors": {
-		"Number": 58,
-		"Pct": 15.064936
+		"Number": 56,
+		"Pct": 14.736841
 	},
 	"Fatal": {
-		"Number": 52,
-		"Pct": 13.506493
+		"Number": 50,
+		"Pct": 13.157895
 	},
-	"Total": 385
+	"Total": 380
 }
