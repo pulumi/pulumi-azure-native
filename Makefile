@@ -126,7 +126,6 @@ install_go_sdk::
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
-
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
