@@ -21,12 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:sql/v20170301preview:BackupLongTermRetentionPolicy":
+		r, err = NewBackupLongTermRetentionPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy":
+		r, err = NewDatabaseBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessment":
 		r, err = NewDatabaseVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessmentRuleBaseline":
 		r, err = NewDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql/v20170301preview:ExtendedDatabaseBlobAuditingPolicy":
+		r, err = NewExtendedDatabaseBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy":
+		r, err = NewExtendedServerBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:Job":
 		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:JobAgent":
@@ -43,8 +51,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewManagedInstanceAdministrator(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:SensitivityLabel":
 		r, err = NewSensitivityLabel(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy":
+		r, err = NewServerBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql/v20170301preview:ServerDnsAlias":
 		r, err = NewServerDnsAlias(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy":
+		r, err = NewServerSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

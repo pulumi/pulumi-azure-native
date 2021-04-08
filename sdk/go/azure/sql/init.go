@@ -21,10 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:sql:BackupShortTermRetentionPolicy":
+		r, err = NewBackupShortTermRetentionPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:DataMaskingPolicy":
 		r, err = NewDataMaskingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql:DatabaseBlobAuditingPolicy":
+		r, err = NewDatabaseBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:DatabaseSecurityAlertPolicy":
 		r, err = NewDatabaseSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:DatabaseVulnerabilityAssessment":
@@ -35,6 +39,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDisasterRecoveryConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ElasticPool":
 		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql:ExtendedDatabaseBlobAuditingPolicy":
+		r, err = NewExtendedDatabaseBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql:ExtendedServerBlobAuditingPolicy":
+		r, err = NewExtendedServerBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:FailoverGroup":
 		r, err = NewFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:FirewallRule":
@@ -55,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewJobStep(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:JobTargetGroup":
 		r, err = NewJobTargetGroup(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql:LongTermRetentionPolicy":
+		r, err = NewLongTermRetentionPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ManagedDatabase":
 		r, err = NewManagedDatabase(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ManagedDatabaseSensitivityLabel":
@@ -85,12 +95,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ServerAzureADOnlyAuthentication":
 		r, err = NewServerAzureADOnlyAuthentication(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql:ServerBlobAuditingPolicy":
+		r, err = NewServerBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ServerCommunicationLink":
 		r, err = NewServerCommunicationLink(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ServerDnsAlias":
 		r, err = NewServerDnsAlias(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ServerKey":
 		r, err = NewServerKey(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:sql:ServerSecurityAlertPolicy":
+		r, err = NewServerSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ServerTrustGroup":
 		r, err = NewServerTrustGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:sql:ServerVulnerabilityAssessment":
