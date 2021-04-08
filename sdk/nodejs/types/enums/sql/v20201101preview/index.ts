@@ -11,6 +11,16 @@ export const AdministratorType = {
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
+export const BlobAuditingPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
+ */
+export type BlobAuditingPolicyState = (typeof BlobAuditingPolicyState)[keyof typeof BlobAuditingPolicyState];
+
 export const CatalogCollationType = {
     DATABASE_DEFAULT: "DATABASE_DEFAULT",
     SQL_Latin1_General_CP1_CI_AS: "SQL_Latin1_General_CP1_CI_AS",

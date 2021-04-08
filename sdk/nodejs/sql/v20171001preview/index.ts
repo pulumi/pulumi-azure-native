@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./backupShortTermRetentionPolicy";
 export * from "./database";
 export * from "./elasticPool";
+export * from "./getBackupShortTermRetentionPolicy";
 export * from "./getDatabase";
 export * from "./getElasticPool";
 export * from "./getInstanceFailoverGroup";
@@ -22,6 +24,7 @@ export * from "./managedInstanceKey";
 export * from "../../types/enums/sql/v20171001preview";
 
 // Import resources to register:
+import { BackupShortTermRetentionPolicy } from "./backupShortTermRetentionPolicy";
 import { Database } from "./database";
 import { ElasticPool } from "./elasticPool";
 import { InstanceFailoverGroup } from "./instanceFailoverGroup";
@@ -33,6 +36,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy":
+                return new BackupShortTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20171001preview:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:sql/v20171001preview:ElasticPool":

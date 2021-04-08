@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BlobAuditingPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+ */
+export type BlobAuditingPolicyState = (typeof BlobAuditingPolicyState)[keyof typeof BlobAuditingPolicyState];
+
 export const IdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
