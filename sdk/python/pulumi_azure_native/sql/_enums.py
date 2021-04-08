@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'BlobAuditingPolicyState',
     'CatalogCollationType',
     'CreateMode',
     'DataMaskingState',
@@ -50,6 +51,14 @@ class AdministratorType(str, Enum):
     Type of the sever administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
+class BlobAuditingPolicyState(str, Enum):
+    """
+    Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class CatalogCollationType(str, Enum):

@@ -4,8 +4,10 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .database_blob_auditing_policy import *
 from .failover_group import *
 from .firewall_rule import *
+from .get_database_blob_auditing_policy import *
 from .get_failover_group import *
 from .get_firewall_rule import *
 from .get_managed_instance import *
@@ -37,7 +39,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:sql/v20150501preview:FailoverGroup":
+            if typ == "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
+                return DatabaseBlobAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql/v20150501preview:FailoverGroup":
                 return FailoverGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql/v20150501preview:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))

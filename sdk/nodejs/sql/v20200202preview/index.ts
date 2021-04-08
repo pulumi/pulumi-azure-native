@@ -5,18 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./backupShortTermRetentionPolicy";
 export * from "./database";
+export * from "./databaseBlobAuditingPolicy";
 export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
+export * from "./extendedDatabaseBlobAuditingPolicy";
+export * from "./extendedServerBlobAuditingPolicy";
 export * from "./failoverGroup";
 export * from "./firewallRule";
+export * from "./getBackupShortTermRetentionPolicy";
 export * from "./getDatabase";
+export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getElasticPool";
+export * from "./getExtendedDatabaseBlobAuditingPolicy";
+export * from "./getExtendedServerBlobAuditingPolicy";
 export * from "./getFailoverGroup";
 export * from "./getFirewallRule";
 export * from "./getInstanceFailoverGroup";
@@ -26,6 +34,7 @@ export * from "./getJobAgent";
 export * from "./getJobCredential";
 export * from "./getJobStep";
 export * from "./getJobTargetGroup";
+export * from "./getLongTermRetentionPolicy";
 export * from "./getManagedDatabase";
 export * from "./getManagedDatabaseSensitivityLabel";
 export * from "./getManagedDatabaseVulnerabilityAssessment";
@@ -41,8 +50,10 @@ export * from "./getSensitivityLabel";
 export * from "./getServer";
 export * from "./getServerAzureADAdministrator";
 export * from "./getServerAzureADOnlyAuthentication";
+export * from "./getServerBlobAuditingPolicy";
 export * from "./getServerDnsAlias";
 export * from "./getServerKey";
+export * from "./getServerSecurityAlertPolicy";
 export * from "./getServerTrustGroup";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSyncAgent";
@@ -59,6 +70,7 @@ export * from "./jobAgent";
 export * from "./jobCredential";
 export * from "./jobStep";
 export * from "./jobTargetGroup";
+export * from "./longTermRetentionPolicy";
 export * from "./managedDatabase";
 export * from "./managedDatabaseSensitivityLabel";
 export * from "./managedDatabaseVulnerabilityAssessment";
@@ -74,8 +86,10 @@ export * from "./sensitivityLabel";
 export * from "./server";
 export * from "./serverAzureADAdministrator";
 export * from "./serverAzureADOnlyAuthentication";
+export * from "./serverBlobAuditingPolicy";
 export * from "./serverDnsAlias";
 export * from "./serverKey";
+export * from "./serverSecurityAlertPolicy";
 export * from "./serverTrustGroup";
 export * from "./serverVulnerabilityAssessment";
 export * from "./syncAgent";
@@ -90,11 +104,15 @@ export * from "./workloadGroup";
 export * from "../../types/enums/sql/v20200202preview";
 
 // Import resources to register:
+import { BackupShortTermRetentionPolicy } from "./backupShortTermRetentionPolicy";
 import { Database } from "./database";
+import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { ElasticPool } from "./elasticPool";
+import { ExtendedDatabaseBlobAuditingPolicy } from "./extendedDatabaseBlobAuditingPolicy";
+import { ExtendedServerBlobAuditingPolicy } from "./extendedServerBlobAuditingPolicy";
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { InstanceFailoverGroup } from "./instanceFailoverGroup";
@@ -104,6 +122,7 @@ import { JobAgent } from "./jobAgent";
 import { JobCredential } from "./jobCredential";
 import { JobStep } from "./jobStep";
 import { JobTargetGroup } from "./jobTargetGroup";
+import { LongTermRetentionPolicy } from "./longTermRetentionPolicy";
 import { ManagedDatabase } from "./managedDatabase";
 import { ManagedDatabaseSensitivityLabel } from "./managedDatabaseSensitivityLabel";
 import { ManagedDatabaseVulnerabilityAssessment } from "./managedDatabaseVulnerabilityAssessment";
@@ -119,8 +138,10 @@ import { SensitivityLabel } from "./sensitivityLabel";
 import { Server } from "./server";
 import { ServerAzureADAdministrator } from "./serverAzureADAdministrator";
 import { ServerAzureADOnlyAuthentication } from "./serverAzureADOnlyAuthentication";
+import { ServerBlobAuditingPolicy } from "./serverBlobAuditingPolicy";
 import { ServerDnsAlias } from "./serverDnsAlias";
 import { ServerKey } from "./serverKey";
+import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
 import { ServerTrustGroup } from "./serverTrustGroup";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SyncAgent } from "./syncAgent";
@@ -135,8 +156,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy":
+                return new BackupShortTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy":
+                return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy":
                 return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:DatabaseVulnerabilityAssessment":
@@ -145,6 +170,10 @@ const _module = {
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
+            case "azure-native:sql/v20200202preview:ExtendedDatabaseBlobAuditingPolicy":
+                return new ExtendedDatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy":
+                return new ExtendedServerBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:FirewallRule":
@@ -163,6 +192,8 @@ const _module = {
                 return new JobStep(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:JobTargetGroup":
                 return new JobTargetGroup(name, <any>undefined, { urn })
+            case "azure-native:sql/v20200202preview:LongTermRetentionPolicy":
+                return new LongTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ManagedDatabaseSensitivityLabel":
@@ -193,10 +224,14 @@ const _module = {
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication":
                 return new ServerAzureADOnlyAuthentication(name, <any>undefined, { urn })
+            case "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy":
+                return new ServerBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ServerDnsAlias":
                 return new ServerDnsAlias(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
+            case "azure-native:sql/v20200202preview:ServerSecurityAlertPolicy":
+                return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ServerTrustGroup":
                 return new ServerTrustGroup(name, <any>undefined, { urn })
             case "azure-native:sql/v20200202preview:ServerVulnerabilityAssessment":

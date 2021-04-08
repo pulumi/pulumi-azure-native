@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Sql.V20150501Preview
 {
     /// <summary>
+    /// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlobAuditingPolicyState : IEquatable<BlobAuditingPolicyState>
+    {
+        private readonly string _value;
+
+        private BlobAuditingPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlobAuditingPolicyState Enabled { get; } = new BlobAuditingPolicyState("Enabled");
+        public static BlobAuditingPolicyState Disabled { get; } = new BlobAuditingPolicyState("Disabled");
+
+        public static bool operator ==(BlobAuditingPolicyState left, BlobAuditingPolicyState right) => left.Equals(right);
+        public static bool operator !=(BlobAuditingPolicyState left, BlobAuditingPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(BlobAuditingPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlobAuditingPolicyState other && Equals(other);
+        public bool Equals(BlobAuditingPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     /// </summary>
     [EnumType]

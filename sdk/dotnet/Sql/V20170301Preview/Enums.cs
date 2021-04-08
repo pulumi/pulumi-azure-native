@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Sql.V20170301Preview
 {
     /// <summary>
+    /// Specifies the state of the policy. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlobAuditingPolicyState : IEquatable<BlobAuditingPolicyState>
+    {
+        private readonly string _value;
+
+        private BlobAuditingPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlobAuditingPolicyState Enabled { get; } = new BlobAuditingPolicyState("Enabled");
+        public static BlobAuditingPolicyState Disabled { get; } = new BlobAuditingPolicyState("Disabled");
+
+        public static bool operator ==(BlobAuditingPolicyState left, BlobAuditingPolicyState right) => left.Equals(right);
+        public static bool operator !=(BlobAuditingPolicyState left, BlobAuditingPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(BlobAuditingPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlobAuditingPolicyState other && Equals(other);
+        public bool Equals(BlobAuditingPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Collation of the metadata catalog.
     /// </summary>
     [EnumType]
@@ -368,6 +399,38 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SampleName other && Equals(other);
         public bool Equals(SampleName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyState : IEquatable<SecurityAlertPolicyState>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyState New { get; } = new SecurityAlertPolicyState("New");
+        public static SecurityAlertPolicyState Enabled { get; } = new SecurityAlertPolicyState("Enabled");
+        public static SecurityAlertPolicyState Disabled { get; } = new SecurityAlertPolicyState("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyState other && Equals(other);
+        public bool Equals(SecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

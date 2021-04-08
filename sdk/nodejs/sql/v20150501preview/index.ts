@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./databaseBlobAuditingPolicy";
 export * from "./failoverGroup";
 export * from "./firewallRule";
+export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getFailoverGroup";
 export * from "./getFirewallRule";
 export * from "./getManagedInstance";
@@ -28,6 +30,7 @@ export * from "./virtualNetworkRule";
 export * from "../../types/enums/sql/v20150501preview";
 
 // Import resources to register:
+import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { ManagedInstance } from "./managedInstance";
@@ -42,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
+                return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:FirewallRule":

@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Specifies the state of the policy. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
+type BlobAuditingPolicyState pulumi.String
+
+const (
+	BlobAuditingPolicyStateEnabled  = BlobAuditingPolicyState("Enabled")
+	BlobAuditingPolicyStateDisabled = BlobAuditingPolicyState("Disabled")
+)
+
+func (BlobAuditingPolicyState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e BlobAuditingPolicyState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlobAuditingPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlobAuditingPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BlobAuditingPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Collation of the metadata catalog.
 type CatalogCollationType pulumi.String
 
@@ -342,6 +370,35 @@ func (e SampleName) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SampleName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+type SecurityAlertPolicyState pulumi.String
+
+const (
+	SecurityAlertPolicyStateNew      = SecurityAlertPolicyState("New")
+	SecurityAlertPolicyStateEnabled  = SecurityAlertPolicyState("Enabled")
+	SecurityAlertPolicyStateDisabled = SecurityAlertPolicyState("Disabled")
+)
+
+func (SecurityAlertPolicyState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityAlertPolicyState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityAlertPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

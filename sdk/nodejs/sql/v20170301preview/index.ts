@@ -5,12 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./backupLongTermRetentionPolicy";
 export * from "./database";
+export * from "./databaseBlobAuditingPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
+export * from "./extendedDatabaseBlobAuditingPolicy";
+export * from "./extendedServerBlobAuditingPolicy";
+export * from "./getBackupLongTermRetentionPolicy";
 export * from "./getDatabase";
+export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
+export * from "./getExtendedDatabaseBlobAuditingPolicy";
+export * from "./getExtendedServerBlobAuditingPolicy";
 export * from "./getJob";
 export * from "./getJobAgent";
 export * from "./getJobCredential";
@@ -19,7 +27,9 @@ export * from "./getJobTargetGroup";
 export * from "./getManagedDatabase";
 export * from "./getManagedInstanceAdministrator";
 export * from "./getSensitivityLabel";
+export * from "./getServerBlobAuditingPolicy";
 export * from "./getServerDnsAlias";
+export * from "./getServerSecurityAlertPolicy";
 export * from "./job";
 export * from "./jobAgent";
 export * from "./jobCredential";
@@ -28,15 +38,21 @@ export * from "./jobTargetGroup";
 export * from "./managedDatabase";
 export * from "./managedInstanceAdministrator";
 export * from "./sensitivityLabel";
+export * from "./serverBlobAuditingPolicy";
 export * from "./serverDnsAlias";
+export * from "./serverSecurityAlertPolicy";
 
 // Export enums:
 export * from "../../types/enums/sql/v20170301preview";
 
 // Import resources to register:
+import { BackupLongTermRetentionPolicy } from "./backupLongTermRetentionPolicy";
 import { Database } from "./database";
+import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
+import { ExtendedDatabaseBlobAuditingPolicy } from "./extendedDatabaseBlobAuditingPolicy";
+import { ExtendedServerBlobAuditingPolicy } from "./extendedServerBlobAuditingPolicy";
 import { Job } from "./job";
 import { JobAgent } from "./jobAgent";
 import { JobCredential } from "./jobCredential";
@@ -45,18 +61,28 @@ import { JobTargetGroup } from "./jobTargetGroup";
 import { ManagedDatabase } from "./managedDatabase";
 import { ManagedInstanceAdministrator } from "./managedInstanceAdministrator";
 import { SensitivityLabel } from "./sensitivityLabel";
+import { ServerBlobAuditingPolicy } from "./serverBlobAuditingPolicy";
 import { ServerDnsAlias } from "./serverDnsAlias";
+import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20170301preview:BackupLongTermRetentionPolicy":
+                return new BackupLongTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy":
+                return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessmentRuleBaseline":
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
+            case "azure-native:sql/v20170301preview:ExtendedDatabaseBlobAuditingPolicy":
+                return new ExtendedDatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy":
+                return new ExtendedServerBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:JobAgent":
@@ -73,8 +99,12 @@ const _module = {
                 return new ManagedInstanceAdministrator(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:SensitivityLabel":
                 return new SensitivityLabel(name, <any>undefined, { urn })
+            case "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy":
+                return new ServerBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20170301preview:ServerDnsAlias":
                 return new ServerDnsAlias(name, <any>undefined, { urn })
+            case "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy":
+                return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

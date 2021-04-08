@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BlobAuditingPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
+ */
+export type BlobAuditingPolicyState = (typeof BlobAuditingPolicyState)[keyof typeof BlobAuditingPolicyState];
+
 export const CatalogCollationType = {
     DATABASE_DEFAULT: "DATABASE_DEFAULT",
     SQL_Latin1_General_CP1_CI_AS: "SQL_Latin1_General_CP1_CI_AS",
@@ -138,6 +148,17 @@ export const SampleName = {
  * The name of the sample schema to apply when creating this database.
  */
 export type SampleName = (typeof SampleName)[keyof typeof SampleName];
+
+export const SecurityAlertPolicyState = {
+    New: "New",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+ */
+export type SecurityAlertPolicyState = (typeof SecurityAlertPolicyState)[keyof typeof SecurityAlertPolicyState];
 
 export const SensitivityLabelRank = {
     None: "None",
