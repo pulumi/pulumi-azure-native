@@ -72,15 +72,4 @@ jobs:
           pr_body: "*Automated PR*"
           pr_label: "automation/merge"
           pr_allow_empty: true
-          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
-  # TODO:
-  # coverage-report:
-  #   name: TODO
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       goversion: [1.16.x]
-  #   needs: generate-sdk
-  #   steps:
-  #     - ...
-    
+          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}   

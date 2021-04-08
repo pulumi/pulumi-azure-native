@@ -29,11 +29,11 @@ var excluded = map[string]bool{
 	"../testdata/azure-quickstart-templates/101-logic-app-sql-proc/azuredeploy.json":          true,
 	"../testdata/azure-quickstart-templates/101-private-endpoint-sql/azuredeploy.json":        true,
 	// Following templates are removed bc of non-deterministic output: https://github.com/pulumi/arm2pulumi/issues/28
-	"../testdata/azure-quickstart-templates/101-asev2-appservice-sql-vpngw/azuredeploy.json":  true,
-	"../testdata/azure-quickstart-templates/101-functions-managed-identity/azuredeploy.json":  true,
-	"../testdata/azure-quickstart-templates/101-redis-cache/azuredeploy.json": 				   true,
-	"../testdata/azure-quickstart-templates/101-sql-logical-server/azuredeploy.json": 		   true,
-	"../testdata/azure-quickstart-templates/101-custom-rp-with-function/azuredeploy.json":	   true,
+	"../testdata/azure-quickstart-templates/101-asev2-appservice-sql-vpngw/azuredeploy.json": true,
+	"../testdata/azure-quickstart-templates/101-functions-managed-identity/azuredeploy.json": true,
+	"../testdata/azure-quickstart-templates/101-redis-cache/azuredeploy.json":                true,
+	"../testdata/azure-quickstart-templates/101-sql-logical-server/azuredeploy.json":         true,
+	"../testdata/azure-quickstart-templates/101-custom-rp-with-function/azuredeploy.json":    true,
 }
 
 func TestQuickstartTemplateCoverage(t *testing.T) {
@@ -65,8 +65,8 @@ func TestQuickstartTemplateCoverage(t *testing.T) {
 			if err != nil {
 				diagList = append(diagList, Diag{
 					Diagnostic: arm2pulumi.Diagnostic{
-						Severity:      arm2pulumi.SevFatal,
-						Description:   err.Error(),
+						Severity:    arm2pulumi.SevFatal,
+						Description: err.Error(),
 					},
 					Template: template,
 				})
@@ -109,12 +109,12 @@ type Diag struct {
 
 type Result struct {
 	Number int
-	Pct float32
+	Pct    float32
 }
 
 type OverallResult struct {
 	NoErrors, LowSevErrors, HighSevErrors, Fatal Result
-	Total int
+	Total                                        int
 }
 
 func summarize(t *testing.T, diagList []Diag) {
@@ -154,11 +154,11 @@ CREATE TABLE errors(
                    description,
                    source_element
         	) values(?, ?, ?, ?, ?)`,
-        	d.Template,
-        	nullable(string(d.Severity)),
-        	nullable(d.SourceToken),
-        	nullable(d.Description),
-        	nullable(d.SourceElement))
+			d.Template,
+			nullable(string(d.Severity)),
+			nullable(d.SourceToken),
+			nullable(d.Description),
+			nullable(d.SourceElement))
 		require.NoError(t, err)
 	}
 
@@ -180,16 +180,16 @@ CREATE TABLE errors(
 
 	// Stores the overall results in a JSON object to compare in future tests.
 	data := OverallResult{
-		NoErrors: Result{success, float32(success)/float32(numTemplates)*100.0},
-		LowSevErrors: Result{medSevErrors, float32(medSevErrors)/float32(numTemplates)*100.0},
-		HighSevErrors: Result{highSevErrors, float32(highSevErrors)/float32(numTemplates)*100.0},
-		Fatal: Result{fatalErrors, float32(fatalErrors)/float32(numTemplates)*100.0},
-		Total: numTemplates,
+		NoErrors:      Result{success, float32(success) / float32(numTemplates) * 100.0},
+		LowSevErrors:  Result{medSevErrors, float32(medSevErrors) / float32(numTemplates) * 100.0},
+		HighSevErrors: Result{highSevErrors, float32(highSevErrors) / float32(numTemplates) * 100.0},
+		Fatal:         Result{fatalErrors, float32(fatalErrors) / float32(numTemplates) * 100.0},
+		Total:         numTemplates,
 	}
 
 	file, err := json.MarshalIndent(data, "", "\t")
 	require.NoError(t, err)
-	
+
 	// Stores JSON result in "results.json" file in current directory.
 	err = ioutil.WriteFile("results.json", file, 0600)
 	require.NoError(t, err)

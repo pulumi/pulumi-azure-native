@@ -1,8 +1,8 @@
 name: arm2pulumi-coverage-report
 "on":
-  pull_request:
-    branches:
-      - master
+  schedule:
+    - cron: 35 17 * * *
+  workflow_dispatch: {}
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -15,7 +15,7 @@ jobs:
       matrix:
         goversion: [1.16.x]
     steps:
-      - name: Checkout code
+      - name: Checkout Repo
         uses: actions/checkout@v2
         with:
           lfs: true
@@ -49,8 +49,3 @@ jobs:
       - name: test usage of results.json
         run: cat provider/pkg/arm2pulumi/internal/test/results.json
         if: ${{ always() }}
-      
-      # Can use this to output result
-      # - name: 
-      #   run: output.txt
-
