@@ -7,12 +7,8 @@ import (
 	"context"
 	"reflect"
 
-<<<<<<< HEAD
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-=======
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
->>>>>>> 8752cd9f71 (Regenerate SDK based on pulumi v3)
 )
 
 // State of the myscope setting.
