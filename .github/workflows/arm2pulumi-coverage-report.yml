@@ -1,8 +1,12 @@
 name: arm2pulumi-coverage-report
+# "on":
+#   schedule:
+#     - cron: 35 17 * * *
+#   workflow_dispatch: {}
 "on":
-  schedule:
-    - cron: 35 17 * * *
-  workflow_dispatch: {}
+  pull_request:
+    branches:
+      - master
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
