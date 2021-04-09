@@ -46,6 +46,10 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
+     * The type of identity used for the resource.
+     */
+    readonly identity?: outputs.deviceupdate.v20200301preview.IdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -57,6 +61,10 @@ export interface GetAccountResult {
      * Provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.deviceupdate.v20200301preview.SystemDataResponse;
     /**
      * Resource tags.
      */

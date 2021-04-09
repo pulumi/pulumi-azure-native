@@ -53,6 +53,12 @@ func NewTemplateSpec(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:resources:TemplateSpec"),
 		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210301preview:TemplateSpec"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210301preview:TemplateSpec"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TemplateSpec

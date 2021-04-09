@@ -7,6 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['Account']
 
@@ -16,6 +19,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,6 +33,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -51,6 +56,7 @@ class Account(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['account_name'] = account_name
+            __props__['identity'] = identity
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -59,6 +65,7 @@ class Account(pulumi.CustomResource):
             __props__['host_name'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deviceupdate:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-nextgen:deviceupdate/v20200301preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -85,9 +92,11 @@ class Account(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["host_name"] = None
+        __props__["identity"] = None
         __props__["location"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -99,6 +108,14 @@ class Account(pulumi.CustomResource):
         API host name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -123,6 +140,14 @@ class Account(pulumi.CustomResource):
         Provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

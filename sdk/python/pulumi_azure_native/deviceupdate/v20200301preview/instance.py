@@ -67,6 +67,7 @@ class Instance(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deviceupdate/v20200301preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate:Instance"), pulumi.Alias(type_="azure-nextgen:deviceupdate:Instance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -97,6 +98,7 @@ class Instance(pulumi.CustomResource):
         __props__["location"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return Instance(resource_name, opts=opts, __props__=__props__)
@@ -140,6 +142,14 @@ class Instance(pulumi.CustomResource):
         Provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

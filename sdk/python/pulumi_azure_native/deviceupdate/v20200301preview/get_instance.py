@@ -20,7 +20,7 @@ class GetInstanceResult:
     """
     Device Update instance details.
     """
-    def __init__(__self__, account_name=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, account_name=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -39,6 +39,9 @@ class GetInstanceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -95,6 +98,14 @@ class GetInstanceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -123,6 +134,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -156,5 +168,6 @@ def get_instance(account_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

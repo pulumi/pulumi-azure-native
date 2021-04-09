@@ -52,6 +52,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The type of identity used for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -63,6 +67,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// Provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,11 +86,15 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string location,
 
             string name,
 
             string provisioningState,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -90,9 +102,11 @@ namespace Pulumi.AzureNative.DeviceUpdate
         {
             HostName = hostName;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

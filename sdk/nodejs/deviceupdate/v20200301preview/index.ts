@@ -10,6 +10,9 @@ export * from "./getAccount";
 export * from "./getInstance";
 export * from "./instance";
 
+// Export enums:
+export * from "../../types/enums/deviceupdate/v20200301preview";
+
 // Import resources to register:
 import { Account } from "./account";
 import { Instance } from "./instance";

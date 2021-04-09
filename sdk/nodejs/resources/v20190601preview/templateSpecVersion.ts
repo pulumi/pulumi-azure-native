@@ -109,7 +109,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources:TemplateSpecVersion" }, { type: "azure-nextgen:resources:TemplateSpecVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources:TemplateSpecVersion" }, { type: "azure-nextgen:resources:TemplateSpecVersion" }, { type: "azure-native:resources/v20210301preview:TemplateSpecVersion" }, { type: "azure-nextgen:resources/v20210301preview:TemplateSpecVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateSpecVersion.__pulumiType, name, inputs, opts);
     }

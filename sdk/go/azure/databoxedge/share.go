@@ -112,6 +112,12 @@ func NewShare(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Share"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Share"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Share"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Share

@@ -10,6 +10,9 @@ export * from "./getAccount";
 export * from "./getInstance";
 export * from "./instance";
 
+// Export enums:
+export * from "../types/enums/deviceupdate";
+
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
 

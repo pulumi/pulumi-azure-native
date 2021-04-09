@@ -322,6 +322,7 @@ __all__ = [
     'MicrosoftAccessTableDatasetResponse',
     'MongoDbAtlasCollectionDatasetResponse',
     'MongoDbAtlasLinkedServiceResponse',
+    'MongoDbAtlasSinkResponse',
     'MongoDbAtlasSourceResponse',
     'MongoDbCollectionDatasetResponse',
     'MongoDbCursorMethodsPropertiesResponse',
@@ -329,6 +330,7 @@ __all__ = [
     'MongoDbSourceResponse',
     'MongoDbV2CollectionDatasetResponse',
     'MongoDbV2LinkedServiceResponse',
+    'MongoDbV2SinkResponse',
     'MongoDbV2SourceResponse',
     'MultiplePipelineTriggerResponse',
     'MySqlLinkedServiceResponse',
@@ -14864,7 +14866,7 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AvroSinkResponseArgs', 'AzureBlobFSSinkResponseArgs', 'AzureDataExplorerSinkResponseArgs', 'AzureDataLakeStoreSinkResponseArgs', 'AzureDatabricksDeltaLakeSinkResponseArgs', 'AzureMySqlSinkResponseArgs', 'AzurePostgreSqlSinkResponseArgs', 'AzureQueueSinkResponseArgs', 'AzureSearchIndexSinkResponseArgs', 'AzureSqlSinkResponseArgs', 'AzureTableSinkResponseArgs', 'BinarySinkResponseArgs', 'BlobSinkResponseArgs', 'CommonDataServiceForAppsSinkResponseArgs', 'CosmosDbMongoDbApiSinkResponseArgs', 'CosmosDbSqlApiSinkResponseArgs', 'DelimitedTextSinkResponseArgs', 'DocumentDbCollectionSinkResponseArgs', 'DynamicsCrmSinkResponseArgs', 'DynamicsSinkResponseArgs', 'FileSystemSinkResponseArgs', 'InformixSinkResponseArgs', 'JsonSinkResponseArgs', 'MicrosoftAccessSinkResponseArgs', 'OdbcSinkResponseArgs', 'OracleSinkResponseArgs', 'OrcSinkResponseArgs', 'ParquetSinkResponseArgs', 'RestSinkResponseArgs', 'SalesforceServiceCloudSinkResponseArgs', 'SalesforceSinkResponseArgs', 'SapCloudForCustomerSinkResponseArgs', 'SnowflakeSinkResponseArgs', 'SqlDWSinkResponseArgs', 'SqlMISinkResponseArgs', 'SqlServerSinkResponseArgs', 'SqlSinkResponseArgs'] sink: Copy activity sink.
+        :param Union['AvroSinkResponseArgs', 'AzureBlobFSSinkResponseArgs', 'AzureDataExplorerSinkResponseArgs', 'AzureDataLakeStoreSinkResponseArgs', 'AzureDatabricksDeltaLakeSinkResponseArgs', 'AzureMySqlSinkResponseArgs', 'AzurePostgreSqlSinkResponseArgs', 'AzureQueueSinkResponseArgs', 'AzureSearchIndexSinkResponseArgs', 'AzureSqlSinkResponseArgs', 'AzureTableSinkResponseArgs', 'BinarySinkResponseArgs', 'BlobSinkResponseArgs', 'CommonDataServiceForAppsSinkResponseArgs', 'CosmosDbMongoDbApiSinkResponseArgs', 'CosmosDbSqlApiSinkResponseArgs', 'DelimitedTextSinkResponseArgs', 'DocumentDbCollectionSinkResponseArgs', 'DynamicsCrmSinkResponseArgs', 'DynamicsSinkResponseArgs', 'FileSystemSinkResponseArgs', 'InformixSinkResponseArgs', 'JsonSinkResponseArgs', 'MicrosoftAccessSinkResponseArgs', 'MongoDbAtlasSinkResponseArgs', 'MongoDbV2SinkResponseArgs', 'OdbcSinkResponseArgs', 'OracleSinkResponseArgs', 'OrcSinkResponseArgs', 'ParquetSinkResponseArgs', 'RestSinkResponseArgs', 'SalesforceServiceCloudSinkResponseArgs', 'SalesforceSinkResponseArgs', 'SapCloudForCustomerSinkResponseArgs', 'SnowflakeSinkResponseArgs', 'SqlDWSinkResponseArgs', 'SqlMISinkResponseArgs', 'SqlServerSinkResponseArgs', 'SqlSinkResponseArgs'] sink: Copy activity sink.
         :param Union['AmazonMWSSourceResponseArgs', 'AmazonRedshiftSourceResponseArgs', 'AvroSourceResponseArgs', 'AzureBlobFSSourceResponseArgs', 'AzureDataExplorerSourceResponseArgs', 'AzureDataLakeStoreSourceResponseArgs', 'AzureDatabricksDeltaLakeSourceResponseArgs', 'AzureMariaDBSourceResponseArgs', 'AzureMySqlSourceResponseArgs', 'AzurePostgreSqlSourceResponseArgs', 'AzureSqlSourceResponseArgs', 'AzureTableSourceResponseArgs', 'BinarySourceResponseArgs', 'BlobSourceResponseArgs', 'CassandraSourceResponseArgs', 'CommonDataServiceForAppsSourceResponseArgs', 'ConcurSourceResponseArgs', 'CosmosDbMongoDbApiSourceResponseArgs', 'CosmosDbSqlApiSourceResponseArgs', 'CouchbaseSourceResponseArgs', 'Db2SourceResponseArgs', 'DelimitedTextSourceResponseArgs', 'DocumentDbCollectionSourceResponseArgs', 'DrillSourceResponseArgs', 'DynamicsAXSourceResponseArgs', 'DynamicsCrmSourceResponseArgs', 'DynamicsSourceResponseArgs', 'EloquaSourceResponseArgs', 'ExcelSourceResponseArgs', 'FileSystemSourceResponseArgs', 'GoogleAdWordsSourceResponseArgs', 'GoogleBigQuerySourceResponseArgs', 'GreenplumSourceResponseArgs', 'HBaseSourceResponseArgs', 'HdfsSourceResponseArgs', 'HiveSourceResponseArgs', 'HttpSourceResponseArgs', 'HubspotSourceResponseArgs', 'ImpalaSourceResponseArgs', 'InformixSourceResponseArgs', 'JiraSourceResponseArgs', 'JsonSourceResponseArgs', 'MagentoSourceResponseArgs', 'MariaDBSourceResponseArgs', 'MarketoSourceResponseArgs', 'MicrosoftAccessSourceResponseArgs', 'MongoDbAtlasSourceResponseArgs', 'MongoDbSourceResponseArgs', 'MongoDbV2SourceResponseArgs', 'MySqlSourceResponseArgs', 'NetezzaSourceResponseArgs', 'ODataSourceResponseArgs', 'OdbcSourceResponseArgs', 'Office365SourceResponseArgs', 'OracleServiceCloudSourceResponseArgs', 'OracleSourceResponseArgs', 'OrcSourceResponseArgs', 'ParquetSourceResponseArgs', 'PaypalSourceResponseArgs', 'PhoenixSourceResponseArgs', 'PostgreSqlSourceResponseArgs', 'PrestoSourceResponseArgs', 'QuickBooksSourceResponseArgs', 'RelationalSourceResponseArgs', 'ResponsysSourceResponseArgs', 'RestSourceResponseArgs', 'SalesforceMarketingCloudSourceResponseArgs', 'SalesforceServiceCloudSourceResponseArgs', 'SalesforceSourceResponseArgs', 'SapBwSourceResponseArgs', 'SapCloudForCustomerSourceResponseArgs', 'SapEccSourceResponseArgs', 'SapHanaSourceResponseArgs', 'SapOpenHubSourceResponseArgs', 'SapTableSourceResponseArgs', 'ServiceNowSourceResponseArgs', 'SharePointOnlineListSourceResponseArgs', 'ShopifySourceResponseArgs', 'SnowflakeSourceResponseArgs', 'SparkSourceResponseArgs', 'SqlDWSourceResponseArgs', 'SqlMISourceResponseArgs', 'SqlServerSourceResponseArgs', 'SqlSourceResponseArgs', 'SquareSourceResponseArgs', 'SybaseSourceResponseArgs', 'TabularSourceResponseArgs', 'TeradataSourceResponseArgs', 'VerticaSourceResponseArgs', 'WebSourceResponseArgs', 'XeroSourceResponseArgs', 'XmlSourceResponseArgs', 'ZohoSourceResponseArgs'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Execution'.
@@ -35621,6 +35623,105 @@ class MongoDbAtlasLinkedServiceResponse(dict):
 
 
 @pulumi.output_type
+class MongoDbAtlasSinkResponse(dict):
+    """
+    A copy activity MongoDB Atlas sink.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 max_concurrent_connections: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
+        """
+        A copy activity MongoDB Atlas sink.
+        :param str type: Copy sink type.
+               Expected value is 'MongoDbAtlasSink'.
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'MongoDbAtlasSink')
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'MongoDbAtlasSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "write_behavior")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class MongoDbAtlasSourceResponse(dict):
     """
     A copy activity source for a MongoDB Atlas database.
@@ -36419,6 +36520,105 @@ class MongoDbV2LinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MongoDbV2SinkResponse(dict):
+    """
+    A copy activity MongoDB sink.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 max_concurrent_connections: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
+        """
+        A copy activity MongoDB sink.
+        :param str type: Copy sink type.
+               Expected value is 'MongoDbV2Sink'.
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'MongoDbV2Sink')
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'MongoDbV2Sink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "write_behavior")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

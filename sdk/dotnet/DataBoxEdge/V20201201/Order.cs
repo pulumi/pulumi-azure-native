@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

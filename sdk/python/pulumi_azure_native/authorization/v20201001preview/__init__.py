@@ -3,7 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
+from .get_role_assignment import *
 from .get_role_management_policy_assignment import *
+from .role_assignment import *
 from .role_management_policy_assignment import *
 from . import outputs
 
@@ -19,7 +22,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment":
+            if typ == "azure-native:authorization/v20201001preview:RoleAssignment":
+                return RoleAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment":
                 return RoleManagementPolicyAssignment(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")

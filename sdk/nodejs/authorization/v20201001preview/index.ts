@@ -5,16 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getRoleAssignment";
 export * from "./getRoleManagementPolicyAssignment";
+export * from "./roleAssignment";
 export * from "./roleManagementPolicyAssignment";
 
+// Export enums:
+export * from "../../types/enums/authorization/v20201001preview";
+
 // Import resources to register:
+import { RoleAssignment } from "./roleAssignment";
 import { RoleManagementPolicyAssignment } from "./roleManagementPolicyAssignment";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization/v20201001preview:RoleAssignment":
+                return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
             default:
