@@ -72,4 +72,4 @@ jobs:
           pr_body: "*Automated PR*"
           pr_label: "automation/merge"
           pr_allow_empty: true
-          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}   
