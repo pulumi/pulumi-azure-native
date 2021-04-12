@@ -26071,7 +26071,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2018-04-20"
+          "2018-04-20",
+          "2014-04-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -27179,6 +27180,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-08",
           "2020-10-20",
           "2020-02-12",
           "2018-06-17-preview",
@@ -27261,6 +27263,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-08",
           "2020-10-20",
           "2020-02-12",
           "2018-06-17-preview",
@@ -61297,10 +61300,12 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "West Central US",
           "Global",
           "West US 2",
           "East US",
-          "West Europe"
+          "West Europe",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "accounts"
@@ -64811,6 +64816,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-05-01-preview",
           "2019-01-01-privatepreview",
           "2019-01-01-preview",
@@ -64835,6 +64841,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-05-01-preview",
           "2019-01-01-privatepreview",
           "2019-01-01-preview"
@@ -64856,6 +64863,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-05-01-preview",
           "2019-01-01-privatepreview",
           "2019-01-01-preview",
@@ -64880,6 +64888,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-05-01-preview",
           "2016-02-10-privatepreview"
         ],
@@ -65634,7 +65643,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "batchAccounts"
@@ -65695,7 +65705,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "batchAccounts/pools"
@@ -65756,7 +65767,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "batchAccounts/certificates"
@@ -65821,7 +65833,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -65916,7 +65929,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/quotas"
@@ -65978,7 +65992,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability"
@@ -66040,7 +66055,8 @@
           "Germany West Central",
           "Switzerland North",
           "Norway East",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/accountOperationResults"
@@ -72860,6 +72876,261 @@
   {
     "authorizations": [
       {
+        "applicationId": "ae11f5fb-c627-4eec-b4a0-f7b5969426e5",
+        "roleDefinitionId": "904f1136-432f-44da-adc4-d3bdf27b156d"
+      },
+      {
+        "applicationId": "055caf97-1b4f-4730-9f5d-acc24b707b06",
+        "roleDefinitionId": "4ac7c055-417e-47eb-9a38-137e6233a688"
+      },
+      {
+        "applicationId": "0c6620df-7b29-44de-8ba4-688a56a20f9f",
+        "roleDefinitionId": "e2116b11-5fb7-4f68-b0e9-9d4173a5dfdb"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Datadog",
+    "namespace": "Microsoft.Datadog",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2021-03-01",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "registeredSubscriptions"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2",
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "locations/operationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/tagRules"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/listMonitoredResources"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/listApiKeys"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/getDefaultKey"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/setDefaultKey"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/singleSignOnConfigurations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/listHosts"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/listLinkedResources"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "monitors/refreshSetPasswordLink"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
+          "2020-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "agreements"
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
         "applicationId": "0947a342-ab4a-43be-93b3-b8243fc161e5",
         "roleDefinitionId": "f0a6aa2a-e9d8-4bae-bcc2-36b405e8a5da"
       },
@@ -74550,6 +74821,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-30-preview",
           "2020-12-01",
           "2020-10-31",
           "2020-03-01-preview"
@@ -74909,7 +75181,9 @@
         "locationMappings": null,
         "locations": [
           "East US",
-          "West Europe"
+          "West Europe",
+          "North Europe",
+          "France Central"
         ],
         "properties": null,
         "resourceType": "customLocations"
@@ -74925,7 +75199,9 @@
         "locationMappings": null,
         "locations": [
           "East US",
-          "West Europe"
+          "West Europe",
+          "North Europe",
+          "France Central"
         ],
         "properties": null,
         "resourceType": "customLocations/enabledResourceTypes"
@@ -74941,7 +75217,9 @@
         "locationMappings": null,
         "locations": [
           "East US",
-          "West Europe"
+          "West Europe",
+          "North Europe",
+          "France Central"
         ],
         "properties": null,
         "resourceType": "locations/operationsstatus"
@@ -74957,7 +75235,9 @@
         "locationMappings": null,
         "locations": [
           "East US",
-          "West Europe"
+          "West Europe",
+          "North Europe",
+          "France Central"
         ],
         "properties": null,
         "resourceType": "locations/operationresults"
@@ -75103,6 +75383,31 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
+      }
+    ]
+  },
+  {
+    "authorizations": [],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.FluidRelay",
+    "namespace": "Microsoft.FluidRelay",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-12-preview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "North Europe",
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "fluidRelayServers"
       }
     ]
   },
@@ -75524,6 +75829,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-25-preview",
           "2021-01-28-preview",
           "2020-08-15-preview",
           "2020-08-02",
@@ -75557,6 +75863,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-25-preview",
           "2021-01-28-preview",
           "2020-08-15-preview",
           "2020-08-02",
@@ -75589,6 +75896,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-25-preview",
           "2021-01-28-preview",
           "2020-08-15-preview",
           "2020-08-02",
@@ -75610,6 +75918,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-25-preview",
           "2021-01-28-preview",
           "2020-08-15-preview",
           "2020-08-02",
@@ -75642,6 +75951,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-25-preview",
           "2021-01-28-preview",
           "2020-08-15-preview",
           "2020-08-02",
@@ -75674,6 +75984,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-25-preview",
           "2021-01-28-preview",
           "2020-08-15-preview",
           "2020-08-02",
@@ -76312,7 +76623,8 @@
   {
     "authorizations": [
       {
-        "applicationId": "9edfcdd9-0bc5-4bd4-b287-c3afc716aac7"
+        "applicationId": "9edfcdd9-0bc5-4bd4-b287-c3afc716aac7",
+        "roleDefinitionId": "913c14c1-35ac-45ee-b8f2-05524381b92c"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.IoTCentral",
