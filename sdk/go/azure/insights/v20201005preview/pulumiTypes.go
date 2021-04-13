@@ -564,7 +564,7 @@ func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutpu
 
 // The collection of content validation properties
 type WebTestPropertiesContentValidation struct {
-	// Content to look for in the return of the WebTest.
+	// Content to look for in the return of the WebTest.  Must not be null or empty.
 	ContentMatch *string `pulumi:"contentMatch"`
 	// When set, this value makes the ContentMatch validation case insensitive.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
@@ -585,7 +585,7 @@ type WebTestPropertiesContentValidationInput interface {
 
 // The collection of content validation properties
 type WebTestPropertiesContentValidationArgs struct {
-	// Content to look for in the return of the WebTest.
+	// Content to look for in the return of the WebTest.  Must not be null or empty.
 	ContentMatch pulumi.StringPtrInput `pulumi:"contentMatch"`
 	// When set, this value makes the ContentMatch validation case insensitive.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
@@ -671,7 +671,7 @@ func (o WebTestPropertiesContentValidationOutput) ToWebTestPropertiesContentVali
 	}).(WebTestPropertiesContentValidationPtrOutput)
 }
 
-// Content to look for in the return of the WebTest.
+// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesContentValidationOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesContentValidation) *string { return v.ContentMatch }).(pulumi.StringPtrOutput)
 }
@@ -704,7 +704,7 @@ func (o WebTestPropertiesContentValidationPtrOutput) Elem() WebTestPropertiesCon
 	return o.ApplyT(func(v *WebTestPropertiesContentValidation) WebTestPropertiesContentValidation { return *v }).(WebTestPropertiesContentValidationOutput)
 }
 
-// Content to look for in the return of the WebTest.
+// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesContentValidationPtrOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesContentValidation) *string {
 		if v == nil {
@@ -1099,7 +1099,7 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.String
 
 // The collection of content validation properties
 type WebTestPropertiesResponseContentValidation struct {
-	// Content to look for in the return of the WebTest.
+	// Content to look for in the return of the WebTest.  Must not be null or empty.
 	ContentMatch *string `pulumi:"contentMatch"`
 	// When set, this value makes the ContentMatch validation case insensitive.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
@@ -1120,7 +1120,7 @@ type WebTestPropertiesResponseContentValidationInput interface {
 
 // The collection of content validation properties
 type WebTestPropertiesResponseContentValidationArgs struct {
-	// Content to look for in the return of the WebTest.
+	// Content to look for in the return of the WebTest.  Must not be null or empty.
 	ContentMatch pulumi.StringPtrInput `pulumi:"contentMatch"`
 	// When set, this value makes the ContentMatch validation case insensitive.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
@@ -1206,7 +1206,7 @@ func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesRes
 	}).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
 
-// Content to look for in the return of the WebTest.
+// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesResponseContentValidationOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseContentValidation) *string { return v.ContentMatch }).(pulumi.StringPtrOutput)
 }
@@ -1241,7 +1241,7 @@ func (o WebTestPropertiesResponseContentValidationPtrOutput) Elem() WebTestPrope
 	}).(WebTestPropertiesResponseContentValidationOutput)
 }
 
-// Content to look for in the return of the WebTest.
+// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesResponseContentValidationPtrOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseContentValidation) *string {
 		if v == nil {
@@ -1500,6 +1500,430 @@ func (o WebTestPropertiesResponseRequestPtrOutput) RequestUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The collection of validation rule properties
+type WebTestPropertiesResponseValidationRules struct {
+	// The collection of content validation properties
+	ContentValidation *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
+	// Validate that the WebTest returns the http status code provided.
+	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
+	// When set, validation will ignore the status code.
+	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
+	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
+	// Checks to see if the SSL cert is still valid.
+	SSLCheck *bool `pulumi:"sSLCheck"`
+}
+
+// WebTestPropertiesResponseValidationRulesInput is an input type that accepts WebTestPropertiesResponseValidationRulesArgs and WebTestPropertiesResponseValidationRulesOutput values.
+// You can construct a concrete instance of `WebTestPropertiesResponseValidationRulesInput` via:
+//
+//          WebTestPropertiesResponseValidationRulesArgs{...}
+type WebTestPropertiesResponseValidationRulesInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesResponseValidationRulesOutput() WebTestPropertiesResponseValidationRulesOutput
+	ToWebTestPropertiesResponseValidationRulesOutputWithContext(context.Context) WebTestPropertiesResponseValidationRulesOutput
+}
+
+// The collection of validation rule properties
+type WebTestPropertiesResponseValidationRulesArgs struct {
+	// The collection of content validation properties
+	ContentValidation WebTestPropertiesResponseContentValidationPtrInput `pulumi:"contentValidation"`
+	// Validate that the WebTest returns the http status code provided.
+	ExpectedHttpStatusCode pulumi.IntPtrInput `pulumi:"expectedHttpStatusCode"`
+	// When set, validation will ignore the status code.
+	IgnoreHttpsStatusCode pulumi.BoolPtrInput `pulumi:"ignoreHttpsStatusCode"`
+	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput `pulumi:"sSLCertRemainingLifetimeCheck"`
+	// Checks to see if the SSL cert is still valid.
+	SSLCheck pulumi.BoolPtrInput `pulumi:"sSLCheck"`
+}
+
+func (WebTestPropertiesResponseValidationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesResponseValidationRules)(nil)).Elem()
+}
+
+func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesOutput() WebTestPropertiesResponseValidationRulesOutput {
+	return i.ToWebTestPropertiesResponseValidationRulesOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesOutput)
+}
+
+func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
+	return i.ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesOutput).ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx)
+}
+
+// WebTestPropertiesResponseValidationRulesPtrInput is an input type that accepts WebTestPropertiesResponseValidationRulesArgs, WebTestPropertiesResponseValidationRulesPtr and WebTestPropertiesResponseValidationRulesPtrOutput values.
+// You can construct a concrete instance of `WebTestPropertiesResponseValidationRulesPtrInput` via:
+//
+//          WebTestPropertiesResponseValidationRulesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebTestPropertiesResponseValidationRulesPtrInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput
+	ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Context) WebTestPropertiesResponseValidationRulesPtrOutput
+}
+
+type webTestPropertiesResponseValidationRulesPtrType WebTestPropertiesResponseValidationRulesArgs
+
+func WebTestPropertiesResponseValidationRulesPtr(v *WebTestPropertiesResponseValidationRulesArgs) WebTestPropertiesResponseValidationRulesPtrInput {
+	return (*webTestPropertiesResponseValidationRulesPtrType)(v)
+}
+
+func (*webTestPropertiesResponseValidationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesResponseValidationRules)(nil)).Elem()
+}
+
+func (i *webTestPropertiesResponseValidationRulesPtrType) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
+	return i.ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *webTestPropertiesResponseValidationRulesPtrType) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesPtrOutput)
+}
+
+// The collection of validation rule properties
+type WebTestPropertiesResponseValidationRulesOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesResponseValidationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesResponseValidationRules)(nil)).Elem()
+}
+
+func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesOutput() WebTestPropertiesResponseValidationRulesOutput {
+	return o
+}
+
+func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesOutput {
+	return o
+}
+
+func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
+	return o.ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseValidationRules {
+		return &v
+	}).(WebTestPropertiesResponseValidationRulesPtrOutput)
+}
+
+// The collection of content validation properties
+func (o WebTestPropertiesResponseValidationRulesOutput) ContentValidation() WebTestPropertiesResponseContentValidationPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseContentValidation {
+		return v.ContentValidation
+	}).(WebTestPropertiesResponseContentValidationPtrOutput)
+}
+
+// Validate that the WebTest returns the http status code provided.
+func (o WebTestPropertiesResponseValidationRulesOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *int { return v.ExpectedHttpStatusCode }).(pulumi.IntPtrOutput)
+}
+
+// When set, validation will ignore the status code.
+func (o WebTestPropertiesResponseValidationRulesOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *bool { return v.IgnoreHttpsStatusCode }).(pulumi.BoolPtrOutput)
+}
+
+// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+func (o WebTestPropertiesResponseValidationRulesOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *int { return v.SSLCertRemainingLifetimeCheck }).(pulumi.IntPtrOutput)
+}
+
+// Checks to see if the SSL cert is still valid.
+func (o WebTestPropertiesResponseValidationRulesOutput) SSLCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *bool { return v.SSLCheck }).(pulumi.BoolPtrOutput)
+}
+
+type WebTestPropertiesResponseValidationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesResponseValidationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesResponseValidationRules)(nil)).Elem()
+}
+
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
+	return o
+}
+
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
+	return o
+}
+
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) Elem() WebTestPropertiesResponseValidationRulesOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) WebTestPropertiesResponseValidationRules { return *v }).(WebTestPropertiesResponseValidationRulesOutput)
+}
+
+// The collection of content validation properties
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) ContentValidation() WebTestPropertiesResponseContentValidationPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseContentValidation {
+		if v == nil {
+			return nil
+		}
+		return v.ContentValidation
+	}).(WebTestPropertiesResponseContentValidationPtrOutput)
+}
+
+// Validate that the WebTest returns the http status code provided.
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedHttpStatusCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set, validation will ignore the status code.
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreHttpsStatusCode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SSLCertRemainingLifetimeCheck
+	}).(pulumi.IntPtrOutput)
+}
+
+// Checks to see if the SSL cert is still valid.
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SSLCheck
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The collection of validation rule properties
+type WebTestPropertiesValidationRules struct {
+	// The collection of content validation properties
+	ContentValidation *WebTestPropertiesContentValidation `pulumi:"contentValidation"`
+	// Validate that the WebTest returns the http status code provided.
+	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
+	// When set, validation will ignore the status code.
+	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
+	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
+	// Checks to see if the SSL cert is still valid.
+	SSLCheck *bool `pulumi:"sSLCheck"`
+}
+
+// WebTestPropertiesValidationRulesInput is an input type that accepts WebTestPropertiesValidationRulesArgs and WebTestPropertiesValidationRulesOutput values.
+// You can construct a concrete instance of `WebTestPropertiesValidationRulesInput` via:
+//
+//          WebTestPropertiesValidationRulesArgs{...}
+type WebTestPropertiesValidationRulesInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesValidationRulesOutput() WebTestPropertiesValidationRulesOutput
+	ToWebTestPropertiesValidationRulesOutputWithContext(context.Context) WebTestPropertiesValidationRulesOutput
+}
+
+// The collection of validation rule properties
+type WebTestPropertiesValidationRulesArgs struct {
+	// The collection of content validation properties
+	ContentValidation WebTestPropertiesContentValidationPtrInput `pulumi:"contentValidation"`
+	// Validate that the WebTest returns the http status code provided.
+	ExpectedHttpStatusCode pulumi.IntPtrInput `pulumi:"expectedHttpStatusCode"`
+	// When set, validation will ignore the status code.
+	IgnoreHttpsStatusCode pulumi.BoolPtrInput `pulumi:"ignoreHttpsStatusCode"`
+	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput `pulumi:"sSLCertRemainingLifetimeCheck"`
+	// Checks to see if the SSL cert is still valid.
+	SSLCheck pulumi.BoolPtrInput `pulumi:"sSLCheck"`
+}
+
+func (WebTestPropertiesValidationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesValidationRules)(nil)).Elem()
+}
+
+func (i WebTestPropertiesValidationRulesArgs) ToWebTestPropertiesValidationRulesOutput() WebTestPropertiesValidationRulesOutput {
+	return i.ToWebTestPropertiesValidationRulesOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesValidationRulesArgs) ToWebTestPropertiesValidationRulesOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesValidationRulesOutput)
+}
+
+func (i WebTestPropertiesValidationRulesArgs) ToWebTestPropertiesValidationRulesPtrOutput() WebTestPropertiesValidationRulesPtrOutput {
+	return i.ToWebTestPropertiesValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesValidationRulesArgs) ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesValidationRulesOutput).ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx)
+}
+
+// WebTestPropertiesValidationRulesPtrInput is an input type that accepts WebTestPropertiesValidationRulesArgs, WebTestPropertiesValidationRulesPtr and WebTestPropertiesValidationRulesPtrOutput values.
+// You can construct a concrete instance of `WebTestPropertiesValidationRulesPtrInput` via:
+//
+//          WebTestPropertiesValidationRulesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebTestPropertiesValidationRulesPtrInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesValidationRulesPtrOutput() WebTestPropertiesValidationRulesPtrOutput
+	ToWebTestPropertiesValidationRulesPtrOutputWithContext(context.Context) WebTestPropertiesValidationRulesPtrOutput
+}
+
+type webTestPropertiesValidationRulesPtrType WebTestPropertiesValidationRulesArgs
+
+func WebTestPropertiesValidationRulesPtr(v *WebTestPropertiesValidationRulesArgs) WebTestPropertiesValidationRulesPtrInput {
+	return (*webTestPropertiesValidationRulesPtrType)(v)
+}
+
+func (*webTestPropertiesValidationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesValidationRules)(nil)).Elem()
+}
+
+func (i *webTestPropertiesValidationRulesPtrType) ToWebTestPropertiesValidationRulesPtrOutput() WebTestPropertiesValidationRulesPtrOutput {
+	return i.ToWebTestPropertiesValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *webTestPropertiesValidationRulesPtrType) ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesValidationRulesPtrOutput)
+}
+
+// The collection of validation rule properties
+type WebTestPropertiesValidationRulesOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesValidationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesValidationRules)(nil)).Elem()
+}
+
+func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRulesOutput() WebTestPropertiesValidationRulesOutput {
+	return o
+}
+
+func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRulesOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesOutput {
+	return o
+}
+
+func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRulesPtrOutput() WebTestPropertiesValidationRulesPtrOutput {
+	return o.ToWebTestPropertiesValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *WebTestPropertiesValidationRules {
+		return &v
+	}).(WebTestPropertiesValidationRulesPtrOutput)
+}
+
+// The collection of content validation properties
+func (o WebTestPropertiesValidationRulesOutput) ContentValidation() WebTestPropertiesContentValidationPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *WebTestPropertiesContentValidation {
+		return v.ContentValidation
+	}).(WebTestPropertiesContentValidationPtrOutput)
+}
+
+// Validate that the WebTest returns the http status code provided.
+func (o WebTestPropertiesValidationRulesOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *int { return v.ExpectedHttpStatusCode }).(pulumi.IntPtrOutput)
+}
+
+// When set, validation will ignore the status code.
+func (o WebTestPropertiesValidationRulesOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *bool { return v.IgnoreHttpsStatusCode }).(pulumi.BoolPtrOutput)
+}
+
+// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+func (o WebTestPropertiesValidationRulesOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *int { return v.SSLCertRemainingLifetimeCheck }).(pulumi.IntPtrOutput)
+}
+
+// Checks to see if the SSL cert is still valid.
+func (o WebTestPropertiesValidationRulesOutput) SSLCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *bool { return v.SSLCheck }).(pulumi.BoolPtrOutput)
+}
+
+type WebTestPropertiesValidationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesValidationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesValidationRules)(nil)).Elem()
+}
+
+func (o WebTestPropertiesValidationRulesPtrOutput) ToWebTestPropertiesValidationRulesPtrOutput() WebTestPropertiesValidationRulesPtrOutput {
+	return o
+}
+
+func (o WebTestPropertiesValidationRulesPtrOutput) ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesPtrOutput {
+	return o
+}
+
+func (o WebTestPropertiesValidationRulesPtrOutput) Elem() WebTestPropertiesValidationRulesOutput {
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) WebTestPropertiesValidationRules { return *v }).(WebTestPropertiesValidationRulesOutput)
+}
+
+// The collection of content validation properties
+func (o WebTestPropertiesValidationRulesPtrOutput) ContentValidation() WebTestPropertiesContentValidationPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *WebTestPropertiesContentValidation {
+		if v == nil {
+			return nil
+		}
+		return v.ContentValidation
+	}).(WebTestPropertiesContentValidationPtrOutput)
+}
+
+// Validate that the WebTest returns the http status code provided.
+func (o WebTestPropertiesValidationRulesPtrOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedHttpStatusCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set, validation will ignore the status code.
+func (o WebTestPropertiesValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreHttpsStatusCode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+func (o WebTestPropertiesValidationRulesPtrOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SSLCertRemainingLifetimeCheck
+	}).(pulumi.IntPtrOutput)
+}
+
+// Checks to see if the SSL cert is still valid.
+func (o WebTestPropertiesValidationRulesPtrOutput) SSLCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SSLCheck
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HeaderFieldOutput{})
 	pulumi.RegisterOutputType(HeaderFieldArrayOutput{})
@@ -1521,4 +1945,8 @@ func init() {
 	pulumi.RegisterOutputType(WebTestPropertiesResponseContentValidationPtrOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponseRequestOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponseRequestPtrOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesResponseValidationRulesOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesResponseValidationRulesPtrOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesValidationRulesOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesValidationRulesPtrOutput{})
 }

@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         public Output<Outputs.WebTestPropertiesResponseConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The collection of content validation properties
-        /// </summary>
-        [Output("contentValidation")]
-        public Output<Outputs.WebTestPropertiesResponseContentValidation?> ContentValidation { get; private set; } = null!;
-
-        /// <summary>
         /// User defined description for this WebTest.
         /// </summary>
         [Output("description")]
@@ -40,22 +34,10 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Validate that the WebTest returns the http status code provided.
-        /// </summary>
-        [Output("expectedHttpStatusCode")]
-        public Output<int?> ExpectedHttpStatusCode { get; private set; } = null!;
-
-        /// <summary>
         /// Interval in seconds between test runs for this WebTest. Default value is 300.
         /// </summary>
         [Output("frequency")]
         public Output<int?> Frequency { get; private set; } = null!;
-
-        /// <summary>
-        /// When set, validation will ignore the status code.
-        /// </summary>
-        [Output("ignoreHttpsStatusCode")]
-        public Output<bool?> IgnoreHttpsStatusCode { get; private set; } = null!;
 
         /// <summary>
         /// The kind of WebTest that this web test watches. Choices are ping and multistep.
@@ -100,18 +82,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         public Output<bool?> RetryEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A number of days to check still remain before the the existing SSL cert expires.
-        /// </summary>
-        [Output("sSLCertRemainingLifetimeCheck")]
-        public Output<int?> SSLCertRemainingLifetimeCheck { get; private set; } = null!;
-
-        /// <summary>
-        /// Checks to see if the SSL cert is still valid.
-        /// </summary>
-        [Output("sSLCheck")]
-        public Output<bool?> SSLCheck { get; private set; } = null!;
-
-        /// <summary>
         /// Unique ID of this WebTest. This is typically the same value as the Name field.
         /// </summary>
         [Output("syntheticMonitorId")]
@@ -134,6 +104,12 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The collection of validation rule properties
+        /// </summary>
+        [Output("validationRules")]
+        public Output<Outputs.WebTestPropertiesResponseValidationRules?> ValidationRules { get; private set; } = null!;
 
         /// <summary>
         /// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
@@ -207,12 +183,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         public Input<Inputs.WebTestPropertiesConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// The collection of content validation properties
-        /// </summary>
-        [Input("contentValidation")]
-        public Input<Inputs.WebTestPropertiesContentValidationArgs>? ContentValidation { get; set; }
-
-        /// <summary>
         /// User defined description for this WebTest.
         /// </summary>
         [Input("description")]
@@ -225,22 +195,10 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Validate that the WebTest returns the http status code provided.
-        /// </summary>
-        [Input("expectedHttpStatusCode")]
-        public Input<int>? ExpectedHttpStatusCode { get; set; }
-
-        /// <summary>
         /// Interval in seconds between test runs for this WebTest. Default value is 300.
         /// </summary>
         [Input("frequency")]
         public Input<int>? Frequency { get; set; }
-
-        /// <summary>
-        /// When set, validation will ignore the status code.
-        /// </summary>
-        [Input("ignoreHttpsStatusCode")]
-        public Input<bool>? IgnoreHttpsStatusCode { get; set; }
 
         /// <summary>
         /// The kind of WebTest that this web test watches. Choices are ping and multistep.
@@ -285,18 +243,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         public Input<bool>? RetryEnabled { get; set; }
 
         /// <summary>
-        /// A number of days to check still remain before the the existing SSL cert expires.
-        /// </summary>
-        [Input("sSLCertRemainingLifetimeCheck")]
-        public Input<int>? SSLCertRemainingLifetimeCheck { get; set; }
-
-        /// <summary>
-        /// Checks to see if the SSL cert is still valid.
-        /// </summary>
-        [Input("sSLCheck")]
-        public Input<bool>? SSLCheck { get; set; }
-
-        /// <summary>
         /// Unique ID of this WebTest. This is typically the same value as the Name field.
         /// </summary>
         [Input("syntheticMonitorId", required: true)]
@@ -319,6 +265,12 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// The collection of validation rule properties
+        /// </summary>
+        [Input("validationRules")]
+        public Input<Inputs.WebTestPropertiesValidationRulesArgs>? ValidationRules { get; set; }
 
         /// <summary>
         /// The kind of web test this is, valid choices are ping, multistep, basic, and standard.

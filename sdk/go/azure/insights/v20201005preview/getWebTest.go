@@ -28,20 +28,14 @@ type LookupWebTestArgs struct {
 type LookupWebTestResult struct {
 	// An XML configuration specification for a WebTest.
 	Configuration *WebTestPropertiesResponseConfiguration `pulumi:"configuration"`
-	// The collection of content validation properties
-	ContentValidation *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
 	// User defined description for this WebTest.
 	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled *bool `pulumi:"enabled"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"frequency"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -56,10 +50,6 @@ type LookupWebTestResult struct {
 	Request *WebTestPropertiesResponseRequest `pulumi:"request"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"retryEnabled"`
-	// A number of days to check still remain before the the existing SSL cert expires.
-	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck *bool `pulumi:"sSLCheck"`
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId string `pulumi:"syntheticMonitorId"`
 	// Resource tags
@@ -68,6 +58,8 @@ type LookupWebTestResult struct {
 	Timeout *int `pulumi:"timeout"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+	// The collection of validation rule properties
+	ValidationRules *WebTestPropertiesResponseValidationRules `pulumi:"validationRules"`
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind string `pulumi:"webTestKind"`
 	// User defined name if this WebTest.

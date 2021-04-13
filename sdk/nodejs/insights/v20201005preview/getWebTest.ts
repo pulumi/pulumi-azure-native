@@ -42,10 +42,6 @@ export interface GetWebTestResult {
      */
     readonly configuration?: outputs.insights.v20201005preview.WebTestPropertiesResponseConfiguration;
     /**
-     * The collection of content validation properties
-     */
-    readonly contentValidation?: outputs.insights.v20201005preview.WebTestPropertiesResponseContentValidation;
-    /**
      * User defined description for this WebTest.
      */
     readonly description?: string;
@@ -54,10 +50,6 @@ export interface GetWebTestResult {
      */
     readonly enabled?: boolean;
     /**
-     * Validate that the WebTest returns the http status code provided.
-     */
-    readonly expectedHttpStatusCode?: number;
-    /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
     readonly frequency?: number;
@@ -65,10 +57,6 @@ export interface GetWebTestResult {
      * Azure resource Id
      */
     readonly id: string;
-    /**
-     * When set, validation will ignore the status code.
-     */
-    readonly ignoreHttpsStatusCode?: boolean;
     /**
      * The kind of WebTest that this web test watches. Choices are ping and multistep.
      */
@@ -98,14 +86,6 @@ export interface GetWebTestResult {
      */
     readonly retryEnabled?: boolean;
     /**
-     * A number of days to check still remain before the the existing SSL cert expires.
-     */
-    readonly sSLCertRemainingLifetimeCheck?: number;
-    /**
-     * Checks to see if the SSL cert is still valid.
-     */
-    readonly sSLCheck?: boolean;
-    /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
     readonly syntheticMonitorId: string;
@@ -121,6 +101,10 @@ export interface GetWebTestResult {
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * The collection of validation rule properties
+     */
+    readonly validationRules?: outputs.insights.v20201005preview.WebTestPropertiesResponseValidationRules;
     /**
      * The kind of web test this is, valid choices are ping, multistep, basic, and standard.
      */

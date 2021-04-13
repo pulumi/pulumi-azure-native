@@ -15,6 +15,7 @@ __all__ = [
     'WebTestPropertiesConfigurationArgs',
     'WebTestPropertiesContentValidationArgs',
     'WebTestPropertiesRequestArgs',
+    'WebTestPropertiesValidationRulesArgs',
 ]
 
 @pulumi.input_type
@@ -113,7 +114,7 @@ class WebTestPropertiesContentValidationArgs:
                  pass_if_text_found: Optional[pulumi.Input[bool]] = None):
         """
         The collection of content validation properties
-        :param pulumi.Input[str] content_match: Content to look for in the return of the WebTest.
+        :param pulumi.Input[str] content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
         :param pulumi.Input[bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
         :param pulumi.Input[bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
         """
@@ -128,7 +129,7 @@ class WebTestPropertiesContentValidationArgs:
     @pulumi.getter(name="contentMatch")
     def content_match(self) -> Optional[pulumi.Input[str]]:
         """
-        Content to look for in the return of the WebTest.
+        Content to look for in the return of the WebTest.  Must not be null or empty.
         """
         return pulumi.get(self, "content_match")
 
@@ -263,5 +264,93 @@ class WebTestPropertiesRequestArgs:
     @request_url.setter
     def request_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_url", value)
+
+
+@pulumi.input_type
+class WebTestPropertiesValidationRulesArgs:
+    def __init__(__self__, *,
+                 content_validation: Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']] = None,
+                 expected_http_status_code: Optional[pulumi.Input[int]] = None,
+                 ignore_https_status_code: Optional[pulumi.Input[bool]] = None,
+                 s_sl_cert_remaining_lifetime_check: Optional[pulumi.Input[int]] = None,
+                 s_sl_check: Optional[pulumi.Input[bool]] = None):
+        """
+        The collection of validation rule properties
+        :param pulumi.Input['WebTestPropertiesContentValidationArgs'] content_validation: The collection of content validation properties
+        :param pulumi.Input[int] expected_http_status_code: Validate that the WebTest returns the http status code provided.
+        :param pulumi.Input[bool] ignore_https_status_code: When set, validation will ignore the status code.
+        :param pulumi.Input[int] s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+        :param pulumi.Input[bool] s_sl_check: Checks to see if the SSL cert is still valid.
+        """
+        if content_validation is not None:
+            pulumi.set(__self__, "content_validation", content_validation)
+        if expected_http_status_code is not None:
+            pulumi.set(__self__, "expected_http_status_code", expected_http_status_code)
+        if ignore_https_status_code is not None:
+            pulumi.set(__self__, "ignore_https_status_code", ignore_https_status_code)
+        if s_sl_cert_remaining_lifetime_check is not None:
+            pulumi.set(__self__, "s_sl_cert_remaining_lifetime_check", s_sl_cert_remaining_lifetime_check)
+        if s_sl_check is not None:
+            pulumi.set(__self__, "s_sl_check", s_sl_check)
+
+    @property
+    @pulumi.getter(name="contentValidation")
+    def content_validation(self) -> Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']]:
+        """
+        The collection of content validation properties
+        """
+        return pulumi.get(self, "content_validation")
+
+    @content_validation.setter
+    def content_validation(self, value: Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']]):
+        pulumi.set(self, "content_validation", value)
+
+    @property
+    @pulumi.getter(name="expectedHttpStatusCode")
+    def expected_http_status_code(self) -> Optional[pulumi.Input[int]]:
+        """
+        Validate that the WebTest returns the http status code provided.
+        """
+        return pulumi.get(self, "expected_http_status_code")
+
+    @expected_http_status_code.setter
+    def expected_http_status_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_http_status_code", value)
+
+    @property
+    @pulumi.getter(name="ignoreHttpsStatusCode")
+    def ignore_https_status_code(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, validation will ignore the status code.
+        """
+        return pulumi.get(self, "ignore_https_status_code")
+
+    @ignore_https_status_code.setter
+    def ignore_https_status_code(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_https_status_code", value)
+
+    @property
+    @pulumi.getter(name="sSLCertRemainingLifetimeCheck")
+    def s_sl_cert_remaining_lifetime_check(self) -> Optional[pulumi.Input[int]]:
+        """
+        A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+        """
+        return pulumi.get(self, "s_sl_cert_remaining_lifetime_check")
+
+    @s_sl_cert_remaining_lifetime_check.setter
+    def s_sl_cert_remaining_lifetime_check(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "s_sl_cert_remaining_lifetime_check", value)
+
+    @property
+    @pulumi.getter(name="sSLCheck")
+    def s_sl_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Checks to see if the SSL cert is still valid.
+        """
+        return pulumi.get(self, "s_sl_check")
+
+    @s_sl_check.setter
+    def s_sl_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "s_sl_check", value)
 
 

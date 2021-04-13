@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSignalR(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:signalrservice:SignalRPrivateEndpointConnection":
 		r, err = NewSignalRPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:signalrservice:SignalRSharedPrivateLinkResource":
+		r, err = NewSignalRSharedPrivateLinkResource(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

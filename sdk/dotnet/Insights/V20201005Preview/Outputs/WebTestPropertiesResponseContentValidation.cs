@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview.Outputs
     public sealed class WebTestPropertiesResponseContentValidation
     {
         /// <summary>
-        /// Content to look for in the return of the WebTest.
+        /// Content to look for in the return of the WebTest.  Must not be null or empty.
         /// </summary>
         public readonly string? ContentMatch;
         /// <summary>

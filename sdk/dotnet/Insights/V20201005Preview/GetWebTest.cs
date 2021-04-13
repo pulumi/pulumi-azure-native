@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         public readonly Outputs.WebTestPropertiesResponseConfiguration? Configuration;
         /// <summary>
-        /// The collection of content validation properties
-        /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseContentValidation? ContentValidation;
-        /// <summary>
         /// User defined description for this WebTest.
         /// </summary>
         public readonly string? Description;
@@ -59,10 +55,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Validate that the WebTest returns the http status code provided.
-        /// </summary>
-        public readonly int? ExpectedHttpStatusCode;
-        /// <summary>
         /// Interval in seconds between test runs for this WebTest. Default value is 300.
         /// </summary>
         public readonly int? Frequency;
@@ -70,10 +62,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// When set, validation will ignore the status code.
-        /// </summary>
-        public readonly bool? IgnoreHttpsStatusCode;
         /// <summary>
         /// The kind of WebTest that this web test watches. Choices are ping and multistep.
         /// </summary>
@@ -103,14 +91,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         public readonly bool? RetryEnabled;
         /// <summary>
-        /// A number of days to check still remain before the the existing SSL cert expires.
-        /// </summary>
-        public readonly int? SSLCertRemainingLifetimeCheck;
-        /// <summary>
-        /// Checks to see if the SSL cert is still valid.
-        /// </summary>
-        public readonly bool? SSLCheck;
-        /// <summary>
         /// Unique ID of this WebTest. This is typically the same value as the Name field.
         /// </summary>
         public readonly string SyntheticMonitorId;
@@ -127,6 +107,10 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// The collection of validation rule properties
+        /// </summary>
+        public readonly Outputs.WebTestPropertiesResponseValidationRules? ValidationRules;
+        /// <summary>
         /// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
         /// </summary>
         public readonly string WebTestKind;
@@ -139,19 +123,13 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         private GetWebTestResult(
             Outputs.WebTestPropertiesResponseConfiguration? configuration,
 
-            Outputs.WebTestPropertiesResponseContentValidation? contentValidation,
-
             string? description,
 
             bool? enabled,
 
-            int? expectedHttpStatusCode,
-
             int? frequency,
 
             string id,
-
-            bool? ignoreHttpsStatusCode,
 
             string? kind,
 
@@ -167,10 +145,6 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
 
             bool? retryEnabled,
 
-            int? sSLCertRemainingLifetimeCheck,
-
-            bool? sSLCheck,
-
             string syntheticMonitorId,
 
             ImmutableDictionary<string, string>? tags,
@@ -179,18 +153,17 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
 
             string type,
 
+            Outputs.WebTestPropertiesResponseValidationRules? validationRules,
+
             string webTestKind,
 
             string webTestName)
         {
             Configuration = configuration;
-            ContentValidation = contentValidation;
             Description = description;
             Enabled = enabled;
-            ExpectedHttpStatusCode = expectedHttpStatusCode;
             Frequency = frequency;
             Id = id;
-            IgnoreHttpsStatusCode = ignoreHttpsStatusCode;
             Kind = kind;
             Location = location;
             Locations = locations;
@@ -198,12 +171,11 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
             ProvisioningState = provisioningState;
             Request = request;
             RetryEnabled = retryEnabled;
-            SSLCertRemainingLifetimeCheck = sSLCertRemainingLifetimeCheck;
-            SSLCheck = sSLCheck;
             SyntheticMonitorId = syntheticMonitorId;
             Tags = tags;
             Timeout = timeout;
             Type = type;
+            ValidationRules = validationRules;
             WebTestKind = webTestKind;
             WebTestName = webTestName;
         }

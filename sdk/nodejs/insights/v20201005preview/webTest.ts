@@ -40,10 +40,6 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.insights.v20201005preview.WebTestPropertiesResponseConfiguration | undefined>;
     /**
-     * The collection of content validation properties
-     */
-    public readonly contentValidation!: pulumi.Output<outputs.insights.v20201005preview.WebTestPropertiesResponseContentValidation | undefined>;
-    /**
      * User defined description for this WebTest.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -52,17 +48,9 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Validate that the WebTest returns the http status code provided.
-     */
-    public readonly expectedHttpStatusCode!: pulumi.Output<number | undefined>;
-    /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
     public readonly frequency!: pulumi.Output<number | undefined>;
-    /**
-     * When set, validation will ignore the status code.
-     */
-    public readonly ignoreHttpsStatusCode!: pulumi.Output<boolean | undefined>;
     /**
      * The kind of WebTest that this web test watches. Choices are ping and multistep.
      */
@@ -92,14 +80,6 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly retryEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A number of days to check still remain before the the existing SSL cert expires.
-     */
-    public readonly sSLCertRemainingLifetimeCheck!: pulumi.Output<number | undefined>;
-    /**
-     * Checks to see if the SSL cert is still valid.
-     */
-    public readonly sSLCheck!: pulumi.Output<boolean | undefined>;
-    /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
     public readonly syntheticMonitorId!: pulumi.Output<string>;
@@ -115,6 +95,10 @@ export class WebTest extends pulumi.CustomResource {
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The collection of validation rule properties
+     */
+    public readonly validationRules!: pulumi.Output<outputs.insights.v20201005preview.WebTestPropertiesResponseValidationRules | undefined>;
     /**
      * The kind of web test this is, valid choices are ping, multistep, basic, and standard.
      */
@@ -148,23 +132,19 @@ export class WebTest extends pulumi.CustomResource {
                 throw new Error("Missing required property 'webTestKind'");
             }
             inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["contentValidation"] = args ? args.contentValidation : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["expectedHttpStatusCode"] = args ? args.expectedHttpStatusCode : undefined;
             inputs["frequency"] = (args ? args.frequency : undefined) ?? 300;
-            inputs["ignoreHttpsStatusCode"] = args ? args.ignoreHttpsStatusCode : undefined;
             inputs["kind"] = (args ? args.kind : undefined) ?? "ping";
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
             inputs["request"] = args ? args.request : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retryEnabled"] = args ? args.retryEnabled : undefined;
-            inputs["sSLCertRemainingLifetimeCheck"] = args ? args.sSLCertRemainingLifetimeCheck : undefined;
-            inputs["sSLCheck"] = args ? args.sSLCheck : undefined;
             inputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = (args ? args.timeout : undefined) ?? 30;
+            inputs["validationRules"] = args ? args.validationRules : undefined;
             inputs["webTestKind"] = (args ? args.webTestKind : undefined) ?? "ping";
             inputs["webTestName"] = args ? args.webTestName : undefined;
             inputs["name"] = undefined /*out*/;
@@ -172,12 +152,9 @@ export class WebTest extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["configuration"] = undefined /*out*/;
-            inputs["contentValidation"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
-            inputs["expectedHttpStatusCode"] = undefined /*out*/;
             inputs["frequency"] = undefined /*out*/;
-            inputs["ignoreHttpsStatusCode"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["locations"] = undefined /*out*/;
@@ -185,12 +162,11 @@ export class WebTest extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["request"] = undefined /*out*/;
             inputs["retryEnabled"] = undefined /*out*/;
-            inputs["sSLCertRemainingLifetimeCheck"] = undefined /*out*/;
-            inputs["sSLCheck"] = undefined /*out*/;
             inputs["syntheticMonitorId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeout"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["validationRules"] = undefined /*out*/;
             inputs["webTestKind"] = undefined /*out*/;
             inputs["webTestName"] = undefined /*out*/;
         }
@@ -212,10 +188,6 @@ export interface WebTestArgs {
      */
     readonly configuration?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesConfiguration>;
     /**
-     * The collection of content validation properties
-     */
-    readonly contentValidation?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesContentValidation>;
-    /**
      * User defined description for this WebTest.
      */
     readonly description?: pulumi.Input<string>;
@@ -224,17 +196,9 @@ export interface WebTestArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Validate that the WebTest returns the http status code provided.
-     */
-    readonly expectedHttpStatusCode?: pulumi.Input<number>;
-    /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
     readonly frequency?: pulumi.Input<number>;
-    /**
-     * When set, validation will ignore the status code.
-     */
-    readonly ignoreHttpsStatusCode?: pulumi.Input<boolean>;
     /**
      * The kind of WebTest that this web test watches. Choices are ping and multistep.
      */
@@ -260,14 +224,6 @@ export interface WebTestArgs {
      */
     readonly retryEnabled?: pulumi.Input<boolean>;
     /**
-     * A number of days to check still remain before the the existing SSL cert expires.
-     */
-    readonly sSLCertRemainingLifetimeCheck?: pulumi.Input<number>;
-    /**
-     * Checks to see if the SSL cert is still valid.
-     */
-    readonly sSLCheck?: pulumi.Input<boolean>;
-    /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
     readonly syntheticMonitorId: pulumi.Input<string>;
@@ -279,6 +235,10 @@ export interface WebTestArgs {
      * Seconds until this WebTest will timeout and fail. Default value is 30.
      */
     readonly timeout?: pulumi.Input<number>;
+    /**
+     * The collection of validation rule properties
+     */
+    readonly validationRules?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesValidationRules>;
     /**
      * The kind of web test this is, valid choices are ping, multistep, basic, and standard.
      */

@@ -6,9 +6,11 @@
 from ._enums import *
 from .get_signal_r import *
 from .get_signal_r_private_endpoint_connection import *
+from .get_signal_r_shared_private_link_resource import *
 from .list_signal_r_keys import *
 from .signal_r import *
 from .signal_r_private_endpoint_connection import *
+from .signal_r_shared_private_link_resource import *
 from ._inputs import *
 from . import outputs
 
@@ -18,6 +20,7 @@ from . import (
     v20181001,
     v20200501,
     v20200701preview,
+    v20210401preview,
 )
 
 def _register_module():
@@ -36,6 +39,8 @@ def _register_module():
                 return SignalR(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:signalrservice:SignalRPrivateEndpointConnection":
                 return SignalRPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:signalrservice:SignalRSharedPrivateLinkResource":
+                return SignalRSharedPrivateLinkResource(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

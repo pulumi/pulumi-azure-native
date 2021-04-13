@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getSignalR";
 export * from "./getSignalRPrivateEndpointConnection";
+export * from "./getSignalRSharedPrivateLinkResource";
 export * from "./listSignalRKeys";
 export * from "./signalR";
 export * from "./signalRPrivateEndpointConnection";
+export * from "./signalRSharedPrivateLinkResource";
 
 // Export enums:
 export * from "../types/enums/signalrservice";
@@ -19,17 +21,20 @@ import * as v20180301preview from "./v20180301preview";
 import * as v20181001 from "./v20181001";
 import * as v20200501 from "./v20200501";
 import * as v20200701preview from "./v20200701preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20180301preview,
     v20181001,
     v20200501,
     v20200701preview,
+    v20210401preview,
 };
 
 // Import resources to register:
 import { SignalR } from "./signalR";
 import { SignalRPrivateEndpointConnection } from "./signalRPrivateEndpointConnection";
+import { SignalRSharedPrivateLinkResource } from "./signalRSharedPrivateLinkResource";
 
 const _module = {
     version: utilities.getVersion(),
@@ -39,6 +44,8 @@ const _module = {
                 return new SignalR(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRPrivateEndpointConnection":
                 return new SignalRPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:signalrservice:SignalRSharedPrivateLinkResource":
+                return new SignalRSharedPrivateLinkResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

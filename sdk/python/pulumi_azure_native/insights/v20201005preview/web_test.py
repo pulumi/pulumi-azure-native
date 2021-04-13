@@ -19,23 +19,19 @@ class WebTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']]] = None,
-                 content_validation: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesContentValidationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 expected_http_status_code: Optional[pulumi.Input[int]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
-                 ignore_https_status_code: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
                  request: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
-                 s_sl_cert_remaining_lifetime_check: Optional[pulumi.Input[int]] = None,
-                 s_sl_check: Optional[pulumi.Input[bool]] = None,
                  synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
+                 validation_rules: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKindEnum']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -47,23 +43,19 @@ class WebTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']] configuration: An XML configuration specification for a WebTest.
-        :param pulumi.Input[pulumi.InputType['WebTestPropertiesContentValidationArgs']] content_validation: The collection of content validation properties
         :param pulumi.Input[str] description: User defined description for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
-        :param pulumi.Input[int] expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
-        :param pulumi.Input[bool] ignore_https_status_code: When set, validation will ignore the status code.
         :param pulumi.Input['WebTestKind'] kind: The kind of WebTest that this web test watches. Choices are ping and multistep.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']] request: The collection of request properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
-        :param pulumi.Input[int] s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.
-        :param pulumi.Input[bool] s_sl_check: Checks to see if the SSL cert is still valid.
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
+        :param pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']] validation_rules: The collection of validation rule properties
         :param pulumi.Input['WebTestKindEnum'] web_test_kind: The kind of web test this is, valid choices are ping, multistep, basic, and standard.
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
@@ -85,14 +77,11 @@ class WebTest(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['configuration'] = configuration
-            __props__['content_validation'] = content_validation
             __props__['description'] = description
             __props__['enabled'] = enabled
-            __props__['expected_http_status_code'] = expected_http_status_code
             if frequency is None:
                 frequency = 300
             __props__['frequency'] = frequency
-            __props__['ignore_https_status_code'] = ignore_https_status_code
             if kind is None:
                 kind = 'ping'
             __props__['kind'] = kind
@@ -105,8 +94,6 @@ class WebTest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retry_enabled'] = retry_enabled
-            __props__['s_sl_cert_remaining_lifetime_check'] = s_sl_cert_remaining_lifetime_check
-            __props__['s_sl_check'] = s_sl_check
             if synthetic_monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synthetic_monitor_id'")
             __props__['synthetic_monitor_id'] = synthetic_monitor_id
@@ -114,6 +101,7 @@ class WebTest(pulumi.CustomResource):
             if timeout is None:
                 timeout = 30
             __props__['timeout'] = timeout
+            __props__['validation_rules'] = validation_rules
             if web_test_kind is None:
                 web_test_kind = 'ping'
             if web_test_kind is None and not opts.urn:
@@ -148,12 +136,9 @@ class WebTest(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["configuration"] = None
-        __props__["content_validation"] = None
         __props__["description"] = None
         __props__["enabled"] = None
-        __props__["expected_http_status_code"] = None
         __props__["frequency"] = None
-        __props__["ignore_https_status_code"] = None
         __props__["kind"] = None
         __props__["location"] = None
         __props__["locations"] = None
@@ -161,12 +146,11 @@ class WebTest(pulumi.CustomResource):
         __props__["provisioning_state"] = None
         __props__["request"] = None
         __props__["retry_enabled"] = None
-        __props__["s_sl_cert_remaining_lifetime_check"] = None
-        __props__["s_sl_check"] = None
         __props__["synthetic_monitor_id"] = None
         __props__["tags"] = None
         __props__["timeout"] = None
         __props__["type"] = None
+        __props__["validation_rules"] = None
         __props__["web_test_kind"] = None
         __props__["web_test_name"] = None
         return WebTest(resource_name, opts=opts, __props__=__props__)
@@ -178,14 +162,6 @@ class WebTest(pulumi.CustomResource):
         An XML configuration specification for a WebTest.
         """
         return pulumi.get(self, "configuration")
-
-    @property
-    @pulumi.getter(name="contentValidation")
-    def content_validation(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseContentValidation']]:
-        """
-        The collection of content validation properties
-        """
-        return pulumi.get(self, "content_validation")
 
     @property
     @pulumi.getter
@@ -204,28 +180,12 @@ class WebTest(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="expectedHttpStatusCode")
-    def expected_http_status_code(self) -> pulumi.Output[Optional[int]]:
-        """
-        Validate that the WebTest returns the http status code provided.
-        """
-        return pulumi.get(self, "expected_http_status_code")
-
-    @property
     @pulumi.getter
     def frequency(self) -> pulumi.Output[Optional[int]]:
         """
         Interval in seconds between test runs for this WebTest. Default value is 300.
         """
         return pulumi.get(self, "frequency")
-
-    @property
-    @pulumi.getter(name="ignoreHttpsStatusCode")
-    def ignore_https_status_code(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When set, validation will ignore the status code.
-        """
-        return pulumi.get(self, "ignore_https_status_code")
 
     @property
     @pulumi.getter
@@ -284,22 +244,6 @@ class WebTest(pulumi.CustomResource):
         return pulumi.get(self, "retry_enabled")
 
     @property
-    @pulumi.getter(name="sSLCertRemainingLifetimeCheck")
-    def s_sl_cert_remaining_lifetime_check(self) -> pulumi.Output[Optional[int]]:
-        """
-        A number of days to check still remain before the the existing SSL cert expires.
-        """
-        return pulumi.get(self, "s_sl_cert_remaining_lifetime_check")
-
-    @property
-    @pulumi.getter(name="sSLCheck")
-    def s_sl_check(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Checks to see if the SSL cert is still valid.
-        """
-        return pulumi.get(self, "s_sl_check")
-
-    @property
     @pulumi.getter(name="syntheticMonitorId")
     def synthetic_monitor_id(self) -> pulumi.Output[str]:
         """
@@ -330,6 +274,14 @@ class WebTest(pulumi.CustomResource):
         Azure resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationRules")
+    def validation_rules(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseValidationRules']]:
+        """
+        The collection of validation rule properties
+        """
+        return pulumi.get(self, "validation_rules")
 
     @property
     @pulumi.getter(name="webTestKind")

@@ -17,18 +17,12 @@ type WebTest struct {
 
 	// An XML configuration specification for a WebTest.
 	Configuration WebTestPropertiesResponseConfigurationPtrOutput `pulumi:"configuration"`
-	// The collection of content validation properties
-	ContentValidation WebTestPropertiesResponseContentValidationPtrOutput `pulumi:"contentValidation"`
 	// User defined description for this WebTest.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode pulumi.IntPtrOutput `pulumi:"expectedHttpStatusCode"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode pulumi.BoolPtrOutput `pulumi:"ignoreHttpsStatusCode"`
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource location
@@ -43,10 +37,6 @@ type WebTest struct {
 	Request WebTestPropertiesResponseRequestPtrOutput `pulumi:"request"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled pulumi.BoolPtrOutput `pulumi:"retryEnabled"`
-	// A number of days to check still remain before the the existing SSL cert expires.
-	SSLCertRemainingLifetimeCheck pulumi.IntPtrOutput `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck pulumi.BoolPtrOutput `pulumi:"sSLCheck"`
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId pulumi.StringOutput `pulumi:"syntheticMonitorId"`
 	// Resource tags
@@ -55,6 +45,8 @@ type WebTest struct {
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The collection of validation rule properties
+	ValidationRules WebTestPropertiesResponseValidationRulesPtrOutput `pulumi:"validationRules"`
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind pulumi.StringOutput `pulumi:"webTestKind"`
 	// User defined name if this WebTest.
@@ -132,18 +124,12 @@ func GetWebTest(ctx *pulumi.Context,
 type webTestState struct {
 	// An XML configuration specification for a WebTest.
 	Configuration *WebTestPropertiesResponseConfiguration `pulumi:"configuration"`
-	// The collection of content validation properties
-	ContentValidation *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
 	// User defined description for this WebTest.
 	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled *bool `pulumi:"enabled"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"frequency"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -158,10 +144,6 @@ type webTestState struct {
 	Request *WebTestPropertiesResponseRequest `pulumi:"request"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"retryEnabled"`
-	// A number of days to check still remain before the the existing SSL cert expires.
-	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck *bool `pulumi:"sSLCheck"`
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId *string `pulumi:"syntheticMonitorId"`
 	// Resource tags
@@ -170,6 +152,8 @@ type webTestState struct {
 	Timeout *int `pulumi:"timeout"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
+	// The collection of validation rule properties
+	ValidationRules *WebTestPropertiesResponseValidationRules `pulumi:"validationRules"`
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind *string `pulumi:"webTestKind"`
 	// User defined name if this WebTest.
@@ -179,18 +163,12 @@ type webTestState struct {
 type WebTestState struct {
 	// An XML configuration specification for a WebTest.
 	Configuration WebTestPropertiesResponseConfigurationPtrInput
-	// The collection of content validation properties
-	ContentValidation WebTestPropertiesResponseContentValidationPtrInput
 	// User defined description for this WebTest.
 	Description pulumi.StringPtrInput
 	// Is the test actively being monitored.
 	Enabled pulumi.BoolPtrInput
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode pulumi.IntPtrInput
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode pulumi.BoolPtrInput
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrInput
 	// Resource location
@@ -205,10 +183,6 @@ type WebTestState struct {
 	Request WebTestPropertiesResponseRequestPtrInput
 	// Allow for retries should this WebTest fail.
 	RetryEnabled pulumi.BoolPtrInput
-	// A number of days to check still remain before the the existing SSL cert expires.
-	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck pulumi.BoolPtrInput
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId pulumi.StringPtrInput
 	// Resource tags
@@ -217,6 +191,8 @@ type WebTestState struct {
 	Timeout pulumi.IntPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
+	// The collection of validation rule properties
+	ValidationRules WebTestPropertiesResponseValidationRulesPtrInput
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind pulumi.StringPtrInput
 	// User defined name if this WebTest.
@@ -230,18 +206,12 @@ func (WebTestState) ElementType() reflect.Type {
 type webTestArgs struct {
 	// An XML configuration specification for a WebTest.
 	Configuration *WebTestPropertiesConfiguration `pulumi:"configuration"`
-	// The collection of content validation properties
-	ContentValidation *WebTestPropertiesContentValidation `pulumi:"contentValidation"`
 	// User defined description for this WebTest.
 	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled *bool `pulumi:"enabled"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"frequency"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -254,16 +224,14 @@ type webTestArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"retryEnabled"`
-	// A number of days to check still remain before the the existing SSL cert expires.
-	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck *bool `pulumi:"sSLCheck"`
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId string `pulumi:"syntheticMonitorId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout *int `pulumi:"timeout"`
+	// The collection of validation rule properties
+	ValidationRules *WebTestPropertiesValidationRules `pulumi:"validationRules"`
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind string `pulumi:"webTestKind"`
 	// User defined name if this WebTest.
@@ -274,18 +242,12 @@ type webTestArgs struct {
 type WebTestArgs struct {
 	// An XML configuration specification for a WebTest.
 	Configuration WebTestPropertiesConfigurationPtrInput
-	// The collection of content validation properties
-	ContentValidation WebTestPropertiesContentValidationPtrInput
 	// User defined description for this WebTest.
 	Description pulumi.StringPtrInput
 	// Is the test actively being monitored.
 	Enabled pulumi.BoolPtrInput
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode pulumi.IntPtrInput
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode pulumi.BoolPtrInput
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
 	Kind *WebTestKind
 	// Resource location
@@ -298,16 +260,14 @@ type WebTestArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Allow for retries should this WebTest fail.
 	RetryEnabled pulumi.BoolPtrInput
-	// A number of days to check still remain before the the existing SSL cert expires.
-	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck pulumi.BoolPtrInput
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout pulumi.IntPtrInput
+	// The collection of validation rule properties
+	ValidationRules WebTestPropertiesValidationRulesPtrInput
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind WebTestKindEnum
 	// User defined name if this WebTest.

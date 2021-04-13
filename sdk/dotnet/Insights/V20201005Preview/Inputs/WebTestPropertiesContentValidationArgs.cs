@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview.Inputs
     public sealed class WebTestPropertiesContentValidationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Content to look for in the return of the WebTest.
+        /// Content to look for in the return of the WebTest.  Must not be null or empty.
         /// </summary>
         [Input("contentMatch")]
         public Input<string>? ContentMatch { get; set; }
