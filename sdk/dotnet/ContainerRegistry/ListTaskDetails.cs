@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The task that has the ARM resource and task properties. 
         /// The task will have all information to schedule a run against it.
-        /// API Version: 2019-04-01.
+        /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithVersion());
@@ -55,6 +55,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly Outputs.AgentPropertiesResponse? AgentConfiguration;
         /// <summary>
+        /// The dedicated agent pool for the task.
+        /// </summary>
+        public readonly string? AgentPoolName;
+        /// <summary>
         /// The creation date of task.
         /// </summary>
         public readonly string CreationDate;
@@ -71,9 +75,17 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
+        /// The value of this property indicates whether the task resource is system task or not.
+        /// </summary>
+        public readonly bool? IsSystemTask;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        public readonly string? LogTemplate;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -81,7 +93,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        public readonly Outputs.PlatformPropertiesResponse Platform;
+        public readonly Outputs.PlatformPropertiesResponse? Platform;
         /// <summary>
         /// The provisioning state of the task.
         /// </summary>
@@ -93,7 +105,11 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        public readonly object Step;
+        public readonly object? Step;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -115,6 +131,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private ListTaskDetailsResult(
             Outputs.AgentPropertiesResponse? agentConfiguration,
 
+            string? agentPoolName,
+
             string creationDate,
 
             Outputs.CredentialsResponse? credentials,
@@ -123,17 +141,23 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             Outputs.IdentityPropertiesResponse? identity,
 
+            bool? isSystemTask,
+
             string location,
+
+            string? logTemplate,
 
             string name,
 
-            Outputs.PlatformPropertiesResponse platform,
+            Outputs.PlatformPropertiesResponse? platform,
 
             string provisioningState,
 
             string? status,
 
-            object step,
+            object? step,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -144,16 +168,20 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string type)
         {
             AgentConfiguration = agentConfiguration;
+            AgentPoolName = agentPoolName;
             CreationDate = creationDate;
             Credentials = credentials;
             Id = id;
             Identity = identity;
+            IsSystemTask = isSystemTask;
             Location = location;
+            LogTemplate = logTemplate;
             Name = name;
             Platform = platform;
             ProvisioningState = provisioningState;
             Status = status;
             Step = step;
+            SystemData = systemData;
             Tags = tags;
             Timeout = timeout;
             Trigger = trigger;
