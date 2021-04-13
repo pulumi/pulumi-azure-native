@@ -26,6 +26,7 @@ __all__ = [
     'SourceControlType',
     'SourceRegistryLoginMode',
     'SourceTriggerEvent',
+    'StepType',
     'TaskStatus',
     'TokenCertificateName',
     'TokenPasswordName',
@@ -33,6 +34,7 @@ __all__ = [
     'TokenType',
     'TriggerStatus',
     'TrustPolicyType',
+    'UpdateTriggerPayloadType',
     'Variant',
     'WebhookAction',
     'WebhookStatus',
@@ -214,6 +216,15 @@ class SourceTriggerEvent(str, Enum):
     PULLREQUEST = "pullrequest"
 
 
+class StepType(str, Enum):
+    """
+    The type of the step.
+    """
+    DOCKER = "Docker"
+    FILE_TASK = "FileTask"
+    ENCODED_TASK = "EncodedTask"
+
+
 class TaskStatus(str, Enum):
     """
     The current status of task.
@@ -264,6 +275,14 @@ class TrustPolicyType(str, Enum):
     The type of trust policy.
     """
     NOTARY = "Notary"
+
+
+class UpdateTriggerPayloadType(str, Enum):
+    """
+    Type of Payload body for Base image update triggers.
+    """
+    DEFAULT = "Default"
+    TOKEN = "Token"
 
 
 class Variant(str, Enum):

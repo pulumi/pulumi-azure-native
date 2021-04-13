@@ -59,7 +59,7 @@ def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryBuildSourceUploadUrlResult:
     """
     The properties of a response to source upload request.
-    API Version: 2019-04-01.
+    API Version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.

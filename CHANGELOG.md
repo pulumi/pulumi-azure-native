@@ -19,6 +19,8 @@ CHANGELOG
   `sql.ExtendedDatabaseBlobAuditingPolicy`, `sql.ExtendedServerBlobAuditingPolicy`,
   `sql.LongTermRetentionPolicy`, `sql.ServerBlobAuditingPolicy`, `sql.ServerSecurityAlertPolicy`.
   [#725](https://github.com/pulumi/pulumi-azure-native/issues/725)
+- Use the `2019-06-01-preview` version for the `containerregistry.Task` resource
+  [#736](https://github.com/pulumi/pulumi-azure-native/issues/736)
 
 ---
 

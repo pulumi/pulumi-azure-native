@@ -666,6 +666,38 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
     /// <summary>
+    /// The type of the step.
+    /// </summary>
+    [EnumType]
+    public readonly struct StepType : IEquatable<StepType>
+    {
+        private readonly string _value;
+
+        private StepType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StepType Docker { get; } = new StepType("Docker");
+        public static StepType FileTask { get; } = new StepType("FileTask");
+        public static StepType EncodedTask { get; } = new StepType("EncodedTask");
+
+        public static bool operator ==(StepType left, StepType right) => left.Equals(right);
+        public static bool operator !=(StepType left, StepType right) => !left.Equals(right);
+
+        public static explicit operator string(StepType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StepType other && Equals(other);
+        public bool Equals(StepType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of task.
     /// </summary>
     [EnumType]
@@ -871,6 +903,37 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TrustPolicyType other && Equals(other);
         public bool Equals(TrustPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of Payload body for Base image update triggers.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpdateTriggerPayloadType : IEquatable<UpdateTriggerPayloadType>
+    {
+        private readonly string _value;
+
+        private UpdateTriggerPayloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpdateTriggerPayloadType Default { get; } = new UpdateTriggerPayloadType("Default");
+        public static UpdateTriggerPayloadType Token { get; } = new UpdateTriggerPayloadType("Token");
+
+        public static bool operator ==(UpdateTriggerPayloadType left, UpdateTriggerPayloadType right) => left.Equals(right);
+        public static bool operator !=(UpdateTriggerPayloadType left, UpdateTriggerPayloadType right) => !left.Equals(right);
+
+        public static explicit operator string(UpdateTriggerPayloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpdateTriggerPayloadType other && Equals(other);
+        public bool Equals(UpdateTriggerPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

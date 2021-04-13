@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
- * API Version: 2019-04-01.
+ * API Version: 2019-06-01-preview.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly agentConfiguration!: pulumi.Output<outputs.containerregistry.AgentPropertiesResponse | undefined>;
     /**
+     * The dedicated agent pool for the task.
+     */
+    public readonly agentPoolName!: pulumi.Output<string | undefined>;
+    /**
      * The creation date of task.
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -54,9 +58,17 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
     /**
+     * The value of this property indicates whether the task resource is system task or not.
+     */
+    public readonly isSystemTask!: pulumi.Output<boolean | undefined>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The template that describes the repository and tag information for run log artifact.
+     */
+    public readonly logTemplate!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
@@ -64,7 +76,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The platform properties against which the run has to happen.
      */
-    public readonly platform!: pulumi.Output<outputs.containerregistry.PlatformPropertiesResponse>;
+    public readonly platform!: pulumi.Output<outputs.containerregistry.PlatformPropertiesResponse | undefined>;
     /**
      * The provisioning state of the task.
      */
@@ -76,7 +88,11 @@ export class Task extends pulumi.CustomResource {
     /**
      * The properties of a task step.
      */
-    public readonly step!: pulumi.Output<outputs.containerregistry.DockerBuildStepResponse | outputs.containerregistry.EncodedTaskStepResponse | outputs.containerregistry.FileTaskStepResponse>;
+    public readonly step!: pulumi.Output<outputs.containerregistry.DockerBuildStepResponse | outputs.containerregistry.EncodedTaskStepResponse | outputs.containerregistry.FileTaskStepResponse | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The tags of the resource.
      */
@@ -105,22 +121,19 @@ export class Task extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.platform === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'platform'");
-            }
             if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.step === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'step'");
-            }
             inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
+            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["isSystemTask"] = (args ? args.isSystemTask : undefined) ?? false;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logTemplate"] = args ? args.logTemplate : undefined;
             inputs["platform"] = args ? args.platform : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -133,18 +146,23 @@ export class Task extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["agentConfiguration"] = undefined /*out*/;
+            inputs["agentPoolName"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["credentials"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["isSystemTask"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["logTemplate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["step"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeout"] = undefined /*out*/;
             inputs["trigger"] = undefined /*out*/;
@@ -168,6 +186,10 @@ export interface TaskArgs {
      */
     readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentProperties>;
     /**
+     * The dedicated agent pool for the task.
+     */
+    readonly agentPoolName?: pulumi.Input<string>;
+    /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
     readonly credentials?: pulumi.Input<inputs.containerregistry.Credentials>;
@@ -176,13 +198,21 @@ export interface TaskArgs {
      */
     readonly identity?: pulumi.Input<inputs.containerregistry.IdentityProperties>;
     /**
+     * The value of this property indicates whether the task resource is system task or not.
+     */
+    readonly isSystemTask?: pulumi.Input<boolean>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The template that describes the repository and tag information for run log artifact.
+     */
+    readonly logTemplate?: pulumi.Input<string>;
+    /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform: pulumi.Input<inputs.containerregistry.PlatformProperties>;
+    readonly platform?: pulumi.Input<inputs.containerregistry.PlatformProperties>;
     /**
      * The name of the container registry.
      */
@@ -198,7 +228,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step: pulumi.Input<inputs.containerregistry.TaskStepProperties>;
+    readonly step?: pulumi.Input<inputs.containerregistry.DockerBuildStep | inputs.containerregistry.EncodedTaskStep | inputs.containerregistry.FileTaskStep>;
     /**
      * The tags of the resource.
      */

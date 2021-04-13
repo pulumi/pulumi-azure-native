@@ -13,30 +13,38 @@ import (
 
 // The task that has the ARM resource and task properties.
 // The task will have all information to schedule a run against it.
-// API Version: 2019-04-01.
+// API Version: 2019-06-01-preview.
 type Task struct {
 	pulumi.CustomResourceState
 
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrOutput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the task.
+	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
 	// The creation date of task.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials CredentialsResponsePtrOutput `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask pulumi.BoolPtrOutput `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrOutput `pulumi:"logTemplate"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponseOutput `pulumi:"platform"`
+	Platform PlatformPropertiesResponsePtrOutput `pulumi:"platform"`
 	// The provisioning state of the task.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The current status of task.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The properties of a task step.
 	Step pulumi.AnyOutput `pulumi:"step"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -54,17 +62,14 @@ func NewTask(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Platform == nil {
-		return nil, errors.New("invalid value for required argument 'Platform'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Step == nil {
-		return nil, errors.New("invalid value for required argument 'Step'")
+	if args.IsSystemTask == nil {
+		args.IsSystemTask = pulumi.BoolPtr(false)
 	}
 	if args.Timeout == nil {
 		args.Timeout = pulumi.IntPtr(3600)
@@ -123,14 +128,20 @@ func GetTask(ctx *pulumi.Context,
 type taskState struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the task.
+	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The creation date of task.
 	CreationDate *string `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials *CredentialsResponse `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The platform properties against which the run has to happen.
@@ -141,6 +152,8 @@ type taskState struct {
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
 	Step interface{} `pulumi:"step"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -154,14 +167,20 @@ type taskState struct {
 type TaskState struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput
+	// The dedicated agent pool for the task.
+	AgentPoolName pulumi.StringPtrInput
 	// The creation date of task.
 	CreationDate pulumi.StringPtrInput
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials CredentialsResponsePtrInput
 	// Identity for the resource.
 	Identity IdentityPropertiesResponsePtrInput
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The platform properties against which the run has to happen.
@@ -172,6 +191,8 @@ type TaskState struct {
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
 	Step pulumi.Input
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// Run timeout in seconds.
@@ -189,14 +210,20 @@ func (TaskState) ElementType() reflect.Type {
 type taskArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the task.
+	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials *Credentials `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityProperties `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
-	Platform PlatformProperties `pulumi:"platform"`
+	Platform *PlatformProperties `pulumi:"platform"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
@@ -204,7 +231,7 @@ type taskArgs struct {
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
-	Step TaskStepProperties `pulumi:"step"`
+	Step interface{} `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the container registry task.
@@ -219,14 +246,20 @@ type taskArgs struct {
 type TaskArgs struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesPtrInput
+	// The dedicated agent pool for the task.
+	AgentPoolName pulumi.StringPtrInput
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials CredentialsPtrInput
 	// Identity for the resource.
 	Identity IdentityPropertiesPtrInput
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput
 	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesInput
+	Platform PlatformPropertiesPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
@@ -234,7 +267,7 @@ type TaskArgs struct {
 	// The current status of task.
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
-	Step TaskStepPropertiesInput
+	Step pulumi.Input
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the container registry task.
