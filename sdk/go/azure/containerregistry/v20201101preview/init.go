@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:containerregistry/v20201101preview:ConnectedRegistry":
-		r, err = NewConnectedRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectedRegistry{}
 	case "azure-native:containerregistry/v20201101preview:ExportPipeline":
-		r, err = NewExportPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExportPipeline{}
 	case "azure-native:containerregistry/v20201101preview:ImportPipeline":
-		r, err = NewImportPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImportPipeline{}
 	case "azure-native:containerregistry/v20201101preview:PipelineRun":
-		r, err = NewPipelineRun(ctx, name, nil, pulumi.URN_(urn))
+		r = &PipelineRun{}
 	case "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:containerregistry/v20201101preview:Registry":
-		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &Registry{}
 	case "azure-native:containerregistry/v20201101preview:Replication":
-		r, err = NewReplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Replication{}
 	case "azure-native:containerregistry/v20201101preview:ScopeMap":
-		r, err = NewScopeMap(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScopeMap{}
 	case "azure-native:containerregistry/v20201101preview:Token":
-		r, err = NewToken(ctx, name, nil, pulumi.URN_(urn))
+		r = &Token{}
 	case "azure-native:containerregistry/v20201101preview:Webhook":
-		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

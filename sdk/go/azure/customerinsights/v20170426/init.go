@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:customerinsights/v20170426:Connector":
-		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connector{}
 	case "azure-native:customerinsights/v20170426:ConnectorMapping":
-		r, err = NewConnectorMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectorMapping{}
 	case "azure-native:customerinsights/v20170426:Hub":
-		r, err = NewHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &Hub{}
 	case "azure-native:customerinsights/v20170426:Kpi":
-		r, err = NewKpi(ctx, name, nil, pulumi.URN_(urn))
+		r = &Kpi{}
 	case "azure-native:customerinsights/v20170426:Link":
-		r, err = NewLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &Link{}
 	case "azure-native:customerinsights/v20170426:Prediction":
-		r, err = NewPrediction(ctx, name, nil, pulumi.URN_(urn))
+		r = &Prediction{}
 	case "azure-native:customerinsights/v20170426:Profile":
-		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &Profile{}
 	case "azure-native:customerinsights/v20170426:Relationship":
-		r, err = NewRelationship(ctx, name, nil, pulumi.URN_(urn))
+		r = &Relationship{}
 	case "azure-native:customerinsights/v20170426:RelationshipLink":
-		r, err = NewRelationshipLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &RelationshipLink{}
 	case "azure-native:customerinsights/v20170426:RoleAssignment":
-		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleAssignment{}
 	case "azure-native:customerinsights/v20170426:View":
-		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
+		r = &View{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

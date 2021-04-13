@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:offazure/v20200101:HyperVSite":
-		r, err = NewHyperVSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &HyperVSite{}
 	case "azure-native:offazure/v20200101:Site":
-		r, err = NewSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &Site{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

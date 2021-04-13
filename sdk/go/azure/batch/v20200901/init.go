@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:batch/v20200901:Application":
-		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Application{}
 	case "azure-native:batch/v20200901:ApplicationPackage":
-		r, err = NewApplicationPackage(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationPackage{}
 	case "azure-native:batch/v20200901:BatchAccount":
-		r, err = NewBatchAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &BatchAccount{}
 	case "azure-native:batch/v20200901:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:batch/v20200901:Pool":
-		r, err = NewPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

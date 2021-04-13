@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:sql/v20140401:DataMaskingPolicy":
-		r, err = NewDataMaskingPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataMaskingPolicy{}
 	case "azure-native:sql/v20140401:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy":
-		r, err = NewDatabaseThreatDetectionPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseThreatDetectionPolicy{}
 	case "azure-native:sql/v20140401:DisasterRecoveryConfiguration":
-		r, err = NewDisasterRecoveryConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DisasterRecoveryConfiguration{}
 	case "azure-native:sql/v20140401:ElasticPool":
-		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &ElasticPool{}
 	case "azure-native:sql/v20140401:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure-native:sql/v20140401:GeoBackupPolicy":
-		r, err = NewGeoBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &GeoBackupPolicy{}
 	case "azure-native:sql/v20140401:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "azure-native:sql/v20140401:ServerAzureADAdministrator":
-		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerAzureADAdministrator{}
 	case "azure-native:sql/v20140401:ServerCommunicationLink":
-		r, err = NewServerCommunicationLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerCommunicationLink{}
 	case "azure-native:sql/v20140401:TransparentDataEncryption":
-		r, err = NewTransparentDataEncryption(ctx, name, nil, pulumi.URN_(urn))
+		r = &TransparentDataEncryption{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:logic/v20160601:Agreement":
-		r, err = NewAgreement(ctx, name, nil, pulumi.URN_(urn))
+		r = &Agreement{}
 	case "azure-native:logic/v20160601:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:logic/v20160601:IntegrationAccount":
-		r, err = NewIntegrationAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccount{}
 	case "azure-native:logic/v20160601:IntegrationAccountAssembly":
-		r, err = NewIntegrationAccountAssembly(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountAssembly{}
 	case "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration":
-		r, err = NewIntegrationAccountBatchConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountBatchConfiguration{}
 	case "azure-native:logic/v20160601:Map":
-		r, err = NewMap(ctx, name, nil, pulumi.URN_(urn))
+		r = &Map{}
 	case "azure-native:logic/v20160601:Partner":
-		r, err = NewPartner(ctx, name, nil, pulumi.URN_(urn))
+		r = &Partner{}
 	case "azure-native:logic/v20160601:RosettaNetProcessConfiguration":
-		r, err = NewRosettaNetProcessConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &RosettaNetProcessConfiguration{}
 	case "azure-native:logic/v20160601:Schema":
-		r, err = NewSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schema{}
 	case "azure-native:logic/v20160601:Session":
-		r, err = NewSession(ctx, name, nil, pulumi.URN_(urn))
+		r = &Session{}
 	case "azure-native:logic/v20160601:Workflow":
-		r, err = NewWorkflow(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

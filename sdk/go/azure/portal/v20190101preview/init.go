@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:portal/v20190101preview:Dashboard":
-		r, err = NewDashboard(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dashboard{}
 	case "azure-native:portal/v20190101preview:TenantConfiguration":
-		r, err = NewTenantConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &TenantConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

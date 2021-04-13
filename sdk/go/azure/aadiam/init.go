@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:aadiam:DiagnosticSetting":
-		r, err = NewDiagnosticSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiagnosticSetting{}
 	case "azure-native:aadiam:azureADMetric":
-		r, err = NewAzureADMetric(ctx, name, nil, pulumi.URN_(urn))
+		r = &AzureADMetric{}
 	case "azure-native:aadiam:privateLinkForAzureAd":
-		r, err = NewPrivateLinkForAzureAd(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkForAzureAd{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

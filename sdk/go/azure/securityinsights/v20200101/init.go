@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:securityinsights/v20200101:Action":
-		r, err = NewAction(ctx, name, nil, pulumi.URN_(urn))
+		r = &Action{}
 	case "azure-native:securityinsights/v20200101:AlertRule":
-		r, err = NewAlertRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertRule{}
 	case "azure-native:securityinsights/v20200101:Bookmark":
-		r, err = NewBookmark(ctx, name, nil, pulumi.URN_(urn))
+		r = &Bookmark{}
 	case "azure-native:securityinsights/v20200101:DataConnector":
-		r, err = NewDataConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnector{}
 	case "azure-native:securityinsights/v20200101:Incident":
-		r, err = NewIncident(ctx, name, nil, pulumi.URN_(urn))
+		r = &Incident{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

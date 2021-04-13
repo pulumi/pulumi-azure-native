@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel":
-		r, err = NewManagementLockAtResourceGroupLevel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockAtResourceGroupLevel{}
 	case "azure-native:authorization/v20160901:ManagementLockAtResourceLevel":
-		r, err = NewManagementLockAtResourceLevel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockAtResourceLevel{}
 	case "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel":
-		r, err = NewManagementLockAtSubscriptionLevel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockAtSubscriptionLevel{}
 	case "azure-native:authorization/v20160901:ManagementLockByScope":
-		r, err = NewManagementLockByScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockByScope{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:cache:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure-native:cache:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure-native:cache:LinkedServer":
-		r, err = NewLinkedServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServer{}
 	case "azure-native:cache:PatchSchedule":
-		r, err = NewPatchSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &PatchSchedule{}
 	case "azure-native:cache:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:cache:Redis":
-		r, err = NewRedis(ctx, name, nil, pulumi.URN_(urn))
+		r = &Redis{}
 	case "azure-native:cache:RedisEnterprise":
-		r, err = NewRedisEnterprise(ctx, name, nil, pulumi.URN_(urn))
+		r = &RedisEnterprise{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

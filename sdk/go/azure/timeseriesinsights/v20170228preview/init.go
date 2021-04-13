@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:timeseriesinsights/v20170228preview:AccessPolicy":
-		r, err = NewAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessPolicy{}
 	case "azure-native:timeseriesinsights/v20170228preview:Environment":
-		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Environment{}
 	case "azure-native:timeseriesinsights/v20170228preview:EventSource":
-		r, err = NewEventSource(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSource{}
 	case "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet":
-		r, err = NewReferenceDataSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReferenceDataSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

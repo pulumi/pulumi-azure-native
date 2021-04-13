@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:eventgrid/v20201015preview:Domain":
-		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &Domain{}
 	case "azure-native:eventgrid/v20201015preview:DomainTopic":
-		r, err = NewDomainTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainTopic{}
 	case "azure-native:eventgrid/v20201015preview:EventChannel":
-		r, err = NewEventChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventChannel{}
 	case "azure-native:eventgrid/v20201015preview:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "azure-native:eventgrid/v20201015preview:PartnerNamespace":
-		r, err = NewPartnerNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &PartnerNamespace{}
 	case "azure-native:eventgrid/v20201015preview:PartnerRegistration":
-		r, err = NewPartnerRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &PartnerRegistration{}
 	case "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription":
-		r, err = NewPartnerTopicEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &PartnerTopicEventSubscription{}
 	case "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:eventgrid/v20201015preview:SystemTopic":
-		r, err = NewSystemTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &SystemTopic{}
 	case "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription":
-		r, err = NewSystemTopicEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &SystemTopicEventSubscription{}
 	case "azure-native:eventgrid/v20201015preview:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:costmanagement/v20180801preview:Connector":
-		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connector{}
 	case "azure-native:costmanagement/v20180801preview:Report":
-		r, err = NewReport(ctx, name, nil, pulumi.URN_(urn))
+		r = &Report{}
 	case "azure-native:costmanagement/v20180801preview:ReportByBillingAccount":
-		r, err = NewReportByBillingAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReportByBillingAccount{}
 	case "azure-native:costmanagement/v20180801preview:ReportByDepartment":
-		r, err = NewReportByDepartment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReportByDepartment{}
 	case "azure-native:costmanagement/v20180801preview:ReportByResourceGroupName":
-		r, err = NewReportByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReportByResourceGroupName{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

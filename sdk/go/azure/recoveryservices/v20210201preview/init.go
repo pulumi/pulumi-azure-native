@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:recoveryservices/v20210201preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:recoveryservices/v20210201preview:ProtectedItem":
-		r, err = NewProtectedItem(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectedItem{}
 	case "azure-native:recoveryservices/v20210201preview:ProtectionContainer":
-		r, err = NewProtectionContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectionContainer{}
 	case "azure-native:recoveryservices/v20210201preview:ProtectionIntent":
-		r, err = NewProtectionIntent(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectionIntent{}
 	case "azure-native:recoveryservices/v20210201preview:ProtectionPolicy":
-		r, err = NewProtectionPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectionPolicy{}
 	case "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy":
-		r, err = NewResourceGuardProxy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceGuardProxy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:devices/v20180122:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:devices/v20180122:DpsCertificate":
-		r, err = NewDpsCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &DpsCertificate{}
 	case "azure-native:devices/v20180122:IotDpsResource":
-		r, err = NewIotDpsResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotDpsResource{}
 	case "azure-native:devices/v20180122:IotHubResource":
-		r, err = NewIotHubResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotHubResource{}
 	case "azure-native:devices/v20180122:IotHubResourceEventHubConsumerGroup":
-		r, err = NewIotHubResourceEventHubConsumerGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotHubResourceEventHubConsumerGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

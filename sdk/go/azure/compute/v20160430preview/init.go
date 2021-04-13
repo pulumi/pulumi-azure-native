@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20160430preview:AvailabilitySet":
-		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilitySet{}
 	case "azure-native:compute/v20160430preview:Disk":
-		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &Disk{}
 	case "azure-native:compute/v20160430preview:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "azure-native:compute/v20160430preview:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "azure-native:compute/v20160430preview:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure-native:compute/v20160430preview:VirtualMachineExtension":
-		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineExtension{}
 	case "azure-native:compute/v20160430preview:VirtualMachineScaleSet":
-		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

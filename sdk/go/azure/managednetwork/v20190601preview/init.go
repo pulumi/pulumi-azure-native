@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:managednetwork/v20190601preview:ManagedNetwork":
-		r, err = NewManagedNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedNetwork{}
 	case "azure-native:managednetwork/v20190601preview:ManagedNetworkGroup":
-		r, err = NewManagedNetworkGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedNetworkGroup{}
 	case "azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy":
-		r, err = NewManagedNetworkPeeringPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedNetworkPeeringPolicy{}
 	case "azure-native:managednetwork/v20190601preview:ScopeAssignment":
-		r, err = NewScopeAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScopeAssignment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

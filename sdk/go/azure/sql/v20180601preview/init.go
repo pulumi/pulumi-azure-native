@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy":
-		r, err = NewDatabaseSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseSecurityAlertPolicy{}
 	case "azure-native:sql/v20180601preview:InstancePool":
-		r, err = NewInstancePool(ctx, name, nil, pulumi.URN_(urn))
+		r = &InstancePool{}
 	case "azure-native:sql/v20180601preview:ManagedDatabase":
-		r, err = NewManagedDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedDatabase{}
 	case "azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel":
-		r, err = NewManagedDatabaseSensitivityLabel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedDatabaseSensitivityLabel{}
 	case "azure-native:sql/v20180601preview:ManagedInstance":
-		r, err = NewManagedInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedInstance{}
 	case "azure-native:sql/v20180601preview:ManagedInstanceVulnerabilityAssessment":
-		r, err = NewManagedInstanceVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedInstanceVulnerabilityAssessment{}
 	case "azure-native:sql/v20180601preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:sql/v20180601preview:ServerAzureADAdministrator":
-		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerAzureADAdministrator{}
 	case "azure-native:sql/v20180601preview:ServerVulnerabilityAssessment":
-		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerVulnerabilityAssessment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:containerservice/v20210301:AgentPool":
-		r, err = NewAgentPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &AgentPool{}
 	case "azure-native:containerservice/v20210301:MaintenanceConfiguration":
-		r, err = NewMaintenanceConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &MaintenanceConfiguration{}
 	case "azure-native:containerservice/v20210301:ManagedCluster":
-		r, err = NewManagedCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedCluster{}
 	case "azure-native:containerservice/v20210301:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

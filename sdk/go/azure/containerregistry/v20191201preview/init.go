@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:containerregistry/v20191201preview:ExportPipeline":
-		r, err = NewExportPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExportPipeline{}
 	case "azure-native:containerregistry/v20191201preview:ImportPipeline":
-		r, err = NewImportPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImportPipeline{}
 	case "azure-native:containerregistry/v20191201preview:PipelineRun":
-		r, err = NewPipelineRun(ctx, name, nil, pulumi.URN_(urn))
+		r = &PipelineRun{}
 	case "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:containerregistry/v20191201preview:Registry":
-		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &Registry{}
 	case "azure-native:containerregistry/v20191201preview:Replication":
-		r, err = NewReplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Replication{}
 	case "azure-native:containerregistry/v20191201preview:Webhook":
-		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

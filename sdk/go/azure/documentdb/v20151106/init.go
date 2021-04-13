@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:documentdb/v20151106:DatabaseAccount":
-		r, err = NewDatabaseAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccount{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace":
-		r, err = NewDatabaseAccountCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountCassandraKeyspace{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable":
-		r, err = NewDatabaseAccountCassandraTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountCassandraTable{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase":
-		r, err = NewDatabaseAccountGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountGremlinDatabase{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph":
-		r, err = NewDatabaseAccountGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountGremlinGraph{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection":
-		r, err = NewDatabaseAccountMongoDBCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountMongoDBCollection{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase":
-		r, err = NewDatabaseAccountMongoDBDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountMongoDBDatabase{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer":
-		r, err = NewDatabaseAccountSqlContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountSqlContainer{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase":
-		r, err = NewDatabaseAccountSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountSqlDatabase{}
 	case "azure-native:documentdb/v20151106:DatabaseAccountTable":
-		r, err = NewDatabaseAccountTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccountTable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

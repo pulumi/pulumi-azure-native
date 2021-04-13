@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:migrate/v20180901preview:MigrateProject":
-		r, err = NewMigrateProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &MigrateProject{}
 	case "azure-native:migrate/v20180901preview:Solution":
-		r, err = NewSolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &Solution{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

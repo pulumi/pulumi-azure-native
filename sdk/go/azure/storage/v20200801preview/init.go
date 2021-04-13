@@ -22,39 +22,40 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:storage/v20200801preview:BlobContainer":
-		r, err = NewBlobContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &BlobContainer{}
 	case "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy":
-		r, err = NewBlobContainerImmutabilityPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BlobContainerImmutabilityPolicy{}
 	case "azure-native:storage/v20200801preview:BlobInventoryPolicy":
-		r, err = NewBlobInventoryPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BlobInventoryPolicy{}
 	case "azure-native:storage/v20200801preview:BlobServiceProperties":
-		r, err = NewBlobServiceProperties(ctx, name, nil, pulumi.URN_(urn))
+		r = &BlobServiceProperties{}
 	case "azure-native:storage/v20200801preview:EncryptionScope":
-		r, err = NewEncryptionScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &EncryptionScope{}
 	case "azure-native:storage/v20200801preview:FileServiceProperties":
-		r, err = NewFileServiceProperties(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileServiceProperties{}
 	case "azure-native:storage/v20200801preview:FileShare":
-		r, err = NewFileShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileShare{}
 	case "azure-native:storage/v20200801preview:ManagementPolicy":
-		r, err = NewManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementPolicy{}
 	case "azure-native:storage/v20200801preview:ObjectReplicationPolicy":
-		r, err = NewObjectReplicationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ObjectReplicationPolicy{}
 	case "azure-native:storage/v20200801preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:storage/v20200801preview:Queue":
-		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &Queue{}
 	case "azure-native:storage/v20200801preview:QueueServiceProperties":
-		r, err = NewQueueServiceProperties(ctx, name, nil, pulumi.URN_(urn))
+		r = &QueueServiceProperties{}
 	case "azure-native:storage/v20200801preview:StorageAccount":
-		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageAccount{}
 	case "azure-native:storage/v20200801preview:Table":
-		r, err = NewTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &Table{}
 	case "azure-native:storage/v20200801preview:TableServiceProperties":
-		r, err = NewTableServiceProperties(ctx, name, nil, pulumi.URN_(urn))
+		r = &TableServiceProperties{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

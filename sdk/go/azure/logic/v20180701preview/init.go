@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:logic/v20180701preview:IntegrationAccount":
-		r, err = NewIntegrationAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccount{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountAgreement":
-		r, err = NewIntegrationAccountAgreement(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountAgreement{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountAssembly":
-		r, err = NewIntegrationAccountAssembly(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountAssembly{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration":
-		r, err = NewIntegrationAccountBatchConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountBatchConfiguration{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountCertificate":
-		r, err = NewIntegrationAccountCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountCertificate{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountMap":
-		r, err = NewIntegrationAccountMap(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountMap{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountPartner":
-		r, err = NewIntegrationAccountPartner(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountPartner{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountSchema":
-		r, err = NewIntegrationAccountSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountSchema{}
 	case "azure-native:logic/v20180701preview:IntegrationAccountSession":
-		r, err = NewIntegrationAccountSession(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountSession{}
 	case "azure-native:logic/v20180701preview:Workflow":
-		r, err = NewWorkflow(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

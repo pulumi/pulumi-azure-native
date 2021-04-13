@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:blueprint/v20181101preview:Artifact":
-		r, err = NewArtifact(ctx, name, nil, pulumi.URN_(urn))
+		r = &Artifact{}
 	case "azure-native:blueprint/v20181101preview:Assignment":
-		r, err = NewAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assignment{}
 	case "azure-native:blueprint/v20181101preview:Blueprint":
-		r, err = NewBlueprint(ctx, name, nil, pulumi.URN_(urn))
+		r = &Blueprint{}
 	case "azure-native:blueprint/v20181101preview:PublishedBlueprint":
-		r, err = NewPublishedBlueprint(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublishedBlueprint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

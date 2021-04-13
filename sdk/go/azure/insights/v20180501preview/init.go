@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:insights/v20180501preview:Component":
-		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
+		r = &Component{}
 	case "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration":
-		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProactiveDetectionConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

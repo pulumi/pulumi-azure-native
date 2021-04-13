@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:kusto/v20190907:AttachedDatabaseConfiguration":
-		r, err = NewAttachedDatabaseConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &AttachedDatabaseConfiguration{}
 	case "azure-native:kusto/v20190907:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure-native:kusto/v20190907:DataConnection":
-		r, err = NewDataConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnection{}
 	case "azure-native:kusto/v20190907:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

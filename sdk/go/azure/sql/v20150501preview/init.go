@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
-		r, err = NewDatabaseBlobAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseBlobAuditingPolicy{}
 	case "azure-native:sql/v20150501preview:FailoverGroup":
-		r, err = NewFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &FailoverGroup{}
 	case "azure-native:sql/v20150501preview:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure-native:sql/v20150501preview:ManagedInstance":
-		r, err = NewManagedInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedInstance{}
 	case "azure-native:sql/v20150501preview:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "azure-native:sql/v20150501preview:ServerKey":
-		r, err = NewServerKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerKey{}
 	case "azure-native:sql/v20150501preview:SyncAgent":
-		r, err = NewSyncAgent(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncAgent{}
 	case "azure-native:sql/v20150501preview:SyncGroup":
-		r, err = NewSyncGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncGroup{}
 	case "azure-native:sql/v20150501preview:SyncMember":
-		r, err = NewSyncMember(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncMember{}
 	case "azure-native:sql/v20150501preview:VirtualNetworkRule":
-		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

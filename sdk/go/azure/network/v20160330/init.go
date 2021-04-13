@@ -22,41 +22,42 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:network/v20160330:ApplicationGateway":
-		r, err = NewApplicationGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationGateway{}
 	case "azure-native:network/v20160330:ExpressRouteCircuit":
-		r, err = NewExpressRouteCircuit(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteCircuit{}
 	case "azure-native:network/v20160330:ExpressRouteCircuitAuthorization":
-		r, err = NewExpressRouteCircuitAuthorization(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteCircuitAuthorization{}
 	case "azure-native:network/v20160330:ExpressRouteCircuitPeering":
-		r, err = NewExpressRouteCircuitPeering(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteCircuitPeering{}
 	case "azure-native:network/v20160330:LoadBalancer":
-		r, err = NewLoadBalancer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancer{}
 	case "azure-native:network/v20160330:LocalNetworkGateway":
-		r, err = NewLocalNetworkGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &LocalNetworkGateway{}
 	case "azure-native:network/v20160330:NetworkInterface":
-		r, err = NewNetworkInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterface{}
 	case "azure-native:network/v20160330:NetworkSecurityGroup":
-		r, err = NewNetworkSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkSecurityGroup{}
 	case "azure-native:network/v20160330:PublicIPAddress":
-		r, err = NewPublicIPAddress(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublicIPAddress{}
 	case "azure-native:network/v20160330:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "azure-native:network/v20160330:RouteTable":
-		r, err = NewRouteTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTable{}
 	case "azure-native:network/v20160330:SecurityRule":
-		r, err = NewSecurityRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityRule{}
 	case "azure-native:network/v20160330:Subnet":
-		r, err = NewSubnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subnet{}
 	case "azure-native:network/v20160330:VirtualNetwork":
-		r, err = NewVirtualNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetwork{}
 	case "azure-native:network/v20160330:VirtualNetworkGateway":
-		r, err = NewVirtualNetworkGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkGateway{}
 	case "azure-native:network/v20160330:VirtualNetworkGatewayConnection":
-		r, err = NewVirtualNetworkGatewayConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkGatewayConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

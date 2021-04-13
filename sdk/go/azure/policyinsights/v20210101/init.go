@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:policyinsights/v20210101:AttestationAtResource":
-		r, err = NewAttestationAtResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &AttestationAtResource{}
 	case "azure-native:policyinsights/v20210101:AttestationAtResourceGroup":
-		r, err = NewAttestationAtResourceGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &AttestationAtResourceGroup{}
 	case "azure-native:policyinsights/v20210101:AttestationAtSubscription":
-		r, err = NewAttestationAtSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &AttestationAtSubscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

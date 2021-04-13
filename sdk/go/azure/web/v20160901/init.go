@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:web/v20160901:AppServiceEnvironment":
-		r, err = NewAppServiceEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppServiceEnvironment{}
 	case "azure-native:web/v20160901:AppServicePlan":
-		r, err = NewAppServicePlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppServicePlan{}
 	case "azure-native:web/v20160901:AppServicePlanRouteForVnet":
-		r, err = NewAppServicePlanRouteForVnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppServicePlanRouteForVnet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

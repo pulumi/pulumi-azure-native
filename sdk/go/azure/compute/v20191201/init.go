@@ -22,43 +22,44 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20191201:AvailabilitySet":
-		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilitySet{}
 	case "azure-native:compute/v20191201:DedicatedHost":
-		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHost{}
 	case "azure-native:compute/v20191201:DedicatedHostGroup":
-		r, err = NewDedicatedHostGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHostGroup{}
 	case "azure-native:compute/v20191201:Gallery":
-		r, err = NewGallery(ctx, name, nil, pulumi.URN_(urn))
+		r = &Gallery{}
 	case "azure-native:compute/v20191201:GalleryApplication":
-		r, err = NewGalleryApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryApplication{}
 	case "azure-native:compute/v20191201:GalleryApplicationVersion":
-		r, err = NewGalleryApplicationVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryApplicationVersion{}
 	case "azure-native:compute/v20191201:GalleryImage":
-		r, err = NewGalleryImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryImage{}
 	case "azure-native:compute/v20191201:GalleryImageVersion":
-		r, err = NewGalleryImageVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryImageVersion{}
 	case "azure-native:compute/v20191201:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "azure-native:compute/v20191201:ProximityPlacementGroup":
-		r, err = NewProximityPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProximityPlacementGroup{}
 	case "azure-native:compute/v20191201:SshPublicKey":
-		r, err = NewSshPublicKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SshPublicKey{}
 	case "azure-native:compute/v20191201:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure-native:compute/v20191201:VirtualMachineExtension":
-		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineExtension{}
 	case "azure-native:compute/v20191201:VirtualMachineScaleSet":
-		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSet{}
 	case "azure-native:compute/v20191201:VirtualMachineScaleSetExtension":
-		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetExtension{}
 	case "azure-native:compute/v20191201:VirtualMachineScaleSetVM":
-		r, err = NewVirtualMachineScaleSetVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVM{}
 	case "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension":
-		r, err = NewVirtualMachineScaleSetVMExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVMExtension{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

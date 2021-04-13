@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:botservice/v20171201:Bot":
-		r, err = NewBot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Bot{}
 	case "azure-native:botservice/v20171201:BotConnection":
-		r, err = NewBotConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &BotConnection{}
 	case "azure-native:botservice/v20171201:Channel":
-		r, err = NewChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &Channel{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

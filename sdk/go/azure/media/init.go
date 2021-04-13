@@ -22,37 +22,38 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:media:AccountFilter":
-		r, err = NewAccountFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccountFilter{}
 	case "azure-native:media:Asset":
-		r, err = NewAsset(ctx, name, nil, pulumi.URN_(urn))
+		r = &Asset{}
 	case "azure-native:media:AssetFilter":
-		r, err = NewAssetFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &AssetFilter{}
 	case "azure-native:media:ContentKeyPolicy":
-		r, err = NewContentKeyPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ContentKeyPolicy{}
 	case "azure-native:media:Job":
-		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
+		r = &Job{}
 	case "azure-native:media:LiveEvent":
-		r, err = NewLiveEvent(ctx, name, nil, pulumi.URN_(urn))
+		r = &LiveEvent{}
 	case "azure-native:media:LiveOutput":
-		r, err = NewLiveOutput(ctx, name, nil, pulumi.URN_(urn))
+		r = &LiveOutput{}
 	case "azure-native:media:MediaGraph":
-		r, err = NewMediaGraph(ctx, name, nil, pulumi.URN_(urn))
+		r = &MediaGraph{}
 	case "azure-native:media:MediaService":
-		r, err = NewMediaService(ctx, name, nil, pulumi.URN_(urn))
+		r = &MediaService{}
 	case "azure-native:media:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:media:StreamingEndpoint":
-		r, err = NewStreamingEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamingEndpoint{}
 	case "azure-native:media:StreamingLocator":
-		r, err = NewStreamingLocator(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamingLocator{}
 	case "azure-native:media:StreamingPolicy":
-		r, err = NewStreamingPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamingPolicy{}
 	case "azure-native:media:Transform":
-		r, err = NewTransform(ctx, name, nil, pulumi.URN_(urn))
+		r = &Transform{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

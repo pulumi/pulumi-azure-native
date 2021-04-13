@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:cdn/v20190615preview:CustomDomain":
-		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomDomain{}
 	case "azure-native:cdn/v20190615preview:Endpoint":
-		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &Endpoint{}
 	case "azure-native:cdn/v20190615preview:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "azure-native:cdn/v20190615preview:Profile":
-		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &Profile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

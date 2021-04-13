@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:operationsmanagement/v20151101preview:ManagementAssociation":
-		r, err = NewManagementAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementAssociation{}
 	case "azure-native:operationsmanagement/v20151101preview:ManagementConfiguration":
-		r, err = NewManagementConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementConfiguration{}
 	case "azure-native:operationsmanagement/v20151101preview:Solution":
-		r, err = NewSolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &Solution{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

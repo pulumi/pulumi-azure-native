@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:databoxedge/v20200901:Addon":
-		r, err = NewAddon(ctx, name, nil, pulumi.URN_(urn))
+		r = &Addon{}
 	case "azure-native:databoxedge/v20200901:BandwidthSchedule":
-		r, err = NewBandwidthSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &BandwidthSchedule{}
 	case "azure-native:databoxedge/v20200901:Container":
-		r, err = NewContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Container{}
 	case "azure-native:databoxedge/v20200901:Device":
-		r, err = NewDevice(ctx, name, nil, pulumi.URN_(urn))
+		r = &Device{}
 	case "azure-native:databoxedge/v20200901:MonitoringConfig":
-		r, err = NewMonitoringConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &MonitoringConfig{}
 	case "azure-native:databoxedge/v20200901:Order":
-		r, err = NewOrder(ctx, name, nil, pulumi.URN_(urn))
+		r = &Order{}
 	case "azure-native:databoxedge/v20200901:Role":
-		r, err = NewRole(ctx, name, nil, pulumi.URN_(urn))
+		r = &Role{}
 	case "azure-native:databoxedge/v20200901:Share":
-		r, err = NewShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &Share{}
 	case "azure-native:databoxedge/v20200901:StorageAccount":
-		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageAccount{}
 	case "azure-native:databoxedge/v20200901:StorageAccountCredential":
-		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageAccountCredential{}
 	case "azure-native:databoxedge/v20200901:Trigger":
-		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Trigger{}
 	case "azure-native:databoxedge/v20200901:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

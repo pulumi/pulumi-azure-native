@@ -22,85 +22,86 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:apimanagement/v20180601preview:Api":
-		r, err = NewApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &Api{}
 	case "azure-native:apimanagement/v20180601preview:ApiDiagnostic":
-		r, err = NewApiDiagnostic(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiDiagnostic{}
 	case "azure-native:apimanagement/v20180601preview:ApiIssue":
-		r, err = NewApiIssue(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiIssue{}
 	case "azure-native:apimanagement/v20180601preview:ApiIssueAttachment":
-		r, err = NewApiIssueAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiIssueAttachment{}
 	case "azure-native:apimanagement/v20180601preview:ApiIssueComment":
-		r, err = NewApiIssueComment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiIssueComment{}
 	case "azure-native:apimanagement/v20180601preview:ApiManagementService":
-		r, err = NewApiManagementService(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiManagementService{}
 	case "azure-native:apimanagement/v20180601preview:ApiOperation":
-		r, err = NewApiOperation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiOperation{}
 	case "azure-native:apimanagement/v20180601preview:ApiOperationPolicy":
-		r, err = NewApiOperationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiOperationPolicy{}
 	case "azure-native:apimanagement/v20180601preview:ApiPolicy":
-		r, err = NewApiPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiPolicy{}
 	case "azure-native:apimanagement/v20180601preview:ApiRelease":
-		r, err = NewApiRelease(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiRelease{}
 	case "azure-native:apimanagement/v20180601preview:ApiSchema":
-		r, err = NewApiSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiSchema{}
 	case "azure-native:apimanagement/v20180601preview:ApiVersionSet":
-		r, err = NewApiVersionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiVersionSet{}
 	case "azure-native:apimanagement/v20180601preview:AuthorizationServer":
-		r, err = NewAuthorizationServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &AuthorizationServer{}
 	case "azure-native:apimanagement/v20180601preview:Backend":
-		r, err = NewBackend(ctx, name, nil, pulumi.URN_(urn))
+		r = &Backend{}
 	case "azure-native:apimanagement/v20180601preview:Cache":
-		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cache{}
 	case "azure-native:apimanagement/v20180601preview:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:apimanagement/v20180601preview:Diagnostic":
-		r, err = NewDiagnostic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Diagnostic{}
 	case "azure-native:apimanagement/v20180601preview:EmailTemplate":
-		r, err = NewEmailTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &EmailTemplate{}
 	case "azure-native:apimanagement/v20180601preview:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "azure-native:apimanagement/v20180601preview:GroupUser":
-		r, err = NewGroupUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupUser{}
 	case "azure-native:apimanagement/v20180601preview:IdentityProvider":
-		r, err = NewIdentityProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProvider{}
 	case "azure-native:apimanagement/v20180601preview:Logger":
-		r, err = NewLogger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Logger{}
 	case "azure-native:apimanagement/v20180601preview:NotificationRecipientEmail":
-		r, err = NewNotificationRecipientEmail(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationRecipientEmail{}
 	case "azure-native:apimanagement/v20180601preview:NotificationRecipientUser":
-		r, err = NewNotificationRecipientUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationRecipientUser{}
 	case "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider":
-		r, err = NewOpenIdConnectProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &OpenIdConnectProvider{}
 	case "azure-native:apimanagement/v20180601preview:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "azure-native:apimanagement/v20180601preview:Product":
-		r, err = NewProduct(ctx, name, nil, pulumi.URN_(urn))
+		r = &Product{}
 	case "azure-native:apimanagement/v20180601preview:ProductApi":
-		r, err = NewProductApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductApi{}
 	case "azure-native:apimanagement/v20180601preview:ProductGroup":
-		r, err = NewProductGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductGroup{}
 	case "azure-native:apimanagement/v20180601preview:ProductPolicy":
-		r, err = NewProductPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductPolicy{}
 	case "azure-native:apimanagement/v20180601preview:Property":
-		r, err = NewProperty(ctx, name, nil, pulumi.URN_(urn))
+		r = &Property{}
 	case "azure-native:apimanagement/v20180601preview:Subscription":
-		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subscription{}
 	case "azure-native:apimanagement/v20180601preview:Tag":
-		r, err = NewTag(ctx, name, nil, pulumi.URN_(urn))
+		r = &Tag{}
 	case "azure-native:apimanagement/v20180601preview:TagByApi":
-		r, err = NewTagByApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &TagByApi{}
 	case "azure-native:apimanagement/v20180601preview:TagByOperation":
-		r, err = NewTagByOperation(ctx, name, nil, pulumi.URN_(urn))
+		r = &TagByOperation{}
 	case "azure-native:apimanagement/v20180601preview:TagByProduct":
-		r, err = NewTagByProduct(ctx, name, nil, pulumi.URN_(urn))
+		r = &TagByProduct{}
 	case "azure-native:apimanagement/v20180601preview:TagDescription":
-		r, err = NewTagDescription(ctx, name, nil, pulumi.URN_(urn))
+		r = &TagDescription{}
 	case "azure-native:apimanagement/v20180601preview:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

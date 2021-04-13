@@ -22,37 +22,38 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:automation/v20200113preview:AutomationAccount":
-		r, err = NewAutomationAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutomationAccount{}
 	case "azure-native:automation/v20200113preview:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:automation/v20200113preview:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "azure-native:automation/v20200113preview:ConnectionType":
-		r, err = NewConnectionType(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionType{}
 	case "azure-native:automation/v20200113preview:Credential":
-		r, err = NewCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &Credential{}
 	case "azure-native:automation/v20200113preview:DscNodeConfiguration":
-		r, err = NewDscNodeConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DscNodeConfiguration{}
 	case "azure-native:automation/v20200113preview:JobSchedule":
-		r, err = NewJobSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &JobSchedule{}
 	case "azure-native:automation/v20200113preview:Module":
-		r, err = NewModule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Module{}
 	case "azure-native:automation/v20200113preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:automation/v20200113preview:Python2Package":
-		r, err = NewPython2Package(ctx, name, nil, pulumi.URN_(urn))
+		r = &Python2Package{}
 	case "azure-native:automation/v20200113preview:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "azure-native:automation/v20200113preview:SourceControl":
-		r, err = NewSourceControl(ctx, name, nil, pulumi.URN_(urn))
+		r = &SourceControl{}
 	case "azure-native:automation/v20200113preview:Variable":
-		r, err = NewVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &Variable{}
 	case "azure-native:automation/v20200113preview:Watcher":
-		r, err = NewWatcher(ctx, name, nil, pulumi.URN_(urn))
+		r = &Watcher{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

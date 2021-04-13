@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20181001:AvailabilitySet":
-		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilitySet{}
 	case "azure-native:compute/v20181001:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "azure-native:compute/v20181001:ProximityPlacementGroup":
-		r, err = NewProximityPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProximityPlacementGroup{}
 	case "azure-native:compute/v20181001:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure-native:compute/v20181001:VirtualMachineExtension":
-		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineExtension{}
 	case "azure-native:compute/v20181001:VirtualMachineScaleSet":
-		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSet{}
 	case "azure-native:compute/v20181001:VirtualMachineScaleSetExtension":
-		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetExtension{}
 	case "azure-native:compute/v20181001:VirtualMachineScaleSetVM":
-		r, err = NewVirtualMachineScaleSetVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVM{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

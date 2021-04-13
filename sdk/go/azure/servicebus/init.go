@@ -22,37 +22,38 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:servicebus:DisasterRecoveryConfig":
-		r, err = NewDisasterRecoveryConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &DisasterRecoveryConfig{}
 	case "azure-native:servicebus:MigrationConfig":
-		r, err = NewMigrationConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &MigrationConfig{}
 	case "azure-native:servicebus:Namespace":
-		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Namespace{}
 	case "azure-native:servicebus:NamespaceAuthorizationRule":
-		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceAuthorizationRule{}
 	case "azure-native:servicebus:NamespaceIpFilterRule":
-		r, err = NewNamespaceIpFilterRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceIpFilterRule{}
 	case "azure-native:servicebus:NamespaceNetworkRuleSet":
-		r, err = NewNamespaceNetworkRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceNetworkRuleSet{}
 	case "azure-native:servicebus:NamespaceVirtualNetworkRule":
-		r, err = NewNamespaceVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceVirtualNetworkRule{}
 	case "azure-native:servicebus:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:servicebus:Queue":
-		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &Queue{}
 	case "azure-native:servicebus:QueueAuthorizationRule":
-		r, err = NewQueueAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &QueueAuthorizationRule{}
 	case "azure-native:servicebus:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	case "azure-native:servicebus:Subscription":
-		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subscription{}
 	case "azure-native:servicebus:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	case "azure-native:servicebus:TopicAuthorizationRule":
-		r, err = NewTopicAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TopicAuthorizationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

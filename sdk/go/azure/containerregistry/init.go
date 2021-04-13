@@ -22,35 +22,36 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:containerregistry:AgentPool":
-		r, err = NewAgentPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &AgentPool{}
 	case "azure-native:containerregistry:ConnectedRegistry":
-		r, err = NewConnectedRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectedRegistry{}
 	case "azure-native:containerregistry:ExportPipeline":
-		r, err = NewExportPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExportPipeline{}
 	case "azure-native:containerregistry:ImportPipeline":
-		r, err = NewImportPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImportPipeline{}
 	case "azure-native:containerregistry:PipelineRun":
-		r, err = NewPipelineRun(ctx, name, nil, pulumi.URN_(urn))
+		r = &PipelineRun{}
 	case "azure-native:containerregistry:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:containerregistry:Registry":
-		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &Registry{}
 	case "azure-native:containerregistry:Replication":
-		r, err = NewReplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Replication{}
 	case "azure-native:containerregistry:ScopeMap":
-		r, err = NewScopeMap(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScopeMap{}
 	case "azure-native:containerregistry:Task":
-		r, err = NewTask(ctx, name, nil, pulumi.URN_(urn))
+		r = &Task{}
 	case "azure-native:containerregistry:TaskRun":
-		r, err = NewTaskRun(ctx, name, nil, pulumi.URN_(urn))
+		r = &TaskRun{}
 	case "azure-native:containerregistry:Token":
-		r, err = NewToken(ctx, name, nil, pulumi.URN_(urn))
+		r = &Token{}
 	case "azure-native:containerregistry:Webhook":
-		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

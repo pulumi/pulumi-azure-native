@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:netapp/v20200801:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure-native:netapp/v20200801:Backup":
-		r, err = NewBackup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Backup{}
 	case "azure-native:netapp/v20200801:BackupPolicy":
-		r, err = NewBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackupPolicy{}
 	case "azure-native:netapp/v20200801:Pool":
-		r, err = NewPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pool{}
 	case "azure-native:netapp/v20200801:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "azure-native:netapp/v20200801:SnapshotPolicy":
-		r, err = NewSnapshotPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnapshotPolicy{}
 	case "azure-native:netapp/v20200801:Volume":
-		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
+		r = &Volume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

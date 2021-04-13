@@ -22,47 +22,48 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20201201:AvailabilitySet":
-		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilitySet{}
 	case "azure-native:compute/v20201201:DedicatedHost":
-		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHost{}
 	case "azure-native:compute/v20201201:DedicatedHostGroup":
-		r, err = NewDedicatedHostGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHostGroup{}
 	case "azure-native:compute/v20201201:Disk":
-		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &Disk{}
 	case "azure-native:compute/v20201201:DiskAccess":
-		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskAccess{}
 	case "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection":
-		r, err = NewDiskAccessAPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskAccessAPrivateEndpointConnection{}
 	case "azure-native:compute/v20201201:DiskEncryptionSet":
-		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskEncryptionSet{}
 	case "azure-native:compute/v20201201:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "azure-native:compute/v20201201:ProximityPlacementGroup":
-		r, err = NewProximityPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProximityPlacementGroup{}
 	case "azure-native:compute/v20201201:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "azure-native:compute/v20201201:SshPublicKey":
-		r, err = NewSshPublicKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SshPublicKey{}
 	case "azure-native:compute/v20201201:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure-native:compute/v20201201:VirtualMachineExtension":
-		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineExtension{}
 	case "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine":
-		r, err = NewVirtualMachineRunCommandByVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineRunCommandByVirtualMachine{}
 	case "azure-native:compute/v20201201:VirtualMachineScaleSet":
-		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSet{}
 	case "azure-native:compute/v20201201:VirtualMachineScaleSetExtension":
-		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetExtension{}
 	case "azure-native:compute/v20201201:VirtualMachineScaleSetVM":
-		r, err = NewVirtualMachineScaleSetVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVM{}
 	case "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension":
-		r, err = NewVirtualMachineScaleSetVMExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVMExtension{}
 	case "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand":
-		r, err = NewVirtualMachineScaleSetVMRunCommand(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVMRunCommand{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

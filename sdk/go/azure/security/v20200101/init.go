@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:security/v20200101:AdaptiveApplicationControl":
-		r, err = NewAdaptiveApplicationControl(ctx, name, nil, pulumi.URN_(urn))
+		r = &AdaptiveApplicationControl{}
 	case "azure-native:security/v20200101:Assessment":
-		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assessment{}
 	case "azure-native:security/v20200101:AssessmentMetadataInSubscription":
-		r, err = NewAssessmentMetadataInSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &AssessmentMetadataInSubscription{}
 	case "azure-native:security/v20200101:JitNetworkAccessPolicy":
-		r, err = NewJitNetworkAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &JitNetworkAccessPolicy{}
 	case "azure-native:security/v20200101:ServerVulnerabilityAssessment":
-		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerVulnerabilityAssessment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

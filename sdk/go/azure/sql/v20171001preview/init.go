@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy":
-		r, err = NewBackupShortTermRetentionPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackupShortTermRetentionPolicy{}
 	case "azure-native:sql/v20171001preview:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure-native:sql/v20171001preview:ElasticPool":
-		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &ElasticPool{}
 	case "azure-native:sql/v20171001preview:InstanceFailoverGroup":
-		r, err = NewInstanceFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &InstanceFailoverGroup{}
 	case "azure-native:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessment":
-		r, err = NewManagedDatabaseVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedDatabaseVulnerabilityAssessment{}
 	case "azure-native:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
-		r, err = NewManagedDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedDatabaseVulnerabilityAssessmentRuleBaseline{}
 	case "azure-native:sql/v20171001preview:ManagedInstanceKey":
-		r, err = NewManagedInstanceKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedInstanceKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

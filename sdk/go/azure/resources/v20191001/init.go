@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:resources/v20191001:Deployment":
-		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Deployment{}
 	case "azure-native:resources/v20191001:DeploymentAtManagementGroupScope":
-		r, err = NewDeploymentAtManagementGroupScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeploymentAtManagementGroupScope{}
 	case "azure-native:resources/v20191001:DeploymentAtScope":
-		r, err = NewDeploymentAtScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeploymentAtScope{}
 	case "azure-native:resources/v20191001:DeploymentAtSubscriptionScope":
-		r, err = NewDeploymentAtSubscriptionScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeploymentAtSubscriptionScope{}
 	case "azure-native:resources/v20191001:DeploymentAtTenantScope":
-		r, err = NewDeploymentAtTenantScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeploymentAtTenantScope{}
 	case "azure-native:resources/v20191001:Resource":
-		r, err = NewResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &Resource{}
 	case "azure-native:resources/v20191001:ResourceGroup":
-		r, err = NewResourceGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceGroup{}
 	case "azure-native:resources/v20191001:TagAtScope":
-		r, err = NewTagAtScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &TagAtScope{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:network/v20200101:FrontDoor":
-		r, err = NewFrontDoor(ctx, name, nil, pulumi.URN_(urn))
+		r = &FrontDoor{}
 	case "azure-native:network/v20200101:PrivateRecordSet":
-		r, err = NewPrivateRecordSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateRecordSet{}
 	case "azure-native:network/v20200101:PrivateZone":
-		r, err = NewPrivateZone(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateZone{}
 	case "azure-native:network/v20200101:RulesEngine":
-		r, err = NewRulesEngine(ctx, name, nil, pulumi.URN_(urn))
+		r = &RulesEngine{}
 	case "azure-native:network/v20200101:VirtualNetworkLink":
-		r, err = NewVirtualNetworkLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkLink{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

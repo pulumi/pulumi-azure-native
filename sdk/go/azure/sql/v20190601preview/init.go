@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:sql/v20190601preview:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure-native:sql/v20190601preview:ManagedDatabase":
-		r, err = NewManagedDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedDatabase{}
 	case "azure-native:sql/v20190601preview:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "azure-native:sql/v20190601preview:ServerAzureADAdministrator":
-		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerAzureADAdministrator{}
 	case "azure-native:sql/v20190601preview:SyncGroup":
-		r, err = NewSyncGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncGroup{}
 	case "azure-native:sql/v20190601preview:SyncMember":
-		r, err = NewSyncMember(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncMember{}
 	case "azure-native:sql/v20190601preview:WorkloadClassifier":
-		r, err = NewWorkloadClassifier(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkloadClassifier{}
 	case "azure-native:sql/v20190601preview:WorkloadGroup":
-		r, err = NewWorkloadGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkloadGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

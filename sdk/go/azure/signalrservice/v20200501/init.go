@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:signalrservice/v20200501:SignalR":
-		r, err = NewSignalR(ctx, name, nil, pulumi.URN_(urn))
+		r = &SignalR{}
 	case "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection":
-		r, err = NewSignalRPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &SignalRPrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

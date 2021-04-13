@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:logz/v20201001preview:Monitor":
-		r, err = NewMonitor(ctx, name, nil, pulumi.URN_(urn))
+		r = &Monitor{}
 	case "azure-native:logz/v20201001preview:SubAccount":
-		r, err = NewSubAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubAccount{}
 	case "azure-native:logz/v20201001preview:SubAccountTagRule":
-		r, err = NewSubAccountTagRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubAccountTagRule{}
 	case "azure-native:logz/v20201001preview:TagRule":
-		r, err = NewTagRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TagRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

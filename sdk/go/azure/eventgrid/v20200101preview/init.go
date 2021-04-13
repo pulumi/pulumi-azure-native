@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:eventgrid/v20200101preview:Domain":
-		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &Domain{}
 	case "azure-native:eventgrid/v20200101preview:DomainTopic":
-		r, err = NewDomainTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainTopic{}
 	case "azure-native:eventgrid/v20200101preview:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "azure-native:eventgrid/v20200101preview:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

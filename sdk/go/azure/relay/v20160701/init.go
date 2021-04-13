@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:relay/v20160701:HybridConnection":
-		r, err = NewHybridConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &HybridConnection{}
 	case "azure-native:relay/v20160701:HybridConnectionAuthorizationRule":
-		r, err = NewHybridConnectionAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &HybridConnectionAuthorizationRule{}
 	case "azure-native:relay/v20160701:Namespace":
-		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Namespace{}
 	case "azure-native:relay/v20160701:NamespaceAuthorizationRule":
-		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceAuthorizationRule{}
 	case "azure-native:relay/v20160701:WCFRelay":
-		r, err = NewWCFRelay(ctx, name, nil, pulumi.URN_(urn))
+		r = &WCFRelay{}
 	case "azure-native:relay/v20160701:WCFRelayAuthorizationRule":
-		r, err = NewWCFRelayAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &WCFRelayAuthorizationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

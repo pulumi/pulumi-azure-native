@@ -22,41 +22,42 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:devtestlab/v20160515:ArtifactSource":
-		r, err = NewArtifactSource(ctx, name, nil, pulumi.URN_(urn))
+		r = &ArtifactSource{}
 	case "azure-native:devtestlab/v20160515:CustomImage":
-		r, err = NewCustomImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomImage{}
 	case "azure-native:devtestlab/v20160515:Disk":
-		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &Disk{}
 	case "azure-native:devtestlab/v20160515:Environment":
-		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Environment{}
 	case "azure-native:devtestlab/v20160515:Formula":
-		r, err = NewFormula(ctx, name, nil, pulumi.URN_(urn))
+		r = &Formula{}
 	case "azure-native:devtestlab/v20160515:GlobalSchedule":
-		r, err = NewGlobalSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &GlobalSchedule{}
 	case "azure-native:devtestlab/v20160515:Lab":
-		r, err = NewLab(ctx, name, nil, pulumi.URN_(urn))
+		r = &Lab{}
 	case "azure-native:devtestlab/v20160515:NotificationChannel":
-		r, err = NewNotificationChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationChannel{}
 	case "azure-native:devtestlab/v20160515:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "azure-native:devtestlab/v20160515:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "azure-native:devtestlab/v20160515:Secret":
-		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &Secret{}
 	case "azure-native:devtestlab/v20160515:ServiceRunner":
-		r, err = NewServiceRunner(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceRunner{}
 	case "azure-native:devtestlab/v20160515:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "azure-native:devtestlab/v20160515:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure-native:devtestlab/v20160515:VirtualMachineSchedule":
-		r, err = NewVirtualMachineSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineSchedule{}
 	case "azure-native:devtestlab/v20160515:VirtualNetwork":
-		r, err = NewVirtualNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetwork{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:appplatform/v20201101preview:App":
-		r, err = NewApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &App{}
 	case "azure-native:appplatform/v20201101preview:Binding":
-		r, err = NewBinding(ctx, name, nil, pulumi.URN_(urn))
+		r = &Binding{}
 	case "azure-native:appplatform/v20201101preview:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:appplatform/v20201101preview:CustomDomain":
-		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomDomain{}
 	case "azure-native:appplatform/v20201101preview:Deployment":
-		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Deployment{}
 	case "azure-native:appplatform/v20201101preview:Service":
-		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
+		r = &Service{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

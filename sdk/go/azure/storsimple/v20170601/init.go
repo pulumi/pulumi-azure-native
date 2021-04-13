@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:storsimple/v20170601:AccessControlRecord":
-		r, err = NewAccessControlRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessControlRecord{}
 	case "azure-native:storsimple/v20170601:BackupPolicy":
-		r, err = NewBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackupPolicy{}
 	case "azure-native:storsimple/v20170601:BackupSchedule":
-		r, err = NewBackupSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackupSchedule{}
 	case "azure-native:storsimple/v20170601:BandwidthSetting":
-		r, err = NewBandwidthSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &BandwidthSetting{}
 	case "azure-native:storsimple/v20170601:Manager":
-		r, err = NewManager(ctx, name, nil, pulumi.URN_(urn))
+		r = &Manager{}
 	case "azure-native:storsimple/v20170601:ManagerExtendedInfo":
-		r, err = NewManagerExtendedInfo(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagerExtendedInfo{}
 	case "azure-native:storsimple/v20170601:StorageAccountCredential":
-		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageAccountCredential{}
 	case "azure-native:storsimple/v20170601:Volume":
-		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
+		r = &Volume{}
 	case "azure-native:storsimple/v20170601:VolumeContainer":
-		r, err = NewVolumeContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &VolumeContainer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

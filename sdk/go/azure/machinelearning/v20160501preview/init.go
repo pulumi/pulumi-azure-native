@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:machinelearning/v20160501preview:CommitmentPlan":
-		r, err = NewCommitmentPlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &CommitmentPlan{}
 	case "azure-native:machinelearning/v20160501preview:WebService":
-		r, err = NewWebService(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebService{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

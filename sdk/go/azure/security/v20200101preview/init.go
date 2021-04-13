@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:security/v20200101preview:Connector":
-		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connector{}
 	case "azure-native:security/v20200101preview:SecurityContact":
-		r, err = NewSecurityContact(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityContact{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

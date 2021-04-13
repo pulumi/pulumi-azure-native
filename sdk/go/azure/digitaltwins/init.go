@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:digitaltwins:DigitalTwin":
-		r, err = NewDigitalTwin(ctx, name, nil, pulumi.URN_(urn))
+		r = &DigitalTwin{}
 	case "azure-native:digitaltwins:DigitalTwinsEndpoint":
-		r, err = NewDigitalTwinsEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &DigitalTwinsEndpoint{}
 	case "azure-native:digitaltwins:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

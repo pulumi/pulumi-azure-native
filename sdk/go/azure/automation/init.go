@@ -22,45 +22,46 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:automation:AutomationAccount":
-		r, err = NewAutomationAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutomationAccount{}
 	case "azure-native:automation:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:automation:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "azure-native:automation:ConnectionType":
-		r, err = NewConnectionType(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionType{}
 	case "azure-native:automation:Credential":
-		r, err = NewCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &Credential{}
 	case "azure-native:automation:DscConfiguration":
-		r, err = NewDscConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DscConfiguration{}
 	case "azure-native:automation:DscNodeConfiguration":
-		r, err = NewDscNodeConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DscNodeConfiguration{}
 	case "azure-native:automation:JobSchedule":
-		r, err = NewJobSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &JobSchedule{}
 	case "azure-native:automation:Module":
-		r, err = NewModule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Module{}
 	case "azure-native:automation:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:automation:Python2Package":
-		r, err = NewPython2Package(ctx, name, nil, pulumi.URN_(urn))
+		r = &Python2Package{}
 	case "azure-native:automation:Runbook":
-		r, err = NewRunbook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Runbook{}
 	case "azure-native:automation:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "azure-native:automation:SoftwareUpdateConfigurationByName":
-		r, err = NewSoftwareUpdateConfigurationByName(ctx, name, nil, pulumi.URN_(urn))
+		r = &SoftwareUpdateConfigurationByName{}
 	case "azure-native:automation:SourceControl":
-		r, err = NewSourceControl(ctx, name, nil, pulumi.URN_(urn))
+		r = &SourceControl{}
 	case "azure-native:automation:Variable":
-		r, err = NewVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &Variable{}
 	case "azure-native:automation:Watcher":
-		r, err = NewWatcher(ctx, name, nil, pulumi.URN_(urn))
+		r = &Watcher{}
 	case "azure-native:automation:Webhook":
-		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

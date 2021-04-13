@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:web/v20160601:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "azure-native:web/v20160601:ConnectionGateway":
-		r, err = NewConnectionGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionGateway{}
 	case "azure-native:web/v20160601:CustomApi":
-		r, err = NewCustomApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomApi{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

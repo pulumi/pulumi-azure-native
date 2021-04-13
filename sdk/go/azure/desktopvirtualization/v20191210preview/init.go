@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:desktopvirtualization/v20191210preview:Application":
-		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Application{}
 	case "azure-native:desktopvirtualization/v20191210preview:ApplicationGroup":
-		r, err = NewApplicationGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationGroup{}
 	case "azure-native:desktopvirtualization/v20191210preview:HostPool":
-		r, err = NewHostPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostPool{}
 	case "azure-native:desktopvirtualization/v20191210preview:Workspace":
-		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

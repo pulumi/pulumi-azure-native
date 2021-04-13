@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:solutions:Application":
-		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Application{}
 	case "azure-native:solutions:ApplicationDefinition":
-		r, err = NewApplicationDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationDefinition{}
 	case "azure-native:solutions:JitRequest":
-		r, err = NewJitRequest(ctx, name, nil, pulumi.URN_(urn))
+		r = &JitRequest{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

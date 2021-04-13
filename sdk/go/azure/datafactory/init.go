@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:datafactory:DataFlow":
-		r, err = NewDataFlow(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataFlow{}
 	case "azure-native:datafactory:Dataset":
-		r, err = NewDataset(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dataset{}
 	case "azure-native:datafactory:Factory":
-		r, err = NewFactory(ctx, name, nil, pulumi.URN_(urn))
+		r = &Factory{}
 	case "azure-native:datafactory:IntegrationRuntime":
-		r, err = NewIntegrationRuntime(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationRuntime{}
 	case "azure-native:datafactory:LinkedService":
-		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedService{}
 	case "azure-native:datafactory:ManagedPrivateEndpoint":
-		r, err = NewManagedPrivateEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedPrivateEndpoint{}
 	case "azure-native:datafactory:Pipeline":
-		r, err = NewPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pipeline{}
 	case "azure-native:datafactory:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:datafactory:Trigger":
-		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Trigger{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

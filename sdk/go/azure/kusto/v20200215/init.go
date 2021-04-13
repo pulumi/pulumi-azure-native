@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:kusto/v20200215:AttachedDatabaseConfiguration":
-		r, err = NewAttachedDatabaseConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &AttachedDatabaseConfiguration{}
 	case "azure-native:kusto/v20200215:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure-native:kusto/v20200215:ClusterPrincipalAssignment":
-		r, err = NewClusterPrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterPrincipalAssignment{}
 	case "azure-native:kusto/v20200215:DataConnection":
-		r, err = NewDataConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnection{}
 	case "azure-native:kusto/v20200215:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure-native:kusto/v20200215:DatabasePrincipalAssignment":
-		r, err = NewDatabasePrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabasePrincipalAssignment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

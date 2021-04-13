@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:billing:BillingRoleAssignmentByBillingAccount":
-		r, err = NewBillingRoleAssignmentByBillingAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &BillingRoleAssignmentByBillingAccount{}
 	case "azure-native:billing:BillingRoleAssignmentByDepartment":
-		r, err = NewBillingRoleAssignmentByDepartment(ctx, name, nil, pulumi.URN_(urn))
+		r = &BillingRoleAssignmentByDepartment{}
 	case "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount":
-		r, err = NewBillingRoleAssignmentByEnrollmentAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &BillingRoleAssignmentByEnrollmentAccount{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

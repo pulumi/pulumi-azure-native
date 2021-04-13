@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:insights/v20170401:ActionGroup":
-		r, err = NewActionGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionGroup{}
 	case "azure-native:insights/v20170401:ActivityLogAlert":
-		r, err = NewActivityLogAlert(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActivityLogAlert{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
