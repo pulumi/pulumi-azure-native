@@ -19,14 +19,17 @@ class Task(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPropertiesArgs']]] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 is_system_task: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -37,19 +40,22 @@ class Task(pulumi.CustomResource):
         """
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
-        API Version: 2019-04-01.
+        API Version: 2019-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AgentPropertiesArgs']] agent_configuration: The machine configuration of the run agent.
+        :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the task.
         :param pulumi.Input[pulumi.InputType['CredentialsArgs']] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: Identity for the resource.
+        :param pulumi.Input[bool] is_system_task: The value of this property indicates whether the task resource is system task or not.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
         :param pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']] platform: The platform properties against which the run has to happen.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[Union[str, 'TaskStatus']] status: The current status of task.
-        :param pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']] step: The properties of a task step.
+        :param pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
         :param pulumi.Input[int] timeout: Run timeout in seconds.
@@ -73,11 +79,14 @@ class Task(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['agent_configuration'] = agent_configuration
+            __props__['agent_pool_name'] = agent_pool_name
             __props__['credentials'] = credentials
             __props__['identity'] = identity
+            if is_system_task is None:
+                is_system_task = False
+            __props__['is_system_task'] = is_system_task
             __props__['location'] = location
-            if platform is None and not opts.urn:
-                raise TypeError("Missing required property 'platform'")
+            __props__['log_template'] = log_template
             __props__['platform'] = platform
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
@@ -86,8 +95,6 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
-            if step is None and not opts.urn:
-                raise TypeError("Missing required property 'step'")
             __props__['step'] = step
             __props__['tags'] = tags
             __props__['task_name'] = task_name
@@ -98,6 +105,7 @@ class Task(pulumi.CustomResource):
             __props__['creation_date'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20180201preview:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20180201preview:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20180901:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20180901:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20190401:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190401:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20190601preview:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190601preview:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -124,15 +132,19 @@ class Task(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["agent_configuration"] = None
+        __props__["agent_pool_name"] = None
         __props__["creation_date"] = None
         __props__["credentials"] = None
         __props__["identity"] = None
+        __props__["is_system_task"] = None
         __props__["location"] = None
+        __props__["log_template"] = None
         __props__["name"] = None
         __props__["platform"] = None
         __props__["provisioning_state"] = None
         __props__["status"] = None
         __props__["step"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["timeout"] = None
         __props__["trigger"] = None
@@ -146,6 +158,14 @@ class Task(pulumi.CustomResource):
         The machine configuration of the run agent.
         """
         return pulumi.get(self, "agent_configuration")
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The dedicated agent pool for the task.
+        """
+        return pulumi.get(self, "agent_pool_name")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -172,12 +192,28 @@ class Task(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="isSystemTask")
+    def is_system_task(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The value of this property indicates whether the task resource is system task or not.
+        """
+        return pulumi.get(self, "is_system_task")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter
@@ -189,7 +225,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output['outputs.PlatformPropertiesResponse']:
+    def platform(self) -> pulumi.Output[Optional['outputs.PlatformPropertiesResponse']]:
         """
         The platform properties against which the run has to happen.
         """
@@ -213,11 +249,19 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def step(self) -> pulumi.Output[Any]:
+    def step(self) -> pulumi.Output[Optional[Any]]:
         """
         The properties of a task step.
         """
         return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
