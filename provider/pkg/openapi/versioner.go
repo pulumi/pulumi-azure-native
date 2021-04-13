@@ -75,6 +75,9 @@ func newVersioner() (*versioner, error) {
 var deprecatedProviderVersions = map[string][]string{
 	"Authorization": {"v20150701"},
 	"Sql": {"v20140401", "v20150501"},
+	// Task API definition is broken in these stable versions but fixed in later previews,
+	// see https://github.com/pulumi/pulumi-azure-native/issues/736.
+	"ContainerRegistry": {"v20180901", "v20190401"},
 }
 
 // A manually-maintained list of API versions to ignore while calculating the top-level resources.
