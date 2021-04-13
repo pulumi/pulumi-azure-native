@@ -12,7 +12,6 @@ import (
 	"github.com/olekukonko/tablewriter"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
 	"github.com/stretchr/testify/require"
-	// "github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -88,10 +87,7 @@ func TestQuickstartTemplateCoverage(t *testing.T) {
 					require.NoError(t, err)
 					require.NoError(t, ioutil.WriteFile(filepath.Join(*testOutputDir, template+".ts"), []byte(rendered["nodejs"]), 0600))
 				}
-			} else {
-				t.Log(err) // Silently log the error if this conversion failed
 			}
-
 		})
 	}
 	summarize(t, diagList)
