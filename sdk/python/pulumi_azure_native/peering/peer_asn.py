@@ -5,16 +5,104 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PeerAsn']
+__all__ = ['PeerAsnArgs', 'PeerAsn']
+
+@pulumi.input_type
+class PeerAsnArgs:
+    def __init__(__self__, *,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn_name: Optional[pulumi.Input[str]] = None,
+                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]] = None,
+                 peer_name: Optional[pulumi.Input[str]] = None,
+                 validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None):
+        """
+        The set of arguments for constructing a PeerAsn resource.
+        :param pulumi.Input[int] peer_asn: The Autonomous System Number (ASN) of the peer.
+        :param pulumi.Input[str] peer_asn_name: The peer ASN name.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]] peer_contact_detail: The contact details of the peer.
+        :param pulumi.Input[str] peer_name: The name of the peer.
+        :param pulumi.Input[Union[str, 'ValidationState']] validation_state: The validation state of the ASN associated with the peer.
+        """
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if peer_asn_name is not None:
+            pulumi.set(__self__, "peer_asn_name", peer_asn_name)
+        if peer_contact_detail is not None:
+            pulumi.set(__self__, "peer_contact_detail", peer_contact_detail)
+        if peer_name is not None:
+            pulumi.set(__self__, "peer_name", peer_name)
+        if validation_state is not None:
+            pulumi.set(__self__, "validation_state", validation_state)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Autonomous System Number (ASN) of the peer.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="peerAsnName")
+    def peer_asn_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The peer ASN name.
+        """
+        return pulumi.get(self, "peer_asn_name")
+
+    @peer_asn_name.setter
+    def peer_asn_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peer_asn_name", value)
+
+    @property
+    @pulumi.getter(name="peerContactDetail")
+    def peer_contact_detail(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]]:
+        """
+        The contact details of the peer.
+        """
+        return pulumi.get(self, "peer_contact_detail")
+
+    @peer_contact_detail.setter
+    def peer_contact_detail(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]]):
+        pulumi.set(self, "peer_contact_detail", value)
+
+    @property
+    @pulumi.getter(name="peerName")
+    def peer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the peer.
+        """
+        return pulumi.get(self, "peer_name")
+
+    @peer_name.setter
+    def peer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peer_name", value)
+
+    @property
+    @pulumi.getter(name="validationState")
+    def validation_state(self) -> Optional[pulumi.Input[Union[str, 'ValidationState']]]:
+        """
+        The validation state of the ASN associated with the peer.
+        """
+        return pulumi.get(self, "validation_state")
+
+    @validation_state.setter
+    def validation_state(self, value: Optional[pulumi.Input[Union[str, 'ValidationState']]]):
+        pulumi.set(self, "validation_state", value)
 
 
 class PeerAsn(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +126,39 @@ class PeerAsn(pulumi.CustomResource):
         :param pulumi.Input[str] peer_name: The name of the peer.
         :param pulumi.Input[Union[str, 'ValidationState']] validation_state: The validation state of the ASN associated with the peer.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[PeerAsnArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The essential information related to the peer's ASN.
+        API Version: 2021-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param PeerAsnArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PeerAsnArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn_name: Optional[pulumi.Input[str]] = None,
+                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
+                 peer_name: Optional[pulumi.Input[str]] = None,
+                 validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

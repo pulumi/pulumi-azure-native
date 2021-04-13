@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['DataCollectionRuleAssociation']
+__all__ = ['DataCollectionRuleAssociationArgs', 'DataCollectionRuleAssociation']
+
+@pulumi.input_type
+class DataCollectionRuleAssociationArgs:
+    def __init__(__self__, *,
+                 resource_uri: pulumi.Input[str],
+                 association_name: Optional[pulumi.Input[str]] = None,
+                 data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DataCollectionRuleAssociation resource.
+        :param pulumi.Input[str] resource_uri: The identifier of the resource.
+        :param pulumi.Input[str] association_name: The name of the association. The name is case insensitive.
+        :param pulumi.Input[str] data_collection_rule_id: The resource ID of the data collection rule that is to be associated.
+        :param pulumi.Input[str] description: Description of the association.
+        """
+        pulumi.set(__self__, "resource_uri", resource_uri)
+        if association_name is not None:
+            pulumi.set(__self__, "association_name", association_name)
+        if data_collection_rule_id is not None:
+            pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> pulumi.Input[str]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @resource_uri.setter
+    def resource_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_uri", value)
+
+    @property
+    @pulumi.getter(name="associationName")
+    def association_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the association. The name is case insensitive.
+        """
+        return pulumi.get(self, "association_name")
+
+    @association_name.setter
+    def association_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "association_name", value)
+
+    @property
+    @pulumi.getter(name="dataCollectionRuleId")
+    def data_collection_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the data collection rule that is to be associated.
+        """
+        return pulumi.get(self, "data_collection_rule_id")
+
+    @data_collection_rule_id.setter
+    def data_collection_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_collection_rule_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the association.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class DataCollectionRuleAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +103,37 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the association.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataCollectionRuleAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of generic ARM proxy resource.
+
+        :param str resource_name: The name of the resource.
+        :param DataCollectionRuleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataCollectionRuleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 association_name: Optional[pulumi.Input[str]] = None,
+                 data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 resource_uri: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

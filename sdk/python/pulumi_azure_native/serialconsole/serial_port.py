@@ -5,14 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['SerialPort']
+__all__ = ['SerialPortArgs', 'SerialPort']
+
+@pulumi.input_type
+class SerialPortArgs:
+    def __init__(__self__, *,
+                 parent_resource: pulumi.Input[str],
+                 parent_resource_type: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 resource_provider_namespace: pulumi.Input[str],
+                 serial_port: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['SerialPortState']] = None):
+        """
+        The set of arguments for constructing a SerialPort resource.
+        :param pulumi.Input[str] parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
+        :param pulumi.Input[str] parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_provider_namespace: The namespace of the resource provider.
+        :param pulumi.Input[str] serial_port: The name of the serial port to create.
+        :param pulumi.Input['SerialPortState'] state: Specifies whether the port is enabled for a serial console connection.
+        """
+        pulumi.set(__self__, "parent_resource", parent_resource)
+        pulumi.set(__self__, "parent_resource_type", parent_resource_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
+        if serial_port is not None:
+            pulumi.set(__self__, "serial_port", serial_port)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="parentResource")
+    def parent_resource(self) -> pulumi.Input[str]:
+        """
+        The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
+        """
+        return pulumi.get(self, "parent_resource")
+
+    @parent_resource.setter
+    def parent_resource(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parent_resource", value)
+
+    @property
+    @pulumi.getter(name="parentResourceType")
+    def parent_resource_type(self) -> pulumi.Input[str]:
+        """
+        The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
+        """
+        return pulumi.get(self, "parent_resource_type")
+
+    @parent_resource_type.setter
+    def parent_resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parent_resource_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceProviderNamespace")
+    def resource_provider_namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the resource provider.
+        """
+        return pulumi.get(self, "resource_provider_namespace")
+
+    @resource_provider_namespace.setter
+    def resource_provider_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_provider_namespace", value)
+
+    @property
+    @pulumi.getter(name="serialPort")
+    def serial_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the serial port to create.
+        """
+        return pulumi.get(self, "serial_port")
+
+    @serial_port.setter
+    def serial_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serial_port", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['SerialPortState']]:
+        """
+        Specifies whether the port is enabled for a serial console connection.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['SerialPortState']]):
+        pulumi.set(self, "state", value)
 
 
 class SerialPort(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +138,40 @@ class SerialPort(pulumi.CustomResource):
         :param pulumi.Input[str] serial_port: The name of the serial port to create.
         :param pulumi.Input['SerialPortState'] state: Specifies whether the port is enabled for a serial console connection.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SerialPortArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents the serial port of the parent resource.
+        API Version: 2018-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param SerialPortArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SerialPortArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 parent_resource: Optional[pulumi.Input[str]] = None,
+                 parent_resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+                 serial_port: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['SerialPortState']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

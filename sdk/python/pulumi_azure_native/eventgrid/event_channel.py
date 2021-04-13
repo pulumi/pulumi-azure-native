@@ -5,15 +5,153 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventChannel']
+__all__ = ['EventChannelArgs', 'EventChannel']
+
+@pulumi.input_type
+class EventChannelArgs:
+    def __init__(__self__, *,
+                 partner_namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 destination: Optional[pulumi.Input['EventChannelDestinationArgs']] = None,
+                 event_channel_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input['EventChannelFilterArgs']] = None,
+                 partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input['EventChannelSourceArgs']] = None):
+        """
+        The set of arguments for constructing a EventChannel resource.
+        :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input['EventChannelDestinationArgs'] destination: Represents the destination of an event channel.
+        :param pulumi.Input[str] event_channel_name: Name of the event channel.
+        :param pulumi.Input[str] expiration_time_if_not_activated_utc: Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
+               the event channel and corresponding partner topic are deleted.
+        :param pulumi.Input['EventChannelFilterArgs'] filter: Information about the filter for the event channel.
+        :param pulumi.Input[str] partner_topic_friendly_description: Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
+               This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
+        :param pulumi.Input['EventChannelSourceArgs'] source: Source of the event channel. This represents a unique resource in the partner's resource model.
+        """
+        pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if event_channel_name is not None:
+            pulumi.set(__self__, "event_channel_name", event_channel_name)
+        if expiration_time_if_not_activated_utc is not None:
+            pulumi.set(__self__, "expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if partner_topic_friendly_description is not None:
+            pulumi.set(__self__, "partner_topic_friendly_description", partner_topic_friendly_description)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="partnerNamespaceName")
+    def partner_namespace_name(self) -> pulumi.Input[str]:
+        """
+        Name of the partner namespace.
+        """
+        return pulumi.get(self, "partner_namespace_name")
+
+    @partner_namespace_name.setter
+    def partner_namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partner_namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['EventChannelDestinationArgs']]:
+        """
+        Represents the destination of an event channel.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['EventChannelDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="eventChannelName")
+    def event_channel_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the event channel.
+        """
+        return pulumi.get(self, "event_channel_name")
+
+    @event_channel_name.setter
+    def event_channel_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_channel_name", value)
+
+    @property
+    @pulumi.getter(name="expirationTimeIfNotActivatedUtc")
+    def expiration_time_if_not_activated_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
+        the event channel and corresponding partner topic are deleted.
+        """
+        return pulumi.get(self, "expiration_time_if_not_activated_utc")
+
+    @expiration_time_if_not_activated_utc.setter
+    def expiration_time_if_not_activated_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_time_if_not_activated_utc", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['EventChannelFilterArgs']]:
+        """
+        Information about the filter for the event channel.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['EventChannelFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="partnerTopicFriendlyDescription")
+    def partner_topic_friendly_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
+        This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
+        """
+        return pulumi.get(self, "partner_topic_friendly_description")
+
+    @partner_topic_friendly_description.setter
+    def partner_topic_friendly_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_topic_friendly_description", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['EventChannelSourceArgs']]:
+        """
+        Source of the event channel. This represents a unique resource in the partner's resource model.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['EventChannelSourceArgs']]):
+        pulumi.set(self, "source", value)
 
 
 class EventChannel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +183,42 @@ class EventChannel(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[pulumi.InputType['EventChannelSourceArgs']] source: Source of the event channel. This represents a unique resource in the partner's resource model.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventChannelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Event Channel.
+        API Version: 2020-04-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param EventChannelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['EventChannelDestinationArgs']]] = None,
+                 event_channel_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['EventChannelFilterArgs']]] = None,
+                 partner_namespace_name: Optional[pulumi.Input[str]] = None,
+                 partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['EventChannelSourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

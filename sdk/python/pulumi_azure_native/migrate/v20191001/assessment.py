@@ -5,16 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Assessment']
+__all__ = ['AssessmentArgs', 'Assessment']
+
+@pulumi.input_type
+class AssessmentArgs:
+    def __init__(__self__, *,
+                 group_name: pulumi.Input[str],
+                 project_name: pulumi.Input[str],
+                 properties: pulumi.Input['AssessmentPropertiesArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 assessment_name: Optional[pulumi.Input[str]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Assessment resource.
+        :param pulumi.Input[str] group_name: Unique name of a group within a project.
+        :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input['AssessmentPropertiesArgs'] properties: Properties of the assessment.
+        :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
+        :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
+        :param pulumi.Input[str] e_tag: For optimistic concurrency control.
+        """
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Input[str]:
+        """
+        Unique name of a group within a project.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Azure Migrate project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['AssessmentPropertiesArgs']:
+        """
+        Properties of the assessment.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['AssessmentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Azure Resource Group that project is part of.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of an assessment within a project.
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assessment_name", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
 
 
 class Assessment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +139,39 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']] properties: Properties of the assessment.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssessmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An assessment created for a group in the Migration project.
+
+        :param str resource_name: The name of the resource.
+        :param AssessmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_name: Optional[pulumi.Input[str]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

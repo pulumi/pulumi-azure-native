@@ -5,16 +5,210 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ElasticPool']
+__all__ = ['ElasticPoolArgs', 'ElasticPool']
+
+@pulumi.input_type
+class ElasticPoolArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a ElasticPool resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
+        :param pulumi.Input[Union[str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+        :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
+        :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: The per database settings for the elastic pool.
+        :param pulumi.Input['SkuArgs'] sku: The elastic pool SKU.
+               
+               The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+               
+               ```azurecli
+               az sql elastic-pool list-editions -l <location> -o table
+               ````
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        if elastic_pool_name is not None:
+            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maintenance_configuration_id is not None:
+            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+        if max_size_bytes is not None:
+            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+        if per_database_settings is not None:
+            pulumi.set(__self__, "per_database_settings", per_database_settings)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="elasticPoolName")
+    def elastic_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the elastic pool.
+        """
+        return pulumi.get(self, "elastic_pool_name")
+
+    @elastic_pool_name.setter
+    def elastic_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elastic_pool_name", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]]:
+        """
+        The license type to apply for this elastic pool.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationId")
+    def maintenance_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+        """
+        return pulumi.get(self, "maintenance_configuration_id")
+
+    @maintenance_configuration_id.setter
+    def maintenance_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_id", value)
+
+    @property
+    @pulumi.getter(name="maxSizeBytes")
+    def max_size_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The storage limit for the database elastic pool in bytes.
+        """
+        return pulumi.get(self, "max_size_bytes")
+
+    @max_size_bytes.setter
+    def max_size_bytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_size_bytes", value)
+
+    @property
+    @pulumi.getter(name="perDatabaseSettings")
+    def per_database_settings(self) -> Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']]:
+        """
+        The per database settings for the elastic pool.
+        """
+        return pulumi.get(self, "per_database_settings")
+
+    @per_database_settings.setter
+    def per_database_settings(self, value: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']]):
+        pulumi.set(self, "per_database_settings", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The elastic pool SKU.
+        
+        The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        
+        ```azurecli
+        az sql elastic-pool list-editions -l <location> -o table
+        ````
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
 
 
 class ElasticPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +250,45 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ElasticPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An elastic pool.
+        API Version: 2020-11-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ElasticPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,14 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['OuContainer']
+__all__ = ['OuContainerArgs', 'OuContainer']
+
+@pulumi.input_type
+class OuContainerArgs:
+    def __init__(__self__, *,
+                 domain_service_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 ou_container_name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 spn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a OuContainer resource.
+        :param pulumi.Input[str] domain_service_name: The name of the domain service.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] account_name: The account name
+        :param pulumi.Input[str] ou_container_name: The name of the OuContainer.
+        :param pulumi.Input[str] password: The account password
+        :param pulumi.Input[str] spn: The account spn
+        """
+        pulumi.set(__self__, "domain_service_name", domain_service_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if ou_container_name is not None:
+            pulumi.set(__self__, "ou_container_name", ou_container_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if spn is not None:
+            pulumi.set(__self__, "spn", spn)
+
+    @property
+    @pulumi.getter(name="domainServiceName")
+    def domain_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the domain service.
+        """
+        return pulumi.get(self, "domain_service_name")
+
+    @domain_service_name.setter
+    def domain_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_service_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="ouContainerName")
+    def ou_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the OuContainer.
+        """
+        return pulumi.get(self, "ou_container_name")
+
+    @ou_container_name.setter
+    def ou_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ou_container_name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account password
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def spn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account spn
+        """
+        return pulumi.get(self, "spn")
+
+    @spn.setter
+    def spn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spn", value)
 
 
 class OuContainer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +139,39 @@ class OuContainer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] spn: The account spn
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OuContainerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Resource for OuContainer.
+
+        :param str resource_name: The name of the resource.
+        :param OuContainerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OuContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 domain_service_name: Optional[pulumi.Input[str]] = None,
+                 ou_container_name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 spn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

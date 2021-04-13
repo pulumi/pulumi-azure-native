@@ -5,13 +5,147 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ServiceEndpointPolicyDefinition']
+__all__ = ['ServiceEndpointPolicyDefinitionArgs', 'ServiceEndpointPolicyDefinition']
+
+@pulumi.input_type
+class ServiceEndpointPolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 service_endpoint_policy_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_policy_definition_name: Optional[pulumi.Input[str]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ServiceEndpointPolicyDefinition resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
+        :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] service: Service endpoint name.
+        :param pulumi.Input[str] service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_resources: A list of service resources.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_endpoint_policy_name", service_endpoint_policy_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if service_endpoint_policy_definition_name is not None:
+            pulumi.set(__self__, "service_endpoint_policy_definition_name", service_endpoint_policy_definition_name)
+        if service_resources is not None:
+            pulumi.set(__self__, "service_resources", service_resources)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicyName")
+    def service_endpoint_policy_name(self) -> pulumi.Input[str]:
+        """
+        The name of the service endpoint policy.
+        """
+        return pulumi.get(self, "service_endpoint_policy_name")
+
+    @service_endpoint_policy_name.setter
+    def service_endpoint_policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_endpoint_policy_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service endpoint name.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicyDefinitionName")
+    def service_endpoint_policy_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service endpoint policy definition name.
+        """
+        return pulumi.get(self, "service_endpoint_policy_definition_name")
+
+    @service_endpoint_policy_definition_name.setter
+    def service_endpoint_policy_definition_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_policy_definition_name", value)
+
+    @property
+    @pulumi.getter(name="serviceResources")
+    def service_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of service resources.
+        """
+        return pulumi.get(self, "service_resources")
+
+    @service_resources.setter
+    def service_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_resources", value)
 
 
 class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +174,41 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_resources: A list of service resources.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceEndpointPolicyDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Service Endpoint policy definitions.
+
+        :param str resource_name: The name of the resource.
+        :param ServiceEndpointPolicyDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointPolicyDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_policy_definition_name: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

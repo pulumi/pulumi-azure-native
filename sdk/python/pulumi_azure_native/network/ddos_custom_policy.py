@@ -5,16 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DdosCustomPolicy']
+__all__ = ['DdosCustomPolicyArgs', 'DdosCustomPolicy']
+
+@pulumi.input_type
+class DdosCustomPolicyArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DdosCustomPolicy resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] ddos_custom_policy_name: The name of the DDoS custom policy.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if ddos_custom_policy_name is not None:
+            pulumi.set(__self__, "ddos_custom_policy_name", ddos_custom_policy_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if protocol_custom_settings is not None:
+            pulumi.set(__self__, "protocol_custom_settings", protocol_custom_settings)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="ddosCustomPolicyName")
+    def ddos_custom_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DDoS custom policy.
+        """
+        return pulumi.get(self, "ddos_custom_policy_name")
+
+    @ddos_custom_policy_name.setter
+    def ddos_custom_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddos_custom_policy_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="protocolCustomSettings")
+    def protocol_custom_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]]:
+        """
+        The protocol-specific DDoS policy customization parameters.
+        """
+        return pulumi.get(self, "protocol_custom_settings")
+
+    @protocol_custom_settings.setter
+    def protocol_custom_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]]):
+        pulumi.set(self, "protocol_custom_settings", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DdosCustomPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +143,40 @@ class DdosCustomPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DdosCustomPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A DDoS custom policy in a resource group.
+        API Version: 2020-11-01.
+
+        :param str resource_name: The name of the resource.
+        :param DdosCustomPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DdosCustomPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

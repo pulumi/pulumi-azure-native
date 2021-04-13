@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['EventHub']
+__all__ = ['EventHubArgs', 'EventHub']
+
+@pulumi.input_type
+class EventHubArgs:
+    def __init__(__self__, *,
+                 namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 capture_description: Optional[pulumi.Input['CaptureDescriptionArgs']] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[float]] = None,
+                 partition_count: Optional[pulumi.Input[float]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None):
+        """
+        The set of arguments for constructing a EventHub resource.
+        :param pulumi.Input[str] namespace_name: The Namespace name
+        :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input['CaptureDescriptionArgs'] capture_description: Properties of capture description
+        :param pulumi.Input[str] event_hub_name: The Event Hub name
+        :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+        :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
+        """
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if capture_description is not None:
+            pulumi.set(__self__, "capture_description", capture_description)
+        if event_hub_name is not None:
+            pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if message_retention_in_days is not None:
+            pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The Namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group within the azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="captureDescription")
+    def capture_description(self) -> Optional[pulumi.Input['CaptureDescriptionArgs']]:
+        """
+        Properties of capture description
+        """
+        return pulumi.get(self, "capture_description")
+
+    @capture_description.setter
+    def capture_description(self, value: Optional[pulumi.Input['CaptureDescriptionArgs']]):
+        pulumi.set(self, "capture_description", value)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Event Hub name
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="messageRetentionInDays")
+    def message_retention_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+        """
+        return pulumi.get(self, "message_retention_in_days")
+
+    @message_retention_in_days.setter
+    def message_retention_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "message_retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "partition_count", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['EntityStatus']]:
+        """
+        Enumerates the possible values for the status of the Event Hub.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['EntityStatus']]):
+        pulumi.set(self, "status", value)
 
 
 class EventHub(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +160,41 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventHubArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Single item in List or Get Event Hub operation
+        API Version: 2017-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param EventHubArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[float]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

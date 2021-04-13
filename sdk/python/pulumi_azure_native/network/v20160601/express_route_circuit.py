@@ -5,16 +5,295 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ExpressRouteCircuit']
+__all__ = ['ExpressRouteCircuitArgs', 'ExpressRouteCircuit']
+
+@pulumi.input_type
+class ExpressRouteCircuitArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
+                 circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 gateway_manager_etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 service_key: Optional[pulumi.Input[str]] = None,
+                 service_provider_notes: Optional[pulumi.Input[str]] = None,
+                 service_provider_properties: Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']] = None,
+                 service_provider_provisioning_state: Optional[pulumi.Input[Union[str, 'ServiceProviderProvisioningState']]] = None,
+                 sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ExpressRouteCircuit resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] allow_classic_operations: allow classic operations
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]] authorizations: Gets or sets list of authorizations
+        :param pulumi.Input[str] circuit_name: The name of the circuit.
+        :param pulumi.Input[str] circuit_provisioning_state: Gets or sets CircuitProvisioningState state of the resource 
+        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
+        :param pulumi.Input[str] gateway_manager_etag: Gets or sets the GatewayManager Etag
+        :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]] peerings: Gets or sets list of peerings
+        :param pulumi.Input[str] provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        :param pulumi.Input[str] service_key: Gets or sets ServiceKey
+        :param pulumi.Input[str] service_provider_notes: Gets or sets ServiceProviderNotes
+        :param pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs'] service_provider_properties: Gets or sets ServiceProviderProperties
+        :param pulumi.Input[Union[str, 'ServiceProviderProvisioningState']] service_provider_provisioning_state: Gets or sets ServiceProviderProvisioningState state of the resource 
+        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: Gets or sets sku
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allow_classic_operations is not None:
+            pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if authorizations is not None:
+            pulumi.set(__self__, "authorizations", authorizations)
+        if circuit_name is not None:
+            pulumi.set(__self__, "circuit_name", circuit_name)
+        if circuit_provisioning_state is not None:
+            pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if gateway_manager_etag is not None:
+            pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if peerings is not None:
+            pulumi.set(__self__, "peerings", peerings)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_key is not None:
+            pulumi.set(__self__, "service_key", service_key)
+        if service_provider_notes is not None:
+            pulumi.set(__self__, "service_provider_notes", service_provider_notes)
+        if service_provider_properties is not None:
+            pulumi.set(__self__, "service_provider_properties", service_provider_properties)
+        if service_provider_provisioning_state is not None:
+            pulumi.set(__self__, "service_provider_provisioning_state", service_provider_provisioning_state)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowClassicOperations")
+    def allow_classic_operations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        allow classic operations
+        """
+        return pulumi.get(self, "allow_classic_operations")
+
+    @allow_classic_operations.setter
+    def allow_classic_operations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_classic_operations", value)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]:
+        """
+        Gets or sets list of authorizations
+        """
+        return pulumi.get(self, "authorizations")
+
+    @authorizations.setter
+    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]):
+        pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="circuitName")
+    def circuit_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the circuit.
+        """
+        return pulumi.get(self, "circuit_name")
+
+    @circuit_name.setter
+    def circuit_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "circuit_name", value)
+
+    @property
+    @pulumi.getter(name="circuitProvisioningState")
+    def circuit_provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets CircuitProvisioningState state of the resource 
+        """
+        return pulumi.get(self, "circuit_provisioning_state")
+
+    @circuit_provisioning_state.setter
+    def circuit_provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "circuit_provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="gatewayManagerEtag")
+    def gateway_manager_etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the GatewayManager Etag
+        """
+        return pulumi.get(self, "gateway_manager_etag")
+
+    @gateway_manager_etag.setter
+    def gateway_manager_etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_manager_etag", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]:
+        """
+        Gets or sets list of peerings
+        """
+        return pulumi.get(self, "peerings")
+
+    @peerings.setter
+    def peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]):
+        pulumi.set(self, "peerings", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="serviceKey")
+    def service_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets ServiceKey
+        """
+        return pulumi.get(self, "service_key")
+
+    @service_key.setter
+    def service_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_key", value)
+
+    @property
+    @pulumi.getter(name="serviceProviderNotes")
+    def service_provider_notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets ServiceProviderNotes
+        """
+        return pulumi.get(self, "service_provider_notes")
+
+    @service_provider_notes.setter
+    def service_provider_notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_provider_notes", value)
+
+    @property
+    @pulumi.getter(name="serviceProviderProperties")
+    def service_provider_properties(self) -> Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']]:
+        """
+        Gets or sets ServiceProviderProperties
+        """
+        return pulumi.get(self, "service_provider_properties")
+
+    @service_provider_properties.setter
+    def service_provider_properties(self, value: Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']]):
+        pulumi.set(self, "service_provider_properties", value)
+
+    @property
+    @pulumi.getter(name="serviceProviderProvisioningState")
+    def service_provider_provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ServiceProviderProvisioningState']]]:
+        """
+        Gets or sets ServiceProviderProvisioningState state of the resource 
+        """
+        return pulumi.get(self, "service_provider_provisioning_state")
+
+    @service_provider_provisioning_state.setter
+    def service_provider_provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ServiceProviderProvisioningState']]]):
+        pulumi.set(self, "service_provider_provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']]:
+        """
+        Gets or sets sku
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ExpressRouteCircuit(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +340,50 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: Gets or sets sku
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExpressRouteCircuitArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ExpressRouteCircuit resource
+
+        :param str resource_name: The name of the resource.
+        :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
+                 circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 gateway_manager_etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_key: Optional[pulumi.Input[str]] = None,
+                 service_provider_notes: Optional[pulumi.Input[str]] = None,
+                 service_provider_properties: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitServiceProviderPropertiesArgs']]] = None,
+                 service_provider_provisioning_state: Optional[pulumi.Input[Union[str, 'ServiceProviderProvisioningState']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

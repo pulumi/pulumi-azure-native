@@ -5,14 +5,164 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['WorkloadNetworkDnsService']
+__all__ = ['WorkloadNetworkDnsServiceArgs', 'WorkloadNetworkDnsService']
+
+@pulumi.input_type
+class WorkloadNetworkDnsServiceArgs:
+    def __init__(__self__, *,
+                 private_cloud_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 default_dns_zone: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 dns_service_id: Optional[pulumi.Input[str]] = None,
+                 dns_service_ip: Optional[pulumi.Input[str]] = None,
+                 fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 log_level: Optional[pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']]] = None,
+                 revision: Optional[pulumi.Input[float]] = None):
+        """
+        The set of arguments for constructing a WorkloadNetworkDnsService resource.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] default_dns_zone: Default DNS zone of the DNS Service.
+        :param pulumi.Input[str] display_name: Display name of the DNS Service.
+        :param pulumi.Input[str] dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        :param pulumi.Input[str] dns_service_ip: DNS service IP of the DNS Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_zones: FQDN zones of the DNS Service.
+        :param pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']] log_level: DNS Service log level.
+        :param pulumi.Input[float] revision: NSX revision number.
+        """
+        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if default_dns_zone is not None:
+            pulumi.set(__self__, "default_dns_zone", default_dns_zone)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if dns_service_id is not None:
+            pulumi.set(__self__, "dns_service_id", dns_service_id)
+        if dns_service_ip is not None:
+            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if fqdn_zones is not None:
+            pulumi.set(__self__, "fqdn_zones", fqdn_zones)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter(name="privateCloudName")
+    def private_cloud_name(self) -> pulumi.Input[str]:
+        """
+        Name of the private cloud
+        """
+        return pulumi.get(self, "private_cloud_name")
+
+    @private_cloud_name.setter
+    def private_cloud_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_cloud_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="defaultDnsZone")
+    def default_dns_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default DNS zone of the DNS Service.
+        """
+        return pulumi.get(self, "default_dns_zone")
+
+    @default_dns_zone.setter
+    def default_dns_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_dns_zone", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the DNS Service.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="dnsServiceId")
+    def dns_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        """
+        return pulumi.get(self, "dns_service_id")
+
+    @dns_service_id.setter
+    def dns_service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_service_id", value)
+
+    @property
+    @pulumi.getter(name="dnsServiceIp")
+    def dns_service_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS service IP of the DNS Service.
+        """
+        return pulumi.get(self, "dns_service_ip")
+
+    @dns_service_ip.setter
+    def dns_service_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_service_ip", value)
+
+    @property
+    @pulumi.getter(name="fqdnZones")
+    def fqdn_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        FQDN zones of the DNS Service.
+        """
+        return pulumi.get(self, "fqdn_zones")
+
+    @fqdn_zones.setter
+    def fqdn_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdn_zones", value)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']]]:
+        """
+        DNS Service log level.
+        """
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: Optional[pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']]]):
+        pulumi.set(self, "log_level", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[float]]:
+        """
+        NSX revision number.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "revision", value)
 
 
 class WorkloadNetworkDnsService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +194,43 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] revision: NSX revision number.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkloadNetworkDnsServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        NSX DNS Service
+        API Version: 2020-07-17-preview.
+
+        :param str resource_name: The name of the resource.
+        :param WorkloadNetworkDnsServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkloadNetworkDnsServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_dns_zone: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 dns_service_id: Optional[pulumi.Input[str]] = None,
+                 dns_service_ip: Optional[pulumi.Input[str]] = None,
+                 fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 log_level: Optional[pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']]] = None,
+                 private_cloud_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

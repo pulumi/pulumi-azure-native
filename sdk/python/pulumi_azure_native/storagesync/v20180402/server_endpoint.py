@@ -5,13 +5,194 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ServerEndpoint']
+__all__ = ['ServerEndpointArgs', 'ServerEndpoint']
+
+@pulumi.input_type
+class ServerEndpointArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 storage_sync_service_name: pulumi.Input[str],
+                 sync_group_name: pulumi.Input[str],
+                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 server_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 server_local_path: Optional[pulumi.Input[str]] = None,
+                 server_resource_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a ServerEndpoint resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
+        :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
+        :param pulumi.Input[str] cloud_tiering: Cloud Tiering.
+        :param pulumi.Input[str] friendly_name: Friendly Name
+        :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        :param pulumi.Input[str] server_endpoint_name: Name of Server Endpoint object.
+        :param pulumi.Input[str] server_local_path: Server Local path.
+        :param pulumi.Input[str] server_resource_id: Server Resource Id.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+        pulumi.set(__self__, "sync_group_name", sync_group_name)
+        if cloud_tiering is not None:
+            pulumi.set(__self__, "cloud_tiering", cloud_tiering)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if server_endpoint_name is not None:
+            pulumi.set(__self__, "server_endpoint_name", server_endpoint_name)
+        if server_local_path is not None:
+            pulumi.set(__self__, "server_local_path", server_local_path)
+        if server_resource_id is not None:
+            pulumi.set(__self__, "server_resource_id", server_resource_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if volume_free_space_percent is not None:
+            pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageSyncServiceName")
+    def storage_sync_service_name(self) -> pulumi.Input[str]:
+        """
+        Name of Storage Sync Service resource.
+        """
+        return pulumi.get(self, "storage_sync_service_name")
+
+    @storage_sync_service_name.setter
+    def storage_sync_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_sync_service_name", value)
+
+    @property
+    @pulumi.getter(name="syncGroupName")
+    def sync_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of Sync Group resource.
+        """
+        return pulumi.get(self, "sync_group_name")
+
+    @sync_group_name.setter
+    def sync_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sync_group_name", value)
+
+    @property
+    @pulumi.getter(name="cloudTiering")
+    def cloud_tiering(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cloud Tiering.
+        """
+        return pulumi.get(self, "cloud_tiering")
+
+    @cloud_tiering.setter
+    def cloud_tiering(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_tiering", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="serverEndpointName")
+    def server_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Server Endpoint object.
+        """
+        return pulumi.get(self, "server_endpoint_name")
+
+    @server_endpoint_name.setter
+    def server_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="serverLocalPath")
+    def server_local_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server Local path.
+        """
+        return pulumi.get(self, "server_local_path")
+
+    @server_local_path.setter
+    def server_local_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_local_path", value)
+
+    @property
+    @pulumi.getter(name="serverResourceId")
+    def server_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server Resource Id.
+        """
+        return pulumi.get(self, "server_resource_id")
+
+    @server_resource_id.setter
+    def server_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="volumeFreeSpacePercent")
+    def volume_free_space_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Level of free space to be maintained by Cloud Tiering if it is enabled.
+        """
+        return pulumi.get(self, "volume_free_space_percent")
+
+    @volume_free_space_percent.setter
+    def volume_free_space_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_free_space_percent", value)
 
 
 class ServerEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +227,44 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Server Endpoint object.
+
+        :param str resource_name: The name of the resource.
+        :param ServerEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 server_local_path: Optional[pulumi.Input[str]] = None,
+                 server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,326 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ExpressRouteCircuitPeering']
+__all__ = ['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeering']
+
+@pulumi.input_type
+class ExpressRouteCircuitPeeringArgs:
+    def __init__(__self__, *,
+                 circuit_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 azure_asn: Optional[pulumi.Input[int]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
+                 peering_type: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']]] = None,
+                 primary_azure_port: Optional[pulumi.Input[str]] = None,
+                 primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 secondary_azure_port: Optional[pulumi.Input[str]] = None,
+                 secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]] = None,
+                 stats: Optional[pulumi.Input['ExpressRouteCircuitStatsArgs']] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a ExpressRouteCircuitPeering resource.
+        :param pulumi.Input[str] circuit_name: The name of the express route circuit.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[int] azure_asn: Gets or sets the azure ASN
+        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated
+        :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input['ExpressRouteCircuitPeeringConfigArgs'] microsoft_peering_config: Gets or sets the Microsoft peering config
+        :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+        :param pulumi.Input[int] peer_asn: Gets or sets the peer ASN
+        :param pulumi.Input[str] peering_name: The name of the peering.
+        :param pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']] peering_type: Gets or sets PeeringType
+        :param pulumi.Input[str] primary_azure_port: Gets or sets the primary port
+        :param pulumi.Input[str] primary_peer_address_prefix: Gets or sets the primary address prefix
+        :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        :param pulumi.Input[str] secondary_azure_port: Gets or sets the secondary port
+        :param pulumi.Input[str] secondary_peer_address_prefix: Gets or sets the secondary address prefix
+        :param pulumi.Input[str] shared_key: Gets or sets the shared key
+        :param pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']] state: Gets or sets state of Peering
+        :param pulumi.Input['ExpressRouteCircuitStatsArgs'] stats: Gets or peering stats
+        :param pulumi.Input[int] vlan_id: Gets or sets the vlan id
+        """
+        pulumi.set(__self__, "circuit_name", circuit_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_asn is not None:
+            pulumi.set(__self__, "azure_asn", azure_asn)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if microsoft_peering_config is not None:
+            pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if peering_name is not None:
+            pulumi.set(__self__, "peering_name", peering_name)
+        if peering_type is not None:
+            pulumi.set(__self__, "peering_type", peering_type)
+        if primary_azure_port is not None:
+            pulumi.set(__self__, "primary_azure_port", primary_azure_port)
+        if primary_peer_address_prefix is not None:
+            pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if secondary_azure_port is not None:
+            pulumi.set(__self__, "secondary_azure_port", secondary_azure_port)
+        if secondary_peer_address_prefix is not None:
+            pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if stats is not None:
+            pulumi.set(__self__, "stats", stats)
+        if vlan_id is not None:
+            pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @property
+    @pulumi.getter(name="circuitName")
+    def circuit_name(self) -> pulumi.Input[str]:
+        """
+        The name of the express route circuit.
+        """
+        return pulumi.get(self, "circuit_name")
+
+    @circuit_name.setter
+    def circuit_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "circuit_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="azureASN")
+    def azure_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the azure ASN
+        """
+        return pulumi.get(self, "azure_asn")
+
+    @azure_asn.setter
+    def azure_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "azure_asn", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique read-only string that changes whenever the resource is updated
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="microsoftPeeringConfig")
+    def microsoft_peering_config(self) -> Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']]:
+        """
+        Gets or sets the Microsoft peering config
+        """
+        return pulumi.get(self, "microsoft_peering_config")
+
+    @microsoft_peering_config.setter
+    def microsoft_peering_config(self, value: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']]):
+        pulumi.set(self, "microsoft_peering_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="peerASN")
+    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the peer ASN
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peering_name", value)
+
+    @property
+    @pulumi.getter(name="peeringType")
+    def peering_type(self) -> Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']]]:
+        """
+        Gets or sets PeeringType
+        """
+        return pulumi.get(self, "peering_type")
+
+    @peering_type.setter
+    def peering_type(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']]]):
+        pulumi.set(self, "peering_type", value)
+
+    @property
+    @pulumi.getter(name="primaryAzurePort")
+    def primary_azure_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the primary port
+        """
+        return pulumi.get(self, "primary_azure_port")
+
+    @primary_azure_port.setter
+    def primary_azure_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_azure_port", value)
+
+    @property
+    @pulumi.getter(name="primaryPeerAddressPrefix")
+    def primary_peer_address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the primary address prefix
+        """
+        return pulumi.get(self, "primary_peer_address_prefix")
+
+    @primary_peer_address_prefix.setter
+    def primary_peer_address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_peer_address_prefix", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="secondaryAzurePort")
+    def secondary_azure_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the secondary port
+        """
+        return pulumi.get(self, "secondary_azure_port")
+
+    @secondary_azure_port.setter
+    def secondary_azure_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_azure_port", value)
+
+    @property
+    @pulumi.getter(name="secondaryPeerAddressPrefix")
+    def secondary_peer_address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the secondary address prefix
+        """
+        return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @secondary_peer_address_prefix.setter
+    def secondary_peer_address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_peer_address_prefix", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the shared key
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]]:
+        """
+        Gets or sets state of Peering
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def stats(self) -> Optional[pulumi.Input['ExpressRouteCircuitStatsArgs']]:
+        """
+        Gets or peering stats
+        """
+        return pulumi.get(self, "stats")
+
+    @stats.setter
+    def stats(self, value: Optional[pulumi.Input['ExpressRouteCircuitStatsArgs']]):
+        pulumi.set(self, "stats", value)
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the vlan id
+        """
+        return pulumi.get(self, "vlan_id")
+
+    @vlan_id.setter
+    def vlan_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vlan_id", value)
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +375,52 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']] stats: Gets or peering stats
         :param pulumi.Input[int] vlan_id: Gets or sets the vlan id
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExpressRouteCircuitPeeringArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Peering in a ExpressRouteCircuit resource
+
+        :param str resource_name: The name of the resource.
+        :param ExpressRouteCircuitPeeringArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitPeeringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_asn: Optional[pulumi.Input[int]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
+                 peering_type: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']]] = None,
+                 primary_azure_port: Optional[pulumi.Input[str]] = None,
+                 primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_azure_port: Optional[pulumi.Input[str]] = None,
+                 secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]] = None,
+                 stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

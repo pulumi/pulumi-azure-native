@@ -5,15 +5,264 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerFarm']
+__all__ = ['ServerFarmArgs', 'ServerFarm']
+
+@pulumi.input_type
+class ServerFarmArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 admin_site_name: Optional[pulumi.Input[str]] = None,
+                 allow_pending_state: Optional[pulumi.Input[bool]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_number_of_workers: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 per_site_scaling: Optional[pulumi.Input[bool]] = None,
+                 reserved: Optional[pulumi.Input[bool]] = None,
+                 sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 worker_tier_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServerFarm resource.
+        :param pulumi.Input[str] resource_group_name: Name of resource group
+        :param pulumi.Input[str] admin_site_name: App Service Plan administration site
+        :param pulumi.Input[bool] allow_pending_state: OBSOLETE: If true, allow pending state for App Service Plan
+        :param pulumi.Input['HostingEnvironmentProfileArgs'] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[str] kind: Kind of resource
+        :param pulumi.Input[str] location: Resource Location
+        :param pulumi.Input[int] maximum_number_of_workers: Maximum number of instances that can be assigned to this App Service Plan
+        :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[bool] per_site_scaling: If True apps assigned to this App Service Plan can be scaled independently
+                           If False apps assigned to this App Service Plan will scale to all instances of the plan
+        :param pulumi.Input[bool] reserved: Enables creation of a Linux App Service Plan
+        :param pulumi.Input['SkuDescriptionArgs'] sku: Describes a sku for a scalable resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] type: Resource type
+        :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service Plan
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if admin_site_name is not None:
+            pulumi.set(__self__, "admin_site_name", admin_site_name)
+        if allow_pending_state is not None:
+            pulumi.set(__self__, "allow_pending_state", allow_pending_state)
+        if hosting_environment_profile is not None:
+            pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maximum_number_of_workers is not None:
+            pulumi.set(__self__, "maximum_number_of_workers", maximum_number_of_workers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if per_site_scaling is not None:
+            pulumi.set(__self__, "per_site_scaling", per_site_scaling)
+        if reserved is not None:
+            pulumi.set(__self__, "reserved", reserved)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if worker_tier_name is not None:
+            pulumi.set(__self__, "worker_tier_name", worker_tier_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of resource group
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="adminSiteName")
+    def admin_site_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        App Service Plan administration site
+        """
+        return pulumi.get(self, "admin_site_name")
+
+    @admin_site_name.setter
+    def admin_site_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_site_name", value)
+
+    @property
+    @pulumi.getter(name="allowPendingState")
+    def allow_pending_state(self) -> Optional[pulumi.Input[bool]]:
+        """
+        OBSOLETE: If true, allow pending state for App Service Plan
+        """
+        return pulumi.get(self, "allow_pending_state")
+
+    @allow_pending_state.setter
+    def allow_pending_state(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_pending_state", value)
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfile")
+    def hosting_environment_profile(self) -> Optional[pulumi.Input['HostingEnvironmentProfileArgs']]:
+        """
+        Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        """
+        return pulumi.get(self, "hosting_environment_profile")
+
+    @hosting_environment_profile.setter
+    def hosting_environment_profile(self, value: Optional[pulumi.Input['HostingEnvironmentProfileArgs']]):
+        pulumi.set(self, "hosting_environment_profile", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maximumNumberOfWorkers")
+    def maximum_number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of instances that can be assigned to this App Service Plan
+        """
+        return pulumi.get(self, "maximum_number_of_workers")
+
+    @maximum_number_of_workers.setter
+    def maximum_number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_number_of_workers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="perSiteScaling")
+    def per_site_scaling(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If True apps assigned to this App Service Plan can be scaled independently
+                    If False apps assigned to this App Service Plan will scale to all instances of the plan
+        """
+        return pulumi.get(self, "per_site_scaling")
+
+    @per_site_scaling.setter
+    def per_site_scaling(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "per_site_scaling", value)
+
+    @property
+    @pulumi.getter
+    def reserved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables creation of a Linux App Service Plan
+        """
+        return pulumi.get(self, "reserved")
+
+    @reserved.setter
+    def reserved(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reserved", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuDescriptionArgs']]:
+        """
+        Describes a sku for a scalable resource
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuDescriptionArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="workerTierName")
+    def worker_tier_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target worker tier assigned to the App Service Plan
+        """
+        return pulumi.get(self, "worker_tier_name")
+
+    @worker_tier_name.setter
+    def worker_tier_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "worker_tier_name", value)
 
 
 class ServerFarm(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +306,48 @@ class ServerFarm(pulumi.CustomResource):
         :param pulumi.Input[str] type: Resource type
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service Plan
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerFarmArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        App Service Plan Model
+
+        :param str resource_name: The name of the resource.
+        :param ServerFarmArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerFarmArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_site_name: Optional[pulumi.Input[str]] = None,
+                 allow_pending_state: Optional[pulumi.Input[bool]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_number_of_workers: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 per_site_scaling: Optional[pulumi.Input[bool]] = None,
+                 reserved: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 worker_tier_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,246 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ApiManagementService']
+__all__ = ['ApiManagementServiceArgs', 'ApiManagementService']
+
+@pulumi.input_type
+class ApiManagementServiceArgs:
+    def __init__(__self__, *,
+                 publisher_email: pulumi.Input[str],
+                 publisher_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]] = None,
+                 addresser_email: Optional[pulumi.Input[str]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
+                 vpnconfiguration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None):
+        """
+        The set of arguments for constructing a ApiManagementService resource.
+        :param pulumi.Input[str] publisher_email: Publisher email.
+        :param pulumi.Input[str] publisher_name: Publisher name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[str] addresser_email: Addresser email.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
+        :param pulumi.Input[str] etag: ETag of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[str] location: Datacenter location of the API Management service.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
+        :param pulumi.Input['VirtualNetworkType'] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        :param pulumi.Input['VirtualNetworkConfigurationArgs'] vpnconfiguration: Virtual network configuration of the API Management service.
+        """
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        pulumi.set(__self__, "publisher_name", publisher_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if additional_locations is not None:
+            pulumi.set(__self__, "additional_locations", additional_locations)
+        if addresser_email is not None:
+            pulumi.set(__self__, "addresser_email", addresser_email)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if hostname_configurations is not None:
+            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpn_type is None:
+            vpn_type = 'None'
+        if vpn_type is not None:
+            pulumi.set(__self__, "vpn_type", vpn_type)
+        if vpnconfiguration is not None:
+            pulumi.set(__self__, "vpnconfiguration", vpnconfiguration)
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> pulumi.Input[str]:
+        """
+        Publisher email.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @publisher_email.setter
+    def publisher_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_email", value)
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> pulumi.Input[str]:
+        """
+        Publisher name.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @publisher_name.setter
+    def publisher_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['ApiManagementServiceSkuPropertiesArgs']:
+        """
+        SKU properties of the API Management service.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['ApiManagementServiceSkuPropertiesArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]]:
+        """
+        Additional datacenter locations of the API Management service.
+        """
+        return pulumi.get(self, "additional_locations")
+
+    @additional_locations.setter
+    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]]):
+        pulumi.set(self, "additional_locations", value)
+
+    @property
+    @pulumi.getter(name="addresserEmail")
+    def addresser_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Addresser email.
+        """
+        return pulumi.get(self, "addresser_email")
+
+    @addresser_email.setter
+    def addresser_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addresser_email", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Custom properties of the API Management service, like disabling TLS 1.0.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        ETag of the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="hostnameConfigurations")
+    def hostname_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]:
+        """
+        Custom hostname configuration of the API Management service.
+        """
+        return pulumi.get(self, "hostname_configurations")
+
+    @hostname_configurations.setter
+    def hostname_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]):
+        pulumi.set(self, "hostname_configurations", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Datacenter location of the API Management service.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpnType")
+    def vpn_type(self) -> Optional[pulumi.Input['VirtualNetworkType']]:
+        """
+        The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        """
+        return pulumi.get(self, "vpn_type")
+
+    @vpn_type.setter
+    def vpn_type(self, value: Optional[pulumi.Input['VirtualNetworkType']]):
+        pulumi.set(self, "vpn_type", value)
+
+    @property
+    @pulumi.getter
+    def vpnconfiguration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
+        """
+        Virtual network configuration of the API Management service.
+        """
+        return pulumi.get(self, "vpnconfiguration")
+
+    @vpnconfiguration.setter
+    def vpnconfiguration(self, value: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]):
+        pulumi.set(self, "vpnconfiguration", value)
 
 
 class ApiManagementService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +285,47 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input['VirtualNetworkType'] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] vpnconfiguration: Virtual network configuration of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiManagementServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Description of an API Management service resource.
+
+        :param str resource_name: The name of the resource.
+        :param ApiManagementServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiManagementServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]]] = None,
+                 addresser_email: Optional[pulumi.Input[str]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 publisher_email: Optional[pulumi.Input[str]] = None,
+                 publisher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
+                 vpnconfiguration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

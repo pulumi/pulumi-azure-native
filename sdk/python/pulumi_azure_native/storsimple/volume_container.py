@@ -5,16 +5,164 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VolumeContainer']
+__all__ = ['VolumeContainerArgs', 'VolumeContainer']
+
+@pulumi.input_type
+class VolumeContainerArgs:
+    def __init__(__self__, *,
+                 device_name: pulumi.Input[str],
+                 manager_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 storage_account_credential_id: pulumi.Input[str],
+                 band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
+                 bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
+                 volume_container_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VolumeContainer resource.
+        :param pulumi.Input[str] device_name: The device name
+        :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] storage_account_credential_id: The path ID of storage account associated with the volume container.
+        :param pulumi.Input[int] band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
+        :param pulumi.Input[str] bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input[str] volume_container_name: The name of the volume container.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        if band_width_rate_in_mbps is not None:
+            pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
+        if bandwidth_setting_id is not None:
+            pulumi.set(__self__, "bandwidth_setting_id", bandwidth_setting_id)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if volume_container_name is not None:
+            pulumi.set(__self__, "volume_container_name", volume_container_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The device name
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="managerName")
+    def manager_name(self) -> pulumi.Input[str]:
+        """
+        The manager name
+        """
+        return pulumi.get(self, "manager_name")
+
+    @manager_name.setter
+    def manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> pulumi.Input[str]:
+        """
+        The path ID of storage account associated with the volume container.
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @storage_account_credential_id.setter
+    def storage_account_credential_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_credential_id", value)
+
+    @property
+    @pulumi.getter(name="bandWidthRateInMbps")
+    def band_width_rate_in_mbps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bandwidth-rate set on the volume container.
+        """
+        return pulumi.get(self, "band_width_rate_in_mbps")
+
+    @band_width_rate_in_mbps.setter
+    def band_width_rate_in_mbps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "band_width_rate_in_mbps", value)
+
+    @property
+    @pulumi.getter(name="bandwidthSettingId")
+    def bandwidth_setting_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the bandwidth setting associated with the volume container.
+        """
+        return pulumi.get(self, "bandwidth_setting_id")
+
+    @bandwidth_setting_id.setter
+    def bandwidth_setting_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bandwidth_setting_id", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input['Kind']]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input['Kind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="volumeContainerName")
+    def volume_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the volume container.
+        """
+        return pulumi.get(self, "volume_container_name")
+
+    @volume_container_name.setter
+    def volume_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_container_name", value)
 
 
 class VolumeContainer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +194,43 @@ class VolumeContainer(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_credential_id: The path ID of storage account associated with the volume container.
         :param pulumi.Input[str] volume_container_name: The name of the volume container.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VolumeContainerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The volume container.
+        API Version: 2017-06-01.
+
+        :param str resource_name: The name of the resource.
+        :param VolumeContainerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
+                 bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_credential_id: Optional[pulumi.Input[str]] = None,
+                 volume_container_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

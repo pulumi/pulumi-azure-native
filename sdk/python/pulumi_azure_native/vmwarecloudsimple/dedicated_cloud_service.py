@@ -5,13 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DedicatedCloudService']
+__all__ = ['DedicatedCloudServiceArgs', 'DedicatedCloudService']
+
+@pulumi.input_type
+class DedicatedCloudServiceArgs:
+    def __init__(__self__, *,
+                 gateway_subnet: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 dedicated_cloud_service_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DedicatedCloudService resource.
+        :param pulumi.Input[str] gateway_subnet: gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+        :param pulumi.Input[str] resource_group_name: The name of the resource group
+        :param pulumi.Input[str] dedicated_cloud_service_name: dedicated cloud Service name
+        :param pulumi.Input[str] location: Azure region
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
+        """
+        pulumi.set(__self__, "gateway_subnet", gateway_subnet)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dedicated_cloud_service_name is not None:
+            pulumi.set(__self__, "dedicated_cloud_service_name", dedicated_cloud_service_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="gatewaySubnet")
+    def gateway_subnet(self) -> pulumi.Input[str]:
+        """
+        gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+        """
+        return pulumi.get(self, "gateway_subnet")
+
+    @gateway_subnet.setter
+    def gateway_subnet(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_subnet", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dedicatedCloudServiceName")
+    def dedicated_cloud_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        dedicated cloud Service name
+        """
+        return pulumi.get(self, "dedicated_cloud_service_name")
+
+    @dedicated_cloud_service_name.setter
+    def dedicated_cloud_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_cloud_service_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure region
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DedicatedCloudService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +121,39 @@ class DedicatedCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DedicatedCloudServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Dedicated cloud service model
+        API Version: 2019-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param DedicatedCloudServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DedicatedCloudServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dedicated_cloud_service_name: Optional[pulumi.Input[str]] = None,
+                 gateway_subnet: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

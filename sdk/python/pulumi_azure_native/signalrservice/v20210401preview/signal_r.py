@@ -5,16 +5,225 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SignalR']
+__all__ = ['SignalRArgs', 'SignalR']
+
+@pulumi.input_type
+class SignalRArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 cors: Optional[pulumi.Input['SignalRCorsSettingsArgs']] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]] = None,
+                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['SignalRNetworkACLsArgs']] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tls: Optional[pulumi.Input['SignalRTlsSettingsArgs']] = None,
+                 upstream: Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']] = None):
+        """
+        The set of arguments for constructing a SignalR resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input['SignalRCorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]] features: List of the featureFlags.
+               
+               FeatureFlags that are not included in the parameters for the update operation will not be modified.
+               And the response will only include featureFlags that are explicitly set. 
+               When a featureFlag is not explicitly set, its globally default value will be used
+               But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        :param pulumi.Input['ManagedIdentityArgs'] identity: The managed identity response
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        :param pulumi.Input['SignalRNetworkACLsArgs'] network_acls: Network ACLs
+        :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input['SignalRTlsSettingsArgs'] tls: TLS settings.
+        :param pulumi.Input['ServerlessUpstreamSettingsArgs'] upstream: Upstream settings when the service is in server-less mode.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+        if upstream is not None:
+            pulumi.set(__self__, "upstream", upstream)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['SignalRCorsSettingsArgs']]:
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['SignalRCorsSettingsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]]:
+        """
+        List of the featureFlags.
+        
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        And the response will only include featureFlags that are explicitly set. 
+        When a featureFlag is not explicitly set, its globally default value will be used
+        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]]):
+        pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
+        """
+        The managed identity response
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'ServiceKind']]]:
+        """
+        The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'ServiceKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkACLs")
+    def network_acls(self) -> Optional[pulumi.Input['SignalRNetworkACLsArgs']]:
+        """
+        Network ACLs
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['SignalRNetworkACLsArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
+        """
+        The billing information of the resource.(e.g. Free, Standard)
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['ResourceSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags of the service which is a list of key value pairs that describe the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['SignalRTlsSettingsArgs']]:
+        """
+        TLS settings.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['SignalRTlsSettingsArgs']]):
+        pulumi.set(self, "tls", value)
+
+    @property
+    @pulumi.getter
+    def upstream(self) -> Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']]:
+        """
+        Upstream settings when the service is in server-less mode.
+        """
+        return pulumi.get(self, "upstream")
+
+    @upstream.setter
+    def upstream(self, value: Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']]):
+        pulumi.set(self, "upstream", value)
 
 
 class SignalR(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +265,45 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']] tls: TLS settings.
         :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: Upstream settings when the service is in server-less mode.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SignalRArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A class represent a resource.
+
+        :param str resource_name: The name of the resource.
+        :param SignalRArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SignalRArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tls: Optional[pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']]] = None,
+                 upstream: Optional[pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

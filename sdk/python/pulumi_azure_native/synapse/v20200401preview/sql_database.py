@@ -5,14 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['SqlDatabase']
+__all__ = ['SqlDatabaseArgs', 'SqlDatabase']
+
+@pulumi.input_type
+class SqlDatabaseArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 collation: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 sql_database_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SqlDatabase resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[str] collation: The collation of the database.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
+        :param pulumi.Input[str] sql_database_name: The name of the sql database.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_size_bytes is not None:
+            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+        if sql_database_name is not None:
+            pulumi.set(__self__, "sql_database_name", sql_database_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter
+    def collation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The collation of the database.
+        """
+        return pulumi.get(self, "collation")
+
+    @collation.setter
+    def collation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collation", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxSizeBytes")
+    def max_size_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The max size of the database expressed in bytes.
+        """
+        return pulumi.get(self, "max_size_bytes")
+
+    @max_size_bytes.setter
+    def max_size_bytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_size_bytes", value)
+
+    @property
+    @pulumi.getter(name="sqlDatabaseName")
+    def sql_database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the sql database.
+        """
+        return pulumi.get(self, "sql_database_name")
+
+    @sql_database_name.setter
+    def sql_database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_database_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SqlDatabase(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +157,40 @@ class SqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlDatabaseArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A sql database resource.
+
+        :param str resource_name: The name of the resource.
+        :param SqlDatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlDatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 collation: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_database_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

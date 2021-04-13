@@ -5,15 +5,198 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['P2sVpnGateway']
+__all__ = ['P2sVpnGatewayArgs', 'P2sVpnGateway']
+
+@pulumi.input_type
+class P2sVpnGatewayArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
+                 vpn_server_configuration: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        The set of arguments for constructing a P2sVpnGateway resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_dns_servers: List of all customer specified DNS servers IP addresses.
+        :param pulumi.Input[str] gateway_name: The name of the gateway.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['SubResourceArgs'] virtual_hub: The VirtualHub to which the gateway belongs.
+        :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
+        :param pulumi.Input['SubResourceArgs'] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if custom_dns_servers is not None:
+            pulumi.set(__self__, "custom_dns_servers", custom_dns_servers)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_routing_preference_internet is not None:
+            pulumi.set(__self__, "is_routing_preference_internet", is_routing_preference_internet)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if p2_s_connection_configurations is not None:
+            pulumi.set(__self__, "p2_s_connection_configurations", p2_s_connection_configurations)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_hub is not None:
+            pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if vpn_gateway_scale_unit is not None:
+            pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+        if vpn_server_configuration is not None:
+            pulumi.set(__self__, "vpn_server_configuration", vpn_server_configuration)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the P2SVpnGateway.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="customDnsServers")
+    def custom_dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of all customer specified DNS servers IP addresses.
+        """
+        return pulumi.get(self, "custom_dns_servers")
+
+    @custom_dns_servers.setter
+    def custom_dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_dns_servers", value)
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="isRoutingPreferenceInternet")
+    def is_routing_preference_internet(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        """
+        return pulumi.get(self, "is_routing_preference_internet")
+
+    @is_routing_preference_internet.setter
+    def is_routing_preference_internet(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_routing_preference_internet", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="p2SConnectionConfigurations")
+    def p2_s_connection_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]]:
+        """
+        List of all p2s connection configurations of the gateway.
+        """
+        return pulumi.get(self, "p2_s_connection_configurations")
+
+    @p2_s_connection_configurations.setter
+    def p2_s_connection_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]]):
+        pulumi.set(self, "p2_s_connection_configurations", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The VirtualHub to which the gateway belongs.
+        """
+        return pulumi.get(self, "virtual_hub")
+
+    @virtual_hub.setter
+    def virtual_hub(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_hub", value)
+
+    @property
+    @pulumi.getter(name="vpnGatewayScaleUnit")
+    def vpn_gateway_scale_unit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The scale unit for this p2s vpn gateway.
+        """
+        return pulumi.get(self, "vpn_gateway_scale_unit")
+
+    @vpn_gateway_scale_unit.setter
+    def vpn_gateway_scale_unit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vpn_gateway_scale_unit", value)
+
+    @property
+    @pulumi.getter(name="vpnServerConfiguration")
+    def vpn_server_configuration(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+        """
+        return pulumi.get(self, "vpn_server_configuration")
+
+    @vpn_server_configuration.setter
+    def vpn_server_configuration(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "vpn_server_configuration", value)
 
 
 class P2sVpnGateway(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +231,44 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: P2sVpnGatewayArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        P2SVpnGateway Resource.
+
+        :param str resource_name: The name of the resource.
+        :param P2sVpnGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(P2sVpnGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
+                 vpn_server_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

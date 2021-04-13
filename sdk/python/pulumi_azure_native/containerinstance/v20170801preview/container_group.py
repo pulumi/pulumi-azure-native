@@ -5,16 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ContainerGroup']
+__all__ = ['ContainerGroupArgs', 'ContainerGroup']
+
+@pulumi.input_type
+class ContainerGroupArgs:
+    def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
+                 os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
+                 resource_group_name: pulumi.Input[str],
+                 container_group_name: Optional[pulumi.Input[str]] = None,
+                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]] = None,
+                 ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 restart_policy: Optional[pulumi.Input[Union[str, 'ContainerRestartPolicy']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None):
+        """
+        The set of arguments for constructing a ContainerGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
+        :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to contain the container group to be created or updated.
+        :param pulumi.Input[str] container_group_name: The name of the container group to be created or updated.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]] image_registry_credentials: The image registry credentials by which the container group is created from.
+        :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
+        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Union[str, 'ContainerRestartPolicy']] restart_policy: Restart policy for all containers within the container group. Currently the only available option is `always`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if container_group_name is not None:
+            pulumi.set(__self__, "container_group_name", container_group_name)
+        if image_registry_credentials is not None:
+            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if restart_policy is not None:
+            pulumi.set(__self__, "restart_policy", restart_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]:
+        """
+        The containers within the container group.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input[Union[str, 'OperatingSystemTypes']]:
+        """
+        The operating system type required by the containers in the container group.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input[Union[str, 'OperatingSystemTypes']]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to contain the container group to be created or updated.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="containerGroupName")
+    def container_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the container group to be created or updated.
+        """
+        return pulumi.get(self, "container_group_name")
+
+    @container_group_name.setter
+    def container_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_group_name", value)
+
+    @property
+    @pulumi.getter(name="imageRegistryCredentials")
+    def image_registry_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]:
+        """
+        The image registry credentials by which the container group is created from.
+        """
+        return pulumi.get(self, "image_registry_credentials")
+
+    @image_registry_credentials.setter
+    def image_registry_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]):
+        pulumi.set(self, "image_registry_credentials", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input['IpAddressArgs']]:
+        """
+        The IP address type of the container group.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input['IpAddressArgs']]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional[pulumi.Input[Union[str, 'ContainerRestartPolicy']]]:
+        """
+        Restart policy for all containers within the container group. Currently the only available option is `always`.
+        """
+        return pulumi.get(self, "restart_policy")
+
+    @restart_policy.setter
+    def restart_policy(self, value: Optional[pulumi.Input[Union[str, 'ContainerRestartPolicy']]]):
+        pulumi.set(self, "restart_policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]:
+        """
+        The list of volumes that can be mounted by containers in this container group.
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
 
 
 class ContainerGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +212,43 @@ class ContainerGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]] volumes: The list of volumes that can be mounted by containers in this container group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ContainerGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A container group.
+
+        :param str resource_name: The name of the resource.
+        :param ContainerGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 container_group_name: Optional[pulumi.Input[str]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
+                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]]] = None,
+                 ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restart_policy: Optional[pulumi.Input[Union[str, 'ContainerRestartPolicy']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

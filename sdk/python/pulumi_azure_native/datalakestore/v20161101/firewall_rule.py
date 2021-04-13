@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['FirewallRule']
+__all__ = ['FirewallRuleArgs', 'FirewallRule']
+
+@pulumi.input_type
+class FirewallRuleArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 end_ip_address: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 start_ip_address: pulumi.Input[str],
+                 firewall_rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a FirewallRule resource.
+        :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
+        :param pulumi.Input[str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
+        :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule to create or update.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if firewall_rule_name is not None:
+            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Data Lake Store account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> pulumi.Input[str]:
+        """
+        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @end_ip_address.setter
+    def end_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip_address", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> pulumi.Input[str]:
+        """
+        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
+        return pulumi.get(self, "start_ip_address")
+
+    @start_ip_address.setter
+    def start_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip_address", value)
+
+    @property
+    @pulumi.getter(name="firewallRuleName")
+    def firewall_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the firewall rule to create or update.
+        """
+        return pulumi.get(self, "firewall_rule_name")
+
+    @firewall_rule_name.setter
+    def firewall_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_rule_name", value)
 
 
 class FirewallRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +118,38 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FirewallRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Data Lake Store firewall rule information.
+
+        :param str resource_name: The name of the resource.
+        :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 end_ip_address: Optional[pulumi.Input[str]] = None,
+                 firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_ip_address: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

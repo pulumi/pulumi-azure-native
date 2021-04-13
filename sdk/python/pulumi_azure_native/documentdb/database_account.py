@@ -5,16 +5,471 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DatabaseAccount']
+__all__ = ['DatabaseAccountArgs', 'DatabaseAccount']
+
+@pulumi.input_type
+class DatabaseAccountArgs:
+    def __init__(__self__, *,
+                 database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
+                 locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+                 backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
+                 consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
+                 default_identity: Optional[pulumi.Input[str]] = None,
+                 disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+                 enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
+                 network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+        """
+        The set of arguments for constructing a DatabaseAccount resource.
+        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
+        :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] account_name: Cosmos DB database account name.
+        :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
+        :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
+        :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
+        :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
+        :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
+        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
+        :param pulumi.Input[Union[str, 'DatabaseAccountKind']] kind: Indicates the type of database account. This can only be set at database account creation.
+        :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
+        :param pulumi.Input['NetworkAclBypass'] network_acl_bypass: Indicates what services are allowed to bypass firewall checks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_resource_ids: An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if connector_offer is not None:
+            pulumi.set(__self__, "connector_offer", connector_offer)
+        if consistency_policy is not None:
+            pulumi.set(__self__, "consistency_policy", consistency_policy)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_identity is not None:
+            pulumi.set(__self__, "default_identity", default_identity)
+        if disable_key_based_metadata_write_access is not None:
+            pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+        if enable_analytical_storage is not None:
+            pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
+        if enable_automatic_failover is not None:
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_cassandra_connector is not None:
+            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
+        if enable_free_tier is not None:
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations is not None:
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if is_virtual_network_filter_enabled is not None:
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if key_vault_key_uri is not None:
+            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+        if kind is None:
+            kind = 'GlobalDocumentDB'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if network_acl_bypass is not None:
+            pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
+        if network_acl_bypass_resource_ids is not None:
+            pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="databaseAccountOfferType")
+    def database_account_offer_type(self) -> pulumi.Input['DatabaseAccountOfferType']:
+        """
+        The offer type for the database
+        """
+        return pulumi.get(self, "database_account_offer_type")
+
+    @database_account_offer_type.setter
+    def database_account_offer_type(self, value: pulumi.Input['DatabaseAccountOfferType']):
+        pulumi.set(self, "database_account_offer_type", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]:
+        """
+        An array that contains the georeplication locations enabled for the Cosmos DB account.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cosmos DB database account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional[pulumi.Input['ApiPropertiesArgs']]:
+        """
+        API specific properties. Currently, supported only for MongoDB API.
+        """
+        return pulumi.get(self, "api_properties")
+
+    @api_properties.setter
+    def api_properties(self, value: Optional[pulumi.Input['ApiPropertiesArgs']]):
+        pulumi.set(self, "api_properties", value)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]):
+        pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
+        """
+        List of Cosmos DB capabilities for the account
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="connectorOffer")
+    def connector_offer(self) -> Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]:
+        """
+        The cassandra connector offer type for the Cosmos DB database C* account.
+        """
+        return pulumi.get(self, "connector_offer")
+
+    @connector_offer.setter
+    def connector_offer(self, value: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]):
+        pulumi.set(self, "connector_offer", value)
+
+    @property
+    @pulumi.getter(name="consistencyPolicy")
+    def consistency_policy(self) -> Optional[pulumi.Input['ConsistencyPolicyArgs']]:
+        """
+        The consistency policy for the Cosmos DB account.
+        """
+        return pulumi.get(self, "consistency_policy")
+
+    @consistency_policy.setter
+    def consistency_policy(self, value: Optional[pulumi.Input['ConsistencyPolicyArgs']]):
+        pulumi.set(self, "consistency_policy", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]:
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultIdentity")
+    def default_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        """
+        return pulumi.get(self, "default_identity")
+
+    @default_identity.setter
+    def default_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_identity", value)
+
+    @property
+    @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
+    def disable_key_based_metadata_write_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        """
+        return pulumi.get(self, "disable_key_based_metadata_write_access")
+
+    @disable_key_based_metadata_write_access.setter
+    def disable_key_based_metadata_write_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_key_based_metadata_write_access", value)
+
+    @property
+    @pulumi.getter(name="enableAnalyticalStorage")
+    def enable_analytical_storage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable storage analytics.
+        """
+        return pulumi.get(self, "enable_analytical_storage")
+
+    @enable_analytical_storage.setter
+    def enable_analytical_storage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_analytical_storage", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticFailover")
+    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        """
+        return pulumi.get(self, "enable_automatic_failover")
+
+    @enable_automatic_failover.setter
+    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_failover", value)
+
+    @property
+    @pulumi.getter(name="enableCassandraConnector")
+    def enable_cassandra_connector(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the cassandra connector on the Cosmos DB C* account
+        """
+        return pulumi.get(self, "enable_cassandra_connector")
+
+    @enable_cassandra_connector.setter
+    def enable_cassandra_connector(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_cassandra_connector", value)
+
+    @property
+    @pulumi.getter(name="enableFreeTier")
+    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether Free Tier is enabled.
+        """
+        return pulumi.get(self, "enable_free_tier")
+
+    @enable_free_tier.setter
+    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_free_tier", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleWriteLocations")
+    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the account to write in multiple locations
+        """
+        return pulumi.get(self, "enable_multiple_write_locations")
+
+    @enable_multiple_write_locations.setter
+    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]:
+        """
+        List of IpRules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
+    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        """
+        return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @is_virtual_network_filter_enabled.setter
+    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_virtual_network_filter_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUri")
+    def key_vault_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the key vault
+        """
+        return pulumi.get(self, "key_vault_key_uri")
+
+    @key_vault_key_uri.setter
+    def key_vault_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_uri", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]]:
+        """
+        Indicates the type of database account. This can only be set at database account creation.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypass")
+    def network_acl_bypass(self) -> Optional[pulumi.Input['NetworkAclBypass']]:
+        """
+        Indicates what services are allowed to bypass firewall checks.
+        """
+        return pulumi.get(self, "network_acl_bypass")
+
+    @network_acl_bypass.setter
+    def network_acl_bypass(self, value: Optional[pulumi.Input['NetworkAclBypass']]):
+        pulumi.set(self, "network_acl_bypass", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypassResourceIds")
+    def network_acl_bypass_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        """
+        return pulumi.get(self, "network_acl_bypass_resource_ids")
+
+    @network_acl_bypass_resource_ids.setter
+    def network_acl_bypass_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_acl_bypass_resource_ids", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+        """
+        List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
 
 
 class DatabaseAccount(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +539,62 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DatabaseAccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Azure Cosmos DB database account.
+        API Version: 2021-03-15.
+
+        :param str resource_name: The name of the resource.
+        :param DatabaseAccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DatabaseAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 api_properties: Optional[pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union[pulumi.InputType['ContinuousModeBackupPolicyArgs'], pulumi.InputType['PeriodicModeBackupPolicyArgs']]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
+                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
+                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
+                 database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
+                 default_identity: Optional[pulumi.Input[str]] = None,
+                 disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+                 enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
+                 network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
+                 network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

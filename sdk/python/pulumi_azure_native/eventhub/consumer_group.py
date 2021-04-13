@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ConsumerGroup']
+__all__ = ['ConsumerGroupArgs', 'ConsumerGroup']
+
+@pulumi.input_type
+class ConsumerGroupArgs:
+    def __init__(__self__, *,
+                 event_hub_name: pulumi.Input[str],
+                 namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 consumer_group_name: Optional[pulumi.Input[str]] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ConsumerGroup resource.
+        :param pulumi.Input[str] event_hub_name: The Event Hub name
+        :param pulumi.Input[str] namespace_name: The Namespace name
+        :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input[str] consumer_group_name: The consumer group name
+        :param pulumi.Input[str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if consumer_group_name is not None:
+            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        if user_metadata is not None:
+            pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> pulumi.Input[str]:
+        """
+        The Event Hub name
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The Namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group within the azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The consumer group name
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @consumer_group_name.setter
+    def consumer_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_group_name", value)
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        """
+        return pulumi.get(self, "user_metadata")
+
+    @user_metadata.setter
+    def user_metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_metadata", value)
 
 
 class ConsumerGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +120,39 @@ class ConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConsumerGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Single item in List or Get Consumer group operation
+        API Version: 2017-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param ConsumerGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConsumerGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 consumer_group_name: Optional[pulumi.Input[str]] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['KeyValue']
+__all__ = ['KeyValueArgs', 'KeyValue']
+
+@pulumi.input_type
+class KeyValueArgs:
+    def __init__(__self__, *,
+                 config_store_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 key_value_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a KeyValue resource.
+        :param pulumi.Input[str] config_store_name: The name of the configuration store.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] content_type: The content type of the key-value's value.
+               Providing a proper content-type can enable transformations of values when they are retrieved by applications.
+        :param pulumi.Input[str] key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of tags that can help identify what a key-value may be applicable for.
+        :param pulumi.Input[str] value: The value of the key-value.
+        """
+        pulumi.set(__self__, "config_store_name", config_store_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if key_value_name is not None:
+            pulumi.set(__self__, "key_value_name", key_value_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="configStoreName")
+    def config_store_name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration store.
+        """
+        return pulumi.get(self, "config_store_name")
+
+    @config_store_name.setter
+    def config_store_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "config_store_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type of the key-value's value.
+        Providing a proper content-type can enable transformations of values when they are retrieved by applications.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="keyValueName")
+    def key_value_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
+        """
+        return pulumi.get(self, "key_value_name")
+
+    @key_value_name.setter
+    def key_value_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_value_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A dictionary of tags that can help identify what a key-value may be applicable for.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the key-value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 class KeyValue(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +142,40 @@ class KeyValue(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of tags that can help identify what a key-value may be applicable for.
         :param pulumi.Input[str] value: The value of the key-value.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeyValueArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The key-value resource along with all resource properties.
+        API Version: 2020-07-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param KeyValueArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyValueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config_store_name: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 key_value_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

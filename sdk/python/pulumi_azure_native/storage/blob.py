@@ -5,14 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Blob']
+__all__ = ['BlobArgs', 'Blob']
+
+@pulumi.input_type
+class BlobArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 container_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 access_tier: Optional[pulumi.Input['BlobAccessTier']] = None,
+                 blob_name: Optional[pulumi.Input[str]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 type: Optional[pulumi.Input['BlobType']] = None):
+        """
+        The set of arguments for constructing a Blob resource.
+        :param pulumi.Input[str] account_name: Specifies the storage account in which to create the storage container.
+        :param pulumi.Input[str] container_name: The name of the storage container in which this blob should be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob.
+        :param pulumi.Input[str] blob_name: The name of the storage blob. Must be unique within the storage container the blob is located.
+        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+        :param pulumi.Input[str] content_type: The content type of the storage blob. Defaults to `application/octet-stream`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An asset to copy to the blob contents. This field cannot be specified for Append blobs.
+        :param pulumi.Input['BlobType'] type: The type of the storage blob to be created. Defaults to 'Block'.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_tier is not None:
+            pulumi.set(__self__, "access_tier", access_tier)
+        if blob_name is not None:
+            pulumi.set(__self__, "blob_name", blob_name)
+        if content_md5 is not None:
+            pulumi.set(__self__, "content_md5", content_md5)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if type is None:
+            type = 'Block'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the storage account in which to create the storage container.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        The name of the storage container in which this blob should be created.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[pulumi.Input['BlobAccessTier']]:
+        """
+        The access tier of the storage blob.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: Optional[pulumi.Input['BlobAccessTier']]):
+        pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="blobName")
+    def blob_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage blob. Must be unique within the storage container the blob is located.
+        """
+        return pulumi.get(self, "blob_name")
+
+    @blob_name.setter
+    def blob_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_name", value)
+
+    @property
+    @pulumi.getter(name="contentMd5")
+    def content_md5(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+        """
+        return pulumi.get(self, "content_md5")
+
+    @content_md5.setter
+    def content_md5(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_md5", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type of the storage blob. Defaults to `application/octet-stream`.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of custom blob metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
+        """
+        An asset to copy to the blob contents. This field cannot be specified for Append blobs.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['BlobType']]:
+        """
+        The type of the storage blob to be created. Defaults to 'Block'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['BlobType']]):
+        pulumi.set(self, "type", value)
 
 
 class Blob(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +212,43 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An asset to copy to the blob contents. This field cannot be specified for Append blobs.
         :param pulumi.Input['BlobType'] type: The type of the storage blob to be created. Defaults to 'Block'.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BlobArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Blob within a Storage Container.
+
+        :param str resource_name: The name of the resource.
+        :param BlobArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BlobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input['BlobAccessTier']] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 blob_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 type: Optional[pulumi.Input['BlobType']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

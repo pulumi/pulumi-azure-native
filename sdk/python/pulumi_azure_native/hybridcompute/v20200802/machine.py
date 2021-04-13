@@ -5,15 +5,146 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Machine']
+__all__ = ['MachineArgs', 'Machine']
+
+@pulumi.input_type
+class MachineArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 client_public_key: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['MachineIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Machine resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['LocationDataArgs'] location_data: Metadata pertaining to the geographic location of the resource.
+        :param pulumi.Input[str] name: The name of the hybrid machine.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if client_public_key is not None:
+            pulumi.set(__self__, "client_public_key", client_public_key)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if location_data is not None:
+            pulumi.set(__self__, "location_data", location_data)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vm_id is not None:
+            pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="clientPublicKey")
+    def client_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public Key that the client provides to be used during initial resource onboarding
+        """
+        return pulumi.get(self, "client_public_key")
+
+    @client_public_key.setter
+    def client_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_public_key", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['MachineIdentityArgs']]:
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['MachineIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="locationData")
+    def location_data(self) -> Optional[pulumi.Input['LocationDataArgs']]:
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        return pulumi.get(self, "location_data")
+
+    @location_data.setter
+    def location_data(self, value: Optional[pulumi.Input['LocationDataArgs']]):
+        pulumi.set(self, "location_data", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the hybrid machine.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the hybrid machine unique ID.
+        """
+        return pulumi.get(self, "vm_id")
+
+    @vm_id.setter
+    def vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_id", value)
 
 
 class Machine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +172,41 @@ class Machine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MachineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Describes a hybrid machine.
+
+        :param str resource_name: The name of the resource.
+        :param MachineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_public_key: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

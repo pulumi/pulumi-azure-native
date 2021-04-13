@@ -5,15 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataPool']
+__all__ = ['DataPoolArgs', 'DataPool']
+
+@pulumi.input_type
+class DataPoolArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 locations: pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 data_pool_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DataPool resource.
+        :param pulumi.Input[str] account_name: The name of the ADP account
+        :param pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]] locations: Gets or sets the collection of locations where Data Pool resources should be created
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] data_pool_name: The name of the Data Pool
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_pool_name is not None:
+            pulumi.set(__self__, "data_pool_name", data_pool_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ADP account
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]]:
+        """
+        Gets or sets the collection of locations where Data Pool resources should be created
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dataPoolName")
+    def data_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Data Pool
+        """
+        return pulumi.get(self, "data_pool_name")
+
+    @data_pool_name.setter
+    def data_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_pool_name", value)
 
 
 class DataPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +104,38 @@ class DataPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]] locations: Gets or sets the collection of locations where Data Pool resources should be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ADP Data Pool
+        API Version: 2021-02-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param DataPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 data_pool_name: Optional[pulumi.Input[str]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

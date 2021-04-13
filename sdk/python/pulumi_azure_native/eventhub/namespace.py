@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Namespace']
+__all__ = ['NamespaceArgs', 'Namespace']
+
+@pulumi.input_type
+class NamespaceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 is_auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
+                 kafka_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_throughput_units: Optional[pulumi.Input[int]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Namespace resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        :param pulumi.Input[bool] kafka_enabled: Value that indicates whether Kafka is enabled for eventhub namespace.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[int] maximum_throughput_units: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        :param pulumi.Input[str] namespace_name: The Namespace name
+        :param pulumi.Input['SkuArgs'] sku: Properties of sku resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if is_auto_inflate_enabled is not None:
+            pulumi.set(__self__, "is_auto_inflate_enabled", is_auto_inflate_enabled)
+        if kafka_enabled is not None:
+            pulumi.set(__self__, "kafka_enabled", kafka_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maximum_throughput_units is not None:
+            pulumi.set(__self__, "maximum_throughput_units", maximum_throughput_units)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group within the azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="isAutoInflateEnabled")
+    def is_auto_inflate_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        """
+        return pulumi.get(self, "is_auto_inflate_enabled")
+
+    @is_auto_inflate_enabled.setter
+    def is_auto_inflate_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_auto_inflate_enabled", value)
+
+    @property
+    @pulumi.getter(name="kafkaEnabled")
+    def kafka_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether Kafka is enabled for eventhub namespace.
+        """
+        return pulumi.get(self, "kafka_enabled")
+
+    @kafka_enabled.setter
+    def kafka_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kafka_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maximumThroughputUnits")
+    def maximum_throughput_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        """
+        return pulumi.get(self, "maximum_throughput_units")
+
+    @maximum_throughput_units.setter
+    def maximum_throughput_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_throughput_units", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        Properties of sku resource
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Namespace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +179,42 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Properties of sku resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NamespaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Single Namespace item in List or Get Operation
+        API Version: 2017-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param NamespaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 is_auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
+                 kafka_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_throughput_units: Optional[pulumi.Input[int]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

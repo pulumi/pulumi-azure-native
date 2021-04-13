@@ -5,15 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReplicationvCenter']
+__all__ = ['ReplicationvCenterArgs', 'ReplicationvCenter']
+
+@pulumi.input_type
+class ReplicationvCenterArgs:
+    def __init__(__self__, *,
+                 fabric_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['AddVCenterRequestPropertiesArgs']] = None,
+                 v_center_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ReplicationvCenter resource.
+        :param pulumi.Input[str] fabric_name: Fabric name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
+        :param pulumi.Input[str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input['AddVCenterRequestPropertiesArgs'] properties: The properties of an add vCenter request.
+        :param pulumi.Input[str] v_center_name: vCenter name.
+        """
+        pulumi.set(__self__, "fabric_name", fabric_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if v_center_name is not None:
+            pulumi.set(__self__, "v_center_name", v_center_name)
+
+    @property
+    @pulumi.getter(name="fabricName")
+    def fabric_name(self) -> pulumi.Input[str]:
+        """
+        Fabric name.
+        """
+        return pulumi.get(self, "fabric_name")
+
+    @fabric_name.setter
+    def fabric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fabric_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the recovery services vault is present.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the recovery services vault.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AddVCenterRequestPropertiesArgs']]:
+        """
+        The properties of an add vCenter request.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AddVCenterRequestPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="vCenterName")
+    def v_center_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        vCenter name.
+        """
+        return pulumi.get(self, "v_center_name")
+
+    @v_center_name.setter
+    def v_center_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_name", value)
 
 
 class ReplicationvCenter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +122,39 @@ class ReplicationvCenter(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         :param pulumi.Input[str] v_center_name: vCenter name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReplicationvCenterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        vCenter definition.
+        API Version: 2018-07-10.
+
+        :param str resource_name: The name of the resource.
+        :param ReplicationvCenterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationvCenterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 v_center_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

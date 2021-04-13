@@ -5,14 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['TransparentDataEncryption']
+__all__ = ['TransparentDataEncryptionArgs', 'TransparentDataEncryption']
+
+@pulumi.input_type
+class TransparentDataEncryptionArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 state: pulumi.Input['TransparentDataEncryptionState'],
+                 tde_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TransparentDataEncryption resource.
+        :param pulumi.Input[str] database_name: The name of the logical database for which the security alert policy is defined.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input['TransparentDataEncryptionState'] state: Specifies the state of the transparent data encryption.
+        :param pulumi.Input[str] tde_name: The name of the transparent data encryption configuration.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "state", state)
+        if tde_name is not None:
+            pulumi.set(__self__, "tde_name", tde_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the logical database for which the security alert policy is defined.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['TransparentDataEncryptionState']:
+        """
+        Specifies the state of the transparent data encryption.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['TransparentDataEncryptionState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="tdeName")
+    def tde_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the transparent data encryption configuration.
+        """
+        return pulumi.get(self, "tde_name")
+
+    @tde_name.setter
+    def tde_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tde_name", value)
 
 
 class TransparentDataEncryption(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +119,38 @@ class TransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input['TransparentDataEncryptionState'] state: Specifies the state of the transparent data encryption.
         :param pulumi.Input[str] tde_name: The name of the transparent data encryption configuration.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TransparentDataEncryptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A logical database transparent data encryption state.
+
+        :param str resource_name: The name of the resource.
+        :param TransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TransparentDataEncryptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['TransparentDataEncryptionState']] = None,
+                 tde_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

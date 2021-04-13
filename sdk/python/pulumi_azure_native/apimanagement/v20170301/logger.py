@@ -5,16 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Logger']
+__all__ = ['LoggerArgs', 'Logger']
+
+@pulumi.input_type
+class LoggerArgs:
+    def __init__(__self__, *,
+                 credentials: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 logger_type: pulumi.Input[Union[str, 'LoggerType']],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_buffered: Optional[pulumi.Input[bool]] = None,
+                 loggerid: Optional[pulumi.Input[str]] = None,
+                 sampling: Optional[pulumi.Input['LoggerSamplingContractArgs']] = None):
+        """
+        The set of arguments for constructing a Logger resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] credentials: The name and SendRule connection string of the event hub for azureEventHub logger.
+               Instrumentation key for applicationInsights logger.
+        :param pulumi.Input[Union[str, 'LoggerType']] logger_type: Logger type.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] description: Logger description.
+        :param pulumi.Input[bool] is_buffered: Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        :param pulumi.Input[str] loggerid: Logger identifier. Must be unique in the API Management service instance.
+        :param pulumi.Input['LoggerSamplingContractArgs'] sampling: Sampling settings for an ApplicationInsights logger.
+        """
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "logger_type", logger_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_buffered is not None:
+            pulumi.set(__self__, "is_buffered", is_buffered)
+        if loggerid is not None:
+            pulumi.set(__self__, "loggerid", loggerid)
+        if sampling is not None:
+            pulumi.set(__self__, "sampling", sampling)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        The name and SendRule connection string of the event hub for azureEventHub logger.
+        Instrumentation key for applicationInsights logger.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="loggerType")
+    def logger_type(self) -> pulumi.Input[Union[str, 'LoggerType']]:
+        """
+        Logger type.
+        """
+        return pulumi.get(self, "logger_type")
+
+    @logger_type.setter
+    def logger_type(self, value: pulumi.Input[Union[str, 'LoggerType']]):
+        pulumi.set(self, "logger_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isBuffered")
+    def is_buffered(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        """
+        return pulumi.get(self, "is_buffered")
+
+    @is_buffered.setter
+    def is_buffered(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_buffered", value)
+
+    @property
+    @pulumi.getter
+    def loggerid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logger identifier. Must be unique in the API Management service instance.
+        """
+        return pulumi.get(self, "loggerid")
+
+    @loggerid.setter
+    def loggerid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "loggerid", value)
+
+    @property
+    @pulumi.getter
+    def sampling(self) -> Optional[pulumi.Input['LoggerSamplingContractArgs']]:
+        """
+        Sampling settings for an ApplicationInsights logger.
+        """
+        return pulumi.get(self, "sampling")
+
+    @sampling.setter
+    def sampling(self, value: Optional[pulumi.Input['LoggerSamplingContractArgs']]):
+        pulumi.set(self, "sampling", value)
 
 
 class Logger(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +178,41 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoggerSamplingContractArgs']] sampling: Sampling settings for an ApplicationInsights logger.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LoggerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Logger details.
+
+        :param str resource_name: The name of the resource.
+        :param LoggerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LoggerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_buffered: Optional[pulumi.Input[bool]] = None,
+                 logger_type: Optional[pulumi.Input[Union[str, 'LoggerType']]] = None,
+                 loggerid: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sampling: Optional[pulumi.Input[pulumi.InputType['LoggerSamplingContractArgs']]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

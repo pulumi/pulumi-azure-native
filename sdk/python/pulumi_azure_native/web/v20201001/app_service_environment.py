@@ -5,16 +5,425 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AppServiceEnvironment']
+__all__ = ['AppServiceEnvironmentArgs', 'AppServiceEnvironment']
+
+@pulumi.input_type
+class AppServiceEnvironmentArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 virtual_network: pulumi.Input['VirtualNetworkProfileArgs'],
+                 worker_pools: pulumi.Input[Sequence[pulumi.Input['WorkerPoolArgs']]],
+                 api_management_account_id: Optional[pulumi.Input[str]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+                 dns_suffix: Optional[pulumi.Input[str]] = None,
+                 dynamic_cache_enabled: Optional[pulumi.Input[bool]] = None,
+                 front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+                 has_linux_workers: Optional[pulumi.Input[bool]] = None,
+                 internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
+                 ipssl_address_count: Optional[pulumi.Input[int]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 multi_role_count: Optional[pulumi.Input[int]] = None,
+                 multi_size: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_access_control_list: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAccessControlEntryArgs']]]] = None,
+                 ssl_cert_key_vault_id: Optional[pulumi.Input[str]] = None,
+                 ssl_cert_key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+                 suspended: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vnet_name: Optional[pulumi.Input[str]] = None,
+                 vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vnet_subnet_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AppServiceEnvironment resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network: Description of the Virtual Network.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkerPoolArgs']]] worker_pools: Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+        :param pulumi.Input[str] api_management_account_id: API Management Account associated with the App Service Environment.
+        :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
+        :param pulumi.Input[bool] dynamic_cache_enabled: True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+               (most likely because NSG blocked the incoming traffic).
+        :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
+        :param pulumi.Input[bool] has_linux_workers: Flag that displays whether an ASE has linux workers or not
+        :param pulumi.Input[Union[str, 'LoadBalancingMode']] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+        :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] location: Resource Location.
+        :param pulumi.Input[int] multi_role_count: Number of front-end instances.
+        :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
+        :param pulumi.Input[str] name: Name of the App Service Environment.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAccessControlEntryArgs']]] network_access_control_list: Access control list for controlling traffic to the App Service Environment.
+        :param pulumi.Input[str] ssl_cert_key_vault_id: Key Vault ID for ILB App Service Environment default SSL certificate
+        :param pulumi.Input[str] ssl_cert_key_vault_secret_name: Key Vault Secret Name for ILB App Service Environment default SSL certificate
+        :param pulumi.Input[bool] suspended: <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+                (most likely because NSG blocked the incoming traffic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[str] vnet_name: Name of the Virtual Network for the App Service Environment.
+        :param pulumi.Input[str] vnet_resource_group_name: Resource group of the Virtual Network.
+        :param pulumi.Input[str] vnet_subnet_name: Subnet of the Virtual Network.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network", virtual_network)
+        pulumi.set(__self__, "worker_pools", worker_pools)
+        if api_management_account_id is not None:
+            pulumi.set(__self__, "api_management_account_id", api_management_account_id)
+        if cluster_settings is not None:
+            pulumi.set(__self__, "cluster_settings", cluster_settings)
+        if dns_suffix is not None:
+            pulumi.set(__self__, "dns_suffix", dns_suffix)
+        if dynamic_cache_enabled is not None:
+            pulumi.set(__self__, "dynamic_cache_enabled", dynamic_cache_enabled)
+        if front_end_scale_factor is not None:
+            pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+        if has_linux_workers is not None:
+            pulumi.set(__self__, "has_linux_workers", has_linux_workers)
+        if internal_load_balancing_mode is not None:
+            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+        if ipssl_address_count is not None:
+            pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if multi_role_count is not None:
+            pulumi.set(__self__, "multi_role_count", multi_role_count)
+        if multi_size is not None:
+            pulumi.set(__self__, "multi_size", multi_size)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_access_control_list is not None:
+            pulumi.set(__self__, "network_access_control_list", network_access_control_list)
+        if ssl_cert_key_vault_id is not None:
+            pulumi.set(__self__, "ssl_cert_key_vault_id", ssl_cert_key_vault_id)
+        if ssl_cert_key_vault_secret_name is not None:
+            pulumi.set(__self__, "ssl_cert_key_vault_secret_name", ssl_cert_key_vault_secret_name)
+        if suspended is not None:
+            pulumi.set(__self__, "suspended", suspended)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_whitelisted_ip_ranges is not None:
+            pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
+        if vnet_resource_group_name is not None:
+            pulumi.set(__self__, "vnet_resource_group_name", vnet_resource_group_name)
+        if vnet_subnet_name is not None:
+            pulumi.set(__self__, "vnet_subnet_name", vnet_subnet_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> pulumi.Input['VirtualNetworkProfileArgs']:
+        """
+        Description of the Virtual Network.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: pulumi.Input['VirtualNetworkProfileArgs']):
+        pulumi.set(self, "virtual_network", value)
+
+    @property
+    @pulumi.getter(name="workerPools")
+    def worker_pools(self) -> pulumi.Input[Sequence[pulumi.Input['WorkerPoolArgs']]]:
+        """
+        Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+        """
+        return pulumi.get(self, "worker_pools")
+
+    @worker_pools.setter
+    def worker_pools(self, value: pulumi.Input[Sequence[pulumi.Input['WorkerPoolArgs']]]):
+        pulumi.set(self, "worker_pools", value)
+
+    @property
+    @pulumi.getter(name="apiManagementAccountId")
+    def api_management_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        API Management Account associated with the App Service Environment.
+        """
+        return pulumi.get(self, "api_management_account_id")
+
+    @api_management_account_id.setter
+    def api_management_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_account_id", value)
+
+    @property
+    @pulumi.getter(name="clusterSettings")
+    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
+        """
+        Custom settings for changing the behavior of the App Service Environment.
+        """
+        return pulumi.get(self, "cluster_settings")
+
+    @cluster_settings.setter
+    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
+        pulumi.set(self, "cluster_settings", value)
+
+    @property
+    @pulumi.getter(name="dnsSuffix")
+    def dns_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS suffix of the App Service Environment.
+        """
+        return pulumi.get(self, "dns_suffix")
+
+    @dns_suffix.setter
+    def dns_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_suffix", value)
+
+    @property
+    @pulumi.getter(name="dynamicCacheEnabled")
+    def dynamic_cache_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+        (most likely because NSG blocked the incoming traffic).
+        """
+        return pulumi.get(self, "dynamic_cache_enabled")
+
+    @dynamic_cache_enabled.setter
+    def dynamic_cache_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_cache_enabled", value)
+
+    @property
+    @pulumi.getter(name="frontEndScaleFactor")
+    def front_end_scale_factor(self) -> Optional[pulumi.Input[int]]:
+        """
+        Scale factor for front-ends.
+        """
+        return pulumi.get(self, "front_end_scale_factor")
+
+    @front_end_scale_factor.setter
+    def front_end_scale_factor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "front_end_scale_factor", value)
+
+    @property
+    @pulumi.getter(name="hasLinuxWorkers")
+    def has_linux_workers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag that displays whether an ASE has linux workers or not
+        """
+        return pulumi.get(self, "has_linux_workers")
+
+    @has_linux_workers.setter
+    def has_linux_workers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_linux_workers", value)
+
+    @property
+    @pulumi.getter(name="internalLoadBalancingMode")
+    def internal_load_balancing_mode(self) -> Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]]:
+        """
+        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+        """
+        return pulumi.get(self, "internal_load_balancing_mode")
+
+    @internal_load_balancing_mode.setter
+    def internal_load_balancing_mode(self, value: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]]):
+        pulumi.set(self, "internal_load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="ipsslAddressCount")
+    def ipssl_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of IP SSL addresses reserved for the App Service Environment.
+        """
+        return pulumi.get(self, "ipssl_address_count")
+
+    @ipssl_address_count.setter
+    def ipssl_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipssl_address_count", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="multiRoleCount")
+    def multi_role_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of front-end instances.
+        """
+        return pulumi.get(self, "multi_role_count")
+
+    @multi_role_count.setter
+    def multi_role_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "multi_role_count", value)
+
+    @property
+    @pulumi.getter(name="multiSize")
+    def multi_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Front-end VM size, e.g. "Medium", "Large".
+        """
+        return pulumi.get(self, "multi_size")
+
+    @multi_size.setter
+    def multi_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multi_size", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the App Service Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAccessControlList")
+    def network_access_control_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAccessControlEntryArgs']]]]:
+        """
+        Access control list for controlling traffic to the App Service Environment.
+        """
+        return pulumi.get(self, "network_access_control_list")
+
+    @network_access_control_list.setter
+    def network_access_control_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAccessControlEntryArgs']]]]):
+        pulumi.set(self, "network_access_control_list", value)
+
+    @property
+    @pulumi.getter(name="sslCertKeyVaultId")
+    def ssl_cert_key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key Vault ID for ILB App Service Environment default SSL certificate
+        """
+        return pulumi.get(self, "ssl_cert_key_vault_id")
+
+    @ssl_cert_key_vault_id.setter
+    def ssl_cert_key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_cert_key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="sslCertKeyVaultSecretName")
+    def ssl_cert_key_vault_secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key Vault Secret Name for ILB App Service Environment default SSL certificate
+        """
+        return pulumi.get(self, "ssl_cert_key_vault_secret_name")
+
+    @ssl_cert_key_vault_secret_name.setter
+    def ssl_cert_key_vault_secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_cert_key_vault_secret_name", value)
+
+    @property
+    @pulumi.getter
+    def suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+         (most likely because NSG blocked the incoming traffic).
+        """
+        return pulumi.get(self, "suspended")
+
+    @suspended.setter
+    def suspended(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suspended", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userWhitelistedIpRanges")
+    def user_whitelisted_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        User added ip ranges to whitelist on ASE db
+        """
+        return pulumi.get(self, "user_whitelisted_ip_ranges")
+
+    @user_whitelisted_ip_ranges.setter
+    def user_whitelisted_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_whitelisted_ip_ranges", value)
+
+    @property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Virtual Network for the App Service Environment.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    @vnet_name.setter
+    def vnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_name", value)
+
+    @property
+    @pulumi.getter(name="vnetResourceGroupName")
+    def vnet_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource group of the Virtual Network.
+        """
+        return pulumi.get(self, "vnet_resource_group_name")
+
+    @vnet_resource_group_name.setter
+    def vnet_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vnetSubnetName")
+    def vnet_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subnet of the Virtual Network.
+        """
+        return pulumi.get(self, "vnet_subnet_name")
+
+    @vnet_subnet_name.setter
+    def vnet_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_subnet_name", value)
 
 
 class AppServiceEnvironment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -79,6 +488,58 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AppServiceEnvironmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        App Service Environment ARM resource.
+
+        :param str resource_name: The name of the resource.
+        :param AppServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AppServiceEnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_account_id: Optional[pulumi.Input[str]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 dns_suffix: Optional[pulumi.Input[str]] = None,
+                 dynamic_cache_enabled: Optional[pulumi.Input[bool]] = None,
+                 front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+                 has_linux_workers: Optional[pulumi.Input[bool]] = None,
+                 internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
+                 ipssl_address_count: Optional[pulumi.Input[int]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 multi_role_count: Optional[pulumi.Input[int]] = None,
+                 multi_size: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_access_control_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssl_cert_key_vault_id: Optional[pulumi.Input[str]] = None,
+                 ssl_cert_key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+                 suspended: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 vnet_name: Optional[pulumi.Input[str]] = None,
+                 vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vnet_subnet_name: Optional[pulumi.Input[str]] = None,
+                 worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

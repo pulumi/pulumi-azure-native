@@ -5,14 +5,129 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['AttachedDatabaseConfiguration']
+__all__ = ['AttachedDatabaseConfigurationArgs', 'AttachedDatabaseConfiguration']
+
+@pulumi.input_type
+class AttachedDatabaseConfigurationArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 cluster_resource_id: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 default_principals_modification_kind: pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']],
+                 resource_group_name: pulumi.Input[str],
+                 attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AttachedDatabaseConfiguration resource.
+        :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
+        :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
+        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
+        :param pulumi.Input[str] location: Resource location.
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if attached_database_configuration_name is not None:
+            pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Kusto cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the cluster where the databases you would like to attach reside.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @cluster_resource_id.setter
+    def cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_resource_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="defaultPrincipalsModificationKind")
+    def default_principals_modification_kind(self) -> pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]:
+        """
+        The default principals modification kind
+        """
+        return pulumi.get(self, "default_principals_modification_kind")
+
+    @default_principals_modification_kind.setter
+    def default_principals_modification_kind(self, value: pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]):
+        pulumi.set(self, "default_principals_modification_kind", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group containing the Kusto cluster.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="attachedDatabaseConfigurationName")
+    def attached_database_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the attached database configuration.
+        """
+        return pulumi.get(self, "attached_database_configuration_name")
+
+    @attached_database_configuration_name.setter
+    def attached_database_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attached_database_configuration_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +154,40 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AttachedDatabaseConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Class representing an attached database configuration.
+
+        :param str resource_name: The name of the resource.
+        :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AttachedDatabaseConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

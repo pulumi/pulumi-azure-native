@@ -5,16 +5,243 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PublicIPAddress']
+__all__ = ['PublicIPAddressArgs', 'PublicIPAddress']
+
+@pulumi.input_type
+class PublicIPAddressArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 dns_settings: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 ip_configuration: Optional[pulumi.Input['IPConfigurationArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+                 public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
+                 public_ip_address_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a PublicIPAddress resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['PublicIPAddressDnsSettingsArgs'] dns_settings: Gets or sets FQDN of the DNS record associated with the public IP address
+        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
+        :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[int] idle_timeout_in_minutes: Gets or sets the idle timeout of the public IP address
+        :param pulumi.Input['IPConfigurationArgs'] ip_configuration: IPConfiguration
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: Gets or sets PublicIP address version (IPv4/IPv6)
+        :param pulumi.Input[Union[str, 'IPAllocationMethod']] public_ip_allocation_method: Gets or sets PublicIP allocation method (Static/Dynamic)
+        :param pulumi.Input[str] public_ip_address_name: The name of the publicIpAddress.
+        :param pulumi.Input[str] resource_guid: Gets or sets resource GUID property of the PublicIP resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dns_settings is not None:
+            pulumi.set(__self__, "dns_settings", dns_settings)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_configuration is not None:
+            pulumi.set(__self__, "ip_configuration", ip_configuration)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+        if public_ip_allocation_method is not None:
+            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+        if public_ip_address_name is not None:
+            pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dnsSettings")
+    def dns_settings(self) -> Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']]:
+        """
+        Gets or sets FQDN of the DNS record associated with the public IP address
+        """
+        return pulumi.get(self, "dns_settings")
+
+    @dns_settings.setter
+    def dns_settings(self, value: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']]):
+        pulumi.set(self, "dns_settings", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the idle timeout of the public IP address
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> Optional[pulumi.Input['IPConfigurationArgs']]:
+        """
+        IPConfiguration
+        """
+        return pulumi.get(self, "ip_configuration")
+
+    @ip_configuration.setter
+    def ip_configuration(self, value: Optional[pulumi.Input['IPConfigurationArgs']]):
+        pulumi.set(self, "ip_configuration", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'IPVersion']]]:
+        """
+        Gets or sets PublicIP address version (IPv4/IPv6)
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'IPVersion']]]):
+        pulumi.set(self, "public_ip_address_version", value)
+
+    @property
+    @pulumi.getter(name="publicIPAllocationMethod")
+    def public_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]]:
+        """
+        Gets or sets PublicIP allocation method (Static/Dynamic)
+        """
+        return pulumi.get(self, "public_ip_allocation_method")
+
+    @public_ip_allocation_method.setter
+    def public_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]]):
+        pulumi.set(self, "public_ip_allocation_method", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddressName")
+    def public_ip_address_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the publicIpAddress.
+        """
+        return pulumi.get(self, "public_ip_address_name")
+
+    @public_ip_address_name.setter
+    def public_ip_address_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets resource GUID property of the PublicIP resource
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @resource_guid.setter
+    def resource_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guid", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class PublicIPAddress(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +281,47 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[str] resource_guid: Gets or sets resource GUID property of the PublicIP resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PublicIPAddressArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        PublicIPAddress resource
+
+        :param str resource_name: The name of the resource.
+        :param PublicIPAddressArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PublicIPAddressArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['IPConfigurationArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+                 public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
+                 public_ip_address_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualHub']
+__all__ = ['VirtualHubArgs', 'VirtualHub']
+
+@pulumi.input_type
+class VirtualHubArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 hub_virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        The set of arguments for constructing a VirtualHub resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]] hub_virtual_network_connections: list of all vnet connections with this VirtualHub.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
+        :param pulumi.Input['SubResourceArgs'] virtual_wan: The VirtualWAN to which the VirtualHub belongs
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if hub_virtual_network_connections is not None:
+            pulumi.set(__self__, "hub_virtual_network_connections", hub_virtual_network_connections)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_hub_name is not None:
+            pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        if virtual_wan is not None:
+            pulumi.set(__self__, "virtual_wan", virtual_wan)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the VirtualHub.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address-prefix for this VirtualHub.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="hubVirtualNetworkConnections")
+    def hub_virtual_network_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]]:
+        """
+        list of all vnet connections with this VirtualHub.
+        """
+        return pulumi.get(self, "hub_virtual_network_connections")
+
+    @hub_virtual_network_connections.setter
+    def hub_virtual_network_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]]):
+        pulumi.set(self, "hub_virtual_network_connections", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualHubName")
+    def virtual_hub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VirtualHub.
+        """
+        return pulumi.get(self, "virtual_hub_name")
+
+    @virtual_hub_name.setter
+    def virtual_hub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_hub_name", value)
+
+    @property
+    @pulumi.getter(name="virtualWan")
+    def virtual_wan(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The VirtualWAN to which the VirtualHub belongs
+        """
+        return pulumi.get(self, "virtual_wan")
+
+    @virtual_wan.setter
+    def virtual_wan(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_wan", value)
 
 
 class VirtualHub(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +177,41 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualHubArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        VirtualHub Resource.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualHubArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 hub_virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

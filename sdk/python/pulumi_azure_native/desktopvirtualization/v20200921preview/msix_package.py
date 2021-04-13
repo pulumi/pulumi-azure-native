@@ -5,15 +5,245 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MSIXPackage']
+__all__ = ['MSIXPackageArgs', 'MSIXPackage']
+
+@pulumi.input_type
+class MSIXPackageArgs:
+    def __init__(__self__, *,
+                 host_pool_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 image_path: Optional[pulumi.Input[str]] = None,
+                 is_active: Optional[pulumi.Input[bool]] = None,
+                 is_regular_registration: Optional[pulumi.Input[bool]] = None,
+                 last_updated: Optional[pulumi.Input[str]] = None,
+                 msix_package_full_name: Optional[pulumi.Input[str]] = None,
+                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
+                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
+                 package_family_name: Optional[pulumi.Input[str]] = None,
+                 package_name: Optional[pulumi.Input[str]] = None,
+                 package_relative_path: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a MSIXPackage resource.
+        :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] display_name: User friendly Name to be displayed in the portal. 
+        :param pulumi.Input[str] image_path: VHD/CIM image path on Network Share.
+        :param pulumi.Input[bool] is_active: Make this version of the package the active one across the hostpool. 
+        :param pulumi.Input[bool] is_regular_registration: Specifies how to register Package in feed.
+        :param pulumi.Input[str] last_updated: Date Package was last updated, found in the appxmanifest.xml. 
+        :param pulumi.Input[str] msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications. 
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies. 
+        :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
+        :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
+        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        """
+        pulumi.set(__self__, "host_pool_name", host_pool_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if image_path is not None:
+            pulumi.set(__self__, "image_path", image_path)
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+        if is_regular_registration is not None:
+            pulumi.set(__self__, "is_regular_registration", is_regular_registration)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if msix_package_full_name is not None:
+            pulumi.set(__self__, "msix_package_full_name", msix_package_full_name)
+        if package_applications is not None:
+            pulumi.set(__self__, "package_applications", package_applications)
+        if package_dependencies is not None:
+            pulumi.set(__self__, "package_dependencies", package_dependencies)
+        if package_family_name is not None:
+            pulumi.set(__self__, "package_family_name", package_family_name)
+        if package_name is not None:
+            pulumi.set(__self__, "package_name", package_name)
+        if package_relative_path is not None:
+            pulumi.set(__self__, "package_relative_path", package_relative_path)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="hostPoolName")
+    def host_pool_name(self) -> pulumi.Input[str]:
+        """
+        The name of the host pool within the specified resource group
+        """
+        return pulumi.get(self, "host_pool_name")
+
+    @host_pool_name.setter
+    def host_pool_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_pool_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User friendly Name to be displayed in the portal. 
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="imagePath")
+    def image_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        VHD/CIM image path on Network Share.
+        """
+        return pulumi.get(self, "image_path")
+
+    @image_path.setter
+    def image_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_path", value)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Make this version of the package the active one across the hostpool. 
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active", value)
+
+    @property
+    @pulumi.getter(name="isRegularRegistration")
+    def is_regular_registration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies how to register Package in feed.
+        """
+        return pulumi.get(self, "is_regular_registration")
+
+    @is_regular_registration.setter
+    def is_regular_registration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_regular_registration", value)
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date Package was last updated, found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated", value)
+
+    @property
+    @pulumi.getter(name="msixPackageFullName")
+    def msix_package_full_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version specific package full name of the MSIX package within specified hostpool
+        """
+        return pulumi.get(self, "msix_package_full_name")
+
+    @msix_package_full_name.setter
+    def msix_package_full_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msix_package_full_name", value)
+
+    @property
+    @pulumi.getter(name="packageApplications")
+    def package_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]:
+        """
+        List of package applications. 
+        """
+        return pulumi.get(self, "package_applications")
+
+    @package_applications.setter
+    def package_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]):
+        pulumi.set(self, "package_applications", value)
+
+    @property
+    @pulumi.getter(name="packageDependencies")
+    def package_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]:
+        """
+        List of package dependencies. 
+        """
+        return pulumi.get(self, "package_dependencies")
+
+    @package_dependencies.setter
+    def package_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]):
+        pulumi.set(self, "package_dependencies", value)
+
+    @property
+    @pulumi.getter(name="packageFamilyName")
+    def package_family_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        """
+        return pulumi.get(self, "package_family_name")
+
+    @package_family_name.setter
+    def package_family_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_family_name", value)
+
+    @property
+    @pulumi.getter(name="packageName")
+    def package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Name from appxmanifest.xml. 
+        """
+        return pulumi.get(self, "package_name")
+
+    @package_name.setter
+    def package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_name", value)
+
+    @property
+    @pulumi.getter(name="packageRelativePath")
+    def package_relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relative Path to the package inside the image. 
+        """
+        return pulumi.get(self, "package_relative_path")
+
+    @package_relative_path.setter
+    def package_relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_relative_path", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Version found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 class MSIXPackage(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +284,47 @@ class MSIXPackage(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MSIXPackageArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Schema for MSIX Package properties.
+
+        :param str resource_name: The name of the resource.
+        :param MSIXPackageArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MSIXPackageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 host_pool_name: Optional[pulumi.Input[str]] = None,
+                 image_path: Optional[pulumi.Input[str]] = None,
+                 is_active: Optional[pulumi.Input[bool]] = None,
+                 is_regular_registration: Optional[pulumi.Input[bool]] = None,
+                 last_updated: Optional[pulumi.Input[str]] = None,
+                 msix_package_full_name: Optional[pulumi.Input[str]] = None,
+                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageApplicationsArgs']]]]] = None,
+                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageDependenciesArgs']]]]] = None,
+                 package_family_name: Optional[pulumi.Input[str]] = None,
+                 package_name: Optional[pulumi.Input[str]] = None,
+                 package_relative_path: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

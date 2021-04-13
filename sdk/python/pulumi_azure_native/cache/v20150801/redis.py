@@ -5,16 +5,230 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Redis']
+__all__ = ['RedisArgs', 'Redis']
+
+@pulumi.input_type
+class RedisArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
+                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
+                 static_ip: Optional[pulumi.Input[str]] = None,
+                 subnet: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Redis resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['SkuArgs'] sku: What SKU of Redis cache to deploy.
+        :param pulumi.Input[bool] enable_non_ssl_port: If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[str] redis_version: RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param pulumi.Input[str] static_ip: Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param pulumi.Input[str] subnet: Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: tenantSettings
+        :param pulumi.Input[str] virtual_network: The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if enable_non_ssl_port is not None:
+            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if redis_configuration is not None:
+            pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if redis_version is not None:
+            pulumi.set(__self__, "redis_version", redis_version)
+        if shard_count is not None:
+            pulumi.set(__self__, "shard_count", shard_count)
+        if static_ip is not None:
+            pulumi.set(__self__, "static_ip", static_ip)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tenant_settings is not None:
+            pulumi.set(__self__, "tenant_settings", tenant_settings)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        What SKU of Redis cache to deploy.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="enableNonSslPort")
+    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+        """
+        return pulumi.get(self, "enable_non_ssl_port")
+
+    @enable_non_ssl_port.setter
+    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_non_ssl_port", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Redis cache.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="redisConfiguration")
+    def redis_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        return pulumi.get(self, "redis_configuration")
+
+    @redis_configuration.setter
+    def redis_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "redis_configuration", value)
+
+    @property
+    @pulumi.getter(name="redisVersion")
+    def redis_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+        """
+        return pulumi.get(self, "redis_version")
+
+    @redis_version.setter
+    def redis_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redis_version", value)
+
+    @property
+    @pulumi.getter(name="shardCount")
+    def shard_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of shards to be created on a Premium Cluster Cache.
+        """
+        return pulumi.get(self, "shard_count")
+
+    @shard_count.setter
+    def shard_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "shard_count", value)
+
+    @property
+    @pulumi.getter(name="staticIP")
+    def static_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        """
+        return pulumi.get(self, "static_ip")
+
+    @static_ip.setter
+    def static_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "static_ip", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        tenantSettings
+        """
+        return pulumi.get(self, "tenant_settings")
+
+    @tenant_settings.setter
+    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tenant_settings", value)
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional[pulumi.Input[str]]:
+        """
+        The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network", value)
 
 
 class Redis(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +267,46 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: tenantSettings
         :param pulumi.Input[str] virtual_network: The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RedisArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A Redis item in CreateOrUpdate Operation response.
+
+        :param str resource_name: The name of the resource.
+        :param RedisArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RedisArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 static_ip: Optional[pulumi.Input[str]] = None,
+                 subnet: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

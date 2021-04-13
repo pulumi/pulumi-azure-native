@@ -5,14 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['PolicyDefinition']
+__all__ = ['PolicyDefinitionArgs', 'PolicyDefinition']
+
+@pulumi.input_type
+class PolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_definition_name: Optional[pulumi.Input[str]] = None,
+                 policy_rule: Optional[Any] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None):
+        """
+        The set of arguments for constructing a PolicyDefinition resource.
+        :param pulumi.Input[str] description: The policy definition description.
+        :param pulumi.Input[str] display_name: The display name of the policy definition.
+        :param pulumi.Input[str] name: The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+        :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
+        :param Any policy_rule: The policy rule.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_definition_name is not None:
+            pulumi.set(__self__, "policy_definition_name", policy_definition_name)
+        if policy_rule is not None:
+            pulumi.set(__self__, "policy_rule", policy_rule)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the policy definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionName")
+    def policy_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy definition to create.
+        """
+        return pulumi.get(self, "policy_definition_name")
+
+    @policy_definition_name.setter
+    def policy_definition_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_name", value)
+
+    @property
+    @pulumi.getter(name="policyRule")
+    def policy_rule(self) -> Optional[Any]:
+        """
+        The policy rule.
+        """
+        return pulumi.get(self, "policy_rule")
+
+    @policy_rule.setter
+    def policy_rule(self, value: Optional[Any]):
+        pulumi.set(self, "policy_rule", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input[Union[str, 'PolicyType']]]:
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input[Union[str, 'PolicyType']]]):
+        pulumi.set(self, "policy_type", value)
 
 
 class PolicyDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +141,39 @@ class PolicyDefinition(pulumi.CustomResource):
         :param Any policy_rule: The policy rule.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[PolicyDefinitionArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The policy definition.
+
+        :param str resource_name: The name of the resource.
+        :param PolicyDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_definition_name: Optional[pulumi.Input[str]] = None,
+                 policy_rule: Optional[Any] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

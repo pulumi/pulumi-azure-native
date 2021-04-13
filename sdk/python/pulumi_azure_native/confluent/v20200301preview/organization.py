@@ -5,16 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Organization']
+__all__ = ['OrganizationArgs', 'Organization']
+
+@pulumi.input_type
+class OrganizationArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 offer_detail: Optional[pulumi.Input['OrganizationResourcePropertiesOfferDetailArgs']] = None,
+                 organization_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_detail: Optional[pulumi.Input['OrganizationResourcePropertiesUserDetailArgs']] = None):
+        """
+        The set of arguments for constructing a Organization resource.
+        :param pulumi.Input[str] resource_group_name: Resource group name
+        :param pulumi.Input[str] location: Location of Organization resource
+        :param pulumi.Input['OrganizationResourcePropertiesOfferDetailArgs'] offer_detail: Confluent offer detail
+        :param pulumi.Input[str] organization_name: Organization resource name
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
+        :param pulumi.Input['OrganizationResourcePropertiesUserDetailArgs'] user_detail: Subscriber detail
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if offer_detail is not None:
+            pulumi.set(__self__, "offer_detail", offer_detail)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_detail is not None:
+            pulumi.set(__self__, "user_detail", user_detail)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of Organization resource
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="offerDetail")
+    def offer_detail(self) -> Optional[pulumi.Input['OrganizationResourcePropertiesOfferDetailArgs']]:
+        """
+        Confluent offer detail
+        """
+        return pulumi.get(self, "offer_detail")
+
+    @offer_detail.setter
+    def offer_detail(self, value: Optional[pulumi.Input['OrganizationResourcePropertiesOfferDetailArgs']]):
+        pulumi.set(self, "offer_detail", value)
+
+    @property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Organization resource name
+        """
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Organization resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userDetail")
+    def user_detail(self) -> Optional[pulumi.Input['OrganizationResourcePropertiesUserDetailArgs']]:
+        """
+        Subscriber detail
+        """
+        return pulumi.get(self, "user_detail")
+
+    @user_detail.setter
+    def user_detail(self, value: Optional[pulumi.Input['OrganizationResourcePropertiesUserDetailArgs']]):
+        pulumi.set(self, "user_detail", value)
 
 
 class Organization(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +142,39 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
         :param pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']] user_detail: Subscriber detail
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrganizationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Organization resource.
+
+        :param str resource_name: The name of the resource.
+        :param OrganizationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 offer_detail: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesOfferDetailArgs']]] = None,
+                 organization_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_detail: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

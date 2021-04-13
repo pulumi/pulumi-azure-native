@@ -5,15 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerTrustGroup']
+__all__ = ['ServerTrustGroupArgs', 'ServerTrustGroup']
+
+@pulumi.input_type
+class ServerTrustGroupArgs:
+    def __init__(__self__, *,
+                 group_members: pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]],
+                 location_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 trust_scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 server_trust_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServerTrustGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]] group_members: Group members information for the server trust group.
+        :param pulumi.Input[str] location_name: The name of the region where the resource is located.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
+        :param pulumi.Input[str] server_trust_group_name: The name of the server trust group.
+        """
+        pulumi.set(__self__, "group_members", group_members)
+        pulumi.set(__self__, "location_name", location_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "trust_scopes", trust_scopes)
+        if server_trust_group_name is not None:
+            pulumi.set(__self__, "server_trust_group_name", server_trust_group_name)
+
+    @property
+    @pulumi.getter(name="groupMembers")
+    def group_members(self) -> pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]]:
+        """
+        Group members information for the server trust group.
+        """
+        return pulumi.get(self, "group_members")
+
+    @group_members.setter
+    def group_members(self, value: pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]]):
+        pulumi.set(self, "group_members", value)
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> pulumi.Input[str]:
+        """
+        The name of the region where the resource is located.
+        """
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="trustScopes")
+    def trust_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trust scope of the server trust group.
+        """
+        return pulumi.get(self, "trust_scopes")
+
+    @trust_scopes.setter
+    def trust_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "trust_scopes", value)
+
+    @property
+    @pulumi.getter(name="serverTrustGroupName")
+    def server_trust_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the server trust group.
+        """
+        return pulumi.get(self, "server_trust_group_name")
+
+    @server_trust_group_name.setter
+    def server_trust_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_trust_group_name", value)
 
 
 class ServerTrustGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +121,39 @@ class ServerTrustGroup(pulumi.CustomResource):
         :param pulumi.Input[str] server_trust_group_name: The name of the server trust group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerTrustGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A server trust group.
+        API Version: 2020-11-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param ServerTrustGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerTrustGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerInfoArgs']]]]] = None,
+                 location_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_trust_group_name: Optional[pulumi.Input[str]] = None,
+                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,14 +5,128 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['ServerAzureADAdministrator']
+__all__ = ['ServerAzureADAdministratorArgs', 'ServerAzureADAdministrator']
+
+@pulumi.input_type
+class ServerAzureADAdministratorArgs:
+    def __init__(__self__, *,
+                 administrator_type: pulumi.Input[Union[str, 'AdministratorType']],
+                 login: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 sid: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 administrator_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServerAzureADAdministrator resource.
+        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: The type of administrator.
+        :param pulumi.Input[str] login: The server administrator login value.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
+        :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
+        :param pulumi.Input[str] administrator_name: Name of the server administrator resource.
+        """
+        pulumi.set(__self__, "administrator_type", administrator_type)
+        pulumi.set(__self__, "login", login)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "sid", sid)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if administrator_name is not None:
+            pulumi.set(__self__, "administrator_name", administrator_name)
+
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> pulumi.Input[Union[str, 'AdministratorType']]:
+        """
+        The type of administrator.
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @administrator_type.setter
+    def administrator_type(self, value: pulumi.Input[Union[str, 'AdministratorType']]):
+        pulumi.set(self, "administrator_type", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input[str]:
+        """
+        The server administrator login value.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> pulumi.Input[str]:
+        """
+        The server administrator Sid (Secure ID).
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sid", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        The server Active Directory Administrator tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="administratorName")
+    def administrator_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the server administrator resource.
+        """
+        return pulumi.get(self, "administrator_name")
+
+    @administrator_name.setter
+    def administrator_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_name", value)
 
 
 class ServerAzureADAdministrator(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +153,40 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
         :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerAzureADAdministratorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An server Active Directory Administrator.
+
+        :param str resource_name: The name of the resource.
+        :param ServerAzureADAdministratorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerAzureADAdministratorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_name: Optional[pulumi.Input[str]] = None,
+                 administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
+                 login: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

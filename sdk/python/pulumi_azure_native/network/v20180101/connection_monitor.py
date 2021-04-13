@@ -5,15 +5,167 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectionMonitor']
+__all__ = ['ConnectionMonitorArgs', 'ConnectionMonitor']
+
+@pulumi.input_type
+class ConnectionMonitorArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['ConnectionMonitorDestinationArgs'],
+                 network_watcher_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 source: pulumi.Input['ConnectionMonitorSourceArgs'],
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 connection_monitor_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ConnectionMonitor resource.
+        :param pulumi.Input['ConnectionMonitorDestinationArgs'] destination: Describes the destination of connection monitor.
+        :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
+        :param pulumi.Input['ConnectionMonitorSourceArgs'] source: Describes the source of connection monitor.
+        :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
+        :param pulumi.Input[str] connection_monitor_name: The name of the connection monitor.
+        :param pulumi.Input[str] location: Connection monitor location.
+        :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source", source)
+        if auto_start is None:
+            auto_start = True
+        if auto_start is not None:
+            pulumi.set(__self__, "auto_start", auto_start)
+        if connection_monitor_name is not None:
+            pulumi.set(__self__, "connection_monitor_name", connection_monitor_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if monitoring_interval_in_seconds is None:
+            monitoring_interval_in_seconds = 60
+        if monitoring_interval_in_seconds is not None:
+            pulumi.set(__self__, "monitoring_interval_in_seconds", monitoring_interval_in_seconds)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['ConnectionMonitorDestinationArgs']:
+        """
+        Describes the destination of connection monitor.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['ConnectionMonitorDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="networkWatcherName")
+    def network_watcher_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Network Watcher resource.
+        """
+        return pulumi.get(self, "network_watcher_name")
+
+    @network_watcher_name.setter
+    def network_watcher_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_watcher_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group containing Network Watcher.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['ConnectionMonitorSourceArgs']:
+        """
+        Describes the source of connection monitor.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['ConnectionMonitorSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="autoStart")
+    def auto_start(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the connection monitor will start automatically once created.
+        """
+        return pulumi.get(self, "auto_start")
+
+    @auto_start.setter
+    def auto_start(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_start", value)
+
+    @property
+    @pulumi.getter(name="connectionMonitorName")
+    def connection_monitor_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection monitor.
+        """
+        return pulumi.get(self, "connection_monitor_name")
+
+    @connection_monitor_name.setter
+    def connection_monitor_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_monitor_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connection monitor location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="monitoringIntervalInSeconds")
+    def monitoring_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Monitoring interval in seconds.
+        """
+        return pulumi.get(self, "monitoring_interval_in_seconds")
+
+    @monitoring_interval_in_seconds.setter
+    def monitoring_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Connection monitor tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ConnectionMonitor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +196,42 @@ class ConnectionMonitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']] source: Describes the source of connection monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectionMonitorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Information about the connection monitor.
+
+        :param str resource_name: The name of the resource.
+        :param ConnectionMonitorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionMonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 connection_monitor_name: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,213 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['OrchestratorInstanceServiceDetails']
+__all__ = ['OrchestratorInstanceServiceDetailsArgs', 'OrchestratorInstanceServiceDetails']
+
+@pulumi.input_type
+class OrchestratorInstanceServiceDetailsArgs:
+    def __init__(__self__, *,
+                 controller_details: pulumi.Input['ControllerDetailsArgs'],
+                 kind: pulumi.Input[Union[str, 'OrchestratorKind']],
+                 resource_group_name: pulumi.Input[str],
+                 api_server_endpoint: Optional[pulumi.Input[str]] = None,
+                 cluster_root_ca: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['OrchestratorIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 orchestrator_app_id: Optional[pulumi.Input[str]] = None,
+                 orchestrator_tenant_id: Optional[pulumi.Input[str]] = None,
+                 private_link_resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a OrchestratorInstanceServiceDetails resource.
+        :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
+        :param pulumi.Input[Union[str, 'OrchestratorKind']] kind: The kind of workbook. Choices are user and shared.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] api_server_endpoint: K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
+        :param pulumi.Input['OrchestratorIdentityArgs'] identity: The identity of the orchestrator
+        :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[str] orchestrator_app_id: AAD ID used with apiserver
+        :param pulumi.Input[str] orchestrator_tenant_id: TenantID of server App ID
+        :param pulumi.Input[str] private_link_resource_id: private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        :param pulumi.Input[str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        """
+        pulumi.set(__self__, "controller_details", controller_details)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if api_server_endpoint is not None:
+            pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
+        if cluster_root_ca is not None:
+            pulumi.set(__self__, "cluster_root_ca", cluster_root_ca)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if orchestrator_app_id is not None:
+            pulumi.set(__self__, "orchestrator_app_id", orchestrator_app_id)
+        if orchestrator_tenant_id is not None:
+            pulumi.set(__self__, "orchestrator_tenant_id", orchestrator_tenant_id)
+        if private_link_resource_id is not None:
+            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="controllerDetails")
+    def controller_details(self) -> pulumi.Input['ControllerDetailsArgs']:
+        """
+        Properties of the controller.
+        """
+        return pulumi.get(self, "controller_details")
+
+    @controller_details.setter
+    def controller_details(self, value: pulumi.Input['ControllerDetailsArgs']):
+        pulumi.set(self, "controller_details", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'OrchestratorKind']]:
+        """
+        The kind of workbook. Choices are user and shared.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'OrchestratorKind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="apiServerEndpoint")
+    def api_server_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        """
+        return pulumi.get(self, "api_server_endpoint")
+
+    @api_server_endpoint.setter
+    def api_server_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_server_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clusterRootCA")
+    def cluster_root_ca(self) -> Optional[pulumi.Input[str]]:
+        """
+        RootCA certificate of kubernetes cluster base64 encoded
+        """
+        return pulumi.get(self, "cluster_root_ca")
+
+    @cluster_root_ca.setter
+    def cluster_root_ca(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_root_ca", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['OrchestratorIdentityArgs']]:
+        """
+        The identity of the orchestrator
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['OrchestratorIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="orchestratorAppId")
+    def orchestrator_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AAD ID used with apiserver
+        """
+        return pulumi.get(self, "orchestrator_app_id")
+
+    @orchestrator_app_id.setter
+    def orchestrator_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "orchestrator_app_id", value)
+
+    @property
+    @pulumi.getter(name="orchestratorTenantId")
+    def orchestrator_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        TenantID of server App ID
+        """
+        return pulumi.get(self, "orchestrator_tenant_id")
+
+    @orchestrator_tenant_id.setter
+    def orchestrator_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "orchestrator_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @private_link_resource_id.setter
+    def private_link_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +249,46 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrchestratorInstanceServiceDetailsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents an instance of a orchestrator.
+        API Version: 2021-03-15.
+
+        :param str resource_name: The name of the resource.
+        :param OrchestratorInstanceServiceDetailsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrchestratorInstanceServiceDetailsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_server_endpoint: Optional[pulumi.Input[str]] = None,
+                 cluster_root_ca: Optional[pulumi.Input[str]] = None,
+                 controller_details: Optional[pulumi.Input[pulumi.InputType['ControllerDetailsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'OrchestratorKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 orchestrator_app_id: Optional[pulumi.Input[str]] = None,
+                 orchestrator_tenant_id: Optional[pulumi.Input[str]] = None,
+                 private_link_resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

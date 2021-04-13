@@ -5,16 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Assessment']
+__all__ = ['AssessmentArgs', 'Assessment']
+
+@pulumi.input_type
+class AssessmentArgs:
+    def __init__(__self__, *,
+                 resource_details: pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']],
+                 resource_id: pulumi.Input[str],
+                 status: pulumi.Input['AssessmentStatusArgs'],
+                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 assessment_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']] = None,
+                 partners_data: Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']] = None):
+        """
+        The set of arguments for constructing a Assessment resource.
+        :param pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']] resource_details: Details of the resource that was assessed
+        :param pulumi.Input[str] resource_id: The identifier of the resource.
+        :param pulumi.Input['AssessmentStatusArgs'] status: The result of the assessment
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: Additional data regarding the assessment
+        :param pulumi.Input[str] assessment_name: The Assessment Key - Unique key for the assessment type
+        :param pulumi.Input['SecurityAssessmentMetadataPropertiesArgs'] metadata: Describes properties of an assessment metadata.
+        :param pulumi.Input['SecurityAssessmentPartnerDataArgs'] partners_data: Data regarding 3rd party partner integration
+        """
+        pulumi.set(__self__, "resource_details", resource_details)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "status", status)
+        if additional_data is not None:
+            pulumi.set(__self__, "additional_data", additional_data)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if partners_data is not None:
+            pulumi.set(__self__, "partners_data", partners_data)
+
+    @property
+    @pulumi.getter(name="resourceDetails")
+    def resource_details(self) -> pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']]:
+        """
+        Details of the resource that was assessed
+        """
+        return pulumi.get(self, "resource_details")
+
+    @resource_details.setter
+    def resource_details(self, value: pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']]):
+        pulumi.set(self, "resource_details", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['AssessmentStatusArgs']:
+        """
+        The result of the assessment
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['AssessmentStatusArgs']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="additionalData")
+    def additional_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional data regarding the assessment
+        """
+        return pulumi.get(self, "additional_data")
+
+    @additional_data.setter
+    def additional_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_data", value)
+
+    @property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Assessment Key - Unique key for the assessment type
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assessment_name", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']]:
+        """
+        Describes properties of an assessment metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="partnersData")
+    def partners_data(self) -> Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']]:
+        """
+        Data regarding 3rd party partner integration
+        """
+        return pulumi.get(self, "partners_data")
+
+    @partners_data.setter
+    def partners_data(self, value: Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']]):
+        pulumi.set(self, "partners_data", value)
 
 
 class Assessment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +159,41 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The identifier of the resource.
         :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: The result of the assessment
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssessmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Security assessment on a resource
+        API Version: 2020-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param AssessmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 assessment_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesArgs']]] = None,
+                 partners_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentPartnerDataArgs']]] = None,
+                 resource_details: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs'], pulumi.InputType['OnPremiseSqlResourceDetailsArgs']]]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

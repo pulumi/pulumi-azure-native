@@ -5,16 +5,199 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ScalingPlan']
+__all__ = ['ScalingPlanArgs', 'ScalingPlan']
+
+@pulumi.input_type
+class ScalingPlanArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 exclusion_tag: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]] = None,
+                 host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 scaling_plan_name: Optional[pulumi.Input[str]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ScalingPlan resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] description: Description of scaling plan.
+        :param pulumi.Input[str] exclusion_tag: Exclusion tag for scaling plan.
+        :param pulumi.Input[str] friendly_name: User friendly name of scaling plan.
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]] host_pool_references: List of ScalingHostPoolReference definitions.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for scaling plan.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]] schedules: List of ScalingSchedule definitions.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] time_zone: Timezone of the scaling plan.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if exclusion_tag is not None:
+            pulumi.set(__self__, "exclusion_tag", exclusion_tag)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if host_pool_references is not None:
+            pulumi.set(__self__, "host_pool_references", host_pool_references)
+        if host_pool_type is not None:
+            pulumi.set(__self__, "host_pool_type", host_pool_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if scaling_plan_name is not None:
+            pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of scaling plan.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="exclusionTag")
+    def exclusion_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Exclusion tag for scaling plan.
+        """
+        return pulumi.get(self, "exclusion_tag")
+
+    @exclusion_tag.setter
+    def exclusion_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclusion_tag", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User friendly name of scaling plan.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="hostPoolReferences")
+    def host_pool_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]]:
+        """
+        List of ScalingHostPoolReference definitions.
+        """
+        return pulumi.get(self, "host_pool_references")
+
+    @host_pool_references.setter
+    def host_pool_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]]):
+        pulumi.set(self, "host_pool_references", value)
+
+    @property
+    @pulumi.getter(name="hostPoolType")
+    def host_pool_type(self) -> Optional[pulumi.Input[Union[str, 'HostPoolType']]]:
+        """
+        HostPool type for scaling plan.
+        """
+        return pulumi.get(self, "host_pool_type")
+
+    @host_pool_type.setter
+    def host_pool_type(self, value: Optional[pulumi.Input[Union[str, 'HostPoolType']]]):
+        pulumi.set(self, "host_pool_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="scalingPlanName")
+    def scaling_plan_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the scaling plan.
+        """
+        return pulumi.get(self, "scaling_plan_name")
+
+    @scaling_plan_name.setter
+    def scaling_plan_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaling_plan_name", value)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]]:
+        """
+        List of ScalingSchedule definitions.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timezone of the scaling plan.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 class ScalingPlan(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +232,44 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] time_zone: Timezone of the scaling plan.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScalingPlanArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a scaling plan definition.
+
+        :param str resource_name: The name of the resource.
+        :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScalingPlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 exclusion_tag: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingHostPoolReferenceArgs']]]]] = None,
+                 host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scaling_plan_name: Optional[pulumi.Input[str]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingScheduleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

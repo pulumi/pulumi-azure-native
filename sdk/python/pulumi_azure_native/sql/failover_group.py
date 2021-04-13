@@ -5,16 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['FailoverGroup']
+__all__ = ['FailoverGroupArgs', 'FailoverGroup']
+
+@pulumi.input_type
+class FailoverGroupArgs:
+    def __init__(__self__, *,
+                 partner_servers: pulumi.Input[Sequence[pulumi.Input['PartnerInfoArgs']]],
+                 read_write_endpoint: pulumi.Input['FailoverGroupReadWriteEndpointArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 failover_group_name: Optional[pulumi.Input[str]] = None,
+                 read_only_endpoint: Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a FailoverGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PartnerInfoArgs']]] partner_servers: List of partner server information for the failover group.
+        :param pulumi.Input['FailoverGroupReadWriteEndpointArgs'] read_write_endpoint: Read-write endpoint of the failover group instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server containing the failover group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: List of databases in the failover group.
+        :param pulumi.Input[str] failover_group_name: The name of the failover group.
+        :param pulumi.Input['FailoverGroupReadOnlyEndpointArgs'] read_only_endpoint: Read-only endpoint of the failover group instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "partner_servers", partner_servers)
+        pulumi.set(__self__, "read_write_endpoint", read_write_endpoint)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        if databases is not None:
+            pulumi.set(__self__, "databases", databases)
+        if failover_group_name is not None:
+            pulumi.set(__self__, "failover_group_name", failover_group_name)
+        if read_only_endpoint is not None:
+            pulumi.set(__self__, "read_only_endpoint", read_only_endpoint)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="partnerServers")
+    def partner_servers(self) -> pulumi.Input[Sequence[pulumi.Input['PartnerInfoArgs']]]:
+        """
+        List of partner server information for the failover group.
+        """
+        return pulumi.get(self, "partner_servers")
+
+    @partner_servers.setter
+    def partner_servers(self, value: pulumi.Input[Sequence[pulumi.Input['PartnerInfoArgs']]]):
+        pulumi.set(self, "partner_servers", value)
+
+    @property
+    @pulumi.getter(name="readWriteEndpoint")
+    def read_write_endpoint(self) -> pulumi.Input['FailoverGroupReadWriteEndpointArgs']:
+        """
+        Read-write endpoint of the failover group instance.
+        """
+        return pulumi.get(self, "read_write_endpoint")
+
+    @read_write_endpoint.setter
+    def read_write_endpoint(self, value: pulumi.Input['FailoverGroupReadWriteEndpointArgs']):
+        pulumi.set(self, "read_write_endpoint", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server containing the failover group.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of databases in the failover group.
+        """
+        return pulumi.get(self, "databases")
+
+    @databases.setter
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "databases", value)
+
+    @property
+    @pulumi.getter(name="failoverGroupName")
+    def failover_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the failover group.
+        """
+        return pulumi.get(self, "failover_group_name")
+
+    @failover_group_name.setter
+    def failover_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failover_group_name", value)
+
+    @property
+    @pulumi.getter(name="readOnlyEndpoint")
+    def read_only_endpoint(self) -> Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']]:
+        """
+        Read-only endpoint of the failover group instance.
+        """
+        return pulumi.get(self, "read_only_endpoint")
+
+    @read_only_endpoint.setter
+    def read_only_endpoint(self, value: Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']]):
+        pulumi.set(self, "read_only_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class FailoverGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +176,42 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: The name of the server containing the failover group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FailoverGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A failover group.
+        API Version: 2020-11-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param FailoverGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FailoverGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 failover_group_name: Optional[pulumi.Input[str]] = None,
+                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerInfoArgs']]]]] = None,
+                 read_only_endpoint: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadOnlyEndpointArgs']]] = None,
+                 read_write_endpoint: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

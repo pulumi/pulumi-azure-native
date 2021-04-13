@@ -5,13 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VirtualHubBgpConnection']
+__all__ = ['VirtualHubBgpConnectionArgs', 'VirtualHubBgpConnection']
+
+@pulumi.input_type
+class VirtualHubBgpConnectionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 virtual_hub_name: pulumi.Input[str],
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_ip: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualHubBgpConnection resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
+        :param pulumi.Input[str] connection_name: The name of the connection.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: Name of the connection.
+        :param pulumi.Input[float] peer_asn: Peer ASN.
+        :param pulumi.Input[str] peer_ip: Peer IP.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if peer_ip is not None:
+            pulumi.set(__self__, "peer_ip", peer_ip)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the VirtualHub.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="virtualHubName")
+    def virtual_hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VirtualHub.
+        """
+        return pulumi.get(self, "virtual_hub_name")
+
+    @virtual_hub_name.setter
+    def virtual_hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_hub_name", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[pulumi.Input[float]]:
+        """
+        Peer ASN.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="peerIp")
+    def peer_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Peer IP.
+        """
+        return pulumi.get(self, "peer_ip")
+
+    @peer_ip.setter
+    def peer_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peer_ip", value)
 
 
 class VirtualHubBgpConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +157,41 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualHubBgpConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Virtual Appliance Site resource.
+        API Version: 2020-11-01.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualHubBgpConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubBgpConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_ip: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

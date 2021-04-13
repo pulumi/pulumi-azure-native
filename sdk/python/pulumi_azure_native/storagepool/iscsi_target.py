@@ -5,15 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IscsiTarget']
+__all__ = ['IscsiTargetArgs', 'IscsiTarget']
+
+@pulumi.input_type
+class IscsiTargetArgs:
+    def __init__(__self__, *,
+                 disk_pool_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 tpgs: pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]],
+                 iscsi_target_name: Optional[pulumi.Input[str]] = None,
+                 target_iqn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IscsiTarget resource.
+        :param pulumi.Input[str] disk_pool_name: The name of the Disk pool.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
+        :param pulumi.Input[str] iscsi_target_name: The name of the iSCSI target.
+        :param pulumi.Input[str] target_iqn: iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        pulumi.set(__self__, "disk_pool_name", disk_pool_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "tpgs", tpgs)
+        if iscsi_target_name is not None:
+            pulumi.set(__self__, "iscsi_target_name", iscsi_target_name)
+        if target_iqn is not None:
+            pulumi.set(__self__, "target_iqn", target_iqn)
+
+    @property
+    @pulumi.getter(name="diskPoolName")
+    def disk_pool_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Disk pool.
+        """
+        return pulumi.get(self, "disk_pool_name")
+
+    @disk_pool_name.setter
+    def disk_pool_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "disk_pool_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tpgs(self) -> pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]]:
+        """
+        List of iSCSI target portal groups. Can have 1 portal group at most.
+        """
+        return pulumi.get(self, "tpgs")
+
+    @tpgs.setter
+    def tpgs(self, value: pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]]):
+        pulumi.set(self, "tpgs", value)
+
+    @property
+    @pulumi.getter(name="iscsiTargetName")
+    def iscsi_target_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the iSCSI target.
+        """
+        return pulumi.get(self, "iscsi_target_name")
+
+    @iscsi_target_name.setter
+    def iscsi_target_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iscsi_target_name", value)
+
+    @property
+    @pulumi.getter(name="targetIqn")
+    def target_iqn(self) -> Optional[pulumi.Input[str]]:
+        """
+        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        return pulumi.get(self, "target_iqn")
+
+    @target_iqn.setter
+    def target_iqn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_iqn", value)
 
 
 class IscsiTarget(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +122,39 @@ class IscsiTarget(pulumi.CustomResource):
         :param pulumi.Input[str] target_iqn: iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IscsiTargetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Response for iSCSI target requests.
+        API Version: 2020-03-15-preview.
+
+        :param str resource_name: The name of the resource.
+        :param IscsiTargetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IscsiTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disk_pool_name: Optional[pulumi.Input[str]] = None,
+                 iscsi_target_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target_iqn: Optional[pulumi.Input[str]] = None,
+                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

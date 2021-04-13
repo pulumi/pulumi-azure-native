@@ -5,15 +5,294 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['PartnerRegistration']
+__all__ = ['PartnerRegistrationArgs', 'PartnerRegistration']
+
+@pulumi.input_type
+class PartnerRegistrationArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 authorized_azure_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 customer_service_uri: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 logo_uri: Optional[pulumi.Input[str]] = None,
+                 long_description: Optional[pulumi.Input[str]] = None,
+                 partner_customer_service_extension: Optional[pulumi.Input[str]] = None,
+                 partner_customer_service_number: Optional[pulumi.Input[str]] = None,
+                 partner_name: Optional[pulumi.Input[str]] = None,
+                 partner_registration_name: Optional[pulumi.Input[str]] = None,
+                 partner_resource_type_description: Optional[pulumi.Input[str]] = None,
+                 partner_resource_type_display_name: Optional[pulumi.Input[str]] = None,
+                 partner_resource_type_name: Optional[pulumi.Input[str]] = None,
+                 setup_uri: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility_state: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]] = None):
+        """
+        The set of arguments for constructing a PartnerRegistration resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_azure_subscription_ids: List of Azure subscription Ids that are authorized to create a partner namespace
+               associated with this partner registration. This is an optional property. Creating
+               partner namespaces is always permitted under the same Azure subscription as the one used
+               for creating the partner registration.
+        :param pulumi.Input[str] customer_service_uri: The extension of the customer service URI of the publisher.
+        :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[str] logo_uri: URI of the logo.
+        :param pulumi.Input[str] long_description: Long description for the custom scenarios and integration to be displayed in the portal if needed.
+               Length of this description should not exceed 2048 characters.
+        :param pulumi.Input[str] partner_customer_service_extension: The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+        :param pulumi.Input[str] partner_customer_service_number: The customer service number of the publisher. The expected phone format should start with a '+' sign 
+               followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
+               length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
+               +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
+        :param pulumi.Input[str] partner_name: Official name of the partner name. For example: "Contoso".
+        :param pulumi.Input[str] partner_registration_name: Name of the partner registration.
+        :param pulumi.Input[str] partner_resource_type_description: Short description of the partner resource type. The length of this description should not exceed 256 characters.
+        :param pulumi.Input[str] partner_resource_type_display_name: Display name of the partner resource type.
+        :param pulumi.Input[str] partner_resource_type_name: Name of the partner resource type.
+        :param pulumi.Input[str] setup_uri: URI of the partner website that can be used by Azure customers to setup Event Grid
+               integration on an event source.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
+        :param pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']] visibility_state: Visibility state of the partner registration.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorized_azure_subscription_ids is not None:
+            pulumi.set(__self__, "authorized_azure_subscription_ids", authorized_azure_subscription_ids)
+        if customer_service_uri is not None:
+            pulumi.set(__self__, "customer_service_uri", customer_service_uri)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if logo_uri is not None:
+            pulumi.set(__self__, "logo_uri", logo_uri)
+        if long_description is not None:
+            pulumi.set(__self__, "long_description", long_description)
+        if partner_customer_service_extension is not None:
+            pulumi.set(__self__, "partner_customer_service_extension", partner_customer_service_extension)
+        if partner_customer_service_number is not None:
+            pulumi.set(__self__, "partner_customer_service_number", partner_customer_service_number)
+        if partner_name is not None:
+            pulumi.set(__self__, "partner_name", partner_name)
+        if partner_registration_name is not None:
+            pulumi.set(__self__, "partner_registration_name", partner_registration_name)
+        if partner_resource_type_description is not None:
+            pulumi.set(__self__, "partner_resource_type_description", partner_resource_type_description)
+        if partner_resource_type_display_name is not None:
+            pulumi.set(__self__, "partner_resource_type_display_name", partner_resource_type_display_name)
+        if partner_resource_type_name is not None:
+            pulumi.set(__self__, "partner_resource_type_name", partner_resource_type_name)
+        if setup_uri is not None:
+            pulumi.set(__self__, "setup_uri", setup_uri)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if visibility_state is not None:
+            pulumi.set(__self__, "visibility_state", visibility_state)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authorizedAzureSubscriptionIds")
+    def authorized_azure_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Azure subscription Ids that are authorized to create a partner namespace
+        associated with this partner registration. This is an optional property. Creating
+        partner namespaces is always permitted under the same Azure subscription as the one used
+        for creating the partner registration.
+        """
+        return pulumi.get(self, "authorized_azure_subscription_ids")
+
+    @authorized_azure_subscription_ids.setter
+    def authorized_azure_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "authorized_azure_subscription_ids", value)
+
+    @property
+    @pulumi.getter(name="customerServiceUri")
+    def customer_service_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The extension of the customer service URI of the publisher.
+        """
+        return pulumi.get(self, "customer_service_uri")
+
+    @customer_service_uri.setter
+    def customer_service_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_service_uri", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logoUri")
+    def logo_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the logo.
+        """
+        return pulumi.get(self, "logo_uri")
+
+    @logo_uri.setter
+    def logo_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_uri", value)
+
+    @property
+    @pulumi.getter(name="longDescription")
+    def long_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Long description for the custom scenarios and integration to be displayed in the portal if needed.
+        Length of this description should not exceed 2048 characters.
+        """
+        return pulumi.get(self, "long_description")
+
+    @long_description.setter
+    def long_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "long_description", value)
+
+    @property
+    @pulumi.getter(name="partnerCustomerServiceExtension")
+    def partner_customer_service_extension(self) -> Optional[pulumi.Input[str]]:
+        """
+        The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+        """
+        return pulumi.get(self, "partner_customer_service_extension")
+
+    @partner_customer_service_extension.setter
+    def partner_customer_service_extension(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_customer_service_extension", value)
+
+    @property
+    @pulumi.getter(name="partnerCustomerServiceNumber")
+    def partner_customer_service_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer service number of the publisher. The expected phone format should start with a '+' sign 
+        followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
+        length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
+        +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
+        """
+        return pulumi.get(self, "partner_customer_service_number")
+
+    @partner_customer_service_number.setter
+    def partner_customer_service_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_customer_service_number", value)
+
+    @property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Official name of the partner name. For example: "Contoso".
+        """
+        return pulumi.get(self, "partner_name")
+
+    @partner_name.setter
+    def partner_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_name", value)
+
+    @property
+    @pulumi.getter(name="partnerRegistrationName")
+    def partner_registration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the partner registration.
+        """
+        return pulumi.get(self, "partner_registration_name")
+
+    @partner_registration_name.setter
+    def partner_registration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_registration_name", value)
+
+    @property
+    @pulumi.getter(name="partnerResourceTypeDescription")
+    def partner_resource_type_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Short description of the partner resource type. The length of this description should not exceed 256 characters.
+        """
+        return pulumi.get(self, "partner_resource_type_description")
+
+    @partner_resource_type_description.setter
+    def partner_resource_type_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_resource_type_description", value)
+
+    @property
+    @pulumi.getter(name="partnerResourceTypeDisplayName")
+    def partner_resource_type_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the partner resource type.
+        """
+        return pulumi.get(self, "partner_resource_type_display_name")
+
+    @partner_resource_type_display_name.setter
+    def partner_resource_type_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_resource_type_display_name", value)
+
+    @property
+    @pulumi.getter(name="partnerResourceTypeName")
+    def partner_resource_type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the partner resource type.
+        """
+        return pulumi.get(self, "partner_resource_type_name")
+
+    @partner_resource_type_name.setter
+    def partner_resource_type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_resource_type_name", value)
+
+    @property
+    @pulumi.getter(name="setupUri")
+    def setup_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the partner website that can be used by Azure customers to setup Event Grid
+        integration on an event source.
+        """
+        return pulumi.get(self, "setup_uri")
+
+    @setup_uri.setter
+    def setup_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "setup_uri", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="visibilityState")
+    def visibility_state(self) -> Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]]:
+        """
+        Visibility state of the partner registration.
+        """
+        return pulumi.get(self, "visibility_state")
+
+    @visibility_state.setter
+    def visibility_state(self, value: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]]):
+        pulumi.set(self, "visibility_state", value)
 
 
 class PartnerRegistration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +345,49 @@ class PartnerRegistration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']] visibility_state: Visibility state of the partner registration.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PartnerRegistrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Information about a partner registration.
+
+        :param str resource_name: The name of the resource.
+        :param PartnerRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PartnerRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorized_azure_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 customer_service_uri: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 logo_uri: Optional[pulumi.Input[str]] = None,
+                 long_description: Optional[pulumi.Input[str]] = None,
+                 partner_customer_service_extension: Optional[pulumi.Input[str]] = None,
+                 partner_customer_service_number: Optional[pulumi.Input[str]] = None,
+                 partner_name: Optional[pulumi.Input[str]] = None,
+                 partner_registration_name: Optional[pulumi.Input[str]] = None,
+                 partner_resource_type_description: Optional[pulumi.Input[str]] = None,
+                 partner_resource_type_display_name: Optional[pulumi.Input[str]] = None,
+                 partner_resource_type_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 setup_uri: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility_state: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

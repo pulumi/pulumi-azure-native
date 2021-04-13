@@ -5,15 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['HybridUseBenefit']
+__all__ = ['HybridUseBenefitArgs', 'HybridUseBenefit']
+
+@pulumi.input_type
+class HybridUseBenefitArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
+                 plan_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a HybridUseBenefit resource.
+        :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+        :param pulumi.Input['SkuArgs'] sku: Hybrid use benefit SKU
+        :param pulumi.Input[str] plan_id: This is a unique identifier for a plan. Should be a guid.
+        """
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "sku", sku)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        Hybrid use benefit SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is a unique identifier for a plan. Should be a guid.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
 
 
 class HybridUseBenefit(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +86,36 @@ class HybridUseBenefit(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Hybrid use benefit SKU
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HybridUseBenefitArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Response on GET of a hybrid use benefit
+
+        :param str resource_name: The name of the resource.
+        :param HybridUseBenefitArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HybridUseBenefitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

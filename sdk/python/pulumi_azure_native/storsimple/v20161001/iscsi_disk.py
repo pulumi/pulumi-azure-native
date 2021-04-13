@@ -5,14 +5,189 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['IscsiDisk']
+__all__ = ['IscsiDiskArgs', 'IscsiDisk']
+
+@pulumi.input_type
+class IscsiDiskArgs:
+    def __init__(__self__, *,
+                 access_control_records: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 data_policy: pulumi.Input['DataPolicy'],
+                 device_name: pulumi.Input[str],
+                 disk_status: pulumi.Input['DiskStatus'],
+                 iscsi_server_name: pulumi.Input[str],
+                 manager_name: pulumi.Input[str],
+                 monitoring_status: pulumi.Input['MonitoringStatus'],
+                 provisioned_capacity_in_bytes: pulumi.Input[float],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IscsiDisk resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_records: The access control records.
+        :param pulumi.Input['DataPolicy'] data_policy: The data policy.
+        :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input['DiskStatus'] disk_status: The disk status.
+        :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
+        :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring.
+        :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
+        :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] description: The description.
+        :param pulumi.Input[str] disk_name: The disk name.
+        """
+        pulumi.set(__self__, "access_control_records", access_control_records)
+        pulumi.set(__self__, "data_policy", data_policy)
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "disk_status", disk_status)
+        pulumi.set(__self__, "iscsi_server_name", iscsi_server_name)
+        pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disk_name is not None:
+            pulumi.set(__self__, "disk_name", disk_name)
+
+    @property
+    @pulumi.getter(name="accessControlRecords")
+    def access_control_records(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The access control records.
+        """
+        return pulumi.get(self, "access_control_records")
+
+    @access_control_records.setter
+    def access_control_records(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "access_control_records", value)
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> pulumi.Input['DataPolicy']:
+        """
+        The data policy.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @data_policy.setter
+    def data_policy(self, value: pulumi.Input['DataPolicy']):
+        pulumi.set(self, "data_policy", value)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The device name.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="diskStatus")
+    def disk_status(self) -> pulumi.Input['DiskStatus']:
+        """
+        The disk status.
+        """
+        return pulumi.get(self, "disk_status")
+
+    @disk_status.setter
+    def disk_status(self, value: pulumi.Input['DiskStatus']):
+        pulumi.set(self, "disk_status", value)
+
+    @property
+    @pulumi.getter(name="iscsiServerName")
+    def iscsi_server_name(self) -> pulumi.Input[str]:
+        """
+        The iSCSI server name.
+        """
+        return pulumi.get(self, "iscsi_server_name")
+
+    @iscsi_server_name.setter
+    def iscsi_server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iscsi_server_name", value)
+
+    @property
+    @pulumi.getter(name="managerName")
+    def manager_name(self) -> pulumi.Input[str]:
+        """
+        The manager name
+        """
+        return pulumi.get(self, "manager_name")
+
+    @manager_name.setter
+    def manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+        """
+        The monitoring.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
+        pulumi.set(self, "monitoring_status", value)
+
+    @property
+    @pulumi.getter(name="provisionedCapacityInBytes")
+    def provisioned_capacity_in_bytes(self) -> pulumi.Input[float]:
+        """
+        The provisioned capacity in bytes.
+        """
+        return pulumi.get(self, "provisioned_capacity_in_bytes")
+
+    @provisioned_capacity_in_bytes.setter
+    def provisioned_capacity_in_bytes(self, value: pulumi.Input[float]):
+        pulumi.set(self, "provisioned_capacity_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk name.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @disk_name.setter
+    def disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_name", value)
 
 
 class IscsiDisk(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +222,44 @@ class IscsiDisk(pulumi.CustomResource):
         :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IscsiDiskArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The iSCSI disk.
+
+        :param str resource_name: The name of the resource.
+        :param IscsiDiskArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IscsiDiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_policy: Optional[pulumi.Input['DataPolicy']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
+                 disk_status: Optional[pulumi.Input['DiskStatus']] = None,
+                 iscsi_server_name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
+                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

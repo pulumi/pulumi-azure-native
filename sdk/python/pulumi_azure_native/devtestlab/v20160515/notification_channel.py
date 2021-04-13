@@ -5,16 +5,182 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NotificationChannel']
+__all__ = ['NotificationChannelArgs', 'NotificationChannel']
+
+@pulumi.input_type
+class NotificationChannelArgs:
+    def __init__(__self__, *,
+                 lab_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input['EventArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 web_hook_url: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a NotificationChannel resource.
+        :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] description: Description of notification.
+        :param pulumi.Input[Sequence[pulumi.Input['EventArgs']]] events: The list of event for which this notification is enabled.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] name: The name of the notificationChannel.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param pulumi.Input[str] web_hook_url: The webhook URL to send notifications to.
+        """
+        pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if web_hook_url is not None:
+            pulumi.set(__self__, "web_hook_url", web_hook_url)
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[str]:
+        """
+        The name of the lab.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of notification.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventArgs']]]]:
+        """
+        The list of event for which this notification is enabled.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventArgs']]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the notificationChannel.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @unique_identifier.setter
+    def unique_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unique_identifier", value)
+
+    @property
+    @pulumi.getter(name="webHookUrl")
+    def web_hook_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The webhook URL to send notifications to.
+        """
+        return pulumi.get(self, "web_hook_url")
+
+    @web_hook_url.setter
+    def web_hook_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_hook_url", value)
 
 
 class NotificationChannel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +213,43 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] web_hook_url: The webhook URL to send notifications to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NotificationChannelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A notification.
+
+        :param str resource_name: The name of the resource.
+        :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 web_hook_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

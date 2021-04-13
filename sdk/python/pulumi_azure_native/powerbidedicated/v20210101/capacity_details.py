@@ -5,16 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CapacityDetails']
+__all__ = ['CapacityDetailsArgs', 'CapacityDetails']
+
+@pulumi.input_type
+class CapacityDetailsArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['CapacitySkuArgs'],
+                 administration: Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']] = None,
+                 dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
+                 system_data: Optional[pulumi.Input['SystemDataArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a CapacityDetails resource.
+        :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input['CapacitySkuArgs'] sku: The SKU of the PowerBI Dedicated capacity resource.
+        :param pulumi.Input['DedicatedCapacityAdministratorsArgs'] administration: A collection of Dedicated capacity administrators
+        :param pulumi.Input[str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
+        :param pulumi.Input[Union[str, 'Mode']] mode: The capacity mode.
+        :param pulumi.Input['SystemDataArgs'] system_data: Metadata pertaining to creation and last modification of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if administration is not None:
+            pulumi.set(__self__, "administration", administration)
+        if dedicated_capacity_name is not None:
+            pulumi.set(__self__, "dedicated_capacity_name", dedicated_capacity_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if system_data is not None:
+            pulumi.set(__self__, "system_data", system_data)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['CapacitySkuArgs']:
+        """
+        The SKU of the PowerBI Dedicated capacity resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['CapacitySkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def administration(self) -> Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']]:
+        """
+        A collection of Dedicated capacity administrators
+        """
+        return pulumi.get(self, "administration")
+
+    @administration.setter
+    def administration(self, value: Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']]):
+        pulumi.set(self, "administration", value)
+
+    @property
+    @pulumi.getter(name="dedicatedCapacityName")
+    def dedicated_capacity_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "dedicated_capacity_name")
+
+    @dedicated_capacity_name.setter
+    def dedicated_capacity_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_capacity_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the PowerBI Dedicated resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'Mode']]]:
+        """
+        The capacity mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'Mode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional[pulumi.Input['SystemDataArgs']]:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @system_data.setter
+    def system_data(self, value: Optional[pulumi.Input['SystemDataArgs']]):
+        pulumi.set(self, "system_data", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of additional resource provisioning properties.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class CapacityDetails(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +177,41 @@ class CapacityDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SystemDataArgs']] system_data: Metadata pertaining to creation and last modification of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CapacityDetailsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents an instance of a Dedicated Capacity resource.
+
+        :param str resource_name: The name of the resource.
+        :param CapacityDetailsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CapacityDetailsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administration: Optional[pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']]] = None,
+                 dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CapacitySkuArgs']]] = None,
+                 system_data: Optional[pulumi.Input[pulumi.InputType['SystemDataArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

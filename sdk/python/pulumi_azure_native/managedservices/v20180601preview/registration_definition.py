@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RegistrationDefinition']
+__all__ = ['RegistrationDefinitionArgs', 'RegistrationDefinition']
+
+@pulumi.input_type
+class RegistrationDefinitionArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 properties: Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']] = None,
+                 registration_definition_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RegistrationDefinition resource.
+        :param pulumi.Input[str] scope: Scope of the resource.
+        :param pulumi.Input['PlanArgs'] plan: Plan details for the managed services.
+        :param pulumi.Input['RegistrationDefinitionPropertiesArgs'] properties: Properties of a registration definition.
+        :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if registration_definition_id is not None:
+            pulumi.set(__self__, "registration_definition_id", registration_definition_id)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        Scope of the resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+        """
+        Plan details for the managed services.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']]:
+        """
+        Properties of a registration definition.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="registrationDefinitionId")
+    def registration_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Guid of the registration definition.
+        """
+        return pulumi.get(self, "registration_definition_id")
+
+    @registration_definition_id.setter
+    def registration_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_definition_id", value)
 
 
 class RegistrationDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +105,37 @@ class RegistrationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
         :param pulumi.Input[str] scope: Scope of the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegistrationDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Registration definition.
+
+        :param str resource_name: The name of the resource.
+        :param RegistrationDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegistrationDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']]] = None,
+                 registration_definition_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

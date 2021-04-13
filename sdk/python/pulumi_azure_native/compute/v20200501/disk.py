@@ -5,16 +5,326 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Disk']
+__all__ = ['DiskArgs', 'Disk']
+
+@pulumi.input_type
+class DiskArgs:
+    def __init__(__self__, *,
+                 creation_data: pulumi.Input['CreationDataArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[float]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_only: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+                 encryption_settings_collection: Optional[pulumi.Input['EncryptionSettingsCollectionArgs']] = None,
+                 hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
+                 network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
+                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 sku: Optional[pulumi.Input['DiskSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Disk resource.
+        :param pulumi.Input['CreationDataArgs'] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
+        :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[float] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        :param pulumi.Input['EncryptionArgs'] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        :param pulumi.Input['EncryptionSettingsCollectionArgs'] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
+        :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input['DiskSkuArgs'] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
+        """
+        pulumi.set(__self__, "creation_data", creation_data)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if disk_access_id is not None:
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
+        if disk_iops_read_only is not None:
+            pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_m_bps_read_only is not None:
+            pulumi.set(__self__, "disk_m_bps_read_only", disk_m_bps_read_only)
+        if disk_m_bps_read_write is not None:
+            pulumi.set(__self__, "disk_m_bps_read_write", disk_m_bps_read_write)
+        if disk_name is not None:
+            pulumi.set(__self__, "disk_name", disk_name)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if encryption_settings_collection is not None:
+            pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+        if hyper_v_generation is not None:
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_shares is not None:
+            pulumi.set(__self__, "max_shares", max_shares)
+        if network_access_policy is not None:
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> pulumi.Input['CreationDataArgs']:
+        """
+        Disk source information. CreationData information cannot be changed after the disk has been created.
+        """
+        return pulumi.get(self, "creation_data")
+
+    @creation_data.setter
+    def creation_data(self, value: pulumi.Input['CreationDataArgs']):
+        pulumi.set(self, "creation_data", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM id of the DiskAccess resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @disk_access_id.setter
+    def disk_access_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_access_id", value)
+
+    @property
+    @pulumi.getter(name="diskIOPSReadOnly")
+    def disk_iops_read_only(self) -> Optional[pulumi.Input[float]]:
+        """
+        The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_only")
+
+    @disk_iops_read_only.setter
+    def disk_iops_read_only(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "disk_iops_read_only", value)
+
+    @property
+    @pulumi.getter(name="diskIOPSReadWrite")
+    def disk_iops_read_write(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskMBpsReadOnly")
+    def disk_m_bps_read_only(self) -> Optional[pulumi.Input[float]]:
+        """
+        The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        """
+        return pulumi.get(self, "disk_m_bps_read_only")
+
+    @disk_m_bps_read_only.setter
+    def disk_m_bps_read_only(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "disk_m_bps_read_only", value)
+
+    @property
+    @pulumi.getter(name="diskMBpsReadWrite")
+    def disk_m_bps_read_write(self) -> Optional[pulumi.Input[float]]:
+        """
+        The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        """
+        return pulumi.get(self, "disk_m_bps_read_write")
+
+    @disk_m_bps_read_write.setter
+    def disk_m_bps_read_write(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "disk_m_bps_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @disk_name.setter
+    def disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_name", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @disk_size_gb.setter
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="encryptionSettingsCollection")
+    def encryption_settings_collection(self) -> Optional[pulumi.Input['EncryptionSettingsCollectionArgs']]:
+        """
+        Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        """
+        return pulumi.get(self, "encryption_settings_collection")
+
+    @encryption_settings_collection.setter
+    def encryption_settings_collection(self, value: Optional[pulumi.Input['EncryptionSettingsCollectionArgs']]):
+        pulumi.set(self, "encryption_settings_collection", value)
+
+    @property
+    @pulumi.getter(name="hyperVGeneration")
+    def hyper_v_generation(self) -> Optional[pulumi.Input[Union[str, 'HyperVGeneration']]]:
+        """
+        The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        """
+        return pulumi.get(self, "hyper_v_generation")
+
+    @hyper_v_generation.setter
+    def hyper_v_generation(self, value: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]]):
+        pulumi.set(self, "hyper_v_generation", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxShares")
+    def max_shares(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        """
+        return pulumi.get(self, "max_shares")
+
+    @max_shares.setter
+    def max_shares(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_shares", value)
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]]:
+        """
+        Policy for accessing the disk via network.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @network_access_policy.setter
+    def network_access_policy(self, value: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]]):
+        pulumi.set(self, "network_access_policy", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input['OperatingSystemTypes']]:
+        """
+        The Operating System type.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input['OperatingSystemTypes']]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['DiskSkuArgs']]:
+        """
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['DiskSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Logical zone list for Disk.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 class Disk(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +375,52 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DiskArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Disk resource.
+
+        :param str resource_name: The name of the resource.
+        :param DiskArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[float]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_only: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
+                 hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
+                 network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
+                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

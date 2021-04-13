@@ -5,16 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['FileServer']
+__all__ = ['FileServerArgs', 'FileServer']
+
+@pulumi.input_type
+class FileServerArgs:
+    def __init__(__self__, *,
+                 data_disks: pulumi.Input['DataDisksArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 ssh_configuration: pulumi.Input['SshConfigurationArgs'],
+                 vm_size: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 file_server_name: Optional[pulumi.Input[str]] = None,
+                 subnet: Optional[pulumi.Input['ResourceIdArgs']] = None):
+        """
+        The set of arguments for constructing a FileServer resource.
+        :param pulumi.Input['DataDisksArgs'] data_disks: Settings for the data disks which will be created for the File Server.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input['SshConfigurationArgs'] ssh_configuration: SSH configuration for the File Server node.
+        :param pulumi.Input[str] vm_size: The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+        :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        :param pulumi.Input[str] file_server_name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        :param pulumi.Input['ResourceIdArgs'] subnet: Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
+        """
+        pulumi.set(__self__, "data_disks", data_disks)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "ssh_configuration", ssh_configuration)
+        pulumi.set(__self__, "vm_size", vm_size)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if file_server_name is not None:
+            pulumi.set(__self__, "file_server_name", file_server_name)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> pulumi.Input['DataDisksArgs']:
+        """
+        Settings for the data disks which will be created for the File Server.
+        """
+        return pulumi.get(self, "data_disks")
+
+    @data_disks.setter
+    def data_disks(self, value: pulumi.Input['DataDisksArgs']):
+        pulumi.set(self, "data_disks", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sshConfiguration")
+    def ssh_configuration(self) -> pulumi.Input['SshConfigurationArgs']:
+        """
+        SSH configuration for the File Server node.
+        """
+        return pulumi.get(self, "ssh_configuration")
+
+    @ssh_configuration.setter
+    def ssh_configuration(self, value: pulumi.Input['SshConfigurationArgs']):
+        pulumi.set(self, "ssh_configuration", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[str]:
+        """
+        The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="fileServerName")
+    def file_server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        """
+        return pulumi.get(self, "file_server_name")
+
+    @file_server_name.setter
+    def file_server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_server_name", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['ResourceIdArgs']]:
+        """
+        Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['ResourceIdArgs']]):
+        pulumi.set(self, "subnet", value)
 
 
 class FileServer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +157,41 @@ class FileServer(pulumi.CustomResource):
         :param pulumi.Input[str] vm_size: The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FileServerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        File Server information.
+        API Version: 2018-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param FileServerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FileServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_disks: Optional[pulumi.Input[pulumi.InputType['DataDisksArgs']]] = None,
+                 file_server_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssh_configuration: Optional[pulumi.Input[pulumi.InputType['SshConfigurationArgs']]] = None,
+                 subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

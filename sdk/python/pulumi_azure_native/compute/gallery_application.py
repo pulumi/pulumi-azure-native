@@ -5,14 +5,195 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['GalleryApplication']
+__all__ = ['GalleryApplicationArgs', 'GalleryApplication']
+
+@pulumi.input_type
+class GalleryApplicationArgs:
+    def __init__(__self__, *,
+                 gallery_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 supported_os_type: pulumi.Input['OperatingSystemTypes'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
+                 eula: Optional[pulumi.Input[str]] = None,
+                 gallery_application_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+                 release_note_uri: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a GalleryApplication resource.
+        :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
+        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[str] eula: The Eula agreement for the gallery Application Definition.
+        :param pulumi.Input[str] gallery_application_name: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
+        :param pulumi.Input[str] release_note_uri: The release note uri.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "gallery_name", gallery_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "supported_os_type", supported_os_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+        if eula is not None:
+            pulumi.set(__self__, "eula", eula)
+        if gallery_application_name is not None:
+            pulumi.set(__self__, "gallery_application_name", gallery_application_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if privacy_statement_uri is not None:
+            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+        if release_note_uri is not None:
+            pulumi.set(__self__, "release_note_uri", release_note_uri)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="galleryName")
+    def gallery_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Shared Application Gallery in which the Application Definition is to be created.
+        """
+        return pulumi.get(self, "gallery_name")
+
+    @gallery_name.setter
+    def gallery_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gallery_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="supportedOSType")
+    def supported_os_type(self) -> pulumi.Input['OperatingSystemTypes']:
+        """
+        This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        """
+        return pulumi.get(self, "supported_os_type")
+
+    @supported_os_type.setter
+    def supported_os_type(self, value: pulumi.Input['OperatingSystemTypes']):
+        pulumi.set(self, "supported_os_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this gallery Application Definition resource. This property is updatable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_of_life_date", value)
+
+    @property
+    @pulumi.getter
+    def eula(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Eula agreement for the gallery Application Definition.
+        """
+        return pulumi.get(self, "eula")
+
+    @eula.setter
+    def eula(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eula", value)
+
+    @property
+    @pulumi.getter(name="galleryApplicationName")
+    def gallery_application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        """
+        return pulumi.get(self, "gallery_application_name")
+
+    @gallery_application_name.setter
+    def gallery_application_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gallery_application_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="privacyStatementUri")
+    def privacy_statement_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The privacy statement uri.
+        """
+        return pulumi.get(self, "privacy_statement_uri")
+
+    @privacy_statement_uri.setter
+    def privacy_statement_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "privacy_statement_uri", value)
+
+    @property
+    @pulumi.getter(name="releaseNoteUri")
+    def release_note_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The release note uri.
+        """
+        return pulumi.get(self, "release_note_uri")
+
+    @release_note_uri.setter
+    def release_note_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "release_note_uri", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class GalleryApplication(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +229,45 @@ class GalleryApplication(pulumi.CustomResource):
         :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GalleryApplicationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Specifies information about the gallery Application Definition that you want to create or update.
+        API Version: 2020-09-30.
+
+        :param str resource_name: The name of the resource.
+        :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GalleryApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
+                 eula: Optional[pulumi.Input[str]] = None,
+                 gallery_application_name: Optional[pulumi.Input[str]] = None,
+                 gallery_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+                 release_note_uri: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 supported_os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

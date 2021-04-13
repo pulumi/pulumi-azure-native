@@ -5,16 +5,207 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Service']
+__all__ = ['ServiceArgs', 'Service']
+
+@pulumi.input_type
+class ServiceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
+                 public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None,
+                 search_service_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Service resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        :param pulumi.Input[int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        :param pulumi.Input['PublicNetworkAccess'] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        :param pulumi.Input[int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input['SkuArgs'] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if hosting_mode is None:
+            hosting_mode = 'default'
+        if hosting_mode is not None:
+            pulumi.set(__self__, "hosting_mode", hosting_mode)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if network_rule_set is not None:
+            pulumi.set(__self__, "network_rule_set", network_rule_set)
+        if partition_count is None:
+            partition_count = 1
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
+        if public_network_access is None:
+            public_network_access = 'enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if replica_count is None:
+            replica_count = 1
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if search_service_name is not None:
+            pulumi.set(__self__, "search_service_name", search_service_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="hostingMode")
+    def hosting_mode(self) -> Optional[pulumi.Input['HostingMode']]:
+        """
+        Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        """
+        return pulumi.get(self, "hosting_mode")
+
+    @hosting_mode.setter
+    def hosting_mode(self, value: Optional[pulumi.Input['HostingMode']]):
+        pulumi.set(self, "hosting_mode", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkRuleSet")
+    def network_rule_set(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
+        """
+        Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        """
+        return pulumi.get(self, "network_rule_set")
+
+    @network_rule_set.setter
+    def network_rule_set(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
+        pulumi.set(self, "network_rule_set", value)
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input['PublicNetworkAccess']]:
+        """
+        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input['PublicNetworkAccess']]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        """
+        return pulumi.get(self, "replica_count")
+
+    @replica_count.setter
+    def replica_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replica_count", value)
+
+    @property
+    @pulumi.getter(name="searchServiceName")
+    def search_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        """
+        return pulumi.get(self, "search_service_name")
+
+    @search_service_name.setter
+    def search_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "search_service_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Service(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +240,44 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Describes an Azure Cognitive Search service and its current state.
+
+        :param str resource_name: The name of the resource.
+        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
+                 public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 search_service_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

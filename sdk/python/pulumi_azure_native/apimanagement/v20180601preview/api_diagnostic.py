@@ -5,16 +5,180 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ApiDiagnostic']
+__all__ = ['ApiDiagnosticArgs', 'ApiDiagnostic']
+
+@pulumi.input_type
+class ApiDiagnosticArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 logger_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
+                 backend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
+                 diagnostic_id: Optional[pulumi.Input[str]] = None,
+                 enable_http_correlation_headers: Optional[pulumi.Input[bool]] = None,
+                 frontend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
+                 sampling: Optional[pulumi.Input['SamplingSettingsArgs']] = None):
+        """
+        The set of arguments for constructing a ApiDiagnostic resource.
+        :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] logger_id: Resource Id of a target logger.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
+        :param pulumi.Input['PipelineDiagnosticSettingsArgs'] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[bool] enable_http_correlation_headers: Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+        :param pulumi.Input['PipelineDiagnosticSettingsArgs'] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        :param pulumi.Input['SamplingSettingsArgs'] sampling: Sampling settings for Diagnostic.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "logger_id", logger_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if always_log is not None:
+            pulumi.set(__self__, "always_log", always_log)
+        if backend is not None:
+            pulumi.set(__self__, "backend", backend)
+        if diagnostic_id is not None:
+            pulumi.set(__self__, "diagnostic_id", diagnostic_id)
+        if enable_http_correlation_headers is not None:
+            pulumi.set(__self__, "enable_http_correlation_headers", enable_http_correlation_headers)
+        if frontend is not None:
+            pulumi.set(__self__, "frontend", frontend)
+        if sampling is not None:
+            pulumi.set(__self__, "sampling", sampling)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        API identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="loggerId")
+    def logger_id(self) -> pulumi.Input[str]:
+        """
+        Resource Id of a target logger.
+        """
+        return pulumi.get(self, "logger_id")
+
+    @logger_id.setter
+    def logger_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "logger_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="alwaysLog")
+    def always_log(self) -> Optional[pulumi.Input[Union[str, 'AlwaysLog']]]:
+        """
+        Specifies for what type of messages sampling settings should not apply.
+        """
+        return pulumi.get(self, "always_log")
+
+    @always_log.setter
+    def always_log(self, value: Optional[pulumi.Input[Union[str, 'AlwaysLog']]]):
+        pulumi.set(self, "always_log", value)
+
+    @property
+    @pulumi.getter
+    def backend(self) -> Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]:
+        """
+        Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        """
+        return pulumi.get(self, "backend")
+
+    @backend.setter
+    def backend(self, value: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]):
+        pulumi.set(self, "backend", value)
+
+    @property
+    @pulumi.getter(name="diagnosticId")
+    def diagnostic_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Diagnostic identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "diagnostic_id")
+
+    @diagnostic_id.setter
+    def diagnostic_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "diagnostic_id", value)
+
+    @property
+    @pulumi.getter(name="enableHttpCorrelationHeaders")
+    def enable_http_correlation_headers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+        """
+        return pulumi.get(self, "enable_http_correlation_headers")
+
+    @enable_http_correlation_headers.setter
+    def enable_http_correlation_headers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_http_correlation_headers", value)
+
+    @property
+    @pulumi.getter
+    def frontend(self) -> Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]:
+        """
+        Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        """
+        return pulumi.get(self, "frontend")
+
+    @frontend.setter
+    def frontend(self, value: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]):
+        pulumi.set(self, "frontend", value)
+
+    @property
+    @pulumi.getter
+    def sampling(self) -> Optional[pulumi.Input['SamplingSettingsArgs']]:
+        """
+        Sampling settings for Diagnostic.
+        """
+        return pulumi.get(self, "sampling")
+
+    @sampling.setter
+    def sampling(self, value: Optional[pulumi.Input['SamplingSettingsArgs']]):
+        pulumi.set(self, "sampling", value)
 
 
 class ApiDiagnostic(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +211,43 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiDiagnosticArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Diagnostic details.
+
+        :param str resource_name: The name of the resource.
+        :param ApiDiagnosticArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiDiagnosticArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 diagnostic_id: Optional[pulumi.Input[str]] = None,
+                 enable_http_correlation_headers: Optional[pulumi.Input[bool]] = None,
+                 frontend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 logger_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,14 +5,260 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['AgentPool']
+__all__ = ['AgentPoolArgs', 'AgentPool']
+
+@pulumi.input_type
+class AgentPoolArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 managed_cluster_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 vm_size: pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']],
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
+                 orchestrator_version: Optional[pulumi.Input[str]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AgentPool resource.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param pulumi.Input[str] managed_cluster_name: The name of the managed cluster resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
+        :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
+        :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
+        :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
+        :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
+        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
+        """
+        if count is None:
+            count = 1
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "managed_cluster_name", managed_cluster_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vm_size", vm_size)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if enable_auto_scaling is not None:
+            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if max_count is not None:
+            pulumi.set(__self__, "max_count", max_count)
+        if max_pods is not None:
+            pulumi.set(__self__, "max_pods", max_pods)
+        if min_count is not None:
+            pulumi.set(__self__, "min_count", min_count)
+        if orchestrator_version is not None:
+            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+        if os_disk_size_gb is not None:
+            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if vnet_subnet_id is not None:
+            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="managedClusterName")
+    def managed_cluster_name(self) -> pulumi.Input[str]:
+        """
+        The name of the managed cluster resource.
+        """
+        return pulumi.get(self, "managed_cluster_name")
+
+    @managed_cluster_name.setter
+    def managed_cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_cluster_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]:
+        """
+        Size of agent VMs.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the agent pool.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="enableAutoScaling")
+    def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable auto-scaler
+        """
+        return pulumi.get(self, "enable_auto_scaling")
+
+    @enable_auto_scaling.setter
+    def enable_auto_scaling(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="maxCount")
+    def max_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of nodes for auto-scaling
+        """
+        return pulumi.get(self, "max_count")
+
+    @max_count.setter
+    def max_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_count", value)
+
+    @property
+    @pulumi.getter(name="maxPods")
+    def max_pods(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of pods that can run on a node.
+        """
+        return pulumi.get(self, "max_pods")
+
+    @max_pods.setter
+    def max_pods(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_pods", value)
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum number of nodes for auto-scaling
+        """
+        return pulumi.get(self, "min_count")
+
+    @min_count.setter
+    def min_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_count", value)
+
+    @property
+    @pulumi.getter(name="orchestratorVersion")
+    def orchestrator_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of orchestrator specified when creating the managed cluster.
+        """
+        return pulumi.get(self, "orchestrator_version")
+
+    @orchestrator_version.setter
+    def orchestrator_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "orchestrator_version", value)
+
+    @property
+    @pulumi.getter(name="osDiskSizeGB")
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        """
+        return pulumi.get(self, "os_disk_size_gb")
+
+    @os_disk_size_gb.setter
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "os_disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
+        """
+        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'AgentPoolType']]]:
+        """
+        AgentPoolType represents types of an agent pool
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'AgentPoolType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vnetSubnetID")
+    def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VNet SubnetID specifies the VNet's subnet identifier.
+        """
+        return pulumi.get(self, "vnet_subnet_id")
+
+    @vnet_subnet_id.setter
+    def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_subnet_id", value)
 
 
 class AgentPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +301,48 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AgentPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Agent Pool.
+
+        :param str resource_name: The name of the resource.
+        :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AgentPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
+                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 managed_cluster_name: Optional[pulumi.Input[str]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
+                 orchestrator_version: Optional[pulumi.Input[str]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
+                 vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

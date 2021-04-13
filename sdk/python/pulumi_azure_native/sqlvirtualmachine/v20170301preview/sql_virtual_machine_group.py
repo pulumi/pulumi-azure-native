@@ -5,16 +5,135 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SqlVirtualMachineGroup']
+__all__ = ['SqlVirtualMachineGroupArgs', 'SqlVirtualMachineGroup']
+
+@pulumi.input_type
+class SqlVirtualMachineGroupArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 sql_image_offer: Optional[pulumi.Input[str]] = None,
+                 sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]] = None,
+                 sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 wsfc_domain_profile: Optional[pulumi.Input['WsfcDomainProfileArgs']] = None):
+        """
+        The set of arguments for constructing a SqlVirtualMachineGroup resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] sql_image_offer: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
+        :param pulumi.Input[Union[str, 'SqlVmGroupImageSku']] sql_image_sku: SQL image sku.
+        :param pulumi.Input[str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['WsfcDomainProfileArgs'] wsfc_domain_profile: Cluster Active Directory domain profile.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if sql_image_offer is not None:
+            pulumi.set(__self__, "sql_image_offer", sql_image_offer)
+        if sql_image_sku is not None:
+            pulumi.set(__self__, "sql_image_sku", sql_image_sku)
+        if sql_virtual_machine_group_name is not None:
+            pulumi.set(__self__, "sql_virtual_machine_group_name", sql_virtual_machine_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if wsfc_domain_profile is not None:
+            pulumi.set(__self__, "wsfc_domain_profile", wsfc_domain_profile)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="sqlImageOffer")
+    def sql_image_offer(self) -> Optional[pulumi.Input[str]]:
+        """
+        SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
+        """
+        return pulumi.get(self, "sql_image_offer")
+
+    @sql_image_offer.setter
+    def sql_image_offer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_image_offer", value)
+
+    @property
+    @pulumi.getter(name="sqlImageSku")
+    def sql_image_sku(self) -> Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]]:
+        """
+        SQL image sku.
+        """
+        return pulumi.get(self, "sql_image_sku")
+
+    @sql_image_sku.setter
+    def sql_image_sku(self, value: Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]]):
+        pulumi.set(self, "sql_image_sku", value)
+
+    @property
+    @pulumi.getter(name="sqlVirtualMachineGroupName")
+    def sql_virtual_machine_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SQL virtual machine group.
+        """
+        return pulumi.get(self, "sql_virtual_machine_group_name")
+
+    @sql_virtual_machine_group_name.setter
+    def sql_virtual_machine_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_virtual_machine_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="wsfcDomainProfile")
+    def wsfc_domain_profile(self) -> Optional[pulumi.Input['WsfcDomainProfileArgs']]:
+        """
+        Cluster Active Directory domain profile.
+        """
+        return pulumi.get(self, "wsfc_domain_profile")
+
+    @wsfc_domain_profile.setter
+    def wsfc_domain_profile(self, value: Optional[pulumi.Input['WsfcDomainProfileArgs']]):
+        pulumi.set(self, "wsfc_domain_profile", value)
 
 
 class SqlVirtualMachineGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +160,40 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']] wsfc_domain_profile: Cluster Active Directory domain profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlVirtualMachineGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A SQL virtual machine group.
+
+        :param str resource_name: The name of the resource.
+        :param SqlVirtualMachineGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlVirtualMachineGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_image_offer: Optional[pulumi.Input[str]] = None,
+                 sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]] = None,
+                 sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 wsfc_domain_profile: Optional[pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

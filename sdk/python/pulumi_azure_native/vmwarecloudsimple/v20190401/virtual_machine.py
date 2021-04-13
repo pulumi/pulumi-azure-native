@@ -5,16 +5,276 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualMachine']
+__all__ = ['VirtualMachineArgs', 'VirtualMachine']
+
+@pulumi.input_type
+class VirtualMachineArgs:
+    def __init__(__self__, *,
+                 amount_of_ram: pulumi.Input[int],
+                 number_of_cores: pulumi.Input[int],
+                 private_cloud_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 customization: Optional[pulumi.Input['GuestOSCustomizationArgs']] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None,
+                 expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 nics: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNicArgs']]]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_pool: Optional[pulumi.Input['ResourcePoolArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 v_sphere_networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_machine_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualMachine resource.
+        :param pulumi.Input[int] amount_of_ram: The amount of memory
+        :param pulumi.Input[int] number_of_cores: The number of CPU cores
+        :param pulumi.Input[str] private_cloud_id: Private Cloud Id
+        :param pulumi.Input[str] resource_group_name: The name of the resource group
+        :param pulumi.Input['GuestOSCustomizationArgs'] customization: Virtual machine properties
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]] disks: The list of Virtual Disks
+        :param pulumi.Input[bool] expose_to_guest_vm: Expose Guest OS or not
+        :param pulumi.Input[str] location: Azure region
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNicArgs']]] nics: The list of Virtual NICs
+        :param pulumi.Input[str] password: Password for login. Deprecated - use customization property
+        :param pulumi.Input['ResourcePoolArgs'] resource_pool: Virtual Machines Resource Pool
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
+        :param pulumi.Input[str] template_id: Virtual Machine Template Id
+        :param pulumi.Input[str] username: Username for login. Deprecated - use customization property
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
+        :param pulumi.Input[str] virtual_machine_name: virtual machine name
+        """
+        pulumi.set(__self__, "amount_of_ram", amount_of_ram)
+        pulumi.set(__self__, "number_of_cores", number_of_cores)
+        pulumi.set(__self__, "private_cloud_id", private_cloud_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if customization is not None:
+            pulumi.set(__self__, "customization", customization)
+        if disks is not None:
+            pulumi.set(__self__, "disks", disks)
+        if expose_to_guest_vm is not None:
+            pulumi.set(__self__, "expose_to_guest_vm", expose_to_guest_vm)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if nics is not None:
+            pulumi.set(__self__, "nics", nics)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if resource_pool is not None:
+            pulumi.set(__self__, "resource_pool", resource_pool)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if v_sphere_networks is not None:
+            pulumi.set(__self__, "v_sphere_networks", v_sphere_networks)
+        if virtual_machine_name is not None:
+            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+
+    @property
+    @pulumi.getter(name="amountOfRam")
+    def amount_of_ram(self) -> pulumi.Input[int]:
+        """
+        The amount of memory
+        """
+        return pulumi.get(self, "amount_of_ram")
+
+    @amount_of_ram.setter
+    def amount_of_ram(self, value: pulumi.Input[int]):
+        pulumi.set(self, "amount_of_ram", value)
+
+    @property
+    @pulumi.getter(name="numberOfCores")
+    def number_of_cores(self) -> pulumi.Input[int]:
+        """
+        The number of CPU cores
+        """
+        return pulumi.get(self, "number_of_cores")
+
+    @number_of_cores.setter
+    def number_of_cores(self, value: pulumi.Input[int]):
+        pulumi.set(self, "number_of_cores", value)
+
+    @property
+    @pulumi.getter(name="privateCloudId")
+    def private_cloud_id(self) -> pulumi.Input[str]:
+        """
+        Private Cloud Id
+        """
+        return pulumi.get(self, "private_cloud_id")
+
+    @private_cloud_id.setter
+    def private_cloud_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_cloud_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def customization(self) -> Optional[pulumi.Input['GuestOSCustomizationArgs']]:
+        """
+        Virtual machine properties
+        """
+        return pulumi.get(self, "customization")
+
+    @customization.setter
+    def customization(self, value: Optional[pulumi.Input['GuestOSCustomizationArgs']]):
+        pulumi.set(self, "customization", value)
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]]:
+        """
+        The list of Virtual Disks
+        """
+        return pulumi.get(self, "disks")
+
+    @disks.setter
+    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]]):
+        pulumi.set(self, "disks", value)
+
+    @property
+    @pulumi.getter(name="exposeToGuestVM")
+    def expose_to_guest_vm(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Expose Guest OS or not
+        """
+        return pulumi.get(self, "expose_to_guest_vm")
+
+    @expose_to_guest_vm.setter
+    def expose_to_guest_vm(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expose_to_guest_vm", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure region
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def nics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNicArgs']]]]:
+        """
+        The list of Virtual NICs
+        """
+        return pulumi.get(self, "nics")
+
+    @nics.setter
+    def nics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNicArgs']]]]):
+        pulumi.set(self, "nics", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for login. Deprecated - use customization property
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="resourcePool")
+    def resource_pool(self) -> Optional[pulumi.Input['ResourcePoolArgs']]:
+        """
+        Virtual Machines Resource Pool
+        """
+        return pulumi.get(self, "resource_pool")
+
+    @resource_pool.setter
+    def resource_pool(self, value: Optional[pulumi.Input['ResourcePoolArgs']]):
+        pulumi.set(self, "resource_pool", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual Machine Template Id
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_id", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for login. Deprecated - use customization property
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="vSphereNetworks")
+    def v_sphere_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Virtual VSphere Networks
+        """
+        return pulumi.get(self, "v_sphere_networks")
+
+    @v_sphere_networks.setter
+    def v_sphere_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "v_sphere_networks", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineName")
+    def virtual_machine_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        virtual machine name
+        """
+        return pulumi.get(self, "virtual_machine_name")
+
+    @virtual_machine_name.setter
+    def virtual_machine_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_name", value)
 
 
 class VirtualMachine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +319,49 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
         :param pulumi.Input[str] virtual_machine_name: virtual machine name
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualMachineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Virtual machine model
+
+        :param str resource_name: The name of the resource.
+        :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 amount_of_ram: Optional[pulumi.Input[int]] = None,
+                 customization: Optional[pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]]] = None,
+                 expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]]] = None,
+                 number_of_cores: Optional[pulumi.Input[int]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 private_cloud_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_pool: Optional[pulumi.Input[pulumi.InputType['ResourcePoolArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 v_sphere_networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_machine_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

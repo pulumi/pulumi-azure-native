@@ -5,16 +5,247 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['HanaInstance']
+__all__ = ['HanaInstanceArgs', 'HanaInstance']
+
+@pulumi.input_type
+class HanaInstanceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 hana_instance_id: Optional[pulumi.Input[str]] = None,
+                 hana_instance_name: Optional[pulumi.Input[str]] = None,
+                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+                 hw_revision: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+                 os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
+                 partner_node_id: Optional[pulumi.Input[str]] = None,
+                 power_state: Optional[pulumi.Input[Union[str, 'HanaInstancePowerStateEnum']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']]] = None,
+                 proximity_placement_group: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a HanaInstance resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group.
+        :param pulumi.Input[str] hana_instance_id: Specifies the HANA instance unique ID.
+        :param pulumi.Input[str] hana_instance_name: Name of the SAP HANA on Azure instance.
+        :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Specifies the hardware settings for the HANA instance.
+        :param pulumi.Input[str] hw_revision: Hardware revision of a HANA instance
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network settings for the HANA instance.
+        :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings for the HANA instance.
+        :param pulumi.Input[str] partner_node_id: ARM ID of another HanaInstance that will share a network with this HanaInstance
+        :param pulumi.Input[Union[str, 'HanaInstancePowerStateEnum']] power_state: Resource power state
+        :param pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']] provisioning_state: State of provisioning of the HanaInstance
+        :param pulumi.Input[str] proximity_placement_group: Resource proximity placement group
+        :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the HANA instance disks.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if hana_instance_id is not None:
+            pulumi.set(__self__, "hana_instance_id", hana_instance_id)
+        if hana_instance_name is not None:
+            pulumi.set(__self__, "hana_instance_name", hana_instance_name)
+        if hardware_profile is not None:
+            pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if hw_revision is not None:
+            pulumi.set(__self__, "hw_revision", hw_revision)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if partner_node_id is not None:
+            pulumi.set(__self__, "partner_node_id", partner_node_id)
+        if power_state is not None:
+            pulumi.set(__self__, "power_state", power_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if proximity_placement_group is not None:
+            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="hanaInstanceId")
+    def hana_instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the HANA instance unique ID.
+        """
+        return pulumi.get(self, "hana_instance_id")
+
+    @hana_instance_id.setter
+    def hana_instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hana_instance_id", value)
+
+    @property
+    @pulumi.getter(name="hanaInstanceName")
+    def hana_instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SAP HANA on Azure instance.
+        """
+        return pulumi.get(self, "hana_instance_name")
+
+    @hana_instance_name.setter
+    def hana_instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hana_instance_name", value)
+
+    @property
+    @pulumi.getter(name="hardwareProfile")
+    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+        """
+        Specifies the hardware settings for the HANA instance.
+        """
+        return pulumi.get(self, "hardware_profile")
+
+    @hardware_profile.setter
+    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+        pulumi.set(self, "hardware_profile", value)
+
+    @property
+    @pulumi.getter(name="hwRevision")
+    def hw_revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hardware revision of a HANA instance
+        """
+        return pulumi.get(self, "hw_revision")
+
+    @hw_revision.setter
+    def hw_revision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hw_revision", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        Specifies the network settings for the HANA instance.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional[pulumi.Input['OSProfileArgs']]:
+        """
+        Specifies the operating system settings for the HANA instance.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @os_profile.setter
+    def os_profile(self, value: Optional[pulumi.Input['OSProfileArgs']]):
+        pulumi.set(self, "os_profile", value)
+
+    @property
+    @pulumi.getter(name="partnerNodeId")
+    def partner_node_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of another HanaInstance that will share a network with this HanaInstance
+        """
+        return pulumi.get(self, "partner_node_id")
+
+    @partner_node_id.setter
+    def partner_node_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_node_id", value)
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> Optional[pulumi.Input[Union[str, 'HanaInstancePowerStateEnum']]]:
+        """
+        Resource power state
+        """
+        return pulumi.get(self, "power_state")
+
+    @power_state.setter
+    def power_state(self, value: Optional[pulumi.Input[Union[str, 'HanaInstancePowerStateEnum']]]):
+        pulumi.set(self, "power_state", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']]]:
+        """
+        State of provisioning of the HanaInstance
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroup")
+    def proximity_placement_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource proximity placement group
+        """
+        return pulumi.get(self, "proximity_placement_group")
+
+    @proximity_placement_group.setter
+    def proximity_placement_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proximity_placement_group", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+        """
+        Specifies the storage settings for the HANA instance disks.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class HanaInstance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +287,48 @@ class HanaInstance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Specifies the storage settings for the HANA instance disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HanaInstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        HANA instance info on Azure (ARM properties and HANA properties)
+        API Version: 2017-11-03-preview.
+
+        :param str resource_name: The name of the resource.
+        :param HanaInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HanaInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hana_instance_id: Optional[pulumi.Input[str]] = None,
+                 hana_instance_name: Optional[pulumi.Input[str]] = None,
+                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
+                 hw_revision: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
+                 partner_node_id: Optional[pulumi.Input[str]] = None,
+                 power_state: Optional[pulumi.Input[Union[str, 'HanaInstancePowerStateEnum']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']]] = None,
+                 proximity_placement_group: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

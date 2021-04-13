@@ -5,14 +5,204 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['ManagedDatabaseSensitivityLabel']
+__all__ = ['ManagedDatabaseSensitivityLabelArgs', 'ManagedDatabaseSensitivityLabel']
+
+@pulumi.input_type
+class ManagedDatabaseSensitivityLabelArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 managed_instance_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 schema_name: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 information_type: Optional[pulumi.Input[str]] = None,
+                 information_type_id: Optional[pulumi.Input[str]] = None,
+                 label_id: Optional[pulumi.Input[str]] = None,
+                 label_name: Optional[pulumi.Input[str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+                 sensitivity_label_source: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ManagedDatabaseSensitivityLabel resource.
+        :param pulumi.Input[str] column_name: The name of the column.
+        :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] schema_name: The name of the schema.
+        :param pulumi.Input[str] table_name: The name of the table.
+        :param pulumi.Input[str] information_type: The information type.
+        :param pulumi.Input[str] information_type_id: The information type ID.
+        :param pulumi.Input[str] label_id: The label ID.
+        :param pulumi.Input[str] label_name: The label name.
+        :param pulumi.Input[str] sensitivity_label_source: The source of the sensitivity label.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if information_type is not None:
+            pulumi.set(__self__, "information_type", information_type)
+        if information_type_id is not None:
+            pulumi.set(__self__, "information_type_id", information_type_id)
+        if label_id is not None:
+            pulumi.set(__self__, "label_id", label_id)
+        if label_name is not None:
+            pulumi.set(__self__, "label_name", label_name)
+        if rank is not None:
+            pulumi.set(__self__, "rank", rank)
+        if sensitivity_label_source is not None:
+            pulumi.set(__self__, "sensitivity_label_source", sensitivity_label_source)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="managedInstanceName")
+    def managed_instance_name(self) -> pulumi.Input[str]:
+        """
+        The name of the managed instance.
+        """
+        return pulumi.get(self, "managed_instance_name")
+
+    @managed_instance_name.setter
+    def managed_instance_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_instance_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[str]:
+        """
+        The name of the schema.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="informationType")
+    def information_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The information type.
+        """
+        return pulumi.get(self, "information_type")
+
+    @information_type.setter
+    def information_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "information_type", value)
+
+    @property
+    @pulumi.getter(name="informationTypeId")
+    def information_type_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The information type ID.
+        """
+        return pulumi.get(self, "information_type_id")
+
+    @information_type_id.setter
+    def information_type_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "information_type_id", value)
+
+    @property
+    @pulumi.getter(name="labelId")
+    def label_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The label ID.
+        """
+        return pulumi.get(self, "label_id")
+
+    @label_id.setter
+    def label_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_id", value)
+
+    @property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The label name.
+        """
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_name", value)
+
+    @property
+    @pulumi.getter
+    def rank(self) -> Optional[pulumi.Input['SensitivityLabelRank']]:
+        return pulumi.get(self, "rank")
+
+    @rank.setter
+    def rank(self, value: Optional[pulumi.Input['SensitivityLabelRank']]):
+        pulumi.set(self, "rank", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLabelSource")
+    def sensitivity_label_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the sensitivity label.
+        """
+        return pulumi.get(self, "sensitivity_label_source")
+
+    @sensitivity_label_source.setter
+    def sensitivity_label_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sensitivity_label_source", value)
 
 
 class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +239,46 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
         :param pulumi.Input[str] sensitivity_label_source: The source of the sensitivity label.
         :param pulumi.Input[str] table_name: The name of the table.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagedDatabaseSensitivityLabelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A sensitivity label.
+        API Version: 2020-11-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param ManagedDatabaseSensitivityLabelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedDatabaseSensitivityLabelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 column_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 information_type: Optional[pulumi.Input[str]] = None,
+                 information_type_id: Optional[pulumi.Input[str]] = None,
+                 label_id: Optional[pulumi.Input[str]] = None,
+                 label_name: Optional[pulumi.Input[str]] = None,
+                 managed_instance_name: Optional[pulumi.Input[str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 sensitivity_label_source: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

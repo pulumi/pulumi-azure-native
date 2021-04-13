@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AttestationAtSubscription']
+__all__ = ['AttestationAtSubscriptionArgs', 'AttestationAtSubscription']
+
+@pulumi.input_type
+class AttestationAtSubscriptionArgs:
+    def __init__(__self__, *,
+                 policy_assignment_id: pulumi.Input[str],
+                 attestation_name: Optional[pulumi.Input[str]] = None,
+                 comments: Optional[pulumi.Input[str]] = None,
+                 compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
+                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]] = None,
+                 expires_on: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AttestationAtSubscription resource.
+        :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that the attestation is setting the state for.
+        :param pulumi.Input[str] attestation_name: The name of the attestation.
+        :param pulumi.Input[str] comments: Comments describing why this attestation was created.
+        :param pulumi.Input[Union[str, 'ComplianceState']] compliance_state: The compliance state that should be set on the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]] evidence: The evidence supporting the compliance state set in this attestation.
+        :param pulumi.Input[str] expires_on: The time the compliance state should expire.
+        :param pulumi.Input[str] owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+        :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
+        """
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        if attestation_name is not None:
+            pulumi.set(__self__, "attestation_name", attestation_name)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if compliance_state is not None:
+            pulumi.set(__self__, "compliance_state", compliance_state)
+        if evidence is not None:
+            pulumi.set(__self__, "evidence", evidence)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the policy assignment that the attestation is setting the state for.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @policy_assignment_id.setter
+    def policy_assignment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_assignment_id", value)
+
+    @property
+    @pulumi.getter(name="attestationName")
+    def attestation_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the attestation.
+        """
+        return pulumi.get(self, "attestation_name")
+
+    @attestation_name.setter
+    def attestation_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attestation_name", value)
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comments describing why this attestation was created.
+        """
+        return pulumi.get(self, "comments")
+
+    @comments.setter
+    def comments(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comments", value)
+
+    @property
+    @pulumi.getter(name="complianceState")
+    def compliance_state(self) -> Optional[pulumi.Input[Union[str, 'ComplianceState']]]:
+        """
+        The compliance state that should be set on the resource.
+        """
+        return pulumi.get(self, "compliance_state")
+
+    @compliance_state.setter
+    def compliance_state(self, value: Optional[pulumi.Input[Union[str, 'ComplianceState']]]):
+        pulumi.set(self, "compliance_state", value)
+
+    @property
+    @pulumi.getter
+    def evidence(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]]:
+        """
+        The evidence supporting the compliance state set in this attestation.
+        """
+        return pulumi.get(self, "evidence")
+
+    @evidence.setter
+    def evidence(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]]):
+        pulumi.set(self, "evidence", value)
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the compliance state should expire.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @expires_on.setter
+    def expires_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expires_on", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
 
 
 class AttestationAtSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +178,41 @@ class AttestationAtSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that the attestation is setting the state for.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AttestationAtSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An attestation resource.
+
+        :param str resource_name: The name of the resource.
+        :param AttestationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AttestationAtSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attestation_name: Optional[pulumi.Input[str]] = None,
+                 comments: Optional[pulumi.Input[str]] = None,
+                 compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
+                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]]] = None,
+                 expires_on: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 policy_assignment_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

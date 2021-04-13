@@ -5,16 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['MaintenanceConfiguration']
+__all__ = ['MaintenanceConfigurationArgs', 'MaintenanceConfiguration']
+
+@pulumi.input_type
+class MaintenanceConfigurationArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 config_name: Optional[pulumi.Input[str]] = None,
+                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
+                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None):
+        """
+        The set of arguments for constructing a MaintenanceConfiguration resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
+        :param pulumi.Input[str] config_name: The name of the maintenance configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]] not_allowed_time: Time slots on which upgrade is not allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]] time_in_week: Weekday time slots allowed to upgrade.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if config_name is not None:
+            pulumi.set(__self__, "config_name", config_name)
+        if not_allowed_time is not None:
+            pulumi.set(__self__, "not_allowed_time", not_allowed_time)
+        if time_in_week is not None:
+            pulumi.set(__self__, "time_in_week", time_in_week)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the managed cluster resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="configName")
+    def config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance configuration.
+        """
+        return pulumi.get(self, "config_name")
+
+    @config_name.setter
+    def config_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_name", value)
+
+    @property
+    @pulumi.getter(name="notAllowedTime")
+    def not_allowed_time(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]]:
+        """
+        Time slots on which upgrade is not allowed.
+        """
+        return pulumi.get(self, "not_allowed_time")
+
+    @not_allowed_time.setter
+    def not_allowed_time(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]]):
+        pulumi.set(self, "not_allowed_time", value)
+
+    @property
+    @pulumi.getter(name="timeInWeek")
+    def time_in_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]]:
+        """
+        Weekday time slots allowed to upgrade.
+        """
+        return pulumi.get(self, "time_in_week")
+
+    @time_in_week.setter
+    def time_in_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]]):
+        pulumi.set(self, "time_in_week", value)
 
 
 class MaintenanceConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +123,38 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]] time_in_week: Weekday time slots allowed to upgrade.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MaintenanceConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        maintenance configuration.
+
+        :param str resource_name: The name of the resource.
+        :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config_name: Optional[pulumi.Input[str]] = None,
+                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSpanArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

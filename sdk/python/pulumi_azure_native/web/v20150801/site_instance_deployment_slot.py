@@ -5,13 +5,305 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['SiteInstanceDeploymentSlot']
+__all__ = ['SiteInstanceDeploymentSlotArgs', 'SiteInstanceDeploymentSlot']
+
+@pulumi.input_type
+class SiteInstanceDeploymentSlotArgs:
+    def __init__(__self__, *,
+                 instance_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 slot: pulumi.Input[str],
+                 active: Optional[pulumi.Input[bool]] = None,
+                 author: Optional[pulumi.Input[str]] = None,
+                 author_email: Optional[pulumi.Input[str]] = None,
+                 deployer: Optional[pulumi.Input[str]] = None,
+                 details: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SiteInstanceDeploymentSlot resource.
+        :param pulumi.Input[str] instance_id: Id of web app instance
+        :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[str] resource_group_name: Name of resource group
+        :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[bool] active: Active
+        :param pulumi.Input[str] author: Author
+        :param pulumi.Input[str] author_email: AuthorEmail
+        :param pulumi.Input[str] deployer: Deployer
+        :param pulumi.Input[str] details: Detail
+        :param pulumi.Input[str] end_time: EndTime
+        :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[str] kind: Kind of resource
+        :param pulumi.Input[str] location: Resource Location
+        :param pulumi.Input[str] message: Message
+        :param pulumi.Input[str] start_time: StartTime
+        :param pulumi.Input[int] status: Status
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] type: Resource type
+        """
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "slot", slot)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if author is not None:
+            pulumi.set(__self__, "author", author)
+        if author_email is not None:
+            pulumi.set(__self__, "author_email", author_email)
+        if deployer is not None:
+            pulumi.set(__self__, "deployer", deployer)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[str]:
+        """
+        Id of web app instance
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of resource group
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def slot(self) -> pulumi.Input[str]:
+        """
+        Name of web app slot. If not specified then will default to production slot.
+        """
+        return pulumi.get(self, "slot")
+
+    @slot.setter
+    def slot(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Active
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def author(self) -> Optional[pulumi.Input[str]]:
+        """
+        Author
+        """
+        return pulumi.get(self, "author")
+
+    @author.setter
+    def author(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "author", value)
+
+    @property
+    @pulumi.getter(name="authorEmail")
+    def author_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        AuthorEmail
+        """
+        return pulumi.get(self, "author_email")
+
+    @author_email.setter
+    def author_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "author_email", value)
+
+    @property
+    @pulumi.getter
+    def deployer(self) -> Optional[pulumi.Input[str]]:
+        """
+        Deployer
+        """
+        return pulumi.get(self, "deployer")
+
+    @deployer.setter
+    def deployer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployer", value)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input[str]]:
+        """
+        Detail
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "details", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        EndTime
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        StartTime
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[int]]:
+        """
+        Status
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class SiteInstanceDeploymentSlot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +352,51 @@ class SiteInstanceDeploymentSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SiteInstanceDeploymentSlotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents user credentials used for publishing activity
+
+        :param str resource_name: The name of the resource.
+        :param SiteInstanceDeploymentSlotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SiteInstanceDeploymentSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 author: Optional[pulumi.Input[str]] = None,
+                 author_email: Optional[pulumi.Input[str]] = None,
+                 deployer: Optional[pulumi.Input[str]] = None,
+                 details: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,198 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['OpenShiftManagedCluster']
+__all__ = ['OpenShiftManagedClusterArgs', 'OpenShiftManagedCluster']
+
+@pulumi.input_type
+class OpenShiftManagedClusterArgs:
+    def __init__(__self__, *,
+                 open_shift_version: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterAgentPoolProfileArgs']]]] = None,
+                 auth_profile: Optional[pulumi.Input['OpenShiftManagedClusterAuthProfileArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 master_pool_profile: Optional[pulumi.Input['OpenShiftManagedClusterMasterPoolProfileArgs']] = None,
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+                 plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftRouterProfileArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a OpenShiftManagedCluster resource.
+        :param pulumi.Input[str] open_shift_version: Version of OpenShift specified when creating the cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterAgentPoolProfileArgs']]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
+        :param pulumi.Input['OpenShiftManagedClusterAuthProfileArgs'] auth_profile: Configures OpenShift authentication.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['OpenShiftManagedClusterMasterPoolProfileArgs'] master_pool_profile: Configuration for OpenShift master VMs.
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: Configuration for OpenShift networking.
+        :param pulumi.Input['PurchasePlanArgs'] plan: Define the resource plan as required by ARM for billing purposes
+        :param pulumi.Input[str] resource_name: The name of the OpenShift managed cluster resource.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenShiftRouterProfileArgs']]] router_profiles: Configuration for OpenShift router(s).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "open_shift_version", open_shift_version)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agent_pool_profiles is not None:
+            pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+        if auth_profile is not None:
+            pulumi.set(__self__, "auth_profile", auth_profile)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if master_pool_profile is not None:
+            pulumi.set(__self__, "master_pool_profile", master_pool_profile)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if router_profiles is not None:
+            pulumi.set(__self__, "router_profiles", router_profiles)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="openShiftVersion")
+    def open_shift_version(self) -> pulumi.Input[str]:
+        """
+        Version of OpenShift specified when creating the cluster.
+        """
+        return pulumi.get(self, "open_shift_version")
+
+    @open_shift_version.setter
+    def open_shift_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "open_shift_version", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterAgentPoolProfileArgs']]]]:
+        """
+        Configuration of OpenShift cluster VMs.
+        """
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @agent_pool_profiles.setter
+    def agent_pool_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterAgentPoolProfileArgs']]]]):
+        pulumi.set(self, "agent_pool_profiles", value)
+
+    @property
+    @pulumi.getter(name="authProfile")
+    def auth_profile(self) -> Optional[pulumi.Input['OpenShiftManagedClusterAuthProfileArgs']]:
+        """
+        Configures OpenShift authentication.
+        """
+        return pulumi.get(self, "auth_profile")
+
+    @auth_profile.setter
+    def auth_profile(self, value: Optional[pulumi.Input['OpenShiftManagedClusterAuthProfileArgs']]):
+        pulumi.set(self, "auth_profile", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="masterPoolProfile")
+    def master_pool_profile(self) -> Optional[pulumi.Input['OpenShiftManagedClusterMasterPoolProfileArgs']]:
+        """
+        Configuration for OpenShift master VMs.
+        """
+        return pulumi.get(self, "master_pool_profile")
+
+    @master_pool_profile.setter
+    def master_pool_profile(self, value: Optional[pulumi.Input['OpenShiftManagedClusterMasterPoolProfileArgs']]):
+        pulumi.set(self, "master_pool_profile", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        Configuration for OpenShift networking.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['PurchasePlanArgs']]:
+        """
+        Define the resource plan as required by ARM for billing purposes
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['PurchasePlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the OpenShift managed cluster resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="routerProfiles")
+    def router_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftRouterProfileArgs']]]]:
+        """
+        Configuration for OpenShift router(s).
+        """
+        return pulumi.get(self, "router_profiles")
+
+    @router_profiles.setter
+    def router_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftRouterProfileArgs']]]]):
+        pulumi.set(self, "router_profiles", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class OpenShiftManagedCluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +232,45 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OpenShiftManagedClusterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        OpenShift Managed cluster.
+        API Version: 2019-04-30.
+
+        :param str resource_name: The name of the resource.
+        :param OpenShiftManagedClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OpenShiftManagedClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 open_shift_version: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,254 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['Component']
+__all__ = ['ComponentArgs', 'Component']
+
+@pulumi.input_type
+class ComponentArgs:
+    def __init__(__self__, *,
+                 application_type: pulumi.Input[Union[str, 'ApplicationType']],
+                 kind: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
+                 hockey_app_id: Optional[pulumi.Input[str]] = None,
+                 immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
+                 ingestion_mode: Optional[pulumi.Input[Union[str, 'IngestionMode']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Component resource.
+        :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Type of application being monitored.
+        :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
+        :param pulumi.Input[Union[str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+        :param pulumi.Input[bool] immediate_purge_data_on30_days: Purge data immediately after 30 days.
+        :param pulumi.Input[Union[str, 'IngestionMode']] ingestion_mode: Indicates the flow of the ingestion.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[Union[str, 'RequestSource']] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[int] retention_in_days: Retention period in days.
+        :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        if application_type is None:
+            application_type = 'web'
+        pulumi.set(__self__, "application_type", application_type)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if disable_ip_masking is not None:
+            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if flow_type is None:
+            flow_type = 'Bluefield'
+        if flow_type is not None:
+            pulumi.set(__self__, "flow_type", flow_type)
+        if hockey_app_id is not None:
+            pulumi.set(__self__, "hockey_app_id", hockey_app_id)
+        if immediate_purge_data_on30_days is not None:
+            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+        if ingestion_mode is None:
+            ingestion_mode = 'ApplicationInsights'
+        if ingestion_mode is not None:
+            pulumi.set(__self__, "ingestion_mode", ingestion_mode)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if request_source is None:
+            request_source = 'rest'
+        if request_source is not None:
+            pulumi.set(__self__, "request_source", request_source)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if retention_in_days is None:
+            retention_in_days = 90
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sampling_percentage is not None:
+            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> pulumi.Input[Union[str, 'ApplicationType']]:
+        """
+        Type of application being monitored.
+        """
+        return pulumi.get(self, "application_type")
+
+    @application_type.setter
+    def application_type(self, value: pulumi.Input[Union[str, 'ApplicationType']]):
+        pulumi.set(self, "application_type", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="disableIpMasking")
+    def disable_ip_masking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable IP masking.
+        """
+        return pulumi.get(self, "disable_ip_masking")
+
+    @disable_ip_masking.setter
+    def disable_ip_masking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_ip_masking", value)
+
+    @property
+    @pulumi.getter(name="flowType")
+    def flow_type(self) -> Optional[pulumi.Input[Union[str, 'FlowType']]]:
+        """
+        Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        """
+        return pulumi.get(self, "flow_type")
+
+    @flow_type.setter
+    def flow_type(self, value: Optional[pulumi.Input[Union[str, 'FlowType']]]):
+        pulumi.set(self, "flow_type", value)
+
+    @property
+    @pulumi.getter(name="hockeyAppId")
+    def hockey_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+        """
+        return pulumi.get(self, "hockey_app_id")
+
+    @hockey_app_id.setter
+    def hockey_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hockey_app_id", value)
+
+    @property
+    @pulumi.getter(name="immediatePurgeDataOn30Days")
+    def immediate_purge_data_on30_days(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Purge data immediately after 30 days.
+        """
+        return pulumi.get(self, "immediate_purge_data_on30_days")
+
+    @immediate_purge_data_on30_days.setter
+    def immediate_purge_data_on30_days(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "immediate_purge_data_on30_days", value)
+
+    @property
+    @pulumi.getter(name="ingestionMode")
+    def ingestion_mode(self) -> Optional[pulumi.Input[Union[str, 'IngestionMode']]]:
+        """
+        Indicates the flow of the ingestion.
+        """
+        return pulumi.get(self, "ingestion_mode")
+
+    @ingestion_mode.setter
+    def ingestion_mode(self, value: Optional[pulumi.Input[Union[str, 'IngestionMode']]]):
+        pulumi.set(self, "ingestion_mode", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="requestSource")
+    def request_source(self) -> Optional[pulumi.Input[Union[str, 'RequestSource']]]:
+        """
+        Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        """
+        return pulumi.get(self, "request_source")
+
+    @request_source.setter
+    def request_source(self, value: Optional[pulumi.Input[Union[str, 'RequestSource']]]):
+        pulumi.set(self, "request_source", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Application Insights component resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Retention period in days.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @sampling_percentage.setter
+    def sampling_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sampling_percentage", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Component(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +293,47 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ComponentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Application Insights component definition.
+
+        :param str resource_name: The name of the resource.
+        :param ComponentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ComponentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
+                 disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
+                 hockey_app_id: Optional[pulumi.Input[str]] = None,
+                 immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
+                 ingestion_mode: Optional[pulumi.Input[Union[str, 'IngestionMode']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

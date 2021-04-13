@@ -5,16 +5,259 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Incident']
+__all__ = ['IncidentArgs', 'Incident']
+
+@pulumi.input_type
+class IncidentArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 severity: pulumi.Input[Union[str, 'IncidentSeverity']],
+                 status: pulumi.Input[Union[str, 'IncidentStatus']],
+                 title: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
+                 classification_comment: Optional[pulumi.Input[str]] = None,
+                 classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 first_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 incident_id: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
+                 last_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None):
+        """
+        The set of arguments for constructing a Incident resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
+        :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
+        :param pulumi.Input[str] title: The title of the incident
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[Union[str, 'IncidentClassification']] classification: The reason the incident was closed
+        :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
+        :param pulumi.Input[Union[str, 'IncidentClassificationReason']] classification_reason: The classification reason the incident was closed with
+        :param pulumi.Input[str] description: The description of the incident
+        :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
+        :param pulumi.Input[str] incident_id: Incident ID
+        :param pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]] labels: List of labels relevant to this incident
+        :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
+        :param pulumi.Input['IncidentOwnerInfoArgs'] owner: Describes a user that the incident is assigned to
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if classification_comment is not None:
+            pulumi.set(__self__, "classification_comment", classification_comment)
+        if classification_reason is not None:
+            pulumi.set(__self__, "classification_reason", classification_reason)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if first_activity_time_utc is not None:
+            pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+        if incident_id is not None:
+            pulumi.set(__self__, "incident_id", incident_id)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if last_activity_time_utc is not None:
+            pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[Union[str, 'IncidentSeverity']]:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[Union[str, 'IncidentSeverity']]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Union[str, 'IncidentStatus']]:
+        """
+        The status of the incident
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Union[str, 'IncidentStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        The title of the incident
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[pulumi.Input[Union[str, 'IncidentClassification']]]:
+        """
+        The reason the incident was closed
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: Optional[pulumi.Input[Union[str, 'IncidentClassification']]]):
+        pulumi.set(self, "classification", value)
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the reason the incident was closed
+        """
+        return pulumi.get(self, "classification_comment")
+
+    @classification_comment.setter
+    def classification_comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "classification_comment", value)
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]]:
+        """
+        The classification reason the incident was closed with
+        """
+        return pulumi.get(self, "classification_reason")
+
+    @classification_reason.setter
+    def classification_reason(self, value: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]]):
+        pulumi.set(self, "classification_reason", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the incident
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Etag of the azure resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="firstActivityTimeUtc")
+    def first_activity_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time of the first activity in the incident
+        """
+        return pulumi.get(self, "first_activity_time_utc")
+
+    @first_activity_time_utc.setter
+    def first_activity_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "first_activity_time_utc", value)
+
+    @property
+    @pulumi.getter(name="incidentId")
+    def incident_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Incident ID
+        """
+        return pulumi.get(self, "incident_id")
+
+    @incident_id.setter
+    def incident_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incident_id", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]]:
+        """
+        List of labels relevant to this incident
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="lastActivityTimeUtc")
+    def last_activity_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time of the last activity in the incident
+        """
+        return pulumi.get(self, "last_activity_time_utc")
+
+    @last_activity_time_utc.setter
+    def last_activity_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_activity_time_utc", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input['IncidentOwnerInfoArgs']]:
+        """
+        Describes a user that the incident is assigned to
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input['IncidentOwnerInfoArgs']]):
+        pulumi.set(self, "owner", value)
 
 
 class Incident(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +301,49 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] title: The title of the incident
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IncidentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents an incident in Azure Security Insights.
+        API Version: 2020-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param IncidentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IncidentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
+                 classification_comment: Optional[pulumi.Input[str]] = None,
+                 classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 first_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 incident_id: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
+                 last_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'IncidentStatus']]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

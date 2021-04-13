@@ -5,13 +5,228 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['CertificateCsr']
+__all__ = ['CertificateCsrArgs', 'CertificateCsr']
+
+@pulumi.input_type
+class CertificateCsrArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 csr_string: Optional[pulumi.Input[str]] = None,
+                 distinguished_name: Optional[pulumi.Input[str]] = None,
+                 hosting_environment: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 pfx_blob: Optional[pulumi.Input[str]] = None,
+                 public_key_hash: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a CertificateCsr resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group
+        :param pulumi.Input[str] csr_string: Actual CSR string created
+        :param pulumi.Input[str] distinguished_name: Distinguished name of certificate to be created
+        :param pulumi.Input[str] hosting_environment: Hosting environment
+        :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[str] kind: Kind of resource
+        :param pulumi.Input[str] location: Resource Location
+        :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[str] password: PFX password
+        :param pulumi.Input[str] pfx_blob: PFX certificate of created certificate
+        :param pulumi.Input[str] public_key_hash: Hash of the certificates public key
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] type: Resource type
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if csr_string is not None:
+            pulumi.set(__self__, "csr_string", csr_string)
+        if distinguished_name is not None:
+            pulumi.set(__self__, "distinguished_name", distinguished_name)
+        if hosting_environment is not None:
+            pulumi.set(__self__, "hosting_environment", hosting_environment)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pfx_blob is not None:
+            pulumi.set(__self__, "pfx_blob", pfx_blob)
+        if public_key_hash is not None:
+            pulumi.set(__self__, "public_key_hash", public_key_hash)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="csrString")
+    def csr_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Actual CSR string created
+        """
+        return pulumi.get(self, "csr_string")
+
+    @csr_string.setter
+    def csr_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr_string", value)
+
+    @property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Distinguished name of certificate to be created
+        """
+        return pulumi.get(self, "distinguished_name")
+
+    @distinguished_name.setter
+    def distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distinguished_name", value)
+
+    @property
+    @pulumi.getter(name="hostingEnvironment")
+    def hosting_environment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hosting environment
+        """
+        return pulumi.get(self, "hosting_environment")
+
+    @hosting_environment.setter
+    def hosting_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosting_environment", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        PFX password
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="pfxBlob")
+    def pfx_blob(self) -> Optional[pulumi.Input[str]]:
+        """
+        PFX certificate of created certificate
+        """
+        return pulumi.get(self, "pfx_blob")
+
+    @pfx_blob.setter
+    def pfx_blob(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pfx_blob", value)
+
+    @property
+    @pulumi.getter(name="publicKeyHash")
+    def public_key_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hash of the certificates public key
+        """
+        return pulumi.get(self, "public_key_hash")
+
+    @public_key_hash.setter
+    def public_key_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key_hash", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class CertificateCsr(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +265,46 @@ class CertificateCsr(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateCsrArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Certificate signing request object
+
+        :param str resource_name: The name of the resource.
+        :param CertificateCsrArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateCsrArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 csr_string: Optional[pulumi.Input[str]] = None,
+                 distinguished_name: Optional[pulumi.Input[str]] = None,
+                 hosting_environment: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 pfx_blob: Optional[pulumi.Input[str]] = None,
+                 public_key_hash: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

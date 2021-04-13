@@ -5,14 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['RoleAssignment']
+__all__ = ['RoleAssignmentArgs', 'RoleAssignment']
+
+@pulumi.input_type
+class RoleAssignmentArgs:
+    def __init__(__self__, *,
+                 principal_id: pulumi.Input[str],
+                 role_definition_id: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+                 role_assignment_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RoleAssignment resource.
+        :param pulumi.Input[str] principal_id: The principal ID.
+        :param pulumi.Input[str] role_definition_id: The role definition ID.
+        :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
+        :param pulumi.Input[str] description: Description of role assignment
+        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
+        :param pulumi.Input[str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        pulumi.set(__self__, "scope", scope)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
+        if delegated_managed_identity_resource_id is not None:
+            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if principal_type is None:
+            principal_type = 'User'
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+        if role_assignment_name is not None:
+            pulumi.set(__self__, "role_assignment_name", role_assignment_name)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[str]:
+        """
+        The role definition ID.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the condition. Currently accepted value is '2.0'
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the delegated managed identity resource
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
+
+    @delegated_managed_identity_resource_id.setter
+    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegated_managed_identity_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of role assignment
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[Union[str, 'PrincipalType']]]:
+        """
+        The principal type of the assigned principal ID.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[Union[str, 'PrincipalType']]]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
+    @pulumi.getter(name="roleAssignmentName")
+    def role_assignment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role assignment. It can be any valid GUID.
+        """
+        return pulumi.get(self, "role_assignment_name")
+
+    @role_assignment_name.setter
+    def role_assignment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_assignment_name", value)
 
 
 class RoleAssignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +194,42 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] role_definition_id: The role definition ID.
         :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RoleAssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Role Assignments
+
+        :param str resource_name: The name of the resource.
+        :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+                 role_assignment_name: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

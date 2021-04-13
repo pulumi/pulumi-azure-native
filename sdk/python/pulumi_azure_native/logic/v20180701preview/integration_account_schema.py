@@ -5,15 +5,212 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['IntegrationAccountSchema']
+__all__ = ['IntegrationAccountSchemaArgs', 'IntegrationAccountSchema']
+
+@pulumi.input_type
+class IntegrationAccountSchemaArgs:
+    def __init__(__self__, *,
+                 integration_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 schema_type: pulumi.Input[Union[str, 'SchemaType']],
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 document_name: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_namespace: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IntegrationAccountSchema resource.
+        :param pulumi.Input[str] integration_account_name: The integration account name.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[Union[str, 'SchemaType']] schema_type: The schema type.
+        :param pulumi.Input[str] content: The content.
+        :param pulumi.Input[str] content_type: The content type.
+        :param pulumi.Input[str] document_name: The document name.
+        :param pulumi.Input[str] file_name: The file name.
+        :param pulumi.Input[str] location: The resource location.
+        :param Any metadata: The metadata.
+        :param pulumi.Input[str] schema_name: The integration account schema name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        :param pulumi.Input[str] target_namespace: The target namespace of the schema.
+        """
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schema_type", schema_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if document_name is not None:
+            pulumi.set(__self__, "document_name", document_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_namespace is not None:
+            pulumi.set(__self__, "target_namespace", target_namespace)
+
+    @property
+    @pulumi.getter(name="integrationAccountName")
+    def integration_account_name(self) -> pulumi.Input[str]:
+        """
+        The integration account name.
+        """
+        return pulumi.get(self, "integration_account_name")
+
+    @integration_account_name.setter
+    def integration_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integration_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> pulumi.Input[Union[str, 'SchemaType']]:
+        """
+        The schema type.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: pulumi.Input[Union[str, 'SchemaType']]):
+        pulumi.set(self, "schema_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The document name.
+        """
+        return pulumi.get(self, "document_name")
+
+    @document_name.setter
+    def document_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_name", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file name.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The integration account schema name.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target namespace of the schema.
+        """
+        return pulumi.get(self, "target_namespace")
+
+    @target_namespace.setter
+    def target_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_namespace", value)
 
 
 class IntegrationAccountSchema(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +247,45 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] target_namespace: The target namespace of the schema.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationAccountSchemaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The integration account schema.
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationAccountSchemaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountSchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 document_name: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 schema_type: Optional[pulumi.Input[Union[str, 'SchemaType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_namespace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

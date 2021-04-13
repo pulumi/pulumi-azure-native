@@ -5,16 +5,178 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ConnectorMapping']
+__all__ = ['ConnectorMappingArgs', 'ConnectorMapping']
+
+@pulumi.input_type
+class ConnectorMappingArgs:
+    def __init__(__self__, *,
+                 connector_name: pulumi.Input[str],
+                 entity_type: pulumi.Input['EntityTypes'],
+                 entity_type_name: pulumi.Input[str],
+                 hub_name: pulumi.Input[str],
+                 mapping_properties: pulumi.Input['ConnectorMappingPropertiesArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 connector_type: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 mapping_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ConnectorMapping resource.
+        :param pulumi.Input[str] connector_name: The name of the connector.
+        :param pulumi.Input['EntityTypes'] entity_type: Defines which entity type the file should map to.
+        :param pulumi.Input[str] entity_type_name: The mapping entity name.
+        :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input['ConnectorMappingPropertiesArgs'] mapping_properties: The properties of the mapping.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union[str, 'ConnectorTypes']] connector_type: Type of connector.
+        :param pulumi.Input[str] description: The description of the connector mapping.
+        :param pulumi.Input[str] display_name: Display name for the connector mapping.
+        :param pulumi.Input[str] mapping_name: The name of the connector mapping.
+        """
+        pulumi.set(__self__, "connector_name", connector_name)
+        pulumi.set(__self__, "entity_type", entity_type)
+        pulumi.set(__self__, "entity_type_name", entity_type_name)
+        pulumi.set(__self__, "hub_name", hub_name)
+        pulumi.set(__self__, "mapping_properties", mapping_properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if connector_type is not None:
+            pulumi.set(__self__, "connector_type", connector_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if mapping_name is not None:
+            pulumi.set(__self__, "mapping_name", mapping_name)
+
+    @property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> pulumi.Input[str]:
+        """
+        The name of the connector.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connector_name", value)
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> pulumi.Input['EntityTypes']:
+        """
+        Defines which entity type the file should map to.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: pulumi.Input['EntityTypes']):
+        pulumi.set(self, "entity_type", value)
+
+    @property
+    @pulumi.getter(name="entityTypeName")
+    def entity_type_name(self) -> pulumi.Input[str]:
+        """
+        The mapping entity name.
+        """
+        return pulumi.get(self, "entity_type_name")
+
+    @entity_type_name.setter
+    def entity_type_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "entity_type_name", value)
+
+    @property
+    @pulumi.getter(name="hubName")
+    def hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the hub.
+        """
+        return pulumi.get(self, "hub_name")
+
+    @hub_name.setter
+    def hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hub_name", value)
+
+    @property
+    @pulumi.getter(name="mappingProperties")
+    def mapping_properties(self) -> pulumi.Input['ConnectorMappingPropertiesArgs']:
+        """
+        The properties of the mapping.
+        """
+        return pulumi.get(self, "mapping_properties")
+
+    @mapping_properties.setter
+    def mapping_properties(self, value: pulumi.Input['ConnectorMappingPropertiesArgs']):
+        pulumi.set(self, "mapping_properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> Optional[pulumi.Input[Union[str, 'ConnectorTypes']]]:
+        """
+        Type of connector.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @connector_type.setter
+    def connector_type(self, value: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]]):
+        pulumi.set(self, "connector_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the connector mapping.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name for the connector mapping.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="mappingName")
+    def mapping_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connector mapping.
+        """
+        return pulumi.get(self, "mapping_name")
+
+    @mapping_name.setter
+    def mapping_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mapping_name", value)
 
 
 class ConnectorMapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +210,44 @@ class ConnectorMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']] mapping_properties: The properties of the mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectorMappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The connector mapping resource format.
+        API Version: 2017-04-26.
+
+        :param str resource_name: The name of the resource.
+        :param ConnectorMappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectorMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connector_name: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
+                 entity_type_name: Optional[pulumi.Input[str]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 mapping_name: Optional[pulumi.Input[str]] = None,
+                 mapping_properties: Optional[pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

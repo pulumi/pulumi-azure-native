@@ -5,13 +5,130 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['GatewayHostnameConfiguration']
+__all__ = ['GatewayHostnameConfigurationArgs', 'GatewayHostnameConfiguration']
+
+@pulumi.input_type
+class GatewayHostnameConfigurationArgs:
+    def __init__(__self__, *,
+                 gateway_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 certificate_id: Optional[pulumi.Input[str]] = None,
+                 hc_id: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a GatewayHostnameConfiguration resource.
+        :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] certificate_id: Identifier of Certificate entity that will be used for TLS connection establishment
+        :param pulumi.Input[str] hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+        :param pulumi.Input[str] hostname: Hostname value. Supports valid domain name, partial or full wildcard
+        :param pulumi.Input[bool] negotiate_client_certificate: Determines whether gateway requests client certificate
+        """
+        pulumi.set(__self__, "gateway_id", gateway_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if certificate_id is not None:
+            pulumi.set(__self__, "certificate_id", certificate_id)
+        if hc_id is not None:
+            pulumi.set(__self__, "hc_id", hc_id)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> pulumi.Input[str]:
+        """
+        Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of Certificate entity that will be used for TLS connection establishment
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @certificate_id.setter
+    def certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_id", value)
+
+    @property
+    @pulumi.getter(name="hcId")
+    def hc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+        """
+        return pulumi.get(self, "hc_id")
+
+    @hc_id.setter
+    def hc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hc_id", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hostname value. Supports valid domain name, partial or full wildcard
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether gateway requests client certificate
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @negotiate_client_certificate.setter
+    def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negotiate_client_certificate", value)
 
 
 class GatewayHostnameConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +155,40 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GatewayHostnameConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Gateway hostname configuration details.
+
+        :param str resource_name: The name of the resource.
+        :param GatewayHostnameConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GatewayHostnameConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 hc_id: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

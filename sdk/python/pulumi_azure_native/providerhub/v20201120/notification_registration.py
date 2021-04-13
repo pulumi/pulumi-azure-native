@@ -5,16 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NotificationRegistration']
+__all__ = ['NotificationRegistrationArgs', 'NotificationRegistration']
+
+@pulumi.input_type
+class NotificationRegistrationArgs:
+    def __init__(__self__, *,
+                 provider_namespace: pulumi.Input[str],
+                 notification_registration_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a NotificationRegistration resource.
+        :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
+        :param pulumi.Input[str] notification_registration_name: The notification registration.
+        """
+        pulumi.set(__self__, "provider_namespace", provider_namespace)
+        if notification_registration_name is not None:
+            pulumi.set(__self__, "notification_registration_name", notification_registration_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="providerNamespace")
+    def provider_namespace(self) -> pulumi.Input[str]:
+        """
+        The name of the resource provider hosted within ProviderHub.
+        """
+        return pulumi.get(self, "provider_namespace")
+
+    @provider_namespace.setter
+    def provider_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_namespace", value)
+
+    @property
+    @pulumi.getter(name="notificationRegistrationName")
+    def notification_registration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification registration.
+        """
+        return pulumi.get(self, "notification_registration_name")
+
+    @notification_registration_name.setter
+    def notification_registration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_registration_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class NotificationRegistration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +83,36 @@ class NotificationRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] notification_registration_name: The notification registration.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NotificationRegistrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The notification registration definition.
+
+        :param str resource_name: The name of the resource.
+        :param NotificationRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 notification_registration_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationRegistrationPropertiesArgs']]] = None,
+                 provider_namespace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

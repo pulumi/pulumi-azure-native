@@ -5,16 +5,167 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Factory']
+__all__ = ['FactoryArgs', 'Factory']
+
+@pulumi.input_type
+class FactoryArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 encryption: Optional[pulumi.Input['EncryptionConfigurationArgs']] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]]] = None,
+                 identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 repo_configuration: Optional[pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Factory resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input['EncryptionConfigurationArgs'] encryption: Properties to enable Customer Managed Key for the factory.
+        :param pulumi.Input[str] factory_name: The factory name.
+        :param pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]] global_parameters: List of parameters for factory.
+        :param pulumi.Input['FactoryIdentityArgs'] identity: Managed service identity of the factory.
+        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the data factory.
+        :param pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']] repo_configuration: Git repo information of the factory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if factory_name is not None:
+            pulumi.set(__self__, "factory_name", factory_name)
+        if global_parameters is not None:
+            pulumi.set(__self__, "global_parameters", global_parameters)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if repo_configuration is not None:
+            pulumi.set(__self__, "repo_configuration", repo_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionConfigurationArgs']]:
+        """
+        Properties to enable Customer Managed Key for the factory.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="factoryName")
+    def factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The factory name.
+        """
+        return pulumi.get(self, "factory_name")
+
+    @factory_name.setter
+    def factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "factory_name", value)
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]]]:
+        """
+        List of parameters for factory.
+        """
+        return pulumi.get(self, "global_parameters")
+
+    @global_parameters.setter
+    def global_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]]]):
+        pulumi.set(self, "global_parameters", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['FactoryIdentityArgs']]:
+        """
+        Managed service identity of the factory.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['FactoryIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public network access is allowed for the data factory.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="repoConfiguration")
+    def repo_configuration(self) -> Optional[pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']]]:
+        """
+        Git repo information of the factory.
+        """
+        return pulumi.get(self, "repo_configuration")
+
+    @repo_configuration.setter
+    def repo_configuration(self, value: Optional[pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']]]):
+        pulumi.set(self, "repo_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Factory(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +196,42 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FactoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Factory resource type.
+
+        :param str resource_name: The name of the resource.
+        :param FactoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FactoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigurationArgs']]] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

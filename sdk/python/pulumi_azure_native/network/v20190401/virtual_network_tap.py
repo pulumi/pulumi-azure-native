@@ -5,16 +5,167 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkTap']
+__all__ = ['VirtualNetworkTapArgs', 'VirtualNetworkTap']
+
+@pulumi.input_type
+class VirtualNetworkTapArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input['FrontendIPConfigurationArgs']] = None,
+                 destination_network_interface_ip_configuration: Optional[pulumi.Input['NetworkInterfaceIPConfigurationArgs']] = None,
+                 destination_port: Optional[pulumi.Input[int]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tap_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualNetworkTap resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['FrontendIPConfigurationArgs'] destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        :param pulumi.Input['NetworkInterfaceIPConfigurationArgs'] destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
+        :param pulumi.Input[int] destination_port: The VXLAN destination port that will receive the tapped traffic.
+        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] tap_name: The name of the virtual network tap.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if destination_load_balancer_front_end_ip_configuration is not None:
+            pulumi.set(__self__, "destination_load_balancer_front_end_ip_configuration", destination_load_balancer_front_end_ip_configuration)
+        if destination_network_interface_ip_configuration is not None:
+            pulumi.set(__self__, "destination_network_interface_ip_configuration", destination_network_interface_ip_configuration)
+        if destination_port is not None:
+            pulumi.set(__self__, "destination_port", destination_port)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tap_name is not None:
+            pulumi.set(__self__, "tap_name", tap_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="destinationLoadBalancerFrontEndIPConfiguration")
+    def destination_load_balancer_front_end_ip_configuration(self) -> Optional[pulumi.Input['FrontendIPConfigurationArgs']]:
+        """
+        The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        """
+        return pulumi.get(self, "destination_load_balancer_front_end_ip_configuration")
+
+    @destination_load_balancer_front_end_ip_configuration.setter
+    def destination_load_balancer_front_end_ip_configuration(self, value: Optional[pulumi.Input['FrontendIPConfigurationArgs']]):
+        pulumi.set(self, "destination_load_balancer_front_end_ip_configuration", value)
+
+    @property
+    @pulumi.getter(name="destinationNetworkInterfaceIPConfiguration")
+    def destination_network_interface_ip_configuration(self) -> Optional[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]:
+        """
+        The reference to the private IP Address of the collector nic that will receive the tap.
+        """
+        return pulumi.get(self, "destination_network_interface_ip_configuration")
+
+    @destination_network_interface_ip_configuration.setter
+    def destination_network_interface_ip_configuration(self, value: Optional[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]):
+        pulumi.set(self, "destination_network_interface_ip_configuration", value)
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The VXLAN destination port that will receive the tapped traffic.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @destination_port.setter
+    def destination_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "destination_port", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tapName")
+    def tap_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network tap.
+        """
+        return pulumi.get(self, "tap_name")
+
+    @tap_name.setter
+    def tap_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tap_name", value)
 
 
 class VirtualNetworkTap(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +196,42 @@ class VirtualNetworkTap(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] tap_name: The name of the virtual network tap.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualNetworkTapArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Virtual Network Tap resource.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualNetworkTapArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkTapArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]] = None,
+                 destination_network_interface_ip_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]] = None,
+                 destination_port: Optional[pulumi.Input[int]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tap_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

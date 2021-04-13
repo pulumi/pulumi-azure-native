@@ -5,14 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 
-__all__ = ['DeviceGroup']
+__all__ = ['DeviceGroupArgs', 'DeviceGroup']
+
+@pulumi.input_type
+class DeviceGroupArgs:
+    def __init__(__self__, *,
+                 iot_defender_location: pulumi.Input[str],
+                 device_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DeviceGroup resource.
+        :param pulumi.Input[str] iot_defender_location: Defender for IoT location
+        :param pulumi.Input[str] device_group_name: Device group name
+        """
+        pulumi.set(__self__, "iot_defender_location", iot_defender_location)
+        if device_group_name is not None:
+            pulumi.set(__self__, "device_group_name", device_group_name)
+
+    @property
+    @pulumi.getter(name="iotDefenderLocation")
+    def iot_defender_location(self) -> pulumi.Input[str]:
+        """
+        Defender for IoT location
+        """
+        return pulumi.get(self, "iot_defender_location")
+
+    @iot_defender_location.setter
+    def iot_defender_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iot_defender_location", value)
+
+    @property
+    @pulumi.getter(name="deviceGroupName")
+    def device_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device group name
+        """
+        return pulumi.get(self, "device_group_name")
+
+    @device_group_name.setter
+    def device_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_group_name", value)
 
 
 class DeviceGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,6 +69,36 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] device_group_name: Device group name
         :param pulumi.Input[str] iot_defender_location: Defender for IoT location
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DeviceGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Device group
+        API Version: 2021-02-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DeviceGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_group_name: Optional[pulumi.Input[str]] = None,
+                 iot_defender_location: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

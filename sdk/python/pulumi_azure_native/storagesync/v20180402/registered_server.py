@@ -5,13 +5,227 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['RegisteredServer']
+__all__ = ['RegisteredServerArgs', 'RegisteredServer']
+
+@pulumi.input_type
+class RegisteredServerArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 storage_sync_service_name: pulumi.Input[str],
+                 agent_version: Optional[pulumi.Input[str]] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 last_heart_beat: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 server_certificate: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
+                 server_os_version: Optional[pulumi.Input[str]] = None,
+                 server_role: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a RegisteredServer resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
+        :param pulumi.Input[str] agent_version: Registered Server Agent Version
+        :param pulumi.Input[str] cluster_id: Registered Server clusterId
+        :param pulumi.Input[str] cluster_name: Registered Server clusterName
+        :param pulumi.Input[str] friendly_name: Friendly Name
+        :param pulumi.Input[str] last_heart_beat: Registered Server last heart beat
+        :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        :param pulumi.Input[str] server_certificate: Registered Server Certificate
+        :param pulumi.Input[str] server_id: Registered Server serverId
+        :param pulumi.Input[str] server_os_version: Registered Server OS Version
+        :param pulumi.Input[str] server_role: Registered Server serverRole
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+        if agent_version is not None:
+            pulumi.set(__self__, "agent_version", agent_version)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if last_heart_beat is not None:
+            pulumi.set(__self__, "last_heart_beat", last_heart_beat)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if server_certificate is not None:
+            pulumi.set(__self__, "server_certificate", server_certificate)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if server_os_version is not None:
+            pulumi.set(__self__, "server_os_version", server_os_version)
+        if server_role is not None:
+            pulumi.set(__self__, "server_role", server_role)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageSyncServiceName")
+    def storage_sync_service_name(self) -> pulumi.Input[str]:
+        """
+        Name of Storage Sync Service resource.
+        """
+        return pulumi.get(self, "storage_sync_service_name")
+
+    @storage_sync_service_name.setter
+    def storage_sync_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_sync_service_name", value)
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server Agent Version
+        """
+        return pulumi.get(self, "agent_version")
+
+    @agent_version.setter
+    def agent_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_version", value)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server clusterId
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server clusterName
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="lastHeartBeat")
+    def last_heart_beat(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server last heart beat
+        """
+        return pulumi.get(self, "last_heart_beat")
+
+    @last_heart_beat.setter
+    def last_heart_beat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_heart_beat", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="serverCertificate")
+    def server_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server Certificate
+        """
+        return pulumi.get(self, "server_certificate")
+
+    @server_certificate.setter
+    def server_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_certificate", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server serverId
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="serverOSVersion")
+    def server_os_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server OS Version
+        """
+        return pulumi.get(self, "server_os_version")
+
+    @server_os_version.setter
+    def server_os_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_os_version", value)
+
+    @property
+    @pulumi.getter(name="serverRole")
+    def server_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Registered Server serverRole
+        """
+        return pulumi.get(self, "server_role")
+
+    @server_role.setter
+    def server_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_role", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class RegisteredServer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +264,46 @@ class RegisteredServer(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegisteredServerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Registered Server resource.
+
+        :param str resource_name: The name of the resource.
+        :param RegisteredServerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegisteredServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_version: Optional[pulumi.Input[str]] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 last_heart_beat: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_certificate: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
+                 server_os_version: Optional[pulumi.Input[str]] = None,
+                 server_role: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,183 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['BatchAccount']
+__all__ = ['BatchAccountArgs', 'BatchAccount']
+
+@pulumi.input_type
+class BatchAccountArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 auto_storage: Optional[pulumi.Input['AutoStorageBasePropertiesArgs']] = None,
+                 encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+                 identity: Optional[pulumi.Input['BatchAccountIdentityArgs']] = None,
+                 key_vault_reference: Optional[pulumi.Input['KeyVaultReferenceArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
+                 public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a BatchAccount resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input['AutoStorageBasePropertiesArgs'] auto_storage: The properties related to the auto-storage account.
+        :param pulumi.Input['EncryptionPropertiesArgs'] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        :param pulumi.Input['BatchAccountIdentityArgs'] identity: The identity of the Batch account.
+        :param pulumi.Input['KeyVaultReferenceArgs'] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
+        :param pulumi.Input[str] location: The region in which to create the account.
+        :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if auto_storage is not None:
+            pulumi.set(__self__, "auto_storage", auto_storage)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_reference is not None:
+            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if pool_allocation_mode is not None:
+            pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the Batch account.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="autoStorage")
+    def auto_storage(self) -> Optional[pulumi.Input['AutoStorageBasePropertiesArgs']]:
+        """
+        The properties related to the auto-storage account.
+        """
+        return pulumi.get(self, "auto_storage")
+
+    @auto_storage.setter
+    def auto_storage(self, value: Optional[pulumi.Input['AutoStorageBasePropertiesArgs']]):
+        pulumi.set(self, "auto_storage", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+        """
+        Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['BatchAccountIdentityArgs']]:
+        """
+        The identity of the Batch account.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['BatchAccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultReference")
+    def key_vault_reference(self) -> Optional[pulumi.Input['KeyVaultReferenceArgs']]:
+        """
+        A reference to the Azure key vault associated with the Batch account.
+        """
+        return pulumi.get(self, "key_vault_reference")
+
+    @key_vault_reference.setter
+    def key_vault_reference(self, value: Optional[pulumi.Input['KeyVaultReferenceArgs']]):
+        pulumi.set(self, "key_vault_reference", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region in which to create the account.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="poolAllocationMode")
+    def pool_allocation_mode(self) -> Optional[pulumi.Input['PoolAllocationMode']]:
+        """
+        The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        """
+        return pulumi.get(self, "pool_allocation_mode")
+
+    @pool_allocation_mode.setter
+    def pool_allocation_mode(self, value: Optional[pulumi.Input['PoolAllocationMode']]):
+        pulumi.set(self, "pool_allocation_mode", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input['PublicNetworkAccessType']]:
+        """
+        If not specified, the default value is 'enabled'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input['PublicNetworkAccessType']]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The user-specified tags associated with the account.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class BatchAccount(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +215,44 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BatchAccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Contains information about an Azure Batch account.
+        API Version: 2021-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param BatchAccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BatchAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']]] = None,
+                 key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
+                 public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

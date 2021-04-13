@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SqlResourceSqlRoleDefinition']
+__all__ = ['SqlResourceSqlRoleDefinitionArgs', 'SqlResourceSqlRoleDefinition']
+
+@pulumi.input_type
+class SqlResourceSqlRoleDefinitionArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RoleDefinitionType']] = None):
+        """
+        The set of arguments for constructing a SqlResourceSqlRoleDefinition resource.
+        :param pulumi.Input[str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]] permissions: The set of operations allowed through this Role Definition.
+        :param pulumi.Input[str] role_definition_id: The GUID for the Role Definition.
+        :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
+        :param pulumi.Input['RoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if assignable_scopes is not None:
+            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        Cosmos DB database account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="assignableScopes")
+    def assignable_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+        """
+        return pulumi.get(self, "assignable_scopes")
+
+    @assignable_scopes.setter
+    def assignable_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "assignable_scopes", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]]]:
+        """
+        The set of operations allowed through this Role Definition.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID for the Role Definition.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-friendly name for the Role Definition. Must be unique for the database account.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['RoleDefinitionType']]:
+        """
+        Indicates whether the Role Definition was built-in or user created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['RoleDefinitionType']]):
+        pulumi.set(self, "type", value)
 
 
 class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +160,41 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
         :param pulumi.Input['RoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlResourceSqlRoleDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Azure Cosmos DB SQL Role Definition.
+        API Version: 2021-03-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param SqlResourceSqlRoleDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlResourceSqlRoleDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RoleDefinitionType']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocalNetworkGateway']
+__all__ = ['LocalNetworkGatewayArgs', 'LocalNetworkGateway']
+
+@pulumi.input_type
+class LocalNetworkGatewayArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 gateway_ip_address: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 local_network_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+                 local_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a LocalNetworkGateway resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings.
+        :param pulumi.Input[str] fqdn: FQDN of local network gateway.
+        :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input['AddressSpaceArgs'] local_network_address_space: Local network site address space.
+        :param pulumi.Input[str] local_network_gateway_name: The name of the local network gateway.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if bgp_settings is not None:
+            pulumi.set(__self__, "bgp_settings", bgp_settings)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if gateway_ip_address is not None:
+            pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if local_network_address_space is not None:
+            pulumi.set(__self__, "local_network_address_space", local_network_address_space)
+        if local_network_gateway_name is not None:
+            pulumi.set(__self__, "local_network_gateway_name", local_network_gateway_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="bgpSettings")
+    def bgp_settings(self) -> Optional[pulumi.Input['BgpSettingsArgs']]:
+        """
+        Local network gateway's BGP speaker settings.
+        """
+        return pulumi.get(self, "bgp_settings")
+
+    @bgp_settings.setter
+    def bgp_settings(self, value: Optional[pulumi.Input['BgpSettingsArgs']]):
+        pulumi.set(self, "bgp_settings", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        FQDN of local network gateway.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="gatewayIpAddress")
+    def gateway_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of local network gateway.
+        """
+        return pulumi.get(self, "gateway_ip_address")
+
+    @gateway_ip_address.setter
+    def gateway_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_ip_address", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="localNetworkAddressSpace")
+    def local_network_address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
+        """
+        Local network site address space.
+        """
+        return pulumi.get(self, "local_network_address_space")
+
+    @local_network_address_space.setter
+    def local_network_address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
+        pulumi.set(self, "local_network_address_space", value)
+
+    @property
+    @pulumi.getter(name="localNetworkGatewayName")
+    def local_network_gateway_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the local network gateway.
+        """
+        return pulumi.get(self, "local_network_gateway_name")
+
+    @local_network_gateway_name.setter
+    def local_network_gateway_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_network_gateway_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class LocalNetworkGateway(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +195,42 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LocalNetworkGatewayArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A common class for general resource information.
+
+        :param str resource_name: The name of the resource.
+        :param LocalNetworkGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 gateway_ip_address: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 local_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 local_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

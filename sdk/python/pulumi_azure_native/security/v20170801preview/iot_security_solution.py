@@ -5,16 +5,214 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['IotSecuritySolution']
+__all__ = ['IotSecuritySolutionArgs', 'IotSecuritySolution']
+
+@pulumi.input_type
+class IotSecuritySolutionArgs:
+    def __init__(__self__, *,
+                 display_name: pulumi.Input[str],
+                 iot_hubs: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 resource_group_name: pulumi.Input[str],
+                 workspace: pulumi.Input[str],
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
+                 export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]]] = None,
+                 solution_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_defined_resources: Optional[pulumi.Input['UserDefinedResourcesPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a IotSecuritySolution resource.
+        :param pulumi.Input[str] display_name: Resource display name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] workspace: Workspace resource ID
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]] export: List of additional export to workspace data options
+        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]] recommendations_configuration: List of recommendation configuration
+        :param pulumi.Input[str] solution_name: The solution manager name
+        :param pulumi.Input[Union[str, 'SecuritySolutionStatus']] status: Security solution status
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input['UserDefinedResourcesPropertiesArgs'] user_defined_resources: Properties of the solution's user defined resources.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "iot_hubs", iot_hubs)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace", workspace)
+        if disabled_data_sources is not None:
+            pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
+        if export is not None:
+            pulumi.set(__self__, "export", export)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if recommendations_configuration is not None:
+            pulumi.set(__self__, "recommendations_configuration", recommendations_configuration)
+        if solution_name is not None:
+            pulumi.set(__self__, "solution_name", solution_name)
+        if status is None:
+            status = 'Enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_defined_resources is not None:
+            pulumi.set(__self__, "user_defined_resources", user_defined_resources)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Resource display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="iotHubs")
+    def iot_hubs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        IoT Hub resource IDs
+        """
+        return pulumi.get(self, "iot_hubs")
+
+    @iot_hubs.setter
+    def iot_hubs(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "iot_hubs", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def workspace(self) -> pulumi.Input[str]:
+        """
+        Workspace resource ID
+        """
+        return pulumi.get(self, "workspace")
+
+    @workspace.setter
+    def workspace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace", value)
+
+    @property
+    @pulumi.getter(name="disabledDataSources")
+    def disabled_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]]:
+        """
+        Disabled data sources. Disabling these data sources compromises the system.
+        """
+        return pulumi.get(self, "disabled_data_sources")
+
+    @disabled_data_sources.setter
+    def disabled_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]]):
+        pulumi.set(self, "disabled_data_sources", value)
+
+    @property
+    @pulumi.getter
+    def export(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]]:
+        """
+        List of additional export to workspace data options
+        """
+        return pulumi.get(self, "export")
+
+    @export.setter
+    def export(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]]):
+        pulumi.set(self, "export", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="recommendationsConfiguration")
+    def recommendations_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]]]:
+        """
+        List of recommendation configuration
+        """
+        return pulumi.get(self, "recommendations_configuration")
+
+    @recommendations_configuration.setter
+    def recommendations_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]]]):
+        pulumi.set(self, "recommendations_configuration", value)
+
+    @property
+    @pulumi.getter(name="solutionName")
+    def solution_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The solution manager name
+        """
+        return pulumi.get(self, "solution_name")
+
+    @solution_name.setter
+    def solution_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "solution_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]]:
+        """
+        Security solution status
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userDefinedResources")
+    def user_defined_resources(self) -> Optional[pulumi.Input['UserDefinedResourcesPropertiesArgs']]:
+        """
+        Properties of the solution's user defined resources.
+        """
+        return pulumi.get(self, "user_defined_resources")
+
+    @user_defined_resources.setter
+    def user_defined_resources(self, value: Optional[pulumi.Input['UserDefinedResourcesPropertiesArgs']]):
+        pulumi.set(self, "user_defined_resources", value)
 
 
 class IotSecuritySolution(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +249,45 @@ class IotSecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']] user_defined_resources: Properties of the solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IotSecuritySolutionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Security Solution
+
+        :param str resource_name: The name of the resource.
+        :param IotSecuritySolutionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IotSecuritySolutionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
+                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 solution_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
+                 workspace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

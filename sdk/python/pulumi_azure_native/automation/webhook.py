@@ -5,15 +5,180 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Webhook']
+__all__ = ['WebhookArgs', 'Webhook']
+
+@pulumi.input_type
+class WebhookArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None,
+                 runbook: Optional[pulumi.Input['RunbookAssociationPropertyArgs']] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 webhook_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Webhook resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] name: Gets or sets the name of the webhook.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] expiry_time: Gets or sets the expiry time.
+        :param pulumi.Input[bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets the parameters of the job.
+        :param pulumi.Input[str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
+        :param pulumi.Input['RunbookAssociationPropertyArgs'] runbook: Gets or sets the runbook.
+        :param pulumi.Input[str] uri: Gets or sets the uri.
+        :param pulumi.Input[str] webhook_name: The webhook name.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if run_on is not None:
+            pulumi.set(__self__, "run_on", run_on)
+        if runbook is not None:
+            pulumi.set(__self__, "runbook", runbook)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if webhook_name is not None:
+            pulumi.set(__self__, "webhook_name", webhook_name)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the name of the webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the expiry time.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the value of the enabled flag of webhook.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the parameters of the job.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the hybrid worker group the webhook job will run on.
+        """
+        return pulumi.get(self, "run_on")
+
+    @run_on.setter
+    def run_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_on", value)
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> Optional[pulumi.Input['RunbookAssociationPropertyArgs']]:
+        """
+        Gets or sets the runbook.
+        """
+        return pulumi.get(self, "runbook")
+
+    @runbook.setter
+    def runbook(self, value: Optional[pulumi.Input['RunbookAssociationPropertyArgs']]):
+        pulumi.set(self, "runbook", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the uri.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="webhookName")
+    def webhook_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The webhook name.
+        """
+        return pulumi.get(self, "webhook_name")
+
+    @webhook_name.setter
+    def webhook_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "webhook_name", value)
 
 
 class Webhook(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +212,44 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] uri: Gets or sets the uri.
         :param pulumi.Input[str] webhook_name: The webhook name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebhookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the webhook type.
+        API Version: 2015-10-31.
+
+        :param str resource_name: The name of the resource.
+        :param WebhookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebhookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None,
+                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 webhook_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

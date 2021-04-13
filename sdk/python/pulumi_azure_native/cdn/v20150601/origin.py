@@ -5,13 +5,129 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['Origin']
+__all__ = ['OriginArgs', 'Origin']
+
+@pulumi.input_type
+class OriginArgs:
+    def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[str],
+                 host_name: pulumi.Input[str],
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
+                 origin_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Origin resource.
+        :param pulumi.Input[str] endpoint_name: Name of the endpoint within the CDN profile.
+        :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
+        :param pulumi.Input[str] origin_name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
+        """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if origin_name is not None:
+            pulumi.set(__self__, "origin_name", origin_name)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        Name of the endpoint within the CDN profile.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CDN profile within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value of the HTTP port. Must be between 1 and 65535.
+        """
+        return pulumi.get(self, "http_port")
+
+    @http_port.setter
+    def http_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_port", value)
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value of the HTTPS port. Must be between 1 and 65535.
+        """
+        return pulumi.get(self, "https_port")
+
+    @https_port.setter
+    def https_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "https_port", value)
+
+    @property
+    @pulumi.getter(name="originName")
+    def origin_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the origin, an arbitrary value but it needs to be unique under endpoint
+        """
+        return pulumi.get(self, "origin_name")
+
+    @origin_name.setter
+    def origin_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_name", value)
 
 
 class Origin(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +154,40 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OriginArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+
+        :param str resource_name: The name of the resource.
+        :param OriginArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OriginArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
+                 origin_name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

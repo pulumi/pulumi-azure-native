@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ServerAzureADOnlyAuthentication']
+__all__ = ['ServerAzureADOnlyAuthenticationArgs', 'ServerAzureADOnlyAuthentication']
+
+@pulumi.input_type
+class ServerAzureADOnlyAuthenticationArgs:
+    def __init__(__self__, *,
+                 azure_ad_only_authentication: pulumi.Input[bool],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 authentication_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServerAzureADOnlyAuthentication resource.
+        :param pulumi.Input[bool] azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[str] authentication_name: The name of server azure active directory only authentication.
+        """
+        pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        if authentication_name is not None:
+            pulumi.set(__self__, "authentication_name", authentication_name)
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> pulumi.Input[bool]:
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
+
+    @azure_ad_only_authentication.setter
+    def azure_ad_only_authentication(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "azure_ad_only_authentication", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="authenticationName")
+    def authentication_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of server azure active directory only authentication.
+        """
+        return pulumi.get(self, "authentication_name")
+
+    @authentication_name.setter
+    def authentication_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_name", value)
 
 
 class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +101,37 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerAzureADOnlyAuthenticationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Azure Active Directory only authentication.
+
+        :param str resource_name: The name of the resource.
+        :param ServerAzureADOnlyAuthenticationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerAzureADOnlyAuthenticationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_name: Optional[pulumi.Input[str]] = None,
+                 azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

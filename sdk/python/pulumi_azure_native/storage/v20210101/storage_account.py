@@ -5,16 +5,357 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['StorageAccount']
+__all__ = ['StorageAccountArgs', 'StorageAccount']
+
+@pulumi.input_type
+class StorageAccountArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[str, 'Kind']],
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
+                 access_tier: Optional[pulumi.Input['AccessTier']] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_identity_based_authentication: Optional[pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs']] = None,
+                 custom_domain: Optional[pulumi.Input['CustomDomainArgs']] = None,
+                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+                 network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 routing_preference: Optional[pulumi.Input['RoutingPreferenceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a StorageAccount resource.
+        :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of storage account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input['SkuArgs'] sku: Required. Gets or sets the SKU name.
+        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        :param pulumi.Input[bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        :param pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs'] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
+        :param pulumi.Input['CustomDomainArgs'] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+        :param pulumi.Input[bool] enable_nfs_v3: NFS 3.0 protocol support enabled if set to true.
+        :param pulumi.Input['EncryptionArgs'] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
+        :param pulumi.Input[Union[str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+        :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network rule set
+        :param pulumi.Input['RoutingPreferenceArgs'] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if access_tier is not None:
+            pulumi.set(__self__, "access_tier", access_tier)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if allow_blob_public_access is not None:
+            pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if allow_shared_key_access is not None:
+            pulumi.set(__self__, "allow_shared_key_access", allow_shared_key_access)
+        if azure_files_identity_based_authentication is not None:
+            pulumi.set(__self__, "azure_files_identity_based_authentication", azure_files_identity_based_authentication)
+        if custom_domain is not None:
+            pulumi.set(__self__, "custom_domain", custom_domain)
+        if enable_https_traffic_only is not None:
+            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+        if enable_nfs_v3 is not None:
+            pulumi.set(__self__, "enable_nfs_v3", enable_nfs_v3)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if is_hns_enabled is not None:
+            pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+        if large_file_shares_state is not None:
+            pulumi.set(__self__, "large_file_shares_state", large_file_shares_state)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if network_rule_set is not None:
+            pulumi.set(__self__, "network_rule_set", network_rule_set)
+        if routing_preference is not None:
+            pulumi.set(__self__, "routing_preference", routing_preference)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'Kind']]:
+        """
+        Required. Indicates the type of storage account.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'Kind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        Required. Gets or sets the SKU name.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[pulumi.Input['AccessTier']]:
+        """
+        Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: Optional[pulumi.Input['AccessTier']]):
+        pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="allowBlobPublicAccess")
+    def allow_blob_public_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        """
+        return pulumi.get(self, "allow_blob_public_access")
+
+    @allow_blob_public_access.setter
+    def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_blob_public_access", value)
+
+    @property
+    @pulumi.getter(name="allowSharedKeyAccess")
+    def allow_shared_key_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        """
+        return pulumi.get(self, "allow_shared_key_access")
+
+    @allow_shared_key_access.setter
+    def allow_shared_key_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_shared_key_access", value)
+
+    @property
+    @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
+    def azure_files_identity_based_authentication(self) -> Optional[pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs']]:
+        """
+        Provides the identity based authentication settings for Azure Files.
+        """
+        return pulumi.get(self, "azure_files_identity_based_authentication")
+
+    @azure_files_identity_based_authentication.setter
+    def azure_files_identity_based_authentication(self, value: Optional[pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs']]):
+        pulumi.set(self, "azure_files_identity_based_authentication", value)
+
+    @property
+    @pulumi.getter(name="customDomain")
+    def custom_domain(self) -> Optional[pulumi.Input['CustomDomainArgs']]:
+        """
+        User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        """
+        return pulumi.get(self, "custom_domain")
+
+    @custom_domain.setter
+    def custom_domain(self, value: Optional[pulumi.Input['CustomDomainArgs']]):
+        pulumi.set(self, "custom_domain", value)
+
+    @property
+    @pulumi.getter(name="enableHttpsTrafficOnly")
+    def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+        """
+        return pulumi.get(self, "enable_https_traffic_only")
+
+    @enable_https_traffic_only.setter
+    def enable_https_traffic_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_https_traffic_only", value)
+
+    @property
+    @pulumi.getter(name="enableNfsV3")
+    def enable_nfs_v3(self) -> Optional[pulumi.Input[bool]]:
+        """
+        NFS 3.0 protocol support enabled if set to true.
+        """
+        return pulumi.get(self, "enable_nfs_v3")
+
+    @enable_nfs_v3.setter
+    def enable_nfs_v3(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_nfs_v3", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="isHnsEnabled")
+    def is_hns_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Account HierarchicalNamespace enabled if sets to true.
+        """
+        return pulumi.get(self, "is_hns_enabled")
+
+    @is_hns_enabled.setter
+    def is_hns_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_hns_enabled", value)
+
+    @property
+    @pulumi.getter(name="largeFileSharesState")
+    def large_file_shares_state(self) -> Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]]:
+        """
+        Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+        """
+        return pulumi.get(self, "large_file_shares_state")
+
+    @large_file_shares_state.setter
+    def large_file_shares_state(self, value: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]]):
+        pulumi.set(self, "large_file_shares_state", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]]:
+        """
+        Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="networkRuleSet")
+    def network_rule_set(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
+        """
+        Network rule set
+        """
+        return pulumi.get(self, "network_rule_set")
+
+    @network_rule_set.setter
+    def network_rule_set(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
+        pulumi.set(self, "network_rule_set", value)
+
+    @property
+    @pulumi.getter(name="routingPreference")
+    def routing_preference(self) -> Optional[pulumi.Input['RoutingPreferenceArgs']]:
+        """
+        Maintains information about the network routing choice opted by the user for data transfer
+        """
+        return pulumi.get(self, "routing_preference")
+
+    @routing_preference.setter
+    def routing_preference(self, value: Optional[pulumi.Input['RoutingPreferenceArgs']]):
+        pulumi.set(self, "routing_preference", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class StorageAccount(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -69,6 +410,54 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StorageAccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The storage account.
+
+        :param str resource_name: The name of the resource.
+        :param StorageAccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StorageAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input['AccessTier']] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
+                 custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
+                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+                 network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_preference: Optional[pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

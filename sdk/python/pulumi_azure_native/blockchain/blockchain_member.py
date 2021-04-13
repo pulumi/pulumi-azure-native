@@ -5,16 +5,231 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['BlockchainMember']
+__all__ = ['BlockchainMemberArgs', 'BlockchainMember']
+
+@pulumi.input_type
+class BlockchainMemberArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 blockchain_member_name: Optional[pulumi.Input[str]] = None,
+                 consortium: Optional[pulumi.Input[str]] = None,
+                 consortium_management_account_password: Optional[pulumi.Input[str]] = None,
+                 consortium_member_display_name: Optional[pulumi.Input[str]] = None,
+                 consortium_role: Optional[pulumi.Input[str]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'BlockchainProtocol']]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validator_nodes_sku: Optional[pulumi.Input['BlockchainMemberNodesSkuArgs']] = None):
+        """
+        The set of arguments for constructing a BlockchainMember resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] blockchain_member_name: Blockchain member name.
+        :param pulumi.Input[str] consortium: Gets or sets the consortium for the blockchain member.
+        :param pulumi.Input[str] consortium_management_account_password: Sets the managed consortium management account password.
+        :param pulumi.Input[str] consortium_member_display_name: Gets the display name of the member in the consortium.
+        :param pulumi.Input[str] consortium_role: Gets the role of the member in the consortium.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]] firewall_rules: Gets or sets firewall rules
+        :param pulumi.Input[str] location: The GEO location of the blockchain service.
+        :param pulumi.Input[str] password: Sets the basic auth password of the blockchain member.
+        :param pulumi.Input[Union[str, 'BlockchainProtocol']] protocol: Gets or sets the blockchain protocol.
+        :param pulumi.Input['SkuArgs'] sku: Gets or sets the blockchain member Sku.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describes the resource.
+        :param pulumi.Input['BlockchainMemberNodesSkuArgs'] validator_nodes_sku: Gets or sets the blockchain validator nodes Sku.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if blockchain_member_name is not None:
+            pulumi.set(__self__, "blockchain_member_name", blockchain_member_name)
+        if consortium is not None:
+            pulumi.set(__self__, "consortium", consortium)
+        if consortium_management_account_password is not None:
+            pulumi.set(__self__, "consortium_management_account_password", consortium_management_account_password)
+        if consortium_member_display_name is not None:
+            pulumi.set(__self__, "consortium_member_display_name", consortium_member_display_name)
+        if consortium_role is not None:
+            pulumi.set(__self__, "consortium_role", consortium_role)
+        if firewall_rules is not None:
+            pulumi.set(__self__, "firewall_rules", firewall_rules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validator_nodes_sku is not None:
+            pulumi.set(__self__, "validator_nodes_sku", validator_nodes_sku)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="blockchainMemberName")
+    def blockchain_member_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Blockchain member name.
+        """
+        return pulumi.get(self, "blockchain_member_name")
+
+    @blockchain_member_name.setter
+    def blockchain_member_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blockchain_member_name", value)
+
+    @property
+    @pulumi.getter
+    def consortium(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the consortium for the blockchain member.
+        """
+        return pulumi.get(self, "consortium")
+
+    @consortium.setter
+    def consortium(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consortium", value)
+
+    @property
+    @pulumi.getter(name="consortiumManagementAccountPassword")
+    def consortium_management_account_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the managed consortium management account password.
+        """
+        return pulumi.get(self, "consortium_management_account_password")
+
+    @consortium_management_account_password.setter
+    def consortium_management_account_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consortium_management_account_password", value)
+
+    @property
+    @pulumi.getter(name="consortiumMemberDisplayName")
+    def consortium_member_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the display name of the member in the consortium.
+        """
+        return pulumi.get(self, "consortium_member_display_name")
+
+    @consortium_member_display_name.setter
+    def consortium_member_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consortium_member_display_name", value)
+
+    @property
+    @pulumi.getter(name="consortiumRole")
+    def consortium_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the role of the member in the consortium.
+        """
+        return pulumi.get(self, "consortium_role")
+
+    @consortium_role.setter
+    def consortium_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consortium_role", value)
+
+    @property
+    @pulumi.getter(name="firewallRules")
+    def firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]:
+        """
+        Gets or sets firewall rules
+        """
+        return pulumi.get(self, "firewall_rules")
+
+    @firewall_rules.setter
+    def firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]]):
+        pulumi.set(self, "firewall_rules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GEO location of the blockchain service.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the basic auth password of the blockchain member.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'BlockchainProtocol']]]:
+        """
+        Gets or sets the blockchain protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'BlockchainProtocol']]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        Gets or sets the blockchain member Sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags of the service which is a list of key value pairs that describes the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="validatorNodesSku")
+    def validator_nodes_sku(self) -> Optional[pulumi.Input['BlockchainMemberNodesSkuArgs']]:
+        """
+        Gets or sets the blockchain validator nodes Sku.
+        """
+        return pulumi.get(self, "validator_nodes_sku")
+
+    @validator_nodes_sku.setter
+    def validator_nodes_sku(self, value: Optional[pulumi.Input['BlockchainMemberNodesSkuArgs']]):
+        pulumi.set(self, "validator_nodes_sku", value)
 
 
 class BlockchainMember(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +269,47 @@ class BlockchainMember(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describes the resource.
         :param pulumi.Input[pulumi.InputType['BlockchainMemberNodesSkuArgs']] validator_nodes_sku: Gets or sets the blockchain validator nodes Sku.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BlockchainMemberArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Payload of the blockchain member which is exposed in the request/response of the resource provider.
+        API Version: 2018-06-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param BlockchainMemberArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BlockchainMemberArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 blockchain_member_name: Optional[pulumi.Input[str]] = None,
+                 consortium: Optional[pulumi.Input[str]] = None,
+                 consortium_management_account_password: Optional[pulumi.Input[str]] = None,
+                 consortium_member_display_name: Optional[pulumi.Input[str]] = None,
+                 consortium_role: Optional[pulumi.Input[str]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'BlockchainProtocol']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validator_nodes_sku: Optional[pulumi.Input[pulumi.InputType['BlockchainMemberNodesSkuArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

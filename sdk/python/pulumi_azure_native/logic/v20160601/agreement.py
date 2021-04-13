@@ -5,16 +5,208 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Agreement']
+__all__ = ['AgreementArgs', 'Agreement']
+
+@pulumi.input_type
+class AgreementArgs:
+    def __init__(__self__, *,
+                 agreement_type: pulumi.Input['AgreementType'],
+                 content: pulumi.Input['AgreementContentArgs'],
+                 guest_identity: pulumi.Input['BusinessIdentityArgs'],
+                 guest_partner: pulumi.Input[str],
+                 host_identity: pulumi.Input['BusinessIdentityArgs'],
+                 host_partner: pulumi.Input[str],
+                 integration_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 agreement_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Agreement resource.
+        :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
+        :param pulumi.Input['AgreementContentArgs'] content: The agreement content.
+        :param pulumi.Input['BusinessIdentityArgs'] guest_identity: The business identity of the guest partner.
+        :param pulumi.Input[str] guest_partner: The integration account partner that is set as guest partner for this agreement.
+        :param pulumi.Input['BusinessIdentityArgs'] host_identity: The business identity of the host partner.
+        :param pulumi.Input[str] host_partner: The integration account partner that is set as host partner for this agreement.
+        :param pulumi.Input[str] integration_account_name: The integration account name.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] agreement_name: The integration account agreement name.
+        :param pulumi.Input[str] location: The resource location.
+        :param Any metadata: The metadata.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        """
+        pulumi.set(__self__, "agreement_type", agreement_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "guest_identity", guest_identity)
+        pulumi.set(__self__, "guest_partner", guest_partner)
+        pulumi.set(__self__, "host_identity", host_identity)
+        pulumi.set(__self__, "host_partner", host_partner)
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agreement_name is not None:
+            pulumi.set(__self__, "agreement_name", agreement_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="agreementType")
+    def agreement_type(self) -> pulumi.Input['AgreementType']:
+        """
+        The agreement type.
+        """
+        return pulumi.get(self, "agreement_type")
+
+    @agreement_type.setter
+    def agreement_type(self, value: pulumi.Input['AgreementType']):
+        pulumi.set(self, "agreement_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input['AgreementContentArgs']:
+        """
+        The agreement content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input['AgreementContentArgs']):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="guestIdentity")
+    def guest_identity(self) -> pulumi.Input['BusinessIdentityArgs']:
+        """
+        The business identity of the guest partner.
+        """
+        return pulumi.get(self, "guest_identity")
+
+    @guest_identity.setter
+    def guest_identity(self, value: pulumi.Input['BusinessIdentityArgs']):
+        pulumi.set(self, "guest_identity", value)
+
+    @property
+    @pulumi.getter(name="guestPartner")
+    def guest_partner(self) -> pulumi.Input[str]:
+        """
+        The integration account partner that is set as guest partner for this agreement.
+        """
+        return pulumi.get(self, "guest_partner")
+
+    @guest_partner.setter
+    def guest_partner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guest_partner", value)
+
+    @property
+    @pulumi.getter(name="hostIdentity")
+    def host_identity(self) -> pulumi.Input['BusinessIdentityArgs']:
+        """
+        The business identity of the host partner.
+        """
+        return pulumi.get(self, "host_identity")
+
+    @host_identity.setter
+    def host_identity(self, value: pulumi.Input['BusinessIdentityArgs']):
+        pulumi.set(self, "host_identity", value)
+
+    @property
+    @pulumi.getter(name="hostPartner")
+    def host_partner(self) -> pulumi.Input[str]:
+        """
+        The integration account partner that is set as host partner for this agreement.
+        """
+        return pulumi.get(self, "host_partner")
+
+    @host_partner.setter
+    def host_partner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_partner", value)
+
+    @property
+    @pulumi.getter(name="integrationAccountName")
+    def integration_account_name(self) -> pulumi.Input[str]:
+        """
+        The integration account name.
+        """
+        return pulumi.get(self, "integration_account_name")
+
+    @integration_account_name.setter
+    def integration_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integration_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="agreementName")
+    def agreement_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The integration account agreement name.
+        """
+        return pulumi.get(self, "agreement_name")
+
+    @agreement_name.setter
+    def agreement_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agreement_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Agreement(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +243,45 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AgreementArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The integration account agreement.
+
+        :param str resource_name: The name of the resource.
+        :param AgreementArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AgreementArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agreement_name: Optional[pulumi.Input[str]] = None,
+                 agreement_type: Optional[pulumi.Input['AgreementType']] = None,
+                 content: Optional[pulumi.Input[pulumi.InputType['AgreementContentArgs']]] = None,
+                 guest_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
+                 guest_partner: Optional[pulumi.Input[str]] = None,
+                 host_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
+                 host_partner: Optional[pulumi.Input[str]] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

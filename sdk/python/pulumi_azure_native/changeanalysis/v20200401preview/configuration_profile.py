@@ -5,16 +5,72 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ConfigurationProfile']
+__all__ = ['ConfigurationProfileArgs', 'ConfigurationProfile']
+
+@pulumi.input_type
+class ConfigurationProfileArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ConfigurationProfileResourcePropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a ConfigurationProfile resource.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: The identity block returned by ARM resource that supports managed identity.
+        :param pulumi.Input[str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+        :param pulumi.Input['ConfigurationProfileResourcePropertiesArgs'] properties: The properties of a configuration profile.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+        """
+        The identity block returned by ARM resource that supports managed identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ConfigurationProfileResourcePropertiesArgs']]:
+        """
+        The properties of a configuration profile.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ConfigurationProfileResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class ConfigurationProfile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +89,36 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         :param pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']] properties: The properties of a configuration profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ConfigurationProfileArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A profile object that contains change analysis configuration, such as notification settings, for this subscription
+
+        :param str resource_name: The name of the resource.
+        :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

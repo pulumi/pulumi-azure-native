@@ -5,14 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['SqlPoolTransparentDataEncryption']
+__all__ = ['SqlPoolTransparentDataEncryptionArgs', 'SqlPoolTransparentDataEncryption']
+
+@pulumi.input_type
+class SqlPoolTransparentDataEncryptionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sql_pool_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] sql_pool_name: SQL pool name
+        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
+        :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sql_pool_name", sql_pool_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if transparent_data_encryption_name is not None:
+            pulumi.set(__self__, "transparent_data_encryption_name", transparent_data_encryption_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sqlPoolName")
+    def sql_pool_name(self) -> pulumi.Input[str]:
+        """
+        SQL pool name
+        """
+        return pulumi.get(self, "sql_pool_name")
+
+    @sql_pool_name.setter
+    def sql_pool_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_pool_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]]:
+        """
+        The status of the database transparent data encryption.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionName")
+    def transparent_data_encryption_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the transparent data encryption configuration.
+        """
+        return pulumi.get(self, "transparent_data_encryption_name")
+
+    @transparent_data_encryption_name.setter
+    def transparent_data_encryption_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_data_encryption_name", value)
 
 
 class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +120,38 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlPoolTransparentDataEncryptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a Sql pool transparent data encryption configuration.
+
+        :param str resource_name: The name of the resource.
+        :param SqlPoolTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolTransparentDataEncryptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_pool_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

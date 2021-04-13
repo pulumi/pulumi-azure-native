@@ -5,14 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 
-__all__ = ['ConsoleWithLocation']
+__all__ = ['ConsoleWithLocationArgs', 'ConsoleWithLocation']
+
+@pulumi.input_type
+class ConsoleWithLocationArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 console_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ConsoleWithLocation resource.
+        :param pulumi.Input[str] location: The provider location
+        :param pulumi.Input[str] console_name: The name of the console
+        """
+        pulumi.set(__self__, "location", location)
+        if console_name is not None:
+            pulumi.set(__self__, "console_name", console_name)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The provider location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="consoleName")
+    def console_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the console
+        """
+        return pulumi.get(self, "console_name")
+
+    @console_name.setter
+    def console_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "console_name", value)
 
 
 class ConsoleWithLocation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,6 +69,36 @@ class ConsoleWithLocation(pulumi.CustomResource):
         :param pulumi.Input[str] console_name: The name of the console
         :param pulumi.Input[str] location: The provider location
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConsoleWithLocationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Cloud shell console
+        API Version: 2018-10-01.
+
+        :param str resource_name: The name of the resource.
+        :param ConsoleWithLocationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConsoleWithLocationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 console_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,112 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ApiOperationPolicy']
+__all__ = ['ApiOperationPolicyArgs', 'ApiOperationPolicy']
+
+@pulumi.input_type
+class ApiOperationPolicyArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 operation_id: pulumi.Input[str],
+                 policy_content: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 policy_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ApiOperationPolicy resource.
+        :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] policy_content: Json escaped Xml Encoded contents of the Policy.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] policy_id: The identifier of the Policy.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "operation_id", operation_id)
+        pulumi.set(__self__, "policy_content", policy_content)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> pulumi.Input[str]:
+        """
+        Operation identifier within an API. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @operation_id.setter
+    def operation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation_id", value)
+
+    @property
+    @pulumi.getter(name="policyContent")
+    def policy_content(self) -> pulumi.Input[str]:
+        """
+        Json escaped Xml Encoded contents of the Policy.
+        """
+        return pulumi.get(self, "policy_content")
+
+    @policy_content.setter
+    def policy_content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_content", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the Policy.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
 
 
 class ApiOperationPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +135,39 @@ class ApiOperationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiOperationPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Policy Contract details.
+
+        :param str resource_name: The name of the resource.
+        :param ApiOperationPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiOperationPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 operation_id: Optional[pulumi.Input[str]] = None,
+                 policy_content: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

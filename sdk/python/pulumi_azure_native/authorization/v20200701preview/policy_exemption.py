@@ -5,15 +5,164 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['PolicyExemption']
+__all__ = ['PolicyExemptionArgs', 'PolicyExemption']
+
+@pulumi.input_type
+class PolicyExemptionArgs:
+    def __init__(__self__, *,
+                 exemption_category: pulumi.Input[Union[str, 'ExemptionCategory']],
+                 policy_assignment_id: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_exemption_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a PolicyExemption resource.
+        :param pulumi.Input[Union[str, 'ExemptionCategory']] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
+        :param pulumi.Input[str] scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[str] description: The description of the policy exemption.
+        :param pulumi.Input[str] display_name: The display name of the policy exemption.
+        :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
+        """
+        pulumi.set(__self__, "exemption_category", exemption_category)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        pulumi.set(__self__, "scope", scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if policy_definition_reference_ids is not None:
+            pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
+        if policy_exemption_name is not None:
+            pulumi.set(__self__, "policy_exemption_name", policy_exemption_name)
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> pulumi.Input[Union[str, 'ExemptionCategory']]:
+        """
+        The policy exemption category. Possible values are Waiver and Mitigated.
+        """
+        return pulumi.get(self, "exemption_category")
+
+    @exemption_category.setter
+    def exemption_category(self, value: pulumi.Input[Union[str, 'ExemptionCategory']]):
+        pulumi.set(self, "exemption_category", value)
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the policy assignment that is being exempted.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @policy_assignment_id.setter
+    def policy_assignment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_assignment_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the policy exemption.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the policy exemption.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @expires_on.setter
+    def expires_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expires_on", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceIds")
+    def policy_definition_reference_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_ids")
+
+    @policy_definition_reference_ids.setter
+    def policy_definition_reference_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "policy_definition_reference_ids", value)
+
+    @property
+    @pulumi.getter(name="policyExemptionName")
+    def policy_exemption_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy exemption to delete.
+        """
+        return pulumi.get(self, "policy_exemption_name")
+
+    @policy_exemption_name.setter
+    def policy_exemption_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_exemption_name", value)
 
 
 class PolicyExemption(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +193,42 @@ class PolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
         :param pulumi.Input[str] scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyExemptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The policy exemption.
+
+        :param str resource_name: The name of the resource.
+        :param PolicyExemptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyExemptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 exemption_category: Optional[pulumi.Input[Union[str, 'ExemptionCategory']]] = None,
+                 expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 policy_assignment_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_exemption_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

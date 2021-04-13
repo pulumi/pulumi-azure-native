@@ -5,16 +5,135 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SecurityPartnerProvider']
+__all__ = ['SecurityPartnerProviderArgs', 'SecurityPartnerProvider']
+
+@pulumi.input_type
+class SecurityPartnerProviderArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 security_partner_provider_name: Optional[pulumi.Input[str]] = None,
+                 security_provider_name: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        The set of arguments for constructing a SecurityPartnerProvider resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] security_partner_provider_name: The name of the Security Partner Provider.
+        :param pulumi.Input[Union[str, 'SecurityProviderName']] security_provider_name: The security provider name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['SubResourceArgs'] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if security_partner_provider_name is not None:
+            pulumi.set(__self__, "security_partner_provider_name", security_partner_provider_name)
+        if security_provider_name is not None:
+            pulumi.set(__self__, "security_provider_name", security_provider_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_hub is not None:
+            pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="securityPartnerProviderName")
+    def security_partner_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Partner Provider.
+        """
+        return pulumi.get(self, "security_partner_provider_name")
+
+    @security_partner_provider_name.setter
+    def security_partner_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_partner_provider_name", value)
+
+    @property
+    @pulumi.getter(name="securityProviderName")
+    def security_provider_name(self) -> Optional[pulumi.Input[Union[str, 'SecurityProviderName']]]:
+        """
+        The security provider name.
+        """
+        return pulumi.get(self, "security_provider_name")
+
+    @security_provider_name.setter
+    def security_provider_name(self, value: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]]):
+        pulumi.set(self, "security_provider_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The virtualHub to which the Security Partner Provider belongs.
+        """
+        return pulumi.get(self, "virtual_hub")
+
+    @virtual_hub.setter
+    def virtual_hub(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_hub", value)
 
 
 class SecurityPartnerProvider(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +161,41 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecurityPartnerProviderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Security Partner Provider resource.
+        API Version: 2020-11-01.
+
+        :param str resource_name: The name of the resource.
+        :param SecurityPartnerProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityPartnerProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_partner_provider_name: Optional[pulumi.Input[str]] = None,
+                 security_provider_name: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

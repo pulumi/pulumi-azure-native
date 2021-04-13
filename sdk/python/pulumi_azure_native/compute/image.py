@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Image']
+__all__ = ['ImageArgs', 'Image']
+
+@pulumi.input_type
+class ImageArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 source_virtual_machine: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 storage_profile: Optional[pulumi.Input['ImageStorageProfileArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Image resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Image.
+        :param pulumi.Input[Union[str, 'HyperVGenerationTypes']] hyper_v_generation: Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
+        :param pulumi.Input[str] image_name: The name of the image.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['SubResourceArgs'] source_virtual_machine: The source virtual machine from which Image is created.
+        :param pulumi.Input['ImageStorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if hyper_v_generation is not None:
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if source_virtual_machine is not None:
+            pulumi.set(__self__, "source_virtual_machine", source_virtual_machine)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The extended location of the Image.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter(name="hyperVGeneration")
+    def hyper_v_generation(self) -> Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]]:
+        """
+        Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
+        """
+        return pulumi.get(self, "hyper_v_generation")
+
+    @hyper_v_generation.setter
+    def hyper_v_generation(self, value: Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]]):
+        pulumi.set(self, "hyper_v_generation", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="sourceVirtualMachine")
+    def source_virtual_machine(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The source virtual machine from which Image is created.
+        """
+        return pulumi.get(self, "source_virtual_machine")
+
+    @source_virtual_machine.setter
+    def source_virtual_machine(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "source_virtual_machine", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['ImageStorageProfileArgs']]:
+        """
+        Specifies the storage settings for the virtual machine disks.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['ImageStorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Image(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +179,42 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ImageStorageProfileArgs']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImageArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param ImageArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_virtual_machine: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['ImageStorageProfileArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

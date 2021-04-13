@@ -5,14 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['DefenderSetting']
+__all__ = ['DefenderSettingArgs', 'DefenderSetting']
+
+@pulumi.input_type
+class DefenderSettingArgs:
+    def __init__(__self__, *,
+                 device_quota: pulumi.Input[int],
+                 onboarding_kind: pulumi.Input[Union[str, 'OnboardingKind']],
+                 sentinel_workspace_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The set of arguments for constructing a DefenderSetting resource.
+        :param pulumi.Input[int] device_quota: Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
+        """
+        pulumi.set(__self__, "device_quota", device_quota)
+        pulumi.set(__self__, "onboarding_kind", onboarding_kind)
+        pulumi.set(__self__, "sentinel_workspace_resource_ids", sentinel_workspace_resource_ids)
+
+    @property
+    @pulumi.getter(name="deviceQuota")
+    def device_quota(self) -> pulumi.Input[int]:
+        """
+        Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        """
+        return pulumi.get(self, "device_quota")
+
+    @device_quota.setter
+    def device_quota(self, value: pulumi.Input[int]):
+        pulumi.set(self, "device_quota", value)
+
+    @property
+    @pulumi.getter(name="onboardingKind")
+    def onboarding_kind(self) -> pulumi.Input[Union[str, 'OnboardingKind']]:
+        """
+        The kind of onboarding for the subscription
+        """
+        return pulumi.get(self, "onboarding_kind")
+
+    @onboarding_kind.setter
+    def onboarding_kind(self, value: pulumi.Input[Union[str, 'OnboardingKind']]):
+        pulumi.set(self, "onboarding_kind", value)
+
+    @property
+    @pulumi.getter(name="sentinelWorkspaceResourceIds")
+    def sentinel_workspace_resource_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Sentinel Workspace Resource Ids
+        """
+        return pulumi.get(self, "sentinel_workspace_resource_ids")
+
+    @sentinel_workspace_resource_ids.setter
+    def sentinel_workspace_resource_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "sentinel_workspace_resource_ids", value)
 
 
 class DefenderSetting(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +85,37 @@ class DefenderSetting(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DefenderSettingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        IoT Defender settings
+        API Version: 2021-02-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param DefenderSettingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefenderSettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_quota: Optional[pulumi.Input[int]] = None,
+                 onboarding_kind: Optional[pulumi.Input[Union[str, 'OnboardingKind']]] = None,
+                 sentinel_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

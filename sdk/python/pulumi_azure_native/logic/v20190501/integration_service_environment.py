@@ -5,16 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['IntegrationServiceEnvironment']
+__all__ = ['IntegrationServiceEnvironmentArgs', 'IntegrationServiceEnvironment']
+
+@pulumi.input_type
+class IntegrationServiceEnvironmentArgs:
+    def __init__(__self__, *,
+                 resource_group: pulumi.Input[str],
+                 integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']] = None,
+                 sku: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a IntegrationServiceEnvironment resource.
+        :param pulumi.Input[str] resource_group: The resource group.
+        :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
+        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs'] properties: The integration service environment properties.
+        :param pulumi.Input['IntegrationServiceEnvironmentSkuArgs'] sku: The sku.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        """
+        pulumi.set(__self__, "resource_group", resource_group)
+        if integration_service_environment_name is not None:
+            pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        The resource group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentName")
+    def integration_service_environment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The integration service environment name.
+        """
+        return pulumi.get(self, "integration_service_environment_name")
+
+    @integration_service_environment_name.setter
+    def integration_service_environment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_service_environment_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]:
+        """
+        The integration service environment properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]:
+        """
+        The sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class IntegrationServiceEnvironment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +142,39 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentSkuArgs']] sku: The sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationServiceEnvironmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The integration service environment.
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationServiceEnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,14 +5,225 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Workbook']
+__all__ = ['WorkbookArgs', 'Workbook']
+
+@pulumi.input_type
+class WorkbookArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 serialized_data: pulumi.Input[str],
+                 shared_type_kind: pulumi.Input[Union[str, 'SharedTypeKind']],
+                 user_id: pulumi.Input[str],
+                 workbook_id: pulumi.Input[str],
+                 kind: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Workbook resource.
+        :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
+        :param pulumi.Input[str] name: The user-defined name of the workbook.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        :param pulumi.Input[Union[str, 'SharedTypeKind']] shared_type_kind: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        :param pulumi.Input[str] user_id: Unique user id of the specific user that owns this workbook.
+        :param pulumi.Input[str] workbook_id: Internally assigned unique id of the workbook definition.
+        :param pulumi.Input[Union[str, 'SharedTypeKind']] kind: The kind of workbook. Choices are user and shared.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] source_resource_id: Optional resourceId for a source resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "serialized_data", serialized_data)
+        if shared_type_kind is None:
+            shared_type_kind = 'shared'
+        pulumi.set(__self__, "shared_type_kind", shared_type_kind)
+        pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "workbook_id", workbook_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        Workbook category, as defined by the user at creation time.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The user-defined name of the workbook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serializedData")
+    def serialized_data(self) -> pulumi.Input[str]:
+        """
+        Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        """
+        return pulumi.get(self, "serialized_data")
+
+    @serialized_data.setter
+    def serialized_data(self, value: pulumi.Input[str]):
+        pulumi.set(self, "serialized_data", value)
+
+    @property
+    @pulumi.getter(name="sharedTypeKind")
+    def shared_type_kind(self) -> pulumi.Input[Union[str, 'SharedTypeKind']]:
+        """
+        Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        """
+        return pulumi.get(self, "shared_type_kind")
+
+    @shared_type_kind.setter
+    def shared_type_kind(self, value: pulumi.Input[Union[str, 'SharedTypeKind']]):
+        pulumi.set(self, "shared_type_kind", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        Unique user id of the specific user that owns this workbook.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+    @property
+    @pulumi.getter(name="workbookId")
+    def workbook_id(self) -> pulumi.Input[str]:
+        """
+        Internally assigned unique id of the workbook definition.
+        """
+        return pulumi.get(self, "workbook_id")
+
+    @workbook_id.setter
+    def workbook_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workbook_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'SharedTypeKind']]]:
+        """
+        The kind of workbook. Choices are user and shared.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Application Insights component resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional resourceId for a source resource.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 class Workbook(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +262,46 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked workbook.
         :param pulumi.Input[str] workbook_id: Internally assigned unique id of the workbook definition.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkbookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Application Insights workbook definition.
+
+        :param str resource_name: The name of the resource.
+        :param WorkbookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkbookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 category: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 serialized_data: Optional[pulumi.Input[str]] = None,
+                 shared_type_kind: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 workbook_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

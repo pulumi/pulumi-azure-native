@@ -5,16 +5,182 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NatRule']
+__all__ = ['NatRuleArgs', 'NatRule']
+
+@pulumi.input_type
+class NatRuleArgs:
+    def __init__(__self__, *,
+                 gateway_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+                 ip_configuration_id: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nat_rule_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None):
+        """
+        The set of arguments for constructing a NatRule resource.
+        :param pulumi.Input[str] gateway_name: The name of the gateway.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]] external_mappings: The private IP address external mapping for NAT.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]] internal_mappings: The private IP address internal mapping for NAT.
+        :param pulumi.Input[str] ip_configuration_id: The IP Configuration ID this NAT rule applies to.
+        :param pulumi.Input[Union[str, 'VpnNatRuleMode']] mode: The Source NAT direction of a VPN NAT.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] nat_rule_name: The name of the nat rule.
+        :param pulumi.Input[Union[str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
+        """
+        pulumi.set(__self__, "gateway_name", gateway_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if external_mappings is not None:
+            pulumi.set(__self__, "external_mappings", external_mappings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if internal_mappings is not None:
+            pulumi.set(__self__, "internal_mappings", internal_mappings)
+        if ip_configuration_id is not None:
+            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if nat_rule_name is not None:
+            pulumi.set(__self__, "nat_rule_name", nat_rule_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[str]:
+        """
+        The name of the gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the VpnGateway.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="externalMappings")
+    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
+        """
+        The private IP address external mapping for NAT.
+        """
+        return pulumi.get(self, "external_mappings")
+
+    @external_mappings.setter
+    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
+        pulumi.set(self, "external_mappings", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="internalMappings")
+    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
+        """
+        The private IP address internal mapping for NAT.
+        """
+        return pulumi.get(self, "internal_mappings")
+
+    @internal_mappings.setter
+    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
+        pulumi.set(self, "internal_mappings", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurationId")
+    def ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Configuration ID this NAT rule applies to.
+        """
+        return pulumi.get(self, "ip_configuration_id")
+
+    @ip_configuration_id.setter
+    def ip_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_configuration_id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]]:
+        """
+        The Source NAT direction of a VPN NAT.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="natRuleName")
+    def nat_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the nat rule.
+        """
+        return pulumi.get(self, "nat_rule_name")
+
+    @nat_rule_name.setter
+    def nat_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nat_rule_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]]:
+        """
+        The type of NAT rule for VPN NAT.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]]):
+        pulumi.set(self, "type", value)
 
 
 class NatRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +213,43 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[Union[str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NatRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        VpnGatewayNatRule Resource.
+
+        :param str resource_name: The name of the resource.
+        :param NatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]]] = None,
+                 ip_configuration_id: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nat_rule_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

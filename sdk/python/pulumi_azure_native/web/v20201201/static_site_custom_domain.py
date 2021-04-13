@@ -5,13 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['StaticSiteCustomDomain']
+__all__ = ['StaticSiteCustomDomainArgs', 'StaticSiteCustomDomain']
+
+@pulumi.input_type
+class StaticSiteCustomDomainArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 validation_method: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a StaticSiteCustomDomain resource.
+        :param pulumi.Input[str] name: Name of the static site.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] domain_name: The custom domain to create.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] validation_method: Validation method for adding a custom domain
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if validation_method is None:
+            validation_method = 'cname-delegation'
+        if validation_method is not None:
+            pulumi.set(__self__, "validation_method", validation_method)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the static site.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom domain to create.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="validationMethod")
+    def validation_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Validation method for adding a custom domain
+        """
+        return pulumi.get(self, "validation_method")
+
+    @validation_method.setter
+    def validation_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validation_method", value)
 
 
 class StaticSiteCustomDomain(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +122,38 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] validation_method: Validation method for adding a custom domain
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StaticSiteCustomDomainArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Static Site Custom Domain Overview ARM resource.
+
+        :param str resource_name: The name of the resource.
+        :param StaticSiteCustomDomainArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StaticSiteCustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 validation_method: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

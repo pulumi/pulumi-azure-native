@@ -5,16 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ReportConfigByResourceGroupName']
+__all__ = ['ReportConfigByResourceGroupNameArgs', 'ReportConfigByResourceGroupName']
+
+@pulumi.input_type
+class ReportConfigByResourceGroupNameArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input['ReportConfigDefinitionArgs'],
+                 delivery_info: pulumi.Input['ReportConfigDeliveryInfoArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 report_config_name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['ReportConfigScheduleArgs']] = None):
+        """
+        The set of arguments for constructing a ReportConfigByResourceGroupName resource.
+        :param pulumi.Input['ReportConfigDefinitionArgs'] definition: Has definition for the report config.
+        :param pulumi.Input['ReportConfigDeliveryInfoArgs'] delivery_info: Has delivery information for the report config.
+        :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
+        :param pulumi.Input[Union[str, 'FormatType']] format: The format of the report being delivered.
+        :param pulumi.Input[str] report_config_name: Report Config Name.
+        :param pulumi.Input['ReportConfigScheduleArgs'] schedule: Has schedule information for the report config.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "delivery_info", delivery_info)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if report_config_name is not None:
+            pulumi.set(__self__, "report_config_name", report_config_name)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['ReportConfigDefinitionArgs']:
+        """
+        Has definition for the report config.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['ReportConfigDefinitionArgs']):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> pulumi.Input['ReportConfigDeliveryInfoArgs']:
+        """
+        Has delivery information for the report config.
+        """
+        return pulumi.get(self, "delivery_info")
+
+    @delivery_info.setter
+    def delivery_info(self, value: pulumi.Input['ReportConfigDeliveryInfoArgs']):
+        pulumi.set(self, "delivery_info", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Azure Resource Group Name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[Union[str, 'FormatType']]]:
+        """
+        The format of the report being delivered.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[Union[str, 'FormatType']]]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter(name="reportConfigName")
+    def report_config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Report Config Name.
+        """
+        return pulumi.get(self, "report_config_name")
+
+    @report_config_name.setter
+    def report_config_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_config_name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ReportConfigScheduleArgs']]:
+        """
+        Has schedule information for the report config.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ReportConfigScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
 
 
 class ReportConfigByResourceGroupName(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +140,39 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']] schedule: Has schedule information for the report config.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReportConfigByResourceGroupNameArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A report config resource.
+
+        :param str resource_name: The name of the resource.
+        :param ReportConfigByResourceGroupNameArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReportConfigByResourceGroupNameArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']]] = None,
+                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportConfigDeliveryInfoArgs']]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 report_config_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

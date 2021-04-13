@@ -5,15 +5,214 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualHub']
+__all__ = ['VirtualHubArgs', 'VirtualHub']
+
+@pulumi.input_type
+class VirtualHubArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 p2_s_vpn_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 route_table: Optional[pulumi.Input['VirtualHubRouteTableArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]] = None,
+                 virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 vpn_gateway: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        The set of arguments for constructing a VirtualHub resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
+        :param pulumi.Input['SubResourceArgs'] express_route_gateway: The expressRouteGateway associated with this VirtualHub
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['SubResourceArgs'] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub
+        :param pulumi.Input['VirtualHubRouteTableArgs'] route_table: The routeTable associated with this virtual hub.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]] virtual_network_connections: list of all vnet connections with this VirtualHub.
+        :param pulumi.Input['SubResourceArgs'] virtual_wan: The VirtualWAN to which the VirtualHub belongs
+        :param pulumi.Input['SubResourceArgs'] vpn_gateway: The VpnGateway associated with this VirtualHub
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if express_route_gateway is not None:
+            pulumi.set(__self__, "express_route_gateway", express_route_gateway)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if p2_s_vpn_gateway is not None:
+            pulumi.set(__self__, "p2_s_vpn_gateway", p2_s_vpn_gateway)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_hub_name is not None:
+            pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        if virtual_network_connections is not None:
+            pulumi.set(__self__, "virtual_network_connections", virtual_network_connections)
+        if virtual_wan is not None:
+            pulumi.set(__self__, "virtual_wan", virtual_wan)
+        if vpn_gateway is not None:
+            pulumi.set(__self__, "vpn_gateway", vpn_gateway)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the VirtualHub.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address-prefix for this VirtualHub.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="expressRouteGateway")
+    def express_route_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The expressRouteGateway associated with this VirtualHub
+        """
+        return pulumi.get(self, "express_route_gateway")
+
+    @express_route_gateway.setter
+    def express_route_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "express_route_gateway", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="p2SVpnGateway")
+    def p2_s_vpn_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The P2SVpnGateway associated with this VirtualHub
+        """
+        return pulumi.get(self, "p2_s_vpn_gateway")
+
+    @p2_s_vpn_gateway.setter
+    def p2_s_vpn_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "p2_s_vpn_gateway", value)
+
+    @property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional[pulumi.Input['VirtualHubRouteTableArgs']]:
+        """
+        The routeTable associated with this virtual hub.
+        """
+        return pulumi.get(self, "route_table")
+
+    @route_table.setter
+    def route_table(self, value: Optional[pulumi.Input['VirtualHubRouteTableArgs']]):
+        pulumi.set(self, "route_table", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualHubName")
+    def virtual_hub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VirtualHub.
+        """
+        return pulumi.get(self, "virtual_hub_name")
+
+    @virtual_hub_name.setter
+    def virtual_hub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_hub_name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkConnections")
+    def virtual_network_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]]:
+        """
+        list of all vnet connections with this VirtualHub.
+        """
+        return pulumi.get(self, "virtual_network_connections")
+
+    @virtual_network_connections.setter
+    def virtual_network_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]]]):
+        pulumi.set(self, "virtual_network_connections", value)
+
+    @property
+    @pulumi.getter(name="virtualWan")
+    def virtual_wan(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The VirtualWAN to which the VirtualHub belongs
+        """
+        return pulumi.get(self, "virtual_wan")
+
+    @virtual_wan.setter
+    def virtual_wan(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_wan", value)
+
+    @property
+    @pulumi.getter(name="vpnGateway")
+    def vpn_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The VpnGateway associated with this VirtualHub
+        """
+        return pulumi.get(self, "vpn_gateway")
+
+    @vpn_gateway.setter
+    def vpn_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "vpn_gateway", value)
 
 
 class VirtualHub(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +249,45 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualHubArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        VirtualHub Resource.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualHubArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
+                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

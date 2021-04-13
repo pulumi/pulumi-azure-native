@@ -5,13 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['CustomerSubscription']
+__all__ = ['CustomerSubscriptionArgs', 'CustomerSubscription']
+
+@pulumi.input_type
+class CustomerSubscriptionArgs:
+    def __init__(__self__, *,
+                 registration_name: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 customer_subscription_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a CustomerSubscription resource.
+        :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
+        :param pulumi.Input[str] resource_group: Name of the resource group.
+        :param pulumi.Input[str] customer_subscription_name: Name of the product.
+        :param pulumi.Input[str] etag: The entity tag used for optimistic concurrency when modifying the resource.
+        :param pulumi.Input[str] tenant_id: Tenant Id.
+        """
+        pulumi.set(__self__, "registration_name", registration_name)
+        pulumi.set(__self__, "resource_group", resource_group)
+        if customer_subscription_name is not None:
+            pulumi.set(__self__, "customer_subscription_name", customer_subscription_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="registrationName")
+    def registration_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Azure Stack registration.
+        """
+        return pulumi.get(self, "registration_name")
+
+    @registration_name.setter
+    def registration_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registration_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="customerSubscriptionName")
+    def customer_subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the product.
+        """
+        return pulumi.get(self, "customer_subscription_name")
+
+    @customer_subscription_name.setter
+    def customer_subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_subscription_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The entity tag used for optimistic concurrency when modifying the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 class CustomerSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +120,38 @@ class CustomerSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group: Name of the resource group.
         :param pulumi.Input[str] tenant_id: Tenant Id.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CustomerSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Customer subscription.
+
+        :param str resource_name: The name of the resource.
+        :param CustomerSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CustomerSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_subscription_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 registration_name: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

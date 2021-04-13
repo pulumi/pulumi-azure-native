@@ -5,16 +5,263 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AzureFirewall']
+__all__ = ['AzureFirewallArgs', 'AzureFirewall']
+
+@pulumi.input_type
+class AzureFirewallArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]] = None,
+                 azure_firewall_name: Optional[pulumi.Input[str]] = None,
+                 firewall_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallIPConfigurationArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleCollectionArgs']]]] = None,
+                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleCollectionArgs']]]] = None,
+                 sku: Optional[pulumi.Input['AzureFirewallSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+                 virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AzureFirewall resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: The additional properties used to further config this azure firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
+        :param pulumi.Input[str] azure_firewall_name: The name of the Azure Firewall.
+        :param pulumi.Input['SubResourceArgs'] firewall_policy: The firewallPolicy associated with this azure firewall.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallIPConfigurationArgs']]] ip_configurations: IP configuration of the Azure Firewall resource.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleCollectionArgs']]] nat_rule_collections: Collection of NAT rule collections used by Azure Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleCollectionArgs']]] network_rule_collections: Collection of network rule collections used by Azure Firewall.
+        :param pulumi.Input['AzureFirewallSkuArgs'] sku: The Azure Firewall Resource SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
+        :param pulumi.Input['SubResourceArgs'] virtual_hub: The virtualHub to which the firewall belongs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if additional_properties is not None:
+            pulumi.set(__self__, "additional_properties", additional_properties)
+        if application_rule_collections is not None:
+            pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+        if azure_firewall_name is not None:
+            pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
+        if firewall_policy is not None:
+            pulumi.set(__self__, "firewall_policy", firewall_policy)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if nat_rule_collections is not None:
+            pulumi.set(__self__, "nat_rule_collections", nat_rule_collections)
+        if network_rule_collections is not None:
+            pulumi.set(__self__, "network_rule_collections", network_rule_collections)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if threat_intel_mode is not None:
+            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+        if virtual_hub is not None:
+            pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The additional properties used to further config this azure firewall.
+        """
+        return pulumi.get(self, "additional_properties")
+
+    @additional_properties.setter
+    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_properties", value)
+
+    @property
+    @pulumi.getter(name="applicationRuleCollections")
+    def application_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]]:
+        """
+        Collection of application rule collections used by Azure Firewall.
+        """
+        return pulumi.get(self, "application_rule_collections")
+
+    @application_rule_collections.setter
+    def application_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]]):
+        pulumi.set(self, "application_rule_collections", value)
+
+    @property
+    @pulumi.getter(name="azureFirewallName")
+    def azure_firewall_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure Firewall.
+        """
+        return pulumi.get(self, "azure_firewall_name")
+
+    @azure_firewall_name.setter
+    def azure_firewall_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_firewall_name", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicy")
+    def firewall_policy(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The firewallPolicy associated with this azure firewall.
+        """
+        return pulumi.get(self, "firewall_policy")
+
+    @firewall_policy.setter
+    def firewall_policy(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "firewall_policy", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallIPConfigurationArgs']]]]:
+        """
+        IP configuration of the Azure Firewall resource.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallIPConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="natRuleCollections")
+    def nat_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleCollectionArgs']]]]:
+        """
+        Collection of NAT rule collections used by Azure Firewall.
+        """
+        return pulumi.get(self, "nat_rule_collections")
+
+    @nat_rule_collections.setter
+    def nat_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleCollectionArgs']]]]):
+        pulumi.set(self, "nat_rule_collections", value)
+
+    @property
+    @pulumi.getter(name="networkRuleCollections")
+    def network_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleCollectionArgs']]]]:
+        """
+        Collection of network rule collections used by Azure Firewall.
+        """
+        return pulumi.get(self, "network_rule_collections")
+
+    @network_rule_collections.setter
+    def network_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleCollectionArgs']]]]):
+        pulumi.set(self, "network_rule_collections", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['AzureFirewallSkuArgs']]:
+        """
+        The Azure Firewall Resource SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['AzureFirewallSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="threatIntelMode")
+    def threat_intel_mode(self) -> Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]]:
+        """
+        The operation mode for Threat Intelligence.
+        """
+        return pulumi.get(self, "threat_intel_mode")
+
+    @threat_intel_mode.setter
+    def threat_intel_mode(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]]):
+        pulumi.set(self, "threat_intel_mode", value)
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The virtualHub to which the firewall belongs.
+        """
+        return pulumi.get(self, "virtual_hub")
+
+    @virtual_hub.setter
+    def virtual_hub(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_hub", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 class AzureFirewall(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +304,48 @@ class AzureFirewall(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the firewall belongs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AzureFirewallArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Azure Firewall resource.
+
+        :param str resource_name: The name of the resource.
+        :param AzureFirewallArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AzureFirewallArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]]] = None,
+                 azure_firewall_name: Optional[pulumi.Input[str]] = None,
+                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNatRuleCollectionArgs']]]]] = None,
+                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['AzureFirewallSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

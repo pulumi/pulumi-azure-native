@@ -5,15 +5,179 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRouteConnection']
+__all__ = ['ExpressRouteConnectionArgs', 'ExpressRouteConnection']
+
+@pulumi.input_type
+class ExpressRouteConnectionArgs:
+    def __init__(__self__, *,
+                 express_route_circuit_peering: pulumi.Input['ExpressRouteCircuitPeeringIdArgs'],
+                 express_route_gateway_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a ExpressRouteConnection resource.
+        :param pulumi.Input['ExpressRouteCircuitPeeringIdArgs'] express_route_circuit_peering: The ExpressRoute circuit peering.
+        :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
+        :param pulumi.Input[str] name: The name of the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.
+        :param pulumi.Input[str] connection_name: The name of the connection subresource.
+        :param pulumi.Input[bool] enable_internet_security: Enable internet security.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[int] routing_weight: The routing weight associated to the connection.
+        """
+        pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if enable_internet_security is not None:
+            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if routing_configuration is not None:
+            pulumi.set(__self__, "routing_configuration", routing_configuration)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitPeering")
+    def express_route_circuit_peering(self) -> pulumi.Input['ExpressRouteCircuitPeeringIdArgs']:
+        """
+        The ExpressRoute circuit peering.
+        """
+        return pulumi.get(self, "express_route_circuit_peering")
+
+    @express_route_circuit_peering.setter
+    def express_route_circuit_peering(self, value: pulumi.Input['ExpressRouteCircuitPeeringIdArgs']):
+        pulumi.set(self, "express_route_circuit_peering", value)
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayName")
+    def express_route_gateway_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ExpressRoute gateway.
+        """
+        return pulumi.get(self, "express_route_gateway_name")
+
+    @express_route_gateway_name.setter
+    def express_route_gateway_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "express_route_gateway_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authorization key to establish the connection.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection subresource.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="enableInternetSecurity")
+    def enable_internet_security(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable internet security.
+        """
+        return pulumi.get(self, "enable_internet_security")
+
+    @enable_internet_security.setter
+    def enable_internet_security(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_internet_security", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="routingConfiguration")
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        return pulumi.get(self, "routing_configuration")
+
+    @routing_configuration.setter
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+        pulumi.set(self, "routing_configuration", value)
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The routing weight associated to the connection.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @routing_weight.setter
+    def routing_weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "routing_weight", value)
 
 
 class ExpressRouteConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +210,43 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the connection.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExpressRouteConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ExpressRouteConnection resource.
+
+        :param str resource_name: The name of the resource.
+        :param ExpressRouteConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']]] = None,
+                 express_route_gateway_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

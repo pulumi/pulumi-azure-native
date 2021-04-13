@@ -5,16 +5,104 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SecurityContact']
+__all__ = ['SecurityContactArgs', 'SecurityContact']
+
+@pulumi.input_type
+class SecurityContactArgs:
+    def __init__(__self__, *,
+                 alert_notifications: Optional[pulumi.Input['SecurityContactPropertiesAlertNotificationsArgs']] = None,
+                 emails: Optional[pulumi.Input[str]] = None,
+                 notifications_by_role: Optional[pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs']] = None,
+                 phone: Optional[pulumi.Input[str]] = None,
+                 security_contact_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SecurityContact resource.
+        :param pulumi.Input['SecurityContactPropertiesAlertNotificationsArgs'] alert_notifications: Defines whether to send email notifications about new security alerts
+        :param pulumi.Input[str] emails: List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        :param pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs'] notifications_by_role: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[str] phone: The security contact's phone number
+        :param pulumi.Input[str] security_contact_name: Name of the security contact object
+        """
+        if alert_notifications is not None:
+            pulumi.set(__self__, "alert_notifications", alert_notifications)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if notifications_by_role is not None:
+            pulumi.set(__self__, "notifications_by_role", notifications_by_role)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
+        if security_contact_name is not None:
+            pulumi.set(__self__, "security_contact_name", security_contact_name)
+
+    @property
+    @pulumi.getter(name="alertNotifications")
+    def alert_notifications(self) -> Optional[pulumi.Input['SecurityContactPropertiesAlertNotificationsArgs']]:
+        """
+        Defines whether to send email notifications about new security alerts
+        """
+        return pulumi.get(self, "alert_notifications")
+
+    @alert_notifications.setter
+    def alert_notifications(self, value: Optional[pulumi.Input['SecurityContactPropertiesAlertNotificationsArgs']]):
+        pulumi.set(self, "alert_notifications", value)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        """
+        return pulumi.get(self, "emails")
+
+    @emails.setter
+    def emails(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "emails", value)
+
+    @property
+    @pulumi.getter(name="notificationsByRole")
+    def notifications_by_role(self) -> Optional[pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs']]:
+        """
+        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        """
+        return pulumi.get(self, "notifications_by_role")
+
+    @notifications_by_role.setter
+    def notifications_by_role(self, value: Optional[pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs']]):
+        pulumi.set(self, "notifications_by_role", value)
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The security contact's phone number
+        """
+        return pulumi.get(self, "phone")
+
+    @phone.setter
+    def phone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone", value)
+
+    @property
+    @pulumi.getter(name="securityContactName")
+    def security_contact_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security contact object
+        """
+        return pulumi.get(self, "security_contact_name")
+
+    @security_contact_name.setter
+    def security_contact_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_contact_name", value)
 
 
 class SecurityContact(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +125,38 @@ class SecurityContact(pulumi.CustomResource):
         :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[SecurityContactArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Contact details and configurations for notifications coming from Azure Security Center.
+
+        :param str resource_name: The name of the resource.
+        :param SecurityContactArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_notifications: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']]] = None,
+                 emails: Optional[pulumi.Input[str]] = None,
+                 notifications_by_role: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']]] = None,
+                 phone: Optional[pulumi.Input[str]] = None,
+                 security_contact_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

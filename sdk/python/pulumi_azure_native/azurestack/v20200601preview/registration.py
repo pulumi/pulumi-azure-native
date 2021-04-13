@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['Registration']
+__all__ = ['RegistrationArgs', 'Registration']
+
+@pulumi.input_type
+class RegistrationArgs:
+    def __init__(__self__, *,
+                 registration_token: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
+                 registration_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Registration resource.
+        :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
+        :param pulumi.Input[str] resource_group: Name of the resource group.
+        :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
+        :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
+        """
+        pulumi.set(__self__, "registration_token", registration_token)
+        pulumi.set(__self__, "resource_group", resource_group)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if registration_name is not None:
+            pulumi.set(__self__, "registration_name", registration_name)
+
+    @property
+    @pulumi.getter(name="registrationToken")
+    def registration_token(self) -> pulumi.Input[str]:
+        """
+        The token identifying registered Azure Stack
+        """
+        return pulumi.get(self, "registration_token")
+
+    @registration_token.setter
+    def registration_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registration_token", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[Union[str, 'Location']]]:
+        """
+        Location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[Union[str, 'Location']]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="registrationName")
+    def registration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Azure Stack registration.
+        """
+        return pulumi.get(self, "registration_name")
+
+    @registration_name.setter
+    def registration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_name", value)
 
 
 class Registration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +104,37 @@ class Registration(pulumi.CustomResource):
         :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[str] resource_group: Name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegistrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Registration information.
+
+        :param str resource_name: The name of the resource.
+        :param RegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
+                 registration_name: Optional[pulumi.Input[str]] = None,
+                 registration_token: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

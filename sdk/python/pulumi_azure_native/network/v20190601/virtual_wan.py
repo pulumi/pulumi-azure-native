@@ -5,16 +5,183 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualWan']
+__all__ = ['VirtualWanArgs', 'VirtualWan']
+
+@pulumi.input_type
+class VirtualWanArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
+                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
+                 disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigurationArgs']]]] = None,
+                 security_provider_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_wan_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualWan resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
+        :param pulumi.Input[bool] allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.
+        :param pulumi.Input[bool] allow_vnet_to_vnet_traffic: True if Vnet to Vnet traffic is allowed.
+        :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigurationArgs']]] p2_s_vpn_server_configurations: List of all P2SVpnServerConfigurations associated with the virtual wan.
+        :param pulumi.Input[str] security_provider_name: The Security Provider name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWAN being created or updated.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allow_branch_to_branch_traffic is not None:
+            pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
+        if allow_vnet_to_vnet_traffic is not None:
+            pulumi.set(__self__, "allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
+        if disable_vpn_encryption is not None:
+            pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if p2_s_vpn_server_configurations is not None:
+            pulumi.set(__self__, "p2_s_vpn_server_configurations", p2_s_vpn_server_configurations)
+        if security_provider_name is not None:
+            pulumi.set(__self__, "security_provider_name", security_provider_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_wan_name is not None:
+            pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the VirtualWan.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowBranchToBranchTraffic")
+    def allow_branch_to_branch_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if branch to branch traffic is allowed.
+        """
+        return pulumi.get(self, "allow_branch_to_branch_traffic")
+
+    @allow_branch_to_branch_traffic.setter
+    def allow_branch_to_branch_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_branch_to_branch_traffic", value)
+
+    @property
+    @pulumi.getter(name="allowVnetToVnetTraffic")
+    def allow_vnet_to_vnet_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if Vnet to Vnet traffic is allowed.
+        """
+        return pulumi.get(self, "allow_vnet_to_vnet_traffic")
+
+    @allow_vnet_to_vnet_traffic.setter
+    def allow_vnet_to_vnet_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_vnet_to_vnet_traffic", value)
+
+    @property
+    @pulumi.getter(name="disableVpnEncryption")
+    def disable_vpn_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Vpn encryption to be disabled or not.
+        """
+        return pulumi.get(self, "disable_vpn_encryption")
+
+    @disable_vpn_encryption.setter
+    def disable_vpn_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_vpn_encryption", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigurations")
+    def p2_s_vpn_server_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigurationArgs']]]]:
+        """
+        List of all P2SVpnServerConfigurations associated with the virtual wan.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_configurations")
+
+    @p2_s_vpn_server_configurations.setter
+    def p2_s_vpn_server_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigurationArgs']]]]):
+        pulumi.set(self, "p2_s_vpn_server_configurations", value)
+
+    @property
+    @pulumi.getter(name="securityProviderName")
+    def security_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Security Provider name.
+        """
+        return pulumi.get(self, "security_provider_name")
+
+    @security_provider_name.setter
+    def security_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_provider_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualWANName")
+    def virtual_wan_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VirtualWAN being created or updated.
+        """
+        return pulumi.get(self, "virtual_wan_name")
+
+    @virtual_wan_name.setter
+    def virtual_wan_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_wan_name", value)
 
 
 class VirtualWan(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +214,43 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWAN being created or updated.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualWanArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        VirtualWAN Resource.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualWanArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualWanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
+                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
+                 disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_provider_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_wan_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

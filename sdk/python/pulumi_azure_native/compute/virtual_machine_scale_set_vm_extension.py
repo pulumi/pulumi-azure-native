@@ -5,16 +5,229 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualMachineScaleSetVMExtension']
+__all__ = ['VirtualMachineScaleSetVMExtensionArgs', 'VirtualMachineScaleSetVMExtension']
+
+@pulumi.input_type
+class VirtualMachineScaleSetVMExtensionArgs:
+    def __init__(__self__, *,
+                 instance_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 vm_scale_set_name: pulumi.Input[str],
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']] = None,
+                 protected_settings: Optional[Any] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[Any] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None,
+                 vm_extension_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualMachineScaleSetVMExtension resource.
+        :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
+        :param pulumi.Input['VirtualMachineExtensionInstanceViewArgs'] instance_view: The virtual machine extension instance view.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input[str] publisher: The name of the extension handler publisher.
+        :param Any settings: Json formatted public settings for the extension.
+        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
+        """
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if instance_view is not None:
+            pulumi.set(__self__, "instance_view", instance_view)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if vm_extension_name is not None:
+            pulumi.set(__self__, "vm_extension_name", vm_extension_name)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[str]:
+        """
+        The instance ID of the virtual machine.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vmScaleSetName")
+    def vm_scale_set_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VM scale set.
+        """
+        return pulumi.get(self, "vm_scale_set_name")
+
+    @vm_scale_set_name.setter
+    def vm_scale_set_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_scale_set_name", value)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        How the extension handler should be forced to update even if the extension configuration has not changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @force_update_tag.setter
+    def force_update_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "force_update_tag", value)
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']]:
+        """
+        The virtual machine extension instance view.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @instance_view.setter
+    def instance_view(self, value: Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']]):
+        pulumi.set(self, "instance_view", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[Any]:
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[Any]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the extension handler publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Any]:
+        """
+        Json formatted public settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[Any]):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_handler_version", value)
+
+    @property
+    @pulumi.getter(name="vmExtensionName")
+    def vm_extension_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual machine extension.
+        """
+        return pulumi.get(self, "vm_extension_name")
+
+    @vm_extension_name.setter
+    def vm_extension_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_extension_name", value)
 
 
 class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +267,47 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualMachineScaleSetVMExtensionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Describes a VMSS VM Extension.
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualMachineScaleSetVMExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineScaleSetVMExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
+                 protected_settings: Optional[Any] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[Any] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None,
+                 vm_extension_name: Optional[pulumi.Input[str]] = None,
+                 vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

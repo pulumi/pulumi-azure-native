@@ -5,14 +5,90 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 
-__all__ = ['BackupPolicy']
+__all__ = ['BackupPolicyArgs', 'BackupPolicy']
+
+@pulumi.input_type
+class BackupPolicyArgs:
+    def __init__(__self__, *,
+                 datasource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 object_type: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 vault_name: pulumi.Input[str],
+                 backup_policy_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BackupPolicy resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] datasource_types: Type of datasource for the backup management
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] vault_name: The name of the backup vault.
+        """
+        pulumi.set(__self__, "datasource_types", datasource_types)
+        pulumi.set(__self__, "object_type", object_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vault_name", vault_name)
+        if backup_policy_name is not None:
+            pulumi.set(__self__, "backup_policy_name", backup_policy_name)
+
+    @property
+    @pulumi.getter(name="datasourceTypes")
+    def datasource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Type of datasource for the backup management
+        """
+        return pulumi.get(self, "datasource_types")
+
+    @datasource_types.setter
+    def datasource_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "datasource_types", value)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the backup vault is present.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> pulumi.Input[str]:
+        """
+        The name of the backup vault.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_name", value)
+
+    @property
+    @pulumi.getter(name="backupPolicyName")
+    def backup_policy_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "backup_policy_name")
+
+    @backup_policy_name.setter
+    def backup_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_policy_name", value)
 
 
 class BackupPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +110,39 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BackupPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        BaseBackupPolicy resource
+        API Version: 2021-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 datasource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 object_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

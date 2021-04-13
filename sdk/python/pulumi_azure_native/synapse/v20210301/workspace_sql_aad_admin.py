@@ -5,13 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['WorkspaceSqlAadAdmin']
+__all__ = ['WorkspaceSqlAadAdminArgs', 'WorkspaceSqlAadAdmin']
+
+@pulumi.input_type
+class WorkspaceSqlAadAdminArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 administrator_type: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] administrator_type: Workspace active directory administrator type
+        :param pulumi.Input[str] login: Login of the workspace active directory administrator
+        :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
+        :param pulumi.Input[str] tenant_id: Tenant ID of the workspace active directory administrator
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if administrator_type is not None:
+            pulumi.set(__self__, "administrator_type", administrator_type)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace active directory administrator type
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @administrator_type.setter
+    def administrator_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_type", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login of the workspace active directory administrator
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object ID of the workspace active directory administrator
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sid", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenant ID of the workspace active directory administrator
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 class WorkspaceSqlAadAdmin(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +138,39 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         :param pulumi.Input[str] tenant_id: Tenant ID of the workspace active directory administrator
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkspaceSqlAadAdminArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Workspace active directory administrator
+
+        :param str resource_name: The name of the resource.
+        :param WorkspaceSqlAadAdminArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceSqlAadAdminArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_type: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

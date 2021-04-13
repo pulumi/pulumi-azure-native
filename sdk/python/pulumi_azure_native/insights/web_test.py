@@ -5,16 +5,252 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WebTest']
+__all__ = ['WebTestArgs', 'WebTest']
+
+@pulumi.input_type
+class WebTestArgs:
+    def __init__(__self__, *,
+                 locations: pulumi.Input[Sequence[pulumi.Input['WebTestGeolocationArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 synthetic_monitor_id: pulumi.Input[str],
+                 web_test_kind: pulumi.Input['WebTestKind'],
+                 configuration: Optional[pulumi.Input['WebTestPropertiesConfigurationArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[int]] = None,
+                 kind: Optional[pulumi.Input['WebTestKind']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 web_test_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebTest resource.
+        :param pulumi.Input[Sequence[pulumi.Input['WebTestGeolocationArgs']]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
+        :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
+        :param pulumi.Input['WebTestPropertiesConfigurationArgs'] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
+        :param pulumi.Input[bool] enabled: Is the test actively being monitored.
+        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
+        :param pulumi.Input['WebTestKind'] kind: The kind of web test that this web test watches. Choices are ping and multistep.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
+        :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
+        """
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "synthetic_monitor_id", synthetic_monitor_id)
+        if web_test_kind is None:
+            web_test_kind = 'ping'
+        pulumi.set(__self__, "web_test_kind", web_test_kind)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if frequency is None:
+            frequency = 300
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if kind is None:
+            kind = 'ping'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if retry_enabled is not None:
+            pulumi.set(__self__, "retry_enabled", retry_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timeout is None:
+            timeout = 30
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if web_test_name is not None:
+            pulumi.set(__self__, "web_test_name", web_test_name)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['WebTestGeolocationArgs']]]:
+        """
+        A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['WebTestGeolocationArgs']]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="syntheticMonitorId")
+    def synthetic_monitor_id(self) -> pulumi.Input[str]:
+        """
+        Unique ID of this WebTest. This is typically the same value as the Name field.
+        """
+        return pulumi.get(self, "synthetic_monitor_id")
+
+    @synthetic_monitor_id.setter
+    def synthetic_monitor_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "synthetic_monitor_id", value)
+
+    @property
+    @pulumi.getter(name="webTestKind")
+    def web_test_kind(self) -> pulumi.Input['WebTestKind']:
+        """
+        The kind of web test this is, valid choices are ping and multistep.
+        """
+        return pulumi.get(self, "web_test_kind")
+
+    @web_test_kind.setter
+    def web_test_kind(self, value: pulumi.Input['WebTestKind']):
+        pulumi.set(self, "web_test_kind", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['WebTestPropertiesConfigurationArgs']]:
+        """
+        An XML configuration specification for a WebTest.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['WebTestPropertiesConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Purpose/user defined descriptive test for this WebTest.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the test actively being monitored.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval in seconds between test runs for this WebTest. Default value is 300.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input['WebTestKind']]:
+        """
+        The kind of web test that this web test watches. Choices are ping and multistep.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input['WebTestKind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="retryEnabled")
+    def retry_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow for retries should this WebTest fail.
+        """
+        return pulumi.get(self, "retry_enabled")
+
+    @retry_enabled.setter
+    def retry_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retry_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Seconds until this WebTest will timeout and fail. Default value is 30.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter(name="webTestName")
+    def web_test_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User defined name if this WebTest.
+        """
+        return pulumi.get(self, "web_test_name")
+
+    @web_test_name.setter
+    def web_test_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_test_name", value)
 
 
 class WebTest(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +292,48 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebTestArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Application Insights web test definition.
+        API Version: 2015-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param WebTestArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebTestArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[int]] = None,
+                 kind: Optional[pulumi.Input['WebTestKind']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 web_test_kind: Optional[pulumi.Input['WebTestKind']] = None,
+                 web_test_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

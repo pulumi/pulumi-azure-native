@@ -5,16 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SoftwareUpdateConfigurationByName']
+__all__ = ['SoftwareUpdateConfigurationByNameArgs', 'SoftwareUpdateConfigurationByName']
+
+@pulumi.input_type
+class SoftwareUpdateConfigurationByNameArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 schedule_info: pulumi.Input['SchedulePropertiesArgs'],
+                 update_configuration: pulumi.Input['UpdateConfigurationArgs'],
+                 error: Optional[pulumi.Input['ErrorResponseArgs']] = None,
+                 software_update_configuration_name: Optional[pulumi.Input[str]] = None,
+                 tasks: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']] = None):
+        """
+        The set of arguments for constructing a SoftwareUpdateConfigurationByName resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input['SchedulePropertiesArgs'] schedule_info: Schedule information for the Software update configuration
+        :param pulumi.Input['UpdateConfigurationArgs'] update_configuration: update specific properties for the Software update configuration
+        :param pulumi.Input['ErrorResponseArgs'] error: Details of provisioning error
+        :param pulumi.Input[str] software_update_configuration_name: The name of the software update configuration to be created.
+        :param pulumi.Input['SoftwareUpdateConfigurationTasksArgs'] tasks: Tasks information for the Software update configuration.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schedule_info", schedule_info)
+        pulumi.set(__self__, "update_configuration", update_configuration)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if software_update_configuration_name is not None:
+            pulumi.set(__self__, "software_update_configuration_name", software_update_configuration_name)
+        if tasks is not None:
+            pulumi.set(__self__, "tasks", tasks)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="scheduleInfo")
+    def schedule_info(self) -> pulumi.Input['SchedulePropertiesArgs']:
+        """
+        Schedule information for the Software update configuration
+        """
+        return pulumi.get(self, "schedule_info")
+
+    @schedule_info.setter
+    def schedule_info(self, value: pulumi.Input['SchedulePropertiesArgs']):
+        pulumi.set(self, "schedule_info", value)
+
+    @property
+    @pulumi.getter(name="updateConfiguration")
+    def update_configuration(self) -> pulumi.Input['UpdateConfigurationArgs']:
+        """
+        update specific properties for the Software update configuration
+        """
+        return pulumi.get(self, "update_configuration")
+
+    @update_configuration.setter
+    def update_configuration(self, value: pulumi.Input['UpdateConfigurationArgs']):
+        pulumi.set(self, "update_configuration", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input['ErrorResponseArgs']]:
+        """
+        Details of provisioning error
+        """
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input['ErrorResponseArgs']]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="softwareUpdateConfigurationName")
+    def software_update_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the software update configuration to be created.
+        """
+        return pulumi.get(self, "software_update_configuration_name")
+
+    @software_update_configuration_name.setter
+    def software_update_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "software_update_configuration_name", value)
+
+    @property
+    @pulumi.getter
+    def tasks(self) -> Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']]:
+        """
+        Tasks information for the Software update configuration.
+        """
+        return pulumi.get(self, "tasks")
+
+    @tasks.setter
+    def tasks(self, value: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']]):
+        pulumi.set(self, "tasks", value)
 
 
 class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +157,40 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']] tasks: Tasks information for the Software update configuration.
         :param pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']] update_configuration: update specific properties for the Software update configuration
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SoftwareUpdateConfigurationByNameArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Software update configuration properties.
+
+        :param str resource_name: The name of the resource.
+        :param SoftwareUpdateConfigurationByNameArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SoftwareUpdateConfigurationByNameArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 error: Optional[pulumi.Input[pulumi.InputType['ErrorResponseArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_info: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
+                 software_update_configuration_name: Optional[pulumi.Input[str]] = None,
+                 tasks: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']]] = None,
+                 update_configuration: Optional[pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

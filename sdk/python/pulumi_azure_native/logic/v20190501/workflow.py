@@ -5,16 +5,199 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Workflow']
+__all__ = ['WorkflowArgs', 'Workflow']
+
+@pulumi.input_type
+class WorkflowArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 access_control: Optional[pulumi.Input['FlowAccessControlConfigurationArgs']] = None,
+                 definition: Optional[Any] = None,
+                 endpoints_configuration: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']] = None,
+                 integration_account: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+                 integration_service_environment: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflow_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Workflow resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input['FlowAccessControlConfigurationArgs'] access_control: The access control configuration.
+        :param Any definition: The definition.
+        :param pulumi.Input['FlowEndpointsConfigurationArgs'] endpoints_configuration: The endpoints configuration.
+        :param pulumi.Input['ResourceReferenceArgs'] integration_account: The integration account.
+        :param pulumi.Input['ResourceReferenceArgs'] integration_service_environment: The integration service environment.
+        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]] parameters: The parameters.
+        :param pulumi.Input[Union[str, 'WorkflowState']] state: The state.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        :param pulumi.Input[str] workflow_name: The workflow name.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if endpoints_configuration is not None:
+            pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
+        if integration_account is not None:
+            pulumi.set(__self__, "integration_account", integration_account)
+        if integration_service_environment is not None:
+            pulumi.set(__self__, "integration_service_environment", integration_service_environment)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workflow_name is not None:
+            pulumi.set(__self__, "workflow_name", workflow_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional[pulumi.Input['FlowAccessControlConfigurationArgs']]:
+        """
+        The access control configuration.
+        """
+        return pulumi.get(self, "access_control")
+
+    @access_control.setter
+    def access_control(self, value: Optional[pulumi.Input['FlowAccessControlConfigurationArgs']]):
+        pulumi.set(self, "access_control", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[Any]:
+        """
+        The definition.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[Any]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="endpointsConfiguration")
+    def endpoints_configuration(self) -> Optional[pulumi.Input['FlowEndpointsConfigurationArgs']]:
+        """
+        The endpoints configuration.
+        """
+        return pulumi.get(self, "endpoints_configuration")
+
+    @endpoints_configuration.setter
+    def endpoints_configuration(self, value: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']]):
+        pulumi.set(self, "endpoints_configuration", value)
+
+    @property
+    @pulumi.getter(name="integrationAccount")
+    def integration_account(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+        """
+        The integration account.
+        """
+        return pulumi.get(self, "integration_account")
+
+    @integration_account.setter
+    def integration_account(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+        pulumi.set(self, "integration_account", value)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironment")
+    def integration_service_environment(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+        """
+        The integration service environment.
+        """
+        return pulumi.get(self, "integration_service_environment")
+
+    @integration_service_environment.setter
+    def integration_service_environment(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+        pulumi.set(self, "integration_service_environment", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]]:
+        """
+        The parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'WorkflowState']]]:
+        """
+        The state.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'WorkflowState']]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workflowName")
+    def workflow_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The workflow name.
+        """
+        return pulumi.get(self, "workflow_name")
+
+    @workflow_name.setter
+    def workflow_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workflow_name", value)
 
 
 class Workflow(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +232,44 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] workflow_name: The workflow name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkflowArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The workflow type.
+
+        :param str resource_name: The name of the resource.
+        :param WorkflowArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']]] = None,
+                 definition: Optional[Any] = None,
+                 endpoints_configuration: Optional[pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']]] = None,
+                 integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflow_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

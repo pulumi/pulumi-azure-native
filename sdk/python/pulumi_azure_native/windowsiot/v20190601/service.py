@@ -5,13 +5,164 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['Service']
+__all__ = ['ServiceArgs', 'Service']
+
+@pulumi.input_type
+class ServiceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 admin_domain_name: Optional[pulumi.Input[str]] = None,
+                 billing_domain_name: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 quantity: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Service resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
+        :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
+        :param pulumi.Input[str] billing_domain_name: Windows IoT Device Service ODM AAD domain
+        :param pulumi.Input[str] device_name: The name of the Windows IoT Device Service.
+        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        :param pulumi.Input[str] location: The Azure Region where the resource lives
+        :param pulumi.Input[str] notes: Windows IoT Device Service notes.
+        :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if admin_domain_name is not None:
+            pulumi.set(__self__, "admin_domain_name", admin_domain_name)
+        if billing_domain_name is not None:
+            pulumi.set(__self__, "billing_domain_name", billing_domain_name)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if quantity is not None:
+            pulumi.set(__self__, "quantity", quantity)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the Windows IoT Device Service.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="adminDomainName")
+    def admin_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Windows IoT Device Service OEM AAD domain
+        """
+        return pulumi.get(self, "admin_domain_name")
+
+    @admin_domain_name.setter
+    def admin_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_domain_name", value)
+
+    @property
+    @pulumi.getter(name="billingDomainName")
+    def billing_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Windows IoT Device Service ODM AAD domain
+        """
+        return pulumi.get(self, "billing_domain_name")
+
+    @billing_domain_name.setter
+    def billing_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_domain_name", value)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Windows IoT Device Service.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Windows IoT Device Service notes.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> Optional[pulumi.Input[float]]:
+        """
+        Windows IoT Device Service device allocation,
+        """
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "quantity", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Service(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +193,42 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The description of the Windows IoT Device Service.
+
+        :param str resource_name: The name of the resource.
+        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_domain_name: Optional[pulumi.Input[str]] = None,
+                 billing_domain_name: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 quantity: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,267 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetwork']
+__all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
+
+@pulumi.input_type
+class VirtualNetworkArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+                 bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
+                 ddos_protection_plan: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
+                 enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]] = None):
+        """
+        The set of arguments for constructing a VirtualNetwork resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['AddressSpaceArgs'] address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        :param pulumi.Input['VirtualNetworkBgpCommunitiesArgs'] bgp_communities: Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        :param pulumi.Input['SubResourceArgs'] ddos_protection_plan: The DDoS protection plan associated with the virtual network.
+        :param pulumi.Input['DhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the virtual network.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] subnets: A list of subnets in a Virtual Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]] virtual_network_peerings: A list of peerings in a Virtual Network.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+        if bgp_communities is not None:
+            pulumi.set(__self__, "bgp_communities", bgp_communities)
+        if ddos_protection_plan is not None:
+            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+        if dhcp_options is not None:
+            pulumi.set(__self__, "dhcp_options", dhcp_options)
+        if enable_ddos_protection is None:
+            enable_ddos_protection = False
+        if enable_ddos_protection is not None:
+            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+        if enable_vm_protection is None:
+            enable_vm_protection = False
+        if enable_vm_protection is not None:
+            pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_allocations is not None:
+            pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_name is not None:
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+        if virtual_network_peerings is not None:
+            pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
+        pulumi.set(self, "address_space", value)
+
+    @property
+    @pulumi.getter(name="bgpCommunities")
+    def bgp_communities(self) -> Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']]:
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        return pulumi.get(self, "bgp_communities")
+
+    @bgp_communities.setter
+    def bgp_communities(self, value: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']]):
+        pulumi.set(self, "bgp_communities", value)
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlan")
+    def ddos_protection_plan(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The DDoS protection plan associated with the virtual network.
+        """
+        return pulumi.get(self, "ddos_protection_plan")
+
+    @ddos_protection_plan.setter
+    def ddos_protection_plan(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "ddos_protection_plan", value)
+
+    @property
+    @pulumi.getter(name="dhcpOptions")
+    def dhcp_options(self) -> Optional[pulumi.Input['DhcpOptionsArgs']]:
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
+        return pulumi.get(self, "dhcp_options")
+
+    @dhcp_options.setter
+    def dhcp_options(self, value: Optional[pulumi.Input['DhcpOptionsArgs']]):
+        pulumi.set(self, "dhcp_options", value)
+
+    @property
+    @pulumi.getter(name="enableDdosProtection")
+    def enable_ddos_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        """
+        return pulumi.get(self, "enable_ddos_protection")
+
+    @enable_ddos_protection.setter
+    def enable_ddos_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ddos_protection", value)
+
+    @property
+    @pulumi.getter(name="enableVmProtection")
+    def enable_vm_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if VM protection is enabled for all the subnets in the virtual network.
+        """
+        return pulumi.get(self, "enable_vm_protection")
+
+    @enable_vm_protection.setter
+    def enable_vm_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_vm_protection", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The extended location of the virtual network.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipAllocations")
+    def ip_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Array of IpAllocation which reference this VNET.
+        """
+        return pulumi.get(self, "ip_allocations")
+
+    @ip_allocations.setter
+    def ip_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ip_allocations", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+        """
+        A list of subnets in a Virtual Network.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network.
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkPeerings")
+    def virtual_network_peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]:
+        """
+        A list of peerings in a Virtual Network.
+        """
+        return pulumi.get(self, "virtual_network_peerings")
+
+    @virtual_network_peerings.setter
+    def virtual_network_peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]):
+        pulumi.set(self, "virtual_network_peerings", value)
 
 
 class VirtualNetwork(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +308,48 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: A list of peerings in a Virtual Network.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualNetworkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Virtual Network resource.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 bgp_communities: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']]] = None,
+                 ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
+                 enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

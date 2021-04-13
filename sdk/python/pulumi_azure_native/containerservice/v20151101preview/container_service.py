@@ -5,16 +5,180 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ContainerService']
+__all__ = ['ContainerServiceArgs', 'ContainerService']
+
+@pulumi.input_type
+class ContainerServiceArgs:
+    def __init__(__self__, *,
+                 agent_pool_profiles: pulumi.Input[Sequence[pulumi.Input['ContainerServiceAgentPoolProfileArgs']]],
+                 linux_profile: pulumi.Input['ContainerServiceLinuxProfileArgs'],
+                 master_profile: pulumi.Input['ContainerServiceMasterProfileArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 container_service_name: Optional[pulumi.Input[str]] = None,
+                 diagnostics_profile: Optional[pulumi.Input['ContainerServiceDiagnosticsProfileArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 orchestrator_profile: Optional[pulumi.Input['ContainerServiceOrchestratorProfileArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 windows_profile: Optional[pulumi.Input['ContainerServiceWindowsProfileArgs']] = None):
+        """
+        The set of arguments for constructing a ContainerService resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceAgentPoolProfileArgs']]] agent_pool_profiles: Properties of agent pools
+        :param pulumi.Input['ContainerServiceLinuxProfileArgs'] linux_profile: Properties for Linux VMs
+        :param pulumi.Input['ContainerServiceMasterProfileArgs'] master_profile: Properties of master agents
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] container_service_name: The name of the container service within the given subscription and resource group.
+        :param pulumi.Input['ContainerServiceDiagnosticsProfileArgs'] diagnostics_profile: Properties for Diagnostic Agent
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['ContainerServiceOrchestratorProfileArgs'] orchestrator_profile: Properties of orchestrator
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input['ContainerServiceWindowsProfileArgs'] windows_profile: Properties of Windows VMs
+        """
+        pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+        pulumi.set(__self__, "linux_profile", linux_profile)
+        pulumi.set(__self__, "master_profile", master_profile)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if container_service_name is not None:
+            pulumi.set(__self__, "container_service_name", container_service_name)
+        if diagnostics_profile is not None:
+            pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if orchestrator_profile is not None:
+            pulumi.set(__self__, "orchestrator_profile", orchestrator_profile)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if windows_profile is not None:
+            pulumi.set(__self__, "windows_profile", windows_profile)
+
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceAgentPoolProfileArgs']]]:
+        """
+        Properties of agent pools
+        """
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @agent_pool_profiles.setter
+    def agent_pool_profiles(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServiceAgentPoolProfileArgs']]]):
+        pulumi.set(self, "agent_pool_profiles", value)
+
+    @property
+    @pulumi.getter(name="linuxProfile")
+    def linux_profile(self) -> pulumi.Input['ContainerServiceLinuxProfileArgs']:
+        """
+        Properties for Linux VMs
+        """
+        return pulumi.get(self, "linux_profile")
+
+    @linux_profile.setter
+    def linux_profile(self, value: pulumi.Input['ContainerServiceLinuxProfileArgs']):
+        pulumi.set(self, "linux_profile", value)
+
+    @property
+    @pulumi.getter(name="masterProfile")
+    def master_profile(self) -> pulumi.Input['ContainerServiceMasterProfileArgs']:
+        """
+        Properties of master agents
+        """
+        return pulumi.get(self, "master_profile")
+
+    @master_profile.setter
+    def master_profile(self, value: pulumi.Input['ContainerServiceMasterProfileArgs']):
+        pulumi.set(self, "master_profile", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="containerServiceName")
+    def container_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the container service within the given subscription and resource group.
+        """
+        return pulumi.get(self, "container_service_name")
+
+    @container_service_name.setter
+    def container_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_service_name", value)
+
+    @property
+    @pulumi.getter(name="diagnosticsProfile")
+    def diagnostics_profile(self) -> Optional[pulumi.Input['ContainerServiceDiagnosticsProfileArgs']]:
+        """
+        Properties for Diagnostic Agent
+        """
+        return pulumi.get(self, "diagnostics_profile")
+
+    @diagnostics_profile.setter
+    def diagnostics_profile(self, value: Optional[pulumi.Input['ContainerServiceDiagnosticsProfileArgs']]):
+        pulumi.set(self, "diagnostics_profile", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="orchestratorProfile")
+    def orchestrator_profile(self) -> Optional[pulumi.Input['ContainerServiceOrchestratorProfileArgs']]:
+        """
+        Properties of orchestrator
+        """
+        return pulumi.get(self, "orchestrator_profile")
+
+    @orchestrator_profile.setter
+    def orchestrator_profile(self, value: Optional[pulumi.Input['ContainerServiceOrchestratorProfileArgs']]):
+        pulumi.set(self, "orchestrator_profile", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional[pulumi.Input['ContainerServiceWindowsProfileArgs']]:
+        """
+        Properties of Windows VMs
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @windows_profile.setter
+    def windows_profile(self, value: Optional[pulumi.Input['ContainerServiceWindowsProfileArgs']]):
+        pulumi.set(self, "windows_profile", value)
 
 
 class ContainerService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +211,43 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']] windows_profile: Properties of Windows VMs
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ContainerServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Container service
+
+        :param str resource_name: The name of the resource.
+        :param ContainerServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
+                 container_service_name: Optional[pulumi.Input[str]] = None,
+                 diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']]] = None,
+                 linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 master_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceMasterProfileArgs']]] = None,
+                 orchestrator_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceOrchestratorProfileArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

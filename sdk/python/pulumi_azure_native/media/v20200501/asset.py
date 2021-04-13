@@ -5,14 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['Asset']
+__all__ = ['AssetArgs', 'Asset']
+
+@pulumi.input_type
+class AssetArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 alternate_id: Optional[pulumi.Input[str]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
+                 container: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Asset resource.
+        :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] alternate_id: The alternate ID of the Asset.
+        :param pulumi.Input[str] asset_name: The Asset name.
+        :param pulumi.Input[str] container: The name of the asset blob container.
+        :param pulumi.Input[str] description: The Asset description.
+        :param pulumi.Input[str] storage_account_name: The name of the storage account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if alternate_id is not None:
+            pulumi.set(__self__, "alternate_id", alternate_id)
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Media Services account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="alternateId")
+    def alternate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alternate ID of the Asset.
+        """
+        return pulumi.get(self, "alternate_id")
+
+    @alternate_id.setter
+    def alternate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alternate_id", value)
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Asset name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the asset blob container.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Asset description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
 
 
 class Asset(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +157,40 @@ class Asset(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] storage_account_name: The name of the storage account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Asset.
+
+        :param str resource_name: The name of the resource.
+        :param AssetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 alternate_id: Optional[pulumi.Input[str]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
+                 container: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

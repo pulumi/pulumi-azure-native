@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['EncryptionScope']
+__all__ = ['EncryptionScopeArgs', 'EncryptionScope']
+
+@pulumi.input_type
+class EncryptionScopeArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 encryption_scope_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']] = None,
+                 require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+                 source: Optional[pulumi.Input[Union[str, 'EncryptionScopeSource']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]] = None):
+        """
+        The set of arguments for constructing a EncryptionScope resource.
+        :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] encryption_scope_name: The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        :param pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs'] key_vault_properties: The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+        :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+        :param pulumi.Input[Union[str, 'EncryptionScopeSource']] source: The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+        :param pulumi.Input[Union[str, 'EncryptionScopeState']] state: The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if encryption_scope_name is not None:
+            pulumi.set(__self__, "encryption_scope_name", encryption_scope_name)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if require_infrastructure_encryption is not None:
+            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="encryptionScopeName")
+    def encryption_scope_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        """
+        return pulumi.get(self, "encryption_scope_name")
+
+    @encryption_scope_name.setter
+    def encryption_scope_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_scope_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']]:
+        """
+        The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter(name="requireInfrastructureEncryption")
+    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+        """
+        return pulumi.get(self, "require_infrastructure_encryption")
+
+    @require_infrastructure_encryption.setter
+    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_infrastructure_encryption", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[str, 'EncryptionScopeSource']]]:
+        """
+        The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[str, 'EncryptionScopeSource']]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]]:
+        """
+        The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]]):
+        pulumi.set(self, "state", value)
 
 
 class EncryptionScope(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +160,41 @@ class EncryptionScope(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'EncryptionScopeSource']] source: The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
         :param pulumi.Input[Union[str, 'EncryptionScopeState']] state: The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EncryptionScopeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The Encryption Scope resource.
+        API Version: 2021-02-01.
+
+        :param str resource_name: The name of the resource.
+        :param EncryptionScopeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EncryptionScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 encryption_scope_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[pulumi.InputType['EncryptionScopeKeyVaultPropertiesArgs']]] = None,
+                 require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[str, 'EncryptionScopeSource']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

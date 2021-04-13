@@ -5,14 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['QueueAuthorizationRule']
+__all__ = ['QueueAuthorizationRuleArgs', 'QueueAuthorizationRule']
+
+@pulumi.input_type
+class QueueAuthorizationRuleArgs:
+    def __init__(__self__, *,
+                 namespace_name: pulumi.Input[str],
+                 queue_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
+                 authorization_rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a QueueAuthorizationRule resource.
+        :param pulumi.Input[str] namespace_name: The namespace name
+        :param pulumi.Input[str] queue_name: The queue name.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
+        """
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "queue_name", queue_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rights", rights)
+        if authorization_rule_name is not None:
+            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> pulumi.Input[str]:
+        """
+        The queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "queue_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input['AccessRights']]]:
+        """
+        The rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
+    @rights.setter
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input['AccessRights']]]):
+        pulumi.set(self, "rights", value)
+
+    @property
+    @pulumi.getter(name="authorizationRuleName")
+    def authorization_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization rule name.
+        """
+        return pulumi.get(self, "authorization_rule_name")
+
+    @authorization_rule_name.setter
+    def authorization_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_rule_name", value)
 
 
 class QueueAuthorizationRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +120,39 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: QueueAuthorizationRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Description of a namespace authorization rule.
+        API Version: 2017-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(QueueAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

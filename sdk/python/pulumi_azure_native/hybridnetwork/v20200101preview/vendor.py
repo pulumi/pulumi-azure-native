@@ -5,14 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['Vendor']
+__all__ = ['VendorArgs', 'Vendor']
+
+@pulumi.input_type
+class VendorArgs:
+    def __init__(__self__, *,
+                 vendor_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Vendor resource.
+        :param pulumi.Input[str] vendor_name: The name of the vendor.
+        """
+        if vendor_name is not None:
+            pulumi.set(__self__, "vendor_name", vendor_name)
+
+    @property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the vendor.
+        """
+        return pulumi.get(self, "vendor_name")
+
+    @vendor_name.setter
+    def vendor_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vendor_name", value)
 
 
 class Vendor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,6 +51,34 @@ class Vendor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[VendorArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Vendor resource.
+
+        :param str resource_name: The name of the resource.
+        :param VendorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VendorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 vendor_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

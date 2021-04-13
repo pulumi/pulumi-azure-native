@@ -5,15 +5,209 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApiOperation']
+__all__ = ['ApiOperationArgs', 'ApiOperation']
+
+@pulumi.input_type
+class ApiOperationArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 display_name: pulumi.Input[str],
+                 method: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 url_template: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 operation_id: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[str]] = None,
+                 request: Optional[pulumi.Input['RequestContractArgs']] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None):
+        """
+        The set of arguments for constructing a ApiOperation resource.
+        :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        :param pulumi.Input[str] display_name: Operation Name.
+        :param pulumi.Input[str] method: A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+        :param pulumi.Input[str] description: Description of the operation. May include HTML formatting tags.
+        :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] policies: Operation Policies
+        :param pulumi.Input['RequestContractArgs'] request: An entity containing request details.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]] responses: Array of Operation responses.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] template_parameters: Collection of URL template parameters.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "url_template", url_template)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if responses is not None:
+            pulumi.set(__self__, "responses", responses)
+        if template_parameters is not None:
+            pulumi.set(__self__, "template_parameters", template_parameters)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Operation Name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[str]:
+        """
+        A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> pulumi.Input[str]:
+        """
+        Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+        """
+        return pulumi.get(self, "url_template")
+
+    @url_template.setter
+    def url_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_template", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the operation. May include HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operation identifier within an API. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @operation_id.setter
+    def operation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_id", value)
+
+    @property
+    @pulumi.getter
+    def policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operation Policies
+        """
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policies", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional[pulumi.Input['RequestContractArgs']]:
+        """
+        An entity containing request details.
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: Optional[pulumi.Input['RequestContractArgs']]):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter
+    def responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]]]:
+        """
+        Array of Operation responses.
+        """
+        return pulumi.get(self, "responses")
+
+    @responses.setter
+    def responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]]]):
+        pulumi.set(self, "responses", value)
+
+    @property
+    @pulumi.getter(name="templateParameters")
+    def template_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]:
+        """
+        Collection of URL template parameters.
+        """
+        return pulumi.get(self, "template_parameters")
+
+    @template_parameters.setter
+    def template_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]):
+        pulumi.set(self, "template_parameters", value)
 
 
 class ApiOperation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +245,46 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
         :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiOperationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Api Operation details.
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param ApiOperationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiOperationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 operation_id: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[str]] = None,
+                 request: Optional[pulumi.Input[pulumi.InputType['RequestContractArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]]] = None,
+                 url_template: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

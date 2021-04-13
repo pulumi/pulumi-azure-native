@@ -5,16 +5,292 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['HostPool']
+__all__ = ['HostPoolArgs', 'HostPool']
+
+@pulumi.input_type
+class HostPoolArgs:
+    def __init__(__self__, *,
+                 host_pool_type: pulumi.Input[Union[str, 'HostPoolType']],
+                 load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']],
+                 preferred_app_group_type: pulumi.Input[Union[str, 'PreferredAppGroupType']],
+                 resource_group_name: pulumi.Input[str],
+                 custom_rdp_property: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 host_pool_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_session_limit: Optional[pulumi.Input[int]] = None,
+                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+                 registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
+                 ring: Optional[pulumi.Input[int]] = None,
+                 sso_context: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validation_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a HostPool resource.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
+        :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
+        :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
+        :param pulumi.Input[str] description: Description of HostPool.
+        :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
+        :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
+        :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
+        :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool.
+        :param pulumi.Input[int] ring: The ring number of HostPool.
+        :param pulumi.Input[str] sso_context: Path to keyvault containing ssoContext secret.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] validation_environment: Is validation environment.
+        :param pulumi.Input[str] vm_template: VM template for sessionhosts configuration within hostpool.
+        """
+        pulumi.set(__self__, "host_pool_type", host_pool_type)
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if custom_rdp_property is not None:
+            pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if host_pool_name is not None:
+            pulumi.set(__self__, "host_pool_name", host_pool_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_session_limit is not None:
+            pulumi.set(__self__, "max_session_limit", max_session_limit)
+        if personal_desktop_assignment_type is not None:
+            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+        if registration_info is not None:
+            pulumi.set(__self__, "registration_info", registration_info)
+        if ring is not None:
+            pulumi.set(__self__, "ring", ring)
+        if sso_context is not None:
+            pulumi.set(__self__, "sso_context", sso_context)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validation_environment is not None:
+            pulumi.set(__self__, "validation_environment", validation_environment)
+        if vm_template is not None:
+            pulumi.set(__self__, "vm_template", vm_template)
+
+    @property
+    @pulumi.getter(name="hostPoolType")
+    def host_pool_type(self) -> pulumi.Input[Union[str, 'HostPoolType']]:
+        """
+        HostPool type for desktop.
+        """
+        return pulumi.get(self, "host_pool_type")
+
+    @host_pool_type.setter
+    def host_pool_type(self, value: pulumi.Input[Union[str, 'HostPoolType']]):
+        pulumi.set(self, "host_pool_type", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> pulumi.Input[Union[str, 'LoadBalancerType']]:
+        """
+        The type of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @load_balancer_type.setter
+    def load_balancer_type(self, value: pulumi.Input[Union[str, 'LoadBalancerType']]):
+        pulumi.set(self, "load_balancer_type", value)
+
+    @property
+    @pulumi.getter(name="preferredAppGroupType")
+    def preferred_app_group_type(self) -> pulumi.Input[Union[str, 'PreferredAppGroupType']]:
+        """
+        The type of preferred application group type, default to Desktop Application Group
+        """
+        return pulumi.get(self, "preferred_app_group_type")
+
+    @preferred_app_group_type.setter
+    def preferred_app_group_type(self, value: pulumi.Input[Union[str, 'PreferredAppGroupType']]):
+        pulumi.set(self, "preferred_app_group_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="customRdpProperty")
+    def custom_rdp_property(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom rdp property of HostPool.
+        """
+        return pulumi.get(self, "custom_rdp_property")
+
+    @custom_rdp_property.setter
+    def custom_rdp_property(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_rdp_property", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of HostPool.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of HostPool.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="hostPoolName")
+    def host_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host pool within the specified resource group
+        """
+        return pulumi.get(self, "host_pool_name")
+
+    @host_pool_name.setter
+    def host_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxSessionLimit")
+    def max_session_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max session limit of HostPool.
+        """
+        return pulumi.get(self, "max_session_limit")
+
+    @max_session_limit.setter
+    def max_session_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_session_limit", value)
+
+    @property
+    @pulumi.getter(name="personalDesktopAssignmentType")
+    def personal_desktop_assignment_type(self) -> Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]]:
+        """
+        PersonalDesktopAssignment type for HostPool.
+        """
+        return pulumi.get(self, "personal_desktop_assignment_type")
+
+    @personal_desktop_assignment_type.setter
+    def personal_desktop_assignment_type(self, value: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]]):
+        pulumi.set(self, "personal_desktop_assignment_type", value)
+
+    @property
+    @pulumi.getter(name="registrationInfo")
+    def registration_info(self) -> Optional[pulumi.Input['RegistrationInfoArgs']]:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "registration_info")
+
+    @registration_info.setter
+    def registration_info(self, value: Optional[pulumi.Input['RegistrationInfoArgs']]):
+        pulumi.set(self, "registration_info", value)
+
+    @property
+    @pulumi.getter
+    def ring(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ring number of HostPool.
+        """
+        return pulumi.get(self, "ring")
+
+    @ring.setter
+    def ring(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ring", value)
+
+    @property
+    @pulumi.getter(name="ssoContext")
+    def sso_context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to keyvault containing ssoContext secret.
+        """
+        return pulumi.get(self, "sso_context")
+
+    @sso_context.setter
+    def sso_context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sso_context", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="validationEnvironment")
+    def validation_environment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is validation environment.
+        """
+        return pulumi.get(self, "validation_environment")
+
+    @validation_environment.setter
+    def validation_environment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validation_environment", value)
+
+    @property
+    @pulumi.getter(name="vmTemplate")
+    def vm_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        VM template for sessionhosts configuration within hostpool.
+        """
+        return pulumi.get(self, "vm_template")
+
+    @vm_template.setter
+    def vm_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_template", value)
 
 
 class HostPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +337,50 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[bool] validation_environment: Is validation environment.
         :param pulumi.Input[str] vm_template: VM template for sessionhosts configuration within hostpool.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HostPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a HostPool definition.
+
+        :param str resource_name: The name of the resource.
+        :param HostPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HostPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_rdp_property: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 host_pool_name: Optional[pulumi.Input[str]] = None,
+                 host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
+                 load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_session_limit: Optional[pulumi.Input[int]] = None,
+                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+                 preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
+                 registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ring: Optional[pulumi.Input[int]] = None,
+                 sso_context: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validation_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

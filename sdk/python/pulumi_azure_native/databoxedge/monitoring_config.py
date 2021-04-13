@@ -5,15 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MonitoringConfig']
+__all__ = ['MonitoringConfigArgs', 'MonitoringConfig']
+
+@pulumi.input_type
+class MonitoringConfigArgs:
+    def __init__(__self__, *,
+                 device_name: pulumi.Input[str],
+                 metric_configurations: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 role_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a MonitoringConfig resource.
+        :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]] metric_configurations: The metrics configuration details
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] role_name: The role name.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "metric_configurations", metric_configurations)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "role_name", role_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The device name.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="metricConfigurations")
+    def metric_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]:
+        """
+        The metrics configuration details
+        """
+        return pulumi.get(self, "metric_configurations")
+
+    @metric_configurations.setter
+    def metric_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]):
+        pulumi.set(self, "metric_configurations", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Input[str]:
+        """
+        The role name.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_name", value)
 
 
 class MonitoringConfig(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +103,38 @@ class MonitoringConfig(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MonitoringConfigArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The metric setting details for the role
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param MonitoringConfigArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MonitoringConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

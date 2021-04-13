@@ -5,16 +5,197 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DscConfiguration']
+__all__ = ['DscConfigurationArgs', 'DscConfiguration']
+
+@pulumi.input_type
+class DscConfigurationArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 source: pulumi.Input['ContentSourceArgs'],
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DscConfiguration resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
+        :param pulumi.Input[str] configuration_name: The create or update parameters for configuration.
+        :param pulumi.Input[str] description: Gets or sets the description of the configuration.
+        :param pulumi.Input[str] location: Gets or sets the location of the resource.
+        :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
+        :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
+        :param pulumi.Input[str] name: Gets or sets name of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]] parameters: Gets or sets the configuration parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source", source)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if log_progress is not None:
+            pulumi.set(__self__, "log_progress", log_progress)
+        if log_verbose is not None:
+            pulumi.set(__self__, "log_verbose", log_verbose)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['ContentSourceArgs']:
+        """
+        Gets or sets the source.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['ContentSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The create or update parameters for configuration.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logProgress")
+    def log_progress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets progress log option.
+        """
+        return pulumi.get(self, "log_progress")
+
+    @log_progress.setter
+    def log_progress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_progress", value)
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets verbose log option.
+        """
+        return pulumi.get(self, "log_verbose")
+
+    @log_verbose.setter
+    def log_verbose(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_verbose", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]:
+        """
+        Gets or sets the configuration parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the tags attached to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DscConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +230,44 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DscConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the configuration type.
+
+        :param str resource_name: The name of the resource.
+        :param DscConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DscConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DscConfigurationParameterArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,14 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Artifact']
+__all__ = ['ArtifactArgs', 'Artifact']
+
+@pulumi.input_type
+class ArtifactArgs:
+    def __init__(__self__, *,
+                 blueprint_name: pulumi.Input[str],
+                 kind: pulumi.Input[Union[str, 'ArtifactKind']],
+                 management_group_name: pulumi.Input[str],
+                 artifact_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Artifact resource.
+        :param pulumi.Input[str] blueprint_name: name of the blueprint.
+        :param pulumi.Input[Union[str, 'ArtifactKind']] kind: Specifies the kind of Blueprint artifact.
+        :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
+        :param pulumi.Input[str] artifact_name: name of the artifact.
+        """
+        pulumi.set(__self__, "blueprint_name", blueprint_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "management_group_name", management_group_name)
+        if artifact_name is not None:
+            pulumi.set(__self__, "artifact_name", artifact_name)
+
+    @property
+    @pulumi.getter(name="blueprintName")
+    def blueprint_name(self) -> pulumi.Input[str]:
+        """
+        name of the blueprint.
+        """
+        return pulumi.get(self, "blueprint_name")
+
+    @blueprint_name.setter
+    def blueprint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "blueprint_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'ArtifactKind']]:
+        """
+        Specifies the kind of Blueprint artifact.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'ArtifactKind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="managementGroupName")
+    def management_group_name(self) -> pulumi.Input[str]:
+        """
+        ManagementGroup where blueprint stores.
+        """
+        return pulumi.get(self, "management_group_name")
+
+    @management_group_name.setter
+    def management_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_group_name", value)
+
+    @property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of the artifact.
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @artifact_name.setter
+    def artifact_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_name", value)
 
 
 class Artifact(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +102,37 @@ class Artifact(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ArtifactKind']] kind: Specifies the kind of Blueprint artifact.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ArtifactArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a Blueprint artifact.
+
+        :param str resource_name: The name of the resource.
+        :param ArtifactArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ArtifactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact_name: Optional[pulumi.Input[str]] = None,
+                 blueprint_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ArtifactKind']]] = None,
+                 management_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

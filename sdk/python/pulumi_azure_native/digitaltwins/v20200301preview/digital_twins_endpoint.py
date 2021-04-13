@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DigitalTwinsEndpoint']
+__all__ = ['DigitalTwinsEndpointArgs', 'DigitalTwinsEndpoint']
+
+@pulumi.input_type
+class DigitalTwinsEndpointArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['EventGridArgs', 'EventHubArgs', 'ServiceBusArgs']]] = None):
+        """
+        The set of arguments for constructing a DigitalTwinsEndpoint resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
+        :param pulumi.Input[str] resource_name: The name of the DigitalTwinsInstance.
+        :param pulumi.Input[str] endpoint_name: Name of Endpoint Resource.
+        :param pulumi.Input[Union['EventGridArgs', 'EventHubArgs', 'ServiceBusArgs']] properties: DigitalTwinsInstance endpoint resource properties.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Endpoint Resource.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['EventGridArgs', 'EventHubArgs', 'ServiceBusArgs']]]:
+        """
+        DigitalTwinsInstance endpoint resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['EventGridArgs', 'EventHubArgs', 'ServiceBusArgs']]]):
+        pulumi.set(self, "properties", value)
 
 
 class DigitalTwinsEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +104,37 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name_: The name of the DigitalTwinsInstance.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DigitalTwinsEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        DigitalTwinsInstance endpoint resource.
+
+        :param str resource_name: The name of the resource.
+        :param DigitalTwinsEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DigitalTwinsEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['EventGridArgs'], pulumi.InputType['EventHubArgs'], pulumi.InputType['ServiceBusArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

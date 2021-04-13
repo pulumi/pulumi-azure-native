@@ -5,16 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NetworkGroup']
+__all__ = ['NetworkGroupArgs', 'NetworkGroup']
+
+@pulumi.input_type
+class NetworkGroupArgs:
+    def __init__(__self__, *,
+                 network_manager_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 conditional_membership: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input['GroupMembersItemArgs']]]] = None,
+                 member_type: Optional[pulumi.Input[Union[str, 'MemberType']]] = None,
+                 network_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a NetworkGroup resource.
+        :param pulumi.Input[str] network_manager_name: The name of the network manager.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] conditional_membership: Network group conditional filter.
+        :param pulumi.Input[str] description: A description of the network group.
+        :param pulumi.Input[str] display_name: A friendly name for the network group.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupMembersItemArgs']]] group_members: Group members of network group.
+        :param pulumi.Input[Union[str, 'MemberType']] member_type: Group member type.
+        :param pulumi.Input[str] network_group_name: The name of the network group to get.
+        """
+        pulumi.set(__self__, "network_manager_name", network_manager_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if conditional_membership is not None:
+            pulumi.set(__self__, "conditional_membership", conditional_membership)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if group_members is not None:
+            pulumi.set(__self__, "group_members", group_members)
+        if member_type is not None:
+            pulumi.set(__self__, "member_type", member_type)
+        if network_group_name is not None:
+            pulumi.set(__self__, "network_group_name", network_group_name)
+
+    @property
+    @pulumi.getter(name="networkManagerName")
+    def network_manager_name(self) -> pulumi.Input[str]:
+        """
+        The name of the network manager.
+        """
+        return pulumi.get(self, "network_manager_name")
+
+    @network_manager_name.setter
+    def network_manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_manager_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="conditionalMembership")
+    def conditional_membership(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network group conditional filter.
+        """
+        return pulumi.get(self, "conditional_membership")
+
+    @conditional_membership.setter
+    def conditional_membership(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conditional_membership", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the network group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the network group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="groupMembers")
+    def group_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupMembersItemArgs']]]]:
+        """
+        Group members of network group.
+        """
+        return pulumi.get(self, "group_members")
+
+    @group_members.setter
+    def group_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupMembersItemArgs']]]]):
+        pulumi.set(self, "group_members", value)
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[pulumi.Input[Union[str, 'MemberType']]]:
+        """
+        Group member type.
+        """
+        return pulumi.get(self, "member_type")
+
+    @member_type.setter
+    def member_type(self, value: Optional[pulumi.Input[Union[str, 'MemberType']]]):
+        pulumi.set(self, "member_type", value)
+
+    @property
+    @pulumi.getter(name="networkGroupName")
+    def network_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network group to get.
+        """
+        return pulumi.get(self, "network_group_name")
+
+    @network_group_name.setter
+    def network_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_group_name", value)
 
 
 class NetworkGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +177,41 @@ class NetworkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The network group resource
+
+        :param str resource_name: The name of the resource.
+        :param NetworkGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 conditional_membership: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]]] = None,
+                 member_type: Optional[pulumi.Input[Union[str, 'MemberType']]] = None,
+                 network_group_name: Optional[pulumi.Input[str]] = None,
+                 network_manager_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

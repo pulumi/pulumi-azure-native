@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['FirewallPolicy']
+__all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
+
+@pulumi.input_type
+class FirewallPolicyArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 base_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+                 threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None):
+        """
+        The set of arguments for constructing a FirewallPolicy resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['SubResourceArgs'] base_policy: The parent firewall policy from which rules are inherited.
+        :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
+        :param pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs'] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if base_policy is not None:
+            pulumi.set(__self__, "base_policy", base_policy)
+        if firewall_policy_name is not None:
+            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if threat_intel_mode is not None:
+            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+        if threat_intel_whitelist is not None:
+            pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="basePolicy")
+    def base_policy(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The parent firewall policy from which rules are inherited.
+        """
+        return pulumi.get(self, "base_policy")
+
+    @base_policy.setter
+    def base_policy(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "base_policy", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicyName")
+    def firewall_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Firewall Policy.
+        """
+        return pulumi.get(self, "firewall_policy_name")
+
+    @firewall_policy_name.setter
+    def firewall_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_policy_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="threatIntelMode")
+    def threat_intel_mode(self) -> Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]]:
+        """
+        The operation mode for Threat Intelligence.
+        """
+        return pulumi.get(self, "threat_intel_mode")
+
+    @threat_intel_mode.setter
+    def threat_intel_mode(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]]):
+        pulumi.set(self, "threat_intel_mode", value)
+
+    @property
+    @pulumi.getter(name="threatIntelWhitelist")
+    def threat_intel_whitelist(self) -> Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']]:
+        """
+        ThreatIntel Whitelist for Firewall Policy.
+        """
+        return pulumi.get(self, "threat_intel_whitelist")
+
+    @threat_intel_whitelist.setter
+    def threat_intel_whitelist(self, value: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']]):
+        pulumi.set(self, "threat_intel_whitelist", value)
 
 
 class FirewallPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +178,41 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FirewallPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        FirewallPolicy Resource.
+
+        :param str resource_name: The name of the resource.
+        :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 base_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+                 threat_intel_whitelist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

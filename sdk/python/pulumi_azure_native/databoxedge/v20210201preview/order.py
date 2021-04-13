@@ -5,16 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Order']
+__all__ = ['OrderArgs', 'Order']
+
+@pulumi.input_type
+class OrderArgs:
+    def __init__(__self__, *,
+                 contact_information: pulumi.Input['ContactDetailsArgs'],
+                 device_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
+                 shipping_address: Optional[pulumi.Input['AddressArgs']] = None):
+        """
+        The set of arguments for constructing a Order resource.
+        :param pulumi.Input['ContactDetailsArgs'] contact_information: The contact details.
+        :param pulumi.Input[str] device_name: The order details of a device.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
+        :param pulumi.Input['AddressArgs'] shipping_address: The shipping address.
+        """
+        pulumi.set(__self__, "contact_information", contact_information)
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if shipment_type is not None:
+            pulumi.set(__self__, "shipment_type", shipment_type)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="contactInformation")
+    def contact_information(self) -> pulumi.Input['ContactDetailsArgs']:
+        """
+        The contact details.
+        """
+        return pulumi.get(self, "contact_information")
+
+    @contact_information.setter
+    def contact_information(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_information", value)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The order details of a device.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="shipmentType")
+    def shipment_type(self) -> Optional[pulumi.Input[Union[str, 'ShipmentType']]]:
+        """
+        ShipmentType of the order
+        """
+        return pulumi.get(self, "shipment_type")
+
+    @shipment_type.setter
+    def shipment_type(self, value: Optional[pulumi.Input[Union[str, 'ShipmentType']]]):
+        pulumi.set(self, "shipment_type", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional[pulumi.Input['AddressArgs']]:
+        """
+        The shipping address.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: Optional[pulumi.Input['AddressArgs']]):
+        pulumi.set(self, "shipping_address", value)
 
 
 class Order(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +122,38 @@ class Order(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
         :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The order details.
+
+        :param str resource_name: The name of the resource.
+        :param OrderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
+                 shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

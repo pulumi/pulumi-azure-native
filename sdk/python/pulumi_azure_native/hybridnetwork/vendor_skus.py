@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VendorSkus']
+__all__ = ['VendorSkusArgs', 'VendorSkus']
+
+@pulumi.input_type
+class VendorSkusArgs:
+    def __init__(__self__, *,
+                 vendor_name: pulumi.Input[str],
+                 deployment_mode: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]] = None,
+                 managed_application_parameters: Optional[Any] = None,
+                 managed_application_template: Optional[Any] = None,
+                 network_function_template: Optional[pulumi.Input['NetworkFunctionTemplateArgs']] = None,
+                 preview: Optional[pulumi.Input[bool]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None):
+        """
+        The set of arguments for constructing a VendorSkus resource.
+        :param pulumi.Input[str] vendor_name: The name of the vendor.
+        :param pulumi.Input[Union[str, 'SkuDeploymentMode']] deployment_mode: The sku deployment mode.
+        :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
+        :param Any managed_application_template: The template for the managed application deployment.
+        :param pulumi.Input['NetworkFunctionTemplateArgs'] network_function_template: The template definition of the network function.
+        :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
+        :param pulumi.Input[str] sku_name: The name of the sku.
+        :param pulumi.Input[Union[str, 'SkuType']] sku_type: The sku type.
+        """
+        pulumi.set(__self__, "vendor_name", vendor_name)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if managed_application_parameters is not None:
+            pulumi.set(__self__, "managed_application_parameters", managed_application_parameters)
+        if managed_application_template is not None:
+            pulumi.set(__self__, "managed_application_template", managed_application_template)
+        if network_function_template is not None:
+            pulumi.set(__self__, "network_function_template", network_function_template)
+        if preview is not None:
+            pulumi.set(__self__, "preview", preview)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if sku_type is not None:
+            pulumi.set(__self__, "sku_type", sku_type)
+
+    @property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vendor.
+        """
+        return pulumi.get(self, "vendor_name")
+
+    @vendor_name.setter
+    def vendor_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vendor_name", value)
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]]:
+        """
+        The sku deployment mode.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+    @property
+    @pulumi.getter(name="managedApplicationParameters")
+    def managed_application_parameters(self) -> Optional[Any]:
+        """
+        The parameters for the managed application to be supplied by the vendor.
+        """
+        return pulumi.get(self, "managed_application_parameters")
+
+    @managed_application_parameters.setter
+    def managed_application_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "managed_application_parameters", value)
+
+    @property
+    @pulumi.getter(name="managedApplicationTemplate")
+    def managed_application_template(self) -> Optional[Any]:
+        """
+        The template for the managed application deployment.
+        """
+        return pulumi.get(self, "managed_application_template")
+
+    @managed_application_template.setter
+    def managed_application_template(self, value: Optional[Any]):
+        pulumi.set(self, "managed_application_template", value)
+
+    @property
+    @pulumi.getter(name="networkFunctionTemplate")
+    def network_function_template(self) -> Optional[pulumi.Input['NetworkFunctionTemplateArgs']]:
+        """
+        The template definition of the network function.
+        """
+        return pulumi.get(self, "network_function_template")
+
+    @network_function_template.setter
+    def network_function_template(self, value: Optional[pulumi.Input['NetworkFunctionTemplateArgs']]):
+        pulumi.set(self, "network_function_template", value)
+
+    @property
+    @pulumi.getter
+    def preview(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the vendor sku is in preview mode.
+        """
+        return pulumi.get(self, "preview")
+
+    @preview.setter
+    def preview(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preview", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the sku.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="skuType")
+    def sku_type(self) -> Optional[pulumi.Input[Union[str, 'SkuType']]]:
+        """
+        The sku type.
+        """
+        return pulumi.get(self, "sku_type")
+
+    @sku_type.setter
+    def sku_type(self, value: Optional[pulumi.Input[Union[str, 'SkuType']]]):
+        pulumi.set(self, "sku_type", value)
 
 
 class VendorSkus(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +179,42 @@ class VendorSkus(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SkuType']] sku_type: The sku type.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VendorSkusArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Sku sub resource.
+        API Version: 2020-01-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param VendorSkusArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VendorSkusArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_mode: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]] = None,
+                 managed_application_parameters: Optional[Any] = None,
+                 managed_application_template: Optional[Any] = None,
+                 network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
+                 preview: Optional[pulumi.Input[bool]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
+                 vendor_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

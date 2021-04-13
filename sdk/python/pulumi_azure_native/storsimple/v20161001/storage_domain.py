@@ -5,16 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['StorageDomain']
+__all__ = ['StorageDomainArgs', 'StorageDomain']
+
+@pulumi.input_type
+class StorageDomainArgs:
+    def __init__(__self__, *,
+                 encryption_status: pulumi.Input['EncryptionStatus'],
+                 manager_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 storage_account_credential_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 encryption_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+                 storage_domain_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a StorageDomain resource.
+        :param pulumi.Input['EncryptionStatus'] encryption_status: The encryption status "Enabled | Disabled".
+        :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encryption_key: The encryption key used to encrypt the data. This is a user secret.
+        :param pulumi.Input[str] storage_domain_name: The storage domain name.
+        """
+        pulumi.set(__self__, "encryption_status", encryption_status)
+        pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_credential_ids", storage_account_credential_ids)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if storage_domain_name is not None:
+            pulumi.set(__self__, "storage_domain_name", storage_domain_name)
+
+    @property
+    @pulumi.getter(name="encryptionStatus")
+    def encryption_status(self) -> pulumi.Input['EncryptionStatus']:
+        """
+        The encryption status "Enabled | Disabled".
+        """
+        return pulumi.get(self, "encryption_status")
+
+    @encryption_status.setter
+    def encryption_status(self, value: pulumi.Input['EncryptionStatus']):
+        pulumi.set(self, "encryption_status", value)
+
+    @property
+    @pulumi.getter(name="managerName")
+    def manager_name(self) -> pulumi.Input[str]:
+        """
+        The manager name
+        """
+        return pulumi.get(self, "manager_name")
+
+    @manager_name.setter
+    def manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialIds")
+    def storage_account_credential_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The storage account credentials.
+        """
+        return pulumi.get(self, "storage_account_credential_ids")
+
+    @storage_account_credential_ids.setter
+    def storage_account_credential_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "storage_account_credential_ids", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The encryption key used to encrypt the data. This is a user secret.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter(name="storageDomainName")
+    def storage_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage domain name.
+        """
+        return pulumi.get(self, "storage_domain_name")
+
+    @storage_domain_name.setter
+    def storage_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_domain_name", value)
 
 
 class StorageDomain(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +139,39 @@ class StorageDomain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
         :param pulumi.Input[str] storage_domain_name: The storage domain name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StorageDomainArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The storage domain.
+
+        :param str resource_name: The name of the resource.
+        :param StorageDomainArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StorageDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 encryption_status: Optional[pulumi.Input['EncryptionStatus']] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_credential_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 storage_domain_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

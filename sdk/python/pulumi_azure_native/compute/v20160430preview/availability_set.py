@@ -5,15 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AvailabilitySet']
+__all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
+
+@pulumi.input_type
+class AvailabilitySetArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+                 platform_update_domain_count: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None):
+        """
+        The set of arguments for constructing a AvailabilitySet resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[bool] managed: If the availability set supports managed disks.
+        :param pulumi.Input[str] name: The name of the availability set.
+        :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count.
+        :param pulumi.Input[int] platform_update_domain_count: Update Domain count.
+        :param pulumi.Input['SkuArgs'] sku: Sku of the availability set
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] virtual_machines: A list of references to all virtual machines in the availability set.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if managed is not None:
+            pulumi.set(__self__, "managed", managed)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if platform_fault_domain_count is not None:
+            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
+        if platform_update_domain_count is not None:
+            pulumi.set(__self__, "platform_update_domain_count", platform_update_domain_count)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_machines is not None:
+            pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def managed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the availability set supports managed disks.
+        """
+        return pulumi.get(self, "managed")
+
+    @managed.setter
+    def managed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the availability set.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="platformFaultDomainCount")
+    def platform_fault_domain_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Fault Domain count.
+        """
+        return pulumi.get(self, "platform_fault_domain_count")
+
+    @platform_fault_domain_count.setter
+    def platform_fault_domain_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "platform_fault_domain_count", value)
+
+    @property
+    @pulumi.getter(name="platformUpdateDomainCount")
+    def platform_update_domain_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Update Domain count.
+        """
+        return pulumi.get(self, "platform_update_domain_count")
+
+    @platform_update_domain_count.setter
+    def platform_update_domain_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "platform_update_domain_count", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        Sku of the availability set
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        A list of references to all virtual machines in the availability set.
+        """
+        return pulumi.get(self, "virtual_machines")
+
+    @virtual_machines.setter
+    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "virtual_machines", value)
 
 
 class AvailabilitySet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +195,42 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] virtual_machines: A list of references to all virtual machines in the availability set.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AvailabilitySetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+
+        :param str resource_name: The name of the resource.
+        :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AvailabilitySetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+                 platform_update_domain_count: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

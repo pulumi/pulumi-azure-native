@@ -5,14 +5,189 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Volume']
+__all__ = ['VolumeArgs', 'Volume']
+
+@pulumi.input_type
+class VolumeArgs:
+    def __init__(__self__, *,
+                 access_control_record_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 device_name: pulumi.Input[str],
+                 manager_name: pulumi.Input[str],
+                 monitoring_status: pulumi.Input['MonitoringStatus'],
+                 resource_group_name: pulumi.Input[str],
+                 size_in_bytes: pulumi.Input[float],
+                 volume_container_name: pulumi.Input[str],
+                 volume_status: pulumi.Input['VolumeStatus'],
+                 volume_type: pulumi.Input['VolumeType'],
+                 kind: Optional[pulumi.Input['Kind']] = None,
+                 volume_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Volume resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
+        :param pulumi.Input[str] device_name: The device name
+        :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status of the volume.
+        :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[float] size_in_bytes: The size of the volume in bytes.
+        :param pulumi.Input[str] volume_container_name: The volume container name.
+        :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
+        :param pulumi.Input['VolumeType'] volume_type: The type of the volume.
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input[str] volume_name: The volume name.
+        """
+        pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        pulumi.set(__self__, "volume_container_name", volume_container_name)
+        pulumi.set(__self__, "volume_status", volume_status)
+        pulumi.set(__self__, "volume_type", volume_type)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="accessControlRecordIds")
+    def access_control_record_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of the access control records, associated with the volume.
+        """
+        return pulumi.get(self, "access_control_record_ids")
+
+    @access_control_record_ids.setter
+    def access_control_record_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "access_control_record_ids", value)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The device name
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="managerName")
+    def manager_name(self) -> pulumi.Input[str]:
+        """
+        The manager name
+        """
+        return pulumi.get(self, "manager_name")
+
+    @manager_name.setter
+    def manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+        """
+        The monitoring status of the volume.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
+        pulumi.set(self, "monitoring_status", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> pulumi.Input[float]:
+        """
+        The size of the volume in bytes.
+        """
+        return pulumi.get(self, "size_in_bytes")
+
+    @size_in_bytes.setter
+    def size_in_bytes(self, value: pulumi.Input[float]):
+        pulumi.set(self, "size_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="volumeContainerName")
+    def volume_container_name(self) -> pulumi.Input[str]:
+        """
+        The volume container name.
+        """
+        return pulumi.get(self, "volume_container_name")
+
+    @volume_container_name.setter
+    def volume_container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_container_name", value)
+
+    @property
+    @pulumi.getter(name="volumeStatus")
+    def volume_status(self) -> pulumi.Input['VolumeStatus']:
+        """
+        The volume status.
+        """
+        return pulumi.get(self, "volume_status")
+
+    @volume_status.setter
+    def volume_status(self, value: pulumi.Input['VolumeStatus']):
+        pulumi.set(self, "volume_status", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> pulumi.Input['VolumeType']:
+        """
+        The type of the volume.
+        """
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: pulumi.Input['VolumeType']):
+        pulumi.set(self, "volume_type", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input['Kind']]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input['Kind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The volume name.
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_name", value)
 
 
 class Volume(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +222,44 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
         :param pulumi.Input['VolumeType'] volume_type: The type of the volume.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VolumeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The volume.
+
+        :param str resource_name: The name of the resource.
+        :param VolumeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control_record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 size_in_bytes: Optional[pulumi.Input[float]] = None,
+                 volume_container_name: Optional[pulumi.Input[str]] = None,
+                 volume_name: Optional[pulumi.Input[str]] = None,
+                 volume_status: Optional[pulumi.Input['VolumeStatus']] = None,
+                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

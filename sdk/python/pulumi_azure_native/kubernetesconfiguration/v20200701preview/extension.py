@@ -5,16 +5,244 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Extension']
+__all__ = ['ExtensionArgs', 'Extension']
+
+@pulumi.input_type
+class ExtensionArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 cluster_resource_name: pulumi.Input[str],
+                 cluster_rp: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 extension_instance_name: Optional[pulumi.Input[str]] = None,
+                 extension_type: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ConfigurationIdentityArgs']] = None,
+                 release_train: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Extension resource.
+        :param pulumi.Input[str] cluster_name: The name of the kubernetes cluster.
+        :param pulumi.Input[str] cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Flag to note if this instance participates in auto upgrade of minor version, or not.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this instance of the extension.
+        :param pulumi.Input[str] extension_instance_name: Name of an instance of the Extension.
+        :param pulumi.Input[str] extension_type: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+        :param pulumi.Input['ConfigurationIdentityArgs'] identity: The identity of the configuration.
+        :param pulumi.Input[str] release_train: ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+        :param pulumi.Input['ScopeArgs'] scope: Scope at which the extension instance is installed.
+        :param pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]] statuses: Status from this instance of the extension.
+        :param pulumi.Input[str] version: Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
+        pulumi.set(__self__, "cluster_rp", cluster_rp)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if configuration_protected_settings is not None:
+            pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
+        if configuration_settings is not None:
+            pulumi.set(__self__, "configuration_settings", configuration_settings)
+        if extension_instance_name is not None:
+            pulumi.set(__self__, "extension_instance_name", extension_instance_name)
+        if extension_type is not None:
+            pulumi.set(__self__, "extension_type", extension_type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if release_train is not None:
+            pulumi.set(__self__, "release_train", release_train)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        """
+        The name of the kubernetes cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterResourceName")
+    def cluster_resource_name(self) -> pulumi.Input[str]:
+        """
+        The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        """
+        return pulumi.get(self, "cluster_resource_name")
+
+    @cluster_resource_name.setter
+    def cluster_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_resource_name", value)
+
+    @property
+    @pulumi.getter(name="clusterRp")
+    def cluster_rp(self) -> pulumi.Input[str]:
+        """
+        The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        """
+        return pulumi.get(self, "cluster_rp")
+
+    @cluster_rp.setter
+    def cluster_rp(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_rp", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to note if this instance participates in auto upgrade of minor version, or not.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="configurationProtectedSettings")
+    def configuration_protected_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+        """
+        return pulumi.get(self, "configuration_protected_settings")
+
+    @configuration_protected_settings.setter
+    def configuration_protected_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration_protected_settings", value)
+
+    @property
+    @pulumi.getter(name="configurationSettings")
+    def configuration_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Configuration settings, as name-value pairs for configuring this instance of the extension.
+        """
+        return pulumi.get(self, "configuration_settings")
+
+    @configuration_settings.setter
+    def configuration_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration_settings", value)
+
+    @property
+    @pulumi.getter(name="extensionInstanceName")
+    def extension_instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an instance of the Extension.
+        """
+        return pulumi.get(self, "extension_instance_name")
+
+    @extension_instance_name.setter
+    def extension_instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_instance_name", value)
+
+    @property
+    @pulumi.getter(name="extensionType")
+    def extension_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+        """
+        return pulumi.get(self, "extension_type")
+
+    @extension_type.setter
+    def extension_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_type", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ConfigurationIdentityArgs']]:
+        """
+        The identity of the configuration.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ConfigurationIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="releaseTrain")
+    def release_train(self) -> Optional[pulumi.Input[str]]:
+        """
+        ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+        """
+        return pulumi.get(self, "release_train")
+
+    @release_train.setter
+    def release_train(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "release_train", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        Scope at which the extension instance is installed.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]]:
+        """
+        Status from this instance of the extension.
+        """
+        return pulumi.get(self, "statuses")
+
+    @statuses.setter
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]]):
+        pulumi.set(self, "statuses", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 class Extension(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +283,47 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]] statuses: Status from this instance of the extension.
         :param pulumi.Input[str] version: Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExtensionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The Extension Instance object.
+
+        :param str resource_name: The name of the resource.
+        :param ExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_resource_name: Optional[pulumi.Input[str]] = None,
+                 cluster_rp: Optional[pulumi.Input[str]] = None,
+                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 extension_instance_name: Optional[pulumi.Input[str]] = None,
+                 extension_type: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ConfigurationIdentityArgs']]] = None,
+                 release_train: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['ScopeArgs']]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['EnterprisePolicy']
+__all__ = ['EnterprisePolicyArgs', 'EnterprisePolicy']
+
+@pulumi.input_type
+class EnterprisePolicyArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 encryption: Optional[pulumi.Input['PropertiesEncryptionArgs']] = None,
+                 enterprise_policy_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['EnterprisePolicyIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 lockbox: Optional[pulumi.Input['PropertiesLockboxArgs']] = None,
+                 network_injection: Optional[pulumi.Input['PropertiesNetworkInjectionArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a EnterprisePolicy resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['PropertiesEncryptionArgs'] encryption: The encryption settings for a configuration store.
+        :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
+        :param pulumi.Input['EnterprisePolicyIdentityArgs'] identity: The identity of the EnterprisePolicy.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['PropertiesLockboxArgs'] lockbox: Settings concerning lockbox.
+        :param pulumi.Input['PropertiesNetworkInjectionArgs'] network_injection: Settings concerning network injection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if enterprise_policy_name is not None:
+            pulumi.set(__self__, "enterprise_policy_name", enterprise_policy_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if lockbox is not None:
+            pulumi.set(__self__, "lockbox", lockbox)
+        if network_injection is not None:
+            pulumi.set(__self__, "network_injection", network_injection)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['PropertiesEncryptionArgs']]:
+        """
+        The encryption settings for a configuration store.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['PropertiesEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="enterprisePolicyName")
+    def enterprise_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the EnterprisePolicy.
+        """
+        return pulumi.get(self, "enterprise_policy_name")
+
+    @enterprise_policy_name.setter
+    def enterprise_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enterprise_policy_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EnterprisePolicyIdentityArgs']]:
+        """
+        The identity of the EnterprisePolicy.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EnterprisePolicyIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def lockbox(self) -> Optional[pulumi.Input['PropertiesLockboxArgs']]:
+        """
+        Settings concerning lockbox.
+        """
+        return pulumi.get(self, "lockbox")
+
+    @lockbox.setter
+    def lockbox(self, value: Optional[pulumi.Input['PropertiesLockboxArgs']]):
+        pulumi.set(self, "lockbox", value)
+
+    @property
+    @pulumi.getter(name="networkInjection")
+    def network_injection(self) -> Optional[pulumi.Input['PropertiesNetworkInjectionArgs']]:
+        """
+        Settings concerning network injection.
+        """
+        return pulumi.get(self, "network_injection")
+
+    @network_injection.setter
+    def network_injection(self, value: Optional[pulumi.Input['PropertiesNetworkInjectionArgs']]):
+        pulumi.set(self, "network_injection", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class EnterprisePolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +178,41 @@ class EnterprisePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EnterprisePolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the EnterprisePolicy.
+
+        :param str resource_name: The name of the resource.
+        :param EnterprisePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EnterprisePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
+                 enterprise_policy_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 lockbox: Optional[pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']]] = None,
+                 network_injection: Optional[pulumi.Input[pulumi.InputType['PropertiesNetworkInjectionArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

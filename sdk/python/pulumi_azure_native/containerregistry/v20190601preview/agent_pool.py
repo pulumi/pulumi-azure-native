@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['AgentPool']
+__all__ = ['AgentPoolArgs', 'AgentPool']
+
+@pulumi.input_type
+class AgentPoolArgs:
+    def __init__(__self__, *,
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 os: Optional[pulumi.Input[Union[str, 'OS']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AgentPool resource.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
+        :param pulumi.Input[int] count: The count of agent machine
+        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[Union[str, 'OS']] os: The OS of agent machine
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] tier: The Tier of agent machine
+        :param pulumi.Input[str] virtual_network_subnet_resource_id: The Virtual Network Subnet Resource Id of the agent machine
+        """
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if os is not None:
+            pulumi.set(__self__, "os", os)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+        if virtual_network_subnet_resource_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_resource_id", virtual_network_subnet_resource_id)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the agent pool.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The count of agent machine
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource. This cannot be changed after the resource is created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def os(self) -> Optional[pulumi.Input[Union[str, 'OS']]]:
+        """
+        The OS of agent machine
+        """
+        return pulumi.get(self, "os")
+
+    @os.setter
+    def os(self, value: Optional[pulumi.Input[Union[str, 'OS']]]):
+        pulumi.set(self, "os", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tier of agent machine
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetResourceId")
+    def virtual_network_subnet_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet Resource Id of the agent machine
+        """
+        return pulumi.get(self, "virtual_network_subnet_resource_id")
+
+    @virtual_network_subnet_resource_id.setter
+    def virtual_network_subnet_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_resource_id", value)
 
 
 class AgentPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +195,43 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[str] tier: The Tier of agent machine
         :param pulumi.Input[str] virtual_network_subnet_resource_id: The Virtual Network Subnet Resource Id of the agent machine
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AgentPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The agentpool that has the ARM resource and properties.
+        The agentpool will have all information to create an agent pool.
+
+        :param str resource_name: The name of the resource.
+        :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AgentPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 os: Optional[pulumi.Input[Union[str, 'OS']]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

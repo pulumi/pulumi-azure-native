@@ -5,16 +5,161 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AutomationRule']
+__all__ = ['AutomationRuleArgs', 'AutomationRule']
+
+@pulumi.input_type
+class AutomationRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
+                 display_name: pulumi.Input[str],
+                 operational_insights_resource_provider: pulumi.Input[str],
+                 order: pulumi.Input[int],
+                 resource_group_name: pulumi.Input[str],
+                 triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
+                 workspace_name: pulumi.Input[str],
+                 automation_rule_id: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AutomationRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered
+        :param pulumi.Input[str] display_name: The display name of the automation  rule
+        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        :param pulumi.Input[int] order: The order of execution of the automation rule
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: The triggering logic of the automation rule
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[str] automation_rule_id: Automation rule ID
+        :param pulumi.Input[str] etag: Etag of the azure resource
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "triggering_logic", triggering_logic)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if automation_rule_id is not None:
+            pulumi.set(__self__, "automation_rule_id", automation_rule_id)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]:
+        """
+        The actions to execute when the automation rule is triggered
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the automation  rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="operationalInsightsResourceProvider")
+    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
+        """
+        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        """
+        return pulumi.get(self, "operational_insights_resource_provider")
+
+    @operational_insights_resource_provider.setter
+    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operational_insights_resource_provider", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order of execution of the automation rule
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="triggeringLogic")
+    def triggering_logic(self) -> pulumi.Input['AutomationRuleTriggeringLogicArgs']:
+        """
+        The triggering logic of the automation rule
+        """
+        return pulumi.get(self, "triggering_logic")
+
+    @triggering_logic.setter
+    def triggering_logic(self, value: pulumi.Input['AutomationRuleTriggeringLogicArgs']):
+        pulumi.set(self, "triggering_logic", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="automationRuleId")
+    def automation_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Automation rule ID
+        """
+        return pulumi.get(self, "automation_rule_id")
+
+    @automation_rule_id.setter
+    def automation_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automation_rule_id", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Etag of the azure resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
 
 class AutomationRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +190,42 @@ class AutomationRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']] triggering_logic: The triggering logic of the automation rule
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AutomationRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents an automation rule.
+
+        :param str resource_name: The name of the resource.
+        :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AutomationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
+                 automation_rule_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

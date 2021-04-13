@@ -5,15 +5,158 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['AppServicePlanRouteForVnet']
+__all__ = ['AppServicePlanRouteForVnetArgs', 'AppServicePlanRouteForVnet']
+
+@pulumi.input_type
+class AppServicePlanRouteForVnetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 vnet_name: pulumi.Input[str],
+                 end_address: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 route_name: Optional[pulumi.Input[str]] = None,
+                 route_type: Optional[pulumi.Input[Union[str, 'RouteType']]] = None,
+                 start_address: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AppServicePlanRouteForVnet resource.
+        :param pulumi.Input[str] name: Name of the App Service plan.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] vnet_name: Name of the Virtual Network.
+        :param pulumi.Input[str] end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] route_name: Name of the Virtual Network route.
+        :param pulumi.Input[Union[str, 'RouteType']] route_type: The type of route this is:
+               DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+               INHERITED - Routes inherited from the real Virtual Network routes
+               STATIC - Static route set on the app only
+               
+               These values will be used for syncing an app's routes with those from a Virtual Network.
+        :param pulumi.Input[str] start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vnet_name", vnet_name)
+        if end_address is not None:
+            pulumi.set(__self__, "end_address", end_address)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if route_name is not None:
+            pulumi.set(__self__, "route_name", route_name)
+        if route_type is not None:
+            pulumi.set(__self__, "route_type", route_type)
+        if start_address is not None:
+            pulumi.set(__self__, "start_address", start_address)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the App Service plan.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Virtual Network.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    @vnet_name.setter
+    def vnet_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vnet_name", value)
+
+    @property
+    @pulumi.getter(name="endAddress")
+    def end_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        """
+        return pulumi.get(self, "end_address")
+
+    @end_address.setter
+    def end_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_address", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="routeName")
+    def route_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Virtual Network route.
+        """
+        return pulumi.get(self, "route_name")
+
+    @route_name.setter
+    def route_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_name", value)
+
+    @property
+    @pulumi.getter(name="routeType")
+    def route_type(self) -> Optional[pulumi.Input[Union[str, 'RouteType']]]:
+        """
+        The type of route this is:
+        DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+        INHERITED - Routes inherited from the real Virtual Network routes
+        STATIC - Static route set on the app only
+
+        These values will be used for syncing an app's routes with those from a Virtual Network.
+        """
+        return pulumi.get(self, "route_type")
+
+    @route_type.setter
+    def route_type(self, value: Optional[pulumi.Input[Union[str, 'RouteType']]]):
+        pulumi.set(self, "route_type", value)
+
+    @property
+    @pulumi.getter(name="startAddress")
+    def start_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        """
+        return pulumi.get(self, "start_address")
+
+    @start_address.setter
+    def start_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_address", value)
 
 
 class AppServicePlanRouteForVnet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +190,41 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         :param pulumi.Input[str] start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AppServicePlanRouteForVnetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Virtual Network route contract used to pass routing information for a Virtual Network.
+
+        :param str resource_name: The name of the resource.
+        :param AppServicePlanRouteForVnetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AppServicePlanRouteForVnetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 end_address: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_name: Optional[pulumi.Input[str]] = None,
+                 route_type: Optional[pulumi.Input[Union[str, 'RouteType']]] = None,
+                 start_address: Optional[pulumi.Input[str]] = None,
+                 vnet_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
