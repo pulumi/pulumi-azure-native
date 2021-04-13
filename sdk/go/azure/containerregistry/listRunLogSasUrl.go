@@ -8,7 +8,7 @@ import (
 )
 
 // The result of get log link operation.
-// API Version: 2019-04-01.
+// API Version: 2019-06-01-preview.
 func ListRunLogSasUrl(ctx *pulumi.Context, args *ListRunLogSasUrlArgs, opts ...pulumi.InvokeOption) (*ListRunLogSasUrlResult, error) {
 	var rv ListRunLogSasUrlResult
 	err := ctx.Invoke("azure-native:containerregistry:listRunLogSasUrl", args, &rv, opts...)
@@ -29,6 +29,8 @@ type ListRunLogSasUrlArgs struct {
 
 // The result of get log link operation.
 type ListRunLogSasUrlResult struct {
+	// The link to logs in registry for a run on a azure container registry.
+	LogArtifactLink *string `pulumi:"logArtifactLink"`
 	// The link to logs for a run on a azure container registry.
 	LogLink *string `pulumi:"logLink"`
 }
