@@ -243,6 +243,17 @@ export const SourceTriggerEvent = {
 
 export type SourceTriggerEvent = (typeof SourceTriggerEvent)[keyof typeof SourceTriggerEvent];
 
+export const StepType = {
+    Docker: "Docker",
+    FileTask: "FileTask",
+    EncodedTask: "EncodedTask",
+} as const;
+
+/**
+ * The type of the step.
+ */
+export type StepType = (typeof StepType)[keyof typeof StepType];
+
 export const TaskStatus = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -308,6 +319,16 @@ export const TrustPolicyType = {
  * The type of trust policy.
  */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
+
+export const UpdateTriggerPayloadType = {
+    Default: "Default",
+    Token: "Token",
+} as const;
+
+/**
+ * Type of Payload body for Base image update triggers.
+ */
+export type UpdateTriggerPayloadType = (typeof UpdateTriggerPayloadType)[keyof typeof UpdateTriggerPayloadType];
 
 export const Variant = {
     V6: "v6",
