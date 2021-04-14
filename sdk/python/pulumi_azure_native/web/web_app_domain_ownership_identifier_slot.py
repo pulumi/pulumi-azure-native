@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['WebAppDomainOwnershipIdentifierSlot']
+__all__ = ['WebAppDomainOwnershipIdentifierSlotArgs', 'WebAppDomainOwnershipIdentifierSlot']
+
+@pulumi.input_type
+class WebAppDomainOwnershipIdentifierSlotArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 slot: pulumi.Input[str],
+                 domain_ownership_identifier_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebAppDomainOwnershipIdentifierSlot resource.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
+        :param pulumi.Input[str] domain_ownership_identifier_name: Name of domain ownership identifier.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] value: String representation of the identity.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "slot", slot)
+        if domain_ownership_identifier_name is not None:
+            pulumi.set(__self__, "domain_ownership_identifier_name", domain_ownership_identifier_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def slot(self) -> pulumi.Input[str]:
+        """
+        Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
+        """
+        return pulumi.get(self, "slot")
+
+    @slot.setter
+    def slot(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot", value)
+
+    @property
+    @pulumi.getter(name="domainOwnershipIdentifierName")
+    def domain_ownership_identifier_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of domain ownership identifier.
+        """
+        return pulumi.get(self, "domain_ownership_identifier_name")
+
+    @domain_ownership_identifier_name.setter
+    def domain_ownership_identifier_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_ownership_identifier_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        String representation of the identity.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +138,40 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
         :param pulumi.Input[str] value: String representation of the identity.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppDomainOwnershipIdentifierSlotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A domain specific resource identifier.
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param WebAppDomainOwnershipIdentifierSlotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppDomainOwnershipIdentifierSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_ownership_identifier_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

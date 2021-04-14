@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VendorSkuPreview']
+__all__ = ['VendorSkuPreviewArgs', 'VendorSkuPreview']
+
+@pulumi.input_type
+class VendorSkuPreviewArgs:
+    def __init__(__self__, *,
+                 sku_name: pulumi.Input[str],
+                 vendor_name: pulumi.Input[str],
+                 preview_subscription: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VendorSkuPreview resource.
+        :param pulumi.Input[str] sku_name: The name of the vendor sku.
+        :param pulumi.Input[str] vendor_name: The name of the vendor.
+        :param pulumi.Input[str] preview_subscription: Preview subscription ID.
+        """
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "vendor_name", vendor_name)
+        if preview_subscription is not None:
+            pulumi.set(__self__, "preview_subscription", preview_subscription)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vendor sku.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vendor.
+        """
+        return pulumi.get(self, "vendor_name")
+
+    @vendor_name.setter
+    def vendor_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vendor_name", value)
+
+    @property
+    @pulumi.getter(name="previewSubscription")
+    def preview_subscription(self) -> Optional[pulumi.Input[str]]:
+        """
+        Preview subscription ID.
+        """
+        return pulumi.get(self, "preview_subscription")
+
+    @preview_subscription.setter
+    def preview_subscription(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preview_subscription", value)
 
 
 class VendorSkuPreview(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +85,37 @@ class VendorSkuPreview(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The name of the vendor sku.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VendorSkuPreviewArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Customer subscription which can use a sku.
+        API Version: 2020-01-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param VendorSkuPreviewArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VendorSkuPreviewArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 preview_subscription: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 vendor_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

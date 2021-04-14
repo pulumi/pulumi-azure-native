@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:storagesync:CloudEndpoint":
-		r, err = NewCloudEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &CloudEndpoint{}
 	case "azure-native:storagesync:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:storagesync:RegisteredServer":
-		r, err = NewRegisteredServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegisteredServer{}
 	case "azure-native:storagesync:ServerEndpoint":
-		r, err = NewServerEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerEndpoint{}
 	case "azure-native:storagesync:StorageSyncService":
-		r, err = NewStorageSyncService(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageSyncService{}
 	case "azure-native:storagesync:SyncGroup":
-		r, err = NewSyncGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

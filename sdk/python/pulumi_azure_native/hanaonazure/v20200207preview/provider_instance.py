@@ -5,13 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ProviderInstance']
+__all__ = ['ProviderInstanceArgs', 'ProviderInstance']
+
+@pulumi.input_type
+class ProviderInstanceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sap_monitor_name: pulumi.Input[str],
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[str]] = None,
+                 provider_instance_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ProviderInstance resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group.
+        :param pulumi.Input[str] sap_monitor_name: Name of the SAP monitor resource.
+        :param pulumi.Input[str] metadata: A JSON string containing metadata of the provider instance.
+        :param pulumi.Input[str] properties: A JSON string containing the properties of the provider instance.
+        :param pulumi.Input[str] provider_instance_name: Name of the provider instance.
+        :param pulumi.Input[str] type: The type of provider instance.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sap_monitor_name", sap_monitor_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if provider_instance_name is not None:
+            pulumi.set(__self__, "provider_instance_name", provider_instance_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sapMonitorName")
+    def sap_monitor_name(self) -> pulumi.Input[str]:
+        """
+        Name of the SAP monitor resource.
+        """
+        return pulumi.get(self, "sap_monitor_name")
+
+    @sap_monitor_name.setter
+    def sap_monitor_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sap_monitor_name", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON string containing metadata of the provider instance.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON string containing the properties of the provider instance.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="providerInstanceName")
+    def provider_instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the provider instance.
+        """
+        return pulumi.get(self, "provider_instance_name")
+
+    @provider_instance_name.setter
+    def provider_instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_instance_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of provider instance.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class ProviderInstance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +138,39 @@ class ProviderInstance(pulumi.CustomResource):
         :param pulumi.Input[str] sap_monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[str] type: The type of provider instance.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProviderInstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A provider instance associated with a SAP monitor.
+
+        :param str resource_name: The name of the resource.
+        :param ProviderInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[str]] = None,
+                 provider_instance_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sap_monitor_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

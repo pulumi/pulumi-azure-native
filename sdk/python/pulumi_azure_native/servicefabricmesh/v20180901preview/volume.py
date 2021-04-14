@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Volume']
+__all__ = ['VolumeArgs', 'Volume']
+
+@pulumi.input_type
+class VolumeArgs:
+    def __init__(__self__, *,
+                 provider: pulumi.Input[Union[str, 'VolumeProvider']],
+                 resource_group_name: pulumi.Input[str],
+                 azure_file_parameters: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_resource_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Volume resource.
+        :param pulumi.Input[Union[str, 'VolumeProvider']] provider: Provider of the volume.
+        :param pulumi.Input[str] resource_group_name: Azure resource group name
+        :param pulumi.Input['VolumeProviderParametersAzureFileArgs'] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
+        :param pulumi.Input[str] description: User readable description of the volume.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] volume_resource_name: The identity of the volume.
+        """
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_file_parameters is not None:
+            pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if volume_resource_name is not None:
+            pulumi.set(__self__, "volume_resource_name", volume_resource_name)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[Union[str, 'VolumeProvider']]:
+        """
+        Provider of the volume.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[Union[str, 'VolumeProvider']]):
+        pulumi.set(self, "provider", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Azure resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="azureFileParameters")
+    def azure_file_parameters(self) -> Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']]:
+        """
+        This type describes a volume provided by an Azure Files file share.
+        """
+        return pulumi.get(self, "azure_file_parameters")
+
+    @azure_file_parameters.setter
+    def azure_file_parameters(self, value: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']]):
+        pulumi.set(self, "azure_file_parameters", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User readable description of the volume.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="volumeResourceName")
+    def volume_resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity of the volume.
+        """
+        return pulumi.get(self, "volume_resource_name")
+
+    @volume_resource_name.setter
+    def volume_resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_resource_name", value)
 
 
 class Volume(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +159,40 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_resource_name: The identity of the volume.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VolumeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This type describes a volume resource.
+
+        :param str resource_name: The name of the resource.
+        :param VolumeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_file_parameters: Optional[pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provider: Optional[pulumi.Input[Union[str, 'VolumeProvider']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_resource_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

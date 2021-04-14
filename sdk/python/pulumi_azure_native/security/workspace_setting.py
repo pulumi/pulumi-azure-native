@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['WorkspaceSetting']
+__all__ = ['WorkspaceSettingArgs', 'WorkspaceSetting']
+
+@pulumi.input_type
+class WorkspaceSettingArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str],
+                 workspace_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WorkspaceSetting resource.
+        :param pulumi.Input[str] scope: All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
+        :param pulumi.Input[str] workspace_id: The full Azure ID of the workspace to save the data in
+        :param pulumi.Input[str] workspace_setting_name: Name of the security setting
+        """
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        if workspace_setting_name is not None:
+            pulumi.set(__self__, "workspace_setting_name", workspace_setting_name)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        The full Azure ID of the workspace to save the data in
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
+
+    @property
+    @pulumi.getter(name="workspaceSettingName")
+    def workspace_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security setting
+        """
+        return pulumi.get(self, "workspace_setting_name")
+
+    @workspace_setting_name.setter
+    def workspace_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_setting_name", value)
 
 
 class WorkspaceSetting(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +85,37 @@ class WorkspaceSetting(pulumi.CustomResource):
         :param pulumi.Input[str] workspace_id: The full Azure ID of the workspace to save the data in
         :param pulumi.Input[str] workspace_setting_name: Name of the security setting
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkspaceSettingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Configures where to store the OMS agent data for workspaces under a scope
+        API Version: 2017-08-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param WorkspaceSettingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceSettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None,
+                 workspace_setting_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

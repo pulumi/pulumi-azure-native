@@ -5,16 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ReportByDepartment']
+__all__ = ['ReportByDepartmentArgs', 'ReportByDepartment']
+
+@pulumi.input_type
+class ReportByDepartmentArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input['ReportDefinitionArgs'],
+                 delivery_info: pulumi.Input['ReportDeliveryInfoArgs'],
+                 department_id: pulumi.Input[str],
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 report_name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['ReportScheduleArgs']] = None):
+        """
+        The set of arguments for constructing a ReportByDepartment resource.
+        :param pulumi.Input['ReportDefinitionArgs'] definition: Has definition for the report.
+        :param pulumi.Input['ReportDeliveryInfoArgs'] delivery_info: Has delivery information for the report.
+        :param pulumi.Input[str] department_id: Department ID
+        :param pulumi.Input[Union[str, 'FormatType']] format: The format of the report being delivered.
+        :param pulumi.Input[str] report_name: Report Name.
+        :param pulumi.Input['ReportScheduleArgs'] schedule: Has schedule information for the report.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "delivery_info", delivery_info)
+        pulumi.set(__self__, "department_id", department_id)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if report_name is not None:
+            pulumi.set(__self__, "report_name", report_name)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['ReportDefinitionArgs']:
+        """
+        Has definition for the report.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['ReportDefinitionArgs']):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> pulumi.Input['ReportDeliveryInfoArgs']:
+        """
+        Has delivery information for the report.
+        """
+        return pulumi.get(self, "delivery_info")
+
+    @delivery_info.setter
+    def delivery_info(self, value: pulumi.Input['ReportDeliveryInfoArgs']):
+        pulumi.set(self, "delivery_info", value)
+
+    @property
+    @pulumi.getter(name="departmentId")
+    def department_id(self) -> pulumi.Input[str]:
+        """
+        Department ID
+        """
+        return pulumi.get(self, "department_id")
+
+    @department_id.setter
+    def department_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "department_id", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[Union[str, 'FormatType']]]:
+        """
+        The format of the report being delivered.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[Union[str, 'FormatType']]]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter(name="reportName")
+    def report_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Report Name.
+        """
+        return pulumi.get(self, "report_name")
+
+    @report_name.setter
+    def report_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ReportScheduleArgs']]:
+        """
+        Has schedule information for the report.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ReportScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
 
 
 class ReportByDepartment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +140,39 @@ class ReportByDepartment(pulumi.CustomResource):
         :param pulumi.Input[str] report_name: Report Name.
         :param pulumi.Input[pulumi.InputType['ReportScheduleArgs']] schedule: Has schedule information for the report.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReportByDepartmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A report resource.
+
+        :param str resource_name: The name of the resource.
+        :param ReportByDepartmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReportByDepartmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['ReportDefinitionArgs']]] = None,
+                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryInfoArgs']]] = None,
+                 department_id: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 report_name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['ReportScheduleArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

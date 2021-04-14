@@ -5,16 +5,196 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['StreamingLocator']
+__all__ = ['StreamingLocatorArgs', 'StreamingLocator']
+
+@pulumi.input_type
+class StreamingLocatorArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 asset_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 streaming_policy_name: pulumi.Input[str],
+                 alternative_media_id: Optional[pulumi.Input[str]] = None,
+                 content_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]] = None,
+                 default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 streaming_locator_id: Optional[pulumi.Input[str]] = None,
+                 streaming_locator_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a StreamingLocator resource.
+        :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] asset_name: Asset Name
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] streaming_policy_name: Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
+        :param pulumi.Input[str] alternative_media_id: An Alternative Media Identifier associated with the StreamingLocator.  This identifier can be used to distinguish different StreamingLocators for the same Asset for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]] content_keys: ContentKeys used by this Streaming Locator
+        :param pulumi.Input[str] default_content_key_policy_name: Default ContentKeyPolicy used by this Streaming Locator
+        :param pulumi.Input[str] end_time: EndTime of Streaming Locator
+        :param pulumi.Input[str] start_time: StartTime of Streaming Locator
+        :param pulumi.Input[str] streaming_locator_id: StreamingLocatorId of Streaming Locator
+        :param pulumi.Input[str] streaming_locator_name: The Streaming Locator name.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "asset_name", asset_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+        if alternative_media_id is not None:
+            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+        if content_keys is not None:
+            pulumi.set(__self__, "content_keys", content_keys)
+        if default_content_key_policy_name is not None:
+            pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if streaming_locator_id is not None:
+            pulumi.set(__self__, "streaming_locator_id", streaming_locator_id)
+        if streaming_locator_name is not None:
+            pulumi.set(__self__, "streaming_locator_name", streaming_locator_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Media Services account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> pulumi.Input[str]:
+        """
+        Asset Name
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "asset_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="streamingPolicyName")
+    def streaming_policy_name(self) -> pulumi.Input[str]:
+        """
+        Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
+        """
+        return pulumi.get(self, "streaming_policy_name")
+
+    @streaming_policy_name.setter
+    def streaming_policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "streaming_policy_name", value)
+
+    @property
+    @pulumi.getter(name="alternativeMediaId")
+    def alternative_media_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Alternative Media Identifier associated with the StreamingLocator.  This identifier can be used to distinguish different StreamingLocators for the same Asset for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        """
+        return pulumi.get(self, "alternative_media_id")
+
+    @alternative_media_id.setter
+    def alternative_media_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alternative_media_id", value)
+
+    @property
+    @pulumi.getter(name="contentKeys")
+    def content_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]]:
+        """
+        ContentKeys used by this Streaming Locator
+        """
+        return pulumi.get(self, "content_keys")
+
+    @content_keys.setter
+    def content_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]]):
+        pulumi.set(self, "content_keys", value)
+
+    @property
+    @pulumi.getter(name="defaultContentKeyPolicyName")
+    def default_content_key_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default ContentKeyPolicy used by this Streaming Locator
+        """
+        return pulumi.get(self, "default_content_key_policy_name")
+
+    @default_content_key_policy_name.setter
+    def default_content_key_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_content_key_policy_name", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        EndTime of Streaming Locator
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        StartTime of Streaming Locator
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="streamingLocatorId")
+    def streaming_locator_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        StreamingLocatorId of Streaming Locator
+        """
+        return pulumi.get(self, "streaming_locator_id")
+
+    @streaming_locator_id.setter
+    def streaming_locator_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "streaming_locator_id", value)
+
+    @property
+    @pulumi.getter(name="streamingLocatorName")
+    def streaming_locator_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Streaming Locator name.
+        """
+        return pulumi.get(self, "streaming_locator_name")
+
+    @streaming_locator_name.setter
+    def streaming_locator_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "streaming_locator_name", value)
 
 
 class StreamingLocator(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +229,44 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.Input[str] streaming_locator_name: The Streaming Locator name.
         :param pulumi.Input[str] streaming_policy_name: Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StreamingLocatorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A Streaming Locator resource
+
+        :param str resource_name: The name of the resource.
+        :param StreamingLocatorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StreamingLocatorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 alternative_media_id: Optional[pulumi.Input[str]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
+                 content_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]]] = None,
+                 default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 streaming_locator_id: Optional[pulumi.Input[str]] = None,
+                 streaming_locator_name: Optional[pulumi.Input[str]] = None,
+                 streaming_policy_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

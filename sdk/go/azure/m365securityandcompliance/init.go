@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsAdtAPI":
-		r, err = NewPrivateEndpointConnectionsAdtAPI(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnectionsAdtAPI{}
 	case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsComp":
-		r, err = NewPrivateEndpointConnectionsComp(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnectionsComp{}
 	case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsForEDM":
-		r, err = NewPrivateEndpointConnectionsForEDM(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnectionsForEDM{}
 	case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync":
-		r, err = NewPrivateEndpointConnectionsForMIPPolicySync(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnectionsForMIPPolicySync{}
 	case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell":
-		r, err = NewPrivateEndpointConnectionsForSCCPowershell(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnectionsForSCCPowershell{}
 	case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsSec":
-		r, err = NewPrivateEndpointConnectionsSec(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnectionsSec{}
 	case "azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload":
-		r, err = NewPrivateLinkServicesForEDMUpload(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkServicesForEDMUpload{}
 	case "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter":
-		r, err = NewPrivateLinkServicesForM365ComplianceCenter(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkServicesForM365ComplianceCenter{}
 	case "azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter":
-		r, err = NewPrivateLinkServicesForM365SecurityCenter(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkServicesForM365SecurityCenter{}
 	case "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync":
-		r, err = NewPrivateLinkServicesForMIPPolicySync(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkServicesForMIPPolicySync{}
 	case "azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI":
-		r, err = NewPrivateLinkServicesForO365ManagementActivityAPI(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkServicesForO365ManagementActivityAPI{}
 	case "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell":
-		r, err = NewPrivateLinkServicesForSCCPowershell(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkServicesForSCCPowershell{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

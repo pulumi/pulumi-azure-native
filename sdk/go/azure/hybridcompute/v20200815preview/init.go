@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:hybridcompute/v20200815preview:Machine":
-		r, err = NewMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &Machine{}
 	case "azure-native:hybridcompute/v20200815preview:MachineExtension":
-		r, err = NewMachineExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineExtension{}
 	case "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:hybridcompute/v20200815preview:PrivateLinkScope":
-		r, err = NewPrivateLinkScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkScope{}
 	case "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource":
-		r, err = NewPrivateLinkScopedResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkScopedResource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

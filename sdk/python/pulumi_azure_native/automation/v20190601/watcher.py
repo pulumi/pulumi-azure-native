@@ -5,13 +5,195 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['Watcher']
+__all__ = ['WatcherArgs', 'Watcher']
+
+@pulumi.input_type
+class WatcherArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 script_name: Optional[pulumi.Input[str]] = None,
+                 script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 script_run_on: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 watcher_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Watcher resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] description: Gets or sets the description.
+        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
+        :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] script_parameters: Gets or sets the parameters of the script.
+        :param pulumi.Input[str] script_run_on: Gets or sets the name of the hybrid worker group the watcher will run on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] watcher_name: The watcher name.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if execution_frequency_in_seconds is not None:
+            pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if script_name is not None:
+            pulumi.set(__self__, "script_name", script_name)
+        if script_parameters is not None:
+            pulumi.set(__self__, "script_parameters", script_parameters)
+        if script_run_on is not None:
+            pulumi.set(__self__, "script_run_on", script_run_on)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if watcher_name is not None:
+            pulumi.set(__self__, "watcher_name", watcher_name)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the etag of the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="executionFrequencyInSeconds")
+    def execution_frequency_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets the frequency at which the watcher is invoked.
+        """
+        return pulumi.get(self, "execution_frequency_in_seconds")
+
+    @execution_frequency_in_seconds.setter
+    def execution_frequency_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "execution_frequency_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="scriptName")
+    def script_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+        """
+        return pulumi.get(self, "script_name")
+
+    @script_name.setter
+    def script_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_name", value)
+
+    @property
+    @pulumi.getter(name="scriptParameters")
+    def script_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the parameters of the script.
+        """
+        return pulumi.get(self, "script_parameters")
+
+    @script_parameters.setter
+    def script_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "script_parameters", value)
+
+    @property
+    @pulumi.getter(name="scriptRunOn")
+    def script_run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the hybrid worker group the watcher will run on.
+        """
+        return pulumi.get(self, "script_run_on")
+
+    @script_run_on.setter
+    def script_run_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_run_on", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="watcherName")
+    def watcher_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The watcher name.
+        """
+        return pulumi.get(self, "watcher_name")
+
+    @watcher_name.setter
+    def watcher_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "watcher_name", value)
 
 
 class Watcher(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +228,44 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] watcher_name: The watcher name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WatcherArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the watcher type.
+
+        :param str resource_name: The name of the resource.
+        :param WatcherArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WatcherArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script_name: Optional[pulumi.Input[str]] = None,
+                 script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 script_run_on: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 watcher_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

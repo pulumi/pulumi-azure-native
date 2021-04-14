@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:recoveryservices/v20160810:ReplicationFabric":
-		r, err = NewReplicationFabric(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationFabric{}
 	case "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping":
-		r, err = NewReplicationNetworkMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationNetworkMapping{}
 	case "azure-native:recoveryservices/v20160810:ReplicationPolicy":
-		r, err = NewReplicationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationPolicy{}
 	case "azure-native:recoveryservices/v20160810:ReplicationProtectedItem":
-		r, err = NewReplicationProtectedItem(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationProtectedItem{}
 	case "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping":
-		r, err = NewReplicationProtectionContainerMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationProtectionContainerMapping{}
 	case "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan":
-		r, err = NewReplicationRecoveryPlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationRecoveryPlan{}
 	case "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping":
-		r, err = NewReplicationStorageClassificationMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationStorageClassificationMapping{}
 	case "azure-native:recoveryservices/v20160810:ReplicationvCenter":
-		r, err = NewReplicationvCenter(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationvCenter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,16 +5,179 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WebAppBackupConfigurationSlot']
+__all__ = ['WebAppBackupConfigurationSlotArgs', 'WebAppBackupConfigurationSlot']
+
+@pulumi.input_type
+class WebAppBackupConfigurationSlotArgs:
+    def __init__(__self__, *,
+                 backup_request_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 slot: pulumi.Input[str],
+                 storage_account_url: pulumi.Input[str],
+                 backup_schedule: Optional[pulumi.Input['BackupScheduleArgs']] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['BackupRestoreOperationType']] = None):
+        """
+        The set of arguments for constructing a WebAppBackupConfigurationSlot resource.
+        :param pulumi.Input[str] backup_request_name: Name of the backup.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the backup configuration for the production slot.
+        :param pulumi.Input[str] storage_account_url: SAS URL to the container.
+        :param pulumi.Input['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]] databases: Databases included in the backup.
+        :param pulumi.Input[bool] enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['BackupRestoreOperationType'] type: Type of the backup.
+        """
+        pulumi.set(__self__, "backup_request_name", backup_request_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "slot", slot)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if backup_schedule is not None:
+            pulumi.set(__self__, "backup_schedule", backup_schedule)
+        if databases is not None:
+            pulumi.set(__self__, "databases", databases)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backupRequestName")
+    def backup_request_name(self) -> pulumi.Input[str]:
+        """
+        Name of the backup.
+        """
+        return pulumi.get(self, "backup_request_name")
+
+    @backup_request_name.setter
+    def backup_request_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_request_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def slot(self) -> pulumi.Input[str]:
+        """
+        Name of the deployment slot. If a slot is not specified, the API will update the backup configuration for the production slot.
+        """
+        return pulumi.get(self, "slot")
+
+    @slot.setter
+    def slot(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter(name="backupSchedule")
+    def backup_schedule(self) -> Optional[pulumi.Input['BackupScheduleArgs']]:
+        """
+        Schedule for the backup if it is executed periodically.
+        """
+        return pulumi.get(self, "backup_schedule")
+
+    @backup_schedule.setter
+    def backup_schedule(self, value: Optional[pulumi.Input['BackupScheduleArgs']]):
+        pulumi.set(self, "backup_schedule", value)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]]:
+        """
+        Databases included in the backup.
+        """
+        return pulumi.get(self, "databases")
+
+    @databases.setter
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]]):
+        pulumi.set(self, "databases", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['BackupRestoreOperationType']]:
+        """
+        Type of the backup.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['BackupRestoreOperationType']]):
+        pulumi.set(self, "type", value)
 
 
 class WebAppBackupConfigurationSlot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +210,43 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_url: SAS URL to the container.
         :param pulumi.Input['BackupRestoreOperationType'] type: Type of the backup.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppBackupConfigurationSlotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Description of a backup which will be performed.
+
+        :param str resource_name: The name of the resource.
+        :param WebAppBackupConfigurationSlotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppBackupConfigurationSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_request_name: Optional[pulumi.Input[str]] = None,
+                 backup_schedule: Optional[pulumi.Input[pulumi.InputType['BackupScheduleArgs']]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseBackupSettingArgs']]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 storage_account_url: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['BackupRestoreOperationType']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

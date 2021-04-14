@@ -5,16 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Token']
+__all__ = ['TokenArgs', 'Token']
+
+@pulumi.input_type
+class TokenArgs:
+    def __init__(__self__, *,
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 credentials: Optional[pulumi.Input['TokenCredentialsPropertiesArgs']] = None,
+                 scope_map_id: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TokenStatus']]] = None,
+                 token_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Token resource.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input['TokenCredentialsPropertiesArgs'] credentials: The credentials that can be used for authenticating the token.
+        :param pulumi.Input[str] scope_map_id: The resource ID of the scope map to which the token will be associated with.
+        :param pulumi.Input[Union[str, 'TokenStatus']] status: The status of the token example enabled or disabled.
+        :param pulumi.Input[str] token_name: The name of the token.
+        """
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if scope_map_id is not None:
+            pulumi.set(__self__, "scope_map_id", scope_map_id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if token_name is not None:
+            pulumi.set(__self__, "token_name", token_name)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['TokenCredentialsPropertiesArgs']]:
+        """
+        The credentials that can be used for authenticating the token.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['TokenCredentialsPropertiesArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="scopeMapId")
+    def scope_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the scope map to which the token will be associated with.
+        """
+        return pulumi.get(self, "scope_map_id")
+
+    @scope_map_id.setter
+    def scope_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope_map_id", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'TokenStatus']]]:
+        """
+        The status of the token example enabled or disabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'TokenStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="tokenName")
+    def token_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the token.
+        """
+        return pulumi.get(self, "token_name")
+
+    @token_name.setter
+    def token_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_name", value)
 
 
 class Token(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +142,40 @@ class Token(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TokenStatus']] status: The status of the token example enabled or disabled.
         :param pulumi.Input[str] token_name: The name of the token.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TokenArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An object that represents a token for a container registry.
+        API Version: 2020-11-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param TokenArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TokenArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['TokenCredentialsPropertiesArgs']]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope_map_id: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TokenStatus']]] = None,
+                 token_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

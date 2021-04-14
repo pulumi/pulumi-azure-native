@@ -5,15 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagedInstancePrivateEndpointConnection']
+__all__ = ['ManagedInstancePrivateEndpointConnectionArgs', 'ManagedInstancePrivateEndpointConnection']
+
+@pulumi.input_type
+class ManagedInstancePrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 managed_instance_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 private_endpoint: Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']] = None):
+        """
+        The set of arguments for constructing a ManagedInstancePrivateEndpointConnection resource.
+        :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs'] private_endpoint: Private endpoint which the connection belongs to.
+        :param pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        """
+        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="managedInstanceName")
+    def managed_instance_name(self) -> pulumi.Input[str]:
+        """
+        The name of the managed instance.
+        """
+        return pulumi.get(self, "managed_instance_name")
+
+    @managed_instance_name.setter
+    def managed_instance_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_instance_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']]:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]:
+        """
+        Connection State of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +118,39 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagedInstancePrivateEndpointConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A private endpoint connection
+        API Version: 2020-11-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param ManagedInstancePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedInstancePrivateEndpointConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 managed_instance_name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['ManagedInstancePrivateEndpointPropertyArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DeploymentAtManagementGroupScope']
+__all__ = ['DeploymentAtManagementGroupScopeArgs', 'DeploymentAtManagementGroupScope']
+
+@pulumi.input_type
+class DeploymentAtManagementGroupScopeArgs:
+    def __init__(__self__, *,
+                 group_id: pulumi.Input[str],
+                 properties: pulumi.Input['DeploymentPropertiesArgs'],
+                 deployment_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DeploymentAtManagementGroupScope resource.
+        :param pulumi.Input[str] group_id: The management group ID.
+        :param pulumi.Input['DeploymentPropertiesArgs'] properties: The deployment properties.
+        :param pulumi.Input[str] deployment_name: The name of the deployment.
+        :param pulumi.Input[str] location: The location to store the deployment data.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "properties", properties)
+        if deployment_name is not None:
+            pulumi.set(__self__, "deployment_name", deployment_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[str]:
+        """
+        The management group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['DeploymentPropertiesArgs']:
+        """
+        The deployment properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['DeploymentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the deployment.
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location to store the deployment data.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
 
 class DeploymentAtManagementGroupScope(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +105,37 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location to store the deployment data.
         :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: The deployment properties.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DeploymentAtManagementGroupScopeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Deployment information.
+
+        :param str resource_name: The name of the resource.
+        :param DeploymentAtManagementGroupScopeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DeploymentAtManagementGroupScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:streamanalytics:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure-native:streamanalytics:Function":
-		r, err = NewFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &Function{}
 	case "azure-native:streamanalytics:Input":
-		r, err = NewInput(ctx, name, nil, pulumi.URN_(urn))
+		r = &Input{}
 	case "azure-native:streamanalytics:Output":
-		r, err = NewOutput(ctx, name, nil, pulumi.URN_(urn))
+		r = &Output{}
 	case "azure-native:streamanalytics:PrivateEndpoint":
-		r, err = NewPrivateEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpoint{}
 	case "azure-native:streamanalytics:StreamingJob":
-		r, err = NewStreamingJob(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamingJob{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,35 +22,36 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:securityinsights:Action":
-		r, err = NewAction(ctx, name, nil, pulumi.URN_(urn))
+		r = &Action{}
 	case "azure-native:securityinsights:AlertRule":
-		r, err = NewAlertRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertRule{}
 	case "azure-native:securityinsights:AutomationRule":
-		r, err = NewAutomationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutomationRule{}
 	case "azure-native:securityinsights:Bookmark":
-		r, err = NewBookmark(ctx, name, nil, pulumi.URN_(urn))
+		r = &Bookmark{}
 	case "azure-native:securityinsights:BookmarkRelation":
-		r, err = NewBookmarkRelation(ctx, name, nil, pulumi.URN_(urn))
+		r = &BookmarkRelation{}
 	case "azure-native:securityinsights:DataConnector":
-		r, err = NewDataConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnector{}
 	case "azure-native:securityinsights:Incident":
-		r, err = NewIncident(ctx, name, nil, pulumi.URN_(urn))
+		r = &Incident{}
 	case "azure-native:securityinsights:IncidentComment":
-		r, err = NewIncidentComment(ctx, name, nil, pulumi.URN_(urn))
+		r = &IncidentComment{}
 	case "azure-native:securityinsights:IncidentRelation":
-		r, err = NewIncidentRelation(ctx, name, nil, pulumi.URN_(urn))
+		r = &IncidentRelation{}
 	case "azure-native:securityinsights:ProductSetting":
-		r, err = NewProductSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductSetting{}
 	case "azure-native:securityinsights:ThreatIntelligenceIndicator":
-		r, err = NewThreatIntelligenceIndicator(ctx, name, nil, pulumi.URN_(urn))
+		r = &ThreatIntelligenceIndicator{}
 	case "azure-native:securityinsights:Watchlist":
-		r, err = NewWatchlist(ctx, name, nil, pulumi.URN_(urn))
+		r = &Watchlist{}
 	case "azure-native:securityinsights:WatchlistItem":
-		r, err = NewWatchlistItem(ctx, name, nil, pulumi.URN_(urn))
+		r = &WatchlistItem{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

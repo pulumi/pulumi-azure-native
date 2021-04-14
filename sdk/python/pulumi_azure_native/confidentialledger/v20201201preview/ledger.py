@@ -5,16 +5,103 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Ledger']
+__all__ = ['LedgerArgs', 'Ledger']
+
+@pulumi.input_type
+class LedgerArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 ledger_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['LedgerPropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Ledger resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] ledger_name: Name of the Confidential Ledger
+        :param pulumi.Input[str] location: The Azure location where the Confidential Ledger is running.
+        :param pulumi.Input['LedgerPropertiesArgs'] properties: Properties of Confidential Ledger Resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Confidential Ledger
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if ledger_name is not None:
+            pulumi.set(__self__, "ledger_name", ledger_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="ledgerName")
+    def ledger_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Confidential Ledger
+        """
+        return pulumi.get(self, "ledger_name")
+
+    @ledger_name.setter
+    def ledger_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ledger_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure location where the Confidential Ledger is running.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['LedgerPropertiesArgs']]:
+        """
+        Properties of Confidential Ledger Resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['LedgerPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional tags for Confidential Ledger
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Ledger(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +124,38 @@ class Ledger(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Confidential Ledger
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LedgerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+
+        :param str resource_name: The name of the resource.
+        :param LedgerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LedgerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ledger_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LedgerPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

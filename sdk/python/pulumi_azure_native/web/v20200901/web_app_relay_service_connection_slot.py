@@ -5,14 +5,167 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['WebAppRelayServiceConnectionSlot']
+__all__ = ['WebAppRelayServiceConnectionSlotArgs', 'WebAppRelayServiceConnectionSlot']
+
+@pulumi.input_type
+class WebAppRelayServiceConnectionSlotArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 slot: pulumi.Input[str],
+                 biztalk_uri: Optional[pulumi.Input[str]] = None,
+                 entity_connection_string: Optional[pulumi.Input[str]] = None,
+                 entity_name: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 resource_connection_string: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebAppRelayServiceConnectionSlot resource.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "slot", slot)
+        if biztalk_uri is not None:
+            pulumi.set(__self__, "biztalk_uri", biztalk_uri)
+        if entity_connection_string is not None:
+            pulumi.set(__self__, "entity_connection_string", entity_connection_string)
+        if entity_name is not None:
+            pulumi.set(__self__, "entity_name", entity_name)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if resource_connection_string is not None:
+            pulumi.set(__self__, "resource_connection_string", resource_connection_string)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def slot(self) -> pulumi.Input[str]:
+        """
+        Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
+        """
+        return pulumi.get(self, "slot")
+
+    @slot.setter
+    def slot(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot", value)
+
+    @property
+    @pulumi.getter(name="biztalkUri")
+    def biztalk_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "biztalk_uri")
+
+    @biztalk_uri.setter
+    def biztalk_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "biztalk_uri", value)
+
+    @property
+    @pulumi.getter(name="entityConnectionString")
+    def entity_connection_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "entity_connection_string")
+
+    @entity_connection_string.setter
+    def entity_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_connection_string", value)
+
+    @property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "entity_name")
+
+    @entity_name.setter
+    def entity_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_name", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="resourceConnectionString")
+    def resource_connection_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_connection_string")
+
+    @resource_connection_string.setter
+    def resource_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_connection_string", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
 
 
 class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +193,44 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppRelayServiceConnectionSlotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Hybrid Connection for an App Service app.
+
+        :param str resource_name: The name of the resource.
+        :param WebAppRelayServiceConnectionSlotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppRelayServiceConnectionSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 biztalk_uri: Optional[pulumi.Input[str]] = None,
+                 entity_connection_string: Optional[pulumi.Input[str]] = None,
+                 entity_name: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 resource_connection_string: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

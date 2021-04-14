@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:authorization/v20190901:PolicyAssignment":
-		r, err = NewPolicyAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyAssignment{}
 	case "azure-native:authorization/v20190901:PolicyDefinition":
-		r, err = NewPolicyDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyDefinition{}
 	case "azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup":
-		r, err = NewPolicyDefinitionAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyDefinitionAtManagementGroup{}
 	case "azure-native:authorization/v20190901:PolicySetDefinition":
-		r, err = NewPolicySetDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicySetDefinition{}
 	case "azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup":
-		r, err = NewPolicySetDefinitionAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicySetDefinitionAtManagementGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

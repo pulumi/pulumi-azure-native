@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:automanage/v20200630preview:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment":
-		r, err = NewConfigurationProfileAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationProfileAssignment{}
 	case "azure-native:automanage/v20200630preview:ConfigurationProfilePreference":
-		r, err = NewConfigurationProfilePreference(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationProfilePreference{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

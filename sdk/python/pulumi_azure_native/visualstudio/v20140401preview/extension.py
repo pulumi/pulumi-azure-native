@@ -5,15 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Extension']
+__all__ = ['ExtensionArgs', 'Extension']
+
+@pulumi.input_type
+class ExtensionArgs:
+    def __init__(__self__, *,
+                 account_resource_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 extension_resource_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input['ExtensionResourcePlanArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Extension resource.
+        :param pulumi.Input[str] account_resource_name: The name of the Visual Studio Team Services account resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] extension_resource_name: The name of the extension.
+        :param pulumi.Input[str] location: The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
+        :param pulumi.Input['ExtensionResourcePlanArgs'] plan: Extended information about the plan being purchased for this extension resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A dictionary of extended properties. This property is currently unused.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of user-defined tags to be stored with the extension resource.
+        """
+        pulumi.set(__self__, "account_resource_name", account_resource_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if extension_resource_name is not None:
+            pulumi.set(__self__, "extension_resource_name", extension_resource_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountResourceName")
+    def account_resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Visual Studio Team Services account resource.
+        """
+        return pulumi.get(self, "account_resource_name")
+
+    @account_resource_name.setter
+    def account_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_resource_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="extensionResourceName")
+    def extension_resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the extension.
+        """
+        return pulumi.get(self, "extension_resource_name")
+
+    @extension_resource_name.setter
+    def extension_resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_resource_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['ExtensionResourcePlanArgs']]:
+        """
+        Extended information about the plan being purchased for this extension resource.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['ExtensionResourcePlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A dictionary of extended properties. This property is currently unused.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A dictionary of user-defined tags to be stored with the extension resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Extension(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +158,40 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of user-defined tags to be stored with the extension resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExtensionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The response to an extension resource GET request.
+
+        :param str resource_name: The name of the resource.
+        :param ExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_resource_name: Optional[pulumi.Input[str]] = None,
+                 extension_resource_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ExtensionResourcePlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

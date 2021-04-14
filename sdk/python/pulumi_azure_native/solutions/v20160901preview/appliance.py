@@ -5,16 +5,230 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Appliance']
+__all__ = ['ApplianceArgs', 'Appliance']
+
+@pulumi.input_type
+class ApplianceArgs:
+    def __init__(__self__, *,
+                 managed_resource_group_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 appliance_definition_id: Optional[pulumi.Input[str]] = None,
+                 appliance_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[Any] = None,
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ui_definition_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Appliance resource.
+        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] appliance_definition_id: The fully qualified path of appliance definition Id.
+        :param pulumi.Input[str] appliance_name: The name of the appliance.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input[str] kind: The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
+        :param Any parameters: Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
+        :param pulumi.Input['PlanArgs'] plan: The plan information.
+        :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
+        """
+        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if appliance_definition_id is not None:
+            pulumi.set(__self__, "appliance_definition_id", appliance_definition_id)
+        if appliance_name is not None:
+            pulumi.set(__self__, "appliance_name", appliance_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if ui_definition_uri is not None:
+            pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> pulumi.Input[str]:
+        """
+        The managed resource group Id.
+        """
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @managed_resource_group_id.setter
+    def managed_resource_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="applianceDefinitionId")
+    def appliance_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified path of appliance definition Id.
+        """
+        return pulumi.get(self, "appliance_definition_id")
+
+    @appliance_definition_id.setter
+    def appliance_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "appliance_definition_id", value)
+
+    @property
+    @pulumi.getter(name="applianceName")
+    def appliance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the appliance.
+        """
+        return pulumi.get(self, "appliance_name")
+
+    @appliance_name.setter
+    def appliance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "appliance_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the resource that manages this resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_by", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+        """
+        The plan information.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The SKU of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="uiDefinitionUri")
+    def ui_definition_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob URI where the UI definition file is located.
+        """
+        return pulumi.get(self, "ui_definition_uri")
+
+    @ui_definition_uri.setter
+    def ui_definition_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ui_definition_uri", value)
 
 
 class Appliance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +267,46 @@ class Appliance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApplianceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Information about appliance.
+
+        :param str resource_name: The name of the resource.
+        :param ApplianceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApplianceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 appliance_definition_id: Optional[pulumi.Input[str]] = None,
+                 appliance_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[Any] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ui_definition_uri: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

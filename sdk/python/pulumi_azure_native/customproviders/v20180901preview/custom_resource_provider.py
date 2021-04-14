@@ -5,16 +5,135 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CustomResourceProvider']
+__all__ = ['CustomResourceProviderArgs', 'CustomResourceProvider']
+
+@pulumi.input_type
+class CustomResourceProviderArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_provider_name: Optional[pulumi.Input[str]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]] = None):
+        """
+        The set of arguments for constructing a CustomResourceProvider resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]] actions: A list of actions that the custom resource provider implements.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] resource_provider_name: The name of the resource provider.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]] resource_types: A list of resource types that the custom resource provider implements.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]] validations: A list of validations to run on the custom resource provider's requests.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_provider_name is not None:
+            pulumi.set(__self__, "resource_provider_name", resource_provider_name)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validations is not None:
+            pulumi.set(__self__, "validations", validations)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]]:
+        """
+        A list of actions that the custom resource provider implements.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="resourceProviderName")
+    def resource_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource provider.
+        """
+        return pulumi.get(self, "resource_provider_name")
+
+    @resource_provider_name.setter
+    def resource_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_provider_name", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]]:
+        """
+        A list of resource types that the custom resource provider implements.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def validations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]]:
+        """
+        A list of validations to run on the custom resource provider's requests.
+        """
+        return pulumi.get(self, "validations")
+
+    @validations.setter
+    def validations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]]):
+        pulumi.set(self, "validations", value)
 
 
 class CustomResourceProvider(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +160,40 @@ class CustomResourceProvider(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRPValidationsArgs']]]] validations: A list of validations to run on the custom resource provider's requests.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CustomResourceProviderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A manifest file that defines the custom resource provider resources.
+
+        :param str resource_name: The name of the resource.
+        :param CustomResourceProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CustomResourceProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRPActionRouteDefinitionArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_provider_name: Optional[pulumi.Input[str]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRPResourceTypeRouteDefinitionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRPValidationsArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

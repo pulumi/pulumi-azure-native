@@ -5,16 +5,153 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['EventSubscription']
+__all__ = ['EventSubscriptionArgs', 'EventSubscription']
+
+@pulumi.input_type
+class EventSubscriptionArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 dead_letter_destination: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']] = None,
+                 destination: Optional[pulumi.Input[Union['EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+                 event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
+                 event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input['EventSubscriptionFilterArgs']] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
+        """
+        The set of arguments for constructing a EventSubscription resource.
+        :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+        :param pulumi.Input['StorageBlobDeadLetterDestinationArgs'] dead_letter_destination: The DeadLetter destination of the event subscription.
+        :param pulumi.Input[Union['EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[Union[str, 'EventDeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+        :param pulumi.Input['EventSubscriptionFilterArgs'] filter: Information about the filter for the event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
+        :param pulumi.Input['RetryPolicyArgs'] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if dead_letter_destination is not None:
+            pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if event_delivery_schema is None:
+            event_delivery_schema = 'InputEventSchema'
+        if event_delivery_schema is not None:
+            pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+        if event_subscription_name is not None:
+            pulumi.set(__self__, "event_subscription_name", event_subscription_name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="deadLetterDestination")
+    def dead_letter_destination(self) -> Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]:
+        """
+        The DeadLetter destination of the event subscription.
+        """
+        return pulumi.get(self, "dead_letter_destination")
+
+    @dead_letter_destination.setter
+    def dead_letter_destination(self, value: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]):
+        pulumi.set(self, "dead_letter_destination", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[Union['EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[Union['EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="eventDeliverySchema")
+    def event_delivery_schema(self) -> Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]]:
+        """
+        The event delivery schema for the event subscription.
+        """
+        return pulumi.get(self, "event_delivery_schema")
+
+    @event_delivery_schema.setter
+    def event_delivery_schema(self, value: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]]):
+        pulumi.set(self, "event_delivery_schema", value)
+
+    @property
+    @pulumi.getter(name="eventSubscriptionName")
+    def event_subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+        """
+        return pulumi.get(self, "event_subscription_name")
+
+    @event_subscription_name.setter
+    def event_subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_subscription_name", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['EventSubscriptionFilterArgs']]:
+        """
+        Information about the filter for the event subscription.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['EventSubscriptionFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of user defined labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional[pulumi.Input['RetryPolicyArgs']]:
+        """
+        The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    @retry_policy.setter
+    def retry_policy(self, value: Optional[pulumi.Input['RetryPolicyArgs']]):
+        pulumi.set(self, "retry_policy", value)
 
 
 class EventSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +180,41 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Event Subscription
+
+        :param str resource_name: The name of the resource.
+        :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union[pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['HybridConnectionEventSubscriptionDestinationArgs'], pulumi.InputType['StorageQueueEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]]] = None,
+                 event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
+                 event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

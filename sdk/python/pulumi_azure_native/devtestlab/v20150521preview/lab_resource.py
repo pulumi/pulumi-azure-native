@@ -5,14 +5,245 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['LabResource']
+__all__ = ['LabResourceArgs', 'LabResource']
+
+@pulumi.input_type
+class LabResourceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 artifacts_storage_account: Optional[pulumi.Input[str]] = None,
+                 created_date: Optional[pulumi.Input[str]] = None,
+                 default_storage_account: Optional[pulumi.Input[str]] = None,
+                 default_virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 lab_storage_type: Optional[pulumi.Input[Union[str, 'LabStorageType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a LabResource resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] artifacts_storage_account: The artifact storage account of the lab.
+        :param pulumi.Input[str] created_date: The creation date of the lab.
+        :param pulumi.Input[str] default_storage_account: The lab's default storage account.
+        :param pulumi.Input[str] default_virtual_network_id: The default virtual network identifier of the lab.
+        :param pulumi.Input[str] id: The identifier of the resource.
+        :param pulumi.Input[Union[str, 'LabStorageType']] lab_storage_type: The type of the lab storage.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] name: The name of the resource.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_accounts: The storage accounts of the lab.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] type: The type of the resource.
+        :param pulumi.Input[str] vault_name: The name of the key vault of the lab.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if artifacts_storage_account is not None:
+            pulumi.set(__self__, "artifacts_storage_account", artifacts_storage_account)
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if default_storage_account is not None:
+            pulumi.set(__self__, "default_storage_account", default_storage_account)
+        if default_virtual_network_id is not None:
+            pulumi.set(__self__, "default_virtual_network_id", default_virtual_network_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if lab_storage_type is not None:
+            pulumi.set(__self__, "lab_storage_type", lab_storage_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if vault_name is not None:
+            pulumi.set(__self__, "vault_name", vault_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="artifactsStorageAccount")
+    def artifacts_storage_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The artifact storage account of the lab.
+        """
+        return pulumi.get(self, "artifacts_storage_account")
+
+    @artifacts_storage_account.setter
+    def artifacts_storage_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifacts_storage_account", value)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation date of the lab.
+        """
+        return pulumi.get(self, "created_date")
+
+    @created_date.setter
+    def created_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_date", value)
+
+    @property
+    @pulumi.getter(name="defaultStorageAccount")
+    def default_storage_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The lab's default storage account.
+        """
+        return pulumi.get(self, "default_storage_account")
+
+    @default_storage_account.setter
+    def default_storage_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_storage_account", value)
+
+    @property
+    @pulumi.getter(name="defaultVirtualNetworkId")
+    def default_virtual_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default virtual network identifier of the lab.
+        """
+        return pulumi.get(self, "default_virtual_network_id")
+
+    @default_virtual_network_id.setter
+    def default_virtual_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_virtual_network_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="labStorageType")
+    def lab_storage_type(self) -> Optional[pulumi.Input[Union[str, 'LabStorageType']]]:
+        """
+        The type of the lab storage.
+        """
+        return pulumi.get(self, "lab_storage_type")
+
+    @lab_storage_type.setter
+    def lab_storage_type(self, value: Optional[pulumi.Input[Union[str, 'LabStorageType']]]):
+        pulumi.set(self, "lab_storage_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The storage accounts of the lab.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key vault of the lab.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_name", value)
 
 
 class LabResource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +284,47 @@ class LabResource(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the resource.
         :param pulumi.Input[str] vault_name: The name of the key vault of the lab.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LabResourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A lab.
+
+        :param str resource_name: The name of the resource.
+        :param LabResourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LabResourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 artifacts_storage_account: Optional[pulumi.Input[str]] = None,
+                 created_date: Optional[pulumi.Input[str]] = None,
+                 default_storage_account: Optional[pulumi.Input[str]] = None,
+                 default_virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 lab_storage_type: Optional[pulumi.Input[Union[str, 'LabStorageType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

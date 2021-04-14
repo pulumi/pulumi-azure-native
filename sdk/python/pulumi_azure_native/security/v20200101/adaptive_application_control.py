@@ -5,15 +5,110 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AdaptiveApplicationControl']
+__all__ = ['AdaptiveApplicationControlArgs', 'AdaptiveApplicationControl']
+
+@pulumi.input_type
+class AdaptiveApplicationControlArgs:
+    def __init__(__self__, *,
+                 asc_location: pulumi.Input[str],
+                 enforcement_mode: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]] = None,
+                 protection_mode: Optional[pulumi.Input['ProtectionModeArgs']] = None,
+                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]] = None):
+        """
+        The set of arguments for constructing a AdaptiveApplicationControl resource.
+        :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the machine group
+        :param pulumi.Input[str] group_name: Name of an application control machine group
+        :param pulumi.Input['ProtectionModeArgs'] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        pulumi.set(__self__, "asc_location", asc_location)
+        if enforcement_mode is not None:
+            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if path_recommendations is not None:
+            pulumi.set(__self__, "path_recommendations", path_recommendations)
+        if protection_mode is not None:
+            pulumi.set(__self__, "protection_mode", protection_mode)
+        if vm_recommendations is not None:
+            pulumi.set(__self__, "vm_recommendations", vm_recommendations)
+
+    @property
+    @pulumi.getter(name="ascLocation")
+    def asc_location(self) -> pulumi.Input[str]:
+        """
+        The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        """
+        return pulumi.get(self, "asc_location")
+
+    @asc_location.setter
+    def asc_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "asc_location", value)
+
+    @property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @enforcement_mode.setter
+    def enforcement_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforcement_mode", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an application control machine group
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="pathRecommendations")
+    def path_recommendations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]]:
+        return pulumi.get(self, "path_recommendations")
+
+    @path_recommendations.setter
+    def path_recommendations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]]):
+        pulumi.set(self, "path_recommendations", value)
+
+    @property
+    @pulumi.getter(name="protectionMode")
+    def protection_mode(self) -> Optional[pulumi.Input['ProtectionModeArgs']]:
+        """
+        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        return pulumi.get(self, "protection_mode")
+
+    @protection_mode.setter
+    def protection_mode(self, value: Optional[pulumi.Input['ProtectionModeArgs']]):
+        pulumi.set(self, "protection_mode", value)
+
+    @property
+    @pulumi.getter(name="vmRecommendations")
+    def vm_recommendations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]]:
+        return pulumi.get(self, "vm_recommendations")
+
+    @vm_recommendations.setter
+    def vm_recommendations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]]):
+        pulumi.set(self, "vm_recommendations", value)
 
 
 class AdaptiveApplicationControl(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +130,38 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param pulumi.Input[str] group_name: Name of an application control machine group
         :param pulumi.Input[pulumi.InputType['ProtectionModeArgs']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AdaptiveApplicationControlArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param AdaptiveApplicationControlArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AdaptiveApplicationControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 asc_location: Optional[pulumi.Input[str]] = None,
+                 enforcement_mode: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
+                 protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
+                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

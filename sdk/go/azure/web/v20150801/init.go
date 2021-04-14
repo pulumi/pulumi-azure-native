@@ -22,73 +22,74 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:web/v20150801:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure-native:web/v20150801:CertificateCsr":
-		r, err = NewCertificateCsr(ctx, name, nil, pulumi.URN_(urn))
+		r = &CertificateCsr{}
 	case "azure-native:web/v20150801:HostingEnvironment":
-		r, err = NewHostingEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostingEnvironment{}
 	case "azure-native:web/v20150801:ManagedHostingEnvironment":
-		r, err = NewManagedHostingEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedHostingEnvironment{}
 	case "azure-native:web/v20150801:ServerFarm":
-		r, err = NewServerFarm(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerFarm{}
 	case "azure-native:web/v20150801:ServerFarmRouteForVnet":
-		r, err = NewServerFarmRouteForVnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerFarmRouteForVnet{}
 	case "azure-native:web/v20150801:Site":
-		r, err = NewSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &Site{}
 	case "azure-native:web/v20150801:SiteAppSettings":
-		r, err = NewSiteAppSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteAppSettings{}
 	case "azure-native:web/v20150801:SiteAppSettingsSlot":
-		r, err = NewSiteAppSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteAppSettingsSlot{}
 	case "azure-native:web/v20150801:SiteAuthSettings":
-		r, err = NewSiteAuthSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteAuthSettings{}
 	case "azure-native:web/v20150801:SiteAuthSettingsSlot":
-		r, err = NewSiteAuthSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteAuthSettingsSlot{}
 	case "azure-native:web/v20150801:SiteBackupConfiguration":
-		r, err = NewSiteBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteBackupConfiguration{}
 	case "azure-native:web/v20150801:SiteBackupConfigurationSlot":
-		r, err = NewSiteBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteBackupConfigurationSlot{}
 	case "azure-native:web/v20150801:SiteConnectionStrings":
-		r, err = NewSiteConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteConnectionStrings{}
 	case "azure-native:web/v20150801:SiteConnectionStringsSlot":
-		r, err = NewSiteConnectionStringsSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteConnectionStringsSlot{}
 	case "azure-native:web/v20150801:SiteDeployment":
-		r, err = NewSiteDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteDeployment{}
 	case "azure-native:web/v20150801:SiteDeploymentSlot":
-		r, err = NewSiteDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteDeploymentSlot{}
 	case "azure-native:web/v20150801:SiteHostNameBinding":
-		r, err = NewSiteHostNameBinding(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteHostNameBinding{}
 	case "azure-native:web/v20150801:SiteHostNameBindingSlot":
-		r, err = NewSiteHostNameBindingSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteHostNameBindingSlot{}
 	case "azure-native:web/v20150801:SiteInstanceDeployment":
-		r, err = NewSiteInstanceDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteInstanceDeployment{}
 	case "azure-native:web/v20150801:SiteInstanceDeploymentSlot":
-		r, err = NewSiteInstanceDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteInstanceDeploymentSlot{}
 	case "azure-native:web/v20150801:SiteLogsConfig":
-		r, err = NewSiteLogsConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteLogsConfig{}
 	case "azure-native:web/v20150801:SiteMetadata":
-		r, err = NewSiteMetadata(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteMetadata{}
 	case "azure-native:web/v20150801:SiteMetadataSlot":
-		r, err = NewSiteMetadataSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteMetadataSlot{}
 	case "azure-native:web/v20150801:SiteRelayServiceConnection":
-		r, err = NewSiteRelayServiceConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteRelayServiceConnection{}
 	case "azure-native:web/v20150801:SiteRelayServiceConnectionSlot":
-		r, err = NewSiteRelayServiceConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteRelayServiceConnectionSlot{}
 	case "azure-native:web/v20150801:SiteSlot":
-		r, err = NewSiteSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteSlot{}
 	case "azure-native:web/v20150801:SiteSlotConfigNames":
-		r, err = NewSiteSlotConfigNames(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteSlotConfigNames{}
 	case "azure-native:web/v20150801:SiteSourceControl":
-		r, err = NewSiteSourceControl(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteSourceControl{}
 	case "azure-native:web/v20150801:SiteSourceControlSlot":
-		r, err = NewSiteSourceControlSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteSourceControlSlot{}
 	case "azure-native:web/v20150801:SiteVNETConnection":
-		r, err = NewSiteVNETConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteVNETConnection{}
 	case "azure-native:web/v20150801:SiteVNETConnectionSlot":
-		r, err = NewSiteVNETConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &SiteVNETConnectionSlot{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

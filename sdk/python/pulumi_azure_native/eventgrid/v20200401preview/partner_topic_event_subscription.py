@@ -5,16 +5,224 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PartnerTopicEventSubscription']
+__all__ = ['PartnerTopicEventSubscriptionArgs', 'PartnerTopicEventSubscription']
+
+@pulumi.input_type
+class PartnerTopicEventSubscriptionArgs:
+    def __init__(__self__, *,
+                 partner_topic_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 dead_letter_destination: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']] = None,
+                 dead_letter_with_resource_identity: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']] = None,
+                 delivery_with_resource_identity: Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']] = None,
+                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+                 event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
+                 event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_utc: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input['EventSubscriptionFilterArgs']] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
+        """
+        The set of arguments for constructing a PartnerTopicEventSubscription resource.
+        :param pulumi.Input[str] partner_topic_name: Name of the partner topic.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input['StorageBlobDeadLetterDestinationArgs'] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param pulumi.Input['DeadLetterWithResourceIdentityArgs'] dead_letter_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param pulumi.Input['DeliveryWithResourceIdentityArgs'] delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param pulumi.Input[Union[str, 'EventDeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
+        :param pulumi.Input['EventSubscriptionFilterArgs'] filter: Information about the filter for the event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
+        :param pulumi.Input['RetryPolicyArgs'] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        """
+        pulumi.set(__self__, "partner_topic_name", partner_topic_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dead_letter_destination is not None:
+            pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+        if dead_letter_with_resource_identity is not None:
+            pulumi.set(__self__, "dead_letter_with_resource_identity", dead_letter_with_resource_identity)
+        if delivery_with_resource_identity is not None:
+            pulumi.set(__self__, "delivery_with_resource_identity", delivery_with_resource_identity)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if event_delivery_schema is None:
+            event_delivery_schema = 'EventGridSchema'
+        if event_delivery_schema is not None:
+            pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+        if event_subscription_name is not None:
+            pulumi.set(__self__, "event_subscription_name", event_subscription_name)
+        if expiration_time_utc is not None:
+            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
+
+    @property
+    @pulumi.getter(name="partnerTopicName")
+    def partner_topic_name(self) -> pulumi.Input[str]:
+        """
+        Name of the partner topic.
+        """
+        return pulumi.get(self, "partner_topic_name")
+
+    @partner_topic_name.setter
+    def partner_topic_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partner_topic_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="deadLetterDestination")
+    def dead_letter_destination(self) -> Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]:
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_destination")
+
+    @dead_letter_destination.setter
+    def dead_letter_destination(self, value: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]):
+        pulumi.set(self, "dead_letter_destination", value)
+
+    @property
+    @pulumi.getter(name="deadLetterWithResourceIdentity")
+    def dead_letter_with_resource_identity(self) -> Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']]:
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_with_resource_identity")
+
+    @dead_letter_with_resource_identity.setter
+    def dead_letter_with_resource_identity(self, value: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']]):
+        pulumi.set(self, "dead_letter_with_resource_identity", value)
+
+    @property
+    @pulumi.getter(name="deliveryWithResourceIdentity")
+    def delivery_with_resource_identity(self) -> Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "delivery_with_resource_identity")
+
+    @delivery_with_resource_identity.setter
+    def delivery_with_resource_identity(self, value: Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']]):
+        pulumi.set(self, "delivery_with_resource_identity", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="eventDeliverySchema")
+    def event_delivery_schema(self) -> Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]]:
+        """
+        The event delivery schema for the event subscription.
+        """
+        return pulumi.get(self, "event_delivery_schema")
+
+    @event_delivery_schema.setter
+    def event_delivery_schema(self, value: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]]):
+        pulumi.set(self, "event_delivery_schema", value)
+
+    @property
+    @pulumi.getter(name="eventSubscriptionName")
+    def event_subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        """
+        return pulumi.get(self, "event_subscription_name")
+
+    @event_subscription_name.setter
+    def event_subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_subscription_name", value)
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration time of the event subscription.
+        """
+        return pulumi.get(self, "expiration_time_utc")
+
+    @expiration_time_utc.setter
+    def expiration_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_time_utc", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['EventSubscriptionFilterArgs']]:
+        """
+        Information about the filter for the event subscription.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['EventSubscriptionFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of user defined labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional[pulumi.Input['RetryPolicyArgs']]:
+        """
+        The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    @retry_policy.setter
+    def retry_policy(self, value: Optional[pulumi.Input['RetryPolicyArgs']]):
+        pulumi.set(self, "retry_policy", value)
 
 
 class PartnerTopicEventSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +263,45 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PartnerTopicEventSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Event Subscription
+
+        :param str resource_name: The name of the resource.
+        :param PartnerTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PartnerTopicEventSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']]] = None,
+                 dead_letter_with_resource_identity: Optional[pulumi.Input[pulumi.InputType['DeadLetterWithResourceIdentityArgs']]] = None,
+                 delivery_with_resource_identity: Optional[pulumi.Input[pulumi.InputType['DeliveryWithResourceIdentityArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union[pulumi.InputType['AzureFunctionEventSubscriptionDestinationArgs'], pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['HybridConnectionEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusQueueEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusTopicEventSubscriptionDestinationArgs'], pulumi.InputType['StorageQueueEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]]] = None,
+                 event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
+                 event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_utc: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 partner_topic_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

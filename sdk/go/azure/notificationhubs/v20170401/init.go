@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:notificationhubs/v20170401:Namespace":
-		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Namespace{}
 	case "azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule":
-		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceAuthorizationRule{}
 	case "azure-native:notificationhubs/v20170401:NotificationHub":
-		r, err = NewNotificationHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationHub{}
 	case "azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule":
-		r, err = NewNotificationHubAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationHubAuthorizationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

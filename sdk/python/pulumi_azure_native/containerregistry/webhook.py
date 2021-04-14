@@ -5,14 +5,178 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Webhook']
+__all__ = ['WebhookArgs', 'Webhook']
+
+@pulumi.input_type
+class WebhookArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]],
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_uri: pulumi.Input[str],
+                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'WebhookStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webhook_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Webhook resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]] actions: The list of actions that trigger the webhook to post notifications.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] service_uri: The service URI for the webhook to post notifications.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications.
+        :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
+        :param pulumi.Input[str] scope: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        :param pulumi.Input[Union[str, 'WebhookStatus']] status: The status of the webhook at the time the operation was called.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the webhook.
+        :param pulumi.Input[str] webhook_name: The name of the webhook.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_uri", service_uri)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if webhook_name is not None:
+            pulumi.set(__self__, "webhook_name", webhook_name)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]]:
+        """
+        The list of actions that trigger the webhook to post notifications.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> pulumi.Input[str]:
+        """
+        The service URI for the webhook to post notifications.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_uri", value)
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Custom headers that will be added to the webhook notifications.
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_headers", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the webhook. This cannot be changed after the resource is created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'WebhookStatus']]]:
+        """
+        The status of the webhook at the time the operation was called.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'WebhookStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags for the webhook.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="webhookName")
+    def webhook_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the webhook.
+        """
+        return pulumi.get(self, "webhook_name")
+
+    @webhook_name.setter
+    def webhook_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "webhook_name", value)
 
 
 class Webhook(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +210,44 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the webhook.
         :param pulumi.Input[str] webhook_name: The name of the webhook.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebhookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An object that represents a webhook for a container registry.
+        API Version: 2019-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param WebhookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebhookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 service_uri: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'WebhookStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webhook_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

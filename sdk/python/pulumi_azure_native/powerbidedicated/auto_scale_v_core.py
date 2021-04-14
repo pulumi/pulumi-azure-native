@@ -5,16 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AutoScaleVCore']
+__all__ = ['AutoScaleVCoreArgs', 'AutoScaleVCore']
+
+@pulumi.input_type
+class AutoScaleVCoreArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['AutoScaleVCoreSkuArgs'],
+                 capacity_limit: Optional[pulumi.Input[int]] = None,
+                 capacity_object_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 system_data: Optional[pulumi.Input['SystemDataArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vcore_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AutoScaleVCore resource.
+        :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input['AutoScaleVCoreSkuArgs'] sku: The SKU of the auto scale v-core resource.
+        :param pulumi.Input[int] capacity_limit: The maximum capacity of an auto scale v-core resource.
+        :param pulumi.Input[str] capacity_object_id: The object ID of the capacity resource associated with the auto scale v-core resource.
+        :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
+        :param pulumi.Input['SystemDataArgs'] system_data: Metadata pertaining to creation and last modification of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
+        :param pulumi.Input[str] vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if capacity_limit is not None:
+            pulumi.set(__self__, "capacity_limit", capacity_limit)
+        if capacity_object_id is not None:
+            pulumi.set(__self__, "capacity_object_id", capacity_object_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if system_data is not None:
+            pulumi.set(__self__, "system_data", system_data)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vcore_name is not None:
+            pulumi.set(__self__, "vcore_name", vcore_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['AutoScaleVCoreSkuArgs']:
+        """
+        The SKU of the auto scale v-core resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['AutoScaleVCoreSkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="capacityLimit")
+    def capacity_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum capacity of an auto scale v-core resource.
+        """
+        return pulumi.get(self, "capacity_limit")
+
+    @capacity_limit.setter
+    def capacity_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity_limit", value)
+
+    @property
+    @pulumi.getter(name="capacityObjectId")
+    def capacity_object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the capacity resource associated with the auto scale v-core resource.
+        """
+        return pulumi.get(self, "capacity_object_id")
+
+    @capacity_object_id.setter
+    def capacity_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_object_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the PowerBI Dedicated resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional[pulumi.Input['SystemDataArgs']]:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @system_data.setter
+    def system_data(self, value: Optional[pulumi.Input['SystemDataArgs']]):
+        pulumi.set(self, "system_data", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of additional resource provisioning properties.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vcoreName")
+    def vcore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "vcore_name")
+
+    @vcore_name.setter
+    def vcore_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vcore_name", value)
 
 
 class AutoScaleVCore(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +178,42 @@ class AutoScaleVCore(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         :param pulumi.Input[str] vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AutoScaleVCoreArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents an instance of an auto scale v-core resource.
+        API Version: 2021-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param AutoScaleVCoreArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AutoScaleVCoreArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity_limit: Optional[pulumi.Input[int]] = None,
+                 capacity_object_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['AutoScaleVCoreSkuArgs']]] = None,
+                 system_data: Optional[pulumi.Input[pulumi.InputType['SystemDataArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vcore_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

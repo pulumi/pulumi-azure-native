@@ -5,15 +5,167 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['CloudConnector']
+__all__ = ['CloudConnectorArgs', 'CloudConnector']
+
+@pulumi.input_type
+class CloudConnectorArgs:
+    def __init__(__self__, *,
+                 billing_model: Optional[pulumi.Input[Union[str, 'ConnectorBillingModel']]] = None,
+                 connector_name: Optional[pulumi.Input[str]] = None,
+                 credentials_key: Optional[pulumi.Input[str]] = None,
+                 credentials_secret: Optional[pulumi.Input[str]] = None,
+                 default_management_group_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 report_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a CloudConnector resource.
+        :param pulumi.Input[Union[str, 'ConnectorBillingModel']] billing_model: Connector billing model
+        :param pulumi.Input[str] connector_name: Connector Name.
+        :param pulumi.Input[str] credentials_key: Credentials authentication key (eg AWS ARN)
+        :param pulumi.Input[str] credentials_secret: Credentials secret (eg AWS ExternalId)
+        :param pulumi.Input[str] default_management_group_id: Default ManagementGroupId
+        :param pulumi.Input[str] display_name: Connector DisplayName
+        :param pulumi.Input[str] kind: Connector kind (eg aws)
+        :param pulumi.Input[str] report_id: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+        :param pulumi.Input[str] subscription_id: Billing SubscriptionId
+        """
+        if billing_model is not None:
+            pulumi.set(__self__, "billing_model", billing_model)
+        if connector_name is not None:
+            pulumi.set(__self__, "connector_name", connector_name)
+        if credentials_key is not None:
+            pulumi.set(__self__, "credentials_key", credentials_key)
+        if credentials_secret is not None:
+            pulumi.set(__self__, "credentials_secret", credentials_secret)
+        if default_management_group_id is not None:
+            pulumi.set(__self__, "default_management_group_id", default_management_group_id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if report_id is not None:
+            pulumi.set(__self__, "report_id", report_id)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="billingModel")
+    def billing_model(self) -> Optional[pulumi.Input[Union[str, 'ConnectorBillingModel']]]:
+        """
+        Connector billing model
+        """
+        return pulumi.get(self, "billing_model")
+
+    @billing_model.setter
+    def billing_model(self, value: Optional[pulumi.Input[Union[str, 'ConnectorBillingModel']]]):
+        pulumi.set(self, "billing_model", value)
+
+    @property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connector Name.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connector_name", value)
+
+    @property
+    @pulumi.getter(name="credentialsKey")
+    def credentials_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credentials authentication key (eg AWS ARN)
+        """
+        return pulumi.get(self, "credentials_key")
+
+    @credentials_key.setter
+    def credentials_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials_key", value)
+
+    @property
+    @pulumi.getter(name="credentialsSecret")
+    def credentials_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credentials secret (eg AWS ExternalId)
+        """
+        return pulumi.get(self, "credentials_secret")
+
+    @credentials_secret.setter
+    def credentials_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials_secret", value)
+
+    @property
+    @pulumi.getter(name="defaultManagementGroupId")
+    def default_management_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default ManagementGroupId
+        """
+        return pulumi.get(self, "default_management_group_id")
+
+    @default_management_group_id.setter
+    def default_management_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_management_group_id", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connector DisplayName
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connector kind (eg aws)
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="reportId")
+    def report_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+        """
+        return pulumi.get(self, "report_id")
+
+    @report_id.setter
+    def report_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_id", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Billing SubscriptionId
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
 
 
 class CloudConnector(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +197,43 @@ class CloudConnector(pulumi.CustomResource):
         :param pulumi.Input[str] report_id: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
         :param pulumi.Input[str] subscription_id: Billing SubscriptionId
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[CloudConnectorArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The Connector model definition
+        API Version: 2019-03-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param CloudConnectorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CloudConnectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 billing_model: Optional[pulumi.Input[Union[str, 'ConnectorBillingModel']]] = None,
+                 connector_name: Optional[pulumi.Input[str]] = None,
+                 credentials_key: Optional[pulumi.Input[str]] = None,
+                 credentials_secret: Optional[pulumi.Input[str]] = None,
+                 default_management_group_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 report_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,56 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SubscriptionAlias']
+__all__ = ['SubscriptionAliasArgs', 'SubscriptionAlias']
+
+@pulumi.input_type
+class SubscriptionAliasArgs:
+    def __init__(__self__, *,
+                 alias_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['PutAliasRequestPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a SubscriptionAlias resource.
+        :param pulumi.Input[str] alias_name: Alias Name
+        :param pulumi.Input['PutAliasRequestPropertiesArgs'] properties: Put alias request properties.
+        """
+        if alias_name is not None:
+            pulumi.set(__self__, "alias_name", alias_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="aliasName")
+    def alias_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Alias Name
+        """
+        return pulumi.get(self, "alias_name")
+
+    @alias_name.setter
+    def alias_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['PutAliasRequestPropertiesArgs']]:
+        """
+        Put alias request properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['PutAliasRequestPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class SubscriptionAlias(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +71,35 @@ class SubscriptionAlias(pulumi.CustomResource):
         :param pulumi.Input[str] alias_name: Alias Name
         :param pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']] properties: Put alias request properties.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[SubscriptionAliasArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Subscription Information with the alias.
+
+        :param str resource_name: The name of the resource.
+        :param SubscriptionAliasArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionAliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alias_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

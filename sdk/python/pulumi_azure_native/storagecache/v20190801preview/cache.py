@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Cache']
+__all__ = ['CacheArgs', 'Cache']
+
+@pulumi.input_type
+class CacheArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 cache_name: Optional[pulumi.Input[str]] = None,
+                 cache_size_gb: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
+                 sku: Optional[pulumi.Input['CacheSkuArgs']] = None,
+                 subnet: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[Any] = None):
+        """
+        The set of arguments for constructing a Cache resource.
+        :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[str] cache_name: Name of cache.
+        :param pulumi.Input[int] cache_size_gb: The size of this cache's cache, in GB.
+        :param pulumi.Input[str] location: Region name string.
+        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        :param pulumi.Input['CacheSkuArgs'] sku: Sku for the cache.
+        :param pulumi.Input[str] subnet: Subnet used for the cache.
+        :param Any tags: ARM tags as name/value pairs.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cache_name is not None:
+            pulumi.set(__self__, "cache_name", cache_name)
+        if cache_size_gb is not None:
+            pulumi.set(__self__, "cache_size_gb", cache_size_gb)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Target resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="cacheName")
+    def cache_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of cache.
+        """
+        return pulumi.get(self, "cache_name")
+
+    @cache_name.setter
+    def cache_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_name", value)
+
+    @property
+    @pulumi.getter(name="cacheSizeGB")
+    def cache_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of this cache's cache, in GB.
+        """
+        return pulumi.get(self, "cache_size_gb")
+
+    @cache_size_gb.setter
+    def cache_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region name string.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]]:
+        """
+        ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['CacheSkuArgs']]:
+        """
+        Sku for the cache.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['CacheSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subnet used for the cache.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Any]:
+        """
+        ARM tags as name/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[Any]):
+        pulumi.set(self, "tags", value)
 
 
 class Cache(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +178,41 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] subnet: Subnet used for the cache.
         :param Any tags: ARM tags as name/value pairs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CacheArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+
+        :param str resource_name: The name of the resource.
+        :param CacheArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CacheArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
+                 cache_size_gb: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
+                 subnet: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[Any] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

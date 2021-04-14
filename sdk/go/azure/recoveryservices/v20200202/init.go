@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:recoveryservices/v20200202:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:recoveryservices/v20200202:Vault":
-		r, err = NewVault(ctx, name, nil, pulumi.URN_(urn))
+		r = &Vault{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

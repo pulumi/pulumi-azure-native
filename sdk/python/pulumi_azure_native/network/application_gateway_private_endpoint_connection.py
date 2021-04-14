@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationGatewayPrivateEndpointConnection']
+__all__ = ['ApplicationGatewayPrivateEndpointConnectionArgs', 'ApplicationGatewayPrivateEndpointConnection']
+
+@pulumi.input_type
+class ApplicationGatewayPrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 application_gateway_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        The set of arguments for constructing a ApplicationGatewayPrivateEndpointConnection resource.
+        :param pulumi.Input[str] application_gateway_name: The name of the application gateway.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] connection_name: The name of the application gateway private endpoint connection.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: Name of the private endpoint connection on an application gateway.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "application_gateway_name", application_gateway_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="applicationGatewayName")
+    def application_gateway_name(self) -> pulumi.Input[str]:
+        """
+        The name of the application gateway.
+        """
+        return pulumi.get(self, "application_gateway_name")
+
+    @application_gateway_name.setter
+    def application_gateway_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_gateway_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application gateway private endpoint connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the private endpoint connection on an application gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +141,40 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApplicationGatewayPrivateEndpointConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Private Endpoint connection on an application gateway.
+        API Version: 2020-11-01.
+
+        :param str resource_name: The name of the resource.
+        :param ApplicationGatewayPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationGatewayPrivateEndpointConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_gateway_name: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

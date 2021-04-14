@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:security/v20170801preview:DeviceSecurityGroup":
-		r, err = NewDeviceSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeviceSecurityGroup{}
 	case "azure-native:security/v20170801preview:IotSecuritySolution":
-		r, err = NewIotSecuritySolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotSecuritySolution{}
 	case "azure-native:security/v20170801preview:SecurityContact":
-		r, err = NewSecurityContact(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityContact{}
 	case "azure-native:security/v20170801preview:WorkspaceSetting":
-		r, err = NewWorkspaceSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkspaceSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,13 +5,212 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['WebAppHybridConnection']
+__all__ = ['WebAppHybridConnectionArgs', 'WebAppHybridConnection']
+
+@pulumi.input_type
+class WebAppHybridConnectionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 relay_arm_uri: Optional[pulumi.Input[str]] = None,
+                 relay_name: Optional[pulumi.Input[str]] = None,
+                 send_key_name: Optional[pulumi.Input[str]] = None,
+                 send_key_value: Optional[pulumi.Input[str]] = None,
+                 service_bus_namespace: Optional[pulumi.Input[str]] = None,
+                 service_bus_suffix: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebAppHybridConnection resource.
+        :param pulumi.Input[str] name: The name of the web app.
+        :param pulumi.Input[str] namespace_name: The namespace for this hybrid connection.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] hostname: The hostname of the endpoint.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[int] port: The port of the endpoint.
+        :param pulumi.Input[str] relay_arm_uri: The ARM URI to the Service Bus relay.
+        :param pulumi.Input[str] relay_name: The name of the Service Bus relay.
+        :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        :param pulumi.Input[str] send_key_value: The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+               normally, use the POST /listKeys API instead.
+        :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
+        :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if relay_arm_uri is not None:
+            pulumi.set(__self__, "relay_arm_uri", relay_arm_uri)
+        if relay_name is not None:
+            pulumi.set(__self__, "relay_name", relay_name)
+        if send_key_name is not None:
+            pulumi.set(__self__, "send_key_name", send_key_name)
+        if send_key_value is not None:
+            pulumi.set(__self__, "send_key_value", send_key_value)
+        if service_bus_namespace is not None:
+            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+        if service_bus_suffix is not None:
+            pulumi.set(__self__, "service_bus_suffix", service_bus_suffix)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the web app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The namespace for this hybrid connection.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname of the endpoint.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port of the endpoint.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="relayArmUri")
+    def relay_arm_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM URI to the Service Bus relay.
+        """
+        return pulumi.get(self, "relay_arm_uri")
+
+    @relay_arm_uri.setter
+    def relay_arm_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relay_arm_uri", value)
+
+    @property
+    @pulumi.getter(name="relayName")
+    def relay_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus relay.
+        """
+        return pulumi.get(self, "relay_name")
+
+    @relay_name.setter
+    def relay_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relay_name", value)
+
+    @property
+    @pulumi.getter(name="sendKeyName")
+    def send_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        """
+        return pulumi.get(self, "send_key_name")
+
+    @send_key_name.setter
+    def send_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "send_key_name", value)
+
+    @property
+    @pulumi.getter(name="sendKeyValue")
+    def send_key_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+        normally, use the POST /listKeys API instead.
+        """
+        return pulumi.get(self, "send_key_value")
+
+    @send_key_value.setter
+    def send_key_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "send_key_value", value)
+
+    @property
+    @pulumi.getter(name="serviceBusNamespace")
+    def service_bus_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus namespace.
+        """
+        return pulumi.get(self, "service_bus_namespace")
+
+    @service_bus_namespace.setter
+    def service_bus_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_bus_namespace", value)
+
+    @property
+    @pulumi.getter(name="serviceBusSuffix")
+    def service_bus_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        """
+        return pulumi.get(self, "service_bus_suffix")
+
+    @service_bus_suffix.setter
+    def service_bus_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_bus_suffix", value)
 
 
 class WebAppHybridConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +249,46 @@ class WebAppHybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
         :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppHybridConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Hybrid Connection contract. This is used to configure a Hybrid Connection.
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param WebAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppHybridConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 relay_arm_uri: Optional[pulumi.Input[str]] = None,
+                 relay_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 send_key_name: Optional[pulumi.Input[str]] = None,
+                 send_key_value: Optional[pulumi.Input[str]] = None,
+                 service_bus_namespace: Optional[pulumi.Input[str]] = None,
+                 service_bus_suffix: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

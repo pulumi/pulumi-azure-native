@@ -5,15 +5,49 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OperationByProviderRegistration']
+__all__ = ['OperationByProviderRegistrationArgs', 'OperationByProviderRegistration']
+
+@pulumi.input_type
+class OperationByProviderRegistrationArgs:
+    def __init__(__self__, *,
+                 contents: pulumi.Input[Sequence[pulumi.Input['OperationsDefinitionArgs']]],
+                 provider_namespace: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a OperationByProviderRegistration resource.
+        :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
+        """
+        pulumi.set(__self__, "contents", contents)
+        pulumi.set(__self__, "provider_namespace", provider_namespace)
+
+    @property
+    @pulumi.getter
+    def contents(self) -> pulumi.Input[Sequence[pulumi.Input['OperationsDefinitionArgs']]]:
+        return pulumi.get(self, "contents")
+
+    @contents.setter
+    def contents(self, value: pulumi.Input[Sequence[pulumi.Input['OperationsDefinitionArgs']]]):
+        pulumi.set(self, "contents", value)
+
+    @property
+    @pulumi.getter(name="providerNamespace")
+    def provider_namespace(self) -> pulumi.Input[str]:
+        """
+        The name of the resource provider hosted within ProviderHub.
+        """
+        return pulumi.get(self, "provider_namespace")
+
+    @provider_namespace.setter
+    def provider_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_namespace", value)
 
 
 class OperationByProviderRegistration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -28,6 +62,34 @@ class OperationByProviderRegistration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OperationByProviderRegistrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a OperationByProviderRegistration resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param OperationByProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OperationByProviderRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 contents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OperationsDefinitionArgs']]]]] = None,
+                 provider_namespace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

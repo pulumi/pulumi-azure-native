@@ -5,16 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['MachineLearningCompute']
+__all__ = ['MachineLearningComputeArgs', 'MachineLearningCompute']
+
+@pulumi.input_type
+class MachineLearningComputeArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 compute_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a MachineLearningCompute resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input[str] location: Specifies the location of the resource.
+        :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']] properties: Compute properties
+        :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if compute_name is not None:
+            pulumi.set(__self__, "compute_name", compute_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group in which workspace is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        Name of Azure Machine Learning workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="computeName")
+    def compute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Azure Machine Learning compute.
+        """
+        return pulumi.get(self, "compute_name")
+
+    @compute_name.setter
+    def compute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']]]:
+        """
+        Compute properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class MachineLearningCompute(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +177,41 @@ class MachineLearningCompute(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MachineLearningComputeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Machine Learning compute object wrapped into ARM resource envelope.
+
+        :param str resource_name: The name of the resource.
+        :param MachineLearningComputeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MachineLearningComputeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 compute_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

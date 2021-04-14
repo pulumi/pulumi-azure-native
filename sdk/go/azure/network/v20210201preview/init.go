@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:network/v20210201preview:AdminRule":
-		r, err = NewAdminRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AdminRule{}
 	case "azure-native:network/v20210201preview:ConnectivityConfiguration":
-		r, err = NewConnectivityConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectivityConfiguration{}
 	case "azure-native:network/v20210201preview:NetworkGroup":
-		r, err = NewNetworkGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkGroup{}
 	case "azure-native:network/v20210201preview:NetworkManager":
-		r, err = NewNetworkManager(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkManager{}
 	case "azure-native:network/v20210201preview:SecurityConfiguration":
-		r, err = NewSecurityConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityConfiguration{}
 	case "azure-native:network/v20210201preview:UserRule":
-		r, err = NewUserRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

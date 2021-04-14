@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:servicefabricmesh/v20180901preview:Application":
-		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Application{}
 	case "azure-native:servicefabricmesh/v20180901preview:Gateway":
-		r, err = NewGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &Gateway{}
 	case "azure-native:servicefabricmesh/v20180901preview:Network":
-		r, err = NewNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &Network{}
 	case "azure-native:servicefabricmesh/v20180901preview:Secret":
-		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &Secret{}
 	case "azure-native:servicefabricmesh/v20180901preview:SecretValue":
-		r, err = NewSecretValue(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecretValue{}
 	case "azure-native:servicefabricmesh/v20180901preview:Volume":
-		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
+		r = &Volume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

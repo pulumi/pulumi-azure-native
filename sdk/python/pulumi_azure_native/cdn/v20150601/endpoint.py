@@ -5,16 +5,229 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Endpoint']
+__all__ = ['EndpointArgs', 'Endpoint']
+
+@pulumi.input_type
+class EndpointArgs:
+    def __init__(__self__, *,
+                 origins: pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]],
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 content_types_to_compress: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 is_compression_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_http_allowed: Optional[pulumi.Input[bool]] = None,
+                 is_https_allowed: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 origin_host_header: Optional[pulumi.Input[str]] = None,
+                 origin_path: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Endpoint resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]] origins: The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        :param pulumi.Input[str] endpoint_name: Name of the endpoint within the CDN profile.
+        :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+        :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        :param pulumi.Input[bool] is_https_allowed: Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        :param pulumi.Input[str] location: Endpoint location
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+        :param pulumi.Input[str] origin_path: The path used for origin requests.
+        :param pulumi.Input['QueryStringCachingBehavior'] query_string_caching_behavior: Defines the query string caching behavior.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Endpoint tags
+        """
+        pulumi.set(__self__, "origins", origins)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if content_types_to_compress is not None:
+            pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
+        if is_compression_enabled is not None:
+            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+        if is_http_allowed is not None:
+            pulumi.set(__self__, "is_http_allowed", is_http_allowed)
+        if is_https_allowed is not None:
+            pulumi.set(__self__, "is_https_allowed", is_https_allowed)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if origin_host_header is not None:
+            pulumi.set(__self__, "origin_host_header", origin_host_header)
+        if origin_path is not None:
+            pulumi.set(__self__, "origin_path", origin_path)
+        if query_string_caching_behavior is not None:
+            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]]:
+        """
+        The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]]):
+        pulumi.set(self, "origins", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CDN profile within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="contentTypesToCompress")
+    def content_types_to_compress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        """
+        return pulumi.get(self, "content_types_to_compress")
+
+    @content_types_to_compress.setter
+    def content_types_to_compress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "content_types_to_compress", value)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the endpoint within the CDN profile.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="isCompressionEnabled")
+    def is_compression_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+        """
+        return pulumi.get(self, "is_compression_enabled")
+
+    @is_compression_enabled.setter
+    def is_compression_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_compression_enabled", value)
+
+    @property
+    @pulumi.getter(name="isHttpAllowed")
+    def is_http_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
+        return pulumi.get(self, "is_http_allowed")
+
+    @is_http_allowed.setter
+    def is_http_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_http_allowed", value)
+
+    @property
+    @pulumi.getter(name="isHttpsAllowed")
+    def is_https_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
+        return pulumi.get(self, "is_https_allowed")
+
+    @is_https_allowed.setter
+    def is_https_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_https_allowed", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Endpoint location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="originHostHeader")
+    def origin_host_header(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+        """
+        return pulumi.get(self, "origin_host_header")
+
+    @origin_host_header.setter
+    def origin_host_header(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_host_header", value)
+
+    @property
+    @pulumi.getter(name="originPath")
+    def origin_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path used for origin requests.
+        """
+        return pulumi.get(self, "origin_path")
+
+    @origin_path.setter
+    def origin_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_path", value)
+
+    @property
+    @pulumi.getter(name="queryStringCachingBehavior")
+    def query_string_caching_behavior(self) -> Optional[pulumi.Input['QueryStringCachingBehavior']]:
+        """
+        Defines the query string caching behavior.
+        """
+        return pulumi.get(self, "query_string_caching_behavior")
+
+    @query_string_caching_behavior.setter
+    def query_string_caching_behavior(self, value: Optional[pulumi.Input['QueryStringCachingBehavior']]):
+        pulumi.set(self, "query_string_caching_behavior", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Endpoint tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Endpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +266,46 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Endpoint tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
+
+        :param str resource_name: The name of the resource.
+        :param EndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content_types_to_compress: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 is_compression_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_http_allowed: Optional[pulumi.Input[bool]] = None,
+                 is_https_allowed: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 origin_host_header: Optional[pulumi.Input[str]] = None,
+                 origin_path: Optional[pulumi.Input[str]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

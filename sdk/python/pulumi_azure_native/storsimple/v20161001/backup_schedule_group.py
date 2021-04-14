@@ -5,15 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BackupScheduleGroup']
+__all__ = ['BackupScheduleGroupArgs', 'BackupScheduleGroup']
+
+@pulumi.input_type
+class BackupScheduleGroupArgs:
+    def __init__(__self__, *,
+                 device_name: pulumi.Input[str],
+                 manager_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 start_time: pulumi.Input['TimeArgs'],
+                 schedule_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BackupScheduleGroup resource.
+        :param pulumi.Input[str] device_name: The name of the device.
+        :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input['TimeArgs'] start_time: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        :param pulumi.Input[str] schedule_group_name: The name of the schedule group.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "start_time", start_time)
+        if schedule_group_name is not None:
+            pulumi.set(__self__, "schedule_group_name", schedule_group_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The name of the device.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="managerName")
+    def manager_name(self) -> pulumi.Input[str]:
+        """
+        The manager name
+        """
+        return pulumi.get(self, "manager_name")
+
+    @manager_name.setter
+    def manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['TimeArgs']:
+        """
+        The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['TimeArgs']):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="scheduleGroupName")
+    def schedule_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schedule group.
+        """
+        return pulumi.get(self, "schedule_group_name")
+
+    @schedule_group_name.setter
+    def schedule_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_group_name", value)
 
 
 class BackupScheduleGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +120,38 @@ class BackupScheduleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_group_name: The name of the schedule group.
         :param pulumi.Input[pulumi.InputType['TimeArgs']] start_time: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BackupScheduleGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The Backup Schedule Group
+
+        :param str resource_name: The name of the resource.
+        :param BackupScheduleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BackupScheduleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_group_name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

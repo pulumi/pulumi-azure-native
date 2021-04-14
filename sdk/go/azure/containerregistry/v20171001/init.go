@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:containerregistry/v20171001:Registry":
-		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &Registry{}
 	case "azure-native:containerregistry/v20171001:Replication":
-		r, err = NewReplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Replication{}
 	case "azure-native:containerregistry/v20171001:Webhook":
-		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

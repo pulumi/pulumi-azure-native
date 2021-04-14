@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:hanaonazure/v20200207preview:ProviderInstance":
-		r, err = NewProviderInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProviderInstance{}
 	case "azure-native:hanaonazure/v20200207preview:SapMonitor":
-		r, err = NewSapMonitor(ctx, name, nil, pulumi.URN_(urn))
+		r = &SapMonitor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

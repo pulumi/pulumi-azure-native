@@ -5,13 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['Key']
+__all__ = ['KeyArgs', 'Key']
+
+@pulumi.input_type
+class KeyArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 is_active_cmk: Optional[pulumi.Input[bool]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_url: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Key resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[bool] is_active_cmk: Used to activate the workspace after a customer managed key is provided.
+        :param pulumi.Input[str] key_name: The name of the workspace key
+        :param pulumi.Input[str] key_vault_url: The Key Vault Url of the workspace key.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if is_active_cmk is not None:
+            pulumi.set(__self__, "is_active_cmk", is_active_cmk)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="isActiveCMK")
+    def is_active_cmk(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to activate the workspace after a customer managed key is provided.
+        """
+        return pulumi.get(self, "is_active_cmk")
+
+    @is_active_cmk.setter
+    def is_active_cmk(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active_cmk", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the workspace key
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key Vault Url of the workspace key.
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @key_vault_url.setter
+    def key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_url", value)
 
 
 class Key(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +120,38 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A workspace key
+
+        :param str resource_name: The name of the resource.
+        :param KeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 is_active_cmk: Optional[pulumi.Input[bool]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_url: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

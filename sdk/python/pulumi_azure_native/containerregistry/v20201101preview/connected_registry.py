@@ -5,16 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ConnectedRegistry']
+__all__ = ['ConnectedRegistryArgs', 'ConnectedRegistry']
+
+@pulumi.input_type
+class ConnectedRegistryArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[Union[str, 'ConnectedRegistryMode']],
+                 parent: pulumi.Input['ParentPropertiesArgs'],
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connected_registry_name: Optional[pulumi.Input[str]] = None,
+                 logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a ConnectedRegistry resource.
+        :param pulumi.Input[Union[str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
+        :param pulumi.Input['ParentPropertiesArgs'] parent: The parent of the connected registry.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
+        :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
+        :param pulumi.Input['LoggingPropertiesArgs'] logging: The logging properties of the connected registry.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "parent", parent)
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if client_token_ids is not None:
+            pulumi.set(__self__, "client_token_ids", client_token_ids)
+        if connected_registry_name is not None:
+            pulumi.set(__self__, "connected_registry_name", connected_registry_name)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Union[str, 'ConnectedRegistryMode']]:
+        """
+        The mode of the connected registry resource that indicates the permissions of the registry.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Union[str, 'ConnectedRegistryMode']]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> pulumi.Input['ParentPropertiesArgs']:
+        """
+        The parent of the connected registry.
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: pulumi.Input['ParentPropertiesArgs']):
+        pulumi.set(self, "parent", value)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="clientTokenIds")
+    def client_token_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the ACR token resource IDs used to authenticate clients to the connected registry.
+        """
+        return pulumi.get(self, "client_token_ids")
+
+    @client_token_ids.setter
+    def client_token_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_token_ids", value)
+
+    @property
+    @pulumi.getter(name="connectedRegistryName")
+    def connected_registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connected registry.
+        """
+        return pulumi.get(self, "connected_registry_name")
+
+    @connected_registry_name.setter
+    def connected_registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connected_registry_name", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['LoggingPropertiesArgs']]:
+        """
+        The logging properties of the connected registry.
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['LoggingPropertiesArgs']]):
+        pulumi.set(self, "logging", value)
 
 
 class ConnectedRegistry(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +157,40 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectedRegistryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An object that represents a connected registry for a container registry.
+
+        :param str resource_name: The name of the resource.
+        :param ConnectedRegistryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectedRegistryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connected_registry_name: Optional[pulumi.Input[str]] = None,
+                 logging: Optional[pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
+                 parent: Optional[pulumi.Input[pulumi.InputType['ParentPropertiesArgs']]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,163 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ServiceUnit']
+__all__ = ['ServiceUnitArgs', 'ServiceUnit']
+
+@pulumi.input_type
+class ServiceUnitArgs:
+    def __init__(__self__, *,
+                 deployment_mode: pulumi.Input['DeploymentMode'],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 service_topology_name: pulumi.Input[str],
+                 target_resource_group: pulumi.Input[str],
+                 artifacts: Optional[pulumi.Input['ServiceUnitArtifactsArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 service_unit_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ServiceUnit resource.
+        :param pulumi.Input['DeploymentMode'] deployment_mode: Describes the type of ARM deployment to be performed on the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] service_name: The name of the service resource.
+        :param pulumi.Input[str] service_topology_name: The name of the service topology .
+        :param pulumi.Input[str] target_resource_group: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+        :param pulumi.Input['ServiceUnitArtifactsArgs'] artifacts: The artifacts for the service unit.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] service_unit_name: The name of the service unit resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "deployment_mode", deployment_mode)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "service_topology_name", service_topology_name)
+        pulumi.set(__self__, "target_resource_group", target_resource_group)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if service_unit_name is not None:
+            pulumi.set(__self__, "service_unit_name", service_unit_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> pulumi.Input['DeploymentMode']:
+        """
+        Describes the type of ARM deployment to be performed on the resource.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: pulumi.Input['DeploymentMode']):
+        pulumi.set(self, "deployment_mode", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the service resource.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="serviceTopologyName")
+    def service_topology_name(self) -> pulumi.Input[str]:
+        """
+        The name of the service topology .
+        """
+        return pulumi.get(self, "service_topology_name")
+
+    @service_topology_name.setter
+    def service_topology_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_topology_name", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroup")
+    def target_resource_group(self) -> pulumi.Input[str]:
+        """
+        The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+        """
+        return pulumi.get(self, "target_resource_group")
+
+    @target_resource_group.setter
+    def target_resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_resource_group", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input['ServiceUnitArtifactsArgs']]:
+        """
+        The artifacts for the service unit.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input['ServiceUnitArtifactsArgs']]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="serviceUnitName")
+    def service_unit_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service unit resource.
+        """
+        return pulumi.get(self, "service_unit_name")
+
+    @service_unit_name.setter
+    def service_unit_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_unit_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ServiceUnit(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +192,42 @@ class ServiceUnit(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_group: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceUnitArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents the response of a service unit resource.
+
+        :param str resource_name: The name of the resource.
+        :param ServiceUnitArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceUnitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 artifacts: Optional[pulumi.Input[pulumi.InputType['ServiceUnitArtifactsArgs']]] = None,
+                 deployment_mode: Optional[pulumi.Input['DeploymentMode']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 service_topology_name: Optional[pulumi.Input[str]] = None,
+                 service_unit_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

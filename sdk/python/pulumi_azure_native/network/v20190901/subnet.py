@@ -5,16 +5,262 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Subnet']
+__all__ = ['SubnetArgs', 'Subnet']
+
+@pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 virtual_network_name: pulumi.Input[str],
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nat_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
+                 private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
+                 private_link_service_network_policies: Optional[pulumi.Input[str]] = None,
+                 route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
+                 subnet_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Subnet resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
+        :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]] delegations: An array of references to the delegations on the subnet.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input['SubResourceArgs'] nat_gateway: Nat gateway associated with this subnet.
+        :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference of the NetworkSecurityGroup resource.
+        :param pulumi.Input[str] private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
+        :param pulumi.Input[str] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
+        :param pulumi.Input['RouteTableArgs'] route_table: The reference of the RouteTable resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[str] subnet_name: The name of the subnet.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if delegations is not None:
+            pulumi.set(__self__, "delegations", delegations)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if private_endpoint_network_policies is not None:
+            pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+        if private_link_service_network_policies is not None:
+            pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+        if service_endpoint_policies is not None:
+            pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if subnet_name is not None:
+            pulumi.set(__self__, "subnet_name", subnet_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> pulumi.Input[str]:
+        """
+        The name of the virtual network.
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_network_name", value)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The address prefix for the subnet.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of address prefixes for the subnet.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @property
+    @pulumi.getter
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]]:
+        """
+        An array of references to the delegations on the subnet.
+        """
+        return pulumi.get(self, "delegations")
+
+    @delegations.setter
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]]):
+        pulumi.set(self, "delegations", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Nat gateway associated with this subnet.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "nat_gateway", value)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['NetworkSecurityGroupArgs']]:
+        """
+        The reference of the NetworkSecurityGroup resource.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArgs']]):
+        pulumi.set(self, "network_security_group", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointNetworkPolicies")
+    def private_endpoint_network_policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or Disable apply network policies on private end point in the subnet.
+        """
+        return pulumi.get(self, "private_endpoint_network_policies")
+
+    @private_endpoint_network_policies.setter
+    def private_endpoint_network_policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_network_policies", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceNetworkPolicies")
+    def private_link_service_network_policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or Disable apply network policies on private link service in the subnet.
+        """
+        return pulumi.get(self, "private_link_service_network_policies")
+
+    @private_link_service_network_policies.setter
+    def private_link_service_network_policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_network_policies", value)
+
+    @property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional[pulumi.Input['RouteTableArgs']]:
+        """
+        The reference of the RouteTable resource.
+        """
+        return pulumi.get(self, "route_table")
+
+    @route_table.setter
+    def route_table(self, value: Optional[pulumi.Input['RouteTableArgs']]):
+        pulumi.set(self, "route_table", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicies")
+    def service_endpoint_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]]:
+        """
+        An array of service endpoint policies.
+        """
+        return pulumi.get(self, "service_endpoint_policies")
+
+    @service_endpoint_policies.setter
+    def service_endpoint_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]]):
+        pulumi.set(self, "service_endpoint_policies", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]]:
+        """
+        An array of service endpoints.
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @service_endpoints.setter
+    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]]):
+        pulumi.set(self, "service_endpoints", value)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @subnet_name.setter
+    def subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_name", value)
 
 
 class Subnet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +303,48 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubnetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Subnet in a virtual network resource.
+
+        :param str resource_name: The name of the resource.
+        :param SubnetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
+                 private_link_service_network_policies: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_table: Optional[pulumi.Input[pulumi.InputType['RouteTableArgs']]] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
+                 subnet_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

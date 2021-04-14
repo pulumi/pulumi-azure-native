@@ -5,16 +5,151 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['RouteFilter']
+__all__ = ['RouteFilterArgs', 'RouteFilter']
+
+@pulumi.input_type
+class RouteFilterArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipv6_peerings: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
+                 route_filter_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RouteFilterRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a RouteFilter resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]] ipv6_peerings: A collection of references to express route circuit ipv6 peerings.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]] peerings: A collection of references to express route circuit peerings.
+        :param pulumi.Input[str] route_filter_name: The name of the route filter.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteFilterRuleArgs']]] rules: Collection of RouteFilterRules contained within a route filter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipv6_peerings is not None:
+            pulumi.set(__self__, "ipv6_peerings", ipv6_peerings)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if peerings is not None:
+            pulumi.set(__self__, "peerings", peerings)
+        if route_filter_name is not None:
+            pulumi.set(__self__, "route_filter_name", route_filter_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipv6Peerings")
+    def ipv6_peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]:
+        """
+        A collection of references to express route circuit ipv6 peerings.
+        """
+        return pulumi.get(self, "ipv6_peerings")
+
+    @ipv6_peerings.setter
+    def ipv6_peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]):
+        pulumi.set(self, "ipv6_peerings", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]:
+        """
+        A collection of references to express route circuit peerings.
+        """
+        return pulumi.get(self, "peerings")
+
+    @peerings.setter
+    def peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]):
+        pulumi.set(self, "peerings", value)
+
+    @property
+    @pulumi.getter(name="routeFilterName")
+    def route_filter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route filter.
+        """
+        return pulumi.get(self, "route_filter_name")
+
+    @route_filter_name.setter
+    def route_filter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_filter_name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteFilterRuleArgs']]]]:
+        """
+        Collection of RouteFilterRules contained within a route filter.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteFilterRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class RouteFilter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +178,41 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]] rules: Collection of RouteFilterRules contained within a route filter.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RouteFilterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Route Filter Resource.
+
+        :param str resource_name: The name of the resource.
+        :param RouteFilterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RouteFilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipv6_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_filter_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

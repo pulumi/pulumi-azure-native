@@ -5,16 +5,183 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Job']
+__all__ = ['JobArgs', 'Job']
+
+@pulumi.input_type
+class JobArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
+                 transfer_type: pulumi.Input[Union[str, 'TransferType']],
+                 delivery_info: Optional[pulumi.Input['JobDeliveryInfoArgs']] = None,
+                 delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
+                 details: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Job resource.
+        :param pulumi.Input[str] resource_group_name: The Resource Group Name
+        :param pulumi.Input['SkuArgs'] sku: The sku type.
+        :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
+        :param pulumi.Input['JobDeliveryInfoArgs'] delivery_info: Delivery Info of Job.
+        :param pulumi.Input[Union[str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
+        :param pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
+        :param pulumi.Input[str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "transfer_type", transfer_type)
+        if delivery_info is not None:
+            pulumi.set(__self__, "delivery_info", delivery_info)
+        if delivery_type is None:
+            delivery_type = 'NonScheduled'
+        if delivery_type is not None:
+            pulumi.set(__self__, "delivery_type", delivery_type)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The Resource Group Name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        The sku type.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="transferType")
+    def transfer_type(self) -> pulumi.Input[Union[str, 'TransferType']]:
+        """
+        Type of the data transfer.
+        """
+        return pulumi.get(self, "transfer_type")
+
+    @transfer_type.setter
+    def transfer_type(self, value: pulumi.Input[Union[str, 'TransferType']]):
+        pulumi.set(self, "transfer_type", value)
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> Optional[pulumi.Input['JobDeliveryInfoArgs']]:
+        """
+        Delivery Info of Job.
+        """
+        return pulumi.get(self, "delivery_info")
+
+    @delivery_info.setter
+    def delivery_info(self, value: Optional[pulumi.Input['JobDeliveryInfoArgs']]):
+        pulumi.set(self, "delivery_info", value)
+
+    @property
+    @pulumi.getter(name="deliveryType")
+    def delivery_type(self) -> Optional[pulumi.Input[Union[str, 'JobDeliveryType']]]:
+        """
+        Delivery type of Job.
+        """
+        return pulumi.get(self, "delivery_type")
+
+    @delivery_type.setter
+    def delivery_type(self, value: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]]):
+        pulumi.set(self, "delivery_type", value)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
+        """
+        Details of a job run. This field will only be sent for expand details filter.
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
+        pulumi.set(self, "details", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+        """
+        Msi identity of the resource
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Job(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +214,43 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: JobArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Job Resource.
+
+        :param str resource_name: The name of the resource.
+        :param JobArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(JobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_info: Optional[pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']]] = None,
+                 delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
+                 details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transfer_type: Optional[pulumi.Input[Union[str, 'TransferType']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

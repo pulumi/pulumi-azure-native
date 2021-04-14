@@ -5,16 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AFDOriginGroup']
+__all__ = ['AFDOriginGroupArgs', 'AFDOriginGroup']
+
+@pulumi.input_type
+class AFDOriginGroupArgs:
+    def __init__(__self__, *,
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
+                 load_balancing_settings: Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']] = None,
+                 origin_group_name: Optional[pulumi.Input[str]] = None,
+                 response_based_afd_origin_error_detection_settings: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
+                 session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a AFDOriginGroup resource.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
+        :param pulumi.Input['LoadBalancingSettingsParametersArgs'] load_balancing_settings: Load balancing settings for a backend pool
+        :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the endpoint.
+        :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_afd_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        :param pulumi.Input[Union[str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        """
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if health_probe_settings is not None:
+            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if load_balancing_settings is not None:
+            pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
+        if origin_group_name is not None:
+            pulumi.set(__self__, "origin_group_name", origin_group_name)
+        if response_based_afd_origin_error_detection_settings is not None:
+            pulumi.set(__self__, "response_based_afd_origin_error_detection_settings", response_based_afd_origin_error_detection_settings)
+        if session_affinity_state is not None:
+            pulumi.set(__self__, "session_affinity_state", session_affinity_state)
+        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
+            pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CDN profile which is unique within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional[pulumi.Input['HealthProbeParametersArgs']]:
+        """
+        Health probe settings to the origin that is used to determine the health of the origin.
+        """
+        return pulumi.get(self, "health_probe_settings")
+
+    @health_probe_settings.setter
+    def health_probe_settings(self, value: Optional[pulumi.Input['HealthProbeParametersArgs']]):
+        pulumi.set(self, "health_probe_settings", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingSettings")
+    def load_balancing_settings(self) -> Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']]:
+        """
+        Load balancing settings for a backend pool
+        """
+        return pulumi.get(self, "load_balancing_settings")
+
+    @load_balancing_settings.setter
+    def load_balancing_settings(self, value: Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']]):
+        pulumi.set(self, "load_balancing_settings", value)
+
+    @property
+    @pulumi.getter(name="originGroupName")
+    def origin_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the origin group which is unique within the endpoint.
+        """
+        return pulumi.get(self, "origin_group_name")
+
+    @origin_group_name.setter
+    def origin_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_group_name", value)
+
+    @property
+    @pulumi.getter(name="responseBasedAfdOriginErrorDetectionSettings")
+    def response_based_afd_origin_error_detection_settings(self) -> Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']]:
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        """
+        return pulumi.get(self, "response_based_afd_origin_error_detection_settings")
+
+    @response_based_afd_origin_error_detection_settings.setter
+    def response_based_afd_origin_error_detection_settings(self, value: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']]):
+        pulumi.set(self, "response_based_afd_origin_error_detection_settings", value)
+
+    @property
+    @pulumi.getter(name="sessionAffinityState")
+    def session_affinity_state(self) -> Optional[pulumi.Input[Union[str, 'EnabledState']]]:
+        """
+        Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "session_affinity_state")
+
+    @session_affinity_state.setter
+    def session_affinity_state(self, value: Optional[pulumi.Input[Union[str, 'EnabledState']]]):
+        pulumi.set(self, "session_affinity_state", value)
+
+    @property
+    @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        """
+        return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
+
+    @traffic_restoration_time_to_healed_or_new_endpoints_in_minutes.setter
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
 class AFDOriginGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +177,41 @@ class AFDOriginGroup(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AFDOriginGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+
+        :param str resource_name: The name of the resource.
+        :param AFDOriginGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AFDOriginGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
+                 load_balancing_settings: Optional[pulumi.Input[pulumi.InputType['LoadBalancingSettingsParametersArgs']]] = None,
+                 origin_group_name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 response_based_afd_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
+                 session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

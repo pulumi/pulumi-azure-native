@@ -5,16 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ChapSetting']
+__all__ = ['ChapSettingArgs', 'ChapSetting']
+
+@pulumi.input_type
+class ChapSettingArgs:
+    def __init__(__self__, *,
+                 device_name: pulumi.Input[str],
+                 manager_name: pulumi.Input[str],
+                 password: pulumi.Input['AsymmetricEncryptedSecretArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 chap_user_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ChapSetting resource.
+        :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] password: The chap password.
+        :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] chap_user_name: The chap user name.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if chap_user_name is not None:
+            pulumi.set(__self__, "chap_user_name", chap_user_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The device name.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="managerName")
+    def manager_name(self) -> pulumi.Input[str]:
+        """
+        The manager name
+        """
+        return pulumi.get(self, "manager_name")
+
+    @manager_name.setter
+    def manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input['AsymmetricEncryptedSecretArgs']:
+        """
+        The chap password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input['AsymmetricEncryptedSecretArgs']):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="chapUserName")
+    def chap_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The chap user name.
+        """
+        return pulumi.get(self, "chap_user_name")
+
+    @chap_user_name.setter
+    def chap_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chap_user_name", value)
 
 
 class ChapSetting(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +121,38 @@ class ChapSetting(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] password: The chap password.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ChapSettingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Challenge-Handshake Authentication Protocol (CHAP) setting
+
+        :param str resource_name: The name of the resource.
+        :param ChapSettingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ChapSettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 chap_user_name: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:datalakestore:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure-native:datalakestore:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure-native:datalakestore:TrustedIdProvider":
-		r, err = NewTrustedIdProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrustedIdProvider{}
 	case "azure-native:datalakestore:VirtualNetworkRule":
-		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

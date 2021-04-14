@@ -5,14 +5,164 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['WebAppSourceControl']
+__all__ = ['WebAppSourceControlArgs', 'WebAppSourceControl']
+
+@pulumi.input_type
+class WebAppSourceControlArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_git_hub_action: Optional[pulumi.Input[bool]] = None,
+                 is_manual_integration: Optional[pulumi.Input[bool]] = None,
+                 is_mercurial: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 repo_url: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebAppSourceControl resource.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] branch: Name of branch to use for deployment.
+        :param pulumi.Input[bool] deployment_rollback_enabled: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+        :param pulumi.Input[bool] is_git_hub_action: <code>true</code> if this is deployed via GitHub action.
+        :param pulumi.Input[bool] is_manual_integration: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+        :param pulumi.Input[bool] is_mercurial: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] repo_url: Repository or source control URL.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if deployment_rollback_enabled is not None:
+            pulumi.set(__self__, "deployment_rollback_enabled", deployment_rollback_enabled)
+        if is_git_hub_action is not None:
+            pulumi.set(__self__, "is_git_hub_action", is_git_hub_action)
+        if is_manual_integration is not None:
+            pulumi.set(__self__, "is_manual_integration", is_manual_integration)
+        if is_mercurial is not None:
+            pulumi.set(__self__, "is_mercurial", is_mercurial)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of branch to use for deployment.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="deploymentRollbackEnabled")
+    def deployment_rollback_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "deployment_rollback_enabled")
+
+    @deployment_rollback_enabled.setter
+    def deployment_rollback_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deployment_rollback_enabled", value)
+
+    @property
+    @pulumi.getter(name="isGitHubAction")
+    def is_git_hub_action(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> if this is deployed via GitHub action.
+        """
+        return pulumi.get(self, "is_git_hub_action")
+
+    @is_git_hub_action.setter
+    def is_git_hub_action(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_git_hub_action", value)
+
+    @property
+    @pulumi.getter(name="isManualIntegration")
+    def is_manual_integration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+        """
+        return pulumi.get(self, "is_manual_integration")
+
+    @is_manual_integration.setter
+    def is_manual_integration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_manual_integration", value)
+
+    @property
+    @pulumi.getter(name="isMercurial")
+    def is_mercurial(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+        """
+        return pulumi.get(self, "is_mercurial")
+
+    @is_mercurial.setter
+    def is_mercurial(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_mercurial", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository or source control URL.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @repo_url.setter
+    def repo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repo_url", value)
 
 
 class WebAppSourceControl(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +193,42 @@ class WebAppSourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] repo_url: Repository or source control URL.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppSourceControlArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Source control configuration for an app.
+
+        :param str resource_name: The name of the resource.
+        :param WebAppSourceControlArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppSourceControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_git_hub_action: Optional[pulumi.Input[bool]] = None,
+                 is_manual_integration: Optional[pulumi.Input[bool]] = None,
+                 is_mercurial: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repo_url: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

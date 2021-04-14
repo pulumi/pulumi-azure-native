@@ -5,16 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ReferenceDataSet']
+__all__ = ['ReferenceDataSetArgs', 'ReferenceDataSet']
+
+@pulumi.input_type
+class ReferenceDataSetArgs:
+    def __init__(__self__, *,
+                 environment_name: pulumi.Input[str],
+                 key_properties: pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 reference_data_set_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ReferenceDataSet resource.
+        :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]] key_properties: The list of key properties for the reference data set.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] reference_data_set_name: Name of the reference data set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
+        """
+        pulumi.set(__self__, "environment_name", environment_name)
+        pulumi.set(__self__, "key_properties", key_properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if reference_data_set_name is not None:
+            pulumi.set(__self__, "reference_data_set_name", reference_data_set_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Time Series Insights environment associated with the specified resource group.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environment_name", value)
+
+    @property
+    @pulumi.getter(name="keyProperties")
+    def key_properties(self) -> pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]]:
+        """
+        The list of key properties for the reference data set.
+        """
+        return pulumi.get(self, "key_properties")
+
+    @key_properties.setter
+    def key_properties(self, value: pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]]):
+        pulumi.set(self, "key_properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="referenceDataSetName")
+    def reference_data_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the reference data set.
+        """
+        return pulumi.get(self, "reference_data_set_name")
+
+    @reference_data_set_name.setter
+    def reference_data_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_data_set_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of additional properties for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ReferenceDataSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +140,39 @@ class ReferenceDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReferenceDataSetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+
+        :param str resource_name: The name of the resource.
+        :param ReferenceDataSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReferenceDataSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
+                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 reference_data_set_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

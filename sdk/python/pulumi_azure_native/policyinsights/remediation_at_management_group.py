@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['RemediationAtManagementGroup']
+__all__ = ['RemediationAtManagementGroupArgs', 'RemediationAtManagementGroup']
+
+@pulumi.input_type
+class RemediationAtManagementGroupArgs:
+    def __init__(__self__, *,
+                 management_group_id: pulumi.Input[str],
+                 management_groups_namespace: pulumi.Input[str],
+                 filters: Optional[pulumi.Input['RemediationFiltersArgs']] = None,
+                 policy_assignment_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 remediation_name: Optional[pulumi.Input[str]] = None,
+                 resource_discovery_mode: Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]] = None):
+        """
+        The set of arguments for constructing a RemediationAtManagementGroup resource.
+        :param pulumi.Input[str] management_group_id: Management group ID.
+        :param pulumi.Input[str] management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+        :param pulumi.Input['RemediationFiltersArgs'] filters: The filters that will be applied to determine which resources to remediate.
+        :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
+        :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[str] remediation_name: The name of the remediation.
+        :param pulumi.Input[Union[str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        """
+        pulumi.set(__self__, "management_group_id", management_group_id)
+        pulumi.set(__self__, "management_groups_namespace", management_groups_namespace)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if policy_assignment_id is not None:
+            pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+        if remediation_name is not None:
+            pulumi.set(__self__, "remediation_name", remediation_name)
+        if resource_discovery_mode is not None:
+            pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
+
+    @property
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> pulumi.Input[str]:
+        """
+        Management group ID.
+        """
+        return pulumi.get(self, "management_group_id")
+
+    @management_group_id.setter
+    def management_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_group_id", value)
+
+    @property
+    @pulumi.getter(name="managementGroupsNamespace")
+    def management_groups_namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+        """
+        return pulumi.get(self, "management_groups_namespace")
+
+    @management_groups_namespace.setter
+    def management_groups_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_groups_namespace", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input['RemediationFiltersArgs']]:
+        """
+        The filters that will be applied to determine which resources to remediate.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input['RemediationFiltersArgs']]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the policy assignment that should be remediated.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @policy_assignment_id.setter
+    def policy_assignment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_assignment_id", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
+
+    @property
+    @pulumi.getter(name="remediationName")
+    def remediation_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the remediation.
+        """
+        return pulumi.get(self, "remediation_name")
+
+    @remediation_name.setter
+    def remediation_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remediation_name", value)
+
+    @property
+    @pulumi.getter(name="resourceDiscoveryMode")
+    def resource_discovery_mode(self) -> Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]]:
+        """
+        The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        """
+        return pulumi.get(self, "resource_discovery_mode")
+
+    @resource_discovery_mode.setter
+    def resource_discovery_mode(self, value: Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]]):
+        pulumi.set(self, "resource_discovery_mode", value)
 
 
 class RemediationAtManagementGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +160,41 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] remediation_name: The name of the remediation.
         :param pulumi.Input[Union[str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RemediationAtManagementGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The remediation definition.
+        API Version: 2019-07-01.
+
+        :param str resource_name: The name of the resource.
+        :param RemediationAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RemediationAtManagementGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['RemediationFiltersArgs']]] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
+                 management_groups_namespace: Optional[pulumi.Input[str]] = None,
+                 policy_assignment_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 remediation_name: Optional[pulumi.Input[str]] = None,
+                 resource_discovery_mode: Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

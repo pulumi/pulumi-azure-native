@@ -5,16 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SharedPrivateLinkResource']
+__all__ = ['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResource']
+
+@pulumi.input_type
+class SharedPrivateLinkResourceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 search_service_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SharedPrivateLinkResource resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "search_service_name", search_service_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if shared_private_link_resource_name is not None:
+            pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="searchServiceName")
+    def search_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Cognitive Search service associated with the specified resource group.
+        """
+        return pulumi.get(self, "search_service_name")
+
+    @search_service_name.setter
+    def search_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "search_service_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]:
+        """
+        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="sharedPrivateLinkResourceName")
+    def shared_private_link_resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        """
+        return pulumi.get(self, "shared_private_link_resource_name")
+
+    @shared_private_link_resource_name.setter
+    def shared_private_link_resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_private_link_resource_name", value)
 
 
 class SharedPrivateLinkResource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +106,38 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
         :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SharedPrivateLinkResourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        API Version: 2020-08-01.
+
+        :param str resource_name: The name of the resource.
+        :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SharedPrivateLinkResourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 search_service_name: Optional[pulumi.Input[str]] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

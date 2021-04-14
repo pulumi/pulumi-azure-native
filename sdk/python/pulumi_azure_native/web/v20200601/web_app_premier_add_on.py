@@ -5,13 +5,195 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['WebAppPremierAddOn']
+__all__ = ['WebAppPremierAddOnArgs', 'WebAppPremierAddOn']
+
+@pulumi.input_type
+class WebAppPremierAddOnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer: Optional[pulumi.Input[str]] = None,
+                 marketplace_publisher: Optional[pulumi.Input[str]] = None,
+                 premier_add_on_name: Optional[pulumi.Input[str]] = None,
+                 product: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vendor: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebAppPremierAddOn resource.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] location: Resource Location.
+        :param pulumi.Input[str] marketplace_offer: Premier add on Marketplace offer.
+        :param pulumi.Input[str] marketplace_publisher: Premier add on Marketplace publisher.
+        :param pulumi.Input[str] premier_add_on_name: Add-on name.
+        :param pulumi.Input[str] product: Premier add on Product.
+        :param pulumi.Input[str] sku: Premier add on SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] vendor: Premier add on Vendor.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if marketplace_offer is not None:
+            pulumi.set(__self__, "marketplace_offer", marketplace_offer)
+        if marketplace_publisher is not None:
+            pulumi.set(__self__, "marketplace_publisher", marketplace_publisher)
+        if premier_add_on_name is not None:
+            pulumi.set(__self__, "premier_add_on_name", premier_add_on_name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vendor is not None:
+            pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="marketplaceOffer")
+    def marketplace_offer(self) -> Optional[pulumi.Input[str]]:
+        """
+        Premier add on Marketplace offer.
+        """
+        return pulumi.get(self, "marketplace_offer")
+
+    @marketplace_offer.setter
+    def marketplace_offer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_offer", value)
+
+    @property
+    @pulumi.getter(name="marketplacePublisher")
+    def marketplace_publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        Premier add on Marketplace publisher.
+        """
+        return pulumi.get(self, "marketplace_publisher")
+
+    @marketplace_publisher.setter
+    def marketplace_publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_publisher", value)
+
+    @property
+    @pulumi.getter(name="premierAddOnName")
+    def premier_add_on_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Add-on name.
+        """
+        return pulumi.get(self, "premier_add_on_name")
+
+    @premier_add_on_name.setter
+    def premier_add_on_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "premier_add_on_name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[pulumi.Input[str]]:
+        """
+        Premier add on Product.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Premier add on SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Premier add on Vendor.
+        """
+        return pulumi.get(self, "vendor")
+
+    @vendor.setter
+    def vendor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vendor", value)
 
 
 class WebAppPremierAddOn(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +228,44 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor: Premier add on Vendor.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppPremierAddOnArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Premier add-on.
+
+        :param str resource_name: The name of the resource.
+        :param WebAppPremierAddOnArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppPremierAddOnArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer: Optional[pulumi.Input[str]] = None,
+                 marketplace_publisher: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 premier_add_on_name: Optional[pulumi.Input[str]] = None,
+                 product: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vendor: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

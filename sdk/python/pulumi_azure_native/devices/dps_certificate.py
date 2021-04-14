@@ -5,14 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 
-__all__ = ['DpsCertificate']
+__all__ = ['DpsCertificateArgs', 'DpsCertificate']
+
+@pulumi.input_type
+class DpsCertificateArgs:
+    def __init__(__self__, *,
+                 provisioning_service_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DpsCertificate resource.
+        :param pulumi.Input[str] provisioning_service_name: The name of the provisioning service.
+        :param pulumi.Input[str] resource_group_name: Resource group identifier.
+        :param pulumi.Input[str] certificate: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
+        :param pulumi.Input[str] certificate_name: The name of the certificate create or update.
+        """
+        pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+
+    @property
+    @pulumi.getter(name="provisioningServiceName")
+    def provisioning_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the provisioning service.
+        """
+        return pulumi.get(self, "provisioning_service_name")
+
+    @provisioning_service_name.setter
+    def provisioning_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provisioning_service_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Resource group identifier.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the certificate create or update.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_name", value)
 
 
 class DpsCertificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +104,38 @@ class DpsCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_service_name: The name of the provisioning service.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DpsCertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The X509 Certificate.
+        API Version: 2020-03-01.
+
+        :param str resource_name: The name of the resource.
+        :param DpsCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DpsCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 provisioning_service_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

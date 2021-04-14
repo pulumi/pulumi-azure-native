@@ -5,16 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Assignment']
+__all__ = ['AssignmentArgs', 'Assignment']
+
+@pulumi.input_type
+class AssignmentArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input['ManagedServiceIdentityArgs'],
+                 parameters: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueBaseArgs']]],
+                 resource_groups: pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]],
+                 assignment_name: Optional[pulumi.Input[str]] = None,
+                 blueprint_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 locks: Optional[pulumi.Input['AssignmentLockSettingsArgs']] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Assignment resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed Service Identity for this Blueprint assignment
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValueBaseArgs']]] parameters: Blueprint parameter values.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]] resource_groups: Names and locations of resource group placeholders.
+        :param pulumi.Input[str] assignment_name: name of the assignment.
+        :param pulumi.Input[str] blueprint_id: ID of the Blueprint definition resource.
+        :param pulumi.Input[str] description: Multi-line explain this resource.
+        :param pulumi.Input[str] display_name: One-liner string explain this resource.
+        :param pulumi.Input[str] location: The location of this Blueprint assignment.
+        :param pulumi.Input['AssignmentLockSettingsArgs'] locks: Defines how Blueprint-managed resources will be locked.
+        :param pulumi.Input[str] subscription_id: azure subscriptionId, which we assign the blueprint to.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "resource_groups", resource_groups)
+        if assignment_name is not None:
+            pulumi.set(__self__, "assignment_name", assignment_name)
+        if blueprint_id is not None:
+            pulumi.set(__self__, "blueprint_id", blueprint_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if locks is not None:
+            pulumi.set(__self__, "locks", locks)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['ManagedServiceIdentityArgs']:
+        """
+        Managed Service Identity for this Blueprint assignment
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['ManagedServiceIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input['ParameterValueBaseArgs']]]:
+        """
+        Blueprint parameter values.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueBaseArgs']]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]]:
+        """
+        Names and locations of resource group placeholders.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @resource_groups.setter
+    def resource_groups(self, value: pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupValueArgs']]]):
+        pulumi.set(self, "resource_groups", value)
+
+    @property
+    @pulumi.getter(name="assignmentName")
+    def assignment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of the assignment.
+        """
+        return pulumi.get(self, "assignment_name")
+
+    @assignment_name.setter
+    def assignment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assignment_name", value)
+
+    @property
+    @pulumi.getter(name="blueprintId")
+    def blueprint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Blueprint definition resource.
+        """
+        return pulumi.get(self, "blueprint_id")
+
+    @blueprint_id.setter
+    def blueprint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blueprint_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of this Blueprint assignment.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def locks(self) -> Optional[pulumi.Input['AssignmentLockSettingsArgs']]:
+        """
+        Defines how Blueprint-managed resources will be locked.
+        """
+        return pulumi.get(self, "locks")
+
+    @locks.setter
+    def locks(self, value: Optional[pulumi.Input['AssignmentLockSettingsArgs']]):
+        pulumi.set(self, "locks", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        azure subscriptionId, which we assign the blueprint to.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
 
 
 class Assignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +212,43 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]] resource_groups: Names and locations of resource group placeholders.
         :param pulumi.Input[str] subscription_id: azure subscriptionId, which we assign the blueprint to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a Blueprint assignment.
+
+        :param str resource_name: The name of the resource.
+        :param AssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_name: Optional[pulumi.Input[str]] = None,
+                 blueprint_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 locks: Optional[pulumi.Input[pulumi.InputType['AssignmentLockSettingsArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueBaseArgs']]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

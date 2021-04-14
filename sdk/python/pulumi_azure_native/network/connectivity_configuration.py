@@ -5,16 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ConnectivityConfiguration']
+__all__ = ['ConnectivityConfigurationArgs', 'ConnectivityConfiguration']
+
+@pulumi.input_type
+class ConnectivityConfigurationArgs:
+    def __init__(__self__, *,
+                 connectivity_topology: pulumi.Input[Union[str, 'ConnectivityTopology']],
+                 network_manager_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]]] = None,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 delete_existing_peering: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 hub_id: Optional[pulumi.Input[str]] = None,
+                 is_global: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a ConnectivityConfiguration resource.
+        :param pulumi.Input[Union[str, 'ConnectivityTopology']] connectivity_topology: Connectivity topology type.
+        :param pulumi.Input[str] network_manager_name: The name of the network manager.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]] applies_to_groups: Groups for configuration
+        :param pulumi.Input[str] configuration_name: The name of the network manager connectivity configuration.
+        :param pulumi.Input[bool] delete_existing_peering: Flag if need to remove current existing peerings.
+        :param pulumi.Input[str] description: A description of the connectivity configuration.
+        :param pulumi.Input[str] display_name: A friendly name for the resource.
+        :param pulumi.Input[str] hub_id: The hub vnet Id.
+        :param pulumi.Input[bool] is_global: Flag if global mesh is supported.
+        """
+        pulumi.set(__self__, "connectivity_topology", connectivity_topology)
+        pulumi.set(__self__, "network_manager_name", network_manager_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if applies_to_groups is not None:
+            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
+        if delete_existing_peering is not None:
+            pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if hub_id is not None:
+            pulumi.set(__self__, "hub_id", hub_id)
+        if is_global is not None:
+            pulumi.set(__self__, "is_global", is_global)
+
+    @property
+    @pulumi.getter(name="connectivityTopology")
+    def connectivity_topology(self) -> pulumi.Input[Union[str, 'ConnectivityTopology']]:
+        """
+        Connectivity topology type.
+        """
+        return pulumi.get(self, "connectivity_topology")
+
+    @connectivity_topology.setter
+    def connectivity_topology(self, value: pulumi.Input[Union[str, 'ConnectivityTopology']]):
+        pulumi.set(self, "connectivity_topology", value)
+
+    @property
+    @pulumi.getter(name="networkManagerName")
+    def network_manager_name(self) -> pulumi.Input[str]:
+        """
+        The name of the network manager.
+        """
+        return pulumi.get(self, "network_manager_name")
+
+    @network_manager_name.setter
+    def network_manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_manager_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="appliesToGroups")
+    def applies_to_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]]]:
+        """
+        Groups for configuration
+        """
+        return pulumi.get(self, "applies_to_groups")
+
+    @applies_to_groups.setter
+    def applies_to_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]]]):
+        pulumi.set(self, "applies_to_groups", value)
+
+    @property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network manager connectivity configuration.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_name", value)
+
+    @property
+    @pulumi.getter(name="deleteExistingPeering")
+    def delete_existing_peering(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag if need to remove current existing peerings.
+        """
+        return pulumi.get(self, "delete_existing_peering")
+
+    @delete_existing_peering.setter
+    def delete_existing_peering(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_existing_peering", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the connectivity configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="hubId")
+    def hub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hub vnet Id.
+        """
+        return pulumi.get(self, "hub_id")
+
+    @hub_id.setter
+    def hub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_id", value)
+
+    @property
+    @pulumi.getter(name="isGlobal")
+    def is_global(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag if global mesh is supported.
+        """
+        return pulumi.get(self, "is_global")
+
+    @is_global.setter
+    def is_global(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_global", value)
 
 
 class ConnectivityConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +213,44 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectivityConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The network manager connectivity configuration resource
+        API Version: 2021-02-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param ConnectivityConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectivityConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectivityGroupItemArgs']]]]] = None,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 connectivity_topology: Optional[pulumi.Input[Union[str, 'ConnectivityTopology']]] = None,
+                 delete_existing_peering: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 hub_id: Optional[pulumi.Input[str]] = None,
+                 is_global: Optional[pulumi.Input[bool]] = None,
+                 network_manager_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PrivateEndpointConnection']
+__all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
+
+@pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 vault_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        The set of arguments for constructing a PrivateEndpointConnection resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
+        :param pulumi.Input[str] vault_name: The name of the key vault.
+        :param pulumi.Input[str] etag: Modified whenever there is a change in the state of private endpoint connection.
+        :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Approval state of the private link connection.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vault_name", vault_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group that contains the key vault.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> pulumi.Input[str]:
+        """
+        The name of the key vault.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Modified whenever there is a change in the state of private endpoint connection.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the private endpoint connection associated with the key vault.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Approval state of the private link connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +124,39 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
         :param pulumi.Input[str] vault_name: The name of the key vault.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PrivateEndpointConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Private endpoint connection resource.
+        API Version: 2019-09-01.
+
+        :param str resource_name: The name of the resource.
+        :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateEndpointConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

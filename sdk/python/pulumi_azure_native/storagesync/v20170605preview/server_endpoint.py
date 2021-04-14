@@ -5,13 +5,402 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ServerEndpoint']
+__all__ = ['ServerEndpointArgs', 'ServerEndpoint']
+
+@pulumi.input_type
+class ServerEndpointArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 storage_sync_service_name: pulumi.Input[str],
+                 sync_group_name: pulumi.Input[str],
+                 byte_progress: Optional[pulumi.Input[int]] = None,
+                 byte_total: Optional[pulumi.Input[int]] = None,
+                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 current_progress_type: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 item_download_error_count: Optional[pulumi.Input[int]] = None,
+                 item_progress_count: Optional[pulumi.Input[int]] = None,
+                 item_total_count: Optional[pulumi.Input[int]] = None,
+                 item_upload_error_count: Optional[pulumi.Input[int]] = None,
+                 last_sync_success: Optional[pulumi.Input[str]] = None,
+                 last_workflow_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 server_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 server_local_path: Optional[pulumi.Input[str]] = None,
+                 server_resource_id: Optional[pulumi.Input[str]] = None,
+                 sync_error_context: Optional[pulumi.Input[str]] = None,
+                 sync_error_direction: Optional[pulumi.Input[str]] = None,
+                 sync_error_state: Optional[pulumi.Input[str]] = None,
+                 sync_error_state_timestamp: Optional[pulumi.Input[str]] = None,
+                 total_progress: Optional[pulumi.Input[int]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a ServerEndpoint resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
+        :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
+        :param pulumi.Input[int] byte_progress: Bytes in progress
+        :param pulumi.Input[int] byte_total: Bytes total
+        :param pulumi.Input[str] cloud_tiering: Cloud Tiering.
+        :param pulumi.Input[str] current_progress_type: current progress type.
+        :param pulumi.Input[str] friendly_name: Friendly Name
+        :param pulumi.Input[int] item_download_error_count: Item download error count.
+        :param pulumi.Input[int] item_progress_count: Item Progress Count
+        :param pulumi.Input[int] item_total_count: Item Total Count
+        :param pulumi.Input[int] item_upload_error_count: Item Upload Error Count.
+        :param pulumi.Input[str] last_sync_success: Last Sync Success
+        :param pulumi.Input[str] last_workflow_id: ServerEndpoint lastWorkflowId
+        :param pulumi.Input[str] provisioning_state: ServerEndpoint Provisioning State
+        :param pulumi.Input[str] server_endpoint_name: Name of Server Endpoint object.
+        :param pulumi.Input[str] server_local_path: Server Local path.
+        :param pulumi.Input[str] server_resource_id: Server Resource Id.
+        :param pulumi.Input[str] sync_error_context: sync error context.
+        :param pulumi.Input[str] sync_error_direction: Sync Error Direction.
+        :param pulumi.Input[str] sync_error_state: Sync Error State
+        :param pulumi.Input[str] sync_error_state_timestamp: Sync Error State Timestamp
+        :param pulumi.Input[int] total_progress: Total progress
+        :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+        pulumi.set(__self__, "sync_group_name", sync_group_name)
+        if byte_progress is not None:
+            pulumi.set(__self__, "byte_progress", byte_progress)
+        if byte_total is not None:
+            pulumi.set(__self__, "byte_total", byte_total)
+        if cloud_tiering is not None:
+            pulumi.set(__self__, "cloud_tiering", cloud_tiering)
+        if current_progress_type is not None:
+            pulumi.set(__self__, "current_progress_type", current_progress_type)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if item_download_error_count is not None:
+            pulumi.set(__self__, "item_download_error_count", item_download_error_count)
+        if item_progress_count is not None:
+            pulumi.set(__self__, "item_progress_count", item_progress_count)
+        if item_total_count is not None:
+            pulumi.set(__self__, "item_total_count", item_total_count)
+        if item_upload_error_count is not None:
+            pulumi.set(__self__, "item_upload_error_count", item_upload_error_count)
+        if last_sync_success is not None:
+            pulumi.set(__self__, "last_sync_success", last_sync_success)
+        if last_workflow_id is not None:
+            pulumi.set(__self__, "last_workflow_id", last_workflow_id)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if server_endpoint_name is not None:
+            pulumi.set(__self__, "server_endpoint_name", server_endpoint_name)
+        if server_local_path is not None:
+            pulumi.set(__self__, "server_local_path", server_local_path)
+        if server_resource_id is not None:
+            pulumi.set(__self__, "server_resource_id", server_resource_id)
+        if sync_error_context is not None:
+            pulumi.set(__self__, "sync_error_context", sync_error_context)
+        if sync_error_direction is not None:
+            pulumi.set(__self__, "sync_error_direction", sync_error_direction)
+        if sync_error_state is not None:
+            pulumi.set(__self__, "sync_error_state", sync_error_state)
+        if sync_error_state_timestamp is not None:
+            pulumi.set(__self__, "sync_error_state_timestamp", sync_error_state_timestamp)
+        if total_progress is not None:
+            pulumi.set(__self__, "total_progress", total_progress)
+        if volume_free_space_percent is not None:
+            pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageSyncServiceName")
+    def storage_sync_service_name(self) -> pulumi.Input[str]:
+        """
+        Name of Storage Sync Service resource.
+        """
+        return pulumi.get(self, "storage_sync_service_name")
+
+    @storage_sync_service_name.setter
+    def storage_sync_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_sync_service_name", value)
+
+    @property
+    @pulumi.getter(name="syncGroupName")
+    def sync_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of Sync Group resource.
+        """
+        return pulumi.get(self, "sync_group_name")
+
+    @sync_group_name.setter
+    def sync_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sync_group_name", value)
+
+    @property
+    @pulumi.getter(name="byteProgress")
+    def byte_progress(self) -> Optional[pulumi.Input[int]]:
+        """
+        Bytes in progress
+        """
+        return pulumi.get(self, "byte_progress")
+
+    @byte_progress.setter
+    def byte_progress(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "byte_progress", value)
+
+    @property
+    @pulumi.getter(name="byteTotal")
+    def byte_total(self) -> Optional[pulumi.Input[int]]:
+        """
+        Bytes total
+        """
+        return pulumi.get(self, "byte_total")
+
+    @byte_total.setter
+    def byte_total(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "byte_total", value)
+
+    @property
+    @pulumi.getter(name="cloudTiering")
+    def cloud_tiering(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cloud Tiering.
+        """
+        return pulumi.get(self, "cloud_tiering")
+
+    @cloud_tiering.setter
+    def cloud_tiering(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_tiering", value)
+
+    @property
+    @pulumi.getter(name="currentProgressType")
+    def current_progress_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        current progress type.
+        """
+        return pulumi.get(self, "current_progress_type")
+
+    @current_progress_type.setter
+    def current_progress_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_progress_type", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="itemDownloadErrorCount")
+    def item_download_error_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Item download error count.
+        """
+        return pulumi.get(self, "item_download_error_count")
+
+    @item_download_error_count.setter
+    def item_download_error_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "item_download_error_count", value)
+
+    @property
+    @pulumi.getter(name="itemProgressCount")
+    def item_progress_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Item Progress Count
+        """
+        return pulumi.get(self, "item_progress_count")
+
+    @item_progress_count.setter
+    def item_progress_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "item_progress_count", value)
+
+    @property
+    @pulumi.getter(name="itemTotalCount")
+    def item_total_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Item Total Count
+        """
+        return pulumi.get(self, "item_total_count")
+
+    @item_total_count.setter
+    def item_total_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "item_total_count", value)
+
+    @property
+    @pulumi.getter(name="itemUploadErrorCount")
+    def item_upload_error_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Item Upload Error Count.
+        """
+        return pulumi.get(self, "item_upload_error_count")
+
+    @item_upload_error_count.setter
+    def item_upload_error_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "item_upload_error_count", value)
+
+    @property
+    @pulumi.getter(name="lastSyncSuccess")
+    def last_sync_success(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last Sync Success
+        """
+        return pulumi.get(self, "last_sync_success")
+
+    @last_sync_success.setter
+    def last_sync_success(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_sync_success", value)
+
+    @property
+    @pulumi.getter(name="lastWorkflowId")
+    def last_workflow_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ServerEndpoint lastWorkflowId
+        """
+        return pulumi.get(self, "last_workflow_id")
+
+    @last_workflow_id.setter
+    def last_workflow_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_workflow_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        ServerEndpoint Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="serverEndpointName")
+    def server_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Server Endpoint object.
+        """
+        return pulumi.get(self, "server_endpoint_name")
+
+    @server_endpoint_name.setter
+    def server_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="serverLocalPath")
+    def server_local_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server Local path.
+        """
+        return pulumi.get(self, "server_local_path")
+
+    @server_local_path.setter
+    def server_local_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_local_path", value)
+
+    @property
+    @pulumi.getter(name="serverResourceId")
+    def server_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server Resource Id.
+        """
+        return pulumi.get(self, "server_resource_id")
+
+    @server_resource_id.setter
+    def server_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_resource_id", value)
+
+    @property
+    @pulumi.getter(name="syncErrorContext")
+    def sync_error_context(self) -> Optional[pulumi.Input[str]]:
+        """
+        sync error context.
+        """
+        return pulumi.get(self, "sync_error_context")
+
+    @sync_error_context.setter
+    def sync_error_context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_error_context", value)
+
+    @property
+    @pulumi.getter(name="syncErrorDirection")
+    def sync_error_direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sync Error Direction.
+        """
+        return pulumi.get(self, "sync_error_direction")
+
+    @sync_error_direction.setter
+    def sync_error_direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_error_direction", value)
+
+    @property
+    @pulumi.getter(name="syncErrorState")
+    def sync_error_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sync Error State
+        """
+        return pulumi.get(self, "sync_error_state")
+
+    @sync_error_state.setter
+    def sync_error_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_error_state", value)
+
+    @property
+    @pulumi.getter(name="syncErrorStateTimestamp")
+    def sync_error_state_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sync Error State Timestamp
+        """
+        return pulumi.get(self, "sync_error_state_timestamp")
+
+    @sync_error_state_timestamp.setter
+    def sync_error_state_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_error_state_timestamp", value)
+
+    @property
+    @pulumi.getter(name="totalProgress")
+    def total_progress(self) -> Optional[pulumi.Input[int]]:
+        """
+        Total progress
+        """
+        return pulumi.get(self, "total_progress")
+
+    @total_progress.setter
+    def total_progress(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "total_progress", value)
+
+    @property
+    @pulumi.getter(name="volumeFreeSpacePercent")
+    def volume_free_space_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Level of free space to be maintained by Cloud Tiering if it is enabled.
+        """
+        return pulumi.get(self, "volume_free_space_percent")
+
+    @volume_free_space_percent.setter
+    def volume_free_space_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_free_space_percent", value)
 
 
 class ServerEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -72,6 +461,57 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[int] total_progress: Total progress
         :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Server Endpoint object.
+
+        :param str resource_name: The name of the resource.
+        :param ServerEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 byte_progress: Optional[pulumi.Input[int]] = None,
+                 byte_total: Optional[pulumi.Input[int]] = None,
+                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 current_progress_type: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 item_download_error_count: Optional[pulumi.Input[int]] = None,
+                 item_progress_count: Optional[pulumi.Input[int]] = None,
+                 item_total_count: Optional[pulumi.Input[int]] = None,
+                 item_upload_error_count: Optional[pulumi.Input[int]] = None,
+                 last_sync_success: Optional[pulumi.Input[str]] = None,
+                 last_workflow_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 server_local_path: Optional[pulumi.Input[str]] = None,
+                 server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 sync_error_context: Optional[pulumi.Input[str]] = None,
+                 sync_error_direction: Optional[pulumi.Input[str]] = None,
+                 sync_error_state: Optional[pulumi.Input[str]] = None,
+                 sync_error_state_timestamp: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 total_progress: Optional[pulumi.Input[int]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

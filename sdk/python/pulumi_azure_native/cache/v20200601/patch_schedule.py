@@ -5,16 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PatchSchedule']
+__all__ = ['PatchScheduleArgs', 'PatchSchedule']
+
+@pulumi.input_type
+class PatchScheduleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]],
+                 default: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a PatchSchedule resource.
+        :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
+        :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schedule_entries", schedule_entries)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Redis cache.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="scheduleEntries")
+    def schedule_entries(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "schedule_entries")
+
+    @schedule_entries.setter
+    def schedule_entries(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
+        pulumi.set(self, "schedule_entries", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default string modeled as parameter for auto generation to work correctly.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
 
 
 class PatchSchedule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +104,37 @@ class PatchSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PatchScheduleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Response to put/get patch schedules for Redis cache.
+
+        :param str resource_name: The name of the resource.
+        :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PatchScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

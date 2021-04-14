@@ -5,16 +5,137 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['MachineLearningDataset']
+__all__ = ['MachineLearningDatasetArgs', 'MachineLearningDataset']
+
+@pulumi.input_type
+class MachineLearningDatasetArgs:
+    def __init__(__self__, *,
+                 dataset_type: pulumi.Input[Union[str, 'DatasetType']],
+                 parameters: pulumi.Input['DatasetCreateRequestParametersArgs'],
+                 registration: pulumi.Input['DatasetCreateRequestRegistrationArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 dataset_name: Optional[pulumi.Input[str]] = None,
+                 skip_validation: Optional[pulumi.Input[bool]] = None,
+                 time_series: Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']] = None):
+        """
+        The set of arguments for constructing a MachineLearningDataset resource.
+        :param pulumi.Input[Union[str, 'DatasetType']] dataset_type: Specifies dataset type.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[str] dataset_name: The Dataset name.
+        :param pulumi.Input[bool] skip_validation: Skip validation that ensures data can be loaded from the dataset before registration.
+        """
+        pulumi.set(__self__, "dataset_type", dataset_type)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "registration", registration)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if dataset_name is not None:
+            pulumi.set(__self__, "dataset_name", dataset_name)
+        if skip_validation is None:
+            skip_validation = False
+        if skip_validation is not None:
+            pulumi.set(__self__, "skip_validation", skip_validation)
+        if time_series is not None:
+            pulumi.set(__self__, "time_series", time_series)
+
+    @property
+    @pulumi.getter(name="datasetType")
+    def dataset_type(self) -> pulumi.Input[Union[str, 'DatasetType']]:
+        """
+        Specifies dataset type.
+        """
+        return pulumi.get(self, "dataset_type")
+
+    @dataset_type.setter
+    def dataset_type(self, value: pulumi.Input[Union[str, 'DatasetType']]):
+        pulumi.set(self, "dataset_type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input['DatasetCreateRequestParametersArgs']:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input['DatasetCreateRequestParametersArgs']):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> pulumi.Input['DatasetCreateRequestRegistrationArgs']:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: pulumi.Input['DatasetCreateRequestRegistrationArgs']):
+        pulumi.set(self, "registration", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group in which workspace is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        Name of Azure Machine Learning workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="datasetName")
+    def dataset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Dataset name.
+        """
+        return pulumi.get(self, "dataset_name")
+
+    @dataset_name.setter
+    def dataset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataset_name", value)
+
+    @property
+    @pulumi.getter(name="skipValidation")
+    def skip_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip validation that ensures data can be loaded from the dataset before registration.
+        """
+        return pulumi.get(self, "skip_validation")
+
+    @skip_validation.setter
+    def skip_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_validation", value)
+
+    @property
+    @pulumi.getter(name="timeSeries")
+    def time_series(self) -> Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']]:
+        return pulumi.get(self, "time_series")
+
+    @time_series.setter
+    def time_series(self, value: Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']]):
+        pulumi.set(self, "time_series", value)
 
 
 class MachineLearningDataset(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +161,41 @@ class MachineLearningDataset(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_validation: Skip validation that ensures data can be loaded from the dataset before registration.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MachineLearningDatasetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Machine Learning dataset object wrapped into ARM resource envelope.
+
+        :param str resource_name: The name of the resource.
+        :param MachineLearningDatasetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MachineLearningDatasetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dataset_name: Optional[pulumi.Input[str]] = None,
+                 dataset_type: Optional[pulumi.Input[Union[str, 'DatasetType']]] = None,
+                 parameters: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestParametersArgs']]] = None,
+                 registration: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestRegistrationArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 skip_validation: Optional[pulumi.Input[bool]] = None,
+                 time_series: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestTimeSeriesArgs']]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

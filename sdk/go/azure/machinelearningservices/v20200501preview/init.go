@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:machinelearningservices/v20200501preview:LinkedWorkspace":
-		r, err = NewLinkedWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedWorkspace{}
 	case "azure-native:machinelearningservices/v20200501preview:MachineLearningCompute":
-		r, err = NewMachineLearningCompute(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineLearningCompute{}
 	case "azure-native:machinelearningservices/v20200501preview:MachineLearningDataset":
-		r, err = NewMachineLearningDataset(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineLearningDataset{}
 	case "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore":
-		r, err = NewMachineLearningDatastore(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineLearningDatastore{}
 	case "azure-native:machinelearningservices/v20200501preview:MachineLearningService":
-		r, err = NewMachineLearningService(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineLearningService{}
 	case "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:machinelearningservices/v20200501preview:Workspace":
-		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

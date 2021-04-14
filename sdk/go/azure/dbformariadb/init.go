@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:dbformariadb:Configuration":
-		r, err = NewConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &Configuration{}
 	case "azure-native:dbformariadb:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure-native:dbformariadb:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure-native:dbformariadb:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:dbformariadb:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "azure-native:dbformariadb:VirtualNetworkRule":
-		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

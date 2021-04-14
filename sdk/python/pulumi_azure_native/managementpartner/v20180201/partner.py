@@ -5,13 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['Partner']
+__all__ = ['PartnerArgs', 'Partner']
+
+@pulumi.input_type
+class PartnerArgs:
+    def __init__(__self__, *,
+                 partner_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Partner resource.
+        :param pulumi.Input[str] partner_id: Id of the Partner
+        """
+        if partner_id is not None:
+            pulumi.set(__self__, "partner_id", partner_id)
+
+    @property
+    @pulumi.getter(name="partnerId")
+    def partner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the Partner
+        """
+        return pulumi.get(self, "partner_id")
+
+    @partner_id.setter
+    def partner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_id", value)
 
 
 class Partner(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -26,6 +50,34 @@ class Partner(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] partner_id: Id of the Partner
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[PartnerArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        this is the management partner operations response
+
+        :param str resource_name: The name of the resource.
+        :param PartnerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PartnerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 partner_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

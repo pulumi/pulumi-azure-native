@@ -5,16 +5,215 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PublicIPPrefix']
+__all__ = ['PublicIPPrefixArgs', 'PublicIPPrefix']
+
+@pulumi.input_type
+class PublicIPPrefixArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 custom_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 prefix_length: Optional[pulumi.Input[int]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+                 public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['PublicIPPrefixSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a PublicIPPrefix resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['SubResourceArgs'] custom_ip_prefix: The customIpPrefix that this prefix is associated with.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the public ip address.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: The list of tags associated with the public IP prefix.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[int] prefix_length: The Length of the Public IP Prefix.
+        :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version.
+        :param pulumi.Input[str] public_ip_prefix_name: The name of the public IP prefix.
+        :param pulumi.Input['PublicIPPrefixSkuArgs'] sku: The public IP prefix SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if custom_ip_prefix is not None:
+            pulumi.set(__self__, "custom_ip_prefix", custom_ip_prefix)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if prefix_length is not None:
+            pulumi.set(__self__, "prefix_length", prefix_length)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+        if public_ip_prefix_name is not None:
+            pulumi.set(__self__, "public_ip_prefix_name", public_ip_prefix_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="customIPPrefix")
+    def custom_ip_prefix(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The customIpPrefix that this prefix is associated with.
+        """
+        return pulumi.get(self, "custom_ip_prefix")
+
+    @custom_ip_prefix.setter
+    def custom_ip_prefix(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "custom_ip_prefix", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The extended location of the public ip address.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
+        """
+        The list of tags associated with the public IP prefix.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
+        pulumi.set(self, "ip_tags", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Length of the Public IP Prefix.
+        """
+        return pulumi.get(self, "prefix_length")
+
+    @prefix_length.setter
+    def prefix_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "prefix_length", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'IPVersion']]]:
+        """
+        The public IP address version.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'IPVersion']]]):
+        pulumi.set(self, "public_ip_address_version", value)
+
+    @property
+    @pulumi.getter(name="publicIpPrefixName")
+    def public_ip_prefix_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the public IP prefix.
+        """
+        return pulumi.get(self, "public_ip_prefix_name")
+
+    @public_ip_prefix_name.setter
+    def public_ip_prefix_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_prefix_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['PublicIPPrefixSkuArgs']]:
+        """
+        The public IP prefix SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['PublicIPPrefixSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 class PublicIPPrefix(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +251,46 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PublicIPPrefixArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Public IP prefix resource.
+        API Version: 2020-11-01.
+
+        :param str resource_name: The name of the resource.
+        :param PublicIPPrefixArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PublicIPPrefixArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 prefix_length: Optional[pulumi.Input[int]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+                 public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

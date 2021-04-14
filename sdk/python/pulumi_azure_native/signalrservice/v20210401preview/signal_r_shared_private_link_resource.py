@@ -5,14 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['SignalRSharedPrivateLinkResource']
+__all__ = ['SignalRSharedPrivateLinkResourceArgs', 'SignalRSharedPrivateLinkResource']
+
+@pulumi.input_type
+class SignalRSharedPrivateLinkResourceArgs:
+    def __init__(__self__, *,
+                 group_id: pulumi.Input[str],
+                 private_link_resource_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 request_message: Optional[pulumi.Input[str]] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SignalRSharedPrivateLinkResource resource.
+        :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for
+        :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+        if shared_private_link_resource_name is not None:
+            pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[str]:
+        """
+        The group id from the provider of resource the shared private link resource is for
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the resource the shared private link resource is for
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @private_link_resource_id.setter
+    def private_link_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_link_resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The request message for requesting approval of the shared private link resource
+        """
+        return pulumi.get(self, "request_message")
+
+    @request_message.setter
+    def request_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_message", value)
+
+    @property
+    @pulumi.getter(name="sharedPrivateLinkResourceName")
+    def shared_private_link_resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the shared private link resource
+        """
+        return pulumi.get(self, "shared_private_link_resource_name")
+
+    @shared_private_link_resource_name.setter
+    def shared_private_link_resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_private_link_resource_name", value)
 
 
 class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +137,39 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the resource.
         :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SignalRSharedPrivateLinkResourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Describes a Shared Private Link Resource
+
+        :param str resource_name: The name of the resource.
+        :param SignalRSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SignalRSharedPrivateLinkResourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 private_link_resource_id: Optional[pulumi.Input[str]] = None,
+                 request_message: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

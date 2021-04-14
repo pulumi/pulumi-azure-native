@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:security/v20200806preview:IotDefenderSetting":
-		r, err = NewIotDefenderSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotDefenderSetting{}
 	case "azure-native:security/v20200806preview:IotSensor":
-		r, err = NewIotSensor(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotSensor{}
 	case "azure-native:security/v20200806preview:IotSite":
-		r, err = NewIotSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotSite{}
 	case "azure-native:security/v20200806preview:OnPremiseIotSensor":
-		r, err = NewOnPremiseIotSensor(ctx, name, nil, pulumi.URN_(urn))
+		r = &OnPremiseIotSensor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

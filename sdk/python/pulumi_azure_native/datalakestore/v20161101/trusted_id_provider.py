@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['TrustedIdProvider']
+__all__ = ['TrustedIdProviderArgs', 'TrustedIdProvider']
+
+@pulumi.input_type
+class TrustedIdProviderArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 id_provider: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 trusted_id_provider_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TrustedIdProvider resource.
+        :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
+        :param pulumi.Input[str] id_provider: The URL of this trusted identity provider.
+        :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
+        :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "id_provider", id_provider)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if trusted_id_provider_name is not None:
+            pulumi.set(__self__, "trusted_id_provider_name", trusted_id_provider_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Data Lake Store account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="idProvider")
+    def id_provider(self) -> pulumi.Input[str]:
+        """
+        The URL of this trusted identity provider.
+        """
+        return pulumi.get(self, "id_provider")
+
+    @id_provider.setter
+    def id_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id_provider", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="trustedIdProviderName")
+    def trusted_id_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the trusted identity provider. This is used for differentiation of providers in the account.
+        """
+        return pulumi.get(self, "trusted_id_provider_name")
+
+    @trusted_id_provider_name.setter
+    def trusted_id_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trusted_id_provider_name", value)
 
 
 class TrustedIdProvider(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +101,37 @@ class TrustedIdProvider(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TrustedIdProviderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Data Lake Store trusted identity provider information.
+
+        :param str resource_name: The name of the resource.
+        :param TrustedIdProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TrustedIdProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 id_provider: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

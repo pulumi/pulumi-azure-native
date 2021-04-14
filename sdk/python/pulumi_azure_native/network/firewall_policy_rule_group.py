@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['FirewallPolicyRuleGroup']
+__all__ = ['FirewallPolicyRuleGroupArgs', 'FirewallPolicyRuleGroup']
+
+@pulumi.input_type
+class FirewallPolicyRuleGroupArgs:
+    def __init__(__self__, *,
+                 firewall_policy_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 rule_group_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]]] = None):
+        """
+        The set of arguments for constructing a FirewallPolicyRuleGroup resource.
+        :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule Group resource.
+        :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]] rules: Group of Firewall Policy rules.
+        """
+        pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rule_group_name is not None:
+            pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="firewallPolicyName")
+    def firewall_policy_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Firewall Policy.
+        """
+        return pulumi.get(self, "firewall_policy_name")
+
+    @firewall_policy_name.setter
+    def firewall_policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "firewall_policy_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority of the Firewall Policy Rule Group resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the FirewallPolicyRuleGroup.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @rule_group_name.setter
+    def rule_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_group_name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]]]:
+        """
+        Group of Firewall Policy rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]]]):
+        pulumi.set(self, "rules", value)
 
 
 class FirewallPolicyRuleGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +160,41 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]] rules: Group of Firewall Policy rules.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FirewallPolicyRuleGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Rule Group resource.
+        API Version: 2020-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param FirewallPolicyRuleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyRuleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_group_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RoleAssignment']
+__all__ = ['RoleAssignmentArgs', 'RoleAssignment']
+
+@pulumi.input_type
+class RoleAssignmentArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['RoleAssignmentPropertiesArgs'],
+                 scope: pulumi.Input[str],
+                 role_assignment_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RoleAssignment resource.
+        :param pulumi.Input['RoleAssignmentPropertiesArgs'] properties: Role assignment properties.
+        :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        """
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "scope", scope)
+        if role_assignment_name is not None:
+            pulumi.set(__self__, "role_assignment_name", role_assignment_name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RoleAssignmentPropertiesArgs']:
+        """
+        Role assignment properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['RoleAssignmentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="roleAssignmentName")
+    def role_assignment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role assignment to create. It can be any valid GUID.
+        """
+        return pulumi.get(self, "role_assignment_name")
+
+    @role_assignment_name.setter
+    def role_assignment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_assignment_name", value)
 
 
 class RoleAssignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +86,36 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RoleAssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Role Assignments
+
+        :param str resource_name: The name of the resource.
+        :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
+                 role_assignment_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

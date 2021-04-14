@@ -5,16 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CassandraDataCenter']
+__all__ = ['CassandraDataCenterArgs', 'CassandraDataCenter']
+
+@pulumi.input_type
+class CassandraDataCenterArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 data_center_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['DataCenterResourcePropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a CassandraDataCenter resource.
+        :param pulumi.Input[str] cluster_name: Managed Cassandra cluster name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] data_center_name: Data center name in a managed Cassandra cluster.
+        :param pulumi.Input['DataCenterResourcePropertiesArgs'] properties: Properties of a managed Cassandra data center.
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_center_name is not None:
+            pulumi.set(__self__, "data_center_name", data_center_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        """
+        Managed Cassandra cluster name.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dataCenterName")
+    def data_center_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data center name in a managed Cassandra cluster.
+        """
+        return pulumi.get(self, "data_center_name")
+
+    @data_center_name.setter
+    def data_center_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_center_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['DataCenterResourcePropertiesArgs']]:
+        """
+        Properties of a managed Cassandra data center.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['DataCenterResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class CassandraDataCenter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +106,38 @@ class CassandraDataCenter(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataCenterResourcePropertiesArgs']] properties: Properties of a managed Cassandra data center.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CassandraDataCenterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A managed Cassandra data center.
+        API Version: 2021-03-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param CassandraDataCenterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CassandraDataCenterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_center_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DataCenterResourcePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

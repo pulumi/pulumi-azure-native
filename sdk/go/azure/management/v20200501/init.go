@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:management/v20200501:HierarchySetting":
-		r, err = NewHierarchySetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &HierarchySetting{}
 	case "azure-native:management/v20200501:ManagementGroup":
-		r, err = NewManagementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementGroup{}
 	case "azure-native:management/v20200501:ManagementGroupSubscription":
-		r, err = NewManagementGroupSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementGroupSubscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

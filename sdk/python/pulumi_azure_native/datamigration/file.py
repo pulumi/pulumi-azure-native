@@ -5,15 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['File']
+__all__ = ['FileArgs', 'File']
+
+@pulumi.input_type
+class FileArgs:
+    def __init__(__self__, *,
+                 group_name: pulumi.Input[str],
+                 project_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ProjectFilePropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a File resource.
+        :param pulumi.Input[str] group_name: Name of the resource group
+        :param pulumi.Input[str] project_name: Name of the project
+        :param pulumi.Input[str] service_name: Name of the service
+        :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.
+        :param pulumi.Input[str] file_name: Name of the File
+        :param pulumi.Input['ProjectFilePropertiesArgs'] properties: Custom file properties
+        """
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[str]:
+        """
+        Name of the project
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        Name of the service
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP strong entity tag value. This is ignored if submitted.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the File
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ProjectFilePropertiesArgs']]:
+        """
+        Custom file properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ProjectFilePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class File(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +140,40 @@ class File(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ProjectFilePropertiesArgs']] properties: Custom file properties
         :param pulumi.Input[str] service_name: Name of the service
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A file resource
+        API Version: 2018-07-15-preview.
+
+        :param str resource_name: The name of the resource.
+        :param FileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectFilePropertiesArgs']]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

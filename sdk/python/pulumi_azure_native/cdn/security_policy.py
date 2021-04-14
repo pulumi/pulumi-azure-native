@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SecurityPolicy']
+__all__ = ['SecurityPolicyArgs', 'SecurityPolicy']
+
+@pulumi.input_type
+class SecurityPolicyArgs:
+    def __init__(__self__, *,
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SecurityPolicy resource.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs'] parameters: object which contains security policy parameters
+        :param pulumi.Input[str] security_policy_name: Name of the security policy under the profile.
+        """
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if security_policy_name is not None:
+            pulumi.set(__self__, "security_policy_name", security_policy_name)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CDN profile which is unique within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']]:
+        """
+        object which contains security policy parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security policy under the profile.
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @security_policy_name.setter
+    def security_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy_name", value)
 
 
 class SecurityPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +105,38 @@ class SecurityPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] security_policy_name: Name of the security policy under the profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecurityPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        SecurityPolicy association for AzureFrontDoor profile
+        API Version: 2020-09-01.
+
+        :param str resource_name: The name of the resource.
+        :param SecurityPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 parameters: Optional[pulumi.Input[pulumi.InputType['SecurityPolicyWebApplicationFirewallParametersArgs']]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:batchai/v20180301:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure-native:batchai/v20180301:FileServer":
-		r, err = NewFileServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileServer{}
 	case "azure-native:batchai/v20180301:Job":
-		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
+		r = &Job{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

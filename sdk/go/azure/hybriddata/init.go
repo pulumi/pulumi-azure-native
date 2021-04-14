@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:hybriddata:DataManager":
-		r, err = NewDataManager(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataManager{}
 	case "azure-native:hybriddata:DataStore":
-		r, err = NewDataStore(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataStore{}
 	case "azure-native:hybriddata:JobDefinition":
-		r, err = NewJobDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &JobDefinition{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

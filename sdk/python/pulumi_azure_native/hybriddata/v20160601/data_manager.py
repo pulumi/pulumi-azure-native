@@ -5,15 +5,124 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataManager']
+__all__ = ['DataManagerArgs', 'DataManager']
+
+@pulumi.input_type
+class DataManagerArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 data_manager_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DataManager resource.
+        :param pulumi.Input[str] resource_group_name: The Resource Group Name
+        :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        :param pulumi.Input[str] etag: Etag of the Resource.
+        :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
+               US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
+               region is specified on update the request will succeed.
+        :param pulumi.Input['SkuArgs'] sku: The sku type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
+               (across resource groups).
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_manager_name is not None:
+            pulumi.set(__self__, "data_manager_name", data_manager_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The Resource Group Name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dataManagerName")
+    def data_manager_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        """
+        return pulumi.get(self, "data_manager_name")
+
+    @data_manager_name.setter
+    def data_manager_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_manager_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Etag of the Resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
+        US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
+        region is specified on update the request will succeed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The sku type.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
+        (across resource groups).
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DataManager(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +150,39 @@ class DataManager(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
                (across resource groups).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataManagerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The DataManager resource.
+
+        :param str resource_name: The name of the resource.
+        :param DataManagerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataManagerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_manager_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 
-__all__ = ['BlobContainer']
+__all__ = ['BlobContainerArgs', 'BlobContainer']
+
+@pulumi.input_type
+class BlobContainerArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 public_access: Optional[pulumi.Input['PublicAccess']] = None):
+        """
+        The set of arguments for constructing a BlobContainer resource.
+        :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        :param pulumi.Input[str] default_encryption_scope: Default the container to use specified encryption scope for all writes.
+        :param pulumi.Input[bool] deny_encryption_scope_override: Block override of encryption scope from the container default.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the container as metadata.
+        :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if default_encryption_scope is not None:
+            pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
+        if deny_encryption_scope_override is not None:
+            pulumi.set(__self__, "deny_encryption_scope_override", deny_encryption_scope_override)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if public_access is not None:
+            pulumi.set(__self__, "public_access", public_access)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group within the user's subscription. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default the container to use specified encryption scope for all writes.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @default_encryption_scope.setter
+    def default_encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_encryption_scope", value)
+
+    @property
+    @pulumi.getter(name="denyEncryptionScopeOverride")
+    def deny_encryption_scope_override(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Block override of encryption scope from the container default.
+        """
+        return pulumi.get(self, "deny_encryption_scope_override")
+
+    @deny_encryption_scope_override.setter
+    def deny_encryption_scope_override(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deny_encryption_scope_override", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A name-value pair to associate with the container as metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional[pulumi.Input['PublicAccess']]:
+        """
+        Specifies whether data in the container may be accessed publicly and the level of access.
+        """
+        return pulumi.get(self, "public_access")
+
+    @public_access.setter
+    def public_access(self, value: Optional[pulumi.Input['PublicAccess']]):
+        pulumi.set(self, "public_access", value)
 
 
 class BlobContainer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +158,40 @@ class BlobContainer(pulumi.CustomResource):
         :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BlobContainerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Properties of the blob container, including Id, resource name, resource type, Etag.
+
+        :param str resource_name: The name of the resource.
+        :param BlobContainerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BlobContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 public_access: Optional[pulumi.Input['PublicAccess']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

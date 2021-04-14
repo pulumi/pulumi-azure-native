@@ -5,16 +5,215 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PolicyAssignment']
+__all__ = ['PolicyAssignmentArgs', 'PolicyAssignment']
+
+@pulumi.input_type
+class PolicyAssignmentArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
+                 policy_assignment_name: Optional[pulumi.Input[str]] = None,
+                 policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['PolicySkuArgs']] = None):
+        """
+        The set of arguments for constructing a PolicyAssignment resource.
+        :param pulumi.Input[str] scope: The scope for the policy assignment.
+        :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
+        :param pulumi.Input[str] display_name: The display name of the policy assignment.
+        :param pulumi.Input[Union[str, 'EnforcementMode']] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        :param pulumi.Input['IdentityArgs'] identity: The managed identity associated with the policy assignment.
+        :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
+        :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]] parameters: The parameter values for the assigned policy rule. The keys are the parameter names.
+        :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
+        :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
+        :param pulumi.Input['PolicySkuArgs'] sku: The policy sku. This property is optional, obsolete, and will be ignored.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if enforcement_mode is not None:
+            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if not_scopes is not None:
+            pulumi.set(__self__, "not_scopes", not_scopes)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy_assignment_name is not None:
+            pulumi.set(__self__, "policy_assignment_name", policy_assignment_name)
+        if policy_definition_id is not None:
+            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope for the policy assignment.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        This message will be part of response in case of policy violation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the policy assignment.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[pulumi.Input[Union[str, 'EnforcementMode']]]:
+        """
+        The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @enforcement_mode.setter
+    def enforcement_mode(self, value: Optional[pulumi.Input[Union[str, 'EnforcementMode']]]):
+        pulumi.set(self, "enforcement_mode", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The managed identity associated with the policy assignment.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the policy assignment. Only required when utilizing managed identity.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="notScopes")
+    def not_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The policy's excluded scopes.
+        """
+        return pulumi.get(self, "not_scopes")
+
+    @not_scopes.setter
+    def not_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_scopes", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]:
+        """
+        The parameter values for the assigned policy rule. The keys are the parameter names.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="policyAssignmentName")
+    def policy_assignment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy assignment.
+        """
+        return pulumi.get(self, "policy_assignment_name")
+
+    @policy_assignment_name.setter
+    def policy_assignment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_assignment_name", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the policy definition or policy set definition being assigned.
+        """
+        return pulumi.get(self, "policy_definition_id")
+
+    @policy_definition_id.setter
+    def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['PolicySkuArgs']]:
+        """
+        The policy sku. This property is optional, obsolete, and will be ignored.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['PolicySkuArgs']]):
+        pulumi.set(self, "sku", value)
 
 
 class PolicyAssignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +250,45 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope for the policy assignment.
         :param pulumi.Input[pulumi.InputType['PolicySkuArgs']] sku: The policy sku. This property is optional, obsolete, and will be ignored.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyAssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The policy assignment.
+
+        :param str resource_name: The name of the resource.
+        :param PolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]]] = None,
+                 policy_assignment_name: Optional[pulumi.Input[str]] = None,
+                 policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['PolicySkuArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

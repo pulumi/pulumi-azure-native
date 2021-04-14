@@ -5,13 +5,145 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Certificate']
+__all__ = ['CertificateArgs', 'Certificate']
+
+@pulumi.input_type
+class CertificateArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 base64_value: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_exportable: Optional[pulumi.Input[bool]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Certificate resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] base64_value: Gets or sets the base64 encoded value of the certificate.
+        :param pulumi.Input[str] name: Gets or sets the name of the certificate.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] certificate_name: The parameters supplied to the create or update certificate operation.
+        :param pulumi.Input[str] description: Gets or sets the description of the certificate.
+        :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
+        :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "base64_value", base64_value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_exportable is not None:
+            pulumi.set(__self__, "is_exportable", is_exportable)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter(name="base64Value")
+    def base64_value(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the base64 encoded value of the certificate.
+        """
+        return pulumi.get(self, "base64_value")
+
+    @base64_value.setter
+    def base64_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base64_value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the name of the certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters supplied to the create or update certificate operation.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the certificate.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isExportable")
+    def is_exportable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the is exportable flag of the certificate.
+        """
+        return pulumi.get(self, "is_exportable")
+
+    @is_exportable.setter
+    def is_exportable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_exportable", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
 
 
 class Certificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +173,42 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the certificate.
+        API Version: 2019-06-01.
+
+        :param str resource_name: The name of the resource.
+        :param CertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 base64_value: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_exportable: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

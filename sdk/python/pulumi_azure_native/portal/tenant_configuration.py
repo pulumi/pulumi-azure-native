@@ -5,13 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TenantConfiguration']
+__all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
+
+@pulumi.input_type
+class TenantConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a TenantConfiguration resource.
+        :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'
+        :param pulumi.Input[bool] enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
+        if enforce_private_markdown_storage is not None:
+            pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+
+    @property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration name. Value must be 'default'
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_name", value)
+
+    @property
+    @pulumi.getter(name="enforcePrivateMarkdownStorage")
+    def enforce_private_markdown_storage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+        return pulumi.get(self, "enforce_private_markdown_storage")
+
+    @enforce_private_markdown_storage.setter
+    def enforce_private_markdown_storage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_private_markdown_storage", value)
 
 
 class TenantConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -29,6 +69,36 @@ class TenantConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'
         :param pulumi.Input[bool] enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[TenantConfigurationArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Tenant configuration.
+        API Version: 2020-09-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param TenantConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TenantConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,122 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SubAccount']
+__all__ = ['SubAccountArgs', 'SubAccount']
+
+@pulumi.input_type
+class SubAccountArgs:
+    def __init__(__self__, *,
+                 monitor_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['MonitorPropertiesArgs']] = None,
+                 sub_account_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SubAccount resource.
+        :param pulumi.Input[str] monitor_name: Monitor resource name
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['MonitorPropertiesArgs'] properties: Properties specific to the monitor resource.
+        :param pulumi.Input[str] sub_account_name: Sub Account resource name
+        """
+        pulumi.set(__self__, "monitor_name", monitor_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sub_account_name is not None:
+            pulumi.set(__self__, "sub_account_name", sub_account_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="monitorName")
+    def monitor_name(self) -> pulumi.Input[str]:
+        """
+        Monitor resource name
+        """
+        return pulumi.get(self, "monitor_name")
+
+    @monitor_name.setter
+    def monitor_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "monitor_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['MonitorPropertiesArgs']]:
+        """
+        Properties specific to the monitor resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['MonitorPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="subAccountName")
+    def sub_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sub Account resource name
+        """
+        return pulumi.get(self, "sub_account_name")
+
+    @sub_account_name.setter
+    def sub_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_account_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SubAccount(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +143,39 @@ class SubAccount(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sub_account_name: Sub Account resource name
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubAccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a SubAccount resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param SubAccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monitor_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MonitorPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sub_account_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

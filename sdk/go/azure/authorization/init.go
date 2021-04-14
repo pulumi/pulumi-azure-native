@@ -22,37 +22,38 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:authorization:AccessReviewScheduleDefinitionById":
-		r, err = NewAccessReviewScheduleDefinitionById(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessReviewScheduleDefinitionById{}
 	case "azure-native:authorization:ManagementLockAtResourceGroupLevel":
-		r, err = NewManagementLockAtResourceGroupLevel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockAtResourceGroupLevel{}
 	case "azure-native:authorization:ManagementLockAtResourceLevel":
-		r, err = NewManagementLockAtResourceLevel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockAtResourceLevel{}
 	case "azure-native:authorization:ManagementLockAtSubscriptionLevel":
-		r, err = NewManagementLockAtSubscriptionLevel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockAtSubscriptionLevel{}
 	case "azure-native:authorization:ManagementLockByScope":
-		r, err = NewManagementLockByScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementLockByScope{}
 	case "azure-native:authorization:PolicyAssignment":
-		r, err = NewPolicyAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyAssignment{}
 	case "azure-native:authorization:PolicyDefinition":
-		r, err = NewPolicyDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyDefinition{}
 	case "azure-native:authorization:PolicyDefinitionAtManagementGroup":
-		r, err = NewPolicyDefinitionAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyDefinitionAtManagementGroup{}
 	case "azure-native:authorization:PolicyExemption":
-		r, err = NewPolicyExemption(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyExemption{}
 	case "azure-native:authorization:PolicySetDefinition":
-		r, err = NewPolicySetDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicySetDefinition{}
 	case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
-		r, err = NewPolicySetDefinitionAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicySetDefinitionAtManagementGroup{}
 	case "azure-native:authorization:RoleAssignment":
-		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleAssignment{}
 	case "azure-native:authorization:RoleDefinition":
-		r, err = NewRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleDefinition{}
 	case "azure-native:authorization:RoleManagementPolicyAssignment":
-		r, err = NewRoleManagementPolicyAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleManagementPolicyAssignment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

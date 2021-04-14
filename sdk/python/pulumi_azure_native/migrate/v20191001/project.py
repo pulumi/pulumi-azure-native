@@ -5,16 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Project']
+__all__ = ['ProjectArgs', 'Project']
+
+@pulumi.input_type
+class ProjectArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ProjectPropertiesArgs']] = None,
+                 tags: Optional[Any] = None):
+        """
+        The set of arguments for constructing a Project resource.
+        :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
+        :param pulumi.Input[str] e_tag: For optimistic concurrency control.
+        :param pulumi.Input[str] location: Azure location in which project is created.
+        :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input['ProjectPropertiesArgs'] properties: Properties of the project.
+        :param Any tags: Tags provided by Azure Tagging service.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Azure Resource Group that project is part of.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure location in which project is created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Azure Migrate project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ProjectPropertiesArgs']]:
+        """
+        Properties of the project.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ProjectPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Any]:
+        """
+        Tags provided by Azure Tagging service.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[Any]):
+        pulumi.set(self, "tags", value)
 
 
 class Project(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +142,39 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param Any tags: Tags provided by Azure Tagging service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProjectArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Azure Migrate Project.
+
+        :param str resource_name: The name of the resource.
+        :param ProjectArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[Any] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20200930:Disk":
-		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &Disk{}
 	case "azure-native:compute/v20200930:DiskAccess":
-		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskAccess{}
 	case "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection":
-		r, err = NewDiskAccessAPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskAccessAPrivateEndpointConnection{}
 	case "azure-native:compute/v20200930:DiskEncryptionSet":
-		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskEncryptionSet{}
 	case "azure-native:compute/v20200930:Gallery":
-		r, err = NewGallery(ctx, name, nil, pulumi.URN_(urn))
+		r = &Gallery{}
 	case "azure-native:compute/v20200930:GalleryApplication":
-		r, err = NewGalleryApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryApplication{}
 	case "azure-native:compute/v20200930:GalleryApplicationVersion":
-		r, err = NewGalleryApplicationVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryApplicationVersion{}
 	case "azure-native:compute/v20200930:GalleryImage":
-		r, err = NewGalleryImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryImage{}
 	case "azure-native:compute/v20200930:GalleryImageVersion":
-		r, err = NewGalleryImageVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryImageVersion{}
 	case "azure-native:compute/v20200930:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,16 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Experiment']
+__all__ = ['ExperimentArgs', 'Experiment']
+
+@pulumi.input_type
+class ExperimentArgs:
+    def __init__(__self__, *,
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+                 endpoint_a: Optional[pulumi.Input['ExperimentEndpointArgs']] = None,
+                 endpoint_b: Optional[pulumi.Input['ExperimentEndpointArgs']] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Experiment resource.
+        :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] description: The description of the details or intents of the Experiment
+        :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
+        :param pulumi.Input['ExperimentEndpointArgs'] endpoint_a: The endpoint A of an experiment
+        :param pulumi.Input['ExperimentEndpointArgs'] endpoint_b: The endpoint B of an experiment
+        :param pulumi.Input[str] experiment_name: The Experiment identifier associated with the Experiment
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if endpoint_a is not None:
+            pulumi.set(__self__, "endpoint_a", endpoint_a)
+        if endpoint_b is not None:
+            pulumi.set(__self__, "endpoint_b", endpoint_b)
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        The Profile identifier associated with the Tenant and Partner
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the details or intents of the Experiment
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        The state of the Experiment
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @enabled_state.setter
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "enabled_state", value)
+
+    @property
+    @pulumi.getter(name="endpointA")
+    def endpoint_a(self) -> Optional[pulumi.Input['ExperimentEndpointArgs']]:
+        """
+        The endpoint A of an experiment
+        """
+        return pulumi.get(self, "endpoint_a")
+
+    @endpoint_a.setter
+    def endpoint_a(self, value: Optional[pulumi.Input['ExperimentEndpointArgs']]):
+        pulumi.set(self, "endpoint_a", value)
+
+    @property
+    @pulumi.getter(name="endpointB")
+    def endpoint_b(self) -> Optional[pulumi.Input['ExperimentEndpointArgs']]:
+        """
+        The endpoint B of an experiment
+        """
+        return pulumi.get(self, "endpoint_b")
+
+    @endpoint_b.setter
+    def endpoint_b(self, value: Optional[pulumi.Input['ExperimentEndpointArgs']]):
+        pulumi.set(self, "endpoint_b", value)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Experiment identifier associated with the Experiment
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Experiment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +195,42 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExperimentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Defines the properties of an Experiment
+
+        :param str resource_name: The name of the resource.
+        :param ExperimentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExperimentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+                 endpoint_a: Optional[pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']]] = None,
+                 endpoint_b: Optional[pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

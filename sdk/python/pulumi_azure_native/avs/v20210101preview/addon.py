@@ -5,14 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Addon']
+__all__ = ['AddonArgs', 'Addon']
+
+@pulumi.input_type
+class AddonArgs:
+    def __init__(__self__, *,
+                 private_cloud_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 addon_name: Optional[pulumi.Input[str]] = None,
+                 addon_type: Optional[pulumi.Input[Union[str, 'AddonType']]] = None,
+                 license_key: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Addon resource.
+        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] addon_name: Name of the addon for the private cloud
+        :param pulumi.Input[Union[str, 'AddonType']] addon_type: The type of private cloud addon
+        :param pulumi.Input[str] license_key: The SRM license
+        """
+        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if addon_name is not None:
+            pulumi.set(__self__, "addon_name", addon_name)
+        if addon_type is not None:
+            pulumi.set(__self__, "addon_type", addon_type)
+        if license_key is not None:
+            pulumi.set(__self__, "license_key", license_key)
+
+    @property
+    @pulumi.getter(name="privateCloudName")
+    def private_cloud_name(self) -> pulumi.Input[str]:
+        """
+        The name of the private cloud.
+        """
+        return pulumi.get(self, "private_cloud_name")
+
+    @private_cloud_name.setter
+    def private_cloud_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_cloud_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addonName")
+    def addon_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the addon for the private cloud
+        """
+        return pulumi.get(self, "addon_name")
+
+    @addon_name.setter
+    def addon_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addon_name", value)
+
+    @property
+    @pulumi.getter(name="addonType")
+    def addon_type(self) -> Optional[pulumi.Input[Union[str, 'AddonType']]]:
+        """
+        The type of private cloud addon
+        """
+        return pulumi.get(self, "addon_type")
+
+    @addon_type.setter
+    def addon_type(self, value: Optional[pulumi.Input[Union[str, 'AddonType']]]):
+        pulumi.set(self, "addon_type", value)
+
+    @property
+    @pulumi.getter(name="licenseKey")
+    def license_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SRM license
+        """
+        return pulumi.get(self, "license_key")
+
+    @license_key.setter
+    def license_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_key", value)
 
 
 class Addon(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +121,38 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AddonArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An addon resource
+
+        :param str resource_name: The name of the resource.
+        :param AddonArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AddonArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_name: Optional[pulumi.Input[str]] = None,
+                 addon_type: Optional[pulumi.Input[Union[str, 'AddonType']]] = None,
+                 license_key: Optional[pulumi.Input[str]] = None,
+                 private_cloud_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

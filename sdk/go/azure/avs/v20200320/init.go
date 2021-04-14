@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:avs/v20200320:Authorization":
-		r, err = NewAuthorization(ctx, name, nil, pulumi.URN_(urn))
+		r = &Authorization{}
 	case "azure-native:avs/v20200320:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure-native:avs/v20200320:HcxEnterpriseSite":
-		r, err = NewHcxEnterpriseSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &HcxEnterpriseSite{}
 	case "azure-native:avs/v20200320:PrivateCloud":
-		r, err = NewPrivateCloud(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateCloud{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:storagecache/v20210301:Cache":
-		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cache{}
 	case "azure-native:storagecache/v20210301:StorageTarget":
-		r, err = NewStorageTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageTarget{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

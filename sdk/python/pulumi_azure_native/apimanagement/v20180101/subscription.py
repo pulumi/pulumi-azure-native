@@ -5,14 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Subscription']
+__all__ = ['SubscriptionArgs', 'Subscription']
+
+@pulumi.input_type
+class SubscriptionArgs:
+    def __init__(__self__, *,
+                 display_name: pulumi.Input[str],
+                 product_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 user_id: pulumi.Input[str],
+                 notify: Optional[pulumi.Input[bool]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['SubscriptionState']] = None):
+        """
+        The set of arguments for constructing a Subscription resource.
+        :param pulumi.Input[str] display_name: Subscription name.
+        :param pulumi.Input[str] product_id: Product (product id path) for which subscription is being created in form /products/{productId}
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] user_id: User (user id path) for whom subscription is being created in form /users/{uid}
+        :param pulumi.Input[bool] notify: Notify change in Subscription State. 
+                - If false, do not send any email notification for change of state of subscription 
+                - If true, send email notification of change of state of subscription 
+        :param pulumi.Input[str] primary_key: Primary subscription key. If not specified during request key will be generated automatically.
+        :param pulumi.Input[str] secondary_key: Secondary subscription key. If not specified during request key will be generated automatically.
+        :param pulumi.Input[str] sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+        :param pulumi.Input['SubscriptionState'] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "product_id", product_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "user_id", user_id)
+        if notify is not None:
+            pulumi.set(__self__, "notify", notify)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Subscription name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> pulumi.Input[str]:
+        """
+        Product (product id path) for which subscription is being created in form /products/{productId}
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        User (user id path) for whom subscription is being created in form /users/{uid}
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+    @property
+    @pulumi.getter
+    def notify(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Notify change in Subscription State. 
+         - If false, do not send any email notification for change of state of subscription 
+         - If true, send email notification of change of state of subscription 
+        """
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "notify", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary subscription key. If not specified during request key will be generated automatically.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary subscription key. If not specified during request key will be generated automatically.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sid", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['SubscriptionState']]:
+        """
+        Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['SubscriptionState']]):
+        pulumi.set(self, "state", value)
 
 
 class Subscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +214,43 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input['SubscriptionState'] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         :param pulumi.Input[str] user_id: User (user id path) for whom subscription is being created in form /users/{uid}
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Subscription details.
+
+        :param str resource_name: The name of the resource.
+        :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 notify: Optional[pulumi.Input[bool]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['SubscriptionState']] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

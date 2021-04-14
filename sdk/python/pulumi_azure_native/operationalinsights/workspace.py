@@ -5,16 +5,231 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Workspace']
+__all__ = ['WorkspaceArgs', 'Workspace']
+
+@pulumi.input_type
+class WorkspaceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 features: Optional[Any] = None,
+                 force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
+                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input['WorkspaceSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_capping: Optional[pulumi.Input['WorkspaceCappingArgs']] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Workspace resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] e_tag: The ETag of the workspace.
+        :param Any features: Workspace features.
+        :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Log Analytics query.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
+        :param pulumi.Input['WorkspaceSkuArgs'] sku: The SKU of the workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['WorkspaceCappingArgs'] workspace_capping: The daily volume cap for ingestion.
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if force_cmk_for_query is not None:
+            pulumi.set(__self__, "force_cmk_for_query", force_cmk_for_query)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access_for_ingestion is not None:
+            pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
+        if public_network_access_for_query is not None:
+            pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workspace_capping is not None:
+            pulumi.set(__self__, "workspace_capping", workspace_capping)
+        if workspace_name is not None:
+            pulumi.set(__self__, "workspace_name", workspace_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ETag of the workspace.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[Any]:
+        """
+        Workspace features.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[Any]):
+        pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter(name="forceCmkForQuery")
+    def force_cmk_for_query(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether customer managed storage is mandatory for query management.
+        """
+        return pulumi.get(self, "force_cmk_for_query")
+
+    @force_cmk_for_query.setter
+    def force_cmk_for_query(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_cmk_for_query", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]]:
+        """
+        The provisioning state of the workspace.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForIngestion")
+    def public_network_access_for_ingestion(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]:
+        """
+        The network access type for accessing Log Analytics ingestion.
+        """
+        return pulumi.get(self, "public_network_access_for_ingestion")
+
+    @public_network_access_for_ingestion.setter
+    def public_network_access_for_ingestion(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
+        pulumi.set(self, "public_network_access_for_ingestion", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForQuery")
+    def public_network_access_for_query(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]:
+        """
+        The network access type for accessing Log Analytics query.
+        """
+        return pulumi.get(self, "public_network_access_for_query")
+
+    @public_network_access_for_query.setter
+    def public_network_access_for_query(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
+        pulumi.set(self, "public_network_access_for_query", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['WorkspaceSkuArgs']]:
+        """
+        The SKU of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['WorkspaceSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workspaceCapping")
+    def workspace_capping(self) -> Optional[pulumi.Input['WorkspaceCappingArgs']]:
+        """
+        The daily volume cap for ingestion.
+        """
+        return pulumi.get(self, "workspace_capping")
+
+    @workspace_capping.setter
+    def workspace_capping(self, value: Optional[pulumi.Input['WorkspaceCappingArgs']]):
+        pulumi.set(self, "workspace_capping", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_name", value)
 
 
 class Workspace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +269,47 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkspaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The top level Workspace resource container.
+        API Version: 2020-10-01.
+
+        :param str resource_name: The name of the resource.
+        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 features: Optional[Any] = None,
+                 force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
+                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_capping: Optional[pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,195 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Schedule']
+__all__ = ['ScheduleArgs', 'Schedule']
+
+@pulumi.input_type
+class ScheduleArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 frequency: pulumi.Input[Union[str, 'ScheduleFrequency']],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 start_time: pulumi.Input[str],
+                 advanced_schedule: Optional[pulumi.Input['AdvancedScheduleArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[Any] = None,
+                 schedule_name: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Schedule resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[Union[str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
+        :param pulumi.Input[str] name: Gets or sets the name of the Schedule.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
+        :param pulumi.Input['AdvancedScheduleArgs'] advanced_schedule: Gets or sets the AdvancedSchedule.
+        :param pulumi.Input[str] description: Gets or sets the description of the schedule.
+        :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
+        :param Any interval: Gets or sets the interval of the schedule.
+        :param pulumi.Input[str] schedule_name: The schedule name.
+        :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "start_time", start_time)
+        if advanced_schedule is not None:
+            pulumi.set(__self__, "advanced_schedule", advanced_schedule)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule_name is not None:
+            pulumi.set(__self__, "schedule_name", schedule_name)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[Union[str, 'ScheduleFrequency']]:
+        """
+        Gets or sets the frequency of the schedule.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[Union[str, 'ScheduleFrequency']]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the name of the Schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="advancedSchedule")
+    def advanced_schedule(self) -> Optional[pulumi.Input['AdvancedScheduleArgs']]:
+        """
+        Gets or sets the AdvancedSchedule.
+        """
+        return pulumi.get(self, "advanced_schedule")
+
+    @advanced_schedule.setter
+    def advanced_schedule(self, value: Optional[pulumi.Input['AdvancedScheduleArgs']]):
+        pulumi.set(self, "advanced_schedule", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the schedule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the end time of the schedule.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[Any]:
+        """
+        Gets or sets the interval of the schedule.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[Any]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="scheduleName")
+    def schedule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule name.
+        """
+        return pulumi.get(self, "schedule_name")
+
+    @schedule_name.setter
+    def schedule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_name", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the time zone of the schedule.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 class Schedule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +229,45 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScheduleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the schedule.
+        API Version: 2019-06-01.
+
+        :param str resource_name: The name of the resource.
+        :param ScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 advanced_schedule: Optional[pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']]] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input[Union[str, 'ScheduleFrequency']]] = None,
+                 interval: Optional[Any] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

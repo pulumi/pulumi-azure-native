@@ -5,14 +5,147 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['ServiceFabric']
+__all__ = ['ServiceFabricArgs', 'ServiceFabric']
+
+@pulumi.input_type
+class ServiceFabricArgs:
+    def __init__(__self__, *,
+                 lab_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 user_name: pulumi.Input[str],
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 external_service_fabric_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ServiceFabric resource.
+        :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] user_name: The name of the user profile.
+        :param pulumi.Input[str] environment_id: The resource id of the environment under which the service fabric resource is present
+        :param pulumi.Input[str] external_service_fabric_id: The backing service fabric resource's id
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] name: The name of the service fabric.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        """
+        pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user_name", user_name)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if external_service_fabric_id is not None:
+            pulumi.set(__self__, "external_service_fabric_id", external_service_fabric_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[str]:
+        """
+        The name of the lab.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        """
+        The name of the user profile.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the environment under which the service fabric resource is present
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="externalServiceFabricId")
+    def external_service_fabric_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The backing service fabric resource's id
+        """
+        return pulumi.get(self, "external_service_fabric_id")
+
+    @external_service_fabric_id.setter
+    def external_service_fabric_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_service_fabric_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service fabric.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ServiceFabric(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +174,41 @@ class ServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceFabricArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A Service Fabric.
+
+        :param str resource_name: The name of the resource.
+        :param ServiceFabricArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceFabricArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 external_service_fabric_id: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

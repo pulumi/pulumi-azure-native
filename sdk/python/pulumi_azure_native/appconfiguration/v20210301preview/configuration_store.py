@@ -5,16 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ConfigurationStore']
+__all__ = ['ConfigurationStoreArgs', 'ConfigurationStore']
+
+@pulumi.input_type
+class ConfigurationStoreArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
+                 config_store_name: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ConfigurationStore resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input['SkuArgs'] sku: The sku of the configuration store.
+        :param pulumi.Input[str] config_store_name: The name of the configuration store.
+        :param pulumi.Input[bool] disable_local_auth: Disables all authentication methods other than AAD authentication.
+        :param pulumi.Input['EncryptionPropertiesArgs'] encryption: The encryption settings of the configuration store.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: The managed identity information, if configured.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if config_store_name is not None:
+            pulumi.set(__self__, "config_store_name", config_store_name)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        The sku of the configuration store.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="configStoreName")
+    def config_store_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configuration store.
+        """
+        return pulumi.get(self, "config_store_name")
+
+    @config_store_name.setter
+    def config_store_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_store_name", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disables all authentication methods other than AAD authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+        """
+        The encryption settings of the configuration store.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+        """
+        The managed identity information, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ConfigurationStore(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +195,42 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the configuration store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConfigurationStoreArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+
+        :param str resource_name: The name of the resource.
+        :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationStoreArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config_store_name: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

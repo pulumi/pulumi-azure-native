@@ -5,16 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['GalleryApplicationVersion']
+__all__ = ['GalleryApplicationVersionArgs', 'GalleryApplicationVersion']
+
+@pulumi.input_type
+class GalleryApplicationVersionArgs:
+    def __init__(__self__, *,
+                 gallery_application_name: pulumi.Input[str],
+                 gallery_name: pulumi.Input[str],
+                 publishing_profile: pulumi.Input['GalleryApplicationVersionPublishingProfileArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 gallery_application_version_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a GalleryApplicationVersion resource.
+        :param pulumi.Input[str] gallery_application_name: The name of the gallery Application Definition in which the Application Version is to be created.
+        :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
+        :param pulumi.Input['GalleryApplicationVersionPublishingProfileArgs'] publishing_profile: The publishing profile of a gallery image version.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] gallery_application_version_name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "gallery_application_name", gallery_application_name)
+        pulumi.set(__self__, "gallery_name", gallery_name)
+        pulumi.set(__self__, "publishing_profile", publishing_profile)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if gallery_application_version_name is not None:
+            pulumi.set(__self__, "gallery_application_version_name", gallery_application_version_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="galleryApplicationName")
+    def gallery_application_name(self) -> pulumi.Input[str]:
+        """
+        The name of the gallery Application Definition in which the Application Version is to be created.
+        """
+        return pulumi.get(self, "gallery_application_name")
+
+    @gallery_application_name.setter
+    def gallery_application_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gallery_application_name", value)
+
+    @property
+    @pulumi.getter(name="galleryName")
+    def gallery_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Shared Application Gallery in which the Application Definition resides.
+        """
+        return pulumi.get(self, "gallery_name")
+
+    @gallery_name.setter
+    def gallery_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gallery_name", value)
+
+    @property
+    @pulumi.getter(name="publishingProfile")
+    def publishing_profile(self) -> pulumi.Input['GalleryApplicationVersionPublishingProfileArgs']:
+        """
+        The publishing profile of a gallery image version.
+        """
+        return pulumi.get(self, "publishing_profile")
+
+    @publishing_profile.setter
+    def publishing_profile(self, value: pulumi.Input['GalleryApplicationVersionPublishingProfileArgs']):
+        pulumi.set(self, "publishing_profile", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="galleryApplicationVersionName")
+    def gallery_application_version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+        """
+        return pulumi.get(self, "gallery_application_version_name")
+
+    @gallery_application_version_name.setter
+    def gallery_application_version_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gallery_application_version_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class GalleryApplicationVersion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +157,40 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GalleryApplicationVersionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Specifies information about the gallery Application Version that you want to create or update.
+
+        :param str resource_name: The name of the resource.
+        :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GalleryApplicationVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gallery_application_name: Optional[pulumi.Input[str]] = None,
+                 gallery_application_version_name: Optional[pulumi.Input[str]] = None,
+                 gallery_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

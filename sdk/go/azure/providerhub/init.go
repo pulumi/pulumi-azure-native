@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:providerhub:DefaultRollout":
-		r, err = NewDefaultRollout(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultRollout{}
 	case "azure-native:providerhub:NotificationRegistration":
-		r, err = NewNotificationRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationRegistration{}
 	case "azure-native:providerhub:OperationByProviderRegistration":
-		r, err = NewOperationByProviderRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &OperationByProviderRegistration{}
 	case "azure-native:providerhub:ProviderRegistration":
-		r, err = NewProviderRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProviderRegistration{}
 	case "azure-native:providerhub:ResourceTypeRegistration":
-		r, err = NewResourceTypeRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceTypeRegistration{}
 	case "azure-native:providerhub:Skus":
-		r, err = NewSkus(ctx, name, nil, pulumi.URN_(urn))
+		r = &Skus{}
 	case "azure-native:providerhub:SkusNestedResourceTypeFirst":
-		r, err = NewSkusNestedResourceTypeFirst(ctx, name, nil, pulumi.URN_(urn))
+		r = &SkusNestedResourceTypeFirst{}
 	case "azure-native:providerhub:SkusNestedResourceTypeSecond":
-		r, err = NewSkusNestedResourceTypeSecond(ctx, name, nil, pulumi.URN_(urn))
+		r = &SkusNestedResourceTypeSecond{}
 	case "azure-native:providerhub:SkusNestedResourceTypeThird":
-		r, err = NewSkusNestedResourceTypeThird(ctx, name, nil, pulumi.URN_(urn))
+		r = &SkusNestedResourceTypeThird{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,16 +5,196 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['AlertRule']
+__all__ = ['AlertRuleArgs', 'AlertRule']
+
+@pulumi.input_type
+class AlertRuleArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']],
+                 is_enabled: pulumi.Input[bool],
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AlertRule resource.
+        :param pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']] condition: the condition that results in the alert rule being activated.
+        :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param pulumi.Input[str] name: the name of the alert rule.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] provisioning_state: the provisioning state.
+        :param pulumi.Input[str] rule_name: The name of the rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class AlertRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +229,44 @@ class AlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AlertRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The alert rule resource.
+
+        :param str resource_name: The name of the resource.
+        :param AlertRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]]] = None,
+                 condition: Optional[pulumi.Input[Union[pulumi.InputType['LocationThresholdRuleConditionArgs'], pulumi.InputType['ManagementEventRuleConditionArgs'], pulumi.InputType['ThresholdRuleConditionArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

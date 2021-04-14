@@ -5,15 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Secret']
+__all__ = ['SecretArgs', 'Secret']
+
+@pulumi.input_type
+class SecretArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['SecretPropertiesArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 vault_name: pulumi.Input[str],
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Secret resource.
+        :param pulumi.Input['SecretPropertiesArgs'] properties: Properties of the secret
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the vault belongs.
+        :param pulumi.Input[str] vault_name: Name of the vault
+        :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the secret. 
+        """
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "vault_name", vault_name)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SecretPropertiesArgs']:
+        """
+        Properties of the secret
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SecretPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group to which the vault belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> pulumi.Input[str]:
+        """
+        Name of the vault
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the secret
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags that will be assigned to the secret. 
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Secret(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +122,39 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the secret. 
         :param pulumi.Input[str] vault_name: Name of the vault
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecretArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Resource information with extended details.
+        API Version: 2019-09-01.
+
+        :param str resource_name: The name of the resource.
+        :param SecretArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecretArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SecretPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

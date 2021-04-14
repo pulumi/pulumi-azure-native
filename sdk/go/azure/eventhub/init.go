@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:eventhub:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure-native:eventhub:ConsumerGroup":
-		r, err = NewConsumerGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConsumerGroup{}
 	case "azure-native:eventhub:DisasterRecoveryConfig":
-		r, err = NewDisasterRecoveryConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &DisasterRecoveryConfig{}
 	case "azure-native:eventhub:EventHub":
-		r, err = NewEventHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventHub{}
 	case "azure-native:eventhub:EventHubAuthorizationRule":
-		r, err = NewEventHubAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventHubAuthorizationRule{}
 	case "azure-native:eventhub:Namespace":
-		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Namespace{}
 	case "azure-native:eventhub:NamespaceAuthorizationRule":
-		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceAuthorizationRule{}
 	case "azure-native:eventhub:NamespaceIpFilterRule":
-		r, err = NewNamespaceIpFilterRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceIpFilterRule{}
 	case "azure-native:eventhub:NamespaceNetworkRuleSet":
-		r, err = NewNamespaceNetworkRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceNetworkRuleSet{}
 	case "azure-native:eventhub:NamespaceVirtualNetworkRule":
-		r, err = NewNamespaceVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceVirtualNetworkRule{}
 	case "azure-native:eventhub:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

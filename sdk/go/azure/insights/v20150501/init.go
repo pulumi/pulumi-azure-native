@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:insights/v20150501:AnalyticsItem":
-		r, err = NewAnalyticsItem(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsItem{}
 	case "azure-native:insights/v20150501:Component":
-		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
+		r = &Component{}
 	case "azure-native:insights/v20150501:ComponentCurrentBillingFeature":
-		r, err = NewComponentCurrentBillingFeature(ctx, name, nil, pulumi.URN_(urn))
+		r = &ComponentCurrentBillingFeature{}
 	case "azure-native:insights/v20150501:ExportConfiguration":
-		r, err = NewExportConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExportConfiguration{}
 	case "azure-native:insights/v20150501:Favorite":
-		r, err = NewFavorite(ctx, name, nil, pulumi.URN_(urn))
+		r = &Favorite{}
 	case "azure-native:insights/v20150501:MyWorkbook":
-		r, err = NewMyWorkbook(ctx, name, nil, pulumi.URN_(urn))
+		r = &MyWorkbook{}
 	case "azure-native:insights/v20150501:ProactiveDetectionConfiguration":
-		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProactiveDetectionConfiguration{}
 	case "azure-native:insights/v20150501:WebTest":
-		r, err = NewWebTest(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebTest{}
 	case "azure-native:insights/v20150501:Workbook":
-		r, err = NewWorkbook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workbook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

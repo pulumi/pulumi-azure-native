@@ -5,13 +5,142 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['ApiIssueAttachment']
+__all__ = ['ApiIssueAttachmentArgs', 'ApiIssueAttachment']
+
+@pulumi.input_type
+class ApiIssueAttachmentArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 content: pulumi.Input[str],
+                 content_format: pulumi.Input[str],
+                 issue_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 title: pulumi.Input[str],
+                 attachment_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ApiIssueAttachment resource.
+        :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] content: An HTTP link or Base64-encoded binary data.
+        :param pulumi.Input[str] content_format: Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+        :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] title: Filename by which the binary data will be saved.
+        :param pulumi.Input[str] attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_format", content_format)
+        pulumi.set(__self__, "issue_id", issue_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "title", title)
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        API identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        An HTTP link or Base64-encoded binary data.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentFormat")
+    def content_format(self) -> pulumi.Input[str]:
+        """
+        Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+        """
+        return pulumi.get(self, "content_format")
+
+    @content_format.setter
+    def content_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_format", value)
+
+    @property
+    @pulumi.getter(name="issueId")
+    def issue_id(self) -> pulumi.Input[str]:
+        """
+        Issue identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "issue_id")
+
+    @issue_id.setter
+    def issue_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issue_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        Filename by which the binary data will be saved.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Attachment identifier within an Issue. Must be unique in the current Issue.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attachment_id", value)
 
 
 class ApiIssueAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +169,41 @@ class ApiIssueAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiIssueAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Issue Attachment Contract details.
+
+        :param str resource_name: The name of the resource.
+        :param ApiIssueAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiIssueAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 attachment_id: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_format: Optional[pulumi.Input[str]] = None,
+                 issue_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

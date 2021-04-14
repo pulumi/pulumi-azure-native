@@ -22,39 +22,40 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:cdn/v20200901:AFDCustomDomain":
-		r, err = NewAFDCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &AFDCustomDomain{}
 	case "azure-native:cdn/v20200901:AFDEndpoint":
-		r, err = NewAFDEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &AFDEndpoint{}
 	case "azure-native:cdn/v20200901:AFDOrigin":
-		r, err = NewAFDOrigin(ctx, name, nil, pulumi.URN_(urn))
+		r = &AFDOrigin{}
 	case "azure-native:cdn/v20200901:AFDOriginGroup":
-		r, err = NewAFDOriginGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &AFDOriginGroup{}
 	case "azure-native:cdn/v20200901:CustomDomain":
-		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomDomain{}
 	case "azure-native:cdn/v20200901:Endpoint":
-		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &Endpoint{}
 	case "azure-native:cdn/v20200901:Origin":
-		r, err = NewOrigin(ctx, name, nil, pulumi.URN_(urn))
+		r = &Origin{}
 	case "azure-native:cdn/v20200901:OriginGroup":
-		r, err = NewOriginGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &OriginGroup{}
 	case "azure-native:cdn/v20200901:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "azure-native:cdn/v20200901:Profile":
-		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &Profile{}
 	case "azure-native:cdn/v20200901:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "azure-native:cdn/v20200901:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	case "azure-native:cdn/v20200901:RuleSet":
-		r, err = NewRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleSet{}
 	case "azure-native:cdn/v20200901:Secret":
-		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &Secret{}
 	case "azure-native:cdn/v20200901:SecurityPolicy":
-		r, err = NewSecurityPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

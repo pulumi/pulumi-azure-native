@@ -5,16 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SignalRPrivateEndpointConnection']
+__all__ = ['SignalRPrivateEndpointConnectionArgs', 'SignalRPrivateEndpointConnection']
+
+@pulumi.input_type
+class SignalRPrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        The set of arguments for constructing a SignalRPrivateEndpointConnection resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Private endpoint associated with the private endpoint connection
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+        """
+        Private endpoint associated with the private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Connection state
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 class SignalRPrivateEndpointConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +123,38 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SignalRPrivateEndpointConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A private endpoint connection to an azure resource
+
+        :param str resource_name: The name of the resource.
+        :param SignalRPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SignalRPrivateEndpointConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

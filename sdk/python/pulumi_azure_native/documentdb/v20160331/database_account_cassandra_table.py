@@ -5,15 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatabaseAccountCassandraTable']
+__all__ = ['DatabaseAccountCassandraTableArgs', 'DatabaseAccountCassandraTable']
+
+@pulumi.input_type
+class DatabaseAccountCassandraTableArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 keyspace_name: pulumi.Input[str],
+                 options: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 resource: pulumi.Input['CassandraTableResourceArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 table_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DatabaseAccountCassandraTable resource.
+        :param pulumi.Input[str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input['CassandraTableResourceArgs'] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
+        :param pulumi.Input[str] table_name: Cosmos DB table name.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "keyspace_name", keyspace_name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        Cosmos DB database account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="keyspaceName")
+    def keyspace_name(self) -> pulumi.Input[str]:
+        """
+        Cosmos DB keyspace name.
+        """
+        return pulumi.get(self, "keyspace_name")
+
+    @keyspace_name.setter
+    def keyspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "keyspace_name", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['CassandraTableResourceArgs']:
+        """
+        The standard JSON format of a Cassandra table
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['CassandraTableResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cosmos DB table name.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
 
 
 class DatabaseAccountCassandraTable(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +137,39 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DatabaseAccountCassandraTableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Azure Cosmos DB Cassandra table.
+
+        :param str resource_name: The name of the resource.
+        :param DatabaseAccountCassandraTableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DatabaseAccountCassandraTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 keyspace_name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource: Optional[pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

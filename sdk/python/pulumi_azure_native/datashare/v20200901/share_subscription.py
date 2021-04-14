@@ -5,14 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['ShareSubscription']
+__all__ = ['ShareSubscriptionArgs', 'ShareSubscription']
+
+@pulumi.input_type
+class ShareSubscriptionArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 invitation_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 source_share_location: pulumi.Input[str],
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 share_subscription_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ShareSubscription resource.
+        :param pulumi.Input[str] account_name: The name of the share account.
+        :param pulumi.Input[str] invitation_id: The invitation id.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] source_share_location: Source share location.
+        :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
+        :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "invitation_id", invitation_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source_share_location", source_share_location)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if share_subscription_name is not None:
+            pulumi.set(__self__, "share_subscription_name", share_subscription_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the share account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> pulumi.Input[str]:
+        """
+        The invitation id.
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @invitation_id.setter
+    def invitation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "invitation_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceShareLocation")
+    def source_share_location(self) -> pulumi.Input[str]:
+        """
+        Source share location.
+        """
+        return pulumi.get(self, "source_share_location")
+
+    @source_share_location.setter
+    def source_share_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_share_location", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date of the share subscription.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter(name="shareSubscriptionName")
+    def share_subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the shareSubscription.
+        """
+        return pulumi.get(self, "share_subscription_name")
+
+    @share_subscription_name.setter
+    def share_subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_subscription_name", value)
 
 
 class ShareSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +137,39 @@ class ShareSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
         :param pulumi.Input[str] source_share_location: Source share location.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ShareSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A share subscription data transfer object.
+
+        :param str resource_name: The name of the resource.
+        :param ShareSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ShareSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 invitation_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_subscription_name: Optional[pulumi.Input[str]] = None,
+                 source_share_location: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

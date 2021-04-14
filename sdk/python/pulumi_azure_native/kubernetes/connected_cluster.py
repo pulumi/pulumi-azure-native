@@ -5,16 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ConnectedCluster']
+__all__ = ['ConnectedClusterArgs', 'ConnectedCluster']
+
+@pulumi.input_type
+class ConnectedClusterArgs:
+    def __init__(__self__, *,
+                 agent_public_key_certificate: pulumi.Input[str],
+                 identity: pulumi.Input['ConnectedClusterIdentityArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 distribution: Optional[pulumi.Input[str]] = None,
+                 infrastructure: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ConnectedCluster resource.
+        :param pulumi.Input[str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        :param pulumi.Input['ConnectedClusterIdentityArgs'] identity: The identity of the connected cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster on which get is called.
+        :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
+        :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if infrastructure is not None:
+            pulumi.set(__self__, "infrastructure", infrastructure)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="agentPublicKeyCertificate")
+    def agent_public_key_certificate(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        """
+        return pulumi.get(self, "agent_public_key_certificate")
+
+    @agent_public_key_certificate.setter
+    def agent_public_key_certificate(self, value: pulumi.Input[str]):
+        pulumi.set(self, "agent_public_key_certificate", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['ConnectedClusterIdentityArgs']:
+        """
+        The identity of the connected cluster.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['ConnectedClusterIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kubernetes cluster on which get is called.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kubernetes distribution running on this connected cluster.
+        """
+        return pulumi.get(self, "distribution")
+
+    @distribution.setter
+    def distribution(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution", value)
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> Optional[pulumi.Input[str]]:
+        """
+        The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        """
+        return pulumi.get(self, "infrastructure")
+
+    @infrastructure.setter
+    def infrastructure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        Provisioning state of the connected cluster resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ConnectedCluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +195,43 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectedClusterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a connected cluster.
+        API Version: 2021-03-01.
+
+        :param str resource_name: The name of the resource.
+        :param ConnectedClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectedClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 distribution: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
+                 infrastructure: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

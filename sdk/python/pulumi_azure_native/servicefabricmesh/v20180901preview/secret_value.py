@@ -5,13 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['SecretValue']
+__all__ = ['SecretValueArgs', 'SecretValue']
+
+@pulumi.input_type
+class SecretValueArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 secret_resource_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 secret_value_resource_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SecretValue resource.
+        :param pulumi.Input[str] resource_group_name: Azure resource group name
+        :param pulumi.Input[str] secret_resource_name: The name of the secret resource.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] value: The actual value of the secret.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "secret_resource_name", secret_resource_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if secret_value_resource_name is not None:
+            pulumi.set(__self__, "secret_value_resource_name", secret_value_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Azure resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secretResourceName")
+    def secret_resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the secret resource.
+        """
+        return pulumi.get(self, "secret_resource_name")
+
+    @secret_resource_name.setter
+    def secret_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_resource_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="secretValueResourceName")
+    def secret_value_resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the secret resource value which is typically the version identifier for the value.
+        """
+        return pulumi.get(self, "secret_value_resource_name")
+
+    @secret_value_resource_name.setter
+    def secret_value_resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_value_resource_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The actual value of the secret.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 class SecretValue(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +138,39 @@ class SecretValue(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] value: The actual value of the secret.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecretValueArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+
+        :param str resource_name: The name of the resource.
+        :param SecretValueArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecretValueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secret_resource_name: Optional[pulumi.Input[str]] = None,
+                 secret_value_resource_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

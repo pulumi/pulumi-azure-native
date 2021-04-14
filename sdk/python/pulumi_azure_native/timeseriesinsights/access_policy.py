@@ -5,14 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['AccessPolicy']
+__all__ = ['AccessPolicyArgs', 'AccessPolicy']
+
+@pulumi.input_type
+class AccessPolicyArgs:
+    def __init__(__self__, *,
+                 environment_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 access_policy_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 principal_object_id: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]]] = None):
+        """
+        The set of arguments for constructing a AccessPolicy resource.
+        :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] access_policy_name: Name of the access policy.
+        :param pulumi.Input[str] description: An description of the access policy.
+        :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]] roles: The list of roles the principal is assigned on the environment.
+        """
+        pulumi.set(__self__, "environment_name", environment_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_policy_name is not None:
+            pulumi.set(__self__, "access_policy_name", access_policy_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if principal_object_id is not None:
+            pulumi.set(__self__, "principal_object_id", principal_object_id)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Time Series Insights environment associated with the specified resource group.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environment_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accessPolicyName")
+    def access_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the access policy.
+        """
+        return pulumi.get(self, "access_policy_name")
+
+    @access_policy_name.setter
+    def access_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_policy_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An description of the access policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="principalObjectId")
+    def principal_object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The objectId of the principal in Azure Active Directory.
+        """
+        return pulumi.get(self, "principal_object_id")
+
+    @principal_object_id.setter
+    def principal_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_object_id", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]]]:
+        """
+        The list of roles the principal is assigned on the environment.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]]]):
+        pulumi.set(self, "roles", value)
 
 
 class AccessPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +140,40 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]] roles: The list of roles the principal is assigned on the environment.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AccessPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+        API Version: 2020-05-15.
+
+        :param str resource_name: The name of the resource.
+        :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policy_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
+                 principal_object_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

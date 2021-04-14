@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:storsimple/v20161001:AccessControlRecord":
-		r, err = NewAccessControlRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessControlRecord{}
 	case "azure-native:storsimple/v20161001:BackupScheduleGroup":
-		r, err = NewBackupScheduleGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackupScheduleGroup{}
 	case "azure-native:storsimple/v20161001:ChapSetting":
-		r, err = NewChapSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &ChapSetting{}
 	case "azure-native:storsimple/v20161001:FileServer":
-		r, err = NewFileServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileServer{}
 	case "azure-native:storsimple/v20161001:FileShare":
-		r, err = NewFileShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileShare{}
 	case "azure-native:storsimple/v20161001:IscsiDisk":
-		r, err = NewIscsiDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &IscsiDisk{}
 	case "azure-native:storsimple/v20161001:IscsiServer":
-		r, err = NewIscsiServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &IscsiServer{}
 	case "azure-native:storsimple/v20161001:Manager":
-		r, err = NewManager(ctx, name, nil, pulumi.URN_(urn))
+		r = &Manager{}
 	case "azure-native:storsimple/v20161001:ManagerExtendedInfo":
-		r, err = NewManagerExtendedInfo(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagerExtendedInfo{}
 	case "azure-native:storsimple/v20161001:StorageAccountCredential":
-		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageAccountCredential{}
 	case "azure-native:storsimple/v20161001:StorageDomain":
-		r, err = NewStorageDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageDomain{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SqlPoolsV3']
+__all__ = ['SqlPoolsV3Args', 'SqlPoolsV3']
+
+@pulumi.input_type
+class SqlPoolsV3Args:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sql_pool_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SqlPoolsV3 resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['SkuArgs'] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
+        :param pulumi.Input[str] sql_pool_name: The name of the sql pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if sql_pool_name is not None:
+            pulumi.set(__self__, "sql_pool_name", sql_pool_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The sql pool SKU. The list of SKUs may vary by region and support offer.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="sqlPoolName")
+    def sql_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the sql pool.
+        """
+        return pulumi.get(self, "sql_pool_name")
+
+    @sql_pool_name.setter
+    def sql_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SqlPoolsV3(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +140,39 @@ class SqlPoolsV3(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlPoolsV3Args,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A sql pool resource.
+
+        :param str resource_name: The name of the resource.
+        :param SqlPoolsV3Args args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolsV3Args, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sql_pool_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

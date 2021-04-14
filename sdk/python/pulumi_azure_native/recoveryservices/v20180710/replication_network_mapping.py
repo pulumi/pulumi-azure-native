@@ -5,15 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReplicationNetworkMapping']
+__all__ = ['ReplicationNetworkMappingArgs', 'ReplicationNetworkMapping']
+
+@pulumi.input_type
+class ReplicationNetworkMappingArgs:
+    def __init__(__self__, *,
+                 fabric_name: pulumi.Input[str],
+                 network_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 network_mapping_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a ReplicationNetworkMapping resource.
+        :param pulumi.Input[str] fabric_name: Primary fabric name.
+        :param pulumi.Input[str] network_name: Primary network name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
+        :param pulumi.Input[str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[str] network_mapping_name: Network mapping name.
+        :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
+        """
+        pulumi.set(__self__, "fabric_name", fabric_name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if network_mapping_name is not None:
+            pulumi.set(__self__, "network_mapping_name", network_mapping_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="fabricName")
+    def fabric_name(self) -> pulumi.Input[str]:
+        """
+        Primary fabric name.
+        """
+        return pulumi.get(self, "fabric_name")
+
+    @fabric_name.setter
+    def fabric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fabric_name", value)
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> pulumi.Input[str]:
+        """
+        Primary network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @network_name.setter
+    def network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the recovery services vault is present.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the recovery services vault.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="networkMappingName")
+    def network_mapping_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network mapping name.
+        """
+        return pulumi.get(self, "network_mapping_name")
+
+    @network_mapping_name.setter
+    def network_mapping_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_mapping_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']]:
+        """
+        Input properties for creating network mapping.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class ReplicationNetworkMapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +138,39 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReplicationNetworkMappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+
+        :param str resource_name: The name of the resource.
+        :param ReplicationNetworkMappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationNetworkMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
+                 network_mapping_name: Optional[pulumi.Input[str]] = None,
+                 network_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateNetworkMappingInputPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagedPrivateEndpoint']
+__all__ = ['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpoint']
+
+@pulumi.input_type
+class ManagedPrivateEndpointArgs:
+    def __init__(__self__, *,
+                 factory_name: pulumi.Input[str],
+                 managed_virtual_network_name: pulumi.Input[str],
+                 properties: pulumi.Input['ManagedPrivateEndpointArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 managed_private_endpoint_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ManagedPrivateEndpoint resource.
+        :param pulumi.Input[str] factory_name: The factory name.
+        :param pulumi.Input[str] managed_virtual_network_name: Managed virtual network name
+        :param pulumi.Input['ManagedPrivateEndpointArgs'] properties: Managed private endpoint properties.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] managed_private_endpoint_name: Managed private endpoint name
+        """
+        pulumi.set(__self__, "factory_name", factory_name)
+        pulumi.set(__self__, "managed_virtual_network_name", managed_virtual_network_name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if managed_private_endpoint_name is not None:
+            pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
+
+    @property
+    @pulumi.getter(name="factoryName")
+    def factory_name(self) -> pulumi.Input[str]:
+        """
+        The factory name.
+        """
+        return pulumi.get(self, "factory_name")
+
+    @factory_name.setter
+    def factory_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "factory_name", value)
+
+    @property
+    @pulumi.getter(name="managedVirtualNetworkName")
+    def managed_virtual_network_name(self) -> pulumi.Input[str]:
+        """
+        Managed virtual network name
+        """
+        return pulumi.get(self, "managed_virtual_network_name")
+
+    @managed_virtual_network_name.setter
+    def managed_virtual_network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_virtual_network_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ManagedPrivateEndpointArgs']:
+        """
+        Managed private endpoint properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ManagedPrivateEndpointArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="managedPrivateEndpointName")
+    def managed_private_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed private endpoint name
+        """
+        return pulumi.get(self, "managed_private_endpoint_name")
+
+    @managed_private_endpoint_name.setter
+    def managed_private_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_private_endpoint_name", value)
 
 
 class ManagedPrivateEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +120,38 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']] properties: Managed private endpoint properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagedPrivateEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Managed private endpoint resource type.
+
+        :param str resource_name: The name of the resource.
+        :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedPrivateEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

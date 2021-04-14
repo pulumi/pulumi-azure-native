@@ -5,15 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SnapshotPolicy']
+__all__ = ['SnapshotPolicyArgs', 'SnapshotPolicy']
+
+@pulumi.input_type
+class SnapshotPolicyArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 daily_schedule: Optional[pulumi.Input['DailyScheduleArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 hourly_schedule: Optional[pulumi.Input['HourlyScheduleArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monthly_schedule: Optional[pulumi.Input['MonthlyScheduleArgs']] = None,
+                 snapshot_policy_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 weekly_schedule: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
+        """
+        The set of arguments for constructing a SnapshotPolicy resource.
+        :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['DailyScheduleArgs'] daily_schedule: Schedule for daily snapshots
+        :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
+        :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Schedule for hourly snapshots
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['MonthlyScheduleArgs'] monthly_schedule: Schedule for monthly snapshots
+        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if monthly_schedule is not None:
+            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if snapshot_policy_name is not None:
+            pulumi.set(__self__, "snapshot_policy_name", snapshot_policy_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the NetApp account
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional[pulumi.Input['DailyScheduleArgs']]:
+        """
+        Schedule for daily snapshots
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @daily_schedule.setter
+    def daily_schedule(self, value: Optional[pulumi.Input['DailyScheduleArgs']]):
+        pulumi.set(self, "daily_schedule", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The property to decide policy is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional[pulumi.Input['HourlyScheduleArgs']]:
+        """
+        Schedule for hourly snapshots
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @hourly_schedule.setter
+    def hourly_schedule(self, value: Optional[pulumi.Input['HourlyScheduleArgs']]):
+        pulumi.set(self, "hourly_schedule", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="monthlySchedule")
+    def monthly_schedule(self) -> Optional[pulumi.Input['MonthlyScheduleArgs']]:
+        """
+        Schedule for monthly snapshots
+        """
+        return pulumi.get(self, "monthly_schedule")
+
+    @monthly_schedule.setter
+    def monthly_schedule(self, value: Optional[pulumi.Input['MonthlyScheduleArgs']]):
+        pulumi.set(self, "monthly_schedule", value)
+
+    @property
+    @pulumi.getter(name="snapshotPolicyName")
+    def snapshot_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the snapshot policy target
+        """
+        return pulumi.get(self, "snapshot_policy_name")
+
+    @snapshot_policy_name.setter
+    def snapshot_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_policy_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional[pulumi.Input['WeeklyScheduleArgs']]:
+        """
+        Schedule for weekly snapshots
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+    @weekly_schedule.setter
+    def weekly_schedule(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
+        pulumi.set(self, "weekly_schedule", value)
 
 
 class SnapshotPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +213,44 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SnapshotPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Snapshot policy information
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param SnapshotPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 daily_schedule: Optional[pulumi.Input[pulumi.InputType['DailyScheduleArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 hourly_schedule: Optional[pulumi.Input[pulumi.InputType['HourlyScheduleArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monthly_schedule: Optional[pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_policy_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:costmanagement/v20200601:Export":
-		r, err = NewExport(ctx, name, nil, pulumi.URN_(urn))
+		r = &Export{}
 	case "azure-native:costmanagement/v20200601:View":
-		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
+		r = &View{}
 	case "azure-native:costmanagement/v20200601:ViewByScope":
-		r, err = NewViewByScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &ViewByScope{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

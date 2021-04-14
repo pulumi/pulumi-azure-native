@@ -5,16 +5,228 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Resource']
+__all__ = ['ResourceArgs', 'Resource']
+
+@pulumi.input_type
+class ResourceArgs:
+    def __init__(__self__, *,
+                 parent_resource_path: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 resource_provider_namespace: pulumi.Input[str],
+                 resource_type: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 properties: Optional[Any] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Resource resource.
+        :param pulumi.Input[str] parent_resource_path: Resource identity.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_provider_namespace: Resource identity.
+        :param pulumi.Input[str] resource_type: Resource identity.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input[str] kind: The kind of the resource.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] managed_by: Id of the resource that manages this resource.
+        :param pulumi.Input['PlanArgs'] plan: The plan of the resource.
+        :param Any properties: The resource properties.
+        :param pulumi.Input[str] resource_name: Resource identity.
+        :param pulumi.Input['SkuArgs'] sku: The sku of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "parent_resource_path", parent_resource_path)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
+        pulumi.set(__self__, "resource_type", resource_type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="parentResourcePath")
+    def parent_resource_path(self) -> pulumi.Input[str]:
+        """
+        Resource identity.
+        """
+        return pulumi.get(self, "parent_resource_path")
+
+    @parent_resource_path.setter
+    def parent_resource_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parent_resource_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceProviderNamespace")
+    def resource_provider_namespace(self) -> pulumi.Input[str]:
+        """
+        Resource identity.
+        """
+        return pulumi.get(self, "resource_provider_namespace")
+
+    @resource_provider_namespace.setter
+    def resource_provider_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_provider_namespace", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        Resource identity.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the resource that manages this resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_by", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+        """
+        The plan of the resource.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Any]:
+        """
+        The resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[Any]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource identity.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The sku of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Resource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +265,46 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Resource information.
+
+        :param str resource_name: The name of the resource.
+        :param ResourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 parent_resource_path: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 properties: Optional[Any] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

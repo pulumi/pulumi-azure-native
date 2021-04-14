@@ -5,16 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['TagRule']
+__all__ = ['TagRuleArgs', 'TagRule']
+
+@pulumi.input_type
+class TagRuleArgs:
+    def __init__(__self__, *,
+                 monitor_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None,
+                 rule_set_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TagRule resource.
+        :param pulumi.Input[str] monitor_name: Monitor resource name
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Elastic resource belongs.
+        :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] properties: Properties of the monitoring tag rules.
+        :param pulumi.Input[str] rule_set_name: Tag Rule Set resource name
+        """
+        pulumi.set(__self__, "monitor_name", monitor_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if rule_set_name is not None:
+            pulumi.set(__self__, "rule_set_name", rule_set_name)
+
+    @property
+    @pulumi.getter(name="monitorName")
+    def monitor_name(self) -> pulumi.Input[str]:
+        """
+        Monitor resource name
+        """
+        return pulumi.get(self, "monitor_name")
+
+    @monitor_name.setter
+    def monitor_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "monitor_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the Elastic resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
+        """
+        Properties of the monitoring tag rules.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="ruleSetName")
+    def rule_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tag Rule Set resource name
+        """
+        return pulumi.get(self, "rule_set_name")
+
+    @rule_set_name.setter
+    def rule_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_set_name", value)
 
 
 class TagRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +106,38 @@ class TagRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Elastic resource belongs.
         :param pulumi.Input[str] rule_set_name: Tag Rule Set resource name
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TagRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Capture logs and metrics of Azure resources based on ARM tags.
+        API Version: 2020-07-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param TagRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TagRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 monitor_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MonitoringTagRulesPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_set_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

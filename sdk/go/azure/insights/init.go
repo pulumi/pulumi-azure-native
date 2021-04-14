@@ -22,65 +22,66 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:insights:ActionGroup":
-		r, err = NewActionGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionGroup{}
 	case "azure-native:insights:ActivityLogAlert":
-		r, err = NewActivityLogAlert(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActivityLogAlert{}
 	case "azure-native:insights:AlertRule":
-		r, err = NewAlertRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertRule{}
 	case "azure-native:insights:AnalyticsItem":
-		r, err = NewAnalyticsItem(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsItem{}
 	case "azure-native:insights:AutoscaleSetting":
-		r, err = NewAutoscaleSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutoscaleSetting{}
 	case "azure-native:insights:Component":
-		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
+		r = &Component{}
 	case "azure-native:insights:ComponentCurrentBillingFeature":
-		r, err = NewComponentCurrentBillingFeature(ctx, name, nil, pulumi.URN_(urn))
+		r = &ComponentCurrentBillingFeature{}
 	case "azure-native:insights:ComponentLinkedStorageAccount":
-		r, err = NewComponentLinkedStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &ComponentLinkedStorageAccount{}
 	case "azure-native:insights:DataCollectionRule":
-		r, err = NewDataCollectionRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataCollectionRule{}
 	case "azure-native:insights:DataCollectionRuleAssociation":
-		r, err = NewDataCollectionRuleAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataCollectionRuleAssociation{}
 	case "azure-native:insights:DiagnosticSetting":
-		r, err = NewDiagnosticSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiagnosticSetting{}
 	case "azure-native:insights:ExportConfiguration":
-		r, err = NewExportConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExportConfiguration{}
 	case "azure-native:insights:Favorite":
-		r, err = NewFavorite(ctx, name, nil, pulumi.URN_(urn))
+		r = &Favorite{}
 	case "azure-native:insights:GuestDiagnosticsSettingsAssociation":
-		r, err = NewGuestDiagnosticsSettingsAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &GuestDiagnosticsSettingsAssociation{}
 	case "azure-native:insights:LogProfile":
-		r, err = NewLogProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogProfile{}
 	case "azure-native:insights:ManagementGroupDiagnosticSetting":
-		r, err = NewManagementGroupDiagnosticSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementGroupDiagnosticSetting{}
 	case "azure-native:insights:MetricAlert":
-		r, err = NewMetricAlert(ctx, name, nil, pulumi.URN_(urn))
+		r = &MetricAlert{}
 	case "azure-native:insights:MyWorkbook":
-		r, err = NewMyWorkbook(ctx, name, nil, pulumi.URN_(urn))
+		r = &MyWorkbook{}
 	case "azure-native:insights:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:insights:PrivateLinkScope":
-		r, err = NewPrivateLinkScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkScope{}
 	case "azure-native:insights:PrivateLinkScopedResource":
-		r, err = NewPrivateLinkScopedResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkScopedResource{}
 	case "azure-native:insights:ProactiveDetectionConfiguration":
-		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProactiveDetectionConfiguration{}
 	case "azure-native:insights:ScheduledQueryRule":
-		r, err = NewScheduledQueryRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScheduledQueryRule{}
 	case "azure-native:insights:SubscriptionDiagnosticSetting":
-		r, err = NewSubscriptionDiagnosticSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubscriptionDiagnosticSetting{}
 	case "azure-native:insights:WebTest":
-		r, err = NewWebTest(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebTest{}
 	case "azure-native:insights:Workbook":
-		r, err = NewWorkbook(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workbook{}
 	case "azure-native:insights:WorkbookTemplate":
-		r, err = NewWorkbookTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkbookTemplate{}
 	case "azure-native:insights:guestDiagnosticsSetting":
-		r, err = NewGuestDiagnosticsSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &GuestDiagnosticsSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,14 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 
-__all__ = ['IntegrationServiceEnvironmentManagedApi']
+__all__ = ['IntegrationServiceEnvironmentManagedApiArgs', 'IntegrationServiceEnvironmentManagedApi']
+
+@pulumi.input_type
+class IntegrationServiceEnvironmentManagedApiArgs:
+    def __init__(__self__, *,
+                 integration_service_environment_name: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 api_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IntegrationServiceEnvironmentManagedApi resource.
+        :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
+        :param pulumi.Input[str] resource_group: The resource group name.
+        :param pulumi.Input[str] api_name: The api name.
+        """
+        pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
+        pulumi.set(__self__, "resource_group", resource_group)
+        if api_name is not None:
+            pulumi.set(__self__, "api_name", api_name)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentName")
+    def integration_service_environment_name(self) -> pulumi.Input[str]:
+        """
+        The integration service environment name.
+        """
+        return pulumi.get(self, "integration_service_environment_name")
+
+    @integration_service_environment_name.setter
+    def integration_service_environment_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integration_service_environment_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The api name.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_name", value)
 
 
 class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +86,37 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[str] resource_group: The resource group name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationServiceEnvironmentManagedApiArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The managed api definition.
+        API Version: 2019-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationServiceEnvironmentManagedApiArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationServiceEnvironmentManagedApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

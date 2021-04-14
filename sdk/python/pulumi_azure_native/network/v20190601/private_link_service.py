@@ -5,16 +5,215 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PrivateLinkService']
+__all__ = ['PrivateLinkServiceArgs', 'PrivateLinkService']
+
+@pulumi.input_type
+class PrivateLinkServiceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 auto_approval: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]] = None,
+                 load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs']] = None):
+        """
+        The set of arguments for constructing a PrivateLinkService resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs'] auto_approval: The auto-approval list of the private link service.
+        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]] ip_configurations: An array of references to the private link service IP configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: An array of list about connections to the private endpoint.
+        :param pulumi.Input[str] service_name: The name of the private link service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs'] visibility: The visibility list of the private link service.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_approval is not None:
+            pulumi.set(__self__, "auto_approval", auto_approval)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if load_balancer_frontend_ip_configurations is not None:
+            pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="autoApproval")
+    def auto_approval(self) -> Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']]:
+        """
+        The auto-approval list of the private link service.
+        """
+        return pulumi.get(self, "auto_approval")
+
+    @auto_approval.setter
+    def auto_approval(self, value: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']]):
+        pulumi.set(self, "auto_approval", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Fqdn.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]]:
+        """
+        An array of references to the private link service IP configuration.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIpConfigurations")
+    def load_balancer_frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]]:
+        """
+        An array of references to the load balancer IP configurations.
+        """
+        return pulumi.get(self, "load_balancer_frontend_ip_configurations")
+
+    @load_balancer_frontend_ip_configurations.setter
+    def load_balancer_frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]]):
+        pulumi.set(self, "load_balancer_frontend_ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+        """
+        An array of list about connections to the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @private_endpoint_connections.setter
+    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
+        pulumi.set(self, "private_endpoint_connections", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the private link service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs']]:
+        """
+        The visibility list of the private link service.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs']]):
+        pulumi.set(self, "visibility", value)
 
 
 class PrivateLinkService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +250,45 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']] visibility: The visibility list of the private link service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PrivateLinkServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Private link service resource.
+
+        :param str resource_name: The name of the resource.
+        :param PrivateLinkServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
+                 load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

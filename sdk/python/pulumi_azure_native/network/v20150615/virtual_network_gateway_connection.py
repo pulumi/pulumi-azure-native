@@ -5,16 +5,343 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayConnection']
+__all__ = ['VirtualNetworkGatewayConnectionArgs', 'VirtualNetworkGatewayConnection']
+
+@pulumi.input_type
+class VirtualNetworkGatewayConnectionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_status: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']]] = None,
+                 connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
+                 egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
+                 local_network_gateway2: Optional[pulumi.Input['LocalNetworkGatewayArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 peer: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_gateway1: Optional[pulumi.Input['VirtualNetworkGatewayArgs']] = None,
+                 virtual_network_gateway2: Optional[pulumi.Input['VirtualNetworkGatewayArgs']] = None,
+                 virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] authorization_key: The authorizationKey.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']] connection_status: Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+        :param pulumi.Input[float] egress_bytes_transferred: The egress bytes transferred in this connection.
+        :param pulumi.Input[bool] enable_bgp: EnableBgp flag
+        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param pulumi.Input[str] id: Resource Identifier.
+        :param pulumi.Input[float] ingress_bytes_transferred: The ingress bytes transferred in this connection.
+        :param pulumi.Input['LocalNetworkGatewayArgs'] local_network_gateway2: A common class for general resource information
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['SubResourceArgs'] peer: The reference to peerings resource.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param pulumi.Input[str] resource_guid: The resource GUID property of the VirtualNetworkGatewayConnection resource.
+        :param pulumi.Input[int] routing_weight: The routing weight.
+        :param pulumi.Input[str] shared_key: The IPSec shared key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway1: A common class for general resource information
+        :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway2: A common class for general resource information
+        :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_status is not None:
+            pulumi.set(__self__, "connection_status", connection_status)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if egress_bytes_transferred is not None:
+            pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ingress_bytes_transferred is not None:
+            pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        if local_network_gateway2 is not None:
+            pulumi.set(__self__, "local_network_gateway2", local_network_gateway2)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if peer is not None:
+            pulumi.set(__self__, "peer", peer)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_gateway1 is not None:
+            pulumi.set(__self__, "virtual_network_gateway1", virtual_network_gateway1)
+        if virtual_network_gateway2 is not None:
+            pulumi.set(__self__, "virtual_network_gateway2", virtual_network_gateway2)
+        if virtual_network_gateway_connection_name is not None:
+            pulumi.set(__self__, "virtual_network_gateway_connection_name", virtual_network_gateway_connection_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorizationKey.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']]]:
+        """
+        Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @connection_status.setter
+    def connection_status(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']]]):
+        pulumi.set(self, "connection_status", value)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]]:
+        """
+        Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> Optional[pulumi.Input[float]]:
+        """
+        The egress bytes transferred in this connection.
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @egress_bytes_transferred.setter
+    def egress_bytes_transferred(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "egress_bytes_transferred", value)
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        EnableBgp flag
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @enable_bgp.setter
+    def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_bgp", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> Optional[pulumi.Input[float]]:
+        """
+        The ingress bytes transferred in this connection.
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @ingress_bytes_transferred.setter
+    def ingress_bytes_transferred(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "ingress_bytes_transferred", value)
+
+    @property
+    @pulumi.getter(name="localNetworkGateway2")
+    def local_network_gateway2(self) -> Optional[pulumi.Input['LocalNetworkGatewayArgs']]:
+        """
+        A common class for general resource information
+        """
+        return pulumi.get(self, "local_network_gateway2")
+
+    @local_network_gateway2.setter
+    def local_network_gateway2(self, value: Optional[pulumi.Input['LocalNetworkGatewayArgs']]):
+        pulumi.set(self, "local_network_gateway2", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def peer(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The reference to peerings resource.
+        """
+        return pulumi.get(self, "peer")
+
+    @peer.setter
+    def peer(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "peer", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource GUID property of the VirtualNetworkGatewayConnection resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @resource_guid.setter
+    def resource_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guid", value)
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The routing weight.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @routing_weight.setter
+    def routing_weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "routing_weight", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPSec shared key.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkGateway1")
+    def virtual_network_gateway1(self) -> Optional[pulumi.Input['VirtualNetworkGatewayArgs']]:
+        """
+        A common class for general resource information
+        """
+        return pulumi.get(self, "virtual_network_gateway1")
+
+    @virtual_network_gateway1.setter
+    def virtual_network_gateway1(self, value: Optional[pulumi.Input['VirtualNetworkGatewayArgs']]):
+        pulumi.set(self, "virtual_network_gateway1", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkGateway2")
+    def virtual_network_gateway2(self) -> Optional[pulumi.Input['VirtualNetworkGatewayArgs']]:
+        """
+        A common class for general resource information
+        """
+        return pulumi.get(self, "virtual_network_gateway2")
+
+    @virtual_network_gateway2.setter
+    def virtual_network_gateway2(self, value: Optional[pulumi.Input['VirtualNetworkGatewayArgs']]):
+        pulumi.set(self, "virtual_network_gateway2", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkGatewayConnectionName")
+    def virtual_network_gateway_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network gateway connection.
+        """
+        return pulumi.get(self, "virtual_network_gateway_connection_name")
+
+    @virtual_network_gateway_connection_name.setter
+    def virtual_network_gateway_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_gateway_connection_name", value)
 
 
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +394,53 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: A common class for general resource information
         :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualNetworkGatewayConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A common class for general resource information
+
+        :param str resource_name: The name of the resource.
+        :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_status: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']]] = None,
+                 connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
+                 egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
+                 local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

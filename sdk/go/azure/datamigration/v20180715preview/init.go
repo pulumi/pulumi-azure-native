@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:datamigration/v20180715preview:File":
-		r, err = NewFile(ctx, name, nil, pulumi.URN_(urn))
+		r = &File{}
 	case "azure-native:datamigration/v20180715preview:Project":
-		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &Project{}
 	case "azure-native:datamigration/v20180715preview:Service":
-		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
+		r = &Service{}
 	case "azure-native:datamigration/v20180715preview:ServiceTask":
-		r, err = NewServiceTask(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceTask{}
 	case "azure-native:datamigration/v20180715preview:Task":
-		r, err = NewTask(ctx, name, nil, pulumi.URN_(urn))
+		r = &Task{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

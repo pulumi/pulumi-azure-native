@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:logic/v20150801preview:IntegrationAccount":
-		r, err = NewIntegrationAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccount{}
 	case "azure-native:logic/v20150801preview:IntegrationAccountAgreement":
-		r, err = NewIntegrationAccountAgreement(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountAgreement{}
 	case "azure-native:logic/v20150801preview:IntegrationAccountCertificate":
-		r, err = NewIntegrationAccountCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountCertificate{}
 	case "azure-native:logic/v20150801preview:IntegrationAccountMap":
-		r, err = NewIntegrationAccountMap(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountMap{}
 	case "azure-native:logic/v20150801preview:IntegrationAccountPartner":
-		r, err = NewIntegrationAccountPartner(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountPartner{}
 	case "azure-native:logic/v20150801preview:IntegrationAccountSchema":
-		r, err = NewIntegrationAccountSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccountSchema{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

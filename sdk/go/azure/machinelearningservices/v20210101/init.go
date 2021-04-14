@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:machinelearningservices/v20210101:MachineLearningCompute":
-		r, err = NewMachineLearningCompute(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineLearningCompute{}
 	case "azure-native:machinelearningservices/v20210101:MachineLearningService":
-		r, err = NewMachineLearningService(ctx, name, nil, pulumi.URN_(urn))
+		r = &MachineLearningService{}
 	case "azure-native:machinelearningservices/v20210101:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:machinelearningservices/v20210101:Workspace":
-		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workspace{}
 	case "azure-native:machinelearningservices/v20210101:WorkspaceConnection":
-		r, err = NewWorkspaceConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkspaceConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

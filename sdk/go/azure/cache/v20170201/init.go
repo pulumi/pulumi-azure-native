@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:cache/v20170201:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure-native:cache/v20170201:PatchSchedule":
-		r, err = NewPatchSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &PatchSchedule{}
 	case "azure-native:cache/v20170201:Redis":
-		r, err = NewRedis(ctx, name, nil, pulumi.URN_(urn))
+		r = &Redis{}
 	case "azure-native:cache/v20170201:RedisLinkedServer":
-		r, err = NewRedisLinkedServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &RedisLinkedServer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

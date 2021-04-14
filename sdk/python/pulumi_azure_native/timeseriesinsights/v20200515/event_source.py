@@ -5,15 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['EventSource']
+__all__ = ['EventSourceArgs', 'EventSource']
+
+@pulumi.input_type
+class EventSourceArgs:
+    def __init__(__self__, *,
+                 environment_name: pulumi.Input[str],
+                 kind: pulumi.Input[Union[str, 'EventSourceKind']],
+                 resource_group_name: pulumi.Input[str],
+                 event_source_name: Optional[pulumi.Input[str]] = None,
+                 local_timestamp: Optional[pulumi.Input['LocalTimestampArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a EventSource resource.
+        :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+        :param pulumi.Input[Union[str, 'EventSourceKind']] kind: The kind of the event source.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] event_source_name: Name of the event source.
+        :param pulumi.Input['LocalTimestampArgs'] local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
+        """
+        pulumi.set(__self__, "environment_name", environment_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if event_source_name is not None:
+            pulumi.set(__self__, "event_source_name", event_source_name)
+        if local_timestamp is not None:
+            pulumi.set(__self__, "local_timestamp", local_timestamp)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Time Series Insights environment associated with the specified resource group.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environment_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'EventSourceKind']]:
+        """
+        The kind of the event source.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'EventSourceKind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the event source.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @event_source_name.setter
+    def event_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter(name="localTimestamp")
+    def local_timestamp(self) -> Optional[pulumi.Input['LocalTimestampArgs']]:
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        """
+        return pulumi.get(self, "local_timestamp")
+
+    @local_timestamp.setter
+    def local_timestamp(self, value: Optional[pulumi.Input['LocalTimestampArgs']]):
+        pulumi.set(self, "local_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of additional properties for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class EventSource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +157,40 @@ class EventSource(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventSourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+
+        :param str resource_name: The name of the resource.
+        :param EventSourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventSourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
+                 event_source_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'EventSourceKind']]] = None,
+                 local_timestamp: Optional[pulumi.Input[pulumi.InputType['LocalTimestampArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

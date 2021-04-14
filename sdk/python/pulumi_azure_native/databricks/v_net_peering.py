@@ -5,15 +5,196 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VNetPeering']
+__all__ = ['VNetPeeringArgs', 'VNetPeering']
+
+@pulumi.input_type
+class VNetPeeringArgs:
+    def __init__(__self__, *,
+                 remote_virtual_network: pulumi.Input['VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
+                 allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
+                 allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 databricks_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+                 databricks_virtual_network: Optional[pulumi.Input['VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs']] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
+                 remote_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+                 use_remote_gateways: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a VNetPeering resource.
+        :param pulumi.Input['VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs'] remote_virtual_network:  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        :param pulumi.Input[bool] allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
+        :param pulumi.Input[bool] allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        :param pulumi.Input['AddressSpaceArgs'] databricks_address_space: The reference to the databricks virtual network address space.
+        :param pulumi.Input['VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs'] databricks_virtual_network:  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        :param pulumi.Input[str] peering_name: The name of the workspace vNet peering.
+        :param pulumi.Input['AddressSpaceArgs'] remote_address_space: The reference to the remote virtual network address space.
+        :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+        pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if allow_forwarded_traffic is not None:
+            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+        if allow_gateway_transit is not None:
+            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+        if allow_virtual_network_access is not None:
+            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if databricks_address_space is not None:
+            pulumi.set(__self__, "databricks_address_space", databricks_address_space)
+        if databricks_virtual_network is not None:
+            pulumi.set(__self__, "databricks_virtual_network", databricks_virtual_network)
+        if peering_name is not None:
+            pulumi.set(__self__, "peering_name", peering_name)
+        if remote_address_space is not None:
+            pulumi.set(__self__, "remote_address_space", remote_address_space)
+        if use_remote_gateways is not None:
+            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+
+    @property
+    @pulumi.getter(name="remoteVirtualNetwork")
+    def remote_virtual_network(self) -> pulumi.Input['VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs']:
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
+        return pulumi.get(self, "remote_virtual_network")
+
+    @remote_virtual_network.setter
+    def remote_virtual_network(self, value: pulumi.Input['VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs']):
+        pulumi.set(self, "remote_virtual_network", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="allowForwardedTraffic")
+    def allow_forwarded_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        """
+        return pulumi.get(self, "allow_forwarded_traffic")
+
+    @allow_forwarded_traffic.setter
+    def allow_forwarded_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_forwarded_traffic", value)
+
+    @property
+    @pulumi.getter(name="allowGatewayTransit")
+    def allow_gateway_transit(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If gateway links can be used in remote virtual networking to link to this virtual network.
+        """
+        return pulumi.get(self, "allow_gateway_transit")
+
+    @allow_gateway_transit.setter
+    def allow_gateway_transit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_gateway_transit", value)
+
+    @property
+    @pulumi.getter(name="allowVirtualNetworkAccess")
+    def allow_virtual_network_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        """
+        return pulumi.get(self, "allow_virtual_network_access")
+
+    @allow_virtual_network_access.setter
+    def allow_virtual_network_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_virtual_network_access", value)
+
+    @property
+    @pulumi.getter(name="databricksAddressSpace")
+    def databricks_address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
+        """
+        The reference to the databricks virtual network address space.
+        """
+        return pulumi.get(self, "databricks_address_space")
+
+    @databricks_address_space.setter
+    def databricks_address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
+        pulumi.set(self, "databricks_address_space", value)
+
+    @property
+    @pulumi.getter(name="databricksVirtualNetwork")
+    def databricks_virtual_network(self) -> Optional[pulumi.Input['VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs']]:
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
+        return pulumi.get(self, "databricks_virtual_network")
+
+    @databricks_virtual_network.setter
+    def databricks_virtual_network(self, value: Optional[pulumi.Input['VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs']]):
+        pulumi.set(self, "databricks_virtual_network", value)
+
+    @property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the workspace vNet peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peering_name", value)
+
+    @property
+    @pulumi.getter(name="remoteAddressSpace")
+    def remote_address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
+        """
+        The reference to the remote virtual network address space.
+        """
+        return pulumi.get(self, "remote_address_space")
+
+    @remote_address_space.setter
+    def remote_address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
+        pulumi.set(self, "remote_address_space", value)
+
+    @property
+    @pulumi.getter(name="useRemoteGateways")
+    def use_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+        return pulumi.get(self, "use_remote_gateways")
+
+    @use_remote_gateways.setter
+    def use_remote_gateways(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_remote_gateways", value)
 
 
 class VNetPeering(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +230,45 @@ class VNetPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VNetPeeringArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Peerings in a VirtualNetwork resource
+        API Version: 2018-04-01.
+
+        :param str resource_name: The name of the resource.
+        :param VNetPeeringArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VNetPeeringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
+                 allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
+                 allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 databricks_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 databricks_virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs']]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
+                 remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 use_remote_gateways: Optional[pulumi.Input[bool]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LabelingJob']
+__all__ = ['LabelingJobArgs', 'LabelingJob']
+
+@pulumi.input_type
+class LabelingJobArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 labeling_job_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['LabelingJobPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a LabelingJob resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[str] labeling_job_id: Name and identifier for LabelingJob.
+        :param pulumi.Input['LabelingJobPropertiesArgs'] properties: Definition of a labeling job.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if labeling_job_id is not None:
+            pulumi.set(__self__, "labeling_job_id", labeling_job_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group in which workspace is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        Name of Azure Machine Learning workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="labelingJobId")
+    def labeling_job_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name and identifier for LabelingJob.
+        """
+        return pulumi.get(self, "labeling_job_id")
+
+    @labeling_job_id.setter
+    def labeling_job_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "labeling_job_id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['LabelingJobPropertiesArgs']]:
+        """
+        Definition of a labeling job.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['LabelingJobPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class LabelingJob(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +106,38 @@ class LabelingJob(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LabelingJobArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Machine Learning labeling job object wrapped into ARM resource envelope.
+        API Version: 2020-09-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param LabelingJobArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LabelingJobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 labeling_job_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LabelingJobPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

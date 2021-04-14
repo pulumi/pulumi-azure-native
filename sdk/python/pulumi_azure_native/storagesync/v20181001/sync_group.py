@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['SyncGroup']
+__all__ = ['SyncGroupArgs', 'SyncGroup']
+
+@pulumi.input_type
+class SyncGroupArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 storage_sync_service_name: pulumi.Input[str],
+                 sync_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SyncGroup resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
+        :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+        if sync_group_name is not None:
+            pulumi.set(__self__, "sync_group_name", sync_group_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageSyncServiceName")
+    def storage_sync_service_name(self) -> pulumi.Input[str]:
+        """
+        Name of Storage Sync Service resource.
+        """
+        return pulumi.get(self, "storage_sync_service_name")
+
+    @storage_sync_service_name.setter
+    def storage_sync_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_sync_service_name", value)
+
+    @property
+    @pulumi.getter(name="syncGroupName")
+    def sync_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Sync Group resource.
+        """
+        return pulumi.get(self, "sync_group_name")
+
+    @sync_group_name.setter
+    def sync_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_group_name", value)
 
 
 class SyncGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,6 +84,36 @@ class SyncGroup(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SyncGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Sync Group object.
+
+        :param str resource_name: The name of the resource.
+        :param SyncGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SyncGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

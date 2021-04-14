@@ -22,43 +22,44 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:security:AdaptiveApplicationControl":
-		r, err = NewAdaptiveApplicationControl(ctx, name, nil, pulumi.URN_(urn))
+		r = &AdaptiveApplicationControl{}
 	case "azure-native:security:AlertsSuppressionRule":
-		r, err = NewAlertsSuppressionRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertsSuppressionRule{}
 	case "azure-native:security:Assessment":
-		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assessment{}
 	case "azure-native:security:AssessmentMetadataInSubscription":
-		r, err = NewAssessmentMetadataInSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &AssessmentMetadataInSubscription{}
 	case "azure-native:security:Automation":
-		r, err = NewAutomation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Automation{}
 	case "azure-native:security:Connector":
-		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connector{}
 	case "azure-native:security:DeviceSecurityGroup":
-		r, err = NewDeviceSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeviceSecurityGroup{}
 	case "azure-native:security:IotDefenderSetting":
-		r, err = NewIotDefenderSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotDefenderSetting{}
 	case "azure-native:security:IotSecuritySolution":
-		r, err = NewIotSecuritySolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotSecuritySolution{}
 	case "azure-native:security:IotSensor":
-		r, err = NewIotSensor(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotSensor{}
 	case "azure-native:security:IotSite":
-		r, err = NewIotSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotSite{}
 	case "azure-native:security:JitNetworkAccessPolicy":
-		r, err = NewJitNetworkAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &JitNetworkAccessPolicy{}
 	case "azure-native:security:OnPremiseIotSensor":
-		r, err = NewOnPremiseIotSensor(ctx, name, nil, pulumi.URN_(urn))
+		r = &OnPremiseIotSensor{}
 	case "azure-native:security:SecurityContact":
-		r, err = NewSecurityContact(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityContact{}
 	case "azure-native:security:ServerVulnerabilityAssessment":
-		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerVulnerabilityAssessment{}
 	case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
-		r, err = NewSqlVulnerabilityAssessmentBaselineRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlVulnerabilityAssessmentBaselineRule{}
 	case "azure-native:security:WorkspaceSetting":
-		r, err = NewWorkspaceSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkspaceSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,14 +5,161 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['RouteFilterRule']
+__all__ = ['RouteFilterRuleArgs', 'RouteFilterRule']
+
+@pulumi.input_type
+class RouteFilterRuleArgs:
+    def __init__(__self__, *,
+                 access: pulumi.Input[Union[str, 'Access']],
+                 communities: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 resource_group_name: pulumi.Input[str],
+                 route_filter_name: pulumi.Input[str],
+                 route_filter_rule_type: pulumi.Input[Union[str, 'RouteFilterRuleType']],
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RouteFilterRule resource.
+        :param pulumi.Input[Union[str, 'Access']] access: The access type of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] route_filter_name: The name of the route filter.
+        :param pulumi.Input[Union[str, 'RouteFilterRuleType']] route_filter_rule_type: The rule type of the rule. Valid value is: 'Community'
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] rule_name: The name of the route filter rule.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "communities", communities)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "route_filter_name", route_filter_name)
+        pulumi.set(__self__, "route_filter_rule_type", route_filter_rule_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter
+    def access(self) -> pulumi.Input[Union[str, 'Access']]:
+        """
+        The access type of the rule.
+        """
+        return pulumi.get(self, "access")
+
+    @access.setter
+    def access(self, value: pulumi.Input[Union[str, 'Access']]):
+        pulumi.set(self, "access", value)
+
+    @property
+    @pulumi.getter
+    def communities(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        """
+        return pulumi.get(self, "communities")
+
+    @communities.setter
+    def communities(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "communities", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="routeFilterName")
+    def route_filter_name(self) -> pulumi.Input[str]:
+        """
+        The name of the route filter.
+        """
+        return pulumi.get(self, "route_filter_name")
+
+    @route_filter_name.setter
+    def route_filter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_filter_name", value)
+
+    @property
+    @pulumi.getter(name="routeFilterRuleType")
+    def route_filter_rule_type(self) -> pulumi.Input[Union[str, 'RouteFilterRuleType']]:
+        """
+        The rule type of the rule. Valid value is: 'Community'
+        """
+        return pulumi.get(self, "route_filter_rule_type")
+
+    @route_filter_rule_type.setter
+    def route_filter_rule_type(self, value: pulumi.Input[Union[str, 'RouteFilterRuleType']]):
+        pulumi.set(self, "route_filter_rule_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route filter rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 class RouteFilterRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +190,42 @@ class RouteFilterRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'RouteFilterRuleType']] route_filter_rule_type: The rule type of the rule. Valid value is: 'Community'
         :param pulumi.Input[str] rule_name: The name of the route filter rule.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RouteFilterRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Route Filter Rule Resource
+
+        :param str resource_name: The name of the resource.
+        :param RouteFilterRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RouteFilterRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access: Optional[pulumi.Input[Union[str, 'Access']]] = None,
+                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_filter_name: Optional[pulumi.Input[str]] = None,
+                 route_filter_rule_type: Optional[pulumi.Input[Union[str, 'RouteFilterRuleType']]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

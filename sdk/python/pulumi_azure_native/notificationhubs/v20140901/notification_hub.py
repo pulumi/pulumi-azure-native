@@ -5,16 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NotificationHub']
+__all__ = ['NotificationHubArgs', 'NotificationHub']
+
+@pulumi.input_type
+class NotificationHubArgs:
+    def __init__(__self__, *,
+                 namespace_name: pulumi.Input[str],
+                 properties: pulumi.Input['NotificationHubPropertiesArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 notification_hub_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NotificationHub resource.
+        :param pulumi.Input[str] namespace_name: The namespace name.
+        :param pulumi.Input['NotificationHubPropertiesArgs'] properties: Gets or sets properties of the NotificationHub.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] location: Gets or sets NotificationHub data center location.
+        :param pulumi.Input[str] notification_hub_name: The notification hub name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets NotificationHub tags.
+        """
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if notification_hub_name is not None:
+            pulumi.set(__self__, "notification_hub_name", notification_hub_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The namespace name.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['NotificationHubPropertiesArgs']:
+        """
+        Gets or sets properties of the NotificationHub.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['NotificationHubPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets NotificationHub data center location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="notificationHubName")
+    def notification_hub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification hub name.
+        """
+        return pulumi.get(self, "notification_hub_name")
+
+    @notification_hub_name.setter
+    def notification_hub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_hub_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets NotificationHub tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NotificationHub(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +140,39 @@ class NotificationHub(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets NotificationHub tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NotificationHubArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Description of a NotificationHub Resource.
+
+        :param str resource_name: The name of the resource.
+        :param NotificationHubArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationHubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 notification_hub_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationHubPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

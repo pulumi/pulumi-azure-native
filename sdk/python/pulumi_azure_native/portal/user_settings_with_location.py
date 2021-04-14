@@ -5,16 +5,70 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['UserSettingsWithLocation']
+__all__ = ['UserSettingsWithLocationArgs', 'UserSettingsWithLocation']
+
+@pulumi.input_type
+class UserSettingsWithLocationArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 properties: pulumi.Input['UserPropertiesArgs'],
+                 user_settings_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a UserSettingsWithLocation resource.
+        :param pulumi.Input[str] location: The provider location
+        :param pulumi.Input['UserPropertiesArgs'] properties: The cloud shell user settings properties.
+        :param pulumi.Input[str] user_settings_name: The name of the user settings
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "properties", properties)
+        if user_settings_name is not None:
+            pulumi.set(__self__, "user_settings_name", user_settings_name)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The provider location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['UserPropertiesArgs']:
+        """
+        The cloud shell user settings properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['UserPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="userSettingsName")
+    def user_settings_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user settings
+        """
+        return pulumi.get(self, "user_settings_name")
+
+    @user_settings_name.setter
+    def user_settings_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_settings_name", value)
 
 
 class UserSettingsWithLocation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +88,37 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPropertiesArgs']] properties: The cloud shell user settings properties.
         :param pulumi.Input[str] user_settings_name: The name of the user settings
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserSettingsWithLocationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Response to get user settings
+        API Version: 2018-10-01.
+
+        :param str resource_name: The name of the resource.
+        :param UserSettingsWithLocationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserSettingsWithLocationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['UserPropertiesArgs']]] = None,
+                 user_settings_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

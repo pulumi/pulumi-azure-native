@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:peering/v20190901preview:PeerAsn":
-		r, err = NewPeerAsn(ctx, name, nil, pulumi.URN_(urn))
+		r = &PeerAsn{}
 	case "azure-native:peering/v20190901preview:Peering":
-		r, err = NewPeering(ctx, name, nil, pulumi.URN_(urn))
+		r = &Peering{}
 	case "azure-native:peering/v20190901preview:PeeringService":
-		r, err = NewPeeringService(ctx, name, nil, pulumi.URN_(urn))
+		r = &PeeringService{}
 	case "azure-native:peering/v20190901preview:Prefix":
-		r, err = NewPrefix(ctx, name, nil, pulumi.URN_(urn))
+		r = &Prefix{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

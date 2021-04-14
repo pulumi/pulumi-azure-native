@@ -5,16 +5,197 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SyncGroup']
+__all__ = ['SyncGroupArgs', 'SyncGroup']
+
+@pulumi.input_type
+class SyncGroupArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 conflict_resolution_policy: Optional[pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']]] = None,
+                 hub_database_password: Optional[pulumi.Input[str]] = None,
+                 hub_database_user_name: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 schema: Optional[pulumi.Input['SyncGroupSchemaArgs']] = None,
+                 sync_database_id: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 use_private_link_connection: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a SyncGroup resource.
+        :param pulumi.Input[str] database_name: The name of the database on which the sync group is hosted.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']] conflict_resolution_policy: Conflict resolution policy of the sync group.
+        :param pulumi.Input[str] hub_database_password: Password for the sync group hub database credential.
+        :param pulumi.Input[str] hub_database_user_name: User name for the sync group hub database credential.
+        :param pulumi.Input[int] interval: Sync interval of the sync group.
+        :param pulumi.Input['SyncGroupSchemaArgs'] schema: Sync schema of the sync group.
+        :param pulumi.Input[str] sync_database_id: ARM resource id of the sync database in the sync group.
+        :param pulumi.Input[str] sync_group_name: The name of the sync group.
+        :param pulumi.Input[bool] use_private_link_connection: If use private link connection is enabled.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        if conflict_resolution_policy is not None:
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if hub_database_password is not None:
+            pulumi.set(__self__, "hub_database_password", hub_database_password)
+        if hub_database_user_name is not None:
+            pulumi.set(__self__, "hub_database_user_name", hub_database_user_name)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if sync_database_id is not None:
+            pulumi.set(__self__, "sync_database_id", sync_database_id)
+        if sync_group_name is not None:
+            pulumi.set(__self__, "sync_group_name", sync_group_name)
+        if use_private_link_connection is not None:
+            pulumi.set(__self__, "use_private_link_connection", use_private_link_connection)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database on which the sync group is hosted.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional[pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']]]:
+        """
+        Conflict resolution policy of the sync group.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @conflict_resolution_policy.setter
+    def conflict_resolution_policy(self, value: Optional[pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']]]):
+        pulumi.set(self, "conflict_resolution_policy", value)
+
+    @property
+    @pulumi.getter(name="hubDatabasePassword")
+    def hub_database_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for the sync group hub database credential.
+        """
+        return pulumi.get(self, "hub_database_password")
+
+    @hub_database_password.setter
+    def hub_database_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_database_password", value)
+
+    @property
+    @pulumi.getter(name="hubDatabaseUserName")
+    def hub_database_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User name for the sync group hub database credential.
+        """
+        return pulumi.get(self, "hub_database_user_name")
+
+    @hub_database_user_name.setter
+    def hub_database_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_database_user_name", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sync interval of the sync group.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input['SyncGroupSchemaArgs']]:
+        """
+        Sync schema of the sync group.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input['SyncGroupSchemaArgs']]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter(name="syncDatabaseId")
+    def sync_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the sync database in the sync group.
+        """
+        return pulumi.get(self, "sync_database_id")
+
+    @sync_database_id.setter
+    def sync_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_database_id", value)
+
+    @property
+    @pulumi.getter(name="syncGroupName")
+    def sync_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the sync group.
+        """
+        return pulumi.get(self, "sync_group_name")
+
+    @sync_group_name.setter
+    def sync_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_group_name", value)
+
+    @property
+    @pulumi.getter(name="usePrivateLinkConnection")
+    def use_private_link_connection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If use private link connection is enabled.
+        """
+        return pulumi.get(self, "use_private_link_connection")
+
+    @use_private_link_connection.setter
+    def use_private_link_connection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_private_link_connection", value)
 
 
 class SyncGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +230,44 @@ class SyncGroup(pulumi.CustomResource):
         :param pulumi.Input[str] sync_group_name: The name of the sync group.
         :param pulumi.Input[bool] use_private_link_connection: If use private link connection is enabled.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SyncGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Azure SQL Database sync group.
+
+        :param str resource_name: The name of the resource.
+        :param SyncGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SyncGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 hub_database_password: Optional[pulumi.Input[str]] = None,
+                 hub_database_user_name: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[pulumi.InputType['SyncGroupSchemaArgs']]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 sync_database_id: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 use_private_link_connection: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

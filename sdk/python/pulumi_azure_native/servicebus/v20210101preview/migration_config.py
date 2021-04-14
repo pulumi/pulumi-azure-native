@@ -5,14 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['MigrationConfig']
+__all__ = ['MigrationConfigArgs', 'MigrationConfig']
+
+@pulumi.input_type
+class MigrationConfigArgs:
+    def __init__(__self__, *,
+                 namespace_name: pulumi.Input[str],
+                 post_migration_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 target_namespace: pulumi.Input[str],
+                 config_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a MigrationConfig resource.
+        :param pulumi.Input[str] namespace_name: The namespace name
+        :param pulumi.Input[str] post_migration_name: Name to access Standard Namespace after migration
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] target_namespace: Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        :param pulumi.Input[str] config_name: The configuration name. Should always be "$default".
+        """
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "post_migration_name", post_migration_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_namespace", target_namespace)
+        if config_name is not None:
+            pulumi.set(__self__, "config_name", config_name)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="postMigrationName")
+    def post_migration_name(self) -> pulumi.Input[str]:
+        """
+        Name to access Standard Namespace after migration
+        """
+        return pulumi.get(self, "post_migration_name")
+
+    @post_migration_name.setter
+    def post_migration_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "post_migration_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> pulumi.Input[str]:
+        """
+        Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        """
+        return pulumi.get(self, "target_namespace")
+
+    @target_namespace.setter
+    def target_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_namespace", value)
+
+    @property
+    @pulumi.getter(name="configName")
+    def config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration name. Should always be "$default".
+        """
+        return pulumi.get(self, "config_name")
+
+    @config_name.setter
+    def config_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_name", value)
 
 
 class MigrationConfig(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +119,38 @@ class MigrationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] target_namespace: Existing premium Namespace ARM Id name which has no entities, will be used for migration
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MigrationConfigArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Single item in List or Get Migration Config operation
+
+        :param str resource_name: The name of the resource.
+        :param MigrationConfigArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MigrationConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config_name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 post_migration_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target_namespace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,199 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualMachineScaleSet']
+__all__ = ['VirtualMachineScaleSetArgs', 'VirtualMachineScaleSet']
+
+@pulumi.input_type
+class VirtualMachineScaleSetArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['VirtualMachineScaleSetIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 over_provision: Optional[pulumi.Input[bool]] = None,
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 single_placement_group: Optional[pulumi.Input[bool]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_policy: Optional[pulumi.Input['UpgradePolicyArgs']] = None,
+                 virtual_machine_profile: Optional[pulumi.Input['VirtualMachineScaleSetVMProfileArgs']] = None):
+        """
+        The set of arguments for constructing a VirtualMachineScaleSet resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['VirtualMachineScaleSetIdentityArgs'] identity: The identity of the virtual machine scale set, if configured.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] name: The name of the VM scale set to create or update.
+        :param pulumi.Input[bool] over_provision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+        :param pulumi.Input['PlanArgs'] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+        :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+        :param pulumi.Input['SkuArgs'] sku: The virtual machine scale set sku.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: The upgrade policy.
+        :param pulumi.Input['VirtualMachineScaleSetVMProfileArgs'] virtual_machine_profile: The virtual machine profile.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if over_provision is not None:
+            pulumi.set(__self__, "over_provision", over_provision)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if single_placement_group is not None:
+            pulumi.set(__self__, "single_placement_group", single_placement_group)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if upgrade_policy is not None:
+            pulumi.set(__self__, "upgrade_policy", upgrade_policy)
+        if virtual_machine_profile is not None:
+            pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['VirtualMachineScaleSetIdentityArgs']]:
+        """
+        The identity of the virtual machine scale set, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['VirtualMachineScaleSetIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VM scale set to create or update.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="overProvision")
+    def over_provision(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+        """
+        return pulumi.get(self, "over_provision")
+
+    @over_provision.setter
+    def over_provision(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "over_provision", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="singlePlacementGroup")
+    def single_placement_group(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+        """
+        return pulumi.get(self, "single_placement_group")
+
+    @single_placement_group.setter
+    def single_placement_group(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_placement_group", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The virtual machine scale set sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional[pulumi.Input['UpgradePolicyArgs']]:
+        """
+        The upgrade policy.
+        """
+        return pulumi.get(self, "upgrade_policy")
+
+    @upgrade_policy.setter
+    def upgrade_policy(self, value: Optional[pulumi.Input['UpgradePolicyArgs']]):
+        pulumi.set(self, "upgrade_policy", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> Optional[pulumi.Input['VirtualMachineScaleSetVMProfileArgs']]:
+        """
+        The virtual machine profile.
+        """
+        return pulumi.get(self, "virtual_machine_profile")
+
+    @virtual_machine_profile.setter
+    def virtual_machine_profile(self, value: Optional[pulumi.Input['VirtualMachineScaleSetVMProfileArgs']]):
+        pulumi.set(self, "virtual_machine_profile", value)
 
 
 class VirtualMachineScaleSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +232,44 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UpgradePolicyArgs']] upgrade_policy: The upgrade policy.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']] virtual_machine_profile: The virtual machine profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualMachineScaleSetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Describes a Virtual Machine Scale Set.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualMachineScaleSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineScaleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 over_provision: Optional[pulumi.Input[bool]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 single_placement_group: Optional[pulumi.Input[bool]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['UpgradePolicyArgs']]] = None,
+                 virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

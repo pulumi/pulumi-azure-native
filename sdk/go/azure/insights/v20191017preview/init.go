@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:insights/v20191017preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:insights/v20191017preview:PrivateLinkScope":
-		r, err = NewPrivateLinkScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkScope{}
 	case "azure-native:insights/v20191017preview:PrivateLinkScopedResource":
-		r, err = NewPrivateLinkScopedResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateLinkScopedResource{}
 	case "azure-native:insights/v20191017preview:WorkbookTemplate":
-		r, err = NewWorkbookTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkbookTemplate{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

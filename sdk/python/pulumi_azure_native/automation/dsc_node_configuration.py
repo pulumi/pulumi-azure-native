@@ -5,16 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DscNodeConfiguration']
+__all__ = ['DscNodeConfigurationArgs', 'DscNodeConfiguration']
+
+@pulumi.input_type
+class DscNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 configuration: pulumi.Input['DscConfigurationAssociationPropertyArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 source: pulumi.Input['ContentSourceArgs'],
+                 increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_configuration_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DscNodeConfiguration resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input['DscConfigurationAssociationPropertyArgs'] configuration: Gets or sets the configuration of the node.
+        :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
+        :param pulumi.Input[bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
+        :param pulumi.Input[str] name: Name of the node configuration.
+        :param pulumi.Input[str] node_configuration_name: The Dsc node configuration name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source", source)
+        if increment_node_configuration_build is not None:
+            pulumi.set(__self__, "increment_node_configuration_build", increment_node_configuration_build)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_configuration_name is not None:
+            pulumi.set(__self__, "node_configuration_name", node_configuration_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the automation account.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['DscConfigurationAssociationPropertyArgs']:
+        """
+        Gets or sets the configuration of the node.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['DscConfigurationAssociationPropertyArgs']):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of an Azure Resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['ContentSourceArgs']:
+        """
+        Gets or sets the source.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['ContentSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="incrementNodeConfigurationBuild")
+    def increment_node_configuration_build(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If a new build version of NodeConfiguration is required.
+        """
+        return pulumi.get(self, "increment_node_configuration_build")
+
+    @increment_node_configuration_build.setter
+    def increment_node_configuration_build(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "increment_node_configuration_build", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the node configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeConfigurationName")
+    def node_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Dsc node configuration name.
+        """
+        return pulumi.get(self, "node_configuration_name")
+
+    @node_configuration_name.setter
+    def node_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_configuration_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the tags attached to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DscNodeConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +176,42 @@ class DscNodeConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DscNodeConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Definition of the dsc node configuration.
+        API Version: 2019-06-01.
+
+        :param str resource_name: The name of the resource.
+        :param DscNodeConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DscNodeConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']]] = None,
+                 increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_configuration_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

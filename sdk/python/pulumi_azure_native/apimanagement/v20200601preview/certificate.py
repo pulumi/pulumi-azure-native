@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Certificate']
+__all__ = ['CertificateArgs', 'Certificate']
+
+@pulumi.input_type
+class CertificateArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 certificate_id: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Certificate resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] data: Base 64 encoded certificate using the application/x-pkcs12 representation.
+        :param pulumi.Input['KeyVaultContractCreatePropertiesArgs'] key_vault: KeyVault location details of the certificate.
+        :param pulumi.Input[str] password: Password for the Certificate
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if certificate_id is not None:
+            pulumi.set(__self__, "certificate_id", certificate_id)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if key_vault is not None:
+            pulumi.set(__self__, "key_vault", key_vault)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the certificate entity. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @certificate_id.setter
+    def certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_id", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base 64 encoded certificate using the application/x-pkcs12 representation.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]:
+        """
+        KeyVault location details of the certificate.
+        """
+        return pulumi.get(self, "key_vault")
+
+    @key_vault.setter
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]):
+        pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for the Certificate
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
 
 class Certificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +140,39 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Certificate details.
+
+        :param str resource_name: The name of the resource.
+        :param CertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_id: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

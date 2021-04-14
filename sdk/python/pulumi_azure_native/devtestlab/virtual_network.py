@@ -5,16 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetwork']
+__all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
+
+@pulumi.input_type
+class VirtualNetworkArgs:
+    def __init__(__self__, *,
+                 lab_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 allowed_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_provider_resource_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a VirtualNetwork resource.
+        :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] allowed_subnets: The allowed subnets of the virtual network.
+        :param pulumi.Input[str] description: The description of the virtual network.
+        :param pulumi.Input[str] external_provider_resource_id: The Microsoft.Network resource identifier of the virtual network.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] name: The name of the virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]] subnet_overrides: The subnet overrides of the virtual network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        """
+        pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allowed_subnets is not None:
+            pulumi.set(__self__, "allowed_subnets", allowed_subnets)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_provider_resource_id is not None:
+            pulumi.set(__self__, "external_provider_resource_id", external_provider_resource_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet_overrides is not None:
+            pulumi.set(__self__, "subnet_overrides", subnet_overrides)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[str]:
+        """
+        The name of the lab.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowedSubnets")
+    def allowed_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+        """
+        The allowed subnets of the virtual network.
+        """
+        return pulumi.get(self, "allowed_subnets")
+
+    @allowed_subnets.setter
+    def allowed_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+        pulumi.set(self, "allowed_subnets", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the virtual network.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="externalProviderResourceId")
+    def external_provider_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Microsoft.Network resource identifier of the virtual network.
+        """
+        return pulumi.get(self, "external_provider_resource_id")
+
+    @external_provider_resource_id.setter
+    def external_provider_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_provider_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subnetOverrides")
+    def subnet_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]]]:
+        """
+        The subnet overrides of the virtual network.
+        """
+        return pulumi.get(self, "subnet_overrides")
+
+    @subnet_overrides.setter
+    def subnet_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]]]):
+        pulumi.set(self, "subnet_overrides", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class VirtualNetwork(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +196,43 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualNetworkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A virtual network.
+        API Version: 2018-09-15.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_provider_resource_id: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

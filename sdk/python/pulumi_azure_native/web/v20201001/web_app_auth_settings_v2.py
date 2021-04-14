@@ -5,16 +5,130 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WebAppAuthSettingsV2']
+__all__ = ['WebAppAuthSettingsV2Args', 'WebAppAuthSettingsV2']
+
+@pulumi.input_type
+class WebAppAuthSettingsV2Args:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
+                 http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
+                 identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['LoginArgs']] = None,
+                 platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
+        """
+        The set of arguments for constructing a WebAppAuthSettingsV2 resource.
+        :param pulumi.Input[str] name: Name of web app.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if global_validation is not None:
+            pulumi.set(__self__, "global_validation", global_validation)
+        if http_settings is not None:
+            pulumi.set(__self__, "http_settings", http_settings)
+        if identity_providers is not None:
+            pulumi.set(__self__, "identity_providers", identity_providers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of web app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="globalValidation")
+    def global_validation(self) -> Optional[pulumi.Input['GlobalValidationArgs']]:
+        return pulumi.get(self, "global_validation")
+
+    @global_validation.setter
+    def global_validation(self, value: Optional[pulumi.Input['GlobalValidationArgs']]):
+        pulumi.set(self, "global_validation", value)
+
+    @property
+    @pulumi.getter(name="httpSettings")
+    def http_settings(self) -> Optional[pulumi.Input['HttpSettingsArgs']]:
+        return pulumi.get(self, "http_settings")
+
+    @http_settings.setter
+    def http_settings(self, value: Optional[pulumi.Input['HttpSettingsArgs']]):
+        pulumi.set(self, "http_settings", value)
+
+    @property
+    @pulumi.getter(name="identityProviders")
+    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersArgs']]:
+        return pulumi.get(self, "identity_providers")
+
+    @identity_providers.setter
+    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersArgs']]):
+        pulumi.set(self, "identity_providers", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['LoginArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['LoginArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['AuthPlatformArgs']]:
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['AuthPlatformArgs']]):
+        pulumi.set(self, "platform", value)
 
 
 class WebAppAuthSettingsV2(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +151,40 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of web app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAppAuthSettingsV2Args,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a WebAppAuthSettingsV2 resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param WebAppAuthSettingsV2Args args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppAuthSettingsV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
+                 http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
+                 identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

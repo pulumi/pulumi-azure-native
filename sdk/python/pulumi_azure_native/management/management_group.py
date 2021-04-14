@@ -5,15 +5,87 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagementGroup']
+__all__ = ['ManagementGroupArgs', 'ManagementGroup']
+
+@pulumi.input_type
+class ManagementGroupArgs:
+    def __init__(__self__, *,
+                 details: Optional[pulumi.Input['CreateManagementGroupDetailsArgs']] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ManagementGroup resource.
+        :param pulumi.Input['CreateManagementGroupDetailsArgs'] details: The details of a management group used during creation.
+        :param pulumi.Input[str] display_name: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+        :param pulumi.Input[str] group_id: Management Group ID.
+        :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        """
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input['CreateManagementGroupDetailsArgs']]:
+        """
+        The details of a management group used during creation.
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input['CreateManagementGroupDetailsArgs']]):
+        pulumi.set(self, "details", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Management Group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ManagementGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +107,38 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ManagementGroupArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The management group details.
+        API Version: 2020-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param ManagementGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagementGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 details: Optional[pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:synapse/v20200401preview:SqlDatabase":
-		r, err = NewSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlDatabase{}
 	case "azure-native:synapse/v20200401preview:SqlPoolsV3":
-		r, err = NewSqlPoolsV3(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlPoolsV3{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

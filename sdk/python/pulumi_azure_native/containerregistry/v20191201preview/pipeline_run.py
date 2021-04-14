@@ -5,16 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PipelineRun']
+__all__ = ['PipelineRunArgs', 'PipelineRun']
+
+@pulumi.input_type
+class PipelineRunArgs:
+    def __init__(__self__, *,
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 pipeline_run_name: Optional[pulumi.Input[str]] = None,
+                 request: Optional[pulumi.Input['PipelineRunRequestArgs']] = None):
+        """
+        The set of arguments for constructing a PipelineRun resource.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+        :param pulumi.Input[str] pipeline_run_name: The name of the pipeline run.
+        :param pulumi.Input['PipelineRunRequestArgs'] request: The request parameters for a pipeline run.
+        """
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if pipeline_run_name is not None:
+            pulumi.set(__self__, "pipeline_run_name", pipeline_run_name)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @force_update_tag.setter
+    def force_update_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "force_update_tag", value)
+
+    @property
+    @pulumi.getter(name="pipelineRunName")
+    def pipeline_run_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline run.
+        """
+        return pulumi.get(self, "pipeline_run_name")
+
+    @pipeline_run_name.setter
+    def pipeline_run_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_run_name", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional[pulumi.Input['PipelineRunRequestArgs']]:
+        """
+        The request parameters for a pipeline run.
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: Optional[pulumi.Input['PipelineRunRequestArgs']]):
+        pulumi.set(self, "request", value)
 
 
 class PipelineRun(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +123,38 @@ class PipelineRun(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PipelineRunRequestArgs']] request: The request parameters for a pipeline run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PipelineRunArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An object that represents a pipeline run for a container registry.
+
+        :param str resource_name: The name of the resource.
+        :param PipelineRunArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PipelineRunArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 pipeline_run_name: Optional[pulumi.Input[str]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 request: Optional[pulumi.Input[pulumi.InputType['PipelineRunRequestArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

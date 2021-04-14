@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20200630:Disk":
-		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &Disk{}
 	case "azure-native:compute/v20200630:DiskAccess":
-		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskAccess{}
 	case "azure-native:compute/v20200630:DiskEncryptionSet":
-		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskEncryptionSet{}
 	case "azure-native:compute/v20200630:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

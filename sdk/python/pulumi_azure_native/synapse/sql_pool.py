@@ -5,16 +5,278 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SqlPool']
+__all__ = ['SqlPoolArgs', 'SqlPool']
+
+@pulumi.input_type
+class SqlPoolArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 collation: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 recoverable_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 source_database_id: Optional[pulumi.Input[str]] = None,
+                 sql_pool_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SqlPool resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] collation: Collation mode
+        :param pulumi.Input[str] create_mode: What is this?
+        :param pulumi.Input[str] creation_date: Date the SQL pool was created
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[float] max_size_bytes: Maximum size in bytes
+        :param pulumi.Input[str] provisioning_state: Resource state
+        :param pulumi.Input[str] recoverable_database_id: Backup database to restore from
+        :param pulumi.Input[str] restore_point_in_time: Snapshot time to restore
+        :param pulumi.Input['SkuArgs'] sku: SQL pool SKU
+        :param pulumi.Input[str] source_database_id: Source database to create from
+        :param pulumi.Input[str] sql_pool_name: SQL pool name
+        :param pulumi.Input[str] status: Resource status
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this sql pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_size_bytes is not None:
+            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if recoverable_database_id is not None:
+            pulumi.set(__self__, "recoverable_database_id", recoverable_database_id)
+        if restore_point_in_time is not None:
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if source_database_id is not None:
+            pulumi.set(__self__, "source_database_id", source_database_id)
+        if sql_pool_name is not None:
+            pulumi.set(__self__, "sql_pool_name", sql_pool_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter
+    def collation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Collation mode
+        """
+        return pulumi.get(self, "collation")
+
+    @collation.setter
+    def collation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collation", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        What is this?
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the SQL pool was created
+        """
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxSizeBytes")
+    def max_size_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum size in bytes
+        """
+        return pulumi.get(self, "max_size_bytes")
+
+    @max_size_bytes.setter
+    def max_size_bytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_size_bytes", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="recoverableDatabaseId")
+    def recoverable_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup database to restore from
+        """
+        return pulumi.get(self, "recoverable_database_id")
+
+    @recoverable_database_id.setter
+    def recoverable_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recoverable_database_id", value)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Snapshot time to restore
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @restore_point_in_time.setter
+    def restore_point_in_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_point_in_time", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        SQL pool SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source database to create from
+        """
+        return pulumi.get(self, "source_database_id")
+
+    @source_database_id.setter
+    def source_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_database_id", value)
+
+    @property
+    @pulumi.getter(name="sqlPoolName")
+    def sql_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        SQL pool name
+        """
+        return pulumi.get(self, "sql_pool_name")
+
+    @sql_pool_name.setter
+    def sql_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource status
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
+        """
+        The storage account type used to store backups for this sql pool.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SqlPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +322,50 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A SQL Analytics pool
+        API Version: 2021-03-01.
+
+        :param str resource_name: The name of the resource.
+        :param SqlPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 collation: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 recoverable_database_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_database_id: Optional[pulumi.Input[str]] = None,
+                 sql_pool_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

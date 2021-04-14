@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['BackupVault']
+__all__ = ['BackupVaultArgs', 'BackupVault']
+
+@pulumi.input_type
+class BackupVaultArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]],
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['DppIdentityDetailsArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BackupVault resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]] storage_settings: Storage Settings
+        :param pulumi.Input[str] e_tag: Optional ETag.
+        :param pulumi.Input['DppIdentityDetailsArgs'] identity: Input Managed Identity Details
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] vault_name: The name of the backup vault.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_settings", storage_settings)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vault_name is not None:
+            pulumi.set(__self__, "vault_name", vault_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the backup vault is present.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageSettings")
+    def storage_settings(self) -> pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]:
+        """
+        Storage Settings
+        """
+        return pulumi.get(self, "storage_settings")
+
+    @storage_settings.setter
+    def storage_settings(self, value: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]):
+        pulumi.set(self, "storage_settings", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional ETag.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DppIdentityDetailsArgs']]:
+        """
+        Input Managed Identity Details
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DppIdentityDetailsArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the backup vault.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_name", value)
 
 
 class BackupVault(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +160,41 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BackupVaultArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Backup Vault Resource
+        API Version: 2021-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param BackupVaultArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BackupVaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSettingArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

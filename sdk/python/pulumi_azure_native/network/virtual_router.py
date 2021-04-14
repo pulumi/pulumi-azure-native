@@ -5,15 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualRouter']
+__all__ = ['VirtualRouterArgs', 'VirtualRouter']
+
+@pulumi.input_type
+class VirtualRouterArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 hosted_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 hosted_subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_router_asn: Optional[pulumi.Input[float]] = None,
+                 virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_router_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualRouter resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['SubResourceArgs'] hosted_gateway: The Gateway on which VirtualRouter is hosted.
+        :param pulumi.Input['SubResourceArgs'] hosted_subnet: The Subnet on which VirtualRouter is hosted.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
+        :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if hosted_gateway is not None:
+            pulumi.set(__self__, "hosted_gateway", hosted_gateway)
+        if hosted_subnet is not None:
+            pulumi.set(__self__, "hosted_subnet", hosted_subnet)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_router_asn is not None:
+            pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+        if virtual_router_ips is not None:
+            pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+        if virtual_router_name is not None:
+            pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="hostedGateway")
+    def hosted_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The Gateway on which VirtualRouter is hosted.
+        """
+        return pulumi.get(self, "hosted_gateway")
+
+    @hosted_gateway.setter
+    def hosted_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "hosted_gateway", value)
+
+    @property
+    @pulumi.getter(name="hostedSubnet")
+    def hosted_subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The Subnet on which VirtualRouter is hosted.
+        """
+        return pulumi.get(self, "hosted_subnet")
+
+    @hosted_subnet.setter
+    def hosted_subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "hosted_subnet", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualRouterAsn")
+    def virtual_router_asn(self) -> Optional[pulumi.Input[float]]:
+        """
+        VirtualRouter ASN.
+        """
+        return pulumi.get(self, "virtual_router_asn")
+
+    @virtual_router_asn.setter
+    def virtual_router_asn(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "virtual_router_asn", value)
+
+    @property
+    @pulumi.getter(name="virtualRouterIps")
+    def virtual_router_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        VirtualRouter IPs.
+        """
+        return pulumi.get(self, "virtual_router_ips")
+
+    @virtual_router_ips.setter
+    def virtual_router_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "virtual_router_ips", value)
+
+    @property
+    @pulumi.getter(name="virtualRouterName")
+    def virtual_router_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Virtual Router.
+        """
+        return pulumi.get(self, "virtual_router_name")
+
+    @virtual_router_name.setter
+    def virtual_router_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_router_name", value)
 
 
 class VirtualRouter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +196,43 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualRouterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        VirtualRouter Resource.
+        API Version: 2020-08-01.
+
+        :param str resource_name: The name of the resource.
+        :param VirtualRouterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualRouterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hosted_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 hosted_subnet: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_router_asn: Optional[pulumi.Input[float]] = None,
+                 virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_router_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

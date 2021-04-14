@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:costmanagement:CloudConnector":
-		r, err = NewCloudConnector(ctx, name, nil, pulumi.URN_(urn))
+		r = &CloudConnector{}
 	case "azure-native:costmanagement:CostAllocationRule":
-		r, err = NewCostAllocationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &CostAllocationRule{}
 	case "azure-native:costmanagement:Export":
-		r, err = NewExport(ctx, name, nil, pulumi.URN_(urn))
+		r = &Export{}
 	case "azure-native:costmanagement:Report":
-		r, err = NewReport(ctx, name, nil, pulumi.URN_(urn))
+		r = &Report{}
 	case "azure-native:costmanagement:ReportByBillingAccount":
-		r, err = NewReportByBillingAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReportByBillingAccount{}
 	case "azure-native:costmanagement:ReportByDepartment":
-		r, err = NewReportByDepartment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReportByDepartment{}
 	case "azure-native:costmanagement:ReportByResourceGroupName":
-		r, err = NewReportByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReportByResourceGroupName{}
 	case "azure-native:costmanagement:Setting":
-		r, err = NewSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &Setting{}
 	case "azure-native:costmanagement:View":
-		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
+		r = &View{}
 	case "azure-native:costmanagement:ViewByScope":
-		r, err = NewViewByScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &ViewByScope{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

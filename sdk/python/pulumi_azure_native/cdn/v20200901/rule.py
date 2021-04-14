@@ -5,16 +5,147 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Rule']
+__all__ = ['RuleArgs', 'Rule']
+
+@pulumi.input_type
+class RuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]],
+                 order: pulumi.Input[int],
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 rule_set_name: pulumi.Input[str],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
+                 match_processing_behavior: Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Rule resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
+        :param pulumi.Input[Union[str, 'MatchProcessingBehavior']] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+        :param pulumi.Input[str] rule_name: Name of the delivery rule which is unique within the endpoint.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rule_set_name", rule_set_name)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if match_processing_behavior is not None:
+            pulumi.set(__self__, "match_processing_behavior", match_processing_behavior)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]:
+        """
+        A list of actions that are executed when all the conditions of a rule are satisfied.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CDN profile which is unique within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="ruleSetName")
+    def rule_set_name(self) -> pulumi.Input[str]:
+        """
+        Name of the rule set under the profile.
+        """
+        return pulumi.get(self, "rule_set_name")
+
+    @rule_set_name.setter
+    def rule_set_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_set_name", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+        """
+        A list of conditions that must be matched for the actions to be executed
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter(name="matchProcessingBehavior")
+    def match_processing_behavior(self) -> Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]]:
+        """
+        If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+        """
+        return pulumi.get(self, "match_processing_behavior")
+
+    @match_processing_behavior.setter
+    def match_processing_behavior(self, value: Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]]):
+        pulumi.set(self, "match_processing_behavior", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the delivery rule which is unique within the endpoint.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 class Rule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +174,41 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: Name of the delivery rule which is unique within the endpoint.
         :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Friendly Rules name mapping to the any Rules or secret related information.
+
+        :param str resource_name: The name of the resource.
+        :param RuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCacheExpirationActionArgs'], pulumi.InputType['DeliveryRuleCacheKeyQueryStringActionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderActionArgs'], pulumi.InputType['DeliveryRuleResponseHeaderActionArgs'], pulumi.InputType['OriginGroupOverrideActionArgs'], pulumi.InputType['UrlRedirectActionArgs'], pulumi.InputType['UrlRewriteActionArgs'], pulumi.InputType['UrlSigningActionArgs']]]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCookiesConditionArgs'], pulumi.InputType['DeliveryRuleHttpVersionConditionArgs'], pulumi.InputType['DeliveryRuleIsDeviceConditionArgs'], pulumi.InputType['DeliveryRulePostArgsConditionArgs'], pulumi.InputType['DeliveryRuleQueryStringConditionArgs'], pulumi.InputType['DeliveryRuleRemoteAddressConditionArgs'], pulumi.InputType['DeliveryRuleRequestBodyConditionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderConditionArgs'], pulumi.InputType['DeliveryRuleRequestMethodConditionArgs'], pulumi.InputType['DeliveryRuleRequestSchemeConditionArgs'], pulumi.InputType['DeliveryRuleRequestUriConditionArgs'], pulumi.InputType['DeliveryRuleUrlFileExtensionConditionArgs'], pulumi.InputType['DeliveryRuleUrlFileNameConditionArgs'], pulumi.InputType['DeliveryRuleUrlPathConditionArgs']]]]]] = None,
+                 match_processing_behavior: Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 rule_set_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

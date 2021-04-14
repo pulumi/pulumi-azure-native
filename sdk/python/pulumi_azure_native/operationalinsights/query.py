@@ -5,15 +5,163 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Query']
+__all__ = ['QueryArgs', 'Query']
+
+@pulumi.input_type
+class QueryArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input[str],
+                 display_name: pulumi.Input[str],
+                 query_pack_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None,
+                 related: Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
+        """
+        The set of arguments for constructing a Query resource.
+        :param pulumi.Input[str] body: Body of the query.
+        :param pulumi.Input[str] display_name: Unique display name for your query within the Query Pack.
+        :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] description: Description of the query.
+        :param pulumi.Input[str] id: The id of a specific query defined in the Log Analytics QueryPack
+        :param Any properties: Additional properties that can be set for the query.
+        :param pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs'] related: The related metadata items for the function.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Tags associated with the query.
+        """
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "query_pack_name", query_pack_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[str]:
+        """
+        Body of the query.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Unique display name for your query within the Query Pack.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="queryPackName")
+    def query_pack_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Log Analytics QueryPack resource.
+        """
+        return pulumi.get(self, "query_pack_name")
+
+    @query_pack_name.setter
+    def query_pack_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query_pack_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the query.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of a specific query defined in the Log Analytics QueryPack
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Any]:
+        """
+        Additional properties that can be set for the query.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[Any]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]:
+        """
+        The related metadata items for the function.
+        """
+        return pulumi.get(self, "related")
+
+    @related.setter
+    def related(self, value: Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]):
+        pulumi.set(self, "related", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
+        """
+        Tags associated with the query.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Query(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +193,43 @@ class Query(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Tags associated with the query.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: QueryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A Log Analytics QueryPack-Query definition.
+        API Version: 2019-09-01-preview.
+
+        :param str resource_name: The name of the resource.
+        :param QueryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(QueryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None,
+                 query_pack_name: Optional[pulumi.Input[str]] = None,
+                 related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,16 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ExportPipeline']
+__all__ = ['ExportPipelineArgs', 'ExportPipeline']
+
+@pulumi.input_type
+class ExportPipelineArgs:
+    def __init__(__self__, *,
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 target: pulumi.Input['ExportPipelineTargetPropertiesArgs'],
+                 export_pipeline_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]] = None):
+        """
+        The set of arguments for constructing a ExportPipeline resource.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input['ExportPipelineTargetPropertiesArgs'] target: The target properties of the export pipeline.
+        :param pulumi.Input[str] export_pipeline_name: The name of the export pipeline.
+        :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the export pipeline.
+        :param pulumi.Input[str] location: The location of the export pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
+        """
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target", target)
+        if export_pipeline_name is not None:
+            pulumi.set(__self__, "export_pipeline_name", export_pipeline_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['ExportPipelineTargetPropertiesArgs']:
+        """
+        The target properties of the export pipeline.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['ExportPipelineTargetPropertiesArgs']):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="exportPipelineName")
+    def export_pipeline_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the export pipeline.
+        """
+        return pulumi.get(self, "export_pipeline_name")
+
+    @export_pipeline_name.setter
+    def export_pipeline_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_pipeline_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+        """
+        The identity of the export pipeline.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the export pipeline.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]]:
+        """
+        The list of all options configured for the pipeline.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]]):
+        pulumi.set(self, "options", value)
 
 
 class ExportPipeline(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +158,40 @@ class ExportPipeline(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['ExportPipelineTargetPropertiesArgs']] target: The target properties of the export pipeline.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExportPipelineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An object that represents an export pipeline for a container registry.
+
+        :param str resource_name: The name of the resource.
+        :param ExportPipelineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExportPipelineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 export_pipeline_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[pulumi.InputType['ExportPipelineTargetPropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

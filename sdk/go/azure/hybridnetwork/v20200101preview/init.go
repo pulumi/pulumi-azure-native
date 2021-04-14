@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:hybridnetwork/v20200101preview:Device":
-		r, err = NewDevice(ctx, name, nil, pulumi.URN_(urn))
+		r = &Device{}
 	case "azure-native:hybridnetwork/v20200101preview:NetworkFunction":
-		r, err = NewNetworkFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkFunction{}
 	case "azure-native:hybridnetwork/v20200101preview:Vendor":
-		r, err = NewVendor(ctx, name, nil, pulumi.URN_(urn))
+		r = &Vendor{}
 	case "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview":
-		r, err = NewVendorSkuPreview(ctx, name, nil, pulumi.URN_(urn))
+		r = &VendorSkuPreview{}
 	case "azure-native:hybridnetwork/v20200101preview:VendorSkus":
-		r, err = NewVendorSkus(ctx, name, nil, pulumi.URN_(urn))
+		r = &VendorSkus{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

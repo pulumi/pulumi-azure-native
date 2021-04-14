@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:datafactory/v20170901preview:Dataset":
-		r, err = NewDataset(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dataset{}
 	case "azure-native:datafactory/v20170901preview:Factory":
-		r, err = NewFactory(ctx, name, nil, pulumi.URN_(urn))
+		r = &Factory{}
 	case "azure-native:datafactory/v20170901preview:IntegrationRuntime":
-		r, err = NewIntegrationRuntime(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationRuntime{}
 	case "azure-native:datafactory/v20170901preview:LinkedService":
-		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedService{}
 	case "azure-native:datafactory/v20170901preview:Pipeline":
-		r, err = NewPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pipeline{}
 	case "azure-native:datafactory/v20170901preview:Trigger":
-		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Trigger{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

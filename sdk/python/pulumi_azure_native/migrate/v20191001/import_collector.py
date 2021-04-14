@@ -5,15 +5,93 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ImportCollector']
+__all__ = ['ImportCollectorArgs', 'ImportCollector']
+
+@pulumi.input_type
+class ImportCollectorArgs:
+    def __init__(__self__, *,
+                 project_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 import_collector_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ImportCollectorPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a ImportCollector resource.
+        :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
+        :param pulumi.Input[str] import_collector_name: Unique name of a Import collector within a project.
+        """
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if import_collector_name is not None:
+            pulumi.set(__self__, "import_collector_name", import_collector_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Azure Migrate project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Azure Resource Group that project is part of.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter(name="importCollectorName")
+    def import_collector_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of a Import collector within a project.
+        """
+        return pulumi.get(self, "import_collector_name")
+
+    @import_collector_name.setter
+    def import_collector_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "import_collector_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ImportCollectorPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ImportCollectorPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class ImportCollector(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +111,37 @@ class ImportCollector(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImportCollectorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a ImportCollector resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param ImportCollectorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImportCollectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 import_collector_name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ImportCollectorPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

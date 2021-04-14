@@ -5,16 +5,247 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LoadBalancer']
+__all__ = ['LoadBalancerArgs', 'LoadBalancer']
+
+@pulumi.input_type
+class LoadBalancerArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIpConfigurationArgs']]]] = None,
+                 inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundNatRuleArgs']]]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a LoadBalancer resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]] backend_address_pools: Gets or sets Pools of backend IP addresses
+        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
+        :param pulumi.Input[Sequence[pulumi.Input['FrontendIpConfigurationArgs']]] frontend_ip_configurations: Gets or sets frontend IP addresses of the load balancer
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]] inbound_nat_pools: Gets or sets inbound NAT pools
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]] inbound_nat_rules: Gets or sets list of inbound rules
+        :param pulumi.Input[str] load_balancer_name: The name of the loadBalancer.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Gets or sets load balancing rules
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[Sequence[pulumi.Input['OutboundNatRuleArgs']]] outbound_nat_rules: Gets or sets outbound NAT rules
+        :param pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]] probes: Gets or sets list of Load balancer probes
+        :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        :param pulumi.Input[str] resource_guid: Gets or sets resource guid property of the Load balancer resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if frontend_ip_configurations is not None:
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if inbound_nat_pools is not None:
+            pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
+        if inbound_nat_rules is not None:
+            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        if load_balancer_name is not None:
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+        if load_balancing_rules is not None:
+            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if outbound_nat_rules is not None:
+            pulumi.set(__self__, "outbound_nat_rules", outbound_nat_rules)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]]:
+        """
+        Gets or sets Pools of backend IP addresses
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]]):
+        pulumi.set(self, "backend_address_pools", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIpConfigurationArgs']]]]:
+        """
+        Gets or sets frontend IP addresses of the load balancer
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @frontend_ip_configurations.setter
+    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIpConfigurationArgs']]]]):
+        pulumi.set(self, "frontend_ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="inboundNatPools")
+    def inbound_nat_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]]:
+        """
+        Gets or sets inbound NAT pools
+        """
+        return pulumi.get(self, "inbound_nat_pools")
+
+    @inbound_nat_pools.setter
+    def inbound_nat_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]]):
+        pulumi.set(self, "inbound_nat_pools", value)
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]]:
+        """
+        Gets or sets list of inbound rules
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @inbound_nat_rules.setter
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]]):
+        pulumi.set(self, "inbound_nat_rules", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the loadBalancer.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @load_balancer_name.setter
+    def load_balancer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_name", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]:
+        """
+        Gets or sets load balancing rules
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @load_balancing_rules.setter
+    def load_balancing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]):
+        pulumi.set(self, "load_balancing_rules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="outboundNatRules")
+    def outbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OutboundNatRuleArgs']]]]:
+        """
+        Gets or sets outbound NAT rules
+        """
+        return pulumi.get(self, "outbound_nat_rules")
+
+    @outbound_nat_rules.setter
+    def outbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundNatRuleArgs']]]]):
+        pulumi.set(self, "outbound_nat_rules", value)
+
+    @property
+    @pulumi.getter
+    def probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]]:
+        """
+        Gets or sets list of Load balancer probes
+        """
+        return pulumi.get(self, "probes")
+
+    @probes.setter
+    def probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]]):
+        pulumi.set(self, "probes", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets resource guid property of the Load balancer resource
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @resource_guid.setter
+    def resource_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guid", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class LoadBalancer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +286,47 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_guid: Gets or sets resource guid property of the Load balancer resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LoadBalancerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        LoadBalancer resource
+
+        :param str resource_name: The name of the resource.
+        :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIpConfigurationArgs']]]]] = None,
+                 inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]]] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

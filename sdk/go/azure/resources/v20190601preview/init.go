@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:resources/v20190601preview:TemplateSpec":
-		r, err = NewTemplateSpec(ctx, name, nil, pulumi.URN_(urn))
+		r = &TemplateSpec{}
 	case "azure-native:resources/v20190601preview:TemplateSpecVersion":
-		r, err = NewTemplateSpecVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &TemplateSpecVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

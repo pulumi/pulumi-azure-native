@@ -5,15 +5,196 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRouteCircuitConnection']
+__all__ = ['ExpressRouteCircuitConnectionArgs', 'ExpressRouteCircuitConnection']
+
+@pulumi.input_type
+class ExpressRouteCircuitConnectionArgs:
+    def __init__(__self__, *,
+                 circuit_name: pulumi.Input[str],
+                 peering_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipv6_circuit_connection_config: Optional[pulumi.Input['Ipv6CircuitConnectionConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_express_route_circuit_peering: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        The set of arguments for constructing a ExpressRouteCircuitConnection resource.
+        :param pulumi.Input[str] circuit_name: The name of the express route circuit.
+        :param pulumi.Input[str] peering_name: The name of the peering.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
+        :param pulumi.Input[str] authorization_key: The authorization key.
+        :param pulumi.Input[str] connection_name: The name of the express route circuit connection.
+        :param pulumi.Input['SubResourceArgs'] express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input['Ipv6CircuitConnectionConfigArgs'] ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input['SubResourceArgs'] peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        """
+        pulumi.set(__self__, "circuit_name", circuit_name)
+        pulumi.set(__self__, "peering_name", peering_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if express_route_circuit_peering is not None:
+            pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipv6_circuit_connection_config is not None:
+            pulumi.set(__self__, "ipv6_circuit_connection_config", ipv6_circuit_connection_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if peer_express_route_circuit_peering is not None:
+            pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+
+    @property
+    @pulumi.getter(name="circuitName")
+    def circuit_name(self) -> pulumi.Input[str]:
+        """
+        The name of the express route circuit.
+        """
+        return pulumi.get(self, "circuit_name")
+
+    @circuit_name.setter
+    def circuit_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "circuit_name", value)
+
+    @property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> pulumi.Input[str]:
+        """
+        The name of the peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "peering_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        /29 IP address space to carve out Customer addresses for tunnels.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization key.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the express route circuit connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitPeering")
+    def express_route_circuit_peering(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        """
+        return pulumi.get(self, "express_route_circuit_peering")
+
+    @express_route_circuit_peering.setter
+    def express_route_circuit_peering(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "express_route_circuit_peering", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipv6CircuitConnectionConfig")
+    def ipv6_circuit_connection_config(self) -> Optional[pulumi.Input['Ipv6CircuitConnectionConfigArgs']]:
+        """
+        IPv6 Address PrefixProperties of the express route circuit connection.
+        """
+        return pulumi.get(self, "ipv6_circuit_connection_config")
+
+    @ipv6_circuit_connection_config.setter
+    def ipv6_circuit_connection_config(self, value: Optional[pulumi.Input['Ipv6CircuitConnectionConfigArgs']]):
+        pulumi.set(self, "ipv6_circuit_connection_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="peerExpressRouteCircuitPeering")
+    def peer_express_route_circuit_peering(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        """
+        return pulumi.get(self, "peer_express_route_circuit_peering")
+
+    @peer_express_route_circuit_peering.setter
+    def peer_express_route_circuit_peering(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "peer_express_route_circuit_peering", value)
 
 
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +229,44 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExpressRouteCircuitConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+
+        :param str resource_name: The name of the resource.
+        :param ExpressRouteCircuitConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipv6_circuit_connection_config: Optional[pulumi.Input[pulumi.InputType['Ipv6CircuitConnectionConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

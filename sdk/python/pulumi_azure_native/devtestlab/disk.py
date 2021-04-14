@@ -5,14 +5,243 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['Disk']
+__all__ = ['DiskArgs', 'Disk']
+
+@pulumi.input_type
+class DiskArgs:
+    def __init__(__self__, *,
+                 lab_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 user_name: pulumi.Input[str],
+                 disk_blob_name: Optional[pulumi.Input[str]] = None,
+                 disk_size_gi_b: Optional[pulumi.Input[int]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+                 disk_uri: Optional[pulumi.Input[str]] = None,
+                 host_caching: Optional[pulumi.Input[str]] = None,
+                 leased_by_lab_vm_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Disk resource.
+        :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] user_name: The name of the user profile.
+        :param pulumi.Input[str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
+        :param pulumi.Input[int] disk_size_gi_b: The size of the disk in Gibibytes.
+        :param pulumi.Input[Union[str, 'StorageType']] disk_type: The storage type for the disk (i.e. Standard, Premium).
+        :param pulumi.Input[str] disk_uri: When backed by a blob, the URI of underlying blob.
+        :param pulumi.Input[str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        :param pulumi.Input[str] leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
+        :param pulumi.Input[str] name: The name of the disk.
+        :param pulumi.Input[str] storage_account_id: When backed by a blob, the storage account where the blob is.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        """
+        pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user_name", user_name)
+        if disk_blob_name is not None:
+            pulumi.set(__self__, "disk_blob_name", disk_blob_name)
+        if disk_size_gi_b is not None:
+            pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
+        if disk_uri is not None:
+            pulumi.set(__self__, "disk_uri", disk_uri)
+        if host_caching is not None:
+            pulumi.set(__self__, "host_caching", host_caching)
+        if leased_by_lab_vm_id is not None:
+            pulumi.set(__self__, "leased_by_lab_vm_id", leased_by_lab_vm_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if managed_disk_id is not None:
+            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[str]:
+        """
+        The name of the lab.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        """
+        The name of the user profile.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter(name="diskBlobName")
+    def disk_blob_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        When backed by a blob, the name of the VHD blob without extension.
+        """
+        return pulumi.get(self, "disk_blob_name")
+
+    @disk_blob_name.setter
+    def disk_blob_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_blob_name", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGiB")
+    def disk_size_gi_b(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the disk in Gibibytes.
+        """
+        return pulumi.get(self, "disk_size_gi_b")
+
+    @disk_size_gi_b.setter
+    def disk_size_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gi_b", value)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'StorageType']]]:
+        """
+        The storage type for the disk (i.e. Standard, Premium).
+        """
+        return pulumi.get(self, "disk_type")
+
+    @disk_type.setter
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'StorageType']]]):
+        pulumi.set(self, "disk_type", value)
+
+    @property
+    @pulumi.getter(name="diskUri")
+    def disk_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        When backed by a blob, the URI of underlying blob.
+        """
+        return pulumi.get(self, "disk_uri")
+
+    @disk_uri.setter
+    def disk_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_uri", value)
+
+    @property
+    @pulumi.getter(name="hostCaching")
+    def host_caching(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        """
+        return pulumi.get(self, "host_caching")
+
+    @host_caching.setter
+    def host_caching(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_caching", value)
+
+    @property
+    @pulumi.getter(name="leasedByLabVmId")
+    def leased_by_lab_vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the VM to which this disk is leased.
+        """
+        return pulumi.get(self, "leased_by_lab_vm_id")
+
+    @leased_by_lab_vm_id.setter
+    def leased_by_lab_vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "leased_by_lab_vm_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        When backed by managed disk, this is the ID of the compute disk resource.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @managed_disk_id.setter
+    def managed_disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_disk_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the disk.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        When backed by a blob, the storage account where the blob is.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Disk(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +283,48 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DiskArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A Disk.
+        API Version: 2018-09-15.
+
+        :param str resource_name: The name of the resource.
+        :param DiskArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disk_blob_name: Optional[pulumi.Input[str]] = None,
+                 disk_size_gi_b: Optional[pulumi.Input[int]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+                 disk_uri: Optional[pulumi.Input[str]] = None,
+                 host_caching: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 leased_by_lab_vm_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

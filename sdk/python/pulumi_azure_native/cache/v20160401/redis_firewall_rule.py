@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['RedisFirewallRule']
+__all__ = ['RedisFirewallRuleArgs', 'RedisFirewallRule']
+
+@pulumi.input_type
+class RedisFirewallRuleArgs:
+    def __init__(__self__, *,
+                 cache_name: pulumi.Input[str],
+                 end_ip: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 start_ip: pulumi.Input[str],
+                 rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RedisFirewallRule resource.
+        :param pulumi.Input[str] cache_name: The name of the Redis cache.
+        :param pulumi.Input[str] end_ip: highest IP address included in the range
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] start_ip: lowest IP address included in the range
+        :param pulumi.Input[str] rule_name: The name of the firewall rule.
+        """
+        pulumi.set(__self__, "cache_name", cache_name)
+        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "start_ip", start_ip)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter(name="cacheName")
+    def cache_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Redis cache.
+        """
+        return pulumi.get(self, "cache_name")
+
+    @cache_name.setter
+    def cache_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cache_name", value)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> pulumi.Input[str]:
+        """
+        highest IP address included in the range
+        """
+        return pulumi.get(self, "end_ip")
+
+    @end_ip.setter
+    def end_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> pulumi.Input[str]:
+        """
+        lowest IP address included in the range
+        """
+        return pulumi.get(self, "start_ip")
+
+    @start_ip.setter
+    def start_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the firewall rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 class RedisFirewallRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +118,38 @@ class RedisFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the firewall rule.
         :param pulumi.Input[str] start_ip: lowest IP address included in the range
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RedisFirewallRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+
+        :param str resource_name: The name of the resource.
+        :param RedisFirewallRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RedisFirewallRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
+                 end_ip: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 start_ip: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

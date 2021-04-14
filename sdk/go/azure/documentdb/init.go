@@ -22,47 +22,48 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:documentdb:CassandraCluster":
-		r, err = NewCassandraCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &CassandraCluster{}
 	case "azure-native:documentdb:CassandraDataCenter":
-		r, err = NewCassandraDataCenter(ctx, name, nil, pulumi.URN_(urn))
+		r = &CassandraDataCenter{}
 	case "azure-native:documentdb:CassandraResourceCassandraKeyspace":
-		r, err = NewCassandraResourceCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &CassandraResourceCassandraKeyspace{}
 	case "azure-native:documentdb:CassandraResourceCassandraTable":
-		r, err = NewCassandraResourceCassandraTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &CassandraResourceCassandraTable{}
 	case "azure-native:documentdb:DatabaseAccount":
-		r, err = NewDatabaseAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseAccount{}
 	case "azure-native:documentdb:GremlinResourceGremlinDatabase":
-		r, err = NewGremlinResourceGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &GremlinResourceGremlinDatabase{}
 	case "azure-native:documentdb:GremlinResourceGremlinGraph":
-		r, err = NewGremlinResourceGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
+		r = &GremlinResourceGremlinGraph{}
 	case "azure-native:documentdb:MongoDBResourceMongoDBCollection":
-		r, err = NewMongoDBResourceMongoDBCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &MongoDBResourceMongoDBCollection{}
 	case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":
-		r, err = NewMongoDBResourceMongoDBDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &MongoDBResourceMongoDBDatabase{}
 	case "azure-native:documentdb:NotebookWorkspace":
-		r, err = NewNotebookWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotebookWorkspace{}
 	case "azure-native:documentdb:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:documentdb:SqlResourceSqlContainer":
-		r, err = NewSqlResourceSqlContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlContainer{}
 	case "azure-native:documentdb:SqlResourceSqlDatabase":
-		r, err = NewSqlResourceSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlDatabase{}
 	case "azure-native:documentdb:SqlResourceSqlRoleAssignment":
-		r, err = NewSqlResourceSqlRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlRoleAssignment{}
 	case "azure-native:documentdb:SqlResourceSqlRoleDefinition":
-		r, err = NewSqlResourceSqlRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlRoleDefinition{}
 	case "azure-native:documentdb:SqlResourceSqlStoredProcedure":
-		r, err = NewSqlResourceSqlStoredProcedure(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlStoredProcedure{}
 	case "azure-native:documentdb:SqlResourceSqlTrigger":
-		r, err = NewSqlResourceSqlTrigger(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlTrigger{}
 	case "azure-native:documentdb:SqlResourceSqlUserDefinedFunction":
-		r, err = NewSqlResourceSqlUserDefinedFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlResourceSqlUserDefinedFunction{}
 	case "azure-native:documentdb:TableResourceTable":
-		r, err = NewTableResourceTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &TableResourceTable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,14 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['MaintenanceConfiguration']
+__all__ = ['MaintenanceConfigurationArgs', 'MaintenanceConfiguration']
+
+@pulumi.input_type
+class MaintenanceConfigurationArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a MaintenanceConfiguration resource.
+        :param pulumi.Input[str] resource_group_name: Resource Group Name
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        :param pulumi.Input[str] location: Gets or sets location of the resource
+        :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+        :param pulumi.Input[str] namespace: Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+        :param pulumi.Input[str] resource_name: Resource Identifier
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets tags of the resource
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if extension_properties is not None:
+            pulumi.set(__self__, "extension_properties", extension_properties)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maintenance_scope is not None:
+            pulumi.set(__self__, "maintenance_scope", maintenance_scope)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Resource Group Name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="extensionProperties")
+    def extension_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        """
+        return pulumi.get(self, "extension_properties")
+
+    @extension_properties.setter
+    def extension_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "extension_properties", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceScope")
+    def maintenance_scope(self) -> Optional[pulumi.Input[Union[str, 'MaintenanceScope']]]:
+        """
+        Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+        """
+        return pulumi.get(self, "maintenance_scope")
+
+    @maintenance_scope.setter
+    def maintenance_scope(self, value: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]]):
+        pulumi.set(self, "maintenance_scope", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Identifier
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets tags of the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class MaintenanceConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +158,40 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: Resource Identifier
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets tags of the resource
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MaintenanceConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Maintenance configuration record type
+
+        :param str resource_name: The name of the resource.
+        :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

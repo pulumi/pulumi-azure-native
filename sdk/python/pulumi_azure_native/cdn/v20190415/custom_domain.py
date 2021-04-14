@@ -5,14 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 
-__all__ = ['CustomDomain']
+__all__ = ['CustomDomainArgs', 'CustomDomain']
+
+@pulumi.input_type
+class CustomDomainArgs:
+    def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[str],
+                 host_name: pulumi.Input[str],
+                 profile_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 custom_domain_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a CustomDomain resource.
+        :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
+        :param pulumi.Input[str] host_name: The host name of the custom domain. Must be a domain name.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] custom_domain_name: Name of the custom domain within an endpoint.
+        """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if custom_domain_name is not None:
+            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        Name of the endpoint under the profile which is unique globally.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The host name of the custom domain. Must be a domain name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CDN profile which is unique within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the custom domain within an endpoint.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @custom_domain_name.setter
+    def custom_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_domain_name", value)
 
 
 class CustomDomain(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +119,38 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CustomDomainArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+
+        :param str resource_name: The name of the resource.
+        :param CustomDomainArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_domain_name: Optional[pulumi.Input[str]] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

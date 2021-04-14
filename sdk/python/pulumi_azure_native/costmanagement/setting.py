@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Setting']
+__all__ = ['SettingArgs', 'Setting']
+
+@pulumi.input_type
+class SettingArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 cache: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]] = None,
+                 setting_name: Optional[pulumi.Input[str]] = None,
+                 start_on: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Setting resource.
+        :param pulumi.Input[str] scope: Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        :param pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
+        :param pulumi.Input[str] setting_name: Name of the setting. Allowed values: myscope
+        :param pulumi.Input[str] start_on: Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if cache is not None:
+            pulumi.set(__self__, "cache", cache)
+        if setting_name is not None:
+            pulumi.set(__self__, "setting_name", setting_name)
+        if start_on is not None:
+            pulumi.set(__self__, "start_on", start_on)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def cache(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]]:
+        """
+        Array of scopes with additional details used by Cost Management in the Azure portal.
+        """
+        return pulumi.get(self, "cache")
+
+    @cache.setter
+    def cache(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]]):
+        pulumi.set(self, "cache", value)
+
+    @property
+    @pulumi.getter(name="settingName")
+    def setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the setting. Allowed values: myscope
+        """
+        return pulumi.get(self, "setting_name")
+
+    @setting_name.setter
+    def setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "setting_name", value)
+
+    @property
+    @pulumi.getter(name="startOn")
+    def start_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+        """
+        return pulumi.get(self, "start_on")
+
+    @start_on.setter
+    def start_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_on", value)
 
 
 class Setting(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +106,38 @@ class Setting(pulumi.CustomResource):
         :param pulumi.Input[str] setting_name: Name of the setting. Allowed values: myscope
         :param pulumi.Input[str] start_on: Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SettingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        State of the myscope setting.
+        API Version: 2019-11-01.
+
+        :param str resource_name: The name of the resource.
+        :param SettingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cache: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsPropertiesCacheArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 setting_name: Optional[pulumi.Input[str]] = None,
+                 start_on: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

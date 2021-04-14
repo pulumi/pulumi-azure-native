@@ -5,16 +5,182 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Cluster']
+__all__ = ['ClusterArgs', 'Cluster']
+
+@pulumi.input_type
+class ClusterArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 user_account_settings: pulumi.Input['UserAccountSettingsArgs'],
+                 vm_size: pulumi.Input[str],
+                 workspace_name: pulumi.Input[str],
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 node_setup: Optional[pulumi.Input['NodeSetupArgs']] = None,
+                 scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
+                 subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
+                 virtual_machine_configuration: Optional[pulumi.Input['VirtualMachineConfigurationArgs']] = None,
+                 vm_priority: Optional[pulumi.Input['VmPriority']] = None):
+        """
+        The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input['UserAccountSettingsArgs'] user_account_settings: Settings for an administrator user account that will be created on each compute node in the cluster.
+        :param pulumi.Input[str] vm_size: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        :param pulumi.Input[str] cluster_name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        :param pulumi.Input['NodeSetupArgs'] node_setup: Setup to be performed on each compute node in the cluster.
+        :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+        :param pulumi.Input['ResourceIdArgs'] subnet: Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+        :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+        :param pulumi.Input['VmPriority'] vm_priority: VM priority. Allowed values are: dedicated (default) and lowpriority.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user_account_settings", user_account_settings)
+        pulumi.set(__self__, "vm_size", vm_size)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if node_setup is not None:
+            pulumi.set(__self__, "node_setup", node_setup)
+        if scale_settings is not None:
+            pulumi.set(__self__, "scale_settings", scale_settings)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if virtual_machine_configuration is not None:
+            pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
+        if vm_priority is None:
+            vm_priority = 'dedicated'
+        if vm_priority is not None:
+            pulumi.set(__self__, "vm_priority", vm_priority)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="userAccountSettings")
+    def user_account_settings(self) -> pulumi.Input['UserAccountSettingsArgs']:
+        """
+        Settings for an administrator user account that will be created on each compute node in the cluster.
+        """
+        return pulumi.get(self, "user_account_settings")
+
+    @user_account_settings.setter
+    def user_account_settings(self, value: pulumi.Input['UserAccountSettingsArgs']):
+        pulumi.set(self, "user_account_settings", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[str]:
+        """
+        The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="nodeSetup")
+    def node_setup(self) -> Optional[pulumi.Input['NodeSetupArgs']]:
+        """
+        Setup to be performed on each compute node in the cluster.
+        """
+        return pulumi.get(self, "node_setup")
+
+    @node_setup.setter
+    def node_setup(self, value: Optional[pulumi.Input['NodeSetupArgs']]):
+        pulumi.set(self, "node_setup", value)
+
+    @property
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional[pulumi.Input['ScaleSettingsArgs']]:
+        """
+        Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+        """
+        return pulumi.get(self, "scale_settings")
+
+    @scale_settings.setter
+    def scale_settings(self, value: Optional[pulumi.Input['ScaleSettingsArgs']]):
+        pulumi.set(self, "scale_settings", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['ResourceIdArgs']]:
+        """
+        Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['ResourceIdArgs']]):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineConfiguration")
+    def virtual_machine_configuration(self) -> Optional[pulumi.Input['VirtualMachineConfigurationArgs']]:
+        """
+        OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+        """
+        return pulumi.get(self, "virtual_machine_configuration")
+
+    @virtual_machine_configuration.setter
+    def virtual_machine_configuration(self, value: Optional[pulumi.Input['VirtualMachineConfigurationArgs']]):
+        pulumi.set(self, "virtual_machine_configuration", value)
+
+    @property
+    @pulumi.getter(name="vmPriority")
+    def vm_priority(self) -> Optional[pulumi.Input['VmPriority']]:
+        """
+        VM priority. Allowed values are: dedicated (default) and lowpriority.
+        """
+        return pulumi.get(self, "vm_priority")
+
+    @vm_priority.setter
+    def vm_priority(self, value: Optional[pulumi.Input['VmPriority']]):
+        pulumi.set(self, "vm_priority", value)
 
 
 class Cluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +214,44 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] vm_size: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Information about a Cluster.
+        API Version: 2018-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 node_setup: Optional[pulumi.Input[pulumi.InputType['NodeSetupArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
+                 subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
+                 user_account_settings: Optional[pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']]] = None,
+                 virtual_machine_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']]] = None,
+                 vm_priority: Optional[pulumi.Input['VmPriority']] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

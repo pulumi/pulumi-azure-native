@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName":
-		r, err = NewSoftwareUpdateConfigurationByName(ctx, name, nil, pulumi.URN_(urn))
+		r = &SoftwareUpdateConfigurationByName{}
 	case "azure-native:automation/v20170515preview:SourceControl":
-		r, err = NewSourceControl(ctx, name, nil, pulumi.URN_(urn))
+		r = &SourceControl{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

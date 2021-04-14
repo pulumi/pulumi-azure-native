@@ -5,14 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from ._enums import *
 
-__all__ = ['GeoBackupPolicy']
+__all__ = ['GeoBackupPolicyArgs', 'GeoBackupPolicy']
+
+@pulumi.input_type
+class GeoBackupPolicyArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 state: pulumi.Input['GeoBackupPolicyState'],
+                 geo_backup_policy_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a GeoBackupPolicy resource.
+        :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
+        :param pulumi.Input[str] geo_backup_policy_name: The name of the geo backup policy.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "state", state)
+        if geo_backup_policy_name is not None:
+            pulumi.set(__self__, "geo_backup_policy_name", geo_backup_policy_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['GeoBackupPolicyState']:
+        """
+        The state of the geo backup policy.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['GeoBackupPolicyState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="geoBackupPolicyName")
+    def geo_backup_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the geo backup policy.
+        """
+        return pulumi.get(self, "geo_backup_policy_name")
+
+    @geo_backup_policy_name.setter
+    def geo_backup_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "geo_backup_policy_name", value)
 
 
 class GeoBackupPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +119,38 @@ class GeoBackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GeoBackupPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A database geo backup policy.
+
+        :param str resource_name: The name of the resource.
+        :param GeoBackupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GeoBackupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 geo_backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

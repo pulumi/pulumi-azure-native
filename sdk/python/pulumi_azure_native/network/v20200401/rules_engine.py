@@ -5,16 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['RulesEngine']
+__all__ = ['RulesEngineArgs', 'RulesEngine']
+
+@pulumi.input_type
+class RulesEngineArgs:
+    def __init__(__self__, *,
+                 front_door_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
+                 rules_engine_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RulesEngine resource.
+        :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A list of rules that define a particular Rules Engine Configuration.
+        :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
+        """
+        pulumi.set(__self__, "front_door_name", front_door_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if rules_engine_name is not None:
+            pulumi.set(__self__, "rules_engine_name", rules_engine_name)
+
+    @property
+    @pulumi.getter(name="frontDoorName")
+    def front_door_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Front Door which is globally unique.
+        """
+        return pulumi.get(self, "front_door_name")
+
+    @front_door_name.setter
+    def front_door_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "front_door_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Resource group within the Azure subscription.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]:
+        """
+        A list of rules that define a particular Rules Engine Configuration.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter(name="rulesEngineName")
+    def rules_engine_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Rules Engine which is unique within the Front Door.
+        """
+        return pulumi.get(self, "rules_engine_name")
+
+    @rules_engine_name.setter
+    def rules_engine_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rules_engine_name", value)
 
 
 class RulesEngine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +105,37 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
         :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RulesEngineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+
+        :param str resource_name: The name of the resource.
+        :param RulesEngineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RulesEngineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 front_door_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
+                 rules_engine_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

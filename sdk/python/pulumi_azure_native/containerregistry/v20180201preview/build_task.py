@@ -5,16 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['BuildTask']
+__all__ = ['BuildTaskArgs', 'BuildTask']
+
+@pulumi.input_type
+class BuildTaskArgs:
+    def __init__(__self__, *,
+                 alias: pulumi.Input[str],
+                 platform: pulumi.Input['PlatformPropertiesArgs'],
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 source_repository: pulumi.Input['SourceRepositoryPropertiesArgs'],
+                 build_task_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'BuildTaskStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a BuildTask resource.
+        :param pulumi.Input[str] alias: The alternative updatable name for a build task.
+        :param pulumi.Input['PlatformPropertiesArgs'] platform: The platform properties against which the build has to happen.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input['SourceRepositoryPropertiesArgs'] source_repository: The properties that describes the source(code) for the build task.
+        :param pulumi.Input[str] build_task_name: The name of the container registry build task.
+        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[Union[str, 'BuildTaskStatus']] status: The current status of build task.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[int] timeout: Build timeout in seconds.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source_repository", source_repository)
+        if build_task_name is not None:
+            pulumi.set(__self__, "build_task_name", build_task_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timeout is None:
+            timeout = 3600
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[str]:
+        """
+        The alternative updatable name for a build task.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Input['PlatformPropertiesArgs']:
+        """
+        The platform properties against which the build has to happen.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: pulumi.Input['PlatformPropertiesArgs']):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceRepository")
+    def source_repository(self) -> pulumi.Input['SourceRepositoryPropertiesArgs']:
+        """
+        The properties that describes the source(code) for the build task.
+        """
+        return pulumi.get(self, "source_repository")
+
+    @source_repository.setter
+    def source_repository(self, value: pulumi.Input['SourceRepositoryPropertiesArgs']):
+        pulumi.set(self, "source_repository", value)
+
+    @property
+    @pulumi.getter(name="buildTaskName")
+    def build_task_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the container registry build task.
+        """
+        return pulumi.get(self, "build_task_name")
+
+    @build_task_name.setter
+    def build_task_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_task_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource. This cannot be changed after the resource is created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'BuildTaskStatus']]]:
+        """
+        The current status of build task.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'BuildTaskStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Build timeout in seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
 
 
 class BuildTask(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +212,43 @@ class BuildTask(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[int] timeout: Build timeout in seconds.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BuildTaskArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+
+        :param str resource_name: The name of the resource.
+        :param BuildTaskArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BuildTaskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alias: Optional[pulumi.Input[str]] = None,
+                 build_task_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_repository: Optional[pulumi.Input[pulumi.InputType['SourceRepositoryPropertiesArgs']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'BuildTaskStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

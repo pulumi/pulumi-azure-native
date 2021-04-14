@@ -5,16 +5,178 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['RelationshipLink']
+__all__ = ['RelationshipLinkArgs', 'RelationshipLink']
+
+@pulumi.input_type
+class RelationshipLinkArgs:
+    def __init__(__self__, *,
+                 hub_name: pulumi.Input[str],
+                 interaction_type: pulumi.Input[str],
+                 profile_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]],
+                 related_profile_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]],
+                 relationship_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]] = None,
+                 relationship_link_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RelationshipLink resource.
+        :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[str] interaction_type: The InteractionType associated with the Relationship Link.
+        :param pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]] profile_property_references: The property references for the Profile of the Relationship.
+        :param pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]] related_profile_property_references: The property references for the Related Profile of the Relationship.
+        :param pulumi.Input[str] relationship_name: The Relationship associated with the Link.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Relationship Link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Relationship Link.
+        :param pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]] mappings: The mappings between Interaction and Relationship fields.
+        :param pulumi.Input[str] relationship_link_name: The name of the relationship link.
+        """
+        pulumi.set(__self__, "hub_name", hub_name)
+        pulumi.set(__self__, "interaction_type", interaction_type)
+        pulumi.set(__self__, "profile_property_references", profile_property_references)
+        pulumi.set(__self__, "related_profile_property_references", related_profile_property_references)
+        pulumi.set(__self__, "relationship_name", relationship_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if mappings is not None:
+            pulumi.set(__self__, "mappings", mappings)
+        if relationship_link_name is not None:
+            pulumi.set(__self__, "relationship_link_name", relationship_link_name)
+
+    @property
+    @pulumi.getter(name="hubName")
+    def hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the hub.
+        """
+        return pulumi.get(self, "hub_name")
+
+    @hub_name.setter
+    def hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hub_name", value)
+
+    @property
+    @pulumi.getter(name="interactionType")
+    def interaction_type(self) -> pulumi.Input[str]:
+        """
+        The InteractionType associated with the Relationship Link.
+        """
+        return pulumi.get(self, "interaction_type")
+
+    @interaction_type.setter
+    def interaction_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interaction_type", value)
+
+    @property
+    @pulumi.getter(name="profilePropertyReferences")
+    def profile_property_references(self) -> pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]:
+        """
+        The property references for the Profile of the Relationship.
+        """
+        return pulumi.get(self, "profile_property_references")
+
+    @profile_property_references.setter
+    def profile_property_references(self, value: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]):
+        pulumi.set(self, "profile_property_references", value)
+
+    @property
+    @pulumi.getter(name="relatedProfilePropertyReferences")
+    def related_profile_property_references(self) -> pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]:
+        """
+        The property references for the Related Profile of the Relationship.
+        """
+        return pulumi.get(self, "related_profile_property_references")
+
+    @related_profile_property_references.setter
+    def related_profile_property_references(self, value: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]):
+        pulumi.set(self, "related_profile_property_references", value)
+
+    @property
+    @pulumi.getter(name="relationshipName")
+    def relationship_name(self) -> pulumi.Input[str]:
+        """
+        The Relationship associated with the Link.
+        """
+        return pulumi.get(self, "relationship_name")
+
+    @relationship_name.setter
+    def relationship_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "relationship_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Localized descriptions for the Relationship Link.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Localized display name for the Relationship Link.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]]:
+        """
+        The mappings between Interaction and Relationship fields.
+        """
+        return pulumi.get(self, "mappings")
+
+    @mappings.setter
+    def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]]):
+        pulumi.set(self, "mappings", value)
+
+    @property
+    @pulumi.getter(name="relationshipLinkName")
+    def relationship_link_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the relationship link.
+        """
+        return pulumi.get(self, "relationship_link_name")
+
+    @relationship_link_name.setter
+    def relationship_link_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relationship_link_name", value)
 
 
 class RelationshipLink(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +209,43 @@ class RelationshipLink(pulumi.CustomResource):
         :param pulumi.Input[str] relationship_name: The Relationship associated with the Link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RelationshipLinkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The relationship link resource format.
+
+        :param str resource_name: The name of the resource.
+        :param RelationshipLinkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RelationshipLinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 interaction_type: Optional[pulumi.Input[str]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RelationshipLinkFieldMappingArgs']]]]] = None,
+                 profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]]] = None,
+                 related_profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]]] = None,
+                 relationship_link_name: Optional[pulumi.Input[str]] = None,
+                 relationship_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

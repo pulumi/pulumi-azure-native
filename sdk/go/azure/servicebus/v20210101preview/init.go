@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig":
-		r, err = NewDisasterRecoveryConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &DisasterRecoveryConfig{}
 	case "azure-native:servicebus/v20210101preview:MigrationConfig":
-		r, err = NewMigrationConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &MigrationConfig{}
 	case "azure-native:servicebus/v20210101preview:Namespace":
-		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Namespace{}
 	case "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule":
-		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceAuthorizationRule{}
 	case "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet":
-		r, err = NewNamespaceNetworkRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceNetworkRuleSet{}
 	case "azure-native:servicebus/v20210101preview:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:servicebus/v20210101preview:Queue":
-		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &Queue{}
 	case "azure-native:servicebus/v20210101preview:QueueAuthorizationRule":
-		r, err = NewQueueAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &QueueAuthorizationRule{}
 	case "azure-native:servicebus/v20210101preview:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	case "azure-native:servicebus/v20210101preview:Subscription":
-		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subscription{}
 	case "azure-native:servicebus/v20210101preview:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	case "azure-native:servicebus/v20210101preview:TopicAuthorizationRule":
-		r, err = NewTopicAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TopicAuthorizationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,35 +22,36 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:compute/v20180601:AvailabilitySet":
-		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilitySet{}
 	case "azure-native:compute/v20180601:Disk":
-		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &Disk{}
 	case "azure-native:compute/v20180601:Gallery":
-		r, err = NewGallery(ctx, name, nil, pulumi.URN_(urn))
+		r = &Gallery{}
 	case "azure-native:compute/v20180601:GalleryImage":
-		r, err = NewGalleryImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryImage{}
 	case "azure-native:compute/v20180601:GalleryImageVersion":
-		r, err = NewGalleryImageVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &GalleryImageVersion{}
 	case "azure-native:compute/v20180601:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "azure-native:compute/v20180601:ProximityPlacementGroup":
-		r, err = NewProximityPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProximityPlacementGroup{}
 	case "azure-native:compute/v20180601:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "azure-native:compute/v20180601:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure-native:compute/v20180601:VirtualMachineExtension":
-		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineExtension{}
 	case "azure-native:compute/v20180601:VirtualMachineScaleSet":
-		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSet{}
 	case "azure-native:compute/v20180601:VirtualMachineScaleSetExtension":
-		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetExtension{}
 	case "azure-native:compute/v20180601:VirtualMachineScaleSetVM":
-		r, err = NewVirtualMachineScaleSetVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetVM{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

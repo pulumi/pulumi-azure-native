@@ -5,16 +5,182 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VpnConnection']
+__all__ = ['VpnConnectionArgs', 'VpnConnection']
+
+@pulumi.input_type
+class VpnConnectionArgs:
+    def __init__(__self__, *,
+                 gateway_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remote_vpn_site: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VpnConnection resource.
+        :param pulumi.Input[str] gateway_name: The name of the gateway.
+        :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
+        :param pulumi.Input[str] connection_name: The name of the connection.
+        :param pulumi.Input[bool] enable_bgp: EnableBgp flag
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input['SubResourceArgs'] remote_vpn_site: Id of the connected vpn site.
+        :param pulumi.Input[int] routing_weight: routing weight for vpn connection.
+        :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
+        """
+        pulumi.set(__self__, "gateway_name", gateway_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipsec_policies is not None:
+            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remote_vpn_site is not None:
+            pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[str]:
+        """
+        The name of the gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name of the VpnGateway.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        EnableBgp flag
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @enable_bgp.setter
+    def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_bgp", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]:
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "ipsec_policies")
+
+    @ipsec_policies.setter
+    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]):
+        pulumi.set(self, "ipsec_policies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="remoteVpnSite")
+    def remote_vpn_site(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Id of the connected vpn site.
+        """
+        return pulumi.get(self, "remote_vpn_site")
+
+    @remote_vpn_site.setter
+    def remote_vpn_site(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "remote_vpn_site", value)
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        routing weight for vpn connection.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @routing_weight.setter
+    def routing_weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "routing_weight", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        SharedKey for the vpn connection.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
 
 
 class VpnConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +213,43 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[int] routing_weight: routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpnConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        VpnConnection Resource.
+
+        :param str resource_name: The name of the resource.
+        :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

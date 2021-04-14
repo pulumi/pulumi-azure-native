@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:migrate:Assessment":
-		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assessment{}
 	case "azure-native:migrate:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "azure-native:migrate:HyperVCollector":
-		r, err = NewHyperVCollector(ctx, name, nil, pulumi.URN_(urn))
+		r = &HyperVCollector{}
 	case "azure-native:migrate:ImportCollector":
-		r, err = NewImportCollector(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImportCollector{}
 	case "azure-native:migrate:MigrateProject":
-		r, err = NewMigrateProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &MigrateProject{}
 	case "azure-native:migrate:MoveCollection":
-		r, err = NewMoveCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &MoveCollection{}
 	case "azure-native:migrate:MoveResource":
-		r, err = NewMoveResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &MoveResource{}
 	case "azure-native:migrate:PrivateEndpointConnection":
-		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateEndpointConnection{}
 	case "azure-native:migrate:Project":
-		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &Project{}
 	case "azure-native:migrate:ServerCollector":
-		r, err = NewServerCollector(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerCollector{}
 	case "azure-native:migrate:Solution":
-		r, err = NewSolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &Solution{}
 	case "azure-native:migrate:VMwareCollector":
-		r, err = NewVMwareCollector(ctx, name, nil, pulumi.URN_(urn))
+		r = &VMwareCollector{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

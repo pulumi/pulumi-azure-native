@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:security/v20190101preview:AlertsSuppressionRule":
-		r, err = NewAlertsSuppressionRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertsSuppressionRule{}
 	case "azure-native:security/v20190101preview:Assessment":
-		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assessment{}
 	case "azure-native:security/v20190101preview:AssessmentsMetadataSubscription":
-		r, err = NewAssessmentsMetadataSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &AssessmentsMetadataSubscription{}
 	case "azure-native:security/v20190101preview:Automation":
-		r, err = NewAutomation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Automation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

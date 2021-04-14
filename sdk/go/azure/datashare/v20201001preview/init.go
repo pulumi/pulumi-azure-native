@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:datashare/v20201001preview:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure-native:datashare/v20201001preview:DataSet":
-		r, err = NewDataSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataSet{}
 	case "azure-native:datashare/v20201001preview:DataSetMapping":
-		r, err = NewDataSetMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataSetMapping{}
 	case "azure-native:datashare/v20201001preview:Invitation":
-		r, err = NewInvitation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Invitation{}
 	case "azure-native:datashare/v20201001preview:Share":
-		r, err = NewShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &Share{}
 	case "azure-native:datashare/v20201001preview:ShareSubscription":
-		r, err = NewShareSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &ShareSubscription{}
 	case "azure-native:datashare/v20201001preview:SynchronizationSetting":
-		r, err = NewSynchronizationSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &SynchronizationSetting{}
 	case "azure-native:datashare/v20201001preview:Trigger":
-		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Trigger{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

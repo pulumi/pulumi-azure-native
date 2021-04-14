@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['NotificationRecipientEmail']
+__all__ = ['NotificationRecipientEmailArgs', 'NotificationRecipientEmail']
+
+@pulumi.input_type
+class NotificationRecipientEmailArgs:
+    def __init__(__self__, *,
+                 notification_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 email: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a NotificationRecipientEmail resource.
+        :param pulumi.Input[str] notification_name: Notification Name Identifier.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] email: Email identifier.
+        """
+        pulumi.set(__self__, "notification_name", notification_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+
+    @property
+    @pulumi.getter(name="notificationName")
+    def notification_name(self) -> pulumi.Input[str]:
+        """
+        Notification Name Identifier.
+        """
+        return pulumi.get(self, "notification_name")
+
+    @notification_name.setter
+    def notification_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email identifier.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
 
 
 class NotificationRecipientEmail(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +102,38 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NotificationRecipientEmailArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Recipient Email details.
+        API Version: 2020-12-01.
+
+        :param str resource_name: The name of the resource.
+        :param NotificationRecipientEmailArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationRecipientEmailArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 notification_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

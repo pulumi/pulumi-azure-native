@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
-__all__ = ['RoleAssignment']
+__all__ = ['RoleAssignmentArgs', 'RoleAssignment']
+
+@pulumi.input_type
+class RoleAssignmentArgs:
+    def __init__(__self__, *,
+                 principal_id: pulumi.Input[str],
+                 role_definition_id: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 can_delegate: Optional[pulumi.Input[bool]] = None,
+                 role_assignment_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RoleAssignment resource.
+        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
+        :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
+        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        pulumi.set(__self__, "scope", scope)
+        if can_delegate is not None:
+            pulumi.set(__self__, "can_delegate", can_delegate)
+        if role_assignment_name is not None:
+            pulumi.set(__self__, "role_assignment_name", role_assignment_name)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[str]:
+        """
+        The role definition ID used in the role assignment.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="canDelegate")
+    def can_delegate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The delegation flag used for creating a role assignment
+        """
+        return pulumi.get(self, "can_delegate")
+
+    @can_delegate.setter
+    def can_delegate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "can_delegate", value)
+
+    @property
+    @pulumi.getter(name="roleAssignmentName")
+    def role_assignment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role assignment to create. It can be any valid GUID.
+        """
+        return pulumi.get(self, "role_assignment_name")
+
+    @role_assignment_name.setter
+    def role_assignment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_assignment_name", value)
 
 
 class RoleAssignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +119,38 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RoleAssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Role Assignments
+
+        :param str resource_name: The name of the resource.
+        :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 can_delegate: Optional[pulumi.Input[bool]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 role_assignment_name: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

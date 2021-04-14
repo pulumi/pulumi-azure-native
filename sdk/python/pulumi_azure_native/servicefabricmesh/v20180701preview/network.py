@@ -5,16 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Network']
+__all__ = ['NetworkArgs', 'Network']
+
+@pulumi.input_type
+class NetworkArgs:
+    def __init__(__self__, *,
+                 address_prefix: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 ingress_config: Optional[pulumi.Input['IngressConfigArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Network resource.
+        :param pulumi.Input[str] address_prefix: the address prefix for this network.
+        :param pulumi.Input[str] resource_group_name: Azure resource group name
+        :param pulumi.Input[str] description: User readable description of the network.
+        :param pulumi.Input['IngressConfigArgs'] ingress_config: Configuration for public connectivity for this network.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] network_name: The identity of the network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ingress_config is not None:
+            pulumi.set(__self__, "ingress_config", ingress_config)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if network_name is not None:
+            pulumi.set(__self__, "network_name", network_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> pulumi.Input[str]:
+        """
+        the address prefix for this network.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Azure resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User readable description of the network.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ingressConfig")
+    def ingress_config(self) -> Optional[pulumi.Input['IngressConfigArgs']]:
+        """
+        Configuration for public connectivity for this network.
+        """
+        return pulumi.get(self, "ingress_config")
+
+    @ingress_config.setter
+    def ingress_config(self, value: Optional[pulumi.Input['IngressConfigArgs']]):
+        pulumi.set(self, "ingress_config", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity of the network.
+        """
+        return pulumi.get(self, "network_name")
+
+    @network_name.setter
+    def network_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Network(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +159,40 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        This type describes a network resource.
+
+        :param str resource_name: The name of the resource.
+        :param NetworkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ingress_config: Optional[pulumi.Input[pulumi.InputType['IngressConfigArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 network_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

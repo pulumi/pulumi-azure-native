@@ -5,16 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Dataset']
+__all__ = ['DatasetArgs', 'Dataset']
+
+@pulumi.input_type
+class DatasetArgs:
+    def __init__(__self__, *,
+                 factory_name: pulumi.Input[str],
+                 properties: pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonS3DatasetArgs', 'AzureBlobDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'CassandraTableDatasetArgs', 'ConcurObjectDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'FileShareDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'ImpalaObjectDatasetArgs', 'JiraObjectDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MongoDbCollectionDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OracleTableDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ShopifyObjectDatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'VerticaTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'ZohoObjectDatasetArgs']],
+                 resource_group_name: pulumi.Input[str],
+                 dataset_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Dataset resource.
+        :param pulumi.Input[str] factory_name: The factory name.
+        :param pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonS3DatasetArgs', 'AzureBlobDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'CassandraTableDatasetArgs', 'ConcurObjectDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'FileShareDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'ImpalaObjectDatasetArgs', 'JiraObjectDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MongoDbCollectionDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OracleTableDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ShopifyObjectDatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'VerticaTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'ZohoObjectDatasetArgs']] properties: Dataset properties.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] dataset_name: The dataset name.
+        """
+        pulumi.set(__self__, "factory_name", factory_name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dataset_name is not None:
+            pulumi.set(__self__, "dataset_name", dataset_name)
+
+    @property
+    @pulumi.getter(name="factoryName")
+    def factory_name(self) -> pulumi.Input[str]:
+        """
+        The factory name.
+        """
+        return pulumi.get(self, "factory_name")
+
+    @factory_name.setter
+    def factory_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "factory_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonS3DatasetArgs', 'AzureBlobDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'CassandraTableDatasetArgs', 'ConcurObjectDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'FileShareDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'ImpalaObjectDatasetArgs', 'JiraObjectDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MongoDbCollectionDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OracleTableDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ShopifyObjectDatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'VerticaTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'ZohoObjectDatasetArgs']]:
+        """
+        Dataset properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonS3DatasetArgs', 'AzureBlobDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'CassandraTableDatasetArgs', 'ConcurObjectDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'FileShareDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'ImpalaObjectDatasetArgs', 'JiraObjectDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MongoDbCollectionDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OracleTableDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ShopifyObjectDatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'VerticaTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'ZohoObjectDatasetArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="datasetName")
+    def dataset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dataset name.
+        """
+        return pulumi.get(self, "dataset_name")
+
+    @dataset_name.setter
+    def dataset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataset_name", value)
 
 
 class Dataset(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +104,37 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['AmazonMWSObjectDatasetArgs'], pulumi.InputType['AmazonS3DatasetArgs'], pulumi.InputType['AzureBlobDatasetArgs'], pulumi.InputType['AzureDataLakeStoreDatasetArgs'], pulumi.InputType['AzureMySqlTableDatasetArgs'], pulumi.InputType['AzurePostgreSqlTableDatasetArgs'], pulumi.InputType['AzureSearchIndexDatasetArgs'], pulumi.InputType['AzureSqlDWTableDatasetArgs'], pulumi.InputType['AzureSqlTableDatasetArgs'], pulumi.InputType['AzureTableDatasetArgs'], pulumi.InputType['CassandraTableDatasetArgs'], pulumi.InputType['ConcurObjectDatasetArgs'], pulumi.InputType['CouchbaseTableDatasetArgs'], pulumi.InputType['CustomDatasetArgs'], pulumi.InputType['DocumentDbCollectionDatasetArgs'], pulumi.InputType['DrillTableDatasetArgs'], pulumi.InputType['DynamicsEntityDatasetArgs'], pulumi.InputType['EloquaObjectDatasetArgs'], pulumi.InputType['FileShareDatasetArgs'], pulumi.InputType['GoogleBigQueryObjectDatasetArgs'], pulumi.InputType['GreenplumTableDatasetArgs'], pulumi.InputType['HBaseObjectDatasetArgs'], pulumi.InputType['HiveObjectDatasetArgs'], pulumi.InputType['HttpDatasetArgs'], pulumi.InputType['HubspotObjectDatasetArgs'], pulumi.InputType['ImpalaObjectDatasetArgs'], pulumi.InputType['JiraObjectDatasetArgs'], pulumi.InputType['MagentoObjectDatasetArgs'], pulumi.InputType['MariaDBTableDatasetArgs'], pulumi.InputType['MarketoObjectDatasetArgs'], pulumi.InputType['MongoDbCollectionDatasetArgs'], pulumi.InputType['NetezzaTableDatasetArgs'], pulumi.InputType['ODataResourceDatasetArgs'], pulumi.InputType['OracleTableDatasetArgs'], pulumi.InputType['PaypalObjectDatasetArgs'], pulumi.InputType['PhoenixObjectDatasetArgs'], pulumi.InputType['PrestoObjectDatasetArgs'], pulumi.InputType['QuickBooksObjectDatasetArgs'], pulumi.InputType['RelationalTableDatasetArgs'], pulumi.InputType['ResponsysObjectDatasetArgs'], pulumi.InputType['SalesforceMarketingCloudObjectDatasetArgs'], pulumi.InputType['SalesforceObjectDatasetArgs'], pulumi.InputType['SapCloudForCustomerResourceDatasetArgs'], pulumi.InputType['SapEccResourceDatasetArgs'], pulumi.InputType['ServiceNowObjectDatasetArgs'], pulumi.InputType['ShopifyObjectDatasetArgs'], pulumi.InputType['SparkObjectDatasetArgs'], pulumi.InputType['SqlServerTableDatasetArgs'], pulumi.InputType['SquareObjectDatasetArgs'], pulumi.InputType['VerticaTableDatasetArgs'], pulumi.InputType['WebTableDatasetArgs'], pulumi.InputType['XeroObjectDatasetArgs'], pulumi.InputType['ZohoObjectDatasetArgs']]] properties: Dataset properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DatasetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Dataset resource type.
+
+        :param str resource_name: The name of the resource.
+        :param DatasetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dataset_name: Optional[pulumi.Input[str]] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AmazonMWSObjectDatasetArgs'], pulumi.InputType['AmazonS3DatasetArgs'], pulumi.InputType['AzureBlobDatasetArgs'], pulumi.InputType['AzureDataLakeStoreDatasetArgs'], pulumi.InputType['AzureMySqlTableDatasetArgs'], pulumi.InputType['AzurePostgreSqlTableDatasetArgs'], pulumi.InputType['AzureSearchIndexDatasetArgs'], pulumi.InputType['AzureSqlDWTableDatasetArgs'], pulumi.InputType['AzureSqlTableDatasetArgs'], pulumi.InputType['AzureTableDatasetArgs'], pulumi.InputType['CassandraTableDatasetArgs'], pulumi.InputType['ConcurObjectDatasetArgs'], pulumi.InputType['CouchbaseTableDatasetArgs'], pulumi.InputType['CustomDatasetArgs'], pulumi.InputType['DocumentDbCollectionDatasetArgs'], pulumi.InputType['DrillTableDatasetArgs'], pulumi.InputType['DynamicsEntityDatasetArgs'], pulumi.InputType['EloquaObjectDatasetArgs'], pulumi.InputType['FileShareDatasetArgs'], pulumi.InputType['GoogleBigQueryObjectDatasetArgs'], pulumi.InputType['GreenplumTableDatasetArgs'], pulumi.InputType['HBaseObjectDatasetArgs'], pulumi.InputType['HiveObjectDatasetArgs'], pulumi.InputType['HttpDatasetArgs'], pulumi.InputType['HubspotObjectDatasetArgs'], pulumi.InputType['ImpalaObjectDatasetArgs'], pulumi.InputType['JiraObjectDatasetArgs'], pulumi.InputType['MagentoObjectDatasetArgs'], pulumi.InputType['MariaDBTableDatasetArgs'], pulumi.InputType['MarketoObjectDatasetArgs'], pulumi.InputType['MongoDbCollectionDatasetArgs'], pulumi.InputType['NetezzaTableDatasetArgs'], pulumi.InputType['ODataResourceDatasetArgs'], pulumi.InputType['OracleTableDatasetArgs'], pulumi.InputType['PaypalObjectDatasetArgs'], pulumi.InputType['PhoenixObjectDatasetArgs'], pulumi.InputType['PrestoObjectDatasetArgs'], pulumi.InputType['QuickBooksObjectDatasetArgs'], pulumi.InputType['RelationalTableDatasetArgs'], pulumi.InputType['ResponsysObjectDatasetArgs'], pulumi.InputType['SalesforceMarketingCloudObjectDatasetArgs'], pulumi.InputType['SalesforceObjectDatasetArgs'], pulumi.InputType['SapCloudForCustomerResourceDatasetArgs'], pulumi.InputType['SapEccResourceDatasetArgs'], pulumi.InputType['ServiceNowObjectDatasetArgs'], pulumi.InputType['ShopifyObjectDatasetArgs'], pulumi.InputType['SparkObjectDatasetArgs'], pulumi.InputType['SqlServerTableDatasetArgs'], pulumi.InputType['SquareObjectDatasetArgs'], pulumi.InputType['VerticaTableDatasetArgs'], pulumi.InputType['WebTableDatasetArgs'], pulumi.InputType['XeroObjectDatasetArgs'], pulumi.InputType['ZohoObjectDatasetArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

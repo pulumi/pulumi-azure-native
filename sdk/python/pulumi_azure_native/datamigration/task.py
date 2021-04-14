@@ -5,16 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['Task']
+__all__ = ['TaskArgs', 'Task']
+
+@pulumi.input_type
+class TaskArgs:
+    def __init__(__self__, *,
+                 group_name: pulumi.Input[str],
+                 project_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs']]] = None,
+                 task_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Task resource.
+        :param pulumi.Input[str] group_name: Name of the resource group
+        :param pulumi.Input[str] project_name: Name of the project
+        :param pulumi.Input[str] service_name: Name of the service
+        :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.
+        :param pulumi.Input[Union['ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs']] properties: Custom task properties
+        :param pulumi.Input[str] task_name: Name of the Task
+        """
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "service_name", service_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if task_name is not None:
+            pulumi.set(__self__, "task_name", task_name)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[str]:
+        """
+        Name of the project
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        Name of the service
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP strong entity tag value. This is ignored if submitted.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs']]]:
+        """
+        Custom task properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs']]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="taskName")
+    def task_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Task
+        """
+        return pulumi.get(self, "task_name")
+
+    @task_name.setter
+    def task_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_name", value)
 
 
 class Task(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +141,40 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[str] task_name: Name of the Task
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TaskArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A task resource
+        API Version: 2018-04-19.
+
+        :param str resource_name: The name of the resource.
+        :param TaskArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TaskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ConnectToSourcePostgreSqlSyncTaskPropertiesArgs'], pulumi.InputType['ConnectToSourceSqlServerSyncTaskPropertiesArgs'], pulumi.InputType['ConnectToSourceSqlServerTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetAzureDbForMySqlTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetSqlDbTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetSqlMISyncTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetSqlMITaskPropertiesArgs'], pulumi.InputType['ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs'], pulumi.InputType['GetTdeCertificatesSqlTaskPropertiesArgs'], pulumi.InputType['GetUserTablesSqlSyncTaskPropertiesArgs'], pulumi.InputType['GetUserTablesSqlTaskPropertiesArgs'], pulumi.InputType['MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs'], pulumi.InputType['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs'], pulumi.InputType['MigrateSqlServerSqlDbSyncTaskPropertiesArgs'], pulumi.InputType['MigrateSqlServerSqlDbTaskPropertiesArgs'], pulumi.InputType['MigrateSqlServerSqlMISyncTaskPropertiesArgs'], pulumi.InputType['MigrateSqlServerSqlMITaskPropertiesArgs'], pulumi.InputType['ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs'], pulumi.InputType['ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs'], pulumi.InputType['ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs']]]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 task_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

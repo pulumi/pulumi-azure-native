@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ComponentCurrentBillingFeature']
+__all__ = ['ComponentCurrentBillingFeatureArgs', 'ComponentCurrentBillingFeature']
+
+@pulumi.input_type
+class ComponentCurrentBillingFeatureArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 current_billing_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_volume_cap: Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']] = None):
+        """
+        The set of arguments for constructing a ComponentCurrentBillingFeature resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] current_billing_features: Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
+        :param pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs'] data_volume_cap: An Application Insights component daily data volume cap
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        if current_billing_features is not None:
+            pulumi.set(__self__, "current_billing_features", current_billing_features)
+        if data_volume_cap is not None:
+            pulumi.set(__self__, "data_volume_cap", data_volume_cap)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group. The name is case insensitive.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Application Insights component resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="currentBillingFeatures")
+    def current_billing_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
+        """
+        return pulumi.get(self, "current_billing_features")
+
+    @current_billing_features.setter
+    def current_billing_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "current_billing_features", value)
+
+    @property
+    @pulumi.getter(name="dataVolumeCap")
+    def data_volume_cap(self) -> Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']]:
+        """
+        An Application Insights component daily data volume cap
+        """
+        return pulumi.get(self, "data_volume_cap")
+
+    @data_volume_cap.setter
+    def data_volume_cap(self, value: Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']]):
+        pulumi.set(self, "data_volume_cap", value)
 
 
 class ComponentCurrentBillingFeature(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +105,38 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ComponentCurrentBillingFeatureArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Application Insights component billing features
+        API Version: 2015-05-01.
+
+        :param str resource_name: The name of the resource.
+        :param ComponentCurrentBillingFeatureArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ComponentCurrentBillingFeatureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 current_billing_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_volume_cap: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentDataVolumeCapArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RegisteredAsn']
+__all__ = ['RegisteredAsnArgs', 'RegisteredAsn']
+
+@pulumi.input_type
+class RegisteredAsnArgs:
+    def __init__(__self__, *,
+                 peering_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 asn: Optional[pulumi.Input[int]] = None,
+                 registered_asn_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RegisteredAsn resource.
+        :param pulumi.Input[str] peering_name: The name of the peering.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[int] asn: The customer's ASN from which traffic originates.
+        :param pulumi.Input[str] registered_asn_name: The name of the ASN.
+        """
+        pulumi.set(__self__, "peering_name", peering_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
+        if registered_asn_name is not None:
+            pulumi.set(__self__, "registered_asn_name", registered_asn_name)
+
+    @property
+    @pulumi.getter(name="peeringName")
+    def peering_name(self) -> pulumi.Input[str]:
+        """
+        The name of the peering.
+        """
+        return pulumi.get(self, "peering_name")
+
+    @peering_name.setter
+    def peering_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "peering_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The customer's ASN from which traffic originates.
+        """
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "asn", value)
+
+    @property
+    @pulumi.getter(name="registeredAsnName")
+    def registered_asn_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ASN.
+        """
+        return pulumi.get(self, "registered_asn_name")
+
+    @registered_asn_name.setter
+    def registered_asn_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registered_asn_name", value)
 
 
 class RegisteredAsn(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +103,38 @@ class RegisteredAsn(pulumi.CustomResource):
         :param pulumi.Input[str] registered_asn_name: The name of the ASN.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegisteredAsnArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The customer's ASN that is registered by the peering service provider.
+        API Version: 2021-01-01.
+
+        :param str resource_name: The name of the resource.
+        :param RegisteredAsnArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegisteredAsnArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 asn: Optional[pulumi.Input[int]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
+                 registered_asn_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

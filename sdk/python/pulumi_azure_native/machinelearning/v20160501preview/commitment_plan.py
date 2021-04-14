@@ -5,15 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CommitmentPlan']
+__all__ = ['CommitmentPlanArgs', 'CommitmentPlan']
+
+@pulumi.input_type
+class CommitmentPlanArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 commitment_plan_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a CommitmentPlan resource.
+        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] commitment_plan_name: The Azure ML commitment plan name.
+        :param pulumi.Input[str] etag: An entity tag used to enforce optimistic concurrency.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['ResourceSkuArgs'] sku: The commitment plan SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags for the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if commitment_plan_name is not None:
+            pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="commitmentPlanName")
+    def commitment_plan_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure ML commitment plan name.
+        """
+        return pulumi.get(self, "commitment_plan_name")
+
+    @commitment_plan_name.setter
+    def commitment_plan_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commitment_plan_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        An entity tag used to enforce optimistic concurrency.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
+        """
+        The commitment plan SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['ResourceSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        User-defined tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class CommitmentPlan(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +141,39 @@ class CommitmentPlan(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The commitment plan SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CommitmentPlanArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An Azure ML commitment plan resource.
+
+        :param str resource_name: The name of the resource.
+        :param CommitmentPlanArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CommitmentPlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 commitment_plan_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

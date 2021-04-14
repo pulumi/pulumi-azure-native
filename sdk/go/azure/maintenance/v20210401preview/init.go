@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure-native:maintenance/v20210401preview:ConfigurationAssignment":
-		r, err = NewConfigurationAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationAssignment{}
 	case "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent":
-		r, err = NewConfigurationAssignmentParent(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationAssignmentParent{}
 	case "azure-native:maintenance/v20210401preview:MaintenanceConfiguration":
-		r, err = NewMaintenanceConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &MaintenanceConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
