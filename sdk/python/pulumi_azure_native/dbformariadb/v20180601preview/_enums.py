@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'CreateMode',
     'GeoRedundantBackup',
+    'MinimalTlsVersionEnum',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -30,6 +31,16 @@ class GeoRedundantBackup(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class MinimalTlsVersionEnum(str, Enum):
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    TLS1_0 = "TLS1_0"
+    TLS1_1 = "TLS1_1"
+    TLS1_2 = "TLS1_2"
+    TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
 
 
 class ServerVersion(str, Enum):

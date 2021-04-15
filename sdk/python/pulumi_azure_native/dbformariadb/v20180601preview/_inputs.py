@@ -24,6 +24,7 @@ class ServerPropertiesForDefaultCreateArgs:
                  administrator_login: pulumi.Input[str],
                  administrator_login_password: pulumi.Input[str],
                  create_mode: pulumi.Input[str],
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
@@ -33,6 +34,7 @@ class ServerPropertiesForDefaultCreateArgs:
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
                Expected value is 'Default'.
+        :param pulumi.Input[Union[str, 'MinimalTlsVersionEnum']] minimal_tls_version: Enforce a minimal Tls version for the server.
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
@@ -40,6 +42,8 @@ class ServerPropertiesForDefaultCreateArgs:
         pulumi.set(__self__, "administrator_login", administrator_login)
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         pulumi.set(__self__, "create_mode", 'Default')
+        if minimal_tls_version is not None:
+            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if ssl_enforcement is not None:
             pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
@@ -85,6 +89,18 @@ class ServerPropertiesForDefaultCreateArgs:
         pulumi.set(self, "create_mode", value)
 
     @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]:
+        """
+        Enforce a minimal Tls version for the server.
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @minimal_tls_version.setter
+    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]):
+        pulumi.set(self, "minimal_tls_version", value)
+
+    @property
     @pulumi.getter(name="sslEnforcement")
     def ssl_enforcement(self) -> Optional[pulumi.Input['SslEnforcementEnum']]:
         """
@@ -126,6 +142,7 @@ class ServerPropertiesForGeoRestoreArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
                  source_server_id: pulumi.Input[str],
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
@@ -134,12 +151,15 @@ class ServerPropertiesForGeoRestoreArgs:
         :param pulumi.Input[str] create_mode: The mode to create a new server.
                Expected value is 'GeoRestore'.
         :param pulumi.Input[str] source_server_id: The source server id to restore from.
+        :param pulumi.Input[Union[str, 'MinimalTlsVersionEnum']] minimal_tls_version: Enforce a minimal Tls version for the server.
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "create_mode", 'GeoRestore')
         pulumi.set(__self__, "source_server_id", source_server_id)
+        if minimal_tls_version is not None:
+            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if ssl_enforcement is not None:
             pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
@@ -171,6 +191,18 @@ class ServerPropertiesForGeoRestoreArgs:
     @source_server_id.setter
     def source_server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_server_id", value)
+
+    @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]:
+        """
+        Enforce a minimal Tls version for the server.
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @minimal_tls_version.setter
+    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]):
+        pulumi.set(self, "minimal_tls_version", value)
 
     @property
     @pulumi.getter(name="sslEnforcement")
@@ -214,6 +246,7 @@ class ServerPropertiesForReplicaArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
                  source_server_id: pulumi.Input[str],
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
@@ -222,12 +255,15 @@ class ServerPropertiesForReplicaArgs:
         :param pulumi.Input[str] create_mode: The mode to create a new server.
                Expected value is 'Replica'.
         :param pulumi.Input[str] source_server_id: The master server id to create replica from.
+        :param pulumi.Input[Union[str, 'MinimalTlsVersionEnum']] minimal_tls_version: Enforce a minimal Tls version for the server.
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "create_mode", 'Replica')
         pulumi.set(__self__, "source_server_id", source_server_id)
+        if minimal_tls_version is not None:
+            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if ssl_enforcement is not None:
             pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
@@ -259,6 +295,18 @@ class ServerPropertiesForReplicaArgs:
     @source_server_id.setter
     def source_server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_server_id", value)
+
+    @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]:
+        """
+        Enforce a minimal Tls version for the server.
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @minimal_tls_version.setter
+    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]):
+        pulumi.set(self, "minimal_tls_version", value)
 
     @property
     @pulumi.getter(name="sslEnforcement")
@@ -303,6 +351,7 @@ class ServerPropertiesForRestoreArgs:
                  create_mode: pulumi.Input[str],
                  restore_point_in_time: pulumi.Input[str],
                  source_server_id: pulumi.Input[str],
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
@@ -312,6 +361,7 @@ class ServerPropertiesForRestoreArgs:
                Expected value is 'PointInTimeRestore'.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] source_server_id: The source server id to restore from.
+        :param pulumi.Input[Union[str, 'MinimalTlsVersionEnum']] minimal_tls_version: Enforce a minimal Tls version for the server.
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
@@ -319,6 +369,8 @@ class ServerPropertiesForRestoreArgs:
         pulumi.set(__self__, "create_mode", 'PointInTimeRestore')
         pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         pulumi.set(__self__, "source_server_id", source_server_id)
+        if minimal_tls_version is not None:
+            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if ssl_enforcement is not None:
             pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
@@ -362,6 +414,18 @@ class ServerPropertiesForRestoreArgs:
     @source_server_id.setter
     def source_server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_server_id", value)
+
+    @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]:
+        """
+        Enforce a minimal Tls version for the server.
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @minimal_tls_version.setter
+    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]]):
+        pulumi.set(self, "minimal_tls_version", value)
 
     @property
     @pulumi.getter(name="sslEnforcement")

@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, earliest_restore_date=None, fully_qualified_domain_name=None, id=None, location=None, master_server_id=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
+    def __init__(__self__, administrator_login=None, earliest_restore_date=None, fully_qualified_domain_name=None, id=None, location=None, master_server_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -39,6 +39,9 @@ class GetServerResult:
         if master_server_id and not isinstance(master_server_id, str):
             raise TypeError("Expected argument 'master_server_id' to be a str")
         pulumi.set(__self__, "master_server_id", master_server_id)
+        if minimal_tls_version and not isinstance(minimal_tls_version, str):
+            raise TypeError("Expected argument 'minimal_tls_version' to be a str")
+        pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -123,6 +126,14 @@ class GetServerResult:
         The master server id of a replica server.
         """
         return pulumi.get(self, "master_server_id")
+
+    @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[str]:
+        """
+        Enforce a minimal Tls version for the server.
+        """
+        return pulumi.get(self, "minimal_tls_version")
 
     @property
     @pulumi.getter
@@ -233,6 +244,7 @@ class AwaitableGetServerResult(GetServerResult):
             id=self.id,
             location=self.location,
             master_server_id=self.master_server_id,
+            minimal_tls_version=self.minimal_tls_version,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             public_network_access=self.public_network_access,
@@ -273,6 +285,7 @@ def get_server(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         master_server_id=__ret__.master_server_id,
+        minimal_tls_version=__ret__.minimal_tls_version,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         public_network_access=__ret__.public_network_access,

@@ -20,7 +20,10 @@ class GetStaticSiteResult:
     """
     Static Site ARM resource.
     """
-    def __init__(__self__, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, default_hostname=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, location=None, name=None, provider=None, repository_token=None, repository_url=None, sku=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
+    def __init__(__self__, allow_config_file_updates=None, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, default_hostname=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, location=None, name=None, private_endpoint_connections=None, provider=None, repository_token=None, repository_url=None, sku=None, staging_environment_policy=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
+        if allow_config_file_updates and not isinstance(allow_config_file_updates, bool):
+            raise TypeError("Expected argument 'allow_config_file_updates' to be a bool")
+        pulumi.set(__self__, "allow_config_file_updates", allow_config_file_updates)
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
@@ -54,6 +57,9 @@ class GetStaticSiteResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provider and not isinstance(provider, str):
             raise TypeError("Expected argument 'provider' to be a str")
         pulumi.set(__self__, "provider", provider)
@@ -66,6 +72,9 @@ class GetStaticSiteResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if staging_environment_policy and not isinstance(staging_environment_policy, str):
+            raise TypeError("Expected argument 'staging_environment_policy' to be a str")
+        pulumi.set(__self__, "staging_environment_policy", staging_environment_policy)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -78,6 +87,14 @@ class GetStaticSiteResult:
         if user_provided_function_apps and not isinstance(user_provided_function_apps, list):
             raise TypeError("Expected argument 'user_provided_function_apps' to be a list")
         pulumi.set(__self__, "user_provided_function_apps", user_provided_function_apps)
+
+    @property
+    @pulumi.getter(name="allowConfigFileUpdates")
+    def allow_config_file_updates(self) -> Optional[bool]:
+        """
+        <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+        """
+        return pulumi.get(self, "allow_config_file_updates")
 
     @property
     @pulumi.getter
@@ -168,6 +185,14 @@ class GetStaticSiteResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse']:
+        """
+        Private endpoint connections
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter
     def provider(self) -> str:
         """
@@ -198,6 +223,14 @@ class GetStaticSiteResult:
         Description of a SKU for a scalable resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="stagingEnvironmentPolicy")
+    def staging_environment_policy(self) -> Optional[str]:
+        """
+        State indicating whether staging environments are allowed or not allowed for a static web app.
+        """
+        return pulumi.get(self, "staging_environment_policy")
 
     @property
     @pulumi.getter
@@ -238,6 +271,7 @@ class AwaitableGetStaticSiteResult(GetStaticSiteResult):
         if False:
             yield self
         return GetStaticSiteResult(
+            allow_config_file_updates=self.allow_config_file_updates,
             branch=self.branch,
             build_properties=self.build_properties,
             content_distribution_endpoint=self.content_distribution_endpoint,
@@ -249,10 +283,12 @@ class AwaitableGetStaticSiteResult(GetStaticSiteResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provider=self.provider,
             repository_token=self.repository_token,
             repository_url=self.repository_url,
             sku=self.sku,
+            staging_environment_policy=self.staging_environment_policy,
             tags=self.tags,
             template_properties=self.template_properties,
             type=self.type,
@@ -280,6 +316,7 @@ def get_static_site(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSite', __args__, opts=opts, typ=GetStaticSiteResult).value
 
     return AwaitableGetStaticSiteResult(
+        allow_config_file_updates=__ret__.allow_config_file_updates,
         branch=__ret__.branch,
         build_properties=__ret__.build_properties,
         content_distribution_endpoint=__ret__.content_distribution_endpoint,
@@ -291,10 +328,12 @@ def get_static_site(name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provider=__ret__.provider,
         repository_token=__ret__.repository_token,
         repository_url=__ret__.repository_url,
         sku=__ret__.sku,
+        staging_environment_policy=__ret__.staging_environment_policy,
         tags=__ret__.tags,
         template_properties=__ret__.template_properties,
         type=__ret__.type,

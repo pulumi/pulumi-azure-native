@@ -17,6 +17,7 @@ __all__ = ['StaticSiteArgs', 'StaticSite']
 class StaticSiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input['StaticSiteBuildPropertiesArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
@@ -26,11 +27,13 @@ class StaticSiteArgs:
                  repository_token: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
+                 staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_properties: Optional[pulumi.Input['StaticSiteTemplateOptionsArgs']] = None):
         """
         The set of arguments for constructing a StaticSite resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[bool] allow_config_file_updates: <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         :param pulumi.Input[str] branch: The target branch in the repository.
         :param pulumi.Input['StaticSiteBuildPropertiesArgs'] build_properties: Build properties to configure on the repository.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity.
@@ -40,10 +43,13 @@ class StaticSiteArgs:
         :param pulumi.Input[str] repository_token: A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         :param pulumi.Input[str] repository_url: URL for the repository of the static site.
         :param pulumi.Input['SkuDescriptionArgs'] sku: Description of a SKU for a scalable resource.
+        :param pulumi.Input['StagingEnvironmentPolicy'] staging_environment_policy: State indicating whether staging environments are allowed or not allowed for a static web app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['StaticSiteTemplateOptionsArgs'] template_properties: Template options for generating a new repository.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allow_config_file_updates is not None:
+            pulumi.set(__self__, "allow_config_file_updates", allow_config_file_updates)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
         if build_properties is not None:
@@ -62,6 +68,8 @@ class StaticSiteArgs:
             pulumi.set(__self__, "repository_url", repository_url)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if staging_environment_policy is not None:
+            pulumi.set(__self__, "staging_environment_policy", staging_environment_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_properties is not None:
@@ -78,6 +86,18 @@ class StaticSiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowConfigFileUpdates")
+    def allow_config_file_updates(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+        """
+        return pulumi.get(self, "allow_config_file_updates")
+
+    @allow_config_file_updates.setter
+    def allow_config_file_updates(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_config_file_updates", value)
 
     @property
     @pulumi.getter
@@ -188,6 +208,18 @@ class StaticSiteArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="stagingEnvironmentPolicy")
+    def staging_environment_policy(self) -> Optional[pulumi.Input['StagingEnvironmentPolicy']]:
+        """
+        State indicating whether staging environments are allowed or not allowed for a static web app.
+        """
+        return pulumi.get(self, "staging_environment_policy")
+
+    @staging_environment_policy.setter
+    def staging_environment_policy(self, value: Optional[pulumi.Input['StagingEnvironmentPolicy']]):
+        pulumi.set(self, "staging_environment_policy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -217,6 +249,7 @@ class StaticSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
@@ -227,6 +260,7 @@ class StaticSite(pulumi.CustomResource):
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteTemplateOptionsArgs']]] = None,
                  __props__=None,
@@ -237,6 +271,7 @@ class StaticSite(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_config_file_updates: <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         :param pulumi.Input[str] branch: The target branch in the repository.
         :param pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']] build_properties: Build properties to configure on the repository.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
@@ -247,6 +282,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] repository_url: URL for the repository of the static site.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
+        :param pulumi.Input['StagingEnvironmentPolicy'] staging_environment_policy: State indicating whether staging environments are allowed or not allowed for a static web app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['StaticSiteTemplateOptionsArgs']] template_properties: Template options for generating a new repository.
         """
@@ -274,6 +310,7 @@ class StaticSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
@@ -284,6 +321,7 @@ class StaticSite(pulumi.CustomResource):
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 staging_environment_policy: Optional[pulumi.Input['StagingEnvironmentPolicy']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteTemplateOptionsArgs']]] = None,
                  __props__=None,
@@ -306,6 +344,7 @@ class StaticSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_config_file_updates'] = allow_config_file_updates
             __props__['branch'] = branch
             __props__['build_properties'] = build_properties
             __props__['identity'] = identity
@@ -318,12 +357,14 @@ class StaticSite(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['staging_environment_policy'] = staging_environment_policy
             __props__['tags'] = tags
             __props__['template_properties'] = template_properties
             __props__['content_distribution_endpoint'] = None
             __props__['custom_domains'] = None
             __props__['default_hostname'] = None
             __props__['key_vault_reference_identity'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['provider'] = None
             __props__['type'] = None
             __props__['user_provided_function_apps'] = None
@@ -351,6 +392,7 @@ class StaticSite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_config_file_updates"] = None
         __props__["branch"] = None
         __props__["build_properties"] = None
         __props__["content_distribution_endpoint"] = None
@@ -361,15 +403,25 @@ class StaticSite(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["location"] = None
         __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
         __props__["provider"] = None
         __props__["repository_token"] = None
         __props__["repository_url"] = None
         __props__["sku"] = None
+        __props__["staging_environment_policy"] = None
         __props__["tags"] = None
         __props__["template_properties"] = None
         __props__["type"] = None
         __props__["user_provided_function_apps"] = None
         return StaticSite(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowConfigFileUpdates")
+    def allow_config_file_updates(self) -> pulumi.Output[Optional[bool]]:
+        """
+        <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+        """
+        return pulumi.get(self, "allow_config_file_updates")
 
     @property
     @pulumi.getter
@@ -452,6 +504,14 @@ class StaticSite(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter
     def provider(self) -> pulumi.Output[str]:
         """
@@ -482,6 +542,14 @@ class StaticSite(pulumi.CustomResource):
         Description of a SKU for a scalable resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="stagingEnvironmentPolicy")
+    def staging_environment_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        State indicating whether staging environments are allowed or not allowed for a static web app.
+        """
+        return pulumi.get(self, "staging_environment_policy")
 
     @property
     @pulumi.getter

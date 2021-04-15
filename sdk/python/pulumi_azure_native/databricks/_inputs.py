@@ -239,8 +239,15 @@ class WorkspaceCustomParametersArgs:
                  custom_virtual_network_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
                  enable_no_public_ip: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None,
                  encryption: Optional[pulumi.Input['WorkspaceEncryptionParameterArgs']] = None,
+                 load_balancer_backend_pool_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 load_balancer_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 nat_gateway_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
                  prepare_encryption: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None):
+                 public_ip_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 require_infrastructure_encryption: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None,
+                 storage_account_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 storage_account_sku_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 vnet_address_prefix: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None):
         """
         Custom Parameters used for Cluster Creation.
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
@@ -249,8 +256,15 @@ class WorkspaceCustomParametersArgs:
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
         :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] enable_no_public_ip: Should the Public IP be Disabled?
         :param pulumi.Input['WorkspaceEncryptionParameterArgs'] encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
         :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet.
         :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] storage_account_name: Default DBFS storage account name.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139.
         """
         if aml_workspace_id is not None:
             pulumi.set(__self__, "aml_workspace_id", aml_workspace_id)
@@ -264,10 +278,24 @@ class WorkspaceCustomParametersArgs:
             pulumi.set(__self__, "enable_no_public_ip", enable_no_public_ip)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if load_balancer_backend_pool_name is not None:
+            pulumi.set(__self__, "load_balancer_backend_pool_name", load_balancer_backend_pool_name)
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if nat_gateway_name is not None:
+            pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
         if prepare_encryption is not None:
             pulumi.set(__self__, "prepare_encryption", prepare_encryption)
+        if public_ip_name is not None:
+            pulumi.set(__self__, "public_ip_name", public_ip_name)
         if require_infrastructure_encryption is not None:
             pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_account_sku_name is not None:
+            pulumi.set(__self__, "storage_account_sku_name", storage_account_sku_name)
+        if vnet_address_prefix is not None:
+            pulumi.set(__self__, "vnet_address_prefix", vnet_address_prefix)
 
     @property
     @pulumi.getter(name="amlWorkspaceId")
@@ -342,6 +370,42 @@ class WorkspaceCustomParametersArgs:
         pulumi.set(self, "encryption", value)
 
     @property
+    @pulumi.getter(name="loadBalancerBackendPoolName")
+    def load_balancer_backend_pool_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        """
+        return pulumi.get(self, "load_balancer_backend_pool_name")
+
+    @load_balancer_backend_pool_name.setter
+    def load_balancer_backend_pool_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "load_balancer_backend_pool_name", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
+    @pulumi.getter(name="natGatewayName")
+    def nat_gateway_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        """
+        return pulumi.get(self, "nat_gateway_name")
+
+    @nat_gateway_name.setter
+    def nat_gateway_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "nat_gateway_name", value)
+
+    @property
     @pulumi.getter(name="prepareEncryption")
     def prepare_encryption(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
         """
@@ -354,6 +418,18 @@ class WorkspaceCustomParametersArgs:
         pulumi.set(self, "prepare_encryption", value)
 
     @property
+    @pulumi.getter(name="publicIpName")
+    def public_ip_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Name of the Public IP for No Public IP workspace with managed vNet.
+        """
+        return pulumi.get(self, "public_ip_name")
+
+    @public_ip_name.setter
+    def public_ip_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "public_ip_name", value)
+
+    @property
     @pulumi.getter(name="requireInfrastructureEncryption")
     def require_infrastructure_encryption(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
         """
@@ -364,6 +440,42 @@ class WorkspaceCustomParametersArgs:
     @require_infrastructure_encryption.setter
     def require_infrastructure_encryption(self, value: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]):
         pulumi.set(self, "require_infrastructure_encryption", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Default DBFS storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountSkuName")
+    def storage_account_sku_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        """
+        return pulumi.get(self, "storage_account_sku_name")
+
+    @storage_account_sku_name.setter
+    def storage_account_sku_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "storage_account_sku_name", value)
+
+    @property
+    @pulumi.getter(name="vnetAddressPrefix")
+    def vnet_address_prefix(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
+        """
+        Address prefix for Managed virtual network. Default value for this input is 10.139.
+        """
+        return pulumi.get(self, "vnet_address_prefix")
+
+    @vnet_address_prefix.setter
+    def vnet_address_prefix(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
+        pulumi.set(self, "vnet_address_prefix", value)
 
 
 @pulumi.input_type

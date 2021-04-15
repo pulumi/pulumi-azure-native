@@ -131,7 +131,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties of the PrivateEndpointConnection.
-        API Version: 2021-01-01-preview.
+        API Version: 2018-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the PrivateEndpointConnection.
-        API Version: 2021-01-01-preview.
+        API Version: 2018-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +204,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
-            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210101preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -234,7 +233,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__["private_endpoint"] = None
         __props__["private_link_service_connection_state"] = None
         __props__["provisioning_state"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -269,14 +267,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Provisioning state of the Private Endpoint Connection.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
