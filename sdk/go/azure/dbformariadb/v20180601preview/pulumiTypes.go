@@ -191,6 +191,8 @@ type ServerPropertiesForDefaultCreate struct {
 	// The mode to create a new server.
 	// Expected value is 'Default'.
 	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
@@ -219,6 +221,8 @@ type ServerPropertiesForDefaultCreateArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'Default'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
@@ -270,6 +274,11 @@ func (o ServerPropertiesForDefaultCreateOutput) CreateMode() pulumi.StringOutput
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
+// Enforce a minimal Tls version for the server.
+func (o ServerPropertiesForDefaultCreateOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
 // Enable ssl enforcement or not when connect to server.
 func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
@@ -290,6 +299,8 @@ type ServerPropertiesForGeoRestore struct {
 	// The mode to create a new server.
 	// Expected value is 'GeoRestore'.
 	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The source server id to restore from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -316,6 +327,8 @@ type ServerPropertiesForGeoRestoreArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'GeoRestore'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -359,6 +372,11 @@ func (o ServerPropertiesForGeoRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
+// Enforce a minimal Tls version for the server.
+func (o ServerPropertiesForGeoRestoreOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
 // The source server id to restore from.
 func (o ServerPropertiesForGeoRestoreOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.SourceServerId }).(pulumi.StringOutput)
@@ -384,6 +402,8 @@ type ServerPropertiesForReplica struct {
 	// The mode to create a new server.
 	// Expected value is 'Replica'.
 	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The master server id to create replica from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -410,6 +430,8 @@ type ServerPropertiesForReplicaArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'Replica'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
 	// The master server id to create replica from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -453,6 +475,11 @@ func (o ServerPropertiesForReplicaOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
+// Enforce a minimal Tls version for the server.
+func (o ServerPropertiesForReplicaOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
 // The master server id to create replica from.
 func (o ServerPropertiesForReplicaOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.SourceServerId }).(pulumi.StringOutput)
@@ -478,6 +505,8 @@ type ServerPropertiesForRestore struct {
 	// The mode to create a new server.
 	// Expected value is 'PointInTimeRestore'.
 	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	RestorePointInTime string `pulumi:"restorePointInTime"`
 	// The source server id to restore from.
@@ -506,6 +535,8 @@ type ServerPropertiesForRestoreArgs struct {
 	// The mode to create a new server.
 	// Expected value is 'PointInTimeRestore'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
 	// The source server id to restore from.
@@ -549,6 +580,11 @@ func (o ServerPropertiesForRestoreOutput) ToServerPropertiesForRestoreOutputWith
 // Expected value is 'PointInTimeRestore'.
 func (o ServerPropertiesForRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.CreateMode }).(pulumi.StringOutput)
+}
+
+// Enforce a minimal Tls version for the server.
+func (o ServerPropertiesForRestoreOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Restore point creation time (ISO8601 format), specifying the time to restore from.

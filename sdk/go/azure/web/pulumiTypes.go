@@ -5145,6 +5145,216 @@ func (o ArmIdWrapperResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The plan object in Azure Resource Manager, represents a marketplace plan.
+type ArmPlanResponse struct {
+	// The name.
+	Name *string `pulumi:"name"`
+	// The product.
+	Product *string `pulumi:"product"`
+	// The promotion code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher.
+	Publisher *string `pulumi:"publisher"`
+	// Version of product.
+	Version *string `pulumi:"version"`
+}
+
+// ArmPlanResponseInput is an input type that accepts ArmPlanResponseArgs and ArmPlanResponseOutput values.
+// You can construct a concrete instance of `ArmPlanResponseInput` via:
+//
+//          ArmPlanResponseArgs{...}
+type ArmPlanResponseInput interface {
+	pulumi.Input
+
+	ToArmPlanResponseOutput() ArmPlanResponseOutput
+	ToArmPlanResponseOutputWithContext(context.Context) ArmPlanResponseOutput
+}
+
+// The plan object in Azure Resource Manager, represents a marketplace plan.
+type ArmPlanResponseArgs struct {
+	// The name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The product.
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// The promotion code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Version of product.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ArmPlanResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmPlanResponse)(nil)).Elem()
+}
+
+func (i ArmPlanResponseArgs) ToArmPlanResponseOutput() ArmPlanResponseOutput {
+	return i.ToArmPlanResponseOutputWithContext(context.Background())
+}
+
+func (i ArmPlanResponseArgs) ToArmPlanResponseOutputWithContext(ctx context.Context) ArmPlanResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponseOutput)
+}
+
+func (i ArmPlanResponseArgs) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
+	return i.ToArmPlanResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ArmPlanResponseArgs) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponseOutput).ToArmPlanResponsePtrOutputWithContext(ctx)
+}
+
+// ArmPlanResponsePtrInput is an input type that accepts ArmPlanResponseArgs, ArmPlanResponsePtr and ArmPlanResponsePtrOutput values.
+// You can construct a concrete instance of `ArmPlanResponsePtrInput` via:
+//
+//          ArmPlanResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmPlanResponsePtrInput interface {
+	pulumi.Input
+
+	ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput
+	ToArmPlanResponsePtrOutputWithContext(context.Context) ArmPlanResponsePtrOutput
+}
+
+type armPlanResponsePtrType ArmPlanResponseArgs
+
+func ArmPlanResponsePtr(v *ArmPlanResponseArgs) ArmPlanResponsePtrInput {
+	return (*armPlanResponsePtrType)(v)
+}
+
+func (*armPlanResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmPlanResponse)(nil)).Elem()
+}
+
+func (i *armPlanResponsePtrType) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
+	return i.ToArmPlanResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *armPlanResponsePtrType) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponsePtrOutput)
+}
+
+// The plan object in Azure Resource Manager, represents a marketplace plan.
+type ArmPlanResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmPlanResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmPlanResponse)(nil)).Elem()
+}
+
+func (o ArmPlanResponseOutput) ToArmPlanResponseOutput() ArmPlanResponseOutput {
+	return o
+}
+
+func (o ArmPlanResponseOutput) ToArmPlanResponseOutputWithContext(ctx context.Context) ArmPlanResponseOutput {
+	return o
+}
+
+func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
+	return o.ToArmPlanResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
+	return o.ApplyT(func(v ArmPlanResponse) *ArmPlanResponse {
+		return &v
+	}).(ArmPlanResponsePtrOutput)
+}
+
+// The name.
+func (o ArmPlanResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The product.
+func (o ArmPlanResponseOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// The promotion code.
+func (o ArmPlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmPlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher.
+func (o ArmPlanResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Version of product.
+func (o ArmPlanResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ArmPlanResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArmPlanResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmPlanResponse)(nil)).Elem()
+}
+
+func (o ArmPlanResponsePtrOutput) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
+	return o
+}
+
+func (o ArmPlanResponsePtrOutput) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
+	return o
+}
+
+func (o ArmPlanResponsePtrOutput) Elem() ArmPlanResponseOutput {
+	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse { return *v }).(ArmPlanResponseOutput)
+}
+
+// The name.
+func (o ArmPlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmPlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The product.
+func (o ArmPlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmPlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// The promotion code.
+func (o ArmPlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmPlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromotionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher.
+func (o ArmPlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmPlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of product.
+func (o ArmPlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmPlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type AuthPlatform struct {
 	ConfigFilePath *string `pulumi:"configFilePath"`
 	Enabled        *bool   `pulumi:"enabled"`
@@ -17513,6 +17723,280 @@ func (o EnabledConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Body of the error response returned from the API.
+type ErrorEntityResponse struct {
+	// Basic error code.
+	Code *string `pulumi:"code"`
+	// Type of error.
+	ExtendedCode *string `pulumi:"extendedCode"`
+	// Inner errors.
+	InnerErrors []ErrorEntityResponse `pulumi:"innerErrors"`
+	// Any details of the error.
+	Message *string `pulumi:"message"`
+	// Message template.
+	MessageTemplate *string `pulumi:"messageTemplate"`
+	// Parameters for the template.
+	Parameters []string `pulumi:"parameters"`
+}
+
+// ErrorEntityResponseInput is an input type that accepts ErrorEntityResponseArgs and ErrorEntityResponseOutput values.
+// You can construct a concrete instance of `ErrorEntityResponseInput` via:
+//
+//          ErrorEntityResponseArgs{...}
+type ErrorEntityResponseInput interface {
+	pulumi.Input
+
+	ToErrorEntityResponseOutput() ErrorEntityResponseOutput
+	ToErrorEntityResponseOutputWithContext(context.Context) ErrorEntityResponseOutput
+}
+
+// Body of the error response returned from the API.
+type ErrorEntityResponseArgs struct {
+	// Basic error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Type of error.
+	ExtendedCode pulumi.StringPtrInput `pulumi:"extendedCode"`
+	// Inner errors.
+	InnerErrors ErrorEntityResponseArrayInput `pulumi:"innerErrors"`
+	// Any details of the error.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Message template.
+	MessageTemplate pulumi.StringPtrInput `pulumi:"messageTemplate"`
+	// Parameters for the template.
+	Parameters pulumi.StringArrayInput `pulumi:"parameters"`
+}
+
+func (ErrorEntityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorEntityResponse)(nil)).Elem()
+}
+
+func (i ErrorEntityResponseArgs) ToErrorEntityResponseOutput() ErrorEntityResponseOutput {
+	return i.ToErrorEntityResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorEntityResponseArgs) ToErrorEntityResponseOutputWithContext(ctx context.Context) ErrorEntityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorEntityResponseOutput)
+}
+
+func (i ErrorEntityResponseArgs) ToErrorEntityResponsePtrOutput() ErrorEntityResponsePtrOutput {
+	return i.ToErrorEntityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ErrorEntityResponseArgs) ToErrorEntityResponsePtrOutputWithContext(ctx context.Context) ErrorEntityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorEntityResponseOutput).ToErrorEntityResponsePtrOutputWithContext(ctx)
+}
+
+// ErrorEntityResponsePtrInput is an input type that accepts ErrorEntityResponseArgs, ErrorEntityResponsePtr and ErrorEntityResponsePtrOutput values.
+// You can construct a concrete instance of `ErrorEntityResponsePtrInput` via:
+//
+//          ErrorEntityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ErrorEntityResponsePtrInput interface {
+	pulumi.Input
+
+	ToErrorEntityResponsePtrOutput() ErrorEntityResponsePtrOutput
+	ToErrorEntityResponsePtrOutputWithContext(context.Context) ErrorEntityResponsePtrOutput
+}
+
+type errorEntityResponsePtrType ErrorEntityResponseArgs
+
+func ErrorEntityResponsePtr(v *ErrorEntityResponseArgs) ErrorEntityResponsePtrInput {
+	return (*errorEntityResponsePtrType)(v)
+}
+
+func (*errorEntityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorEntityResponse)(nil)).Elem()
+}
+
+func (i *errorEntityResponsePtrType) ToErrorEntityResponsePtrOutput() ErrorEntityResponsePtrOutput {
+	return i.ToErrorEntityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *errorEntityResponsePtrType) ToErrorEntityResponsePtrOutputWithContext(ctx context.Context) ErrorEntityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorEntityResponsePtrOutput)
+}
+
+// ErrorEntityResponseArrayInput is an input type that accepts ErrorEntityResponseArray and ErrorEntityResponseArrayOutput values.
+// You can construct a concrete instance of `ErrorEntityResponseArrayInput` via:
+//
+//          ErrorEntityResponseArray{ ErrorEntityResponseArgs{...} }
+type ErrorEntityResponseArrayInput interface {
+	pulumi.Input
+
+	ToErrorEntityResponseArrayOutput() ErrorEntityResponseArrayOutput
+	ToErrorEntityResponseArrayOutputWithContext(context.Context) ErrorEntityResponseArrayOutput
+}
+
+type ErrorEntityResponseArray []ErrorEntityResponseInput
+
+func (ErrorEntityResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorEntityResponse)(nil)).Elem()
+}
+
+func (i ErrorEntityResponseArray) ToErrorEntityResponseArrayOutput() ErrorEntityResponseArrayOutput {
+	return i.ToErrorEntityResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ErrorEntityResponseArray) ToErrorEntityResponseArrayOutputWithContext(ctx context.Context) ErrorEntityResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorEntityResponseArrayOutput)
+}
+
+// Body of the error response returned from the API.
+type ErrorEntityResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorEntityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorEntityResponse)(nil)).Elem()
+}
+
+func (o ErrorEntityResponseOutput) ToErrorEntityResponseOutput() ErrorEntityResponseOutput {
+	return o
+}
+
+func (o ErrorEntityResponseOutput) ToErrorEntityResponseOutputWithContext(ctx context.Context) ErrorEntityResponseOutput {
+	return o
+}
+
+func (o ErrorEntityResponseOutput) ToErrorEntityResponsePtrOutput() ErrorEntityResponsePtrOutput {
+	return o.ToErrorEntityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ErrorEntityResponseOutput) ToErrorEntityResponsePtrOutputWithContext(ctx context.Context) ErrorEntityResponsePtrOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) *ErrorEntityResponse {
+		return &v
+	}).(ErrorEntityResponsePtrOutput)
+}
+
+// Basic error code.
+func (o ErrorEntityResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Type of error.
+func (o ErrorEntityResponseOutput) ExtendedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) *string { return v.ExtendedCode }).(pulumi.StringPtrOutput)
+}
+
+// Inner errors.
+func (o ErrorEntityResponseOutput) InnerErrors() ErrorEntityResponseArrayOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) []ErrorEntityResponse { return v.InnerErrors }).(ErrorEntityResponseArrayOutput)
+}
+
+// Any details of the error.
+func (o ErrorEntityResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Message template.
+func (o ErrorEntityResponseOutput) MessageTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) *string { return v.MessageTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Parameters for the template.
+func (o ErrorEntityResponseOutput) Parameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ErrorEntityResponse) []string { return v.Parameters }).(pulumi.StringArrayOutput)
+}
+
+type ErrorEntityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ErrorEntityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorEntityResponse)(nil)).Elem()
+}
+
+func (o ErrorEntityResponsePtrOutput) ToErrorEntityResponsePtrOutput() ErrorEntityResponsePtrOutput {
+	return o
+}
+
+func (o ErrorEntityResponsePtrOutput) ToErrorEntityResponsePtrOutputWithContext(ctx context.Context) ErrorEntityResponsePtrOutput {
+	return o
+}
+
+func (o ErrorEntityResponsePtrOutput) Elem() ErrorEntityResponseOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) ErrorEntityResponse { return *v }).(ErrorEntityResponseOutput)
+}
+
+// Basic error code.
+func (o ErrorEntityResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of error.
+func (o ErrorEntityResponsePtrOutput) ExtendedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Inner errors.
+func (o ErrorEntityResponsePtrOutput) InnerErrors() ErrorEntityResponseArrayOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) []ErrorEntityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.InnerErrors
+	}).(ErrorEntityResponseArrayOutput)
+}
+
+// Any details of the error.
+func (o ErrorEntityResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Message template.
+func (o ErrorEntityResponsePtrOutput) MessageTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters for the template.
+func (o ErrorEntityResponsePtrOutput) Parameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ErrorEntityResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringArrayOutput)
+}
+
+type ErrorEntityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorEntityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorEntityResponse)(nil)).Elem()
+}
+
+func (o ErrorEntityResponseArrayOutput) ToErrorEntityResponseArrayOutput() ErrorEntityResponseArrayOutput {
+	return o
+}
+
+func (o ErrorEntityResponseArrayOutput) ToErrorEntityResponseArrayOutputWithContext(ctx context.Context) ErrorEntityResponseArrayOutput {
+	return o
+}
+
+func (o ErrorEntityResponseArrayOutput) Index(i pulumi.IntInput) ErrorEntityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorEntityResponse {
+		return vs[0].([]ErrorEntityResponse)[vs[1].(int)]
+	}).(ErrorEntityResponseOutput)
 }
 
 // Routing rules in production experiments.
@@ -31275,6 +31759,271 @@ func (o RampUpRuleResponseArrayOutput) Index(i pulumi.IntInput) RampUpRuleRespon
 	}).(RampUpRuleResponseOutput)
 }
 
+// A remote private endpoint connection
+type RemotePrivateEndpointConnectionResponse struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// PrivateEndpoint of a remote private endpoint connection
+	PrivateEndpoint *ArmIdWrapperResponse `pulumi:"privateEndpoint"`
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                              `pulumi:"provisioningState"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// RemotePrivateEndpointConnectionResponseInput is an input type that accepts RemotePrivateEndpointConnectionResponseArgs and RemotePrivateEndpointConnectionResponseOutput values.
+// You can construct a concrete instance of `RemotePrivateEndpointConnectionResponseInput` via:
+//
+//          RemotePrivateEndpointConnectionResponseArgs{...}
+type RemotePrivateEndpointConnectionResponseInput interface {
+	pulumi.Input
+
+	ToRemotePrivateEndpointConnectionResponseOutput() RemotePrivateEndpointConnectionResponseOutput
+	ToRemotePrivateEndpointConnectionResponseOutputWithContext(context.Context) RemotePrivateEndpointConnectionResponseOutput
+}
+
+// A remote private endpoint connection
+type RemotePrivateEndpointConnectionResponseArgs struct {
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// PrivateEndpoint of a remote private endpoint connection
+	PrivateEndpoint ArmIdWrapperResponsePtrInput `pulumi:"privateEndpoint"`
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 pulumi.StringInput                         `pulumi:"provisioningState"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RemotePrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i RemotePrivateEndpointConnectionResponseArgs) ToRemotePrivateEndpointConnectionResponseOutput() RemotePrivateEndpointConnectionResponseOutput {
+	return i.ToRemotePrivateEndpointConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i RemotePrivateEndpointConnectionResponseArgs) ToRemotePrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointConnectionResponseOutput)
+}
+
+func (i RemotePrivateEndpointConnectionResponseArgs) ToRemotePrivateEndpointConnectionResponsePtrOutput() RemotePrivateEndpointConnectionResponsePtrOutput {
+	return i.ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RemotePrivateEndpointConnectionResponseArgs) ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointConnectionResponseOutput).ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(ctx)
+}
+
+// RemotePrivateEndpointConnectionResponsePtrInput is an input type that accepts RemotePrivateEndpointConnectionResponseArgs, RemotePrivateEndpointConnectionResponsePtr and RemotePrivateEndpointConnectionResponsePtrOutput values.
+// You can construct a concrete instance of `RemotePrivateEndpointConnectionResponsePtrInput` via:
+//
+//          RemotePrivateEndpointConnectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RemotePrivateEndpointConnectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToRemotePrivateEndpointConnectionResponsePtrOutput() RemotePrivateEndpointConnectionResponsePtrOutput
+	ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(context.Context) RemotePrivateEndpointConnectionResponsePtrOutput
+}
+
+type remotePrivateEndpointConnectionResponsePtrType RemotePrivateEndpointConnectionResponseArgs
+
+func RemotePrivateEndpointConnectionResponsePtr(v *RemotePrivateEndpointConnectionResponseArgs) RemotePrivateEndpointConnectionResponsePtrInput {
+	return (*remotePrivateEndpointConnectionResponsePtrType)(v)
+}
+
+func (*remotePrivateEndpointConnectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i *remotePrivateEndpointConnectionResponsePtrType) ToRemotePrivateEndpointConnectionResponsePtrOutput() RemotePrivateEndpointConnectionResponsePtrOutput {
+	return i.ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *remotePrivateEndpointConnectionResponsePtrType) ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointConnectionResponsePtrOutput)
+}
+
+// A remote private endpoint connection
+type RemotePrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (RemotePrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o RemotePrivateEndpointConnectionResponseOutput) ToRemotePrivateEndpointConnectionResponseOutput() RemotePrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointConnectionResponseOutput) ToRemotePrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointConnectionResponseOutput) ToRemotePrivateEndpointConnectionResponsePtrOutput() RemotePrivateEndpointConnectionResponsePtrOutput {
+	return o.ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RemotePrivateEndpointConnectionResponseOutput) ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponsePtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) *RemotePrivateEndpointConnectionResponse {
+		return &v
+	}).(RemotePrivateEndpointConnectionResponsePtrOutput)
+}
+
+// Resource Id.
+func (o RemotePrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private IPAddresses mapped to the remote private endpoint
+func (o RemotePrivateEndpointConnectionResponseOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource.
+func (o RemotePrivateEndpointConnectionResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o RemotePrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PrivateEndpoint of a remote private endpoint connection
+func (o RemotePrivateEndpointConnectionResponseOutput) PrivateEndpoint() ArmIdWrapperResponsePtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) *ArmIdWrapperResponse { return v.PrivateEndpoint }).(ArmIdWrapperResponsePtrOutput)
+}
+
+// The state of a private link connection
+func (o RemotePrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) *PrivateLinkConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateResponsePtrOutput)
+}
+
+func (o RemotePrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o RemotePrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RemotePrivateEndpointConnectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RemotePrivateEndpointConnectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) ToRemotePrivateEndpointConnectionResponsePtrOutput() RemotePrivateEndpointConnectionResponsePtrOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponsePtrOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) Elem() RemotePrivateEndpointConnectionResponseOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) RemotePrivateEndpointConnectionResponse { return *v }).(RemotePrivateEndpointConnectionResponseOutput)
+}
+
+// Resource Id.
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private IPAddresses mapped to the remote private endpoint
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource.
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateEndpoint of a remote private endpoint connection
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) PrivateEndpoint() ArmIdWrapperResponsePtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *ArmIdWrapperResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(ArmIdWrapperResponsePtrOutput)
+}
+
+// The state of a private link connection
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *PrivateLinkConnectionStateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateResponsePtrOutput)
+}
+
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o RemotePrivateEndpointConnectionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Trigger based on total requests.
 type RequestsBasedTrigger struct {
 	// Request Count.
@@ -31579,6 +32328,221 @@ func (o RequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOu
 		}
 		return v.TimeInterval
 	}).(pulumi.StringPtrOutput)
+}
+
+// Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse struct {
+	// Azure-AsyncOperation Error info.
+	Error *ErrorEntityResponse `pulumi:"error"`
+	// Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+	// value for GET requests only.
+	// For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+	Id *string `pulumi:"id"`
+	// MSI resource
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+	Location *string `pulumi:"location"`
+	// Name of resource.
+	Name *string `pulumi:"name"`
+	// Azure resource manager plan.
+	Plan *ArmPlanResponse `pulumi:"plan"`
+	// Resource specific properties.
+	Properties *RemotePrivateEndpointConnectionResponse `pulumi:"properties"`
+	// SKU description of the resource.
+	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// Azure-AsyncOperation Status info.
+	Status *string `pulumi:"status"`
+	// Tags associated with resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of resource e.g "Microsoft.Web/sites".
+	Type *string `pulumi:"type"`
+	// Logical Availability Zones the service is hosted in
+	Zones []string `pulumi:"zones"`
+}
+
+// ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseInput is an input type that accepts ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs and ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput values.
+// You can construct a concrete instance of `ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseInput` via:
+//
+//          ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs{...}
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseInput interface {
+	pulumi.Input
+
+	ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput() ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput
+	ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutputWithContext(context.Context) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput
+}
+
+// Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs struct {
+	// Azure-AsyncOperation Error info.
+	Error ErrorEntityResponsePtrInput `pulumi:"error"`
+	// Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+	// value for GET requests only.
+	// For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// MSI resource
+	Identity ManagedServiceIdentityResponsePtrInput `pulumi:"identity"`
+	// Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure resource manager plan.
+	Plan ArmPlanResponsePtrInput `pulumi:"plan"`
+	// Resource specific properties.
+	Properties RemotePrivateEndpointConnectionResponsePtrInput `pulumi:"properties"`
+	// SKU description of the resource.
+	Sku SkuDescriptionResponsePtrInput `pulumi:"sku"`
+	// Azure-AsyncOperation Status info.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Tags associated with resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Type of resource e.g "Microsoft.Web/sites".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Logical Availability Zones the service is hosted in
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput() ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput {
+	return i.ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput)
+}
+
+// ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayInput is an input type that accepts ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArray and ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput values.
+// You can construct a concrete instance of `ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayInput` via:
+//
+//          ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArray{ ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArgs{...} }
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayInput interface {
+	pulumi.Input
+
+	ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput() ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput
+	ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput
+}
+
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArray []ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseInput
+
+func (ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArray) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput() ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput {
+	return i.ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArray) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput() ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Azure-AsyncOperation Error info.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Error() ErrorEntityResponsePtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *ErrorEntityResponse {
+		return v.Error
+	}).(ErrorEntityResponsePtrOutput)
+}
+
+// Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+// value for GET requests only.
+// For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// MSI resource
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *ManagedServiceIdentityResponse {
+		return v.Identity
+	}).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of resource.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource manager plan.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Plan() ArmPlanResponsePtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *ArmPlanResponse { return v.Plan }).(ArmPlanResponsePtrOutput)
+}
+
+// Resource specific properties.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Properties() RemotePrivateEndpointConnectionResponsePtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *RemotePrivateEndpointConnectionResponse {
+		return v.Properties
+	}).(RemotePrivateEndpointConnectionResponsePtrOutput)
+}
+
+// SKU description of the resource.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Sku() SkuDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *SkuDescriptionResponse {
+		return v.Sku
+	}).(SkuDescriptionResponsePtrOutput)
+}
+
+// Azure-AsyncOperation Status info.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Tags associated with resource.
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) map[string]string {
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Type of resource e.g "Microsoft.Web/sites".
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Logical Availability Zones the service is hosted in
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput() ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput) ToResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse {
+		return vs[0].([]ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput)
 }
 
 // Configuration of an App Service app.
@@ -41403,6 +42367,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponseOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArmPlanResponseOutput{})
+	pulumi.RegisterOutputType(ArmPlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(AuthPlatformOutput{})
 	pulumi.RegisterOutputType(AuthPlatformPtrOutput{})
 	pulumi.RegisterOutputType(AuthPlatformResponseOutput{})
@@ -41540,6 +42506,9 @@ func init() {
 	pulumi.RegisterOutputType(EnabledConfigPtrOutput{})
 	pulumi.RegisterOutputType(EnabledConfigResponseOutput{})
 	pulumi.RegisterOutputType(EnabledConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(ErrorEntityResponseOutput{})
+	pulumi.RegisterOutputType(ErrorEntityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ErrorEntityResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentsOutput{})
 	pulumi.RegisterOutputType(ExperimentsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponseOutput{})
@@ -41688,10 +42657,14 @@ func init() {
 	pulumi.RegisterOutputType(RampUpRuleArrayOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(RemotePrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(RemotePrivateEndpointConnectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerPtrOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SiteConfigOutput{})
 	pulumi.RegisterOutputType(SiteConfigPtrOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponseOutput{})

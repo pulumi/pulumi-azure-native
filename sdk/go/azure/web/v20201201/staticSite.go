@@ -15,6 +15,8 @@ import (
 type StaticSite struct {
 	pulumi.CustomResourceState
 
+	// <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+	AllowConfigFileUpdates pulumi.BoolPtrOutput `pulumi:"allowConfigFileUpdates"`
 	// The target branch in the repository.
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// Build properties to configure on the repository.
@@ -35,6 +37,8 @@ type StaticSite struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Private endpoint connections
+	PrivateEndpointConnections ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provider that submitted the last deployment to the primary environment of the static site.
 	Provider pulumi.StringOutput `pulumi:"provider"`
 	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -43,6 +47,8 @@ type StaticSite struct {
 	RepositoryUrl pulumi.StringPtrOutput `pulumi:"repositoryUrl"`
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionResponsePtrOutput `pulumi:"sku"`
+	// State indicating whether staging environments are allowed or not allowed for a static web app.
+	StagingEnvironmentPolicy pulumi.StringPtrOutput `pulumi:"stagingEnvironmentPolicy"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Template options for generating a new repository.
@@ -121,6 +127,8 @@ func GetStaticSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticSite resources.
 type staticSiteState struct {
+	// <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+	AllowConfigFileUpdates *bool `pulumi:"allowConfigFileUpdates"`
 	// The target branch in the repository.
 	Branch *string `pulumi:"branch"`
 	// Build properties to configure on the repository.
@@ -141,6 +149,8 @@ type staticSiteState struct {
 	Location *string `pulumi:"location"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
+	// Private endpoint connections
+	PrivateEndpointConnections []ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provider that submitted the last deployment to the primary environment of the static site.
 	Provider *string `pulumi:"provider"`
 	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -149,6 +159,8 @@ type staticSiteState struct {
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// State indicating whether staging environments are allowed or not allowed for a static web app.
+	StagingEnvironmentPolicy *string `pulumi:"stagingEnvironmentPolicy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Template options for generating a new repository.
@@ -160,6 +172,8 @@ type staticSiteState struct {
 }
 
 type StaticSiteState struct {
+	// <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+	AllowConfigFileUpdates pulumi.BoolPtrInput
 	// The target branch in the repository.
 	Branch pulumi.StringPtrInput
 	// Build properties to configure on the repository.
@@ -180,6 +194,8 @@ type StaticSiteState struct {
 	Location pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
+	// Private endpoint connections
+	PrivateEndpointConnections ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayInput
 	// The provider that submitted the last deployment to the primary environment of the static site.
 	Provider pulumi.StringPtrInput
 	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -188,6 +204,8 @@ type StaticSiteState struct {
 	RepositoryUrl pulumi.StringPtrInput
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionResponsePtrInput
+	// State indicating whether staging environments are allowed or not allowed for a static web app.
+	StagingEnvironmentPolicy pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Template options for generating a new repository.
@@ -203,6 +221,8 @@ func (StaticSiteState) ElementType() reflect.Type {
 }
 
 type staticSiteArgs struct {
+	// <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+	AllowConfigFileUpdates *bool `pulumi:"allowConfigFileUpdates"`
 	// The target branch in the repository.
 	Branch *string `pulumi:"branch"`
 	// Build properties to configure on the repository.
@@ -223,6 +243,8 @@ type staticSiteArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescription `pulumi:"sku"`
+	// State indicating whether staging environments are allowed or not allowed for a static web app.
+	StagingEnvironmentPolicy *string `pulumi:"stagingEnvironmentPolicy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Template options for generating a new repository.
@@ -231,6 +253,8 @@ type staticSiteArgs struct {
 
 // The set of arguments for constructing a StaticSite resource.
 type StaticSiteArgs struct {
+	// <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+	AllowConfigFileUpdates pulumi.BoolPtrInput
 	// The target branch in the repository.
 	Branch pulumi.StringPtrInput
 	// Build properties to configure on the repository.
@@ -251,6 +275,8 @@ type StaticSiteArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionPtrInput
+	// State indicating whether staging environments are allowed or not allowed for a static web app.
+	StagingEnvironmentPolicy *StagingEnvironmentPolicy
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Template options for generating a new repository.

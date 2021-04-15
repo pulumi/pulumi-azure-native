@@ -20,8 +20,6 @@ type OrganizationResourcePropertiesOfferDetail struct {
 	PlanName *string `pulumi:"planName"`
 	// Publisher Id
 	PublisherId *string `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status *string `pulumi:"status"`
 	// Offer Plan Term unit
 	TermUnit *string `pulumi:"termUnit"`
 }
@@ -47,8 +45,6 @@ type OrganizationResourcePropertiesOfferDetailArgs struct {
 	PlanName pulumi.StringPtrInput `pulumi:"planName"`
 	// Publisher Id
 	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Offer Plan Term unit
 	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
 }
@@ -151,11 +147,6 @@ func (o OrganizationResourcePropertiesOfferDetailOutput) PublisherId() pulumi.St
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }
 
-// SaaS Offer Status
-func (o OrganizationResourcePropertiesOfferDetailOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
 // Offer Plan Term unit
 func (o OrganizationResourcePropertiesOfferDetailOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
@@ -221,16 +212,6 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PublisherId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// SaaS Offer Status
-func (o OrganizationResourcePropertiesOfferDetailPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 // Offer Plan Term unit
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
@@ -252,7 +233,7 @@ type OrganizationResourcePropertiesResponseOfferDetail struct {
 	// Publisher Id
 	PublisherId *string `pulumi:"publisherId"`
 	// SaaS Offer Status
-	Status *string `pulumi:"status"`
+	Status string `pulumi:"status"`
 	// Offer Plan Term unit
 	TermUnit *string `pulumi:"termUnit"`
 }
@@ -279,7 +260,7 @@ type OrganizationResourcePropertiesResponseOfferDetailArgs struct {
 	// Publisher Id
 	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
 	// SaaS Offer Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status pulumi.StringInput `pulumi:"status"`
 	// Offer Plan Term unit
 	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
 }
@@ -383,8 +364,8 @@ func (o OrganizationResourcePropertiesResponseOfferDetailOutput) PublisherId() p
 }
 
 // SaaS Offer Status
-func (o OrganizationResourcePropertiesResponseOfferDetailOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o OrganizationResourcePropertiesResponseOfferDetailOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Offer Plan Term unit
@@ -458,7 +439,7 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Status() pul
 		if v == nil {
 			return nil
 		}
-		return v.Status
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 

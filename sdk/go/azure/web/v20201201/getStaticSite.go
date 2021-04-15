@@ -26,6 +26,8 @@ type LookupStaticSiteArgs struct {
 
 // Static Site ARM resource.
 type LookupStaticSiteResult struct {
+	// <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+	AllowConfigFileUpdates *bool `pulumi:"allowConfigFileUpdates"`
 	// The target branch in the repository.
 	Branch *string `pulumi:"branch"`
 	// Build properties to configure on the repository.
@@ -48,6 +50,8 @@ type LookupStaticSiteResult struct {
 	Location string `pulumi:"location"`
 	// Resource Name.
 	Name string `pulumi:"name"`
+	// Private endpoint connections
+	PrivateEndpointConnections []ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provider that submitted the last deployment to the primary environment of the static site.
 	Provider string `pulumi:"provider"`
 	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -56,6 +60,8 @@ type LookupStaticSiteResult struct {
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// State indicating whether staging environments are allowed or not allowed for a static web app.
+	StagingEnvironmentPolicy *string `pulumi:"stagingEnvironmentPolicy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Template options for generating a new repository.
