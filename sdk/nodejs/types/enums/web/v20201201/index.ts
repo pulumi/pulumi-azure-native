@@ -311,6 +311,16 @@ export const SslState = {
  */
 export type SslState = (typeof SslState)[keyof typeof SslState];
 
+export const StagingEnvironmentPolicy = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State indicating whether staging environments are allowed or not allowed for a static web app.
+ */
+export type StagingEnvironmentPolicy = (typeof StagingEnvironmentPolicy)[keyof typeof StagingEnvironmentPolicy];
+
 export const SupportedTlsVersions = {
     SupportedTlsVersions_1_0: "1.0",
     SupportedTlsVersions_1_1: "1.1",

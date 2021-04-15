@@ -38,6 +38,10 @@ export interface GetStaticSiteArgs {
  */
 export interface GetStaticSiteResult {
     /**
+     * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+     */
+    readonly allowConfigFileUpdates?: boolean;
+    /**
      * The target branch in the repository.
      */
     readonly branch?: string;
@@ -82,6 +86,10 @@ export interface GetStaticSiteResult {
      */
     readonly name: string;
     /**
+     * Private endpoint connections
+     */
+    readonly privateEndpointConnections: outputs.web.v20201201.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse[];
+    /**
      * The provider that submitted the last deployment to the primary environment of the static site.
      */
     readonly provider: string;
@@ -97,6 +105,10 @@ export interface GetStaticSiteResult {
      * Description of a SKU for a scalable resource.
      */
     readonly sku?: outputs.web.v20201201.SkuDescriptionResponse;
+    /**
+     * State indicating whether staging environments are allowed or not allowed for a static web app.
+     */
+    readonly stagingEnvironmentPolicy?: string;
     /**
      * Resource tags.
      */

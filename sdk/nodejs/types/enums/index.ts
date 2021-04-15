@@ -142,6 +142,7 @@ import * as virtualmachineimages from "./virtualmachineimages";
 import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
 import * as web from "./web";
+import * as webpubsub from "./webpubsub";
 import * as windowsesu from "./windowsesu";
 
 export {
@@ -285,5 +286,6 @@ export {
     visualstudio,
     vmwarecloudsimple,
     web,
+    webpubsub,
     windowsesu,
 };

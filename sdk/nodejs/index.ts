@@ -75,6 +75,7 @@ import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
 import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
+import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
 import * as edgeorder from "./edgeorder";
 import * as elastic from "./elastic";
 import * as engagementfabric from "./engagementfabric";
@@ -170,6 +171,7 @@ import * as virtualmachineimages from "./virtualmachineimages";
 import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
 import * as web from "./web";
+import * as webpubsub from "./webpubsub";
 import * as windowsesu from "./windowsesu";
 import * as windowsiot from "./windowsiot";
 
@@ -241,6 +243,7 @@ export {
     digitaltwins,
     documentdb,
     domainregistration,
+    dynamics365fraudprotection,
     edgeorder,
     elastic,
     engagementfabric,
@@ -336,6 +339,7 @@ export {
     visualstudio,
     vmwarecloudsimple,
     web,
+    webpubsub,
     windowsesu,
     windowsiot,
 };

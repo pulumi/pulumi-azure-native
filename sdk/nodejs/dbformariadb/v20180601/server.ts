@@ -56,6 +56,10 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterServerId!: pulumi.Output<string | undefined>;
     /**
+     * Enforce a minimal Tls version for the server.
+     */
+    public /*out*/ readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -131,6 +135,7 @@ export class Server extends pulumi.CustomResource {
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["masterServerId"] = undefined /*out*/;
+            inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
@@ -147,6 +152,7 @@ export class Server extends pulumi.CustomResource {
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["masterServerId"] = undefined /*out*/;
+            inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;

@@ -34,6 +34,18 @@ export const GeoRedundantBackup = {
  */
 export type GeoRedundantBackup = (typeof GeoRedundantBackup)[keyof typeof GeoRedundantBackup];
 
+export const MinimalTlsVersionEnum = {
+    TLS1_0: "TLS1_0",
+    TLS1_1: "TLS1_1",
+    TLS1_2: "TLS1_2",
+    TLSEnforcementDisabled: "TLSEnforcementDisabled",
+} as const;
+
+/**
+ * Enforce a minimal Tls version for the server.
+ */
+export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
+
 export const PublicNetworkAccessEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
