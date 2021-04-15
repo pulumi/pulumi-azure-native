@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.AppConfiguration.V20210301Preview
         /// <summary>
         /// The collection value.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApiKeyResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ApiKeyResponse> Value;
 
         [OutputConstructor]
         private ListConfigurationStoreKeysResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ApiKeyResponseResult> value)
+            ImmutableArray<Outputs.ApiKeyResponse> value)
         {
             NextLink = nextLink;
             Value = value;

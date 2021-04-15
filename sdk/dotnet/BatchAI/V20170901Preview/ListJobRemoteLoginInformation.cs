@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.BatchAI.V20170901Preview
         /// <summary>
         /// The collection of returned remote login details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RemoteLoginInformationResponseResult> Value;
+        public readonly ImmutableArray<Outputs.RemoteLoginInformationResponse> Value;
 
         [OutputConstructor]
         private ListJobRemoteLoginInformationResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.RemoteLoginInformationResponseResult> value)
+            ImmutableArray<Outputs.RemoteLoginInformationResponse> value)
         {
             NextLink = nextLink;
             Value = value;

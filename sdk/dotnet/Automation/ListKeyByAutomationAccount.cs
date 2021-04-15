@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Lists the automation keys.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyResponseResult> Keys;
+        public readonly ImmutableArray<Outputs.KeyResponse> Keys;
 
         [OutputConstructor]
-        private ListKeyByAutomationAccountResult(ImmutableArray<Outputs.KeyResponseResult> keys)
+        private ListKeyByAutomationAccountResult(ImmutableArray<Outputs.KeyResponse> keys)
         {
             Keys = keys;
         }

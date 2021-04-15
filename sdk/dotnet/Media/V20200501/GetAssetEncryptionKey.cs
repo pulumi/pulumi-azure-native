@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Media.V20200501
         /// <summary>
         /// Asset File encryption metadata.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssetFileEncryptionMetadataResponseResult> AssetFileEncryptionMetadata;
+        public readonly ImmutableArray<Outputs.AssetFileEncryptionMetadataResponse> AssetFileEncryptionMetadata;
         /// <summary>
         /// The Asset File storage encryption key.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Media.V20200501
 
         [OutputConstructor]
         private GetAssetEncryptionKeyResult(
-            ImmutableArray<Outputs.AssetFileEncryptionMetadataResponseResult> assetFileEncryptionMetadata,
+            ImmutableArray<Outputs.AssetFileEncryptionMetadataResponse> assetFileEncryptionMetadata,
 
             string? key)
         {

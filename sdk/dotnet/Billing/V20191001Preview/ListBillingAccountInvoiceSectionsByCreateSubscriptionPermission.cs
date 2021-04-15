@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         /// <summary>
         /// The list of invoice section properties with create subscription permission.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InvoiceSectionWithCreateSubPermissionResponseResult> Value;
+        public readonly ImmutableArray<Outputs.InvoiceSectionWithCreateSubPermissionResponse> Value;
 
         [OutputConstructor]
         private ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult(
             string nextLink,
 
-            ImmutableArray<Outputs.InvoiceSectionWithCreateSubPermissionResponseResult> value)
+            ImmutableArray<Outputs.InvoiceSectionWithCreateSubPermissionResponse> value)
         {
             NextLink = nextLink;
             Value = value;

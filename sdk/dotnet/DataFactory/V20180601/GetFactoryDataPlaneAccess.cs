@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// <summary>
         /// The user access policy.
         /// </summary>
-        public readonly Outputs.UserAccessPolicyResponseResult? Policy;
+        public readonly Outputs.UserAccessPolicyResponse? Policy;
 
         [OutputConstructor]
         private GetFactoryDataPlaneAccessResult(
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 
             string? dataPlaneUrl,
 
-            Outputs.UserAccessPolicyResponseResult? policy)
+            Outputs.UserAccessPolicyResponse? policy)
         {
             AccessToken = accessToken;
             DataPlaneUrl = dataPlaneUrl;

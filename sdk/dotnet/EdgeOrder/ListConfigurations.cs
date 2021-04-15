@@ -23,14 +23,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class ListConfigurationsArgs : Pulumi.InvokeArgs
     {
         [Input("configurationFilters", required: true)]
-        private List<Inputs.ConfigurationFiltersArgs>? _configurationFilters;
+        private List<Inputs.ConfigurationFilters>? _configurationFilters;
 
         /// <summary>
         /// Holds details about product hierarchy information and filterable property.
         /// </summary>
-        public List<Inputs.ConfigurationFiltersArgs> ConfigurationFilters
+        public List<Inputs.ConfigurationFilters> ConfigurationFilters
         {
-            get => _configurationFilters ?? (_configurationFilters = new List<Inputs.ConfigurationFiltersArgs>());
+            get => _configurationFilters ?? (_configurationFilters = new List<Inputs.ConfigurationFilters>());
             set => _configurationFilters = value;
         }
 
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
         /// </summary>
         [Input("customerSubscriptionDetails")]
-        public Inputs.CustomerSubscriptionDetailsArgs? CustomerSubscriptionDetails { get; set; }
+        public Inputs.CustomerSubscriptionDetails? CustomerSubscriptionDetails { get; set; }
 
         /// <summary>
         /// $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
@@ -62,13 +62,13 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// List of configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfigurationResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ConfigurationResponse> Value;
 
         [OutputConstructor]
         private ListConfigurationsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ConfigurationResponseResult> value)
+            ImmutableArray<Outputs.ConfigurationResponse> value)
         {
             NextLink = nextLink;
             Value = value;

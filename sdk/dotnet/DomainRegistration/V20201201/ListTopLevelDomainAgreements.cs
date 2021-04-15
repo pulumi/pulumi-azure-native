@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201201
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TldLegalAgreementResponseResult> Value;
+        public readonly ImmutableArray<Outputs.TldLegalAgreementResponse> Value;
 
         [OutputConstructor]
         private ListTopLevelDomainAgreementsResult(
             string nextLink,
 
-            ImmutableArray<Outputs.TldLegalAgreementResponseResult> value)
+            ImmutableArray<Outputs.TldLegalAgreementResponse> value)
         {
             NextLink = nextLink;
             Value = value;

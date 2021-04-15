@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// <summary>
     /// Represents subscription registered features
     /// </summary>
-    public sealed class CustomerSubscriptionRegisteredFeaturesArgs : Pulumi.InvokeArgs
+    public sealed class CustomerSubscriptionRegisteredFeatures : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of subscription registered feature
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         [Input("state")]
         public string? State { get; set; }
 
-        public CustomerSubscriptionRegisteredFeaturesArgs()
+        public CustomerSubscriptionRegisteredFeatures()
         {
         }
     }

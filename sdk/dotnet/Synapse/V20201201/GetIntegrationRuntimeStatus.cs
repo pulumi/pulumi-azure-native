@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         /// <summary>
         /// Integration runtime properties.
         /// </summary>
-        public readonly Union<Outputs.ManagedIntegrationRuntimeStatusResponseResult, Outputs.SelfHostedIntegrationRuntimeStatusResponseResult> Properties;
+        public readonly Union<Outputs.ManagedIntegrationRuntimeStatusResponse, Outputs.SelfHostedIntegrationRuntimeStatusResponse> Properties;
 
         [OutputConstructor]
         private GetIntegrationRuntimeStatusResult(
             string name,
 
-            Union<Outputs.ManagedIntegrationRuntimeStatusResponseResult, Outputs.SelfHostedIntegrationRuntimeStatusResponseResult> properties)
+            Union<Outputs.ManagedIntegrationRuntimeStatusResponse, Outputs.SelfHostedIntegrationRuntimeStatusResponse> properties)
         {
             Name = name;
             Properties = properties;

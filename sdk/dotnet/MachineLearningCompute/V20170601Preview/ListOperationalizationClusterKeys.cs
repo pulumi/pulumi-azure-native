@@ -49,11 +49,11 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Credentials for Azure Container Registry.
         /// </summary>
-        public readonly Outputs.ContainerRegistryCredentialsResponseResult? ContainerRegistry;
+        public readonly Outputs.ContainerRegistryCredentialsResponse? ContainerRegistry;
         /// <summary>
         /// Credentials for Azure Container Service.
         /// </summary>
-        public readonly Outputs.ContainerServiceCredentialsResponseResult? ContainerService;
+        public readonly Outputs.ContainerServiceCredentialsResponse? ContainerService;
         /// <summary>
         /// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         /// </summary>
@@ -65,21 +65,21 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Credentials for the Storage Account.
         /// </summary>
-        public readonly Outputs.StorageAccountCredentialsResponseResult? StorageAccount;
+        public readonly Outputs.StorageAccountCredentialsResponse? StorageAccount;
 
         [OutputConstructor]
         private ListOperationalizationClusterKeysResult(
             Outputs.AppInsightsCredentialsResponse? appInsights,
 
-            Outputs.ContainerRegistryCredentialsResponseResult? containerRegistry,
+            Outputs.ContainerRegistryCredentialsResponse? containerRegistry,
 
-            Outputs.ContainerServiceCredentialsResponseResult? containerService,
+            Outputs.ContainerServiceCredentialsResponse? containerService,
 
             Outputs.ServiceAuthConfigurationResponse? serviceAuthConfiguration,
 
             Outputs.SslConfigurationResponse? sslConfiguration,
 
-            Outputs.StorageAccountCredentialsResponseResult? storageAccount)
+            Outputs.StorageAccountCredentialsResponse? storageAccount)
         {
             AppInsights = appInsights;
             ContainerRegistry = containerRegistry;

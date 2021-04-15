@@ -73,13 +73,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// <summary>
         /// Collection of items of type DataTransferObjects.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ShareSynchronizationResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ShareSynchronizationResponse> Value;
 
         [OutputConstructor]
         private ListShareSynchronizationsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ShareSynchronizationResponseResult> value)
+            ImmutableArray<Outputs.ShareSynchronizationResponse> value)
         {
             NextLink = nextLink;
             Value = value;

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
         /// </summary>
         [Input("customerSubscriptionDetails")]
-        public Inputs.CustomerSubscriptionDetailsArgs? CustomerSubscriptionDetails { get; set; }
+        public Inputs.CustomerSubscriptionDetails? CustomerSubscriptionDetails { get; set; }
 
         /// <summary>
         /// $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public string? Expand { get; set; }
 
         [Input("filterableProperties", required: true)]
-        private Dictionary<string, ImmutableArray<Inputs.FilterablePropertyArgs>>? _filterableProperties;
+        private Dictionary<string, ImmutableArray<Inputs.FilterableProperty>>? _filterableProperties;
 
         /// <summary>
         /// Dictionary of filterable properties on product family.
         /// </summary>
-        public Dictionary<string, ImmutableArray<Inputs.FilterablePropertyArgs>> FilterableProperties
+        public Dictionary<string, ImmutableArray<Inputs.FilterableProperty>> FilterableProperties
         {
-            get => _filterableProperties ?? (_filterableProperties = new Dictionary<string, ImmutableArray<Inputs.FilterablePropertyArgs>>());
+            get => _filterableProperties ?? (_filterableProperties = new Dictionary<string, ImmutableArray<Inputs.FilterableProperty>>());
             set => _filterableProperties = value;
         }
 
@@ -67,13 +67,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         /// <summary>
         /// List of product families.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProductFamilyResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ProductFamilyResponse> Value;
 
         [OutputConstructor]
         private ListProductFamiliesResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ProductFamilyResponseResult> value)
+            ImmutableArray<Outputs.ProductFamilyResponse> value)
         {
             NextLink = nextLink;
             Value = value;

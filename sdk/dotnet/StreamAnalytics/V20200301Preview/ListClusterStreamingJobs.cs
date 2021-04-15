@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
         /// <summary>
         /// A list of streaming jobs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterJobResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ClusterJobResponse> Value;
 
         [OutputConstructor]
         private ListClusterStreamingJobsResult(
             string nextLink,
 
-            ImmutableArray<Outputs.ClusterJobResponseResult> value)
+            ImmutableArray<Outputs.ClusterJobResponse> value)
         {
             NextLink = nextLink;
             Value = value;

@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// <summary>
         /// The metadata from the timeline operation results.
         /// </summary>
-        public readonly Outputs.TimelineResultsMetadataResponseResult? MetaData;
+        public readonly Outputs.TimelineResultsMetadataResponse? MetaData;
         /// <summary>
         /// The timeline result values.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 
         [OutputConstructor]
         private GetEntitiesGetTimelineResult(
-            Outputs.TimelineResultsMetadataResponseResult? metaData,
+            Outputs.TimelineResultsMetadataResponse? metaData,
 
             ImmutableArray<object> value)
         {

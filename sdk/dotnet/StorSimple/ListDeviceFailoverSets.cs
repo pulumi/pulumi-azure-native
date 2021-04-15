@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.StorSimple
         /// <summary>
         /// The list of failover sets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FailoverSetResponseResult> Value;
+        public readonly ImmutableArray<Outputs.FailoverSetResponse> Value;
 
         [OutputConstructor]
-        private ListDeviceFailoverSetsResult(ImmutableArray<Outputs.FailoverSetResponseResult> value)
+        private ListDeviceFailoverSetsResult(ImmutableArray<Outputs.FailoverSetResponse> value)
         {
             Value = value;
         }

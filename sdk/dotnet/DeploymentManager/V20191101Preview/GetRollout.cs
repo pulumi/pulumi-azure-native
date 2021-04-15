@@ -75,11 +75,11 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         /// <summary>
         /// Operational information of the rollout.
         /// </summary>
-        public readonly Outputs.RolloutOperationInfoResponseResult OperationInfo;
+        public readonly Outputs.RolloutOperationInfoResponse OperationInfo;
         /// <summary>
         /// The detailed information on the services being deployed.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceResponseResult> Services;
+        public readonly ImmutableArray<Outputs.ServiceResponse> Services;
         /// <summary>
         /// The current status of the rollout.
         /// </summary>
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 
             string name,
 
-            Outputs.RolloutOperationInfoResponseResult operationInfo,
+            Outputs.RolloutOperationInfoResponse operationInfo,
 
-            ImmutableArray<Outputs.ServiceResponseResult> services,
+            ImmutableArray<Outputs.ServiceResponse> services,
 
             string status,
 

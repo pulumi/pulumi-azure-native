@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
 {
 
-    public sealed class ConsentLinkInputParameterArgs : Pulumi.InvokeArgs
+    public sealed class ConsentLinkInputParameter : Pulumi.InvokeArgs
     {
         /// <summary>
         /// AAD OID (user or group) if the principal type is ActiveDirectory.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         [Input("tenantId")]
         public string? TenantId { get; set; }
 
-        public ConsentLinkInputParameterArgs()
+        public ConsentLinkInputParameter()
         {
         }
     }

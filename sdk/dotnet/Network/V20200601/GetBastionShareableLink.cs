@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("vms")]
-        private List<Inputs.BastionShareableLinkArgs>? _vms;
+        private List<Inputs.BastionShareableLink>? _vms;
 
         /// <summary>
         /// List of VM references.
         /// </summary>
-        public List<Inputs.BastionShareableLinkArgs> Vms
+        public List<Inputs.BastionShareableLink> Vms
         {
-            get => _vms ?? (_vms = new List<Inputs.BastionShareableLinkArgs>());
+            get => _vms ?? (_vms = new List<Inputs.BastionShareableLink>());
             set => _vms = value;
         }
 
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// <summary>
         /// List of Bastion Shareable Links for the request.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BastionShareableLinkResponseResult> Value;
+        public readonly ImmutableArray<Outputs.BastionShareableLinkResponse> Value;
 
         [OutputConstructor]
         private GetBastionShareableLinkResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.BastionShareableLinkResponseResult> value)
+            ImmutableArray<Outputs.BastionShareableLinkResponse> value)
         {
             NextLink = nextLink;
             Value = value;

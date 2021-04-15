@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IdentifierResponseResult> Value;
+        public readonly ImmutableArray<Outputs.IdentifierResponse> Value;
 
         [OutputConstructor]
         private ListSiteIdentifiersAssignedToHostNameResult(
             string nextLink,
 
-            ImmutableArray<Outputs.IdentifierResponseResult> value)
+            ImmutableArray<Outputs.IdentifierResponse> value)
         {
             NextLink = nextLink;
             Value = value;
