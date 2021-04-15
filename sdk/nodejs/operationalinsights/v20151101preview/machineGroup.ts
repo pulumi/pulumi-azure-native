@@ -154,7 +154,7 @@ export interface MachineGroupArgs {
     /**
      * References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
      */
-    readonly machines?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20151101preview.MachineReferenceWithHints>[]>;
+    readonly machines?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20151101preview.MachineReferenceWithHintsArgs>[]>;
     /**
      * Resource group name within the specified subscriptionId.
      */

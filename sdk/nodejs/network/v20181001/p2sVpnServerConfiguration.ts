@@ -156,19 +156,19 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * Radius client root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigRadiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigRadiusClientRootCertificate>[]>;
+    readonly p2SVpnServerConfigRadiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigRadiusClientRootCertificateArgs>[]>;
     /**
      * Radius Server root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigRadiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigRadiusServerRootCertificate>[]>;
+    readonly p2SVpnServerConfigRadiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigRadiusServerRootCertificateArgs>[]>;
     /**
      * VPN client revoked certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigVpnClientRevokedCertificate>[]>;
+    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigVpnClientRevokedCertificateArgs>[]>;
     /**
      * VPN client root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigVpnClientRootCertificate>[]>;
+    readonly p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigVpnClientRootCertificateArgs>[]>;
     /**
      * The name of the P2SVpnServerConfiguration.
      */
@@ -192,7 +192,7 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
      */
-    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20181001.IpsecPolicy>[]>;
+    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20181001.IpsecPolicyArgs>[]>;
     /**
      * vpnProtocols for the P2SVpnServerConfiguration.
      */

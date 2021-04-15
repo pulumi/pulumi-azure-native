@@ -174,11 +174,11 @@ export interface CacheArgs {
     /**
      * Specifies encryption settings of the cache.
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheEncryptionSettings>;
+    readonly encryptionSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheEncryptionSettingsArgs>;
     /**
      * The identity of the cache, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.storagecache.v20200301.CacheIdentity>;
+    readonly identity?: pulumi.Input<inputs.storagecache.v20200301.CacheIdentityArgs>;
     /**
      * Region name string.
      */
@@ -186,7 +186,7 @@ export interface CacheArgs {
     /**
      * Specifies network settings of the cache.
      */
-    readonly networkSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheNetworkSettings>;
+    readonly networkSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheNetworkSettingsArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -198,11 +198,11 @@ export interface CacheArgs {
     /**
      * Specifies security settings of the cache.
      */
-    readonly securitySettings?: pulumi.Input<inputs.storagecache.v20200301.CacheSecuritySettings>;
+    readonly securitySettings?: pulumi.Input<inputs.storagecache.v20200301.CacheSecuritySettingsArgs>;
     /**
      * SKU for the Cache.
      */
-    readonly sku?: pulumi.Input<inputs.storagecache.v20200301.CacheSku>;
+    readonly sku?: pulumi.Input<inputs.storagecache.v20200301.CacheSkuArgs>;
     /**
      * Subnet used for the Cache.
      */

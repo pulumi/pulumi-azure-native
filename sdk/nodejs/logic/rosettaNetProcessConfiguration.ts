@@ -177,7 +177,7 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The RosettaNet process configuration activity settings.
      */
-    readonly activitySettings: pulumi.Input<inputs.logic.RosettaNetPipActivitySettings>;
+    readonly activitySettings: pulumi.Input<inputs.logic.RosettaNetPipActivitySettingsArgs>;
     /**
      * The integration account RosettaNet ProcessConfiguration properties.
      */
@@ -185,7 +185,7 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The RosettaNet initiator role settings.
      */
-    readonly initiatorRoleSettings: pulumi.Input<inputs.logic.RosettaNetPipRoleSettings>;
+    readonly initiatorRoleSettings: pulumi.Input<inputs.logic.RosettaNetPipRoleSettingsArgs>;
     /**
      * The integration account name.
      */
@@ -217,7 +217,7 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The RosettaNet responder role settings.
      */
-    readonly responderRoleSettings: pulumi.Input<inputs.logic.RosettaNetPipRoleSettings>;
+    readonly responderRoleSettings: pulumi.Input<inputs.logic.RosettaNetPipRoleSettingsArgs>;
     /**
      * The integration account RosettaNet ProcessConfiguration name.
      */

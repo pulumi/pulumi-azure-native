@@ -108,7 +108,7 @@ export interface MonitoringConfigArgs {
     /**
      * The metrics configuration details
      */
-    readonly metricConfigurations: pulumi.Input<pulumi.Input<inputs.databoxedge.v20210201preview.MetricConfiguration>[]>;
+    readonly metricConfigurations: pulumi.Input<pulumi.Input<inputs.databoxedge.v20210201preview.MetricConfigurationArgs>[]>;
     /**
      * The resource group name.
      */

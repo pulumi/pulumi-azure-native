@@ -133,7 +133,7 @@ export interface ApplicationGatewayPrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.network.v20200501.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.network.v20200501.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group.
      */

@@ -137,7 +137,7 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: pulumi.Input<inputs.network.v20190801.SubResource>;
+    readonly basePolicy?: pulumi.Input<inputs.network.v20190801.SubResourceArgs>;
     /**
      * The name of the Firewall Policy.
      */

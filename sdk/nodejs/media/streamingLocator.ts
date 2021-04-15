@@ -171,7 +171,7 @@ export interface StreamingLocatorArgs {
     /**
      * The ContentKeys used by this Streaming Locator.
      */
-    readonly contentKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingLocatorContentKey>[]>;
+    readonly contentKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingLocatorContentKeyArgs>[]>;
     /**
      * Name of the default ContentKeyPolicy used by this Streaming Locator.
      */

@@ -164,7 +164,7 @@ export interface AssignmentArgs {
     /**
      * Managed Service Identity for this Blueprint assignment
      */
-    readonly identity: pulumi.Input<inputs.blueprint.v20171111preview.ManagedServiceIdentity>;
+    readonly identity: pulumi.Input<inputs.blueprint.v20171111preview.ManagedServiceIdentityArgs>;
     /**
      * The location of this Blueprint assignment.
      */
@@ -172,15 +172,15 @@ export interface AssignmentArgs {
     /**
      * Defines how Blueprint-managed resources will be locked.
      */
-    readonly locks?: pulumi.Input<inputs.blueprint.v20171111preview.AssignmentLockSettings>;
+    readonly locks?: pulumi.Input<inputs.blueprint.v20171111preview.AssignmentLockSettingsArgs>;
     /**
      * Blueprint parameter values.
      */
-    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBase>}>;
+    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
     /**
      * Names and locations of resource group placeholders.
      */
-    readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupValue>}>;
+    readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupValueArgs>}>;
     /**
      * azure subscriptionId, which we assign the blueprint to.
      */

@@ -137,11 +137,11 @@ export interface BatchAccountArgs {
     /**
      * The properties related to auto storage account.
      */
-    readonly autoStorage?: pulumi.Input<inputs.batch.v20170101.AutoStorageBaseProperties>;
+    readonly autoStorage?: pulumi.Input<inputs.batch.v20170101.AutoStorageBasePropertiesArgs>;
     /**
      * A reference to the Azure key vault associated with the Batch account.
      */
-    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20170101.KeyVaultReference>;
+    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20170101.KeyVaultReferenceArgs>;
     /**
      * The region in which to create the account.
      */

@@ -173,7 +173,7 @@ export interface ViewByScopeArgs {
     /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigDataset>;
+    readonly dataset?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigDatasetArgs>;
     /**
      * User input name of the view. Required.
      */
@@ -185,7 +185,7 @@ export interface ViewByScopeArgs {
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
-    readonly kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.KpiProperties>[]>;
+    readonly kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.KpiPropertiesArgs>[]>;
     /**
      * Metric to use when displaying costs.
      */
@@ -193,7 +193,7 @@ export interface ViewByScopeArgs {
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    readonly pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.PivotProperties>[]>;
+    readonly pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.PivotPropertiesArgs>[]>;
     /**
      * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
@@ -201,7 +201,7 @@ export interface ViewByScopeArgs {
     /**
      * Has time period for pulling data for the report.
      */
-    readonly timePeriod?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigTimePeriod>;
+    readonly timePeriod?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigTimePeriodArgs>;
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */

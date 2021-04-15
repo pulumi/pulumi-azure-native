@@ -184,7 +184,7 @@ export interface WebhookArgs {
     /**
      * Gets or sets the runbook.
      */
-    readonly runbook?: pulumi.Input<inputs.automation.RunbookAssociationProperty>;
+    readonly runbook?: pulumi.Input<inputs.automation.RunbookAssociationPropertyArgs>;
     /**
      * Gets or sets the uri.
      */

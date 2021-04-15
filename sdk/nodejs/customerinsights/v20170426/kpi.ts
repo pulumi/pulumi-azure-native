@@ -214,7 +214,7 @@ export interface KpiArgs {
     /**
      * The aliases.
      */
-    readonly aliases?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.KpiAlias>[]>;
+    readonly aliases?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.KpiAliasArgs>[]>;
     /**
      * The calculation window.
      */
@@ -246,7 +246,7 @@ export interface KpiArgs {
     /**
      * The KPI extracts.
      */
-    readonly extracts?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.KpiExtract>[]>;
+    readonly extracts?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.KpiExtractArgs>[]>;
     /**
      * The filter expression for the KPI.
      */
@@ -274,7 +274,7 @@ export interface KpiArgs {
     /**
      * The KPI thresholds.
      */
-    readonly thresHolds?: pulumi.Input<inputs.customerinsights.v20170426.KpiThresholds>;
+    readonly thresHolds?: pulumi.Input<inputs.customerinsights.v20170426.KpiThresholdsArgs>;
     /**
      * The unit of measurement for the KPI.
      */

@@ -115,19 +115,19 @@ export interface WebAppDiagnosticLogsConfigurationArgs {
     /**
      * Application logs configuration.
      */
-    readonly applicationLogs?: pulumi.Input<inputs.web.ApplicationLogsConfig>;
+    readonly applicationLogs?: pulumi.Input<inputs.web.ApplicationLogsConfigArgs>;
     /**
      * Detailed error messages configuration.
      */
-    readonly detailedErrorMessages?: pulumi.Input<inputs.web.EnabledConfig>;
+    readonly detailedErrorMessages?: pulumi.Input<inputs.web.EnabledConfigArgs>;
     /**
      * Failed requests tracing configuration.
      */
-    readonly failedRequestsTracing?: pulumi.Input<inputs.web.EnabledConfig>;
+    readonly failedRequestsTracing?: pulumi.Input<inputs.web.EnabledConfigArgs>;
     /**
      * HTTP logs configuration.
      */
-    readonly httpLogs?: pulumi.Input<inputs.web.HttpLogsConfig>;
+    readonly httpLogs?: pulumi.Input<inputs.web.HttpLogsConfigArgs>;
     /**
      * Kind of resource.
      */

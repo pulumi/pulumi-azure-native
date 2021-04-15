@@ -220,7 +220,7 @@ export interface ConnectorMappingArgs {
     /**
      * The properties of the mapping.
      */
-    readonly mappingProperties: pulumi.Input<inputs.customerinsights.v20170426.ConnectorMappingProperties>;
+    readonly mappingProperties: pulumi.Input<inputs.customerinsights.v20170426.ConnectorMappingPropertiesArgs>;
     /**
      * The name of the resource group.
      */

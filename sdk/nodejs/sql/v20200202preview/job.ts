@@ -124,7 +124,7 @@ export interface JobArgs {
     /**
      * Schedule properties of the job.
      */
-    readonly schedule?: pulumi.Input<inputs.sql.v20200202preview.JobSchedule>;
+    readonly schedule?: pulumi.Input<inputs.sql.v20200202preview.JobScheduleArgs>;
     /**
      * The name of the server.
      */

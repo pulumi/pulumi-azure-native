@@ -125,7 +125,7 @@ export interface NetworkProfileArgs {
     /**
      * List of chid container network interface configurations.
      */
-    readonly containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200701.ContainerNetworkInterfaceConfiguration>[]>;
+    readonly containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200701.ContainerNetworkInterfaceConfigurationArgs>[]>;
     /**
      * Resource ID.
      */

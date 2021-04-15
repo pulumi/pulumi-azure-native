@@ -188,11 +188,11 @@ export interface NamespaceArgs {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: pulumi.Input<inputs.eventhub.v20210101preview.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.eventhub.v20210101preview.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: pulumi.Input<inputs.eventhub.v20210101preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.eventhub.v20210101preview.IdentityArgs>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -216,7 +216,7 @@ export interface NamespaceArgs {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventhub.v20210101preview.PrivateEndpointConnection>[]>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventhub.v20210101preview.PrivateEndpointConnectionArgs>[]>;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -224,7 +224,7 @@ export interface NamespaceArgs {
     /**
      * Properties of sku resource
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20210101preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.eventhub.v20210101preview.SkuArgs>;
     /**
      * Resource tags.
      */

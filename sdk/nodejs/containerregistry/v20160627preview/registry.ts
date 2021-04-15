@@ -137,7 +137,7 @@ export interface RegistryArgs {
     /**
      * The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
      */
-    readonly storageAccount: pulumi.Input<inputs.containerregistry.v20160627preview.StorageAccountProperties>;
+    readonly storageAccount: pulumi.Input<inputs.containerregistry.v20160627preview.StorageAccountPropertiesArgs>;
     /**
      * The tags of the resource.
      */

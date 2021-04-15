@@ -265,7 +265,7 @@ export interface AuthorizationServerArgs {
     /**
      * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
      */
-    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20191201preview.TokenBodyParameterContract>[]>;
+    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20191201preview.TokenBodyParameterContractArgs>[]>;
     /**
      * OAuth token endpoint. Contains absolute URI to entity being referenced.
      */

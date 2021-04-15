@@ -132,7 +132,7 @@ export interface SqlResourceSqlContainerArgs {
     /**
      * The standard JSON format of a container
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlContainerResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlContainerResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

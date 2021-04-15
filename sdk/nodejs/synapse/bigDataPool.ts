@@ -208,11 +208,11 @@ export interface BigDataPoolArgs {
     /**
      * Auto-pausing properties
      */
-    readonly autoPause?: pulumi.Input<inputs.synapse.AutoPauseProperties>;
+    readonly autoPause?: pulumi.Input<inputs.synapse.AutoPausePropertiesArgs>;
     /**
      * Auto-scaling properties
      */
-    readonly autoScale?: pulumi.Input<inputs.synapse.AutoScaleProperties>;
+    readonly autoScale?: pulumi.Input<inputs.synapse.AutoScalePropertiesArgs>;
     /**
      * Big Data pool name
      */
@@ -228,7 +228,7 @@ export interface BigDataPoolArgs {
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.LibraryInfo>[]>;
+    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.LibraryInfoArgs>[]>;
     /**
      * The default folder where Spark logs will be written.
      */
@@ -236,7 +236,7 @@ export interface BigDataPoolArgs {
     /**
      * Dynamic Executor Allocation
      */
-    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.DynamicExecutorAllocation>;
+    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.DynamicExecutorAllocationArgs>;
     /**
      * Whether to stop any running jobs in the Big Data pool
      */
@@ -248,7 +248,7 @@ export interface BigDataPoolArgs {
     /**
      * Library version requirements
      */
-    readonly libraryRequirements?: pulumi.Input<inputs.synapse.LibraryRequirements>;
+    readonly libraryRequirements?: pulumi.Input<inputs.synapse.LibraryRequirementsArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -280,7 +280,7 @@ export interface BigDataPoolArgs {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.LibraryRequirements>;
+    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.LibraryRequirementsArgs>;
     /**
      * The Spark events folder
      */

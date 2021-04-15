@@ -161,7 +161,7 @@ export interface PrivateLinkServiceArgs {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: pulumi.Input<inputs.network.v20200401.PrivateLinkServicePropertiesAutoApproval>;
+    readonly autoApproval?: pulumi.Input<inputs.network.v20200401.PrivateLinkServicePropertiesAutoApprovalArgs>;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
@@ -177,11 +177,11 @@ export interface PrivateLinkServiceArgs {
     /**
      * An array of private link service IP configurations.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200401.PrivateLinkServiceIpConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200401.PrivateLinkServiceIpConfigurationArgs>[]>;
     /**
      * An array of references to the load balancer IP configurations.
      */
-    readonly loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200401.FrontendIPConfiguration>[]>;
+    readonly loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200401.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -201,5 +201,5 @@ export interface PrivateLinkServiceArgs {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: pulumi.Input<inputs.network.v20200401.PrivateLinkServicePropertiesVisibility>;
+    readonly visibility?: pulumi.Input<inputs.network.v20200401.PrivateLinkServicePropertiesVisibilityArgs>;
 }

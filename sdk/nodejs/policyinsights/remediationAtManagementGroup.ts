@@ -135,7 +135,7 @@ export interface RemediationAtManagementGroupArgs {
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    readonly filters?: pulumi.Input<inputs.policyinsights.RemediationFilters>;
+    readonly filters?: pulumi.Input<inputs.policyinsights.RemediationFiltersArgs>;
     /**
      * Management group ID.
      */

@@ -190,7 +190,7 @@ export interface WorkspaceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20180301preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20180301preview.IdentityArgs>;
     /**
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */

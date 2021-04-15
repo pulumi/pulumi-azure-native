@@ -137,7 +137,7 @@ export interface StorageInsightArgs {
     /**
      * The storage account connection details
      */
-    readonly storageAccount: pulumi.Input<inputs.operationalinsights.v20150320.StorageAccount>;
+    readonly storageAccount: pulumi.Input<inputs.operationalinsights.v20150320.StorageAccountArgs>;
     /**
      * Name of the storageInsightsConfigs resource
      */

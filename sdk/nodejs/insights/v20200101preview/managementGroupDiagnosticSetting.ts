@@ -135,7 +135,7 @@ export interface ManagementGroupDiagnosticSettingArgs {
     /**
      * The list of logs settings.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.v20200101preview.ManagementGroupLogSettings>[]>;
+    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.v20200101preview.ManagementGroupLogSettingsArgs>[]>;
     /**
      * The management group id.
      */

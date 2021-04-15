@@ -205,7 +205,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: pulumi.Input<inputs.network.v20171101.Ipv6ExpressRouteCircuitPeeringConfig>;
+    readonly ipv6PeeringConfig?: pulumi.Input<inputs.network.v20171101.Ipv6ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * Gets whether the provider or the customer last modified the peering.
      */
@@ -213,7 +213,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20171101.ExpressRouteCircuitPeeringConfig>;
+    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20171101.ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -249,7 +249,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The reference of the RouteFilter resource.
      */
-    readonly routeFilter?: pulumi.Input<inputs.network.v20171101.RouteFilter>;
+    readonly routeFilter?: pulumi.Input<inputs.network.v20171101.RouteFilterArgs>;
     /**
      * The secondary port.
      */
@@ -269,7 +269,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets peering stats.
      */
-    readonly stats?: pulumi.Input<inputs.network.v20171101.ExpressRouteCircuitStats>;
+    readonly stats?: pulumi.Input<inputs.network.v20171101.ExpressRouteCircuitStatsArgs>;
     /**
      * The VLAN ID.
      */

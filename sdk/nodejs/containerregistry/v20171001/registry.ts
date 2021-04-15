@@ -153,7 +153,7 @@ export interface RegistryArgs {
     /**
      * The network rule set for a container registry.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20171001.NetworkRuleSet>;
+    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20171001.NetworkRuleSetArgs>;
     /**
      * The name of the container registry.
      */
@@ -165,11 +165,11 @@ export interface RegistryArgs {
     /**
      * The SKU of the container registry.
      */
-    readonly sku: pulumi.Input<inputs.containerregistry.v20171001.Sku>;
+    readonly sku: pulumi.Input<inputs.containerregistry.v20171001.SkuArgs>;
     /**
      * The properties of the storage account for the container registry. Only applicable to Classic SKU.
      */
-    readonly storageAccount?: pulumi.Input<inputs.containerregistry.v20171001.StorageAccountProperties>;
+    readonly storageAccount?: pulumi.Input<inputs.containerregistry.v20171001.StorageAccountPropertiesArgs>;
     /**
      * The tags of the resource.
      */

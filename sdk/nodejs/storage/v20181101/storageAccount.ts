@@ -234,7 +234,7 @@ export interface StorageAccountArgs {
     /**
      * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.v20181101.CustomDomain>;
+    readonly customDomain?: pulumi.Input<inputs.storage.v20181101.CustomDomainArgs>;
     /**
      * Enables Azure Files AAD Integration for SMB if sets to true.
      */
@@ -246,11 +246,11 @@ export interface StorageAccountArgs {
     /**
      * Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
      */
-    readonly encryption?: pulumi.Input<inputs.storage.v20181101.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.storage.v20181101.EncryptionArgs>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.storage.v20181101.Identity>;
+    readonly identity?: pulumi.Input<inputs.storage.v20181101.IdentityArgs>;
     /**
      * Account HierarchicalNamespace enabled if sets to true.
      */
@@ -266,7 +266,7 @@ export interface StorageAccountArgs {
     /**
      * Network rule set
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20181101.NetworkRuleSet>;
+    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20181101.NetworkRuleSetArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -274,7 +274,7 @@ export interface StorageAccountArgs {
     /**
      * Required. Gets or sets the SKU name.
      */
-    readonly sku: pulumi.Input<inputs.storage.v20181101.Sku>;
+    readonly sku: pulumi.Input<inputs.storage.v20181101.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */

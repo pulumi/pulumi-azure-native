@@ -159,11 +159,11 @@ export interface TaskArgs {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.v20180901.AgentProperties>;
+    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.v20180901.AgentPropertiesArgs>;
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: pulumi.Input<inputs.containerregistry.v20180901.Credentials>;
+    readonly credentials?: pulumi.Input<inputs.containerregistry.v20180901.CredentialsArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -171,7 +171,7 @@ export interface TaskArgs {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform: pulumi.Input<inputs.containerregistry.v20180901.PlatformProperties>;
+    readonly platform: pulumi.Input<inputs.containerregistry.v20180901.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
@@ -187,7 +187,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step: pulumi.Input<inputs.containerregistry.v20180901.TaskStepProperties>;
+    readonly step: pulumi.Input<inputs.containerregistry.v20180901.TaskStepPropertiesArgs>;
     /**
      * The tags of the resource.
      */
@@ -203,5 +203,5 @@ export interface TaskArgs {
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: pulumi.Input<inputs.containerregistry.v20180901.TriggerProperties>;
+    readonly trigger?: pulumi.Input<inputs.containerregistry.v20180901.TriggerPropertiesArgs>;
 }

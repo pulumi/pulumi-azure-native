@@ -140,7 +140,7 @@ export interface NamespaceArgs {
     /**
      * SKU of the namespace.
      */
-    readonly sku?: pulumi.Input<inputs.relay.Sku>;
+    readonly sku?: pulumi.Input<inputs.relay.SkuArgs>;
     /**
      * Resource tags.
      */

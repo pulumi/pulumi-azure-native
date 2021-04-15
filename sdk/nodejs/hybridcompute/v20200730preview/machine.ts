@@ -214,8 +214,8 @@ export interface MachineArgs {
     /**
      * Machine Extensions information
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20200730preview.MachineExtensionInstanceView>[]>;
-    readonly identity?: pulumi.Input<inputs.hybridcompute.v20200730preview.MachineIdentity>;
+    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20200730preview.MachineExtensionInstanceViewArgs>[]>;
+    readonly identity?: pulumi.Input<inputs.hybridcompute.v20200730preview.MachineIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -223,7 +223,7 @@ export interface MachineArgs {
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    readonly locationData?: pulumi.Input<inputs.hybridcompute.v20200730preview.LocationData>;
+    readonly locationData?: pulumi.Input<inputs.hybridcompute.v20200730preview.LocationDataArgs>;
     /**
      * The name of the hybrid machine.
      */

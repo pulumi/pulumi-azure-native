@@ -125,7 +125,7 @@ export interface HubArgs {
     /**
      * Billing settings of the hub.
      */
-    readonly hubBillingInfo?: pulumi.Input<inputs.customerinsights.HubBillingInfoFormat>;
+    readonly hubBillingInfo?: pulumi.Input<inputs.customerinsights.HubBillingInfoFormatArgs>;
     /**
      * The name of the Hub.
      */

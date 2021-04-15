@@ -195,7 +195,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The list of authorizations.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitAuthorization>[]>;
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitAuthorizationArgs>[]>;
     /**
      * The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
      */
@@ -211,7 +211,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
      */
-    readonly expressRoutePort?: pulumi.Input<inputs.network.v20190401.SubResource>;
+    readonly expressRoutePort?: pulumi.Input<inputs.network.v20190401.SubResourceArgs>;
     /**
      * The GatewayManager Etag.
      */
@@ -231,7 +231,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The list of peerings.
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitPeering>[]>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -251,7 +251,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The ServiceProviderProperties.
      */
-    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitServiceProviderProperties>;
+    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitServiceProviderPropertiesArgs>;
     /**
      * The ServiceProviderProvisioningState state of the resource.
      */
@@ -259,7 +259,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20190401.ExpressRouteCircuitSkuArgs>;
     /**
      * Resource tags.
      */

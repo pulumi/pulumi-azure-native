@@ -113,7 +113,7 @@ export interface GroupArgs {
     /**
      * Properties of the group.
      */
-    readonly properties: pulumi.Input<inputs.migrate.v20191001.GroupProperties>;
+    readonly properties: pulumi.Input<inputs.migrate.v20191001.GroupPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

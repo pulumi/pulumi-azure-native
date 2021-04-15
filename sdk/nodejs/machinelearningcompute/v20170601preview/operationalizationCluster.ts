@@ -160,7 +160,7 @@ export interface OperationalizationClusterArgs {
     /**
      * AppInsights configuration
      */
-    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.AppInsightsCredentials>;
+    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.AppInsightsCredentialsArgs>;
     /**
      * The name of the cluster.
      */
@@ -172,11 +172,11 @@ export interface OperationalizationClusterArgs {
     /**
      * Container Registry properties.
      */
-    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.ContainerRegistryProperties>;
+    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.ContainerRegistryPropertiesArgs>;
     /**
      * Parameters for the Azure Container Service cluster.
      */
-    readonly containerService: pulumi.Input<inputs.machinelearningcompute.v20170601preview.AcsClusterProperties>;
+    readonly containerService: pulumi.Input<inputs.machinelearningcompute.v20170601preview.AcsClusterPropertiesArgs>;
     /**
      * The description of the cluster.
      */
@@ -184,7 +184,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Contains global configuration for the web services in the cluster.
      */
-    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.GlobalServiceConfiguration>;
+    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.GlobalServiceConfigurationArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -196,7 +196,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Storage Account properties.
      */
-    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.StorageAccountProperties>;
+    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.v20170601preview.StorageAccountPropertiesArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

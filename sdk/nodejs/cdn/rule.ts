@@ -136,11 +136,11 @@ export interface RuleArgs {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationAction | inputs.cdn.DeliveryRuleCacheKeyQueryStringAction | inputs.cdn.DeliveryRuleRequestHeaderAction | inputs.cdn.DeliveryRuleResponseHeaderAction | inputs.cdn.OriginGroupOverrideAction | inputs.cdn.UrlRedirectAction | inputs.cdn.UrlRewriteAction | inputs.cdn.UrlSigningAction>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCookiesCondition | inputs.cdn.DeliveryRuleHttpVersionCondition | inputs.cdn.DeliveryRuleIsDeviceCondition | inputs.cdn.DeliveryRulePostArgsCondition | inputs.cdn.DeliveryRuleQueryStringCondition | inputs.cdn.DeliveryRuleRemoteAddressCondition | inputs.cdn.DeliveryRuleRequestBodyCondition | inputs.cdn.DeliveryRuleRequestHeaderCondition | inputs.cdn.DeliveryRuleRequestMethodCondition | inputs.cdn.DeliveryRuleRequestSchemeCondition | inputs.cdn.DeliveryRuleRequestUriCondition | inputs.cdn.DeliveryRuleUrlFileExtensionCondition | inputs.cdn.DeliveryRuleUrlFileNameCondition | inputs.cdn.DeliveryRuleUrlPathCondition>[]>;
+    readonly conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[]>;
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */

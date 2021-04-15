@@ -148,12 +148,12 @@ export interface DataCollectionRuleArgs {
     /**
      * The specification of data flows.
      */
-    readonly dataFlows?: pulumi.Input<pulumi.Input<inputs.insights.DataFlow>[]>;
+    readonly dataFlows?: pulumi.Input<pulumi.Input<inputs.insights.DataFlowArgs>[]>;
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
-    readonly dataSources?: pulumi.Input<inputs.insights.DataCollectionRuleDataSources>;
+    readonly dataSources?: pulumi.Input<inputs.insights.DataCollectionRuleDataSourcesArgs>;
     /**
      * Description of the data collection rule.
      */
@@ -161,7 +161,7 @@ export interface DataCollectionRuleArgs {
     /**
      * The specification of destinations.
      */
-    readonly destinations?: pulumi.Input<inputs.insights.DataCollectionRuleDestinations>;
+    readonly destinations?: pulumi.Input<inputs.insights.DataCollectionRuleDestinationsArgs>;
     /**
      * The kind of the resource.
      */

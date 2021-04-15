@@ -105,7 +105,7 @@ export interface CustomDomainArgs {
     /**
      * Properties of the custom domain resource.
      */
-    readonly properties?: pulumi.Input<inputs.appplatform.CustomDomainProperties>;
+    readonly properties?: pulumi.Input<inputs.appplatform.CustomDomainPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

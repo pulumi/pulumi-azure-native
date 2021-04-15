@@ -223,7 +223,7 @@ export interface DiskArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20191101.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20191101.CreationDataArgs>;
     /**
      * The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
      */
@@ -251,11 +251,11 @@ export interface DiskArgs {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: pulumi.Input<inputs.compute.v20191101.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.compute.v20191101.EncryptionArgs>;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20191101.EncryptionSettingsCollection>;
+    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20191101.EncryptionSettingsCollectionArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -279,7 +279,7 @@ export interface DiskArgs {
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20191101.DiskSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20191101.DiskSkuArgs>;
     /**
      * Resource tags
      */

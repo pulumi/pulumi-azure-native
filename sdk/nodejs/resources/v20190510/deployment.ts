@@ -105,7 +105,7 @@ export interface DeploymentArgs {
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.v20190510.DeploymentProperties>;
+    readonly properties: pulumi.Input<inputs.resources.v20190510.DeploymentPropertiesArgs>;
     /**
      * The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
      */

@@ -133,10 +133,10 @@ export interface AdaptiveApplicationControlArgs {
      * Name of an application control VM/server group
      */
     readonly groupName?: pulumi.Input<string>;
-    readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20150601preview.PathRecommendation>[]>;
+    readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20150601preview.PathRecommendationArgs>[]>;
     /**
      * The protection mode of the group per collection type. Can also be defined for all collection types by using EnforcementMode
      */
-    readonly protectionMode?: pulumi.Input<inputs.security.v20150601preview.ProtectionMode>;
-    readonly vmRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20150601preview.VmRecommendation>[]>;
+    readonly protectionMode?: pulumi.Input<inputs.security.v20150601preview.ProtectionModeArgs>;
+    readonly vmRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20150601preview.VmRecommendationArgs>[]>;
 }

@@ -92,7 +92,7 @@ export interface HyperVCollectorArgs {
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.migrate.CollectorProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.CollectorPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

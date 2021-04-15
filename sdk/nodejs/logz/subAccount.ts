@@ -104,7 +104,7 @@ export class SubAccount extends pulumi.CustomResource {
  * The set of arguments for constructing a SubAccount resource.
  */
 export interface SubAccountArgs {
-    readonly identity?: pulumi.Input<inputs.logz.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.logz.IdentityPropertiesArgs>;
     readonly location?: pulumi.Input<string>;
     /**
      * Monitor resource name
@@ -113,7 +113,7 @@ export interface SubAccountArgs {
     /**
      * Properties specific to the monitor resource.
      */
-    readonly properties?: pulumi.Input<inputs.logz.MonitorProperties>;
+    readonly properties?: pulumi.Input<inputs.logz.MonitorPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

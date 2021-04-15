@@ -192,11 +192,11 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination?: pulumi.Input<inputs.network.ConnectionMonitorDestination>;
+    readonly destination?: pulumi.Input<inputs.network.ConnectionMonitorDestinationArgs>;
     /**
      * List of connection monitor endpoints.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpoint>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointArgs>[]>;
     /**
      * Connection monitor location.
      */
@@ -220,7 +220,7 @@ export interface ConnectionMonitorArgs {
     /**
      * List of connection monitor outputs.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutput>[]>;
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutputArgs>[]>;
     /**
      * The name of the resource group containing Network Watcher.
      */
@@ -228,7 +228,7 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the source of connection monitor.
      */
-    readonly source?: pulumi.Input<inputs.network.ConnectionMonitorSource>;
+    readonly source?: pulumi.Input<inputs.network.ConnectionMonitorSourceArgs>;
     /**
      * Connection monitor tags.
      */
@@ -236,9 +236,9 @@ export interface ConnectionMonitorArgs {
     /**
      * List of connection monitor test configurations.
      */
-    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfiguration>[]>;
+    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfigurationArgs>[]>;
     /**
      * List of connection monitor test groups.
      */
-    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroup>[]>;
+    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroupArgs>[]>;
 }

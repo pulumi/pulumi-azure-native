@@ -134,7 +134,7 @@ export interface SqlResourceSqlTriggerArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.v20200601preview.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.documentdb.v20200601preview.ManagedServiceIdentityArgs>;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -142,11 +142,11 @@ export interface SqlResourceSqlTriggerArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.v20200601preview.CreateUpdateOptions>;
+    readonly options: pulumi.Input<inputs.documentdb.v20200601preview.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a trigger
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20200601preview.SqlTriggerResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20200601preview.SqlTriggerResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

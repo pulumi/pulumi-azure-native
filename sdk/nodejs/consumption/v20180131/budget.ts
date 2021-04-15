@@ -154,11 +154,11 @@ export interface BudgetArgs {
     /**
      * May be used to filter budgets by resource group, resource, or meter.
      */
-    readonly filters?: pulumi.Input<inputs.consumption.v20180131.Filters>;
+    readonly filters?: pulumi.Input<inputs.consumption.v20180131.FiltersArgs>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20180131.Notification>}>;
+    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20180131.NotificationArgs>}>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
@@ -166,5 +166,5 @@ export interface BudgetArgs {
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    readonly timePeriod: pulumi.Input<inputs.consumption.v20180131.BudgetTimePeriod>;
+    readonly timePeriod: pulumi.Input<inputs.consumption.v20180131.BudgetTimePeriodArgs>;
 }

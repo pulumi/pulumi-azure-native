@@ -130,7 +130,7 @@ export interface InstanceArgs {
     /**
      * List of IoT Hubs associated with the account.
      */
-    readonly iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.IotHubSettings>[]>;
+    readonly iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.IotHubSettingsArgs>[]>;
     /**
      * The geo-location where the resource lives
      */

@@ -186,7 +186,7 @@ export interface ClusterArgs {
     /**
      * Setup to be performed on each compute node in the cluster.
      */
-    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20180501.NodeSetup>;
+    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20180501.NodeSetupArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -194,19 +194,19 @@ export interface ClusterArgs {
     /**
      * Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
      */
-    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20180501.ScaleSettings>;
+    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20180501.ScaleSettingsArgs>;
     /**
      * Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.v20180501.ResourceId>;
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180501.ResourceIdArgs>;
     /**
      * Settings for an administrator user account that will be created on each compute node in the cluster.
      */
-    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20180501.UserAccountSettings>;
+    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20180501.UserAccountSettingsArgs>;
     /**
      * OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
      */
-    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20180501.VirtualMachineConfiguration>;
+    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20180501.VirtualMachineConfigurationArgs>;
     /**
      * VM priority. Allowed values are: dedicated (default) and lowpriority.
      */

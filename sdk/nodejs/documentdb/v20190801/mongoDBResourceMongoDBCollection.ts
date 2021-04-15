@@ -132,7 +132,7 @@ export interface MongoDBResourceMongoDBCollectionArgs {
     /**
      * The standard JSON format of a MongoDB collection
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.MongoDBCollectionResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.MongoDBCollectionResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

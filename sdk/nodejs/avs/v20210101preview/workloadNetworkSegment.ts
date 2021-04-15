@@ -152,5 +152,5 @@ export interface WorkloadNetworkSegmentArgs {
     /**
      * Subnet which to connect segment to.
      */
-    readonly subnet?: pulumi.Input<inputs.avs.v20210101preview.WorkloadNetworkSegmentSubnet>;
+    readonly subnet?: pulumi.Input<inputs.avs.v20210101preview.WorkloadNetworkSegmentSubnetArgs>;
 }

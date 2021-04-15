@@ -122,7 +122,7 @@ export interface JitNetworkAccessPolicyArgs {
      * Kind of the resource
      */
     readonly kind?: pulumi.Input<string>;
-    readonly requests?: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessRequest>[]>;
+    readonly requests?: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessRequestArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface JitNetworkAccessPolicyArgs {
     /**
      * Configurations for Microsoft.Compute/virtualMachines resource type.
      */
-    readonly virtualMachines: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessPolicyVirtualMachine>[]>;
+    readonly virtualMachines: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessPolicyVirtualMachineArgs>[]>;
 }

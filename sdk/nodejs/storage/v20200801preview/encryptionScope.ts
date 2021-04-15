@@ -124,7 +124,7 @@ export interface EncryptionScopeArgs {
     /**
      * The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.storage.v20200801preview.EncryptionScopeKeyVaultProperties>;
+    readonly keyVaultProperties?: pulumi.Input<inputs.storage.v20200801preview.EncryptionScopeKeyVaultPropertiesArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

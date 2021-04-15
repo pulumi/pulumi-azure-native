@@ -161,11 +161,11 @@ export interface ApplianceDefinitionArgs {
     /**
      * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceArtifact>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceArtifactArgs>[]>;
     /**
      * The appliance provider authorizations.
      */
-    readonly authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceProviderAuthorization>[]>;
+    readonly authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceProviderAuthorizationArgs>[]>;
     /**
      * The appliance definition description.
      */
@@ -177,7 +177,7 @@ export interface ApplianceDefinitionArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20160901preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
     /**
      * Resource location
      */
@@ -201,7 +201,7 @@ export interface ApplianceDefinitionArgs {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20160901preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.solutions.v20160901preview.SkuArgs>;
     /**
      * Resource tags
      */

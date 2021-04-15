@@ -143,7 +143,7 @@ export interface CustomLocationArgs {
     /**
      * This is optional input that contains the authentication that should be used to generate the namespace.
      */
-    readonly authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationPropertiesAuthentication>;
+    readonly authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationPropertiesAuthenticationArgs>;
     /**
      * Contains the reference to the add-on that contains charts to deploy CRDs and operators.
      */

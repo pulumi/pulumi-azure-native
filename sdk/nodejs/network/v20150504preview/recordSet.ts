@@ -162,15 +162,15 @@ export interface RecordSetArgs {
     /**
      * Gets or sets the list of AAAA records in the RecordSet.
      */
-    readonly aAAARecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.AaaaRecord>[]>;
+    readonly aAAARecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.AaaaRecordArgs>[]>;
     /**
      * Gets or sets the list of A records in the RecordSet.
      */
-    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.ARecord>[]>;
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.ARecordArgs>[]>;
     /**
      * Gets or sets the CNAME record in the RecordSet.
      */
-    readonly cNAMERecord?: pulumi.Input<inputs.network.v20150504preview.CnameRecord>;
+    readonly cNAMERecord?: pulumi.Input<inputs.network.v20150504preview.CnameRecordArgs>;
     /**
      * The etag of the record set.
      */
@@ -178,15 +178,15 @@ export interface RecordSetArgs {
     /**
      * Gets or sets the list of MX records in the RecordSet.
      */
-    readonly mXRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.MxRecord>[]>;
+    readonly mXRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.MxRecordArgs>[]>;
     /**
      * Gets or sets the list of NS records in the RecordSet.
      */
-    readonly nSRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.NsRecord>[]>;
+    readonly nSRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.NsRecordArgs>[]>;
     /**
      * Gets or sets the list of PTR records in the RecordSet.
      */
-    readonly pTRRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.PtrRecord>[]>;
+    readonly pTRRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.PtrRecordArgs>[]>;
     /**
      * The type of DNS record.
      */
@@ -202,15 +202,15 @@ export interface RecordSetArgs {
     /**
      * Gets or sets the SOA record in the RecordSet.
      */
-    readonly sOARecord?: pulumi.Input<inputs.network.v20150504preview.SoaRecord>;
+    readonly sOARecord?: pulumi.Input<inputs.network.v20150504preview.SoaRecordArgs>;
     /**
      * Gets or sets the list of SRV records in the RecordSet.
      */
-    readonly sRVRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.SrvRecord>[]>;
+    readonly sRVRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.SrvRecordArgs>[]>;
     /**
      * Gets or sets the list of TXT records in the RecordSet.
      */
-    readonly tXTRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.TxtRecord>[]>;
+    readonly tXTRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.TxtRecordArgs>[]>;
     /**
      * Gets or sets the TTL of the records in the RecordSet.
      */

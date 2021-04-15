@@ -118,7 +118,7 @@ export interface ManagerArgs {
     /**
      * Specifies if the Manager is Garda or Helsinki
      */
-    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20161001.ManagerIntrinsicSettings>;
+    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20161001.ManagerIntrinsicSettingsArgs>;
     /**
      * ETag of the Manager
      */
@@ -138,7 +138,7 @@ export interface ManagerArgs {
     /**
      * Specifies the Sku
      */
-    readonly sku?: pulumi.Input<inputs.storsimple.v20161001.ManagerSku>;
+    readonly sku?: pulumi.Input<inputs.storsimple.v20161001.ManagerSkuArgs>;
     /**
      * Tags attached to the Manager
      */

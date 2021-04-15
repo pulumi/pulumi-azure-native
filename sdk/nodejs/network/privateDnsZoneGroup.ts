@@ -108,7 +108,7 @@ export interface PrivateDnsZoneGroupArgs {
     /**
      * A collection of private dns zone configurations of the private dns zone group.
      */
-    readonly privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.network.PrivateDnsZoneConfig>[]>;
+    readonly privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.network.PrivateDnsZoneConfigArgs>[]>;
     /**
      * The name of the private dns zone group.
      */

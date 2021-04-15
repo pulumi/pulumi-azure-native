@@ -117,7 +117,7 @@ export interface PrivateEndpointConnectionsForEDMArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.m365securityandcompliance.v20210325preview.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.m365securityandcompliance.v20210325preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */

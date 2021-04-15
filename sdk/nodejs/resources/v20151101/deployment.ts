@@ -86,7 +86,7 @@ export interface DeploymentArgs {
     /**
      * Gets or sets the deployment properties.
      */
-    readonly properties?: pulumi.Input<inputs.resources.v20151101.DeploymentProperties>;
+    readonly properties?: pulumi.Input<inputs.resources.v20151101.DeploymentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

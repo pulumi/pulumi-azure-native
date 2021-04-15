@@ -140,11 +140,11 @@ export interface ScheduleResourceArgs {
     /**
      * The daily recurrence of the schedule.
      */
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.DayDetails>;
+    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.DayDetailsArgs>;
     /**
      * The hourly recurrence of the schedule.
      */
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.HourDetails>;
+    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.HourDetailsArgs>;
     /**
      * The identifier of the resource.
      */
@@ -192,5 +192,5 @@ export interface ScheduleResourceArgs {
     /**
      * The weekly recurrence of the schedule.
      */
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.WeekDetails>;
+    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.WeekDetailsArgs>;
 }

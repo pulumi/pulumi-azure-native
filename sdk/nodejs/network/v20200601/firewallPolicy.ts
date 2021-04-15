@@ -149,11 +149,11 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: pulumi.Input<inputs.network.v20200601.SubResource>;
+    readonly basePolicy?: pulumi.Input<inputs.network.v20200601.SubResourceArgs>;
     /**
      * DNS Proxy Settings definition.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20200601.DnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20200601.DnsSettingsArgs>;
     /**
      * The name of the Firewall Policy.
      */
@@ -181,5 +181,5 @@ export interface FirewallPolicyArgs {
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20200601.FirewallPolicyThreatIntelWhitelist>;
+    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20200601.FirewallPolicyThreatIntelWhitelistArgs>;
 }

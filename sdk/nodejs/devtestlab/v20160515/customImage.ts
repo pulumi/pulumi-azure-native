@@ -185,9 +185,9 @@ export interface CustomImageArgs {
     /**
      * The VHD from which the image is to be created.
      */
-    readonly vhd?: pulumi.Input<inputs.devtestlab.v20160515.CustomImagePropertiesCustom>;
+    readonly vhd?: pulumi.Input<inputs.devtestlab.v20160515.CustomImagePropertiesCustomArgs>;
     /**
      * The virtual machine from which the image is to be created.
      */
-    readonly vm?: pulumi.Input<inputs.devtestlab.v20160515.CustomImagePropertiesFromVm>;
+    readonly vm?: pulumi.Input<inputs.devtestlab.v20160515.CustomImagePropertiesFromVmArgs>;
 }

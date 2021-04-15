@@ -115,7 +115,7 @@ export interface ManagementAssociationArgs {
     /**
      * Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
      */
-    readonly properties?: pulumi.Input<inputs.operationsmanagement.ManagementAssociationProperties>;
+    readonly properties?: pulumi.Input<inputs.operationsmanagement.ManagementAssociationPropertiesArgs>;
     /**
      * Provider name for the parent resource.
      */

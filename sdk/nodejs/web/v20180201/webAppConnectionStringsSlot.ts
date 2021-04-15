@@ -108,7 +108,7 @@ export interface WebAppConnectionStringsSlotArgs {
     /**
      * Connection strings.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20180201.ConnStringValueTypePair>}>;
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20180201.ConnStringValueTypePairArgs>}>;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -101,7 +101,7 @@ export interface CassandraDataCenterArgs {
     /**
      * Properties of a managed Cassandra data center.
      */
-    readonly properties?: pulumi.Input<inputs.documentdb.DataCenterResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.documentdb.DataCenterResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

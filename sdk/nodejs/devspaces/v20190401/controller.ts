@@ -148,7 +148,7 @@ export interface ControllerArgs {
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
-    readonly sku: pulumi.Input<inputs.devspaces.v20190401.Sku>;
+    readonly sku: pulumi.Input<inputs.devspaces.v20190401.SkuArgs>;
     /**
      * Tags for the Azure resource.
      */

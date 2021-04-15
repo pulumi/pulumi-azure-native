@@ -139,7 +139,7 @@ export interface JobStepArgs {
     /**
      * The action payload of the job step.
      */
-    readonly action: pulumi.Input<inputs.sql.v20201101preview.JobStepAction>;
+    readonly action: pulumi.Input<inputs.sql.v20201101preview.JobStepActionArgs>;
     /**
      * The resource ID of the job credential that will be used to connect to the targets.
      */
@@ -147,7 +147,7 @@ export interface JobStepArgs {
     /**
      * Execution options for the job step.
      */
-    readonly executionOptions?: pulumi.Input<inputs.sql.v20201101preview.JobStepExecutionOptions>;
+    readonly executionOptions?: pulumi.Input<inputs.sql.v20201101preview.JobStepExecutionOptionsArgs>;
     /**
      * The name of the job agent.
      */
@@ -159,7 +159,7 @@ export interface JobStepArgs {
     /**
      * Output destination properties of the job step.
      */
-    readonly output?: pulumi.Input<inputs.sql.v20201101preview.JobStepOutput>;
+    readonly output?: pulumi.Input<inputs.sql.v20201101preview.JobStepOutputArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

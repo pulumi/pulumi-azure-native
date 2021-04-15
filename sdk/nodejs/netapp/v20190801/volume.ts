@@ -203,11 +203,11 @@ export interface VolumeArgs {
     /**
      * DataProtection volume, can have a replication object
      */
-    readonly dataProtection?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesDataProtection>;
+    readonly dataProtection?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesDataProtectionArgs>;
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesExportPolicy>;
+    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesExportPolicyArgs>;
     /**
      * Resource location
      */
@@ -215,7 +215,7 @@ export interface VolumeArgs {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20190801.MountTargetProperties>[]>;
+    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20190801.MountTargetPropertiesArgs>[]>;
     /**
      * The name of the capacity pool
      */

@@ -133,7 +133,7 @@ export interface DscNodeConfigurationArgs {
     /**
      * Gets or sets the configuration of the node.
      */
-    readonly configuration: pulumi.Input<inputs.automation.v20200113preview.DscConfigurationAssociationProperty>;
+    readonly configuration: pulumi.Input<inputs.automation.v20200113preview.DscConfigurationAssociationPropertyArgs>;
     /**
      * If a new build version of NodeConfiguration is required.
      */
@@ -153,7 +153,7 @@ export interface DscNodeConfigurationArgs {
     /**
      * Gets or sets the source.
      */
-    readonly source: pulumi.Input<inputs.automation.v20200113preview.ContentSource>;
+    readonly source: pulumi.Input<inputs.automation.v20200113preview.ContentSourceArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */

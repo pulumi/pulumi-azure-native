@@ -134,7 +134,7 @@ export interface PartnerArgs {
     /**
      * The partner content.
      */
-    readonly content: pulumi.Input<inputs.logic.v20160601.PartnerContent>;
+    readonly content: pulumi.Input<inputs.logic.v20160601.PartnerContentArgs>;
     /**
      * The integration account name.
      */

@@ -150,11 +150,11 @@ export interface VpnGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.BgpSettings>;
+    readonly bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs>;
     /**
      * List of all vpn connections to the gateway.
      */
-    readonly connections?: pulumi.Input<pulumi.Input<inputs.network.VpnConnection>[]>;
+    readonly connections?: pulumi.Input<pulumi.Input<inputs.network.VpnConnectionArgs>[]>;
     /**
      * The name of the gateway.
      */
@@ -174,7 +174,7 @@ export interface VpnGatewayArgs {
     /**
      * List of all the nat Rules associated with the gateway.
      */
-    readonly natRules?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayNatRule>[]>;
+    readonly natRules?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayNatRuleArgs>[]>;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -186,7 +186,7 @@ export interface VpnGatewayArgs {
     /**
      * The VirtualHub to which the gateway belongs.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.SubResource>;
+    readonly virtualHub?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The scale unit for this vpn gateway.
      */

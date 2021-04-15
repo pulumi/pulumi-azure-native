@@ -366,7 +366,7 @@ export interface WebAppArgs {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20201201.CloningInfo>;
+    readonly cloningInfo?: pulumi.Input<inputs.web.v20201201.CloningInfoArgs>;
     /**
      * Size of the function container.
      */
@@ -386,7 +386,7 @@ export interface WebAppArgs {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20201201.HostNameSslState>[]>;
+    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20201201.HostNameSslStateArgs>[]>;
     /**
      * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
      *  If <code>true</code>, the app is only accessible via API management process.
@@ -395,7 +395,7 @@ export interface WebAppArgs {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20201201.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20201201.HostingEnvironmentProfileArgs>;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -408,7 +408,7 @@ export interface WebAppArgs {
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20201201.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.web.v20201201.ManagedServiceIdentityArgs>;
     /**
      * Obsolete: Hyper-V sandbox.
      */
@@ -452,7 +452,7 @@ export interface WebAppArgs {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20201201.SiteConfig>;
+    readonly siteConfig?: pulumi.Input<inputs.web.v20201201.SiteConfigArgs>;
     /**
      * Checks if Customer provided storage account is required
      */

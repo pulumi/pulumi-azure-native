@@ -125,7 +125,7 @@ export interface AzureFirewallArgs {
     /**
      * Collection of application rule collections used by a Azure Firewall.
      */
-    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.AzureFirewallApplicationRuleCollection>[]>;
+    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.AzureFirewallApplicationRuleCollectionArgs>[]>;
     /**
      * The name of the Azure Firewall.
      */
@@ -137,7 +137,7 @@ export interface AzureFirewallArgs {
     /**
      * IP configuration of the Azure Firewall resource.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20180601.AzureFirewallIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20180601.AzureFirewallIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -145,7 +145,7 @@ export interface AzureFirewallArgs {
     /**
      * Collection of network rule collections used by a Azure Firewall.
      */
-    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.AzureFirewallNetworkRuleCollection>[]>;
+    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.AzureFirewallNetworkRuleCollectionArgs>[]>;
     /**
      * The name of the resource group.
      */

@@ -174,7 +174,7 @@ export interface WebTestArgs {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly configuration?: pulumi.Input<inputs.insights.v20150501.WebTestPropertiesConfiguration>;
+    readonly configuration?: pulumi.Input<inputs.insights.v20150501.WebTestPropertiesConfigurationArgs>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
@@ -198,7 +198,7 @@ export interface WebTestArgs {
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.insights.v20150501.WebTestGeolocation>[]>;
+    readonly locations: pulumi.Input<pulumi.Input<inputs.insights.v20150501.WebTestGeolocationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

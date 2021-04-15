@@ -118,7 +118,7 @@ export interface CustomResourceProviderArgs {
     /**
      * A list of actions that the custom resource provider implements.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.customproviders.v20180901preview.CustomRPActionRouteDefinition>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.customproviders.v20180901preview.CustomRPActionRouteDefinitionArgs>[]>;
     /**
      * Resource location
      */
@@ -134,7 +134,7 @@ export interface CustomResourceProviderArgs {
     /**
      * A list of resource types that the custom resource provider implements.
      */
-    readonly resourceTypes?: pulumi.Input<pulumi.Input<inputs.customproviders.v20180901preview.CustomRPResourceTypeRouteDefinition>[]>;
+    readonly resourceTypes?: pulumi.Input<pulumi.Input<inputs.customproviders.v20180901preview.CustomRPResourceTypeRouteDefinitionArgs>[]>;
     /**
      * Resource tags
      */
@@ -142,5 +142,5 @@ export interface CustomResourceProviderArgs {
     /**
      * A list of validations to run on the custom resource provider's requests.
      */
-    readonly validations?: pulumi.Input<pulumi.Input<inputs.customproviders.v20180901preview.CustomRPValidations>[]>;
+    readonly validations?: pulumi.Input<pulumi.Input<inputs.customproviders.v20180901preview.CustomRPValidationsArgs>[]>;
 }

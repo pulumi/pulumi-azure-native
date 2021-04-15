@@ -134,7 +134,7 @@ export interface DatabaseAccountCassandraTableArgs {
     /**
      * The standard JSON format of a Cassandra table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20150401.CassandraTableResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20150401.CassandraTableResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

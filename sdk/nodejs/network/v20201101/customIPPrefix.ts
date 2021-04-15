@@ -155,7 +155,7 @@ export interface CustomIPPrefixArgs {
     /**
      * The extended location of the custom IP prefix.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */

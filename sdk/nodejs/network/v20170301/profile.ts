@@ -124,11 +124,11 @@ export interface ProfileArgs {
     /**
      * Gets or sets the DNS settings of the Traffic Manager profile.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.network.v20170301.DnsConfig>;
+    readonly dnsConfig?: pulumi.Input<inputs.network.v20170301.DnsConfigArgs>;
     /**
      * Gets or sets the list of endpoints in the Traffic Manager profile.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20170301.Endpoint>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20170301.EndpointArgs>[]>;
     /**
      * Resource location
      */
@@ -136,7 +136,7 @@ export interface ProfileArgs {
     /**
      * Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
      */
-    readonly monitorConfig?: pulumi.Input<inputs.network.v20170301.MonitorConfig>;
+    readonly monitorConfig?: pulumi.Input<inputs.network.v20170301.MonitorConfigArgs>;
     /**
      * The name of the Traffic Manager profile.
      */

@@ -173,7 +173,7 @@ export interface NamespaceArgs {
     /**
      * Properties of sku resource
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.Sku>;
+    readonly sku?: pulumi.Input<inputs.eventhub.SkuArgs>;
     /**
      * Resource tags.
      */

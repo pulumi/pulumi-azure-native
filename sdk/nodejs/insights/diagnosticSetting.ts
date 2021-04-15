@@ -142,11 +142,11 @@ export interface DiagnosticSettingArgs {
     /**
      * The list of logs settings.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.LogSettings>[]>;
+    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.LogSettingsArgs>[]>;
     /**
      * The list of metric settings.
      */
-    readonly metrics?: pulumi.Input<pulumi.Input<inputs.insights.MetricSettings>[]>;
+    readonly metrics?: pulumi.Input<pulumi.Input<inputs.insights.MetricSettingsArgs>[]>;
     /**
      * The name of the diagnostic setting.
      */

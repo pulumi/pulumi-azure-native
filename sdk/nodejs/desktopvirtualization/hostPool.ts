@@ -274,7 +274,7 @@ export interface HostPoolArgs {
      * HostPool type for desktop.
      */
     readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentity>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -298,12 +298,12 @@ export interface HostPoolArgs {
     /**
      * The registration info of HostPool.
      */
-    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.MigrationRequestProperties>;
+    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.MigrationRequestPropertiesArgs>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
     readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.PersonalDesktopAssignmentType>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlan>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -311,7 +311,7 @@ export interface HostPoolArgs {
     /**
      * The registration info of HostPool.
      */
-    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.RegistrationInfo>;
+    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.RegistrationInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -320,7 +320,7 @@ export interface HostPoolArgs {
      * The ring number of HostPool.
      */
     readonly ring?: pulumi.Input<number>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSku>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */

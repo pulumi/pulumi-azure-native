@@ -119,7 +119,7 @@ export interface DelegatedSubnetServiceDetailsArgs {
     /**
      * Properties of the controller.
      */
-    readonly controllerDetails?: pulumi.Input<inputs.delegatednetwork.ControllerDetails>;
+    readonly controllerDetails?: pulumi.Input<inputs.delegatednetwork.ControllerDetailsArgs>;
     /**
      * Location of the resource.
      */
@@ -135,7 +135,7 @@ export interface DelegatedSubnetServiceDetailsArgs {
     /**
      * subnet details
      */
-    readonly subnetDetails?: pulumi.Input<inputs.delegatednetwork.SubnetDetails>;
+    readonly subnetDetails?: pulumi.Input<inputs.delegatednetwork.SubnetDetailsArgs>;
     /**
      * The resource tags.
      */

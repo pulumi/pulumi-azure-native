@@ -174,7 +174,7 @@ export interface AssignmentArgs {
     /**
      * Managed identity for this blueprint assignment.
      */
-    readonly identity: pulumi.Input<inputs.blueprint.ManagedServiceIdentity>;
+    readonly identity: pulumi.Input<inputs.blueprint.ManagedServiceIdentityArgs>;
     /**
      * The location of this blueprint assignment.
      */
@@ -182,15 +182,15 @@ export interface AssignmentArgs {
     /**
      * Defines how resources deployed by a blueprint assignment are locked.
      */
-    readonly locks?: pulumi.Input<inputs.blueprint.AssignmentLockSettings>;
+    readonly locks?: pulumi.Input<inputs.blueprint.AssignmentLockSettingsArgs>;
     /**
      * Blueprint assignment parameter values.
      */
-    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ParameterValue>}>;
+    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ParameterValueArgs>}>;
     /**
      * Names and locations of resource group placeholders.
      */
-    readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ResourceGroupValue>}>;
+    readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ResourceGroupValueArgs>}>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

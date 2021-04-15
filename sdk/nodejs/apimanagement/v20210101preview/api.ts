@@ -243,7 +243,7 @@ export interface ApiArgs {
     /**
      * Version set details
      */
-    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiVersionSetContractDetails>;
+    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiVersionSetContractDetailsArgs>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
@@ -251,11 +251,11 @@ export interface ApiArgs {
     /**
      * Collection of authentication settings included into this API.
      */
-    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20210101preview.AuthenticationSettingsContract>;
+    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20210101preview.AuthenticationSettingsContractArgs>;
     /**
      * Contact information for the API.
      */
-    readonly contact?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiContactInformation>;
+    readonly contact?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiContactInformationArgs>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -275,7 +275,7 @@ export interface ApiArgs {
     /**
      * License information for the API.
      */
-    readonly license?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiLicenseInformation>;
+    readonly license?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiLicenseInformationArgs>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
@@ -310,7 +310,7 @@ export interface ApiArgs {
     /**
      * Protocols over which API is made available.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20210101preview.SubscriptionKeyParameterNamesContract>;
+    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20210101preview.SubscriptionKeyParameterNamesContractArgs>;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
@@ -326,5 +326,5 @@ export interface ApiArgs {
     /**
      * Criteria to limit import of WSDL to a subset of the document.
      */
-    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiCreateOrUpdatePropertiesWsdlSelector>;
+    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
 }

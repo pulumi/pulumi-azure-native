@@ -139,19 +139,19 @@ export interface InstanceFailoverGroupArgs {
     /**
      * List of managed instance pairs in the failover group.
      */
-    readonly managedInstancePairs: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.ManagedInstancePairInfo>[]>;
+    readonly managedInstancePairs: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.ManagedInstancePairInfoArgs>[]>;
     /**
      * Partner region information for the failover group.
      */
-    readonly partnerRegions: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.PartnerRegionInfo>[]>;
+    readonly partnerRegions: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.PartnerRegionInfoArgs>[]>;
     /**
      * Read-only endpoint of the failover group instance.
      */
-    readonly readOnlyEndpoint?: pulumi.Input<inputs.sql.v20200801preview.InstanceFailoverGroupReadOnlyEndpoint>;
+    readonly readOnlyEndpoint?: pulumi.Input<inputs.sql.v20200801preview.InstanceFailoverGroupReadOnlyEndpointArgs>;
     /**
      * Read-write endpoint of the failover group instance.
      */
-    readonly readWriteEndpoint: pulumi.Input<inputs.sql.v20200801preview.InstanceFailoverGroupReadWriteEndpoint>;
+    readonly readWriteEndpoint: pulumi.Input<inputs.sql.v20200801preview.InstanceFailoverGroupReadWriteEndpointArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

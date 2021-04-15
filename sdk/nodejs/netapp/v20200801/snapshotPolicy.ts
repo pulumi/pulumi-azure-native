@@ -138,7 +138,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for daily snapshots
      */
-    readonly dailySchedule?: pulumi.Input<inputs.netapp.v20200801.DailySchedule>;
+    readonly dailySchedule?: pulumi.Input<inputs.netapp.v20200801.DailyScheduleArgs>;
     /**
      * The property to decide policy is enabled or not
      */
@@ -146,7 +146,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for hourly snapshots
      */
-    readonly hourlySchedule?: pulumi.Input<inputs.netapp.v20200801.HourlySchedule>;
+    readonly hourlySchedule?: pulumi.Input<inputs.netapp.v20200801.HourlyScheduleArgs>;
     /**
      * Resource location
      */
@@ -154,7 +154,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for monthly snapshots
      */
-    readonly monthlySchedule?: pulumi.Input<inputs.netapp.v20200801.MonthlySchedule>;
+    readonly monthlySchedule?: pulumi.Input<inputs.netapp.v20200801.MonthlyScheduleArgs>;
     /**
      * The name of the resource group.
      */
@@ -170,5 +170,5 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for weekly snapshots
      */
-    readonly weeklySchedule?: pulumi.Input<inputs.netapp.v20200801.WeeklySchedule>;
+    readonly weeklySchedule?: pulumi.Input<inputs.netapp.v20200801.WeeklyScheduleArgs>;
 }

@@ -121,7 +121,7 @@ export interface DataPoolArgs {
     /**
      * Gets or sets the collection of locations where Data Pool resources should be created
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.autonomousdevelopmentplatform.v20210201preview.DataPoolLocation>[]>;
+    readonly locations: pulumi.Input<pulumi.Input<inputs.autonomousdevelopmentplatform.v20210201preview.DataPoolLocationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

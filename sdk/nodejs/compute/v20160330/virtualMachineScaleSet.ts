@@ -129,7 +129,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.compute.v20160330.VirtualMachineScaleSetIdentity>;
+    readonly identity?: pulumi.Input<inputs.compute.v20160330.VirtualMachineScaleSetIdentityArgs>;
     /**
      * Resource location
      */
@@ -149,7 +149,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20160330.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20160330.SkuArgs>;
     /**
      * Resource tags
      */
@@ -157,9 +157,9 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20160330.UpgradePolicy>;
+    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20160330.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20160330.VirtualMachineScaleSetVMProfile>;
+    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20160330.VirtualMachineScaleSetVMProfileArgs>;
 }

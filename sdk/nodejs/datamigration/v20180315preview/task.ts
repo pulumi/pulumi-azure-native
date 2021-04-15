@@ -114,7 +114,7 @@ export interface TaskArgs {
     /**
      * Custom task properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.v20180315preview.ConnectToSourceSqlServerTaskProperties | inputs.datamigration.v20180315preview.ConnectToTargetSqlDbTaskProperties | inputs.datamigration.v20180315preview.ConnectToTargetSqlMITaskProperties | inputs.datamigration.v20180315preview.GetUserTablesSqlTaskProperties | inputs.datamigration.v20180315preview.MigrateSqlServerSqlDbTaskProperties | inputs.datamigration.v20180315preview.MigrateSqlServerSqlMITaskProperties | inputs.datamigration.v20180315preview.ValidateMigrationInputSqlServerSqlMITaskProperties>;
+    readonly properties?: pulumi.Input<inputs.datamigration.v20180315preview.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.v20180315preview.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.v20180315preview.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.v20180315preview.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.v20180315preview.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.v20180315preview.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.v20180315preview.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
     /**
      * Name of the service
      */

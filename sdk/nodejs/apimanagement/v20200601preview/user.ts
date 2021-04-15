@@ -163,7 +163,7 @@ export interface UserArgs {
     /**
      * Collection of user identities.
      */
-    readonly identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.UserIdentityContract>[]>;
+    readonly identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.UserIdentityContractArgs>[]>;
     /**
      * Last name.
      */

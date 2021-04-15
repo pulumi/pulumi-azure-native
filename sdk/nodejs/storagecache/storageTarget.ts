@@ -144,7 +144,7 @@ export interface StorageTargetArgs {
     /**
      * Properties when targetType is blobNfs.
      */
-    readonly blobNfs?: pulumi.Input<inputs.storagecache.BlobNfsTarget>;
+    readonly blobNfs?: pulumi.Input<inputs.storagecache.BlobNfsTargetArgs>;
     /**
      * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
@@ -152,15 +152,15 @@ export interface StorageTargetArgs {
     /**
      * Properties when targetType is clfs.
      */
-    readonly clfs?: pulumi.Input<inputs.storagecache.ClfsTarget>;
+    readonly clfs?: pulumi.Input<inputs.storagecache.ClfsTargetArgs>;
     /**
      * List of Cache namespace junctions to target for namespace associations.
      */
-    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.NamespaceJunction>[]>;
+    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.NamespaceJunctionArgs>[]>;
     /**
      * Properties when targetType is nfs3.
      */
-    readonly nfs3?: pulumi.Input<inputs.storagecache.Nfs3Target>;
+    readonly nfs3?: pulumi.Input<inputs.storagecache.Nfs3TargetArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -180,5 +180,5 @@ export interface StorageTargetArgs {
     /**
      * Properties when targetType is unknown.
      */
-    readonly unknown?: pulumi.Input<inputs.storagecache.UnknownTarget>;
+    readonly unknown?: pulumi.Input<inputs.storagecache.UnknownTargetArgs>;
 }

@@ -316,7 +316,7 @@ export interface AgentPoolArgs {
     /**
      * Settings for upgrading the agentpool
      */
-    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.v20200601.AgentPoolUpgradeSettings>;
+    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.v20200601.AgentPoolUpgradeSettingsArgs>;
     /**
      * Size of agent VMs.
      */

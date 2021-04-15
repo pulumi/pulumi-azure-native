@@ -177,7 +177,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of recommendation configuration
      */
-    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.RecommendationConfigurationProperties>[]>;
+    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.RecommendationConfigurationPropertiesArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -197,7 +197,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Properties of the solution's user defined resources.
      */
-    readonly userDefinedResources?: pulumi.Input<inputs.security.v20170801preview.UserDefinedResourcesProperties>;
+    readonly userDefinedResources?: pulumi.Input<inputs.security.v20170801preview.UserDefinedResourcesPropertiesArgs>;
     /**
      * Workspace resource ID
      */

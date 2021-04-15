@@ -133,7 +133,7 @@ export interface VolumeArgs {
     /**
      * This type describes a volume provided by an Azure Files file share.
      */
-    readonly azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.v20180901preview.VolumeProviderParametersAzureFile>;
+    readonly azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.v20180901preview.VolumeProviderParametersAzureFileArgs>;
     /**
      * User readable description of the volume.
      */

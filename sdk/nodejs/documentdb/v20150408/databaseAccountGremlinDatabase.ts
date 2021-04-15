@@ -136,7 +136,7 @@ export interface DatabaseAccountGremlinDatabaseArgs {
     /**
      * The standard JSON format of a Gremlin database
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20150408.GremlinDatabaseResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20150408.GremlinDatabaseResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

@@ -120,7 +120,7 @@ export interface ManagedHsmArgs {
     /**
      * Properties of the managed HSM
      */
-    readonly properties?: pulumi.Input<inputs.keyvault.ManagedHsmProperties>;
+    readonly properties?: pulumi.Input<inputs.keyvault.ManagedHsmPropertiesArgs>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
@@ -128,7 +128,7 @@ export interface ManagedHsmArgs {
     /**
      * SKU details
      */
-    readonly sku?: pulumi.Input<inputs.keyvault.ManagedHsmSku>;
+    readonly sku?: pulumi.Input<inputs.keyvault.ManagedHsmSkuArgs>;
     /**
      * Resource tags
      */

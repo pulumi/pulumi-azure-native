@@ -112,7 +112,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.attestation.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.attestation.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the attestation provider.
      */

@@ -127,7 +127,7 @@ export interface ArtifactSourceArgs {
     /**
      * The authentication method to use to access the artifact source.
      */
-    readonly authentication: pulumi.Input<inputs.deploymentmanager.SasAuthentication>;
+    readonly authentication: pulumi.Input<inputs.deploymentmanager.SasAuthenticationArgs>;
     /**
      * The geo-location where the resource lives
      */

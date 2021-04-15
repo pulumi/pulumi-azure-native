@@ -229,11 +229,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20170301.IpsecPolicy>[]>;
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20170301.IpsecPolicyArgs>[]>;
     /**
      * A common class for general resource information
      */
-    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20170301.LocalNetworkGateway>;
+    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20170301.LocalNetworkGatewayArgs>;
     /**
      * Resource location.
      */
@@ -241,7 +241,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: pulumi.Input<inputs.network.v20170301.SubResource>;
+    readonly peer?: pulumi.Input<inputs.network.v20170301.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
@@ -269,11 +269,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20170301.VirtualNetworkGateway>;
+    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20170301.VirtualNetworkGatewayArgs>;
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20170301.VirtualNetworkGateway>;
+    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20170301.VirtualNetworkGatewayArgs>;
     /**
      * The name of the virtual network gateway connection.
      */

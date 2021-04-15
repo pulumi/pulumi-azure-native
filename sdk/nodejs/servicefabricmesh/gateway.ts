@@ -159,7 +159,7 @@ export interface GatewayArgs {
     /**
      * Network that the Application is using.
      */
-    readonly destinationNetwork: pulumi.Input<inputs.servicefabricmesh.NetworkRef>;
+    readonly destinationNetwork: pulumi.Input<inputs.servicefabricmesh.NetworkRefArgs>;
     /**
      * The identity of the gateway.
      */
@@ -167,7 +167,7 @@ export interface GatewayArgs {
     /**
      * Configuration for http connectivity for this gateway.
      */
-    readonly http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.HttpConfig>[]>;
+    readonly http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.HttpConfigArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -179,7 +179,7 @@ export interface GatewayArgs {
     /**
      * Network the gateway should listen on for requests.
      */
-    readonly sourceNetwork: pulumi.Input<inputs.servicefabricmesh.NetworkRef>;
+    readonly sourceNetwork: pulumi.Input<inputs.servicefabricmesh.NetworkRefArgs>;
     /**
      * Resource tags.
      */
@@ -187,5 +187,5 @@ export interface GatewayArgs {
     /**
      * Configuration for tcp connectivity for this gateway.
      */
-    readonly tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.TcpConfig>[]>;
+    readonly tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.TcpConfigArgs>[]>;
 }

@@ -152,11 +152,11 @@ export interface RegistryArgs {
     /**
      * The SKU of the container registry.
      */
-    readonly sku: pulumi.Input<inputs.containerregistry.v20170301.Sku>;
+    readonly sku: pulumi.Input<inputs.containerregistry.v20170301.SkuArgs>;
     /**
      * The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
      */
-    readonly storageAccount: pulumi.Input<inputs.containerregistry.v20170301.StorageAccountParameters>;
+    readonly storageAccount: pulumi.Input<inputs.containerregistry.v20170301.StorageAccountParametersArgs>;
     /**
      * The tags for the container registry.
      */

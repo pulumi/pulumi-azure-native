@@ -123,7 +123,7 @@ export interface TemplateSpecVersionArgs {
     /**
      * An array of Template Spec artifacts.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.resources.TemplateSpecTemplateArtifact>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.resources.TemplateSpecTemplateArtifactArgs>[]>;
     /**
      * Template Spec version description.
      */

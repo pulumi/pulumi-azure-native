@@ -172,7 +172,7 @@ export interface ApiOperationArgs {
     /**
      * An entity containing request details.
      */
-    readonly request?: pulumi.Input<inputs.apimanagement.RequestContract>;
+    readonly request?: pulumi.Input<inputs.apimanagement.RequestContractArgs>;
     /**
      * The name of the resource group.
      */
@@ -180,7 +180,7 @@ export interface ApiOperationArgs {
     /**
      * Array of Operation responses.
      */
-    readonly responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ResponseContract>[]>;
+    readonly responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ResponseContractArgs>[]>;
     /**
      * The name of the API Management service.
      */
@@ -188,7 +188,7 @@ export interface ApiOperationArgs {
     /**
      * Collection of URL template parameters.
      */
-    readonly templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ParameterContract>[]>;
+    readonly templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ParameterContractArgs>[]>;
     /**
      * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
      */

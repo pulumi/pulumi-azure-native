@@ -146,7 +146,7 @@ export interface GalleryImageVersionArgs {
     /**
      * The publishing profile of a gallery image Version.
      */
-    readonly publishingProfile?: pulumi.Input<inputs.compute.GalleryImageVersionPublishingProfile>;
+    readonly publishingProfile?: pulumi.Input<inputs.compute.GalleryImageVersionPublishingProfileArgs>;
     /**
      * The name of the resource group.
      */
@@ -154,7 +154,7 @@ export interface GalleryImageVersionArgs {
     /**
      * This is the storage profile of a Gallery Image Version.
      */
-    readonly storageProfile: pulumi.Input<inputs.compute.GalleryImageVersionStorageProfile>;
+    readonly storageProfile: pulumi.Input<inputs.compute.GalleryImageVersionStorageProfileArgs>;
     /**
      * Resource tags
      */

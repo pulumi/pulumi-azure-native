@@ -119,7 +119,7 @@ export interface AddressByNameArgs {
     /**
      * Contact details for the address
      */
-    readonly contactDetails: pulumi.Input<inputs.edgeorder.v20201201preview.ContactDetails>;
+    readonly contactDetails: pulumi.Input<inputs.edgeorder.v20201201preview.ContactDetailsArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -131,7 +131,7 @@ export interface AddressByNameArgs {
     /**
      * Shipping details for the address
      */
-    readonly shippingAddress?: pulumi.Input<inputs.edgeorder.v20201201preview.ShippingAddress>;
+    readonly shippingAddress?: pulumi.Input<inputs.edgeorder.v20201201preview.ShippingAddressArgs>;
     /**
      * Resource tags.
      */

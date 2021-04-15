@@ -127,11 +127,11 @@ export interface GremlinResourceGremlinGraphArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.v20210315.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.v20210315.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a Gremlin graph
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20210315.GremlinGraphResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20210315.GremlinGraphResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

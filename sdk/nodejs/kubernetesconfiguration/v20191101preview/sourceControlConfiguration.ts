@@ -176,7 +176,7 @@ export interface SourceControlConfigurationArgs {
     /**
      * Properties for Helm operator.
      */
-    readonly helmOperatorProperties?: pulumi.Input<inputs.kubernetesconfiguration.v20191101preview.HelmOperatorProperties>;
+    readonly helmOperatorProperties?: pulumi.Input<inputs.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesArgs>;
     /**
      * Instance name of the operator - identifying the specific configuration.
      */

@@ -287,19 +287,19 @@ export interface VirtualMachineArgs {
     /**
      * The applicable schedule for the virtual machine.
      */
-    readonly applicableSchedule?: pulumi.Input<inputs.devtestlab.v20160515.ApplicableSchedule>;
+    readonly applicableSchedule?: pulumi.Input<inputs.devtestlab.v20160515.ApplicableScheduleArgs>;
     /**
      * The artifact deployment status for the virtual machine.
      */
-    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20160515.ArtifactDeploymentStatusProperties>;
+    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20160515.ArtifactDeploymentStatusPropertiesArgs>;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ArtifactInstallProperties>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ArtifactInstallPropertiesArgs>[]>;
     /**
      * The compute virtual machine properties.
      */
-    readonly computeVm?: pulumi.Input<inputs.devtestlab.v20160515.ComputeVmProperties>;
+    readonly computeVm?: pulumi.Input<inputs.devtestlab.v20160515.ComputeVmPropertiesArgs>;
     /**
      * The email address of creator of the virtual machine.
      */
@@ -335,7 +335,7 @@ export interface VirtualMachineArgs {
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20160515.GalleryImageReference>;
+    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20160515.GalleryImageReferenceArgs>;
     /**
      * Indicates whether this virtual machine uses an SSH key for authentication.
      */
@@ -363,7 +363,7 @@ export interface VirtualMachineArgs {
     /**
      * The network interface properties.
      */
-    readonly networkInterface?: pulumi.Input<inputs.devtestlab.v20160515.NetworkInterfaceProperties>;
+    readonly networkInterface?: pulumi.Input<inputs.devtestlab.v20160515.NetworkInterfacePropertiesArgs>;
     /**
      * The notes of the virtual machine.
      */

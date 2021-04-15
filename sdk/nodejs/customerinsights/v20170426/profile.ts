@@ -214,7 +214,7 @@ export interface ProfileArgs {
     /**
      * The properties of the Profile.
      */
-    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.PropertyDefinition>[]>;
+    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.PropertyDefinitionArgs>[]>;
     /**
      * The name of the hub.
      */
@@ -254,7 +254,7 @@ export interface ProfileArgs {
     /**
      * The strong IDs.
      */
-    readonly strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.StrongId>[]>;
+    readonly strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.StrongIdArgs>[]>;
     /**
      * The timestamp property name. Represents the time when the interaction or profile update happened.
      */

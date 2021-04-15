@@ -261,7 +261,7 @@ export interface DatabaseArgs {
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20170301preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.v20170301preview.SkuArgs>;
     /**
      * Specifies the time that the database was deleted.
      */

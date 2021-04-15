@@ -161,5 +161,5 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * Cluster Active Directory domain profile.
      */
-    readonly wsfcDomainProfile?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainProfile>;
+    readonly wsfcDomainProfile?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainProfileArgs>;
 }

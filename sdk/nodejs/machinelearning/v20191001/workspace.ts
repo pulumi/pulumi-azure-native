@@ -170,7 +170,7 @@ export interface WorkspaceArgs {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearning.v20191001.Sku>;
+    readonly sku?: pulumi.Input<inputs.machinelearning.v20191001.SkuArgs>;
     /**
      * The tags of the resource.
      */

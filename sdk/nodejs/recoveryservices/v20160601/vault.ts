@@ -122,7 +122,7 @@ export interface VaultArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.recoveryservices.v20160601.IdentityData>;
+    readonly identity?: pulumi.Input<inputs.recoveryservices.v20160601.IdentityDataArgs>;
     /**
      * Resource location.
      */
@@ -134,7 +134,7 @@ export interface VaultArgs {
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
-    readonly sku?: pulumi.Input<inputs.recoveryservices.v20160601.Sku>;
+    readonly sku?: pulumi.Input<inputs.recoveryservices.v20160601.SkuArgs>;
     /**
      * Resource tags.
      */

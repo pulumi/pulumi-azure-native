@@ -129,7 +129,7 @@ export interface RouteFilterArgs {
     /**
      * A collection of references to express route circuit ipv6 peerings.
      */
-    readonly ipv6Peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ExpressRouteCircuitPeering>[]>;
+    readonly ipv6Peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * Resource location.
      */
@@ -137,7 +137,7 @@ export interface RouteFilterArgs {
     /**
      * A collection of references to express route circuit peerings.
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ExpressRouteCircuitPeering>[]>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -149,7 +149,7 @@ export interface RouteFilterArgs {
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20190701.RouteFilterRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20190701.RouteFilterRuleArgs>[]>;
     /**
      * Resource tags.
      */

@@ -144,9 +144,9 @@ export interface MediaGraphArgs {
     /**
      * Media Graph sinks.
      */
-    readonly sinks: pulumi.Input<pulumi.Input<inputs.media.v20200201preview.MediaGraphAssetSink>[]>;
+    readonly sinks: pulumi.Input<pulumi.Input<inputs.media.v20200201preview.MediaGraphAssetSinkArgs>[]>;
     /**
      * Media Graph sources.
      */
-    readonly sources: pulumi.Input<pulumi.Input<inputs.media.v20200201preview.MediaGraphRtspSource>[]>;
+    readonly sources: pulumi.Input<pulumi.Input<inputs.media.v20200201preview.MediaGraphRtspSourceArgs>[]>;
 }

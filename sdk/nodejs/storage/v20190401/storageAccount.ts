@@ -266,11 +266,11 @@ export interface StorageAccountArgs {
     /**
      * Provides the identity based authentication settings for Azure Files.
      */
-    readonly azureFilesIdentityBasedAuthentication?: pulumi.Input<inputs.storage.v20190401.AzureFilesIdentityBasedAuthentication>;
+    readonly azureFilesIdentityBasedAuthentication?: pulumi.Input<inputs.storage.v20190401.AzureFilesIdentityBasedAuthenticationArgs>;
     /**
      * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.v20190401.CustomDomain>;
+    readonly customDomain?: pulumi.Input<inputs.storage.v20190401.CustomDomainArgs>;
     /**
      * Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
      */
@@ -278,11 +278,11 @@ export interface StorageAccountArgs {
     /**
      * Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
      */
-    readonly encryption?: pulumi.Input<inputs.storage.v20190401.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.storage.v20190401.EncryptionArgs>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.storage.v20190401.Identity>;
+    readonly identity?: pulumi.Input<inputs.storage.v20190401.IdentityArgs>;
     /**
      * Account HierarchicalNamespace enabled if sets to true.
      */
@@ -306,7 +306,7 @@ export interface StorageAccountArgs {
     /**
      * Network rule set
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20190401.NetworkRuleSet>;
+    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20190401.NetworkRuleSetArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -314,7 +314,7 @@ export interface StorageAccountArgs {
     /**
      * Required. Gets or sets the SKU name.
      */
-    readonly sku: pulumi.Input<inputs.storage.v20190401.Sku>;
+    readonly sku: pulumi.Input<inputs.storage.v20190401.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */

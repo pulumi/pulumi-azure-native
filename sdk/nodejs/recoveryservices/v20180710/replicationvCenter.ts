@@ -106,7 +106,7 @@ export interface ReplicationvCenterArgs {
     /**
      * The properties of an add vCenter request.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.AddVCenterRequestProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.AddVCenterRequestPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

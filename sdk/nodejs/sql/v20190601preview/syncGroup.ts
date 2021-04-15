@@ -169,7 +169,7 @@ export interface SyncGroupArgs {
     /**
      * Sync schema of the sync group.
      */
-    readonly schema?: pulumi.Input<inputs.sql.v20190601preview.SyncGroupSchema>;
+    readonly schema?: pulumi.Input<inputs.sql.v20190601preview.SyncGroupSchemaArgs>;
     /**
      * The name of the server.
      */

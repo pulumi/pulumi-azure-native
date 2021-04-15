@@ -118,7 +118,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.documentdb.v20210301preview.PrivateEndpointProperty>;
+    readonly privateEndpoint?: pulumi.Input<inputs.documentdb.v20210301preview.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
@@ -126,7 +126,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.documentdb.v20210301preview.PrivateLinkServiceConnectionStateProperty>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.documentdb.v20210301preview.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * Provisioning state of the private endpoint.
      */

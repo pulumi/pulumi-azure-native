@@ -118,7 +118,7 @@ export interface MediaServiceArgs {
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20180330preview.StorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20180330preview.StorageAccountArgs>[]>;
     /**
      * Resource tags.
      */

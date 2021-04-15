@@ -149,7 +149,7 @@ export interface DiskArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20160430preview.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20160430preview.CreationDataArgs>;
     /**
      * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
@@ -161,7 +161,7 @@ export interface DiskArgs {
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20160430preview.EncryptionSettings>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20160430preview.EncryptionSettingsArgs>;
     /**
      * Resource location
      */

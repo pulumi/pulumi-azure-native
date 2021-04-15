@@ -230,11 +230,11 @@ export interface ClusterArgs {
     /**
      * The identity of the cluster, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.kusto.Identity>;
+    readonly identity?: pulumi.Input<inputs.kusto.IdentityArgs>;
     /**
      * KeyVault properties for the cluster encryption.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultProperties>;
+    readonly keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -242,7 +242,7 @@ export interface ClusterArgs {
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscale>;
+    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -250,7 +250,7 @@ export interface ClusterArgs {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.AzureSku>;
+    readonly sku: pulumi.Input<inputs.kusto.AzureSkuArgs>;
     /**
      * Resource tags.
      */
@@ -258,11 +258,11 @@ export interface ClusterArgs {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenant>[]>;
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenantArgs>[]>;
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.VirtualNetworkConfiguration>;
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.VirtualNetworkConfigurationArgs>;
     /**
      * The availability zones of the cluster.
      */

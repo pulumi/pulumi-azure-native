@@ -128,7 +128,7 @@ export interface TransformArgs {
     /**
      * An array of one or more TransformOutputs that the Transform should generate.
      */
-    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.TransformOutput>[]>;
+    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.TransformOutputArgs>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */

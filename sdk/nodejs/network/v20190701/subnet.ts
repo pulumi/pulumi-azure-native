@@ -197,7 +197,7 @@ export interface SubnetArgs {
     /**
      * An array of references to the delegations on the subnet.
      */
-    readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.v20190701.Delegation>[]>;
+    readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.v20190701.DelegationArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -213,11 +213,11 @@ export interface SubnetArgs {
     /**
      * Nat gateway associated with this subnet.
      */
-    readonly natGateway?: pulumi.Input<inputs.network.v20190701.SubResource>;
+    readonly natGateway?: pulumi.Input<inputs.network.v20190701.SubResourceArgs>;
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20190701.NetworkSecurityGroup>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20190701.NetworkSecurityGroupArgs>;
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
@@ -233,23 +233,23 @@ export interface SubnetArgs {
     /**
      * An array of references to the external resources using subnet.
      */
-    readonly resourceNavigationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ResourceNavigationLink>[]>;
+    readonly resourceNavigationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ResourceNavigationLinkArgs>[]>;
     /**
      * The reference of the RouteTable resource.
      */
-    readonly routeTable?: pulumi.Input<inputs.network.v20190701.RouteTable>;
+    readonly routeTable?: pulumi.Input<inputs.network.v20190701.RouteTableArgs>;
     /**
      * An array of references to services injecting into this subnet.
      */
-    readonly serviceAssociationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ServiceAssociationLink>[]>;
+    readonly serviceAssociationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ServiceAssociationLinkArgs>[]>;
     /**
      * An array of service endpoint policies.
      */
-    readonly serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ServiceEndpointPolicy>[]>;
+    readonly serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ServiceEndpointPolicyArgs>[]>;
     /**
      * An array of service endpoints.
      */
-    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ServiceEndpointPropertiesFormat>[]>;
+    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ServiceEndpointPropertiesFormatArgs>[]>;
     /**
      * The name of the subnet.
      */

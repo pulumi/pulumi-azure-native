@@ -115,7 +115,7 @@ export interface DiskAccessAPrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.compute.v20200930.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.compute.v20200930.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group.
      */

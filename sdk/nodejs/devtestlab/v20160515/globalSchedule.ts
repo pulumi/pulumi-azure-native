@@ -159,11 +159,11 @@ export interface GlobalScheduleArgs {
     /**
      * If the schedule will occur once each day of the week, specify the daily recurrence.
      */
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.DayDetails>;
+    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.DayDetailsArgs>;
     /**
      * If the schedule will occur multiple times a day, specify the hourly recurrence.
      */
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.HourDetails>;
+    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.HourDetailsArgs>;
     /**
      * The location of the resource.
      */
@@ -175,7 +175,7 @@ export interface GlobalScheduleArgs {
     /**
      * Notification settings.
      */
-    readonly notificationSettings?: pulumi.Input<inputs.devtestlab.v20160515.NotificationSettings>;
+    readonly notificationSettings?: pulumi.Input<inputs.devtestlab.v20160515.NotificationSettingsArgs>;
     /**
      * The provisioning status of the resource.
      */
@@ -211,5 +211,5 @@ export interface GlobalScheduleArgs {
     /**
      * If the schedule will occur only some days of the week, specify the weekly recurrence.
      */
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.WeekDetails>;
+    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.WeekDetailsArgs>;
 }

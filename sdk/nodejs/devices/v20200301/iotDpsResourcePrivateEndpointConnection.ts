@@ -99,7 +99,7 @@ export interface IotDpsResourcePrivateEndpointConnectionArgs {
     /**
      * The properties of a private endpoint connection
      */
-    readonly properties: pulumi.Input<inputs.devices.v20200301.PrivateEndpointConnectionProperties>;
+    readonly properties: pulumi.Input<inputs.devices.v20200301.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group that contains the provisioning service.
      */

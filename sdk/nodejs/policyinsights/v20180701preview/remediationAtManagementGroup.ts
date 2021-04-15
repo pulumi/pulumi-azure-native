@@ -128,11 +128,11 @@ export interface RemediationAtManagementGroupArgs {
     /**
      * The deployment status summary for all deployments created by the remediation.
      */
-    readonly deploymentStatus?: pulumi.Input<inputs.policyinsights.v20180701preview.RemediationDeploymentSummary>;
+    readonly deploymentStatus?: pulumi.Input<inputs.policyinsights.v20180701preview.RemediationDeploymentSummaryArgs>;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    readonly filters?: pulumi.Input<inputs.policyinsights.v20180701preview.RemediationFilters>;
+    readonly filters?: pulumi.Input<inputs.policyinsights.v20180701preview.RemediationFiltersArgs>;
     /**
      * Management group ID.
      */

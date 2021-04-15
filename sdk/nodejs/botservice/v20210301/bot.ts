@@ -130,7 +130,7 @@ export interface BotArgs {
     /**
      * The set of properties specific to bot resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20210301.BotProperties>;
+    readonly properties?: pulumi.Input<inputs.botservice.v20210301.BotPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
@@ -142,7 +142,7 @@ export interface BotArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.v20210301.Sku>;
+    readonly sku?: pulumi.Input<inputs.botservice.v20210301.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

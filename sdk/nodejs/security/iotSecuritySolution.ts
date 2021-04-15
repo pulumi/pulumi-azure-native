@@ -173,7 +173,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of additional workspaces
      */
-    readonly additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.security.AdditionalWorkspacesProperties>[]>;
+    readonly additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.security.AdditionalWorkspacesPropertiesArgs>[]>;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
@@ -197,7 +197,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of the configuration status for each recommendation type.
      */
-    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.RecommendationConfigurationProperties>[]>;
+    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.RecommendationConfigurationPropertiesArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -221,7 +221,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Properties of the IoT Security solution's user defined resources.
      */
-    readonly userDefinedResources?: pulumi.Input<inputs.security.UserDefinedResourcesProperties>;
+    readonly userDefinedResources?: pulumi.Input<inputs.security.UserDefinedResourcesPropertiesArgs>;
     /**
      * Workspace resource ID
      */

@@ -107,7 +107,7 @@ export interface SubAccountTagRuleArgs {
     /**
      * Definition of the properties for a TagRules resource.
      */
-    readonly properties?: pulumi.Input<inputs.logz.MonitoringTagRulesProperties>;
+    readonly properties?: pulumi.Input<inputs.logz.MonitoringTagRulesPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

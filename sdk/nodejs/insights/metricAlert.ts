@@ -191,7 +191,7 @@ export interface MetricAlertArgs {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.MetricAlertAction>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.MetricAlertActionArgs>[]>;
     /**
      * the flag that indicates whether the alert should be auto resolved or not. The default is true.
      */
@@ -199,7 +199,7 @@ export interface MetricAlertArgs {
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: pulumi.Input<inputs.insights.MetricAlertMultipleResourceMultipleMetricCriteria | inputs.insights.MetricAlertSingleResourceMultipleMetricCriteria | inputs.insights.WebtestLocationAvailabilityCriteria>;
+    readonly criteria: pulumi.Input<inputs.insights.MetricAlertMultipleResourceMultipleMetricCriteriaArgs | inputs.insights.MetricAlertSingleResourceMultipleMetricCriteriaArgs | inputs.insights.WebtestLocationAvailabilityCriteriaArgs>;
     /**
      * the description of the metric alert that will be included in the alert email.
      */

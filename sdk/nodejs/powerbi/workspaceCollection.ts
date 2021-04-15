@@ -105,7 +105,7 @@ export interface WorkspaceCollectionArgs {
      * Azure resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.powerbi.AzureSku>;
+    readonly sku?: pulumi.Input<inputs.powerbi.AzureSkuArgs>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Power BI Embedded Workspace Collection name

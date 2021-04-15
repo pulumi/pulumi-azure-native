@@ -171,7 +171,7 @@ export interface UserRuleArgs {
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    readonly destination?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItem>[]>;
+    readonly destination?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[]>;
     /**
      * The destination port ranges.
      */
@@ -203,7 +203,7 @@ export interface UserRuleArgs {
     /**
      * The CIDR or source IP ranges.
      */
-    readonly source?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItem>[]>;
+    readonly source?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[]>;
     /**
      * The source port ranges.
      */

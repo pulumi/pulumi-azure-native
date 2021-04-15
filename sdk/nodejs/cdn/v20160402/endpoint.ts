@@ -199,7 +199,7 @@ export interface EndpointArgs {
     /**
      * The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20160402.DeepCreatedOrigin>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20160402.DeepCreatedOriginArgs>[]>;
     /**
      * Name of the CDN profile within the resource group.
      */

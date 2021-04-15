@@ -118,7 +118,7 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Input properties for creating network mapping.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.CreateNetworkMappingInputProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.CreateNetworkMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

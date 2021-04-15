@@ -107,7 +107,7 @@ export interface PrivateEndpointArgs {
     /**
      * The properties associated with a private endpoint.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.PrivateEndpointProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.PrivateEndpointPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

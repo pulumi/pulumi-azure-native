@@ -117,7 +117,7 @@ export interface PeerAsnArgs {
     /**
      * The contact details of the peer.
      */
-    readonly peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.ContactDetail>[]>;
+    readonly peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.ContactDetailArgs>[]>;
     /**
      * The name of the peer.
      */

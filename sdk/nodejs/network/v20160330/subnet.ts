@@ -129,7 +129,7 @@ export interface SubnetArgs {
     /**
      * Gets array of references to the network interface IP configurations using subnet
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160330.IPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160330.IPConfigurationArgs>[]>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
@@ -137,7 +137,7 @@ export interface SubnetArgs {
     /**
      * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20160330.NetworkSecurityGroup>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20160330.NetworkSecurityGroupArgs>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -149,7 +149,7 @@ export interface SubnetArgs {
     /**
      * Gets or sets the reference of the RouteTable resource
      */
-    readonly routeTable?: pulumi.Input<inputs.network.v20160330.RouteTable>;
+    readonly routeTable?: pulumi.Input<inputs.network.v20160330.RouteTableArgs>;
     /**
      * The name of the subnet.
      */

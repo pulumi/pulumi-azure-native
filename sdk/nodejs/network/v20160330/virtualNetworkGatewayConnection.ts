@@ -217,7 +217,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * A common class for general resource information
      */
-    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20160330.LocalNetworkGateway>;
+    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20160330.LocalNetworkGatewayArgs>;
     /**
      * Resource location
      */
@@ -225,7 +225,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: pulumi.Input<inputs.network.v20160330.SubResource>;
+    readonly peer?: pulumi.Input<inputs.network.v20160330.SubResourceArgs>;
     /**
      * Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
      */
@@ -253,11 +253,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway1?: pulumi.Input<inputs.network.v20160330.VirtualNetworkGateway>;
+    readonly virtualNetworkGateway1?: pulumi.Input<inputs.network.v20160330.VirtualNetworkGatewayArgs>;
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20160330.VirtualNetworkGateway>;
+    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20160330.VirtualNetworkGatewayArgs>;
     /**
      * The name of the virtual network gateway connection.
      */

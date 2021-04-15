@@ -158,7 +158,7 @@ export interface PeeringServiceArgs {
     /**
      * The SKU that defines the type of the peering service.
      */
-    readonly sku?: pulumi.Input<inputs.peering.v20210101.PeeringServiceSku>;
+    readonly sku?: pulumi.Input<inputs.peering.v20210101.PeeringServiceSkuArgs>;
     /**
      * The resource tags.
      */

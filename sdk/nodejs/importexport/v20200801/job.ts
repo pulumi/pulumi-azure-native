@@ -120,7 +120,7 @@ export interface JobArgs {
     /**
      * Specifies the job properties
      */
-    readonly properties?: pulumi.Input<inputs.importexport.v20200801.JobDetails>;
+    readonly properties?: pulumi.Input<inputs.importexport.v20200801.JobDetailsArgs>;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */

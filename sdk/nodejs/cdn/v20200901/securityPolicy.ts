@@ -107,7 +107,7 @@ export interface SecurityPolicyArgs {
     /**
      * object which contains security policy parameters
      */
-    readonly parameters?: pulumi.Input<inputs.cdn.v20200901.SecurityPolicyWebApplicationFirewallParameters>;
+    readonly parameters?: pulumi.Input<inputs.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersArgs>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

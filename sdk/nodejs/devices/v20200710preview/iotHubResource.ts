@@ -125,7 +125,7 @@ export interface IotHubResourceArgs {
     /**
      * The managed identities for the IotHub.
      */
-    readonly identity?: pulumi.Input<inputs.devices.v20200710preview.ArmIdentity>;
+    readonly identity?: pulumi.Input<inputs.devices.v20200710preview.ArmIdentityArgs>;
     /**
      * The resource location.
      */
@@ -133,7 +133,7 @@ export interface IotHubResourceArgs {
     /**
      * IotHub properties
      */
-    readonly properties?: pulumi.Input<inputs.devices.v20200710preview.IotHubProperties>;
+    readonly properties?: pulumi.Input<inputs.devices.v20200710preview.IotHubPropertiesArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
@@ -145,7 +145,7 @@ export interface IotHubResourceArgs {
     /**
      * IotHub SKU info
      */
-    readonly sku: pulumi.Input<inputs.devices.v20200710preview.IotHubSkuInfo>;
+    readonly sku: pulumi.Input<inputs.devices.v20200710preview.IotHubSkuInfoArgs>;
     /**
      * The resource tags.
      */

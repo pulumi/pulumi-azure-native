@@ -154,7 +154,7 @@ export interface NotificationChannelArgs {
     /**
      * The list of event for which this notification is enabled.
      */
-    readonly events?: pulumi.Input<pulumi.Input<inputs.devtestlab.Event>[]>;
+    readonly events?: pulumi.Input<pulumi.Input<inputs.devtestlab.EventArgs>[]>;
     /**
      * The name of the lab.
      */

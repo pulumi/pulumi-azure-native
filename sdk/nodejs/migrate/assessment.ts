@@ -122,7 +122,7 @@ export interface AssessmentArgs {
     /**
      * Properties of the assessment.
      */
-    readonly properties: pulumi.Input<inputs.migrate.AssessmentProperties>;
+    readonly properties: pulumi.Input<inputs.migrate.AssessmentPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

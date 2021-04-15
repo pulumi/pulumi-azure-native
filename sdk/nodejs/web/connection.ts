@@ -114,7 +114,7 @@ export interface ConnectionArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.ApiConnectionDefinitionProperties>;
+    readonly properties?: pulumi.Input<inputs.web.ApiConnectionDefinitionPropertiesArgs>;
     /**
      * The resource group
      */

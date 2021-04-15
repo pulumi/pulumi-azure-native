@@ -114,11 +114,11 @@ export interface ReportConfigArgs {
     /**
      * Has definition for the report config.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigDefinition>;
+    readonly definition: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigDefinitionArgs>;
     /**
      * Has delivery information for the report config.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigDeliveryInfo>;
+    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigDeliveryInfoArgs>;
     /**
      * The format of the report being delivered.
      */
@@ -130,5 +130,5 @@ export interface ReportConfigArgs {
     /**
      * Has schedule information for the report config.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigSchedule>;
+    readonly schedule?: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigScheduleArgs>;
 }

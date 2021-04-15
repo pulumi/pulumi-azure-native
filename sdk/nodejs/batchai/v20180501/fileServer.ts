@@ -143,7 +143,7 @@ export interface FileServerArgs {
     /**
      * Settings for the data disks which will be created for the File Server.
      */
-    readonly dataDisks: pulumi.Input<inputs.batchai.v20180501.DataDisks>;
+    readonly dataDisks: pulumi.Input<inputs.batchai.v20180501.DataDisksArgs>;
     /**
      * The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
@@ -155,11 +155,11 @@ export interface FileServerArgs {
     /**
      * SSH configuration for the File Server node.
      */
-    readonly sshConfiguration: pulumi.Input<inputs.batchai.v20180501.SshConfiguration>;
+    readonly sshConfiguration: pulumi.Input<inputs.batchai.v20180501.SshConfigurationArgs>;
     /**
      * Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.v20180501.ResourceId>;
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180501.ResourceIdArgs>;
     /**
      * The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
      */

@@ -123,11 +123,11 @@ export interface AccountArgs {
     /**
      * Active Directories
      */
-    readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.ActiveDirectory>[]>;
+    readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.ActiveDirectoryArgs>[]>;
     /**
      * Encryption settings
      */
-    readonly encryption?: pulumi.Input<inputs.netapp.AccountEncryption>;
+    readonly encryption?: pulumi.Input<inputs.netapp.AccountEncryptionArgs>;
     /**
      * Resource location
      */

@@ -124,7 +124,7 @@ export interface SqlResourceSqlDatabaseArgs {
     /**
      * The standard JSON format of a SQL database
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlDatabaseResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlDatabaseResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

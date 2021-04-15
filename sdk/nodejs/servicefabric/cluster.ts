@@ -276,27 +276,27 @@ export interface ClusterArgs {
     /**
      * The policy used to clean up unused versions.
      */
-    readonly applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicy>;
+    readonly applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicyArgs>;
     /**
      * The AAD authentication settings of the cluster.
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectory>;
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectoryArgs>;
     /**
      * The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
      */
-    readonly certificate?: pulumi.Input<inputs.servicefabric.CertificateDescription>;
+    readonly certificate?: pulumi.Input<inputs.servicefabric.CertificateDescriptionArgs>;
     /**
      * Describes a list of server certificates referenced by common name that are used to secure the cluster.
      */
-    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNames>;
+    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNamesArgs>;
     /**
      * The list of client certificates referenced by common name that are allowed to manage the cluster.
      */
-    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateCommonName>[]>;
+    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateCommonNameArgs>[]>;
     /**
      * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateThumbprint>[]>;
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateThumbprintArgs>[]>;
     /**
      * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
@@ -308,7 +308,7 @@ export interface ClusterArgs {
     /**
      * The storage account information for storing Service Fabric diagnostic logs.
      */
-    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.DiagnosticsStorageAccountConfig>;
+    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.DiagnosticsStorageAccountConfigArgs>;
     /**
      * Indicates if the event store service is enabled.
      */
@@ -316,7 +316,7 @@ export interface ClusterArgs {
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescription>[]>;
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionArgs>[]>;
     /**
      * Azure resource location.
      */
@@ -328,7 +328,7 @@ export interface ClusterArgs {
     /**
      * The list of node types in the cluster.
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeDescription>[]>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeDescriptionArgs>[]>;
     /**
      * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
      *
@@ -346,11 +346,11 @@ export interface ClusterArgs {
     /**
      * The server certificate used by reverse proxy.
      */
-    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.CertificateDescription>;
+    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.CertificateDescriptionArgs>;
     /**
      * Describes a list of server certificates referenced by common name that are used to secure the cluster.
      */
-    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNames>;
+    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNamesArgs>;
     /**
      * Azure resource tags.
      */
@@ -358,7 +358,7 @@ export interface ClusterArgs {
     /**
      * The policy to use when upgrading the cluster.
      */
-    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
+    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicyArgs>;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
      *

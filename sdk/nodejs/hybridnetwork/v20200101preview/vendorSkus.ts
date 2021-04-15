@@ -136,7 +136,7 @@ export interface VendorSkusArgs {
     /**
      * The template definition of the network function.
      */
-    readonly networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionTemplate>;
+    readonly networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionTemplateArgs>;
     /**
      * Indicates if the vendor sku is in preview mode.
      */

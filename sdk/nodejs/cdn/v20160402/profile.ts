@@ -127,7 +127,7 @@ export interface ProfileArgs {
     /**
      * The SKU (pricing tier) of the CDN profile.
      */
-    readonly sku: pulumi.Input<inputs.cdn.v20160402.Sku>;
+    readonly sku: pulumi.Input<inputs.cdn.v20160402.SkuArgs>;
     /**
      * Profile tags
      */

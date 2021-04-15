@@ -103,7 +103,7 @@ export interface JobTargetGroupArgs {
     /**
      * Members of the target group.
      */
-    readonly members: pulumi.Input<pulumi.Input<inputs.sql.v20201101preview.JobTarget>[]>;
+    readonly members: pulumi.Input<pulumi.Input<inputs.sql.v20201101preview.JobTargetArgs>[]>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -193,7 +193,7 @@ export interface VpnConnectionArgs {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20180801.IpsecPolicy>[]>;
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20180801.IpsecPolicyArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -201,7 +201,7 @@ export interface VpnConnectionArgs {
     /**
      * Id of the connected vpn site.
      */
-    readonly remoteVpnSite?: pulumi.Input<inputs.network.v20180801.SubResource>;
+    readonly remoteVpnSite?: pulumi.Input<inputs.network.v20180801.SubResourceArgs>;
     /**
      * The resource group name of the VpnGateway.
      */

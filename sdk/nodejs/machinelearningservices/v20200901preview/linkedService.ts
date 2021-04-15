@@ -104,7 +104,7 @@ export interface LinkedServiceArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20200901preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20200901preview.IdentityArgs>;
     /**
      * Friendly name of the linked workspace
      */
@@ -120,7 +120,7 @@ export interface LinkedServiceArgs {
     /**
      * LinkedService specific properties.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200901preview.LinkedServiceProps>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200901preview.LinkedServicePropsArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

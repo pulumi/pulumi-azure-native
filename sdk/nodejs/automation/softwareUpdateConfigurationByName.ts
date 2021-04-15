@@ -151,7 +151,7 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * Details of provisioning error
      */
-    readonly error?: pulumi.Input<inputs.automation.ErrorResponse>;
+    readonly error?: pulumi.Input<inputs.automation.ErrorResponseArgs>;
     /**
      * Name of an Azure Resource group.
      */
@@ -159,7 +159,7 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * Schedule information for the Software update configuration
      */
-    readonly scheduleInfo: pulumi.Input<inputs.automation.SUCScheduleProperties>;
+    readonly scheduleInfo: pulumi.Input<inputs.automation.SUCSchedulePropertiesArgs>;
     /**
      * The name of the software update configuration to be created.
      */
@@ -167,9 +167,9 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * Tasks information for the Software update configuration.
      */
-    readonly tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasks>;
+    readonly tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs>;
     /**
      * update specific properties for the Software update configuration
      */
-    readonly updateConfiguration: pulumi.Input<inputs.automation.UpdateConfiguration>;
+    readonly updateConfiguration: pulumi.Input<inputs.automation.UpdateConfigurationArgs>;
 }

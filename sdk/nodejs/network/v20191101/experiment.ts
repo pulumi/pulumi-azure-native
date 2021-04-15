@@ -148,11 +148,11 @@ export interface ExperimentArgs {
     /**
      * The endpoint A of an experiment
      */
-    readonly endpointA?: pulumi.Input<inputs.network.v20191101.ExperimentEndpoint>;
+    readonly endpointA?: pulumi.Input<inputs.network.v20191101.ExperimentEndpointArgs>;
     /**
      * The endpoint B of an experiment
      */
-    readonly endpointB?: pulumi.Input<inputs.network.v20191101.ExperimentEndpoint>;
+    readonly endpointB?: pulumi.Input<inputs.network.v20191101.ExperimentEndpointArgs>;
     /**
      * The Experiment identifier associated with the Experiment
      */

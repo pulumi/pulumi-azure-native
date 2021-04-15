@@ -131,7 +131,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.appconfiguration.v20191001.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.appconfiguration.v20191001.ResourceIdentityArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -143,7 +143,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The sku of the configuration store.
      */
-    readonly sku: pulumi.Input<inputs.appconfiguration.v20191001.Sku>;
+    readonly sku: pulumi.Input<inputs.appconfiguration.v20191001.SkuArgs>;
     /**
      * The tags of the resource.
      */

@@ -172,7 +172,7 @@ export interface ConnectedRegistryArgs {
     /**
      * The logging properties of the connected registry.
      */
-    readonly logging?: pulumi.Input<inputs.containerregistry.v20201101preview.LoggingProperties>;
+    readonly logging?: pulumi.Input<inputs.containerregistry.v20201101preview.LoggingPropertiesArgs>;
     /**
      * The mode of the connected registry resource that indicates the permissions of the registry.
      */
@@ -180,7 +180,7 @@ export interface ConnectedRegistryArgs {
     /**
      * The parent of the connected registry.
      */
-    readonly parent: pulumi.Input<inputs.containerregistry.v20201101preview.ParentProperties>;
+    readonly parent: pulumi.Input<inputs.containerregistry.v20201101preview.ParentPropertiesArgs>;
     /**
      * The name of the container registry.
      */

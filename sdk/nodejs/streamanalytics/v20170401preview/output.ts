@@ -116,7 +116,7 @@ export interface OutputArgs {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: pulumi.Input<inputs.streamanalytics.v20170401preview.AzureDataLakeStoreOutputDataSource | inputs.streamanalytics.v20170401preview.AzureFunctionOutputDataSource | inputs.streamanalytics.v20170401preview.AzureSqlDatabaseOutputDataSource | inputs.streamanalytics.v20170401preview.AzureSynapseOutputDataSource | inputs.streamanalytics.v20170401preview.AzureTableOutputDataSource | inputs.streamanalytics.v20170401preview.BlobOutputDataSource | inputs.streamanalytics.v20170401preview.DocumentDbOutputDataSource | inputs.streamanalytics.v20170401preview.EventHubOutputDataSource | inputs.streamanalytics.v20170401preview.EventHubV2OutputDataSource | inputs.streamanalytics.v20170401preview.PowerBIOutputDataSource | inputs.streamanalytics.v20170401preview.ServiceBusQueueOutputDataSource | inputs.streamanalytics.v20170401preview.ServiceBusTopicOutputDataSource>;
+    readonly datasource?: pulumi.Input<inputs.streamanalytics.v20170401preview.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.AzureFunctionOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.AzureSynapseOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.AzureTableOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.BlobOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.EventHubOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.EventHubV2OutputDataSourceArgs | inputs.streamanalytics.v20170401preview.PowerBIOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.v20170401preview.ServiceBusTopicOutputDataSourceArgs>;
     /**
      * The name of the streaming job.
      */
@@ -136,7 +136,7 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: pulumi.Input<inputs.streamanalytics.v20170401preview.AvroSerialization | inputs.streamanalytics.v20170401preview.CsvSerialization | inputs.streamanalytics.v20170401preview.CustomClrSerialization | inputs.streamanalytics.v20170401preview.JsonSerialization | inputs.streamanalytics.v20170401preview.ParquetSerialization>;
+    readonly serialization?: pulumi.Input<inputs.streamanalytics.v20170401preview.AvroSerializationArgs | inputs.streamanalytics.v20170401preview.CsvSerializationArgs | inputs.streamanalytics.v20170401preview.CustomClrSerializationArgs | inputs.streamanalytics.v20170401preview.JsonSerializationArgs | inputs.streamanalytics.v20170401preview.ParquetSerializationArgs>;
     readonly sizeWindow?: pulumi.Input<number>;
     readonly timeWindow?: pulumi.Input<string>;
 }

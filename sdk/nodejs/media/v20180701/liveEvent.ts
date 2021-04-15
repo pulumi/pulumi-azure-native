@@ -176,7 +176,7 @@ export interface LiveEventArgs {
     /**
      * The Live Event access policies.
      */
-    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180701.CrossSiteAccessPolicies>;
+    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180701.CrossSiteAccessPoliciesArgs>;
     /**
      * The Live Event description.
      */
@@ -184,11 +184,11 @@ export interface LiveEventArgs {
     /**
      * The Live Event encoding.
      */
-    readonly encoding?: pulumi.Input<inputs.media.v20180701.LiveEventEncoding>;
+    readonly encoding?: pulumi.Input<inputs.media.v20180701.LiveEventEncodingArgs>;
     /**
      * The Live Event input.
      */
-    readonly input: pulumi.Input<inputs.media.v20180701.LiveEventInput>;
+    readonly input: pulumi.Input<inputs.media.v20180701.LiveEventInputArgs>;
     /**
      * The name of the Live Event.
      */
@@ -200,7 +200,7 @@ export interface LiveEventArgs {
     /**
      * The Live Event preview.
      */
-    readonly preview?: pulumi.Input<inputs.media.v20180701.LiveEventPreview>;
+    readonly preview?: pulumi.Input<inputs.media.v20180701.LiveEventPreviewArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */

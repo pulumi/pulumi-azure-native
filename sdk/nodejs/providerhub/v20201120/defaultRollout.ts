@@ -88,7 +88,7 @@ export interface DefaultRolloutArgs {
     /**
      * Properties of the rollout.
      */
-    readonly properties?: pulumi.Input<inputs.providerhub.v20201120.DefaultRolloutProperties>;
+    readonly properties?: pulumi.Input<inputs.providerhub.v20201120.DefaultRolloutPropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

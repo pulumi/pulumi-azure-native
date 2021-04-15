@@ -163,7 +163,7 @@ export interface ServiceArgs {
     /**
      * Service SKU
      */
-    readonly sku?: pulumi.Input<inputs.datamigration.v20180715preview.ServiceSku>;
+    readonly sku?: pulumi.Input<inputs.datamigration.v20180715preview.ServiceSkuArgs>;
     /**
      * Resource tags.
      */

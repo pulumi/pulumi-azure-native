@@ -205,7 +205,7 @@ export interface RunbookArgs {
     /**
      * Gets or sets the draft runbook properties.
      */
-    readonly draft?: pulumi.Input<inputs.automation.v20151031.RunbookDraft>;
+    readonly draft?: pulumi.Input<inputs.automation.v20151031.RunbookDraftArgs>;
     /**
      * Gets or sets the location of the resource.
      */
@@ -229,7 +229,7 @@ export interface RunbookArgs {
     /**
      * Gets or sets the published runbook content link.
      */
-    readonly publishContentLink?: pulumi.Input<inputs.automation.v20151031.ContentLink>;
+    readonly publishContentLink?: pulumi.Input<inputs.automation.v20151031.ContentLinkArgs>;
     /**
      * Name of an Azure Resource group.
      */

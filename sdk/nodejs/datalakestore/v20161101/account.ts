@@ -216,7 +216,7 @@ export interface AccountArgs {
     /**
      * The Key Vault encryption configuration.
      */
-    readonly encryptionConfig?: pulumi.Input<inputs.datalakestore.v20161101.EncryptionConfig>;
+    readonly encryptionConfig?: pulumi.Input<inputs.datalakestore.v20161101.EncryptionConfigArgs>;
     /**
      * The current state of encryption for this Data Lake Store account.
      */
@@ -228,7 +228,7 @@ export interface AccountArgs {
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateFirewallRuleWithAccountParameters>[]>;
+    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateFirewallRuleWithAccountParametersArgs>[]>;
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
@@ -236,7 +236,7 @@ export interface AccountArgs {
     /**
      * The Key Vault encryption identity, if any.
      */
-    readonly identity?: pulumi.Input<inputs.datalakestore.v20161101.EncryptionIdentity>;
+    readonly identity?: pulumi.Input<inputs.datalakestore.v20161101.EncryptionIdentityArgs>;
     /**
      * The resource location.
      */
@@ -260,9 +260,9 @@ export interface AccountArgs {
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */
-    readonly trustedIdProviders?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateTrustedIdProviderWithAccountParameters>[]>;
+    readonly trustedIdProviders?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateTrustedIdProviderWithAccountParametersArgs>[]>;
     /**
      * The list of virtual network rules associated with this Data Lake Store account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateVirtualNetworkRuleWithAccountParameters>[]>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateVirtualNetworkRuleWithAccountParametersArgs>[]>;
 }

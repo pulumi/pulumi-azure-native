@@ -104,7 +104,7 @@ export interface InputArgs {
     /**
      * The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20170401preview.ReferenceInputProperties | inputs.streamanalytics.v20170401preview.StreamInputProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.v20170401preview.ReferenceInputPropertiesArgs | inputs.streamanalytics.v20170401preview.StreamInputPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

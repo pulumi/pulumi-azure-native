@@ -102,7 +102,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210128preview.PrivateEndpointConnectionProperties>;
+    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210128preview.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

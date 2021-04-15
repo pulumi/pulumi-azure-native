@@ -149,11 +149,11 @@ export interface ConfigurationStoreArgs {
     /**
      * The encryption settings of the configuration store.
      */
-    readonly encryption?: pulumi.Input<inputs.appconfiguration.v20200601.EncryptionProperties>;
+    readonly encryption?: pulumi.Input<inputs.appconfiguration.v20200601.EncryptionPropertiesArgs>;
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.appconfiguration.v20200601.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.appconfiguration.v20200601.ResourceIdentityArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -169,7 +169,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The sku of the configuration store.
      */
-    readonly sku: pulumi.Input<inputs.appconfiguration.v20200601.Sku>;
+    readonly sku: pulumi.Input<inputs.appconfiguration.v20200601.SkuArgs>;
     /**
      * The tags of the resource.
      */

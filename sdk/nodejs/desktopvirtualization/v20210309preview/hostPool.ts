@@ -273,7 +273,7 @@ export interface HostPoolArgs {
      * HostPool type for desktop.
      */
     readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.HostPoolType>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetIdentity>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -297,12 +297,12 @@ export interface HostPoolArgs {
     /**
      * The registration info of HostPool.
      */
-    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.MigrationRequestProperties>;
+    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.MigrationRequestPropertiesArgs>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
     readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.PersonalDesktopAssignmentType>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetPlan>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -310,7 +310,7 @@ export interface HostPoolArgs {
     /**
      * The registration info of HostPool.
      */
-    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.RegistrationInfo>;
+    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.RegistrationInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -319,7 +319,7 @@ export interface HostPoolArgs {
      * The ring number of HostPool.
      */
     readonly ring?: pulumi.Input<number>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetSku>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */

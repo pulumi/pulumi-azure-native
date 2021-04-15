@@ -186,7 +186,7 @@ export interface WebTestArgs {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly configuration?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesConfiguration>;
+    readonly configuration?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesConfigurationArgs>;
     /**
      * User defined description for this WebTest.
      */
@@ -210,11 +210,11 @@ export interface WebTestArgs {
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.insights.v20201005preview.WebTestGeolocation>[]>;
+    readonly locations: pulumi.Input<pulumi.Input<inputs.insights.v20201005preview.WebTestGeolocationArgs>[]>;
     /**
      * The collection of request properties
      */
-    readonly request?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesRequest>;
+    readonly request?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesRequestArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -238,7 +238,7 @@ export interface WebTestArgs {
     /**
      * The collection of validation rule properties
      */
-    readonly validationRules?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesValidationRules>;
+    readonly validationRules?: pulumi.Input<inputs.insights.v20201005preview.WebTestPropertiesValidationRulesArgs>;
     /**
      * The kind of web test this is, valid choices are ping, multistep, basic, and standard.
      */

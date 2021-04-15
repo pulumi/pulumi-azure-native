@@ -120,7 +120,7 @@ export interface RoleDefinitionArgs {
     /**
      * Role definition permissions.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.v20150701.Permission>[]>;
+    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.v20150701.PermissionArgs>[]>;
     /**
      * The ID of the role definition.
      */

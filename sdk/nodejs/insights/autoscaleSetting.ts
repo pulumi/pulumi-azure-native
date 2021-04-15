@@ -138,11 +138,11 @@ export interface AutoscaleSettingArgs {
     /**
      * the collection of notifications.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleNotification>[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleNotificationArgs>[]>;
     /**
      * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
      */
-    readonly profiles: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleProfile>[]>;
+    readonly profiles: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleProfileArgs>[]>;
     /**
      * The name of the resource group.
      */

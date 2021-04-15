@@ -174,11 +174,11 @@ export interface CustomImageArgs {
     /**
      * Storage information about the plan related to this custom image
      */
-    readonly customImagePlan?: pulumi.Input<inputs.devtestlab.CustomImagePropertiesFromPlan>;
+    readonly customImagePlan?: pulumi.Input<inputs.devtestlab.CustomImagePropertiesFromPlanArgs>;
     /**
      * Storage information about the data disks present in the custom image
      */
-    readonly dataDiskStorageInfo?: pulumi.Input<pulumi.Input<inputs.devtestlab.DataDiskStorageTypeInfo>[]>;
+    readonly dataDiskStorageInfo?: pulumi.Input<pulumi.Input<inputs.devtestlab.DataDiskStorageTypeInfoArgs>[]>;
     /**
      * The description of the custom image.
      */
@@ -218,9 +218,9 @@ export interface CustomImageArgs {
     /**
      * The VHD from which the image is to be created.
      */
-    readonly vhd?: pulumi.Input<inputs.devtestlab.CustomImagePropertiesCustom>;
+    readonly vhd?: pulumi.Input<inputs.devtestlab.CustomImagePropertiesCustomArgs>;
     /**
      * The virtual machine from which the image is to be created.
      */
-    readonly vm?: pulumi.Input<inputs.devtestlab.CustomImagePropertiesFromVm>;
+    readonly vm?: pulumi.Input<inputs.devtestlab.CustomImagePropertiesFromVmArgs>;
 }

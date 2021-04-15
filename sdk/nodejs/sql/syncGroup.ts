@@ -196,7 +196,7 @@ export interface SyncGroupArgs {
     /**
      * Sync schema of the sync group.
      */
-    readonly schema?: pulumi.Input<inputs.sql.SyncGroupSchema>;
+    readonly schema?: pulumi.Input<inputs.sql.SyncGroupSchemaArgs>;
     /**
      * The name of the server.
      */
@@ -204,7 +204,7 @@ export interface SyncGroupArgs {
     /**
      * The name and capacity of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
      * ARM resource id of the sync database in the sync group.
      */

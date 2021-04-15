@@ -143,7 +143,7 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * An array of backend addresses.
      */
-    readonly loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20201101.LoadBalancerBackendAddress>[]>;
+    readonly loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20201101.LoadBalancerBackendAddressArgs>[]>;
     /**
      * The name of the load balancer.
      */

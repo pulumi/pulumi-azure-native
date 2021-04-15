@@ -197,35 +197,35 @@ export interface ContainerGroupArgs {
     /**
      * The containers within the container group.
      */
-    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.Container>[]>;
+    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.ContainerArgs>[]>;
     /**
      * The diagnostic information for a container group.
      */
-    readonly diagnostics?: pulumi.Input<inputs.containerinstance.v20191201.ContainerGroupDiagnostics>;
+    readonly diagnostics?: pulumi.Input<inputs.containerinstance.v20191201.ContainerGroupDiagnosticsArgs>;
     /**
      * The DNS config information for a container group.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.containerinstance.v20191201.DnsConfiguration>;
+    readonly dnsConfig?: pulumi.Input<inputs.containerinstance.v20191201.DnsConfigurationArgs>;
     /**
      * The encryption properties for a container group.
      */
-    readonly encryptionProperties?: pulumi.Input<inputs.containerinstance.v20191201.EncryptionProperties>;
+    readonly encryptionProperties?: pulumi.Input<inputs.containerinstance.v20191201.EncryptionPropertiesArgs>;
     /**
      * The identity of the container group, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.containerinstance.v20191201.ContainerGroupIdentity>;
+    readonly identity?: pulumi.Input<inputs.containerinstance.v20191201.ContainerGroupIdentityArgs>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.ImageRegistryCredential>[]>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.ImageRegistryCredentialArgs>[]>;
     /**
      * The init containers for a container group.
      */
-    readonly initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.InitContainerDefinition>[]>;
+    readonly initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.InitContainerDefinitionArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20191201.IpAddress>;
+    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20191201.IpAddressArgs>;
     /**
      * The resource location.
      */
@@ -233,7 +233,7 @@ export interface ContainerGroupArgs {
     /**
      * The network profile information for a container group.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerinstance.v20191201.ContainerGroupNetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.containerinstance.v20191201.ContainerGroupNetworkProfileArgs>;
     /**
      * The operating system type required by the containers in the container group.
      */
@@ -260,5 +260,5 @@ export interface ContainerGroupArgs {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.Volume>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20191201.VolumeArgs>[]>;
 }

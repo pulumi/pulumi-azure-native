@@ -130,11 +130,11 @@ export interface VirtualNetworkArgs {
     /**
      * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
      */
-    readonly addressSpace?: pulumi.Input<inputs.network.v20150501preview.AddressSpace>;
+    readonly addressSpace?: pulumi.Input<inputs.network.v20150501preview.AddressSpaceArgs>;
     /**
      * Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
      */
-    readonly dhcpOptions?: pulumi.Input<inputs.network.v20150501preview.DhcpOptions>;
+    readonly dhcpOptions?: pulumi.Input<inputs.network.v20150501preview.DhcpOptionsArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -158,7 +158,7 @@ export interface VirtualNetworkArgs {
     /**
      * Gets or sets List of subnets in a VirtualNetwork
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.Subnet>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.SubnetArgs>[]>;
     /**
      * Resource tags
      */

@@ -169,15 +169,15 @@ export interface RecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.ARecord>[]>;
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.ARecordArgs>[]>;
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.AaaaRecord>[]>;
+    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.AaaaRecordArgs>[]>;
     /**
      * The CNAME record in the  record set.
      */
-    readonly cnameRecord?: pulumi.Input<inputs.network.v20160401.CnameRecord>;
+    readonly cnameRecord?: pulumi.Input<inputs.network.v20160401.CnameRecordArgs>;
     /**
      * The etag of the record set.
      */
@@ -193,7 +193,7 @@ export interface RecordSetArgs {
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.MxRecord>[]>;
+    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.MxRecordArgs>[]>;
     /**
      * The name of the record set.
      */
@@ -201,11 +201,11 @@ export interface RecordSetArgs {
     /**
      * The list of NS records in the record set.
      */
-    readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.NsRecord>[]>;
+    readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.NsRecordArgs>[]>;
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.PtrRecord>[]>;
+    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.PtrRecordArgs>[]>;
     /**
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
      */
@@ -221,11 +221,11 @@ export interface RecordSetArgs {
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: pulumi.Input<inputs.network.v20160401.SoaRecord>;
+    readonly soaRecord?: pulumi.Input<inputs.network.v20160401.SoaRecordArgs>;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.SrvRecord>[]>;
+    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.SrvRecordArgs>[]>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -233,7 +233,7 @@ export interface RecordSetArgs {
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.TxtRecord>[]>;
+    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.TxtRecordArgs>[]>;
     /**
      * The type of the record set.
      */

@@ -131,7 +131,7 @@ export interface ManagedNetworkArgs {
     /**
      * The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
      */
-    readonly scope?: pulumi.Input<inputs.managednetwork.Scope>;
+    readonly scope?: pulumi.Input<inputs.managednetwork.ScopeArgs>;
     /**
      * Resource tags
      */

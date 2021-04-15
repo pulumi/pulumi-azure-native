@@ -204,7 +204,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformysql.v20171201preview.ServerPropertiesForDefaultCreate | inputs.dbformysql.v20171201preview.ServerPropertiesForGeoRestore | inputs.dbformysql.v20171201preview.ServerPropertiesForReplica | inputs.dbformysql.v20171201preview.ServerPropertiesForRestore>;
+    readonly properties: pulumi.Input<inputs.dbformysql.v20171201preview.ServerPropertiesForDefaultCreateArgs | inputs.dbformysql.v20171201preview.ServerPropertiesForGeoRestoreArgs | inputs.dbformysql.v20171201preview.ServerPropertiesForReplicaArgs | inputs.dbformysql.v20171201preview.ServerPropertiesForRestoreArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -216,7 +216,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbformysql.v20171201preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbformysql.v20171201preview.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */

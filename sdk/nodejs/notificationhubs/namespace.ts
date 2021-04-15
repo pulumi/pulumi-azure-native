@@ -231,7 +231,7 @@ export interface NamespaceArgs {
     /**
      * The sku of the created namespace
      */
-    readonly sku?: pulumi.Input<inputs.notificationhubs.Sku>;
+    readonly sku?: pulumi.Input<inputs.notificationhubs.SkuArgs>;
     /**
      * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
      */

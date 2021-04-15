@@ -191,7 +191,7 @@ export interface NodeTypeArgs {
     /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
-    readonly applicationPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescription>;
+    readonly applicationPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescriptionArgs>;
     /**
      * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      */
@@ -207,7 +207,7 @@ export interface NodeTypeArgs {
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
-    readonly ephemeralPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescription>;
+    readonly ephemeralPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescriptionArgs>;
     /**
      * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
      */
@@ -231,7 +231,7 @@ export interface NodeTypeArgs {
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
-    readonly vmExtensions?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VMSSExtension>[]>;
+    readonly vmExtensions?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VMSSExtensionArgs>[]>;
     /**
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
@@ -255,7 +255,7 @@ export interface NodeTypeArgs {
     /**
      * The secrets to install in the virtual machines.
      */
-    readonly vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VaultSecretGroup>[]>;
+    readonly vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VaultSecretGroupArgs>[]>;
     /**
      * The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
      */

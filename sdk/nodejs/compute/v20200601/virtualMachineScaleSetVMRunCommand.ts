@@ -188,11 +188,11 @@ export interface VirtualMachineScaleSetVMRunCommandArgs {
     /**
      * The parameters used by the script.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameterArgs>[]>;
     /**
      * The parameters used by the script.
      */
-    readonly protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameter>[]>;
+    readonly protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameterArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -212,7 +212,7 @@ export interface VirtualMachineScaleSetVMRunCommandArgs {
     /**
      * The source of the run command script.
      */
-    readonly source?: pulumi.Input<inputs.compute.v20200601.VirtualMachineRunCommandScriptSource>;
+    readonly source?: pulumi.Input<inputs.compute.v20200601.VirtualMachineRunCommandScriptSourceArgs>;
     /**
      * Resource tags
      */

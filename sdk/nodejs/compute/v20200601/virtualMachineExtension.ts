@@ -164,7 +164,7 @@ export interface VirtualMachineExtensionArgs {
     /**
      * The virtual machine extension instance view.
      */
-    readonly instanceView?: pulumi.Input<inputs.compute.v20200601.VirtualMachineExtensionInstanceView>;
+    readonly instanceView?: pulumi.Input<inputs.compute.v20200601.VirtualMachineExtensionInstanceViewArgs>;
     /**
      * Resource location
      */

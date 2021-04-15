@@ -111,11 +111,11 @@ export interface SolutionArgs {
     /**
      * Plan for solution object supported by the OperationsManagement resource provider.
      */
-    readonly plan?: pulumi.Input<inputs.operationsmanagement.SolutionPlan>;
+    readonly plan?: pulumi.Input<inputs.operationsmanagement.SolutionPlanArgs>;
     /**
      * Properties for solution object supported by the OperationsManagement resource provider.
      */
-    readonly properties?: pulumi.Input<inputs.operationsmanagement.SolutionProperties>;
+    readonly properties?: pulumi.Input<inputs.operationsmanagement.SolutionPropertiesArgs>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */

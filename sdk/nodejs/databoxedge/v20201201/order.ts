@@ -136,7 +136,7 @@ export interface OrderArgs {
     /**
      * The contact details.
      */
-    readonly contactInformation: pulumi.Input<inputs.databoxedge.v20201201.ContactDetails>;
+    readonly contactInformation: pulumi.Input<inputs.databoxedge.v20201201.ContactDetailsArgs>;
     /**
      * The order details of a device.
      */
@@ -152,5 +152,5 @@ export interface OrderArgs {
     /**
      * The shipping address.
      */
-    readonly shippingAddress?: pulumi.Input<inputs.databoxedge.v20201201.Address>;
+    readonly shippingAddress?: pulumi.Input<inputs.databoxedge.v20201201.AddressArgs>;
 }

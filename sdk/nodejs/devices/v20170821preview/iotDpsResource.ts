@@ -120,7 +120,7 @@ export interface IotDpsResourceArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.devices.v20170821preview.IotDpsPropertiesDescription>;
+    readonly properties: pulumi.Input<inputs.devices.v20170821preview.IotDpsPropertiesDescriptionArgs>;
     /**
      * Name of provisioning service to create or update.
      */
@@ -132,7 +132,7 @@ export interface IotDpsResourceArgs {
     /**
      * List of possible provisioning service SKUs.
      */
-    readonly sku: pulumi.Input<inputs.devices.v20170821preview.IotDpsSkuInfo>;
+    readonly sku: pulumi.Input<inputs.devices.v20170821preview.IotDpsSkuInfoArgs>;
     /**
      * The resource tags.
      */

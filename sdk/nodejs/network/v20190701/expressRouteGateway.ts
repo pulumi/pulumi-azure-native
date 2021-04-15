@@ -128,7 +128,7 @@ export interface ExpressRouteGatewayArgs {
     /**
      * Configuration for auto scaling.
      */
-    readonly autoScaleConfiguration?: pulumi.Input<inputs.network.v20190701.ExpressRouteGatewayPropertiesAutoScaleConfiguration>;
+    readonly autoScaleConfiguration?: pulumi.Input<inputs.network.v20190701.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>;
     /**
      * The name of the ExpressRoute gateway.
      */
@@ -152,5 +152,5 @@ export interface ExpressRouteGatewayArgs {
     /**
      * The Virtual Hub where the ExpressRoute gateway is or will be deployed.
      */
-    readonly virtualHub: pulumi.Input<inputs.network.v20190701.VirtualHubId>;
+    readonly virtualHub: pulumi.Input<inputs.network.v20190701.VirtualHubIdArgs>;
 }

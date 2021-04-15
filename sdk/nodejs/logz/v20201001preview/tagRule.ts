@@ -102,7 +102,7 @@ export interface TagRuleArgs {
     /**
      * Definition of the properties for a TagRules resource.
      */
-    readonly properties?: pulumi.Input<inputs.logz.v20201001preview.MonitoringTagRulesProperties>;
+    readonly properties?: pulumi.Input<inputs.logz.v20201001preview.MonitoringTagRulesPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

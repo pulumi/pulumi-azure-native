@@ -165,15 +165,15 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * The reference to the remote virtual network address space.
      */
-    readonly remoteAddressSpace?: pulumi.Input<inputs.network.v20201101.AddressSpace>;
+    readonly remoteAddressSpace?: pulumi.Input<inputs.network.v20201101.AddressSpaceArgs>;
     /**
      * The reference to the remote virtual network's Bgp Communities.
      */
-    readonly remoteBgpCommunities?: pulumi.Input<inputs.network.v20201101.VirtualNetworkBgpCommunities>;
+    readonly remoteBgpCommunities?: pulumi.Input<inputs.network.v20201101.VirtualNetworkBgpCommunitiesArgs>;
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
-    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20201101.SubResource>;
+    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * The name of the resource group.
      */

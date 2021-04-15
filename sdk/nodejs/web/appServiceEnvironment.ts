@@ -194,7 +194,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePair>[]>;
+    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -242,5 +242,5 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Description of the Virtual Network.
      */
-    readonly virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfile>;
+    readonly virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfileArgs>;
 }

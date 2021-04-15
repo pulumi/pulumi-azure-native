@@ -187,7 +187,7 @@ export interface EndpointArgs {
     /**
      * List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
-    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.v20161002.GeoFilter>[]>;
+    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.v20161002.GeoFilterArgs>[]>;
     /**
      * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
      */
@@ -219,7 +219,7 @@ export interface EndpointArgs {
     /**
      * The source of the content being delivered via CDN.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20161002.DeepCreatedOrigin>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20161002.DeepCreatedOriginArgs>[]>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

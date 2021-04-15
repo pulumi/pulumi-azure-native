@@ -117,7 +117,7 @@ export interface IntegrationAccountArgs {
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.IntegrationServiceEnvironment>;
+    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentArgs>;
     /**
      * The resource location.
      */
@@ -129,7 +129,7 @@ export interface IntegrationAccountArgs {
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.IntegrationAccountSku>;
+    readonly sku?: pulumi.Input<inputs.logic.IntegrationAccountSkuArgs>;
     /**
      * The workflow state.
      */

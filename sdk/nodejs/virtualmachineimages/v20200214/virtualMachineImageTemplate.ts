@@ -161,15 +161,15 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateFileCustomizer | inputs.virtualmachineimages.v20200214.ImageTemplatePowerShellCustomizer | inputs.virtualmachineimages.v20200214.ImageTemplateRestartCustomizer | inputs.virtualmachineimages.v20200214.ImageTemplateShellCustomizer | inputs.virtualmachineimages.v20200214.ImageTemplateWindowsUpdateCustomizer>[]>;
+    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateFileCustomizerArgs | inputs.virtualmachineimages.v20200214.ImageTemplatePowerShellCustomizerArgs | inputs.virtualmachineimages.v20200214.ImageTemplateRestartCustomizerArgs | inputs.virtualmachineimages.v20200214.ImageTemplateShellCustomizerArgs | inputs.virtualmachineimages.v20200214.ImageTemplateWindowsUpdateCustomizerArgs>[]>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateManagedImageDistributor | inputs.virtualmachineimages.v20200214.ImageTemplateSharedImageDistributor | inputs.virtualmachineimages.v20200214.ImageTemplateVhdDistributor>[]>;
+    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateManagedImageDistributorArgs | inputs.virtualmachineimages.v20200214.ImageTemplateSharedImageDistributorArgs | inputs.virtualmachineimages.v20200214.ImageTemplateVhdDistributorArgs>[]>;
     /**
      * The identity of the image template, if configured.
      */
-    readonly identity: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateIdentity>;
+    readonly identity: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateIdentityArgs>;
     /**
      * The name of the image Template
      */
@@ -185,7 +185,7 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateManagedImageSource | inputs.virtualmachineimages.v20200214.ImageTemplatePlatformImageSource | inputs.virtualmachineimages.v20200214.ImageTemplateSharedImageVersionSource>;
+    readonly source: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateManagedImageSourceArgs | inputs.virtualmachineimages.v20200214.ImageTemplatePlatformImageSourceArgs | inputs.virtualmachineimages.v20200214.ImageTemplateSharedImageVersionSourceArgs>;
     /**
      * Resource tags
      */
@@ -193,5 +193,5 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Describes how virtual machine is set up to build images
      */
-    readonly vmProfile?: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateVmProfile>;
+    readonly vmProfile?: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateVmProfileArgs>;
 }

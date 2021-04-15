@@ -141,7 +141,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The ExpressRoute circuit peering.
      */
-    readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.v20200801.ExpressRouteCircuitPeeringId>;
+    readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.v20200801.ExpressRouteCircuitPeeringIdArgs>;
     /**
      * Enable FastPath to vWan Firewall hub.
      */
@@ -165,7 +165,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200801.RoutingConfiguration>;
+    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200801.RoutingConfigurationArgs>;
     /**
      * The routing weight associated to the connection.
      */

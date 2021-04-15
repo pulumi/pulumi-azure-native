@@ -127,7 +127,7 @@ export interface UserArgs {
     /**
      * The identity of the user.
      */
-    readonly identity?: pulumi.Input<inputs.devtestlab.v20180915.UserIdentity>;
+    readonly identity?: pulumi.Input<inputs.devtestlab.v20180915.UserIdentityArgs>;
     /**
      * The name of the lab.
      */
@@ -147,7 +147,7 @@ export interface UserArgs {
     /**
      * The secret store of the user.
      */
-    readonly secretStore?: pulumi.Input<inputs.devtestlab.v20180915.UserSecretStore>;
+    readonly secretStore?: pulumi.Input<inputs.devtestlab.v20180915.UserSecretStoreArgs>;
     /**
      * The tags of the resource.
      */

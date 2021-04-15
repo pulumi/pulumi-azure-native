@@ -204,7 +204,7 @@ export interface BlockchainMemberArgs {
     /**
      * Gets or sets firewall rules
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.v20180601preview.FirewallRule>[]>;
+    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.v20180601preview.FirewallRuleArgs>[]>;
     /**
      * The GEO location of the blockchain service.
      */
@@ -224,7 +224,7 @@ export interface BlockchainMemberArgs {
     /**
      * Gets or sets the blockchain member Sku.
      */
-    readonly sku?: pulumi.Input<inputs.blockchain.v20180601preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.blockchain.v20180601preview.SkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describes the resource.
      */
@@ -232,5 +232,5 @@ export interface BlockchainMemberArgs {
     /**
      * Gets or sets the blockchain validator nodes Sku.
      */
-    readonly validatorNodesSku?: pulumi.Input<inputs.blockchain.v20180601preview.BlockchainMemberNodesSku>;
+    readonly validatorNodesSku?: pulumi.Input<inputs.blockchain.v20180601preview.BlockchainMemberNodesSkuArgs>;
 }

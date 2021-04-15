@@ -104,7 +104,7 @@ export interface ServiceRunnerArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.devtestlab.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.devtestlab.IdentityPropertiesArgs>;
     /**
      * The name of the lab.
      */

@@ -112,11 +112,11 @@ export interface AccountFilterArgs {
     /**
      * The first quality.
      */
-    readonly firstQuality?: pulumi.Input<inputs.media.v20180701.FirstQuality>;
+    readonly firstQuality?: pulumi.Input<inputs.media.v20180701.FirstQualityArgs>;
     /**
      * The presentation time range.
      */
-    readonly presentationTimeRange?: pulumi.Input<inputs.media.v20180701.PresentationTimeRange>;
+    readonly presentationTimeRange?: pulumi.Input<inputs.media.v20180701.PresentationTimeRangeArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */
@@ -124,5 +124,5 @@ export interface AccountFilterArgs {
     /**
      * The tracks selection conditions.
      */
-    readonly tracks?: pulumi.Input<pulumi.Input<inputs.media.v20180701.FilterTrackSelection>[]>;
+    readonly tracks?: pulumi.Input<pulumi.Input<inputs.media.v20180701.FilterTrackSelectionArgs>[]>;
 }

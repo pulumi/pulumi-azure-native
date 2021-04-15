@@ -160,11 +160,11 @@ export interface FrontDoorArgs {
     /**
      * Backend pools available to routing rules.
      */
-    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.network.v20190401.BackendPool>[]>;
+    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.network.v20190401.BackendPoolArgs>[]>;
     /**
      * Settings for all backendPools
      */
-    readonly backendPoolsSettings?: pulumi.Input<inputs.network.v20190401.BackendPoolsSettings>;
+    readonly backendPoolsSettings?: pulumi.Input<inputs.network.v20190401.BackendPoolsSettingsArgs>;
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
@@ -180,15 +180,15 @@ export interface FrontDoorArgs {
     /**
      * Frontend endpoints available to routing rules.
      */
-    readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20190401.FrontendEndpoint>[]>;
+    readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20190401.FrontendEndpointArgs>[]>;
     /**
      * Health probe settings associated with this Front Door instance.
      */
-    readonly healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.network.v20190401.HealthProbeSettingsModel>[]>;
+    readonly healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.network.v20190401.HealthProbeSettingsModelArgs>[]>;
     /**
      * Load balancing settings associated with this Front Door instance.
      */
-    readonly loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.network.v20190401.LoadBalancingSettingsModel>[]>;
+    readonly loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.network.v20190401.LoadBalancingSettingsModelArgs>[]>;
     /**
      * Resource location.
      */
@@ -200,7 +200,7 @@ export interface FrontDoorArgs {
     /**
      * Routing rules associated with this Front Door.
      */
-    readonly routingRules?: pulumi.Input<pulumi.Input<inputs.network.v20190401.RoutingRule>[]>;
+    readonly routingRules?: pulumi.Input<pulumi.Input<inputs.network.v20190401.RoutingRuleArgs>[]>;
     /**
      * Resource tags.
      */

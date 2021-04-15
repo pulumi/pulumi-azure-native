@@ -134,12 +134,12 @@ export interface DigitalTwinArgs {
     /**
      * The managed identity for the DigitalTwinsInstance.
      */
-    readonly identity?: pulumi.Input<inputs.digitaltwins.DigitalTwinsIdentity>;
+    readonly identity?: pulumi.Input<inputs.digitaltwins.DigitalTwinsIdentityArgs>;
     /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.PrivateEndpointConnection>[]>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionArgs>[]>;
     /**
      * Public network access for the DigitalTwinsInstance.
      */

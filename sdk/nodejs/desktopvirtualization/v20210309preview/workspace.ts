@@ -160,7 +160,7 @@ export interface WorkspaceArgs {
      * Friendly name of Workspace.
      */
     readonly friendlyName?: pulumi.Input<string>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetIdentity>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -173,12 +173,12 @@ export interface WorkspaceArgs {
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
     readonly managedBy?: pulumi.Input<string>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetPlan>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetSku>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */

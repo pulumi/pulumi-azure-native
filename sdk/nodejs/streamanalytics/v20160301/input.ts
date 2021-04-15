@@ -104,7 +104,7 @@ export interface InputArgs {
     /**
      * The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20160301.ReferenceInputProperties | inputs.streamanalytics.v20160301.StreamInputProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.v20160301.ReferenceInputPropertiesArgs | inputs.streamanalytics.v20160301.StreamInputPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

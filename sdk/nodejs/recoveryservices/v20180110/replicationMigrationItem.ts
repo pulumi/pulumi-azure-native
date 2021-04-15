@@ -117,7 +117,7 @@ export interface ReplicationMigrationItemArgs {
     /**
      * Enable migration input properties.
      */
-    readonly properties: pulumi.Input<inputs.recoveryservices.v20180110.EnableMigrationInputProperties>;
+    readonly properties: pulumi.Input<inputs.recoveryservices.v20180110.EnableMigrationInputPropertiesArgs>;
     /**
      * Protection container name.
      */

@@ -118,11 +118,11 @@ export interface ExportArgs {
     /**
      * Has definition for the export.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.v20190101.QueryDefinition>;
+    readonly definition: pulumi.Input<inputs.costmanagement.v20190101.QueryDefinitionArgs>;
     /**
      * Has delivery information for the export.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20190101.ExportDeliveryInfo>;
+    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20190101.ExportDeliveryInfoArgs>;
     /**
      * Export Name.
      */
@@ -134,7 +134,7 @@ export interface ExportArgs {
     /**
      * Has schedule information for the export.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.v20190101.ExportSchedule>;
+    readonly schedule?: pulumi.Input<inputs.costmanagement.v20190101.ExportScheduleArgs>;
     /**
      * The scope associated with export operations. This includes '/subscriptions/{subscriptionId}' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope.
      */

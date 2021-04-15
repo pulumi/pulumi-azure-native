@@ -112,5 +112,5 @@ export interface ManagementLockAtSubscriptionLevelArgs {
     /**
      * The owners of the lock.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwner>[]>;
+    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[]>;
 }

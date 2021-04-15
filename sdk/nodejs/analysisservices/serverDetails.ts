@@ -164,7 +164,7 @@ export interface ServerDetailsArgs {
     /**
      * A collection of AS server administrators
      */
-    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.ServerAdministrators>;
+    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.ServerAdministratorsArgs>;
     /**
      * The SAS container URI to the backup container.
      */
@@ -172,11 +172,11 @@ export interface ServerDetailsArgs {
     /**
      * The gateway details configured for the AS server.
      */
-    readonly gatewayDetails?: pulumi.Input<inputs.analysisservices.GatewayDetails>;
+    readonly gatewayDetails?: pulumi.Input<inputs.analysisservices.GatewayDetailsArgs>;
     /**
      * The firewall settings for the AS server.
      */
-    readonly ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.IPv4FirewallSettings>;
+    readonly ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.IPv4FirewallSettingsArgs>;
     /**
      * Location of the Analysis Services resource.
      */
@@ -204,7 +204,7 @@ export interface ServerDetailsArgs {
     /**
      * The SKU of the Analysis Services resource.
      */
-    readonly sku: pulumi.Input<inputs.analysisservices.ResourceSku>;
+    readonly sku: pulumi.Input<inputs.analysisservices.ResourceSkuArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

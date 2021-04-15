@@ -127,7 +127,7 @@ export interface DeviceArgs {
     /**
      * The reference to the Azure stack edge device.
      */
-    readonly azureStackEdge?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResource>;
+    readonly azureStackEdge?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResourceArgs>;
     /**
      * Resource name for the device resource.
      */

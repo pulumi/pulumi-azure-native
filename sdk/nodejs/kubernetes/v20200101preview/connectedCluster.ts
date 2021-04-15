@@ -187,7 +187,7 @@ export interface ConnectedClusterArgs {
     /**
      * AAD profile of the connected cluster.
      */
-    readonly aadProfile: pulumi.Input<inputs.kubernetes.v20200101preview.ConnectedClusterAADProfile>;
+    readonly aadProfile: pulumi.Input<inputs.kubernetes.v20200101preview.ConnectedClusterAADProfileArgs>;
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
      */
@@ -207,7 +207,7 @@ export interface ConnectedClusterArgs {
     /**
      * The identity of the connected cluster.
      */
-    readonly identity: pulumi.Input<inputs.kubernetes.v20200101preview.ConnectedClusterIdentity>;
+    readonly identity: pulumi.Input<inputs.kubernetes.v20200101preview.ConnectedClusterIdentityArgs>;
     /**
      * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
      */

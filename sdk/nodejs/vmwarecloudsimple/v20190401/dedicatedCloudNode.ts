@@ -233,7 +233,7 @@ export interface DedicatedCloudNodeArgs {
     /**
      * Dedicated Cloud Nodes SKU
      */
-    readonly sku?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.Sku>;
+    readonly sku?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.SkuArgs>;
     /**
      * Dedicated Cloud Nodes tags
      */

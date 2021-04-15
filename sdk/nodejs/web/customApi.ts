@@ -120,7 +120,7 @@ export interface CustomApiArgs {
     /**
      * Custom API properties
      */
-    readonly properties?: pulumi.Input<inputs.web.CustomApiPropertiesDefinition>;
+    readonly properties?: pulumi.Input<inputs.web.CustomApiPropertiesDefinitionArgs>;
     /**
      * The resource group
      */

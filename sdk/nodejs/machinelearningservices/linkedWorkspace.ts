@@ -101,7 +101,7 @@ export interface LinkedWorkspaceArgs {
     /**
      * LinkedWorkspace specific properties.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.LinkedWorkspaceProps>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.LinkedWorkspacePropsArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

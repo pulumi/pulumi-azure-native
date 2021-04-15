@@ -182,7 +182,7 @@ export interface LiveEventArgs {
     /**
      * The Live Event access policies.
      */
-    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20190501preview.CrossSiteAccessPolicies>;
+    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20190501preview.CrossSiteAccessPoliciesArgs>;
     /**
      * The Live Event description.
      */
@@ -190,11 +190,11 @@ export interface LiveEventArgs {
     /**
      * The Live Event encoding.
      */
-    readonly encoding?: pulumi.Input<inputs.media.v20190501preview.LiveEventEncoding>;
+    readonly encoding?: pulumi.Input<inputs.media.v20190501preview.LiveEventEncodingArgs>;
     /**
      * The Live Event input.
      */
-    readonly input: pulumi.Input<inputs.media.v20190501preview.LiveEventInput>;
+    readonly input: pulumi.Input<inputs.media.v20190501preview.LiveEventInputArgs>;
     /**
      * The name of the Live Event.
      */
@@ -206,7 +206,7 @@ export interface LiveEventArgs {
     /**
      * The Live Event preview.
      */
-    readonly preview?: pulumi.Input<inputs.media.v20190501preview.LiveEventPreview>;
+    readonly preview?: pulumi.Input<inputs.media.v20190501preview.LiveEventPreviewArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */
@@ -222,7 +222,7 @@ export interface LiveEventArgs {
     /**
      * The Live Event transcription.
      */
-    readonly transcriptions?: pulumi.Input<pulumi.Input<inputs.media.v20190501preview.LiveEventTranscription>[]>;
+    readonly transcriptions?: pulumi.Input<pulumi.Input<inputs.media.v20190501preview.LiveEventTranscriptionArgs>[]>;
     /**
      * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
      */

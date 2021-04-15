@@ -158,11 +158,11 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The agreement content.
      */
-    readonly content?: pulumi.Input<inputs.logic.v20150801preview.AgreementContent>;
+    readonly content?: pulumi.Input<inputs.logic.v20150801preview.AgreementContentArgs>;
     /**
      * The guest identity.
      */
-    readonly guestIdentity?: pulumi.Input<inputs.logic.v20150801preview.BusinessIdentity>;
+    readonly guestIdentity?: pulumi.Input<inputs.logic.v20150801preview.BusinessIdentityArgs>;
     /**
      * The guest partner.
      */
@@ -170,7 +170,7 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The host identity.
      */
-    readonly hostIdentity?: pulumi.Input<inputs.logic.v20150801preview.BusinessIdentity>;
+    readonly hostIdentity?: pulumi.Input<inputs.logic.v20150801preview.BusinessIdentityArgs>;
     /**
      * The host partner.
      */

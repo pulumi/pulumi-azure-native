@@ -127,7 +127,7 @@ export interface DataManagerArgs {
     /**
      * The sku type.
      */
-    readonly sku?: pulumi.Input<inputs.hybriddata.v20190601.Sku>;
+    readonly sku?: pulumi.Input<inputs.hybriddata.v20190601.SkuArgs>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
      * (across resource groups).

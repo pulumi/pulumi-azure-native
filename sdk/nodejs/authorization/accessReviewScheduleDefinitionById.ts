@@ -239,7 +239,7 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * This is the collection of backup reviewers.
      */
-    readonly backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewer>[]>;
+    readonly backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewerArgs>[]>;
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */
@@ -271,7 +271,7 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * This is the collection of instances returned when one does an expand on it.
      */
-    readonly instances?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewInstance>[]>;
+    readonly instances?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewInstanceArgs>[]>;
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
@@ -299,7 +299,7 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * This is the collection of reviewers.
      */
-    readonly reviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewer>[]>;
+    readonly reviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewerArgs>[]>;
     /**
      * The id of the access review schedule definition.
      */

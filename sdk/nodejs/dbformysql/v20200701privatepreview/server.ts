@@ -234,7 +234,7 @@ export interface ServerArgs {
     /**
      * Delegated subnet arguments.
      */
-    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.DelegatedSubnetArguments>;
+    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.DelegatedSubnetArgumentsArgs>;
     /**
      * Enable HA or not for a server.
      */
@@ -242,7 +242,7 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.Identity>;
+    readonly identity?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.IdentityArgs>;
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
@@ -254,7 +254,7 @@ export interface ServerArgs {
     /**
      * Maintenance window of a server.
      */
-    readonly maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.MaintenanceWindow>;
+    readonly maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.MaintenanceWindowArgs>;
     /**
      * The replication role.
      */
@@ -274,7 +274,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.SkuArgs>;
     /**
      * The source MySQL server id.
      */
@@ -286,7 +286,7 @@ export interface ServerArgs {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.StorageProfile>;
+    readonly storageProfile?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.StorageProfileArgs>;
     /**
      * Resource tags.
      */

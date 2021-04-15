@@ -164,7 +164,7 @@ export interface OperationalizationClusterArgs {
     /**
      * AppInsights configuration.
      */
-    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.AppInsightsProperties>;
+    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.AppInsightsPropertiesArgs>;
     /**
      * The name of the cluster.
      */
@@ -176,11 +176,11 @@ export interface OperationalizationClusterArgs {
     /**
      * Container Registry properties.
      */
-    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.ContainerRegistryProperties>;
+    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.ContainerRegistryPropertiesArgs>;
     /**
      * Parameters for the Azure Container Service cluster.
      */
-    readonly containerService?: pulumi.Input<inputs.machinelearningcompute.AcsClusterProperties>;
+    readonly containerService?: pulumi.Input<inputs.machinelearningcompute.AcsClusterPropertiesArgs>;
     /**
      * The description of the cluster.
      */
@@ -188,7 +188,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Contains global configuration for the web services in the cluster.
      */
-    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.GlobalServiceConfiguration>;
+    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.GlobalServiceConfigurationArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -200,7 +200,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Storage Account properties.
      */
-    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.StorageAccountProperties>;
+    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.StorageAccountPropertiesArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

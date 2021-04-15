@@ -200,7 +200,7 @@ export interface SqlPoolArgs {
     /**
      * SQL pool SKU
      */
-    readonly sku?: pulumi.Input<inputs.synapse.v20210301.Sku>;
+    readonly sku?: pulumi.Input<inputs.synapse.v20210301.SkuArgs>;
     /**
      * Source database to create from
      */

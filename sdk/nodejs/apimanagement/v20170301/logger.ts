@@ -148,7 +148,7 @@ export interface LoggerArgs {
     /**
      * Sampling settings for an ApplicationInsights logger.
      */
-    readonly sampling?: pulumi.Input<inputs.apimanagement.v20170301.LoggerSamplingContract>;
+    readonly sampling?: pulumi.Input<inputs.apimanagement.v20170301.LoggerSamplingContractArgs>;
     /**
      * The name of the API Management service.
      */

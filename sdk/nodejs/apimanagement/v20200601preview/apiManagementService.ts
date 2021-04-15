@@ -271,15 +271,15 @@ export interface ApiManagementServiceArgs {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.AdditionalLocation>[]>;
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.AdditionalLocationArgs>[]>;
     /**
      * Control Plane Apis version constraint for the API Management service.
      */
-    readonly apiVersionConstraint?: pulumi.Input<inputs.apimanagement.v20200601preview.ApiVersionConstraint>;
+    readonly apiVersionConstraint?: pulumi.Input<inputs.apimanagement.v20200601preview.ApiVersionConstraintArgs>;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.CertificateConfiguration>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.CertificateConfigurationArgs>[]>;
     /**
      * Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
      */
@@ -295,11 +295,11 @@ export interface ApiManagementServiceArgs {
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.HostnameConfiguration>[]>;
+    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.HostnameConfigurationArgs>[]>;
     /**
      * Managed service identity of the Api Management service.
      */
-    readonly identity?: pulumi.Input<inputs.apimanagement.v20200601preview.ApiManagementServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.apimanagement.v20200601preview.ApiManagementServiceIdentityArgs>;
     /**
      * Resource location.
      */
@@ -331,7 +331,7 @@ export interface ApiManagementServiceArgs {
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: pulumi.Input<inputs.apimanagement.v20200601preview.ApiManagementServiceSkuProperties>;
+    readonly sku: pulumi.Input<inputs.apimanagement.v20200601preview.ApiManagementServiceSkuPropertiesArgs>;
     /**
      * Resource tags.
      */
@@ -339,7 +339,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20200601preview.VirtualNetworkConfiguration>;
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20200601preview.VirtualNetworkConfigurationArgs>;
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */

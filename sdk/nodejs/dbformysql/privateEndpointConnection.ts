@@ -105,12 +105,12 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.dbformysql.PrivateEndpointProperty>;
+    readonly privateEndpoint?: pulumi.Input<inputs.dbformysql.PrivateEndpointPropertyArgs>;
     readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.dbformysql.PrivateLinkServiceConnectionStateProperty>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.dbformysql.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

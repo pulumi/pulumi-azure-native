@@ -124,7 +124,7 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Describes colocation status of the Proximity Placement Group.
      */
-    readonly colocationStatus?: pulumi.Input<inputs.compute.v20200601.InstanceViewStatus>;
+    readonly colocationStatus?: pulumi.Input<inputs.compute.v20200601.InstanceViewStatusArgs>;
     /**
      * Resource location
      */

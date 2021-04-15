@@ -128,11 +128,11 @@ export interface MongoDBResourceMongoDBCollectionArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a MongoDB collection
      */
-    readonly resource: pulumi.Input<inputs.documentdb.MongoDBCollectionResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.MongoDBCollectionResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

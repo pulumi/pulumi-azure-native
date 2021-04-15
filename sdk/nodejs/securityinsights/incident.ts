@@ -232,7 +232,7 @@ export interface IncidentArgs {
     /**
      * List of labels relevant to this incident
      */
-    readonly labels?: pulumi.Input<pulumi.Input<inputs.securityinsights.IncidentLabel>[]>;
+    readonly labels?: pulumi.Input<pulumi.Input<inputs.securityinsights.IncidentLabelArgs>[]>;
     /**
      * The time of the last activity in the incident
      */
@@ -240,7 +240,7 @@ export interface IncidentArgs {
     /**
      * Describes a user that the incident is assigned to
      */
-    readonly owner?: pulumi.Input<inputs.securityinsights.IncidentOwnerInfo>;
+    readonly owner?: pulumi.Input<inputs.securityinsights.IncidentOwnerInfoArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

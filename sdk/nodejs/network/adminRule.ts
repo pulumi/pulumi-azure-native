@@ -188,7 +188,7 @@ export interface AdminRuleArgs {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerSecurityGroupItem>[]>;
+    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerSecurityGroupItemArgs>[]>;
     /**
      * The name of the network manager security Configuration.
      */
@@ -200,7 +200,7 @@ export interface AdminRuleArgs {
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    readonly destination?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItem>[]>;
+    readonly destination?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[]>;
     /**
      * The destination port ranges.
      */
@@ -236,7 +236,7 @@ export interface AdminRuleArgs {
     /**
      * The CIDR or source IP ranges.
      */
-    readonly source?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItem>[]>;
+    readonly source?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[]>;
     /**
      * The source port ranges.
      */

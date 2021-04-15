@@ -111,7 +111,7 @@ export interface NamespaceArgs {
     /**
      * Gets or sets properties of the Namespace.
      */
-    readonly properties: pulumi.Input<inputs.notificationhubs.v20140901.NamespaceProperties>;
+    readonly properties: pulumi.Input<inputs.notificationhubs.v20140901.NamespacePropertiesArgs>;
     /**
      * The name of the resource group.
      */

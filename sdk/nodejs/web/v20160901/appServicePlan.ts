@@ -206,7 +206,7 @@ export interface AppServicePlanArgs {
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160901.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160901.HostingEnvironmentProfileArgs>;
     /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
@@ -239,7 +239,7 @@ export interface AppServicePlanArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20160901.SkuDescription>;
+    readonly sku?: pulumi.Input<inputs.web.v20160901.SkuDescriptionArgs>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */

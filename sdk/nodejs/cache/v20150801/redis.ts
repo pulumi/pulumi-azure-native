@@ -208,7 +208,7 @@ export interface RedisArgs {
     /**
      * What SKU of Redis cache to deploy.
      */
-    readonly sku: pulumi.Input<inputs.cache.v20150801.Sku>;
+    readonly sku: pulumi.Input<inputs.cache.v20150801.SkuArgs>;
     /**
      * Required when deploying a Redis cache inside an existing Azure Virtual Network.
      */

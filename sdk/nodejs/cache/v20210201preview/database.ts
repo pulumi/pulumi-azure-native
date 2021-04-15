@@ -160,15 +160,15 @@ export interface DatabaseArgs {
     /**
      * Optional set of properties to configure geo replication for this database.
      */
-    readonly geoReplication?: pulumi.Input<inputs.cache.v20210201preview.DatabasePropertiesGeoReplication>;
+    readonly geoReplication?: pulumi.Input<inputs.cache.v20210201preview.DatabasePropertiesGeoReplicationArgs>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.v20210201preview.Module>[]>;
+    readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.v20210201preview.ModuleArgs>[]>;
     /**
      * Persistence settings
      */
-    readonly persistence?: pulumi.Input<inputs.cache.v20210201preview.Persistence>;
+    readonly persistence?: pulumi.Input<inputs.cache.v20210201preview.PersistenceArgs>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */

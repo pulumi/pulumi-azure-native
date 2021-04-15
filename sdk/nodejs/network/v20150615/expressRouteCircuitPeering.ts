@@ -181,7 +181,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitPeeringConfig>;
+    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -233,7 +233,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets peering stats.
      */
-    readonly stats?: pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitStats>;
+    readonly stats?: pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitStatsArgs>;
     /**
      * The VLAN ID.
      */

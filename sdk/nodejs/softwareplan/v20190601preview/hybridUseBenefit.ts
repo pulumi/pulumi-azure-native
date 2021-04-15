@@ -123,5 +123,5 @@ export interface HybridUseBenefitArgs {
     /**
      * Hybrid use benefit SKU
      */
-    readonly sku: pulumi.Input<inputs.softwareplan.v20190601preview.Sku>;
+    readonly sku: pulumi.Input<inputs.softwareplan.v20190601preview.SkuArgs>;
 }

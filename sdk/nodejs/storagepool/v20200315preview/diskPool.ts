@@ -163,7 +163,7 @@ export interface DiskPoolArgs {
     /**
      * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
      */
-    readonly disks?: pulumi.Input<pulumi.Input<inputs.storagepool.v20200315preview.Disk>[]>;
+    readonly disks?: pulumi.Input<pulumi.Input<inputs.storagepool.v20200315preview.DiskArgs>[]>;
     /**
      * The geo-location where the resource lives.
      */

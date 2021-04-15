@@ -111,7 +111,7 @@ export interface DeploymentAtScopeArgs {
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.v20200801.DeploymentProperties>;
+    readonly properties: pulumi.Input<inputs.resources.v20200801.DeploymentPropertiesArgs>;
     /**
      * The resource scope.
      */

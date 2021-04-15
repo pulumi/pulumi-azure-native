@@ -126,7 +126,7 @@ export interface ServiceUnitArgs {
     /**
      * The artifacts for the service unit.
      */
-    readonly artifacts?: pulumi.Input<inputs.deploymentmanager.v20191101preview.ServiceUnitArtifacts>;
+    readonly artifacts?: pulumi.Input<inputs.deploymentmanager.v20191101preview.ServiceUnitArtifactsArgs>;
     /**
      * Describes the type of ARM deployment to be performed on the resource.
      */

@@ -112,7 +112,7 @@ export interface SqlResourceSqlRoleDefinitionArgs {
     /**
      * The set of operations allowed through this Role Definition.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.documentdb.v20200601preview.Permission>[]>;
+    readonly permissions?: pulumi.Input<pulumi.Input<inputs.documentdb.v20200601preview.PermissionArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -145,7 +145,7 @@ export interface ClusterArgs {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.v20190121.AzureSku>;
+    readonly sku: pulumi.Input<inputs.kusto.v20190121.AzureSkuArgs>;
     /**
      * Resource tags.
      */
@@ -153,5 +153,5 @@ export interface ClusterArgs {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190121.TrustedExternalTenant>[]>;
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190121.TrustedExternalTenantArgs>[]>;
 }

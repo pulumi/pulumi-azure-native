@@ -121,7 +121,7 @@ export interface DiagnosticSettingArgs {
     /**
      * The list of logs settings.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.aadiam.v20170401.LogSettings>[]>;
+    readonly logs?: pulumi.Input<pulumi.Input<inputs.aadiam.v20170401.LogSettingsArgs>[]>;
     /**
      * The name of the diagnostic setting.
      */

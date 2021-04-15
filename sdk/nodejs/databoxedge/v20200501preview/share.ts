@@ -158,11 +158,11 @@ export interface ShareArgs {
     /**
      * Azure container mapping for the share.
      */
-    readonly azureContainerInfo?: pulumi.Input<inputs.databoxedge.v20200501preview.AzureContainerInfo>;
+    readonly azureContainerInfo?: pulumi.Input<inputs.databoxedge.v20200501preview.AzureContainerInfoArgs>;
     /**
      * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
      */
-    readonly clientAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20200501preview.ClientAccessRight>[]>;
+    readonly clientAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20200501preview.ClientAccessRightArgs>[]>;
     /**
      * Data policy of the share.
      */
@@ -186,7 +186,7 @@ export interface ShareArgs {
     /**
      * Details of the refresh job on this share.
      */
-    readonly refreshDetails?: pulumi.Input<inputs.databoxedge.v20200501preview.RefreshDetails>;
+    readonly refreshDetails?: pulumi.Input<inputs.databoxedge.v20200501preview.RefreshDetailsArgs>;
     /**
      * The resource group name.
      */
@@ -198,5 +198,5 @@ export interface ShareArgs {
     /**
      * Mapping of users and corresponding access rights on the share (required for SMB protocol).
      */
-    readonly userAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20200501preview.UserAccessRight>[]>;
+    readonly userAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20200501preview.UserAccessRightArgs>[]>;
 }

@@ -139,7 +139,7 @@ export interface BotConnectionArgs {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.ConnectionSettingProperties>;
+    readonly properties?: pulumi.Input<inputs.botservice.ConnectionSettingPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
@@ -151,7 +151,7 @@ export interface BotConnectionArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.Sku>;
+    readonly sku?: pulumi.Input<inputs.botservice.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

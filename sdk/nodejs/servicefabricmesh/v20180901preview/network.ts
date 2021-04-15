@@ -111,7 +111,7 @@ export interface NetworkArgs {
     /**
      * Describes properties of a network resource.
      */
-    readonly properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.NetworkResourceProperties>;
+    readonly properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.NetworkResourcePropertiesArgs>;
     /**
      * Azure resource group name
      */

@@ -131,7 +131,7 @@ export interface ProtectionIntentArgs {
     /**
      * ProtectionIntentResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureRecoveryServiceVaultProtectionIntent | inputs.recoveryservices.AzureResourceProtectionIntent | inputs.recoveryservices.AzureWorkloadAutoProtectionIntent | inputs.recoveryservices.AzureWorkloadSQLAutoProtectionIntent>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureRecoveryServiceVaultProtectionIntentArgs | inputs.recoveryservices.AzureResourceProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadAutoProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadSQLAutoProtectionIntentArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

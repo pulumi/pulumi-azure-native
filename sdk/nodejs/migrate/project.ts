@@ -119,7 +119,7 @@ export interface ProjectArgs {
     /**
      * Properties of the project.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.ProjectProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.ProjectPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

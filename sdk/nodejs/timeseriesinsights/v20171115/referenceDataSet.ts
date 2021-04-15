@@ -133,7 +133,7 @@ export interface ReferenceDataSetArgs {
     /**
      * The list of key properties for the reference data set.
      */
-    readonly keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.ReferenceDataSetKeyProperty>[]>;
+    readonly keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyArgs>[]>;
     /**
      * The location of the resource.
      */

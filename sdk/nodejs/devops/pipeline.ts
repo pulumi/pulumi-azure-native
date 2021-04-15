@@ -125,7 +125,7 @@ export interface PipelineArgs {
     /**
      * Configuration used to bootstrap the Pipeline.
      */
-    readonly bootstrapConfiguration: pulumi.Input<inputs.devops.BootstrapConfiguration>;
+    readonly bootstrapConfiguration: pulumi.Input<inputs.devops.BootstrapConfigurationArgs>;
     /**
      * Resource Location
      */

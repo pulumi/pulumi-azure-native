@@ -129,7 +129,7 @@ export interface NetworkArgs {
     /**
      * Configuration for public connectivity for this network.
      */
-    readonly ingressConfig?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.IngressConfig>;
+    readonly ingressConfig?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.IngressConfigArgs>;
     /**
      * The geo-location where the resource lives
      */

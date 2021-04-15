@@ -136,7 +136,7 @@ export interface DiskEncryptionSetArgs {
     /**
      * The key vault key which is currently used by this disk encryption set.
      */
-    readonly activeKey?: pulumi.Input<inputs.compute.v20201201.KeyForDiskEncryptionSet>;
+    readonly activeKey?: pulumi.Input<inputs.compute.v20201201.KeyForDiskEncryptionSetArgs>;
     /**
      * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
@@ -148,7 +148,7 @@ export interface DiskEncryptionSetArgs {
     /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
-    readonly identity?: pulumi.Input<inputs.compute.v20201201.EncryptionSetIdentity>;
+    readonly identity?: pulumi.Input<inputs.compute.v20201201.EncryptionSetIdentityArgs>;
     /**
      * Resource location
      */

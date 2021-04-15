@@ -173,7 +173,7 @@ export interface WorkflowArgs {
     /**
      * The access control configuration.
      */
-    readonly accessControl?: pulumi.Input<inputs.logic.FlowAccessControlConfiguration>;
+    readonly accessControl?: pulumi.Input<inputs.logic.FlowAccessControlConfigurationArgs>;
     /**
      * The definition.
      */
@@ -181,15 +181,15 @@ export interface WorkflowArgs {
     /**
      * The endpoints configuration.
      */
-    readonly endpointsConfiguration?: pulumi.Input<inputs.logic.FlowEndpointsConfiguration>;
+    readonly endpointsConfiguration?: pulumi.Input<inputs.logic.FlowEndpointsConfigurationArgs>;
     /**
      * The integration account.
      */
-    readonly integrationAccount?: pulumi.Input<inputs.logic.ResourceReference>;
+    readonly integrationAccount?: pulumi.Input<inputs.logic.ResourceReferenceArgs>;
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReference>;
+    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs>;
     /**
      * The resource location.
      */
@@ -197,7 +197,7 @@ export interface WorkflowArgs {
     /**
      * The parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.WorkflowParameter>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.WorkflowParameterArgs>}>;
     /**
      * The resource group name.
      */

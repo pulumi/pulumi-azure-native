@@ -112,7 +112,7 @@ export interface MachineArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.hybridcompute.v20210325preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.hybridcompute.v20210325preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -124,7 +124,7 @@ export interface MachineArgs {
     /**
      * Hybrid Compute Machine properties
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.MachineProperties>;
+    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.MachinePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

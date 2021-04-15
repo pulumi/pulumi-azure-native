@@ -145,7 +145,7 @@ export interface FileServerArgs {
     /**
      * Settings for the data disk which would be created for the File Server.
      */
-    readonly dataDisks: pulumi.Input<inputs.batchai.v20180301.DataDisks>;
+    readonly dataDisks: pulumi.Input<inputs.batchai.v20180301.DataDisksArgs>;
     /**
      * The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
@@ -161,11 +161,11 @@ export interface FileServerArgs {
     /**
      * SSH configuration settings for the VM
      */
-    readonly sshConfiguration: pulumi.Input<inputs.batchai.v20180301.SshConfiguration>;
+    readonly sshConfiguration: pulumi.Input<inputs.batchai.v20180301.SshConfigurationArgs>;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.v20180301.ResourceId>;
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180301.ResourceIdArgs>;
     /**
      * The user specified tags associated with the File Server.
      */

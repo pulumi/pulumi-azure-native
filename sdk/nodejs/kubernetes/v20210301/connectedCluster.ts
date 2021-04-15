@@ -196,7 +196,7 @@ export interface ConnectedClusterArgs {
     /**
      * The identity of the connected cluster.
      */
-    readonly identity: pulumi.Input<inputs.kubernetes.v20210301.ConnectedClusterIdentity>;
+    readonly identity: pulumi.Input<inputs.kubernetes.v20210301.ConnectedClusterIdentityArgs>;
     /**
      * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
      */

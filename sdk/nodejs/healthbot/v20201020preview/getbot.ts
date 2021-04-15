@@ -124,7 +124,7 @@ export interface GetbotArgs {
     /**
      * SKU of the HealthBot.
      */
-    readonly sku?: pulumi.Input<inputs.healthbot.v20201020preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.healthbot.v20201020preview.SkuArgs>;
     /**
      * Resource tags.
      */

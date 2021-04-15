@@ -118,11 +118,11 @@ export interface ExportArgs {
     /**
      * Has definition for the export.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.v20191101.ExportDefinition>;
+    readonly definition: pulumi.Input<inputs.costmanagement.v20191101.ExportDefinitionArgs>;
     /**
      * Has delivery information for the export.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20191101.ExportDeliveryInfo>;
+    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20191101.ExportDeliveryInfoArgs>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
@@ -138,7 +138,7 @@ export interface ExportArgs {
     /**
      * Has schedule information for the export.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.v20191101.ExportSchedule>;
+    readonly schedule?: pulumi.Input<inputs.costmanagement.v20191101.ExportScheduleArgs>;
     /**
      * The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
      */

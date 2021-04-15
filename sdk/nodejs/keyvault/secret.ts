@@ -108,7 +108,7 @@ export interface SecretArgs {
     /**
      * Properties of the secret
      */
-    readonly properties: pulumi.Input<inputs.keyvault.SecretProperties>;
+    readonly properties: pulumi.Input<inputs.keyvault.SecretPropertiesArgs>;
     /**
      * The name of the Resource Group to which the vault belongs.
      */

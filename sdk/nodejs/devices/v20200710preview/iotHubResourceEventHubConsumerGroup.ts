@@ -109,7 +109,7 @@ export interface IotHubResourceEventHubConsumerGroupArgs {
     /**
      * The EventHub consumer group name.
      */
-    readonly properties?: pulumi.Input<inputs.devices.v20200710preview.EventHubConsumerGroupName>;
+    readonly properties?: pulumi.Input<inputs.devices.v20200710preview.EventHubConsumerGroupNameArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

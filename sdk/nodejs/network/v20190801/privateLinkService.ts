@@ -155,7 +155,7 @@ export interface PrivateLinkServiceArgs {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: pulumi.Input<inputs.network.v20190801.PrivateLinkServicePropertiesAutoApproval>;
+    readonly autoApproval?: pulumi.Input<inputs.network.v20190801.PrivateLinkServicePropertiesAutoApprovalArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -171,11 +171,11 @@ export interface PrivateLinkServiceArgs {
     /**
      * An array of private link service IP configurations.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190801.PrivateLinkServiceIpConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190801.PrivateLinkServiceIpConfigurationArgs>[]>;
     /**
      * An array of references to the load balancer IP configurations.
      */
-    readonly loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190801.FrontendIPConfiguration>[]>;
+    readonly loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190801.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -183,7 +183,7 @@ export interface PrivateLinkServiceArgs {
     /**
      * An array of list about connections to the private endpoint.
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190801.PrivateEndpointConnection>[]>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190801.PrivateEndpointConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -199,5 +199,5 @@ export interface PrivateLinkServiceArgs {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: pulumi.Input<inputs.network.v20190801.PrivateLinkServicePropertiesVisibility>;
+    readonly visibility?: pulumi.Input<inputs.network.v20190801.PrivateLinkServicePropertiesVisibilityArgs>;
 }

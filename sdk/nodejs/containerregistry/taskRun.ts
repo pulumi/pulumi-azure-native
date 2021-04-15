@@ -134,7 +134,7 @@ export interface TaskRunArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The location of the resource
      */
@@ -150,7 +150,7 @@ export interface TaskRunArgs {
     /**
      * The request (parameters) for the run
      */
-    readonly runRequest?: pulumi.Input<inputs.containerregistry.DockerBuildRequest | inputs.containerregistry.EncodedTaskRunRequest | inputs.containerregistry.FileTaskRunRequest | inputs.containerregistry.TaskRunRequest>;
+    readonly runRequest?: pulumi.Input<inputs.containerregistry.DockerBuildRequestArgs | inputs.containerregistry.EncodedTaskRunRequestArgs | inputs.containerregistry.FileTaskRunRequestArgs | inputs.containerregistry.TaskRunRequestArgs>;
     /**
      * The name of the task run.
      */

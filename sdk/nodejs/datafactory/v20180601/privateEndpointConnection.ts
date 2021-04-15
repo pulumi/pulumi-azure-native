@@ -106,7 +106,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Core resource properties
      */
-    readonly properties?: pulumi.Input<inputs.datafactory.v20180601.PrivateLinkConnectionApprovalRequest>;
+    readonly properties?: pulumi.Input<inputs.datafactory.v20180601.PrivateLinkConnectionApprovalRequestArgs>;
     /**
      * The resource group name.
      */
