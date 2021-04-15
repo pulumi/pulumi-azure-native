@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Web.V20201201
     public partial class StaticSite : Pulumi.CustomResource
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if config file is locked for this static web app; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Output("allowConfigFileUpdates")]
+        public Output<bool?> AllowConfigFileUpdates { get; private set; } = null!;
+
+        /// <summary>
         /// The target branch in the repository.
         /// </summary>
         [Output("branch")]
@@ -76,6 +82,12 @@ namespace Pulumi.AzureNative.Web.V20201201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Private endpoint connections
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The provider that submitted the last deployment to the primary environment of the static site.
         /// </summary>
         [Output("provider")]
@@ -98,6 +110,12 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// State indicating whether staging environments are allowed or not allowed for a static web app.
+        /// </summary>
+        [Output("stagingEnvironmentPolicy")]
+        public Output<string?> StagingEnvironmentPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -183,6 +201,12 @@ namespace Pulumi.AzureNative.Web.V20201201
     public sealed class StaticSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if config file is locked for this static web app; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Input("allowConfigFileUpdates")]
+        public Input<bool>? AllowConfigFileUpdates { get; set; }
+
+        /// <summary>
         /// The target branch in the repository.
         /// </summary>
         [Input("branch")]
@@ -241,6 +265,12 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuDescriptionArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// State indicating whether staging environments are allowed or not allowed for a static web app.
+        /// </summary>
+        [Input("stagingEnvironmentPolicy")]
+        public Input<Pulumi.AzureNative.Web.V20201201.StagingEnvironmentPolicy>? StagingEnvironmentPolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

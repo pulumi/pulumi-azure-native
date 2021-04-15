@@ -33,6 +33,7 @@ __all__ = [
     'ScmType',
     'SiteLoadBalancing',
     'SslState',
+    'StagingEnvironmentPolicy',
     'SupportedTlsVersions',
     'UnauthenticatedClientAction',
     'UnauthenticatedClientActionV2',
@@ -319,6 +320,14 @@ class SslState(str, Enum):
     DISABLED = "Disabled"
     SNI_ENABLED = "SniEnabled"
     IP_BASED_ENABLED = "IpBasedEnabled"
+
+
+class StagingEnvironmentPolicy(str, Enum):
+    """
+    State indicating whether staging environments are allowed or not allowed for a static web app.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SupportedTlsVersions(str, Enum):

@@ -19,6 +19,7 @@ __all__ = [
     'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork',
     'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
     'WorkspaceCustomBooleanParameterResponse',
+    'WorkspaceCustomObjectParameterResponse',
     'WorkspaceCustomParametersResponse',
     'WorkspaceCustomStringParameterResponse',
     'WorkspaceEncryptionParameterResponse',
@@ -335,30 +336,83 @@ class WorkspaceCustomBooleanParameterResponse(dict):
 
 
 @pulumi.output_type
+class WorkspaceCustomObjectParameterResponse(dict):
+    """
+    The value which should be used for this field.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: Any):
+        """
+        The value which should be used for this field.
+        :param str type: The type of variable that this is
+        :param Any value: The value which should be used for this field.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Any:
+        """
+        The value which should be used for this field.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class WorkspaceCustomParametersResponse(dict):
     """
     Custom Parameters used for Cluster Creation.
     """
     def __init__(__self__, *,
+                 resource_tags: 'outputs.WorkspaceCustomObjectParameterResponse',
                  aml_workspace_id: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  custom_private_subnet_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  custom_public_subnet_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  custom_virtual_network_id: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  enable_no_public_ip: Optional['outputs.WorkspaceCustomBooleanParameterResponse'] = None,
                  encryption: Optional['outputs.WorkspaceEncryptionParameterResponse'] = None,
+                 load_balancer_backend_pool_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
+                 load_balancer_id: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
+                 nat_gateway_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  prepare_encryption: Optional['outputs.WorkspaceCustomBooleanParameterResponse'] = None,
-                 require_infrastructure_encryption: Optional['outputs.WorkspaceCustomBooleanParameterResponse'] = None):
+                 public_ip_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
+                 require_infrastructure_encryption: Optional['outputs.WorkspaceCustomBooleanParameterResponse'] = None,
+                 storage_account_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
+                 storage_account_sku_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
+                 vnet_address_prefix: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None):
         """
         Custom Parameters used for Cluster Creation.
+        :param 'WorkspaceCustomObjectParameterResponseArgs' resource_tags: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
         :param 'WorkspaceCustomStringParameterResponseArgs' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
         :param 'WorkspaceCustomStringParameterResponseArgs' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
         :param 'WorkspaceCustomStringParameterResponseArgs' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
         :param 'WorkspaceCustomStringParameterResponseArgs' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
         :param 'WorkspaceCustomBooleanParameterResponseArgs' enable_no_public_ip: Should the Public IP be Disabled?
         :param 'WorkspaceEncryptionParameterResponseArgs' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        :param 'WorkspaceCustomStringParameterResponseArgs' load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        :param 'WorkspaceCustomStringParameterResponseArgs' load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        :param 'WorkspaceCustomStringParameterResponseArgs' nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
         :param 'WorkspaceCustomBooleanParameterResponseArgs' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        :param 'WorkspaceCustomStringParameterResponseArgs' public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet.
         :param 'WorkspaceCustomBooleanParameterResponseArgs' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        :param 'WorkspaceCustomStringParameterResponseArgs' storage_account_name: Default DBFS storage account name.
+        :param 'WorkspaceCustomStringParameterResponseArgs' storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        :param 'WorkspaceCustomStringParameterResponseArgs' vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139.
         """
+        pulumi.set(__self__, "resource_tags", resource_tags)
         if aml_workspace_id is not None:
             pulumi.set(__self__, "aml_workspace_id", aml_workspace_id)
         if custom_private_subnet_name is not None:
@@ -371,10 +425,32 @@ class WorkspaceCustomParametersResponse(dict):
             pulumi.set(__self__, "enable_no_public_ip", enable_no_public_ip)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if load_balancer_backend_pool_name is not None:
+            pulumi.set(__self__, "load_balancer_backend_pool_name", load_balancer_backend_pool_name)
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if nat_gateway_name is not None:
+            pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
         if prepare_encryption is not None:
             pulumi.set(__self__, "prepare_encryption", prepare_encryption)
+        if public_ip_name is not None:
+            pulumi.set(__self__, "public_ip_name", public_ip_name)
         if require_infrastructure_encryption is not None:
             pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_account_sku_name is not None:
+            pulumi.set(__self__, "storage_account_sku_name", storage_account_sku_name)
+        if vnet_address_prefix is not None:
+            pulumi.set(__self__, "vnet_address_prefix", vnet_address_prefix)
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> 'outputs.WorkspaceCustomObjectParameterResponse':
+        """
+        Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+        """
+        return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter(name="amlWorkspaceId")
@@ -425,6 +501,30 @@ class WorkspaceCustomParametersResponse(dict):
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="loadBalancerBackendPoolName")
+    def load_balancer_backend_pool_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        """
+        return pulumi.get(self, "load_balancer_backend_pool_name")
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @property
+    @pulumi.getter(name="natGatewayName")
+    def nat_gateway_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        """
+        return pulumi.get(self, "nat_gateway_name")
+
+    @property
     @pulumi.getter(name="prepareEncryption")
     def prepare_encryption(self) -> Optional['outputs.WorkspaceCustomBooleanParameterResponse']:
         """
@@ -433,12 +533,44 @@ class WorkspaceCustomParametersResponse(dict):
         return pulumi.get(self, "prepare_encryption")
 
     @property
+    @pulumi.getter(name="publicIpName")
+    def public_ip_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Name of the Public IP for No Public IP workspace with managed vNet.
+        """
+        return pulumi.get(self, "public_ip_name")
+
+    @property
     @pulumi.getter(name="requireInfrastructureEncryption")
     def require_infrastructure_encryption(self) -> Optional['outputs.WorkspaceCustomBooleanParameterResponse']:
         """
         A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
         """
         return pulumi.get(self, "require_infrastructure_encryption")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Default DBFS storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageAccountSkuName")
+    def storage_account_sku_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        """
+        return pulumi.get(self, "storage_account_sku_name")
+
+    @property
+    @pulumi.getter(name="vnetAddressPrefix")
+    def vnet_address_prefix(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
+        """
+        Address prefix for Managed virtual network. Default value for this input is 10.139.
+        """
+        return pulumi.get(self, "vnet_address_prefix")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -26,6 +26,7 @@ __all__ = [
     'AppleResponse',
     'ApplicationLogsConfigResponse',
     'ArmIdWrapperResponse',
+    'ArmPlanResponse',
     'AuthPlatformResponse',
     'AutoHealActionsResponse',
     'AutoHealCustomActionResponse',
@@ -60,6 +61,7 @@ __all__ = [
     'CustomOpenIdConnectProviderResponse',
     'DatabaseBackupSettingResponse',
     'EnabledConfigResponse',
+    'ErrorEntityResponse',
     'ExperimentsResponse',
     'FacebookResponse',
     'FileSystemApplicationLogsConfigResponse',
@@ -98,7 +100,9 @@ __all__ = [
     'PrivateLinkConnectionStateResponse',
     'PushSettingsResponse',
     'RampUpRuleResponse',
+    'RemotePrivateEndpointConnectionResponse',
     'RequestsBasedTriggerResponse',
+    'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
     'SiteConfigResponse',
     'SiteLimitsResponse',
     'SiteMachineKeyResponse',
@@ -996,6 +1000,80 @@ class ArmIdWrapperResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ArmPlanResponse(dict):
+    """
+    The plan object in Azure Resource Manager, represents a marketplace plan.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 product: Optional[str] = None,
+                 promotion_code: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The plan object in Azure Resource Manager, represents a marketplace plan.
+        :param str name: The name.
+        :param str product: The product.
+        :param str promotion_code: The promotion code.
+        :param str publisher: The publisher.
+        :param str version: Version of product.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        The product.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        The promotion code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of product.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3384,6 +3462,92 @@ class EnabledConfigResponse(dict):
         True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
         return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ErrorEntityResponse(dict):
+    """
+    Body of the error response returned from the API.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 extended_code: Optional[str] = None,
+                 inner_errors: Optional[Sequence['outputs.ErrorEntityResponse']] = None,
+                 message: Optional[str] = None,
+                 message_template: Optional[str] = None,
+                 parameters: Optional[Sequence[str]] = None):
+        """
+        Body of the error response returned from the API.
+        :param str code: Basic error code.
+        :param str extended_code: Type of error.
+        :param Sequence['ErrorEntityResponseArgs'] inner_errors: Inner errors.
+        :param str message: Any details of the error.
+        :param str message_template: Message template.
+        :param Sequence[str] parameters: Parameters for the template.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if extended_code is not None:
+            pulumi.set(__self__, "extended_code", extended_code)
+        if inner_errors is not None:
+            pulumi.set(__self__, "inner_errors", inner_errors)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if message_template is not None:
+            pulumi.set(__self__, "message_template", message_template)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Basic error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="extendedCode")
+    def extended_code(self) -> Optional[str]:
+        """
+        Type of error.
+        """
+        return pulumi.get(self, "extended_code")
+
+    @property
+    @pulumi.getter(name="innerErrors")
+    def inner_errors(self) -> Optional[Sequence['outputs.ErrorEntityResponse']]:
+        """
+        Inner errors.
+        """
+        return pulumi.get(self, "inner_errors")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Any details of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="messageTemplate")
+    def message_template(self) -> Optional[str]:
+        """
+        Message template.
+        """
+        return pulumi.get(self, "message_template")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence[str]]:
+        """
+        Parameters for the template.
+        """
+        return pulumi.get(self, "parameters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -6119,6 +6283,108 @@ class RampUpRuleResponse(dict):
 
 
 @pulumi.output_type
+class RemotePrivateEndpointConnectionResponse(dict):
+    """
+    A remote private endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 kind: Optional[str] = None,
+                 private_endpoint: Optional['outputs.ArmIdWrapperResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None):
+        """
+        A remote private endpoint connection
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param Sequence[str] ip_addresses: Private IPAddresses mapped to the remote private endpoint
+        :param str kind: Kind of resource.
+        :param 'ArmIdWrapperResponseArgs' private_endpoint: PrivateEndpoint of a remote private endpoint connection
+        :param 'PrivateLinkConnectionStateResponseArgs' private_link_service_connection_state: The state of a private link connection
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Private IPAddresses mapped to the remote private endpoint
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+        """
+        PrivateEndpoint of a remote private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateResponse']:
+        """
+        The state of a private link connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RequestsBasedTriggerResponse(dict):
     """
     Trigger based on total requests.
@@ -6151,6 +6417,168 @@ class RequestsBasedTriggerResponse(dict):
         Time interval.
         """
         return pulumi.get(self, "time_interval")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
+    """
+    Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+    """
+    def __init__(__self__, *,
+                 error: Optional['outputs.ErrorEntityResponse'] = None,
+                 id: Optional[str] = None,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 location: Optional[str] = None,
+                 name: Optional[str] = None,
+                 plan: Optional['outputs.ArmPlanResponse'] = None,
+                 properties: Optional['outputs.RemotePrivateEndpointConnectionResponse'] = None,
+                 sku: Optional['outputs.SkuDescriptionResponse'] = None,
+                 status: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+        :param 'ErrorEntityResponseArgs' error: Azure-AsyncOperation Error info.
+        :param str id: Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+               value for GET requests only.
+               For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+        :param 'ManagedServiceIdentityResponseArgs' identity: MSI resource
+        :param str location: Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+        :param str name: Name of resource.
+        :param 'ArmPlanResponseArgs' plan: Azure resource manager plan.
+        :param 'RemotePrivateEndpointConnectionResponseArgs' properties: Resource specific properties.
+        :param 'SkuDescriptionResponseArgs' sku: SKU description of the resource.
+        :param str status: Azure-AsyncOperation Status info.
+        :param Mapping[str, str] tags: Tags associated with resource.
+        :param str type: Type of resource e.g "Microsoft.Web/sites".
+        :param Sequence[str] zones: Logical Availability Zones the service is hosted in
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorEntityResponse']:
+        """
+        Azure-AsyncOperation Error info.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+        value for GET requests only.
+        For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        MSI resource
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.ArmPlanResponse']:
+        """
+        Azure resource manager plan.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.RemotePrivateEndpointConnectionResponse']:
+        """
+        Resource specific properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+        """
+        SKU description of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Azure-AsyncOperation Status info.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags associated with resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of resource e.g "Microsoft.Web/sites".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        Logical Availability Zones the service is hosted in
+        """
+        return pulumi.get(self, "zones")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

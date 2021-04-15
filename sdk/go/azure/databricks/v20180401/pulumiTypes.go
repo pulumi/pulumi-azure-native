@@ -2141,6 +2141,159 @@ func (o WorkspaceCustomBooleanParameterResponsePtrOutput) Value() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The value which should be used for this field.
+type WorkspaceCustomObjectParameterResponse struct {
+	// The type of variable that this is
+	Type string `pulumi:"type"`
+	// The value which should be used for this field.
+	Value interface{} `pulumi:"value"`
+}
+
+// WorkspaceCustomObjectParameterResponseInput is an input type that accepts WorkspaceCustomObjectParameterResponseArgs and WorkspaceCustomObjectParameterResponseOutput values.
+// You can construct a concrete instance of `WorkspaceCustomObjectParameterResponseInput` via:
+//
+//          WorkspaceCustomObjectParameterResponseArgs{...}
+type WorkspaceCustomObjectParameterResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomObjectParameterResponseOutput() WorkspaceCustomObjectParameterResponseOutput
+	ToWorkspaceCustomObjectParameterResponseOutputWithContext(context.Context) WorkspaceCustomObjectParameterResponseOutput
+}
+
+// The value which should be used for this field.
+type WorkspaceCustomObjectParameterResponseArgs struct {
+	// The type of variable that this is
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value which should be used for this field.
+	Value pulumi.Input `pulumi:"value"`
+}
+
+func (WorkspaceCustomObjectParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomObjectParameterResponse)(nil)).Elem()
+}
+
+func (i WorkspaceCustomObjectParameterResponseArgs) ToWorkspaceCustomObjectParameterResponseOutput() WorkspaceCustomObjectParameterResponseOutput {
+	return i.ToWorkspaceCustomObjectParameterResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomObjectParameterResponseArgs) ToWorkspaceCustomObjectParameterResponseOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomObjectParameterResponseOutput)
+}
+
+func (i WorkspaceCustomObjectParameterResponseArgs) ToWorkspaceCustomObjectParameterResponsePtrOutput() WorkspaceCustomObjectParameterResponsePtrOutput {
+	return i.ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomObjectParameterResponseArgs) ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomObjectParameterResponseOutput).ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceCustomObjectParameterResponsePtrInput is an input type that accepts WorkspaceCustomObjectParameterResponseArgs, WorkspaceCustomObjectParameterResponsePtr and WorkspaceCustomObjectParameterResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceCustomObjectParameterResponsePtrInput` via:
+//
+//          WorkspaceCustomObjectParameterResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceCustomObjectParameterResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomObjectParameterResponsePtrOutput() WorkspaceCustomObjectParameterResponsePtrOutput
+	ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(context.Context) WorkspaceCustomObjectParameterResponsePtrOutput
+}
+
+type workspaceCustomObjectParameterResponsePtrType WorkspaceCustomObjectParameterResponseArgs
+
+func WorkspaceCustomObjectParameterResponsePtr(v *WorkspaceCustomObjectParameterResponseArgs) WorkspaceCustomObjectParameterResponsePtrInput {
+	return (*workspaceCustomObjectParameterResponsePtrType)(v)
+}
+
+func (*workspaceCustomObjectParameterResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomObjectParameterResponse)(nil)).Elem()
+}
+
+func (i *workspaceCustomObjectParameterResponsePtrType) ToWorkspaceCustomObjectParameterResponsePtrOutput() WorkspaceCustomObjectParameterResponsePtrOutput {
+	return i.ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceCustomObjectParameterResponsePtrType) ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomObjectParameterResponsePtrOutput)
+}
+
+// The value which should be used for this field.
+type WorkspaceCustomObjectParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomObjectParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomObjectParameterResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomObjectParameterResponseOutput) ToWorkspaceCustomObjectParameterResponseOutput() WorkspaceCustomObjectParameterResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomObjectParameterResponseOutput) ToWorkspaceCustomObjectParameterResponseOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomObjectParameterResponseOutput) ToWorkspaceCustomObjectParameterResponsePtrOutput() WorkspaceCustomObjectParameterResponsePtrOutput {
+	return o.ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceCustomObjectParameterResponseOutput) ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomObjectParameterResponse) *WorkspaceCustomObjectParameterResponse {
+		return &v
+	}).(WorkspaceCustomObjectParameterResponsePtrOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceCustomObjectParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomObjectParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceCustomObjectParameterResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkspaceCustomObjectParameterResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type WorkspaceCustomObjectParameterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomObjectParameterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomObjectParameterResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomObjectParameterResponsePtrOutput) ToWorkspaceCustomObjectParameterResponsePtrOutput() WorkspaceCustomObjectParameterResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomObjectParameterResponsePtrOutput) ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomObjectParameterResponsePtrOutput) Elem() WorkspaceCustomObjectParameterResponseOutput {
+	return o.ApplyT(func(v *WorkspaceCustomObjectParameterResponse) WorkspaceCustomObjectParameterResponse { return *v }).(WorkspaceCustomObjectParameterResponseOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceCustomObjectParameterResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomObjectParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceCustomObjectParameterResponsePtrOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WorkspaceCustomObjectParameterResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.AnyOutput)
+}
+
 // Custom Parameters used for Cluster Creation.
 type WorkspaceCustomParameters struct {
 	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
@@ -2155,10 +2308,24 @@ type WorkspaceCustomParameters struct {
 	EnableNoPublicIp *WorkspaceCustomBooleanParameter `pulumi:"enableNoPublicIp"`
 	// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
 	Encryption *WorkspaceEncryptionParameter `pulumi:"encryption"`
+	// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+	LoadBalancerBackendPoolName *WorkspaceCustomStringParameter `pulumi:"loadBalancerBackendPoolName"`
+	// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+	LoadBalancerId *WorkspaceCustomStringParameter `pulumi:"loadBalancerId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+	NatGatewayName *WorkspaceCustomStringParameter `pulumi:"natGatewayName"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption *WorkspaceCustomBooleanParameter `pulumi:"prepareEncryption"`
+	// Name of the Public IP for No Public IP workspace with managed vNet.
+	PublicIpName *WorkspaceCustomStringParameter `pulumi:"publicIpName"`
 	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 	RequireInfrastructureEncryption *WorkspaceCustomBooleanParameter `pulumi:"requireInfrastructureEncryption"`
+	// Default DBFS storage account name.
+	StorageAccountName *WorkspaceCustomStringParameter `pulumi:"storageAccountName"`
+	// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+	StorageAccountSkuName *WorkspaceCustomStringParameter `pulumi:"storageAccountSkuName"`
+	// Address prefix for Managed virtual network. Default value for this input is 10.139.
+	VnetAddressPrefix *WorkspaceCustomStringParameter `pulumi:"vnetAddressPrefix"`
 }
 
 // WorkspaceCustomParametersInput is an input type that accepts WorkspaceCustomParametersArgs and WorkspaceCustomParametersOutput values.
@@ -2186,10 +2353,24 @@ type WorkspaceCustomParametersArgs struct {
 	EnableNoPublicIp WorkspaceCustomBooleanParameterPtrInput `pulumi:"enableNoPublicIp"`
 	// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
 	Encryption WorkspaceEncryptionParameterPtrInput `pulumi:"encryption"`
+	// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+	LoadBalancerBackendPoolName WorkspaceCustomStringParameterPtrInput `pulumi:"loadBalancerBackendPoolName"`
+	// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+	LoadBalancerId WorkspaceCustomStringParameterPtrInput `pulumi:"loadBalancerId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+	NatGatewayName WorkspaceCustomStringParameterPtrInput `pulumi:"natGatewayName"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption WorkspaceCustomBooleanParameterPtrInput `pulumi:"prepareEncryption"`
+	// Name of the Public IP for No Public IP workspace with managed vNet.
+	PublicIpName WorkspaceCustomStringParameterPtrInput `pulumi:"publicIpName"`
 	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 	RequireInfrastructureEncryption WorkspaceCustomBooleanParameterPtrInput `pulumi:"requireInfrastructureEncryption"`
+	// Default DBFS storage account name.
+	StorageAccountName WorkspaceCustomStringParameterPtrInput `pulumi:"storageAccountName"`
+	// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+	StorageAccountSkuName WorkspaceCustomStringParameterPtrInput `pulumi:"storageAccountSkuName"`
+	// Address prefix for Managed virtual network. Default value for this input is 10.139.
+	VnetAddressPrefix WorkspaceCustomStringParameterPtrInput `pulumi:"vnetAddressPrefix"`
 }
 
 func (WorkspaceCustomParametersArgs) ElementType() reflect.Type {
@@ -2300,9 +2481,31 @@ func (o WorkspaceCustomParametersOutput) Encryption() WorkspaceEncryptionParamet
 	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceEncryptionParameter { return v.Encryption }).(WorkspaceEncryptionParameterPtrOutput)
 }
 
+// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+func (o WorkspaceCustomParametersOutput) LoadBalancerBackendPoolName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		return v.LoadBalancerBackendPoolName
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+func (o WorkspaceCustomParametersOutput) LoadBalancerId() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.LoadBalancerId }).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+func (o WorkspaceCustomParametersOutput) NatGatewayName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.NatGatewayName }).(WorkspaceCustomStringParameterPtrOutput)
+}
+
 // Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 func (o WorkspaceCustomParametersOutput) PrepareEncryption() WorkspaceCustomBooleanParameterPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter { return v.PrepareEncryption }).(WorkspaceCustomBooleanParameterPtrOutput)
+}
+
+// Name of the Public IP for No Public IP workspace with managed vNet.
+func (o WorkspaceCustomParametersOutput) PublicIpName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.PublicIpName }).(WorkspaceCustomStringParameterPtrOutput)
 }
 
 // A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
@@ -2310,6 +2513,21 @@ func (o WorkspaceCustomParametersOutput) RequireInfrastructureEncryption() Works
 	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter {
 		return v.RequireInfrastructureEncryption
 	}).(WorkspaceCustomBooleanParameterPtrOutput)
+}
+
+// Default DBFS storage account name.
+func (o WorkspaceCustomParametersOutput) StorageAccountName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.StorageAccountName }).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+func (o WorkspaceCustomParametersOutput) StorageAccountSkuName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.StorageAccountSkuName }).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Address prefix for Managed virtual network. Default value for this input is 10.139.
+func (o WorkspaceCustomParametersOutput) VnetAddressPrefix() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.VnetAddressPrefix }).(WorkspaceCustomStringParameterPtrOutput)
 }
 
 type WorkspaceCustomParametersPtrOutput struct{ *pulumi.OutputState }
@@ -2390,6 +2608,36 @@ func (o WorkspaceCustomParametersPtrOutput) Encryption() WorkspaceEncryptionPara
 	}).(WorkspaceEncryptionParameterPtrOutput)
 }
 
+// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+func (o WorkspaceCustomParametersPtrOutput) LoadBalancerBackendPoolName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerBackendPoolName
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+func (o WorkspaceCustomParametersPtrOutput) LoadBalancerId() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerId
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+func (o WorkspaceCustomParametersPtrOutput) NatGatewayName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.NatGatewayName
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
 // Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 func (o WorkspaceCustomParametersPtrOutput) PrepareEncryption() WorkspaceCustomBooleanParameterPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter {
@@ -2400,6 +2648,16 @@ func (o WorkspaceCustomParametersPtrOutput) PrepareEncryption() WorkspaceCustomB
 	}).(WorkspaceCustomBooleanParameterPtrOutput)
 }
 
+// Name of the Public IP for No Public IP workspace with managed vNet.
+func (o WorkspaceCustomParametersPtrOutput) PublicIpName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpName
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
 // A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 func (o WorkspaceCustomParametersPtrOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter {
@@ -2408,6 +2666,36 @@ func (o WorkspaceCustomParametersPtrOutput) RequireInfrastructureEncryption() Wo
 		}
 		return v.RequireInfrastructureEncryption
 	}).(WorkspaceCustomBooleanParameterPtrOutput)
+}
+
+// Default DBFS storage account name.
+func (o WorkspaceCustomParametersPtrOutput) StorageAccountName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+func (o WorkspaceCustomParametersPtrOutput) StorageAccountSkuName() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountSkuName
+	}).(WorkspaceCustomStringParameterPtrOutput)
+}
+
+// Address prefix for Managed virtual network. Default value for this input is 10.139.
+func (o WorkspaceCustomParametersPtrOutput) VnetAddressPrefix() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.VnetAddressPrefix
+	}).(WorkspaceCustomStringParameterPtrOutput)
 }
 
 // Custom Parameters used for Cluster Creation.
@@ -2424,10 +2712,26 @@ type WorkspaceCustomParametersResponse struct {
 	EnableNoPublicIp *WorkspaceCustomBooleanParameterResponse `pulumi:"enableNoPublicIp"`
 	// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
 	Encryption *WorkspaceEncryptionParameterResponse `pulumi:"encryption"`
+	// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+	LoadBalancerBackendPoolName *WorkspaceCustomStringParameterResponse `pulumi:"loadBalancerBackendPoolName"`
+	// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+	LoadBalancerId *WorkspaceCustomStringParameterResponse `pulumi:"loadBalancerId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+	NatGatewayName *WorkspaceCustomStringParameterResponse `pulumi:"natGatewayName"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption *WorkspaceCustomBooleanParameterResponse `pulumi:"prepareEncryption"`
+	// Name of the Public IP for No Public IP workspace with managed vNet.
+	PublicIpName *WorkspaceCustomStringParameterResponse `pulumi:"publicIpName"`
 	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 	RequireInfrastructureEncryption *WorkspaceCustomBooleanParameterResponse `pulumi:"requireInfrastructureEncryption"`
+	// Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+	ResourceTags WorkspaceCustomObjectParameterResponse `pulumi:"resourceTags"`
+	// Default DBFS storage account name.
+	StorageAccountName *WorkspaceCustomStringParameterResponse `pulumi:"storageAccountName"`
+	// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+	StorageAccountSkuName *WorkspaceCustomStringParameterResponse `pulumi:"storageAccountSkuName"`
+	// Address prefix for Managed virtual network. Default value for this input is 10.139.
+	VnetAddressPrefix *WorkspaceCustomStringParameterResponse `pulumi:"vnetAddressPrefix"`
 }
 
 // WorkspaceCustomParametersResponseInput is an input type that accepts WorkspaceCustomParametersResponseArgs and WorkspaceCustomParametersResponseOutput values.
@@ -2455,10 +2759,26 @@ type WorkspaceCustomParametersResponseArgs struct {
 	EnableNoPublicIp WorkspaceCustomBooleanParameterResponsePtrInput `pulumi:"enableNoPublicIp"`
 	// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
 	Encryption WorkspaceEncryptionParameterResponsePtrInput `pulumi:"encryption"`
+	// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+	LoadBalancerBackendPoolName WorkspaceCustomStringParameterResponsePtrInput `pulumi:"loadBalancerBackendPoolName"`
+	// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+	LoadBalancerId WorkspaceCustomStringParameterResponsePtrInput `pulumi:"loadBalancerId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+	NatGatewayName WorkspaceCustomStringParameterResponsePtrInput `pulumi:"natGatewayName"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption WorkspaceCustomBooleanParameterResponsePtrInput `pulumi:"prepareEncryption"`
+	// Name of the Public IP for No Public IP workspace with managed vNet.
+	PublicIpName WorkspaceCustomStringParameterResponsePtrInput `pulumi:"publicIpName"`
 	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 	RequireInfrastructureEncryption WorkspaceCustomBooleanParameterResponsePtrInput `pulumi:"requireInfrastructureEncryption"`
+	// Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+	ResourceTags WorkspaceCustomObjectParameterResponseInput `pulumi:"resourceTags"`
+	// Default DBFS storage account name.
+	StorageAccountName WorkspaceCustomStringParameterResponsePtrInput `pulumi:"storageAccountName"`
+	// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+	StorageAccountSkuName WorkspaceCustomStringParameterResponsePtrInput `pulumi:"storageAccountSkuName"`
+	// Address prefix for Managed virtual network. Default value for this input is 10.139.
+	VnetAddressPrefix WorkspaceCustomStringParameterResponsePtrInput `pulumi:"vnetAddressPrefix"`
 }
 
 func (WorkspaceCustomParametersResponseArgs) ElementType() reflect.Type {
@@ -2579,6 +2899,27 @@ func (o WorkspaceCustomParametersResponseOutput) Encryption() WorkspaceEncryptio
 	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceEncryptionParameterResponse { return v.Encryption }).(WorkspaceEncryptionParameterResponsePtrOutput)
 }
 
+// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+func (o WorkspaceCustomParametersResponseOutput) LoadBalancerBackendPoolName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.LoadBalancerBackendPoolName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+func (o WorkspaceCustomParametersResponseOutput) LoadBalancerId() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.LoadBalancerId
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+func (o WorkspaceCustomParametersResponseOutput) NatGatewayName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.NatGatewayName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
 // Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 func (o WorkspaceCustomParametersResponseOutput) PrepareEncryption() WorkspaceCustomBooleanParameterResponsePtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomBooleanParameterResponse {
@@ -2586,11 +2927,46 @@ func (o WorkspaceCustomParametersResponseOutput) PrepareEncryption() WorkspaceCu
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
 }
 
+// Name of the Public IP for No Public IP workspace with managed vNet.
+func (o WorkspaceCustomParametersResponseOutput) PublicIpName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.PublicIpName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
 // A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 func (o WorkspaceCustomParametersResponseOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterResponsePtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomBooleanParameterResponse {
 		return v.RequireInfrastructureEncryption
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
+}
+
+// Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+func (o WorkspaceCustomParametersResponseOutput) ResourceTags() WorkspaceCustomObjectParameterResponseOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) WorkspaceCustomObjectParameterResponse {
+		return v.ResourceTags
+	}).(WorkspaceCustomObjectParameterResponseOutput)
+}
+
+// Default DBFS storage account name.
+func (o WorkspaceCustomParametersResponseOutput) StorageAccountName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.StorageAccountName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+func (o WorkspaceCustomParametersResponseOutput) StorageAccountSkuName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.StorageAccountSkuName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Address prefix for Managed virtual network. Default value for this input is 10.139.
+func (o WorkspaceCustomParametersResponseOutput) VnetAddressPrefix() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.VnetAddressPrefix
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
 }
 
 type WorkspaceCustomParametersResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2671,6 +3047,36 @@ func (o WorkspaceCustomParametersResponsePtrOutput) Encryption() WorkspaceEncryp
 	}).(WorkspaceEncryptionParameterResponsePtrOutput)
 }
 
+// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+func (o WorkspaceCustomParametersResponsePtrOutput) LoadBalancerBackendPoolName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerBackendPoolName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+func (o WorkspaceCustomParametersResponsePtrOutput) LoadBalancerId() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerId
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+func (o WorkspaceCustomParametersResponsePtrOutput) NatGatewayName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NatGatewayName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
 // Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 func (o WorkspaceCustomParametersResponsePtrOutput) PrepareEncryption() WorkspaceCustomBooleanParameterResponsePtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomBooleanParameterResponse {
@@ -2681,6 +3087,16 @@ func (o WorkspaceCustomParametersResponsePtrOutput) PrepareEncryption() Workspac
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
 }
 
+// Name of the Public IP for No Public IP workspace with managed vNet.
+func (o WorkspaceCustomParametersResponsePtrOutput) PublicIpName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
 // A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 func (o WorkspaceCustomParametersResponsePtrOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterResponsePtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomBooleanParameterResponse {
@@ -2689,6 +3105,46 @@ func (o WorkspaceCustomParametersResponsePtrOutput) RequireInfrastructureEncrypt
 		}
 		return v.RequireInfrastructureEncryption
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
+}
+
+// Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+func (o WorkspaceCustomParametersResponsePtrOutput) ResourceTags() WorkspaceCustomObjectParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomObjectParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceTags
+	}).(WorkspaceCustomObjectParameterResponsePtrOutput)
+}
+
+// Default DBFS storage account name.
+func (o WorkspaceCustomParametersResponsePtrOutput) StorageAccountName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+func (o WorkspaceCustomParametersResponsePtrOutput) StorageAccountSkuName() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountSkuName
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
+// Address prefix for Managed virtual network. Default value for this input is 10.139.
+func (o WorkspaceCustomParametersResponsePtrOutput) VnetAddressPrefix() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VnetAddressPrefix
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
 }
 
 // The Value.
@@ -3512,6 +3968,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomObjectParameterResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomObjectParameterResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersResponseOutput{})

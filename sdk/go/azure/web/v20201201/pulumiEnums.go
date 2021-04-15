@@ -793,6 +793,34 @@ func (e SslState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// State indicating whether staging environments are allowed or not allowed for a static web app.
+type StagingEnvironmentPolicy pulumi.String
+
+const (
+	StagingEnvironmentPolicyEnabled  = StagingEnvironmentPolicy("Enabled")
+	StagingEnvironmentPolicyDisabled = StagingEnvironmentPolicy("Disabled")
+)
+
+func (StagingEnvironmentPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e StagingEnvironmentPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StagingEnvironmentPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StagingEnvironmentPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StagingEnvironmentPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
 type SupportedTlsVersions pulumi.String
 

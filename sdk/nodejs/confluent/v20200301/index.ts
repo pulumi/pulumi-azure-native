@@ -8,9 +8,6 @@ import * as utilities from "../../utilities";
 export * from "./getOrganization";
 export * from "./organization";
 
-// Export enums:
-export * from "../../types/enums/confluent/v20200301";
-
 // Import resources to register:
 import { Organization } from "./organization";
 

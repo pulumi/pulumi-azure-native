@@ -74,6 +74,7 @@ from . import (
     digitaltwins,
     documentdb,
     domainregistration,
+    dynamics365fraudprotection,
     edgeorder,
     elastic,
     engagementfabric,
@@ -168,6 +169,7 @@ from . import (
     visualstudio,
     vmwarecloudsimple,
     web,
+    webpubsub,
     windowsesu,
     windowsiot,
 )

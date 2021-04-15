@@ -72,6 +72,39 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
     }
 
     /// <summary>
+    /// Enforce a minimal Tls version for the server.
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalTlsVersionEnum : IEquatable<MinimalTlsVersionEnum>
+    {
+        private readonly string _value;
+
+        private MinimalTlsVersionEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MinimalTlsVersionEnum TLS1_0 { get; } = new MinimalTlsVersionEnum("TLS1_0");
+        public static MinimalTlsVersionEnum TLS1_1 { get; } = new MinimalTlsVersionEnum("TLS1_1");
+        public static MinimalTlsVersionEnum TLS1_2 { get; } = new MinimalTlsVersionEnum("TLS1_2");
+        public static MinimalTlsVersionEnum TLSEnforcementDisabled { get; } = new MinimalTlsVersionEnum("TLSEnforcementDisabled");
+
+        public static bool operator ==(MinimalTlsVersionEnum left, MinimalTlsVersionEnum right) => left.Equals(right);
+        public static bool operator !=(MinimalTlsVersionEnum left, MinimalTlsVersionEnum right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalTlsVersionEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalTlsVersionEnum other && Equals(other);
+        public bool Equals(MinimalTlsVersionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Server version.
     /// </summary>
     [EnumType]

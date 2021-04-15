@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetStaticSiteResult
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if config file is locked for this static web app; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? AllowConfigFileUpdates;
+        /// <summary>
         /// The target branch in the repository.
         /// </summary>
         public readonly string? Branch;
@@ -88,6 +92,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Private endpoint connections
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provider that submitted the last deployment to the primary environment of the static site.
         /// </summary>
         public readonly string Provider;
@@ -103,6 +111,10 @@ namespace Pulumi.AzureNative.Web
         /// Description of a SKU for a scalable resource.
         /// </summary>
         public readonly Outputs.SkuDescriptionResponse? Sku;
+        /// <summary>
+        /// State indicating whether staging environments are allowed or not allowed for a static web app.
+        /// </summary>
+        public readonly string? StagingEnvironmentPolicy;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -122,6 +134,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetStaticSiteResult(
+            bool? allowConfigFileUpdates,
+
             string? branch,
 
             Outputs.StaticSiteBuildPropertiesResponse? buildProperties,
@@ -144,6 +158,8 @@ namespace Pulumi.AzureNative.Web
 
             string name,
 
+            ImmutableArray<Outputs.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provider,
 
             string? repositoryToken,
@@ -151,6 +167,8 @@ namespace Pulumi.AzureNative.Web
             string? repositoryUrl,
 
             Outputs.SkuDescriptionResponse? sku,
+
+            string? stagingEnvironmentPolicy,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -160,6 +178,7 @@ namespace Pulumi.AzureNative.Web
 
             ImmutableArray<Outputs.StaticSiteUserProvidedFunctionAppResponse> userProvidedFunctionApps)
         {
+            AllowConfigFileUpdates = allowConfigFileUpdates;
             Branch = branch;
             BuildProperties = buildProperties;
             ContentDistributionEndpoint = contentDistributionEndpoint;
@@ -171,10 +190,12 @@ namespace Pulumi.AzureNative.Web
             Kind = kind;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             Provider = provider;
             RepositoryToken = repositoryToken;
             RepositoryUrl = repositoryUrl;
             Sku = sku;
+            StagingEnvironmentPolicy = stagingEnvironmentPolicy;
             Tags = tags;
             TemplateProperties = templateProperties;
             Type = type;

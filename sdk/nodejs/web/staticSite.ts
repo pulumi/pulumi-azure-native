@@ -37,6 +37,10 @@ export class StaticSite extends pulumi.CustomResource {
     }
 
     /**
+     * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+     */
+    public readonly allowConfigFileUpdates!: pulumi.Output<boolean | undefined>;
+    /**
      * The target branch in the repository.
      */
     public readonly branch!: pulumi.Output<string | undefined>;
@@ -77,6 +81,10 @@ export class StaticSite extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Private endpoint connections
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.web.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse[]>;
+    /**
      * The provider that submitted the last deployment to the primary environment of the static site.
      */
     public /*out*/ readonly provider!: pulumi.Output<string>;
@@ -92,6 +100,10 @@ export class StaticSite extends pulumi.CustomResource {
      * Description of a SKU for a scalable resource.
      */
     public readonly sku!: pulumi.Output<outputs.web.SkuDescriptionResponse | undefined>;
+    /**
+     * State indicating whether staging environments are allowed or not allowed for a static web app.
+     */
+    public readonly stagingEnvironmentPolicy!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -123,6 +135,7 @@ export class StaticSite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowConfigFileUpdates"] = args ? args.allowConfigFileUpdates : undefined;
             inputs["branch"] = args ? args.branch : undefined;
             inputs["buildProperties"] = args ? args.buildProperties : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -133,16 +146,19 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["stagingEnvironmentPolicy"] = args ? args.stagingEnvironmentPolicy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["templateProperties"] = args ? args.templateProperties : undefined;
             inputs["contentDistributionEndpoint"] = undefined /*out*/;
             inputs["customDomains"] = undefined /*out*/;
             inputs["defaultHostname"] = undefined /*out*/;
             inputs["keyVaultReferenceIdentity"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provider"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userProvidedFunctionApps"] = undefined /*out*/;
         } else {
+            inputs["allowConfigFileUpdates"] = undefined /*out*/;
             inputs["branch"] = undefined /*out*/;
             inputs["buildProperties"] = undefined /*out*/;
             inputs["contentDistributionEndpoint"] = undefined /*out*/;
@@ -153,10 +169,12 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provider"] = undefined /*out*/;
             inputs["repositoryToken"] = undefined /*out*/;
             inputs["repositoryUrl"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["stagingEnvironmentPolicy"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["templateProperties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -175,6 +193,10 @@ export class StaticSite extends pulumi.CustomResource {
  * The set of arguments for constructing a StaticSite resource.
  */
 export interface StaticSiteArgs {
+    /**
+     * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
+     */
+    readonly allowConfigFileUpdates?: pulumi.Input<boolean>;
     /**
      * The target branch in the repository.
      */
@@ -215,6 +237,10 @@ export interface StaticSiteArgs {
      * Description of a SKU for a scalable resource.
      */
     readonly sku?: pulumi.Input<inputs.web.SkuDescription>;
+    /**
+     * State indicating whether staging environments are allowed or not allowed for a static web app.
+     */
+    readonly stagingEnvironmentPolicy?: pulumi.Input<enums.web.StagingEnvironmentPolicy>;
     /**
      * Resource tags.
      */

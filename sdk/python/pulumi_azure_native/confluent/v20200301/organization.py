@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['OrganizationArgs', 'Organization']
@@ -206,7 +205,7 @@ class Organization(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['sso_url'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent:Organization"), pulumi.Alias(type_="azure-nextgen:confluent:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent:Organization"), pulumi.Alias(type_="azure-nextgen:confluent:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20210301preview:Organization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Organization, __self__).__init__(
             'azure-native:confluent/v20200301:Organization',

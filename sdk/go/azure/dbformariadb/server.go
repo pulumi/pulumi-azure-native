@@ -26,6 +26,8 @@ type Server struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of private endpoint connections on a server
@@ -115,6 +117,8 @@ type serverState struct {
 	Location *string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// List of private endpoint connections on a server
@@ -152,6 +156,8 @@ type ServerState struct {
 	Location pulumi.StringPtrInput
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrInput
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// List of private endpoint connections on a server

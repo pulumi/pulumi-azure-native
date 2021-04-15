@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
         /// </summary>
         public readonly string? MasterServerId;
         /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        public readonly string? MinimalTlsVersion;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -127,6 +131,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
 
             string? masterServerId,
 
+            string? minimalTlsVersion,
+
             string name,
 
             int? replicaCapacity,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
             Identity = identity;
             Location = location;
             MasterServerId = masterServerId;
+            MinimalTlsVersion = minimalTlsVersion;
             Name = name;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;

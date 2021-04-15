@@ -8,16 +8,15 @@ import * as utilities from "../utilities";
 export * from "./getOrganization";
 export * from "./organization";
 
-// Export enums:
-export * from "../types/enums/confluent";
-
 // Export sub-modules:
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
+import * as v20210301preview from "./v20210301preview";
 
 export {
     v20200301,
     v20200301preview,
+    v20210301preview,
 };
 
 // Import resources to register:

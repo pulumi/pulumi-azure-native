@@ -40,6 +40,8 @@ type LookupServerResult struct {
 	Location string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The maximum number of replicas that a master server can have.

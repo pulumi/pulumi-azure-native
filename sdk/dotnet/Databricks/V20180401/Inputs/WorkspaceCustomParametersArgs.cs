@@ -52,16 +52,58 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
         public Input<Inputs.WorkspaceEncryptionParameterArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        /// </summary>
+        [Input("loadBalancerBackendPoolName")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? LoadBalancerBackendPoolName { get; set; }
+
+        /// <summary>
+        /// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        /// </summary>
+        [Input("loadBalancerId")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? LoadBalancerId { get; set; }
+
+        /// <summary>
+        /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        /// </summary>
+        [Input("natGatewayName")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? NatGatewayName { get; set; }
+
+        /// <summary>
         /// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
         /// </summary>
         [Input("prepareEncryption")]
         public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? PrepareEncryption { get; set; }
 
         /// <summary>
+        /// Name of the Public IP for No Public IP workspace with managed vNet.
+        /// </summary>
+        [Input("publicIpName")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? PublicIpName { get; set; }
+
+        /// <summary>
         /// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
         /// </summary>
         [Input("requireInfrastructureEncryption")]
         public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? RequireInfrastructureEncryption { get; set; }
+
+        /// <summary>
+        /// Default DBFS storage account name.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? StorageAccountName { get; set; }
+
+        /// <summary>
+        /// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        /// </summary>
+        [Input("storageAccountSkuName")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? StorageAccountSkuName { get; set; }
+
+        /// <summary>
+        /// Address prefix for Managed virtual network. Default value for this input is 10.139.
+        /// </summary>
+        [Input("vnetAddressPrefix")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? VnetAddressPrefix { get; set; }
 
         public WorkspaceCustomParametersArgs()
         {

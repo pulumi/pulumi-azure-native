@@ -206,6 +206,7 @@ class Server(pulumi.CustomResource):
             __props__['fully_qualified_domain_name'] = None
             __props__['identity'] = None
             __props__['master_server_id'] = None
+            __props__['minimal_tls_version'] = None
             __props__['name'] = None
             __props__['replica_capacity'] = None
             __props__['replication_role'] = None
@@ -244,6 +245,7 @@ class Server(pulumi.CustomResource):
         __props__["identity"] = None
         __props__["location"] = None
         __props__["master_server_id"] = None
+        __props__["minimal_tls_version"] = None
         __props__["name"] = None
         __props__["replica_capacity"] = None
         __props__["replication_role"] = None
@@ -303,6 +305,14 @@ class Server(pulumi.CustomResource):
         The master server id of a replica server.
         """
         return pulumi.get(self, "master_server_id")
+
+    @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enforce a minimal Tls version for the server.
+        """
+        return pulumi.get(self, "minimal_tls_version")
 
     @property
     @pulumi.getter

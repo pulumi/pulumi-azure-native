@@ -63,6 +63,10 @@ export interface GetServerResult {
      */
     readonly masterServerId?: string;
     /**
+     * Enforce a minimal Tls version for the server.
+     */
+    readonly minimalTlsVersion?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
