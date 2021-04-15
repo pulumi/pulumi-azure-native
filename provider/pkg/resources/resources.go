@@ -4,6 +4,7 @@ package resources
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/gedex/inflector"
@@ -128,8 +129,24 @@ var wellKnownProviderNames = map[string]string{
 	"visualstudio":    "VisualStudio",
 }
 
+// For the cases below, we use folder (SDK) name for module names instead of the ARM name.
+var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
+var folderModuleNames = map[string]string{
+	"webpubsub": "WebPubSub",
+}
+
 // ResourceProvider returns a provider name given Open API spec file and resource's API URI.
 func ResourceProvider(filePath, apiUri string) string {
+	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
+	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
+	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
+	subMatches := folderModulePattern.FindStringSubmatch(filePath)
+	if len(subMatches) > 1 {
+		moduleAlias := subMatches[1]
+		if name, ok := folderModuleNames[moduleAlias]; ok {
+			return name
+		}
+	}
 	// We extract the provider name from two sources:
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last provider in the URI)
