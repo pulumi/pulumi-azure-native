@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.DBforMariaDB
         public Output<string?> MasterServerId { get; private set; } = null!;
 
         /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        [Output("minimalTlsVersion")]
+        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]

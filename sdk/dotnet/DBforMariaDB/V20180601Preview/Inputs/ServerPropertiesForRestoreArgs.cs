@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview.Inputs
         public Input<string> CreateMode { get; set; } = null!;
 
         /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        [Input("minimalTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.V20180601Preview.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
         /// Restore point creation time (ISO8601 format), specifying the time to restore from.
         /// </summary>
         [Input("restorePointInTime", required: true)]

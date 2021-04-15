@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNative.Confluent.V20200301
+namespace Pulumi.AzureNative.Confluent.V20210301Preview
 {
     /// <summary>
     /// SaaS Offer Status

@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.DBforMariaDB.Inputs
         public Input<string> CreateMode { get; set; } = null!;
 
         /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        [Input("minimalTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]

@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent.V20200301.Outputs
         /// <summary>
         /// SaaS Offer Status
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
         /// <summary>
         /// Offer Plan Term unit
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Confluent.V20200301.Outputs
 
             string? publisherId,
 
-            string? status,
+            string status,
 
             string? termUnit)
         {

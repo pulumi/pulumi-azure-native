@@ -933,6 +933,37 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// State indicating whether staging environments are allowed or not allowed for a static web app.
+    /// </summary>
+    [EnumType]
+    public readonly struct StagingEnvironmentPolicy : IEquatable<StagingEnvironmentPolicy>
+    {
+        private readonly string _value;
+
+        private StagingEnvironmentPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StagingEnvironmentPolicy Enabled { get; } = new StagingEnvironmentPolicy("Enabled");
+        public static StagingEnvironmentPolicy Disabled { get; } = new StagingEnvironmentPolicy("Disabled");
+
+        public static bool operator ==(StagingEnvironmentPolicy left, StagingEnvironmentPolicy right) => left.Equals(right);
+        public static bool operator !=(StagingEnvironmentPolicy left, StagingEnvironmentPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(StagingEnvironmentPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StagingEnvironmentPolicy other && Equals(other);
+        public bool Equals(StagingEnvironmentPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
     /// </summary>
     [EnumType]

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.EventHub.Outputs
+namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview.Outputs
 {
 
     [OutputType]
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.EventHub.Outputs
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The type of identity that last modified the resource.
+        /// The timestamp of resource last modification (UTC)
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>

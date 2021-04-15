@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// </summary>
         public readonly string? MasterServerId;
         /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        public readonly string? MinimalTlsVersion;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
 
             string? masterServerId,
 
+            string? minimalTlsVersion,
+
             string name,
 
             ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
             Id = id;
             Location = location;
             MasterServerId = masterServerId;
+            MinimalTlsVersion = minimalTlsVersion;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             PublicNetworkAccess = publicNetworkAccess;
