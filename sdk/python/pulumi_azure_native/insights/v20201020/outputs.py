@@ -28,7 +28,7 @@ class ManagedIdentityResponse(dict):
         """
         Customer Managed Identity
         :param str type: The identity type.
-        :param 'UserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        :param 'UserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -66,7 +66,7 @@ class MyManagedIdentityResponse(dict):
         """
         Customer Managed Identity
         :param str type: The identity type.
-        :param 'MyUserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        :param 'MyUserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
         if type is not None:
             pulumi.set(__self__, "type", type)

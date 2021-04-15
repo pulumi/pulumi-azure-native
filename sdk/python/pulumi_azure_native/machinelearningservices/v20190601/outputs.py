@@ -14,7 +14,7 @@ __all__ = [
     'AKSResponse',
     'AKSResponseProperties',
     'AksNetworkingConfigurationResponse',
-    'AmlComputeNodeInformationResponseResult',
+    'AmlComputeNodeInformationResponse',
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
     'DataFactoryResponse',
@@ -29,8 +29,8 @@ __all__ = [
     'IdentityResponse',
     'MachineLearningServiceErrorResponse',
     'NodeStateCountsResponse',
-    'PasswordResponseResult',
-    'RegistryListCredentialsResultResponseResult',
+    'PasswordResponse',
+    'RegistryListCredentialsResultResponse',
     'ResourceIdResponse',
     'ScaleSettingsResponse',
     'SslConfigurationResponse',
@@ -64,11 +64,11 @@ class AKSResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AKSResponsePropertiesArgs' properties: AKS properties
+        :param 'AKSResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'AKS')
@@ -185,12 +185,12 @@ class AKSResponseProperties(dict):
                  ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None):
         """
         AKS properties
-        :param Sequence['SystemServiceResponseArgs'] system_services: System services
+        :param Sequence['SystemServiceResponse'] system_services: System services
         :param int agent_count: Number of agents
         :param str agent_vm_size: Agent virtual machine size
-        :param 'AksNetworkingConfigurationResponseArgs' aks_networking_configuration: AKS networking configuration for vnet
+        :param 'AksNetworkingConfigurationResponse' aks_networking_configuration: AKS networking configuration for vnet
         :param str cluster_fqdn: Cluster full qualified domain name
-        :param 'SslConfigurationResponseArgs' ssl_configuration: SSL configuration
+        :param 'SslConfigurationResponse' ssl_configuration: SSL configuration
         """
         pulumi.set(__self__, "system_services", system_services)
         if agent_count is not None:
@@ -319,7 +319,7 @@ class AksNetworkingConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class AmlComputeNodeInformationResponseResult(dict):
+class AmlComputeNodeInformationResponse(dict):
     """
     Compute node information related to a AmlCompute.
     """
@@ -418,11 +418,11 @@ class AmlComputeResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AmlComputeResponsePropertiesArgs' properties: AML Compute properties
+        :param 'AmlComputeResponseProperties' properties: AML Compute properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'AmlCompute')
@@ -548,13 +548,13 @@ class AmlComputeResponseProperties(dict):
         :param str allocation_state: Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
         :param str allocation_state_transition_time: The time at which the compute entered its current allocation state.
         :param int current_node_count: The number of compute nodes currently assigned to the compute.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
-        :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
+        :param Sequence['MachineLearningServiceErrorResponse'] errors: Collection of errors encountered by various compute nodes during node setup.
+        :param 'NodeStateCountsResponse' node_state_counts: Counts of various node states on the compute.
         :param int target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
-        :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
-        :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
-        :param 'UserAccountCredentialsResponseArgs' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
+        :param 'ScaleSettingsResponse' scale_settings: Scale settings for AML Compute
+        :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param 'UserAccountCredentialsResponse' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
         :param str vm_priority: Virtual Machine priority
         :param str vm_size: Virtual Machine Size
         """
@@ -701,7 +701,7 @@ class DataFactoryResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -820,7 +820,7 @@ class DataLakeAnalyticsResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -968,7 +968,7 @@ class DatabricksResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1141,7 +1141,7 @@ class ErrorResponseResponse(dict):
         """
         Error response information.
         :param str code: Error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -1199,7 +1199,7 @@ class HDInsightResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1310,7 +1310,7 @@ class HDInsightResponseProperties(dict):
                  ssh_port: Optional[int] = None):
         """
         :param str address: Public IP address of the master node of the cluster.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for master node of the cluster
         :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
@@ -1405,7 +1405,7 @@ class MachineLearningServiceErrorResponse(dict):
                  error: 'outputs.ErrorResponseResponse'):
         """
         Wrapper for error response to follow ARM guidelines.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         pulumi.set(__self__, "error", error)
 
@@ -1502,7 +1502,7 @@ class NodeStateCountsResponse(dict):
 
 
 @pulumi.output_type
-class PasswordResponseResult(dict):
+class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1521,11 +1521,11 @@ class PasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RegistryListCredentialsResultResponseResult(dict):
+class RegistryListCredentialsResultResponse(dict):
     def __init__(__self__, *,
                  location: str,
                  username: str,
-                 passwords: Optional[Sequence['outputs.PasswordResponseResult']] = None):
+                 passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "username", username)
         if passwords is not None:
@@ -1543,7 +1543,7 @@ class RegistryListCredentialsResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.PasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.PasswordResponse']]:
         return pulumi.get(self, "passwords")
 
 
@@ -1804,7 +1804,7 @@ class VirtualMachineResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1916,7 +1916,7 @@ class VirtualMachineResponseProperties(dict):
                  virtual_machine_size: Optional[str] = None):
         """
         :param str address: Public IP address of the virtual machine.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for virtual machine
         :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """

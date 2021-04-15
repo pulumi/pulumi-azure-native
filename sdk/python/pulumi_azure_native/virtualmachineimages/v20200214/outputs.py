@@ -119,7 +119,7 @@ class ImageTemplateIdentityResponse(dict):
         """
         Identity for the image template.
         :param str type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-        :param Mapping[str, 'ImageTemplateIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ImageTemplateIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -379,7 +379,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
         :param str type: Specifies the type of source image you want to start with.
                Expected value is 'PlatformImage'.
         :param str offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param 'PlatformImagePurchasePlanResponseArgs' plan_info: Optional configuration of purchase plan for platform image.
+        :param 'PlatformImagePurchasePlanResponse' plan_info: Optional configuration of purchase plan for platform image.
         :param str publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
@@ -917,7 +917,7 @@ class ImageTemplateVmProfileResponse(dict):
         Describes the virtual machine used to build, customize and capture images
         :param int os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
         :param str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
-        :param 'VirtualNetworkConfigResponseArgs' vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        :param 'VirtualNetworkConfigResponse' vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
         """
         if os_disk_size_gb is None:
             os_disk_size_gb = 0

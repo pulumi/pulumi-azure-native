@@ -81,8 +81,8 @@ class AggregateFunctionPropertiesResponse(dict):
         :param str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str type: Indicates the type of function.
                Expected value is 'Aggregate'.
-        :param Union['AzureMachineLearningServiceFunctionBindingResponseArgs', 'AzureMachineLearningStudioFunctionBindingResponseArgs', 'CSharpFunctionBindingResponseArgs', 'JavaScriptFunctionBindingResponseArgs'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param 'FunctionOutputResponseArgs' output: Describes the output of a function.
+        :param Union['AzureMachineLearningServiceFunctionBindingResponse', 'AzureMachineLearningStudioFunctionBindingResponse', 'CSharpFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        :param 'FunctionOutputResponse' output: Describes the output of a function.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "type", 'Aggregate')
@@ -404,9 +404,9 @@ class AzureMachineLearningServiceFunctionBindingResponse(dict):
         :param str api_key: The API key used to authenticate with Request-Response endpoint.
         :param int batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param str endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service.
-        :param Sequence['AzureMachineLearningServiceInputColumnResponseArgs'] inputs: The inputs for the Azure Machine Learning web service endpoint.
+        :param Sequence['AzureMachineLearningServiceInputColumnResponse'] inputs: The inputs for the Azure Machine Learning web service endpoint.
         :param int number_of_parallel_requests: The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
-        :param Sequence['AzureMachineLearningServiceOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
+        :param Sequence['AzureMachineLearningServiceOutputColumnResponse'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         """
         pulumi.set(__self__, "type", 'Microsoft.MachineLearningServices')
         if api_key is not None:
@@ -602,8 +602,8 @@ class AzureMachineLearningStudioFunctionBindingResponse(dict):
         :param str api_key: The API key used to authenticate with Request-Response endpoint.
         :param int batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param str endpoint: The Request-Response execute endpoint of the Azure Machine Learning Studio. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
-        :param 'AzureMachineLearningStudioInputsResponseArgs' inputs: The inputs for the Azure Machine Learning Studio endpoint.
-        :param Sequence['AzureMachineLearningStudioOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning Studio endpoint execution.
+        :param 'AzureMachineLearningStudioInputsResponse' inputs: The inputs for the Azure Machine Learning Studio endpoint.
+        :param Sequence['AzureMachineLearningStudioOutputColumnResponse'] outputs: A list of outputs from the Azure Machine Learning Studio endpoint execution.
         """
         pulumi.set(__self__, "type", 'Microsoft.MachineLearning/WebService')
         if api_key is not None:
@@ -730,7 +730,7 @@ class AzureMachineLearningStudioInputsResponse(dict):
                  name: Optional[str] = None):
         """
         The inputs for the Azure Machine Learning Studio endpoint.
-        :param Sequence['AzureMachineLearningStudioInputColumnResponseArgs'] column_names: A list of input columns for the Azure Machine Learning Studio endpoint.
+        :param Sequence['AzureMachineLearningStudioInputColumnResponse'] column_names: A list of input columns for the Azure Machine Learning Studio endpoint.
         :param str name: The name of the input. This is the name provided while authoring the endpoint.
         """
         if column_names is not None:
@@ -1291,7 +1291,7 @@ class BlobOutputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
@@ -1388,7 +1388,7 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
@@ -1477,7 +1477,7 @@ class BlobStreamInputDataSourceResponse(dict):
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
         :param int source_partition_count: The partition count of the blob input data source. Range 1 - 256.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
@@ -1835,7 +1835,7 @@ class DiagnosticsResponse(dict):
                  conditions: Sequence['outputs.DiagnosticConditionResponse']):
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-        :param Sequence['DiagnosticConditionResponseArgs'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+        :param Sequence['DiagnosticConditionResponse'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -2373,7 +2373,7 @@ class ExternalResponse(dict):
                  storage_account: Optional['outputs.StorageAccountResponse'] = None):
         """
         The storage account where the custom code artifacts are located.
-        :param 'StorageAccountResponseArgs' storage_account: The properties that are associated with an Azure Storage account
+        :param 'StorageAccountResponse' storage_account: The properties that are associated with an Azure Storage account
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
@@ -2483,7 +2483,7 @@ class FunctionResponse(dict):
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param Union['AggregateFunctionPropertiesResponseArgs', 'ScalarFunctionPropertiesResponseArgs'] properties: The properties that are associated with a function.
+        :param Union['AggregateFunctionPropertiesResponse', 'ScalarFunctionPropertiesResponse'] properties: The properties that are associated with a function.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -2581,7 +2581,7 @@ class InputResponse(dict):
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param Union['ReferenceInputPropertiesResponseArgs', 'StreamInputPropertiesResponseArgs'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+        :param Union['ReferenceInputPropertiesResponse', 'StreamInputPropertiesResponse'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -2870,13 +2870,13 @@ class OutputResponse(dict):
                  time_window: Optional[str] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str id: Resource Id
         :param str type: Resource type
-        :param Union['AzureDataLakeStoreOutputDataSourceResponseArgs', 'AzureFunctionOutputDataSourceResponseArgs', 'AzureSqlDatabaseOutputDataSourceResponseArgs', 'AzureSynapseOutputDataSourceResponseArgs', 'AzureTableOutputDataSourceResponseArgs', 'BlobOutputDataSourceResponseArgs', 'DocumentDbOutputDataSourceResponseArgs', 'EventHubOutputDataSourceResponseArgs', 'EventHubV2OutputDataSourceResponseArgs', 'PowerBIOutputDataSourceResponseArgs', 'ServiceBusQueueOutputDataSourceResponseArgs', 'ServiceBusTopicOutputDataSourceResponseArgs'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'CustomClrSerializationResponseArgs', 'JsonSerializationResponseArgs', 'ParquetSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -3128,14 +3128,14 @@ class ReferenceInputPropertiesResponse(dict):
                  serialization: Optional[Any] = None):
         """
         The properties that are associated with an input containing reference data.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Reference'.
-        :param 'CompressionResponseArgs' compression: Describes how input data is compressed
-        :param Union['AzureSqlReferenceInputDataSourceResponseArgs', 'BlobReferenceInputDataSourceResponseArgs'] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+        :param 'CompressionResponse' compression: Describes how input data is compressed
+        :param Union['AzureSqlReferenceInputDataSourceResponse', 'BlobReferenceInputDataSourceResponse'] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'CustomClrSerializationResponseArgs', 'JsonSerializationResponseArgs', 'ParquetSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -3226,8 +3226,8 @@ class ScalarFunctionPropertiesResponse(dict):
         :param str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str type: Indicates the type of function.
                Expected value is 'Scalar'.
-        :param Union['AzureMachineLearningServiceFunctionBindingResponseArgs', 'AzureMachineLearningStudioFunctionBindingResponseArgs', 'CSharpFunctionBindingResponseArgs', 'JavaScriptFunctionBindingResponseArgs'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param 'FunctionOutputResponseArgs' output: Describes the output of a function.
+        :param Union['AzureMachineLearningServiceFunctionBindingResponse', 'AzureMachineLearningStudioFunctionBindingResponse', 'CSharpFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        :param 'FunctionOutputResponse' output: Describes the output of a function.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "type", 'Scalar')
@@ -3547,14 +3547,14 @@ class StreamInputPropertiesResponse(dict):
                  serialization: Optional[Any] = None):
         """
         The properties that are associated with an input containing stream data.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Stream'.
-        :param 'CompressionResponseArgs' compression: Describes how input data is compressed
-        :param Union['BlobStreamInputDataSourceResponseArgs', 'EventHubStreamInputDataSourceResponseArgs', 'EventHubV2StreamInputDataSourceResponseArgs', 'IoTHubStreamInputDataSourceResponseArgs'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+        :param 'CompressionResponse' compression: Describes how input data is compressed
+        :param Union['BlobStreamInputDataSourceResponse', 'EventHubStreamInputDataSourceResponse', 'EventHubV2StreamInputDataSourceResponse', 'IoTHubStreamInputDataSourceResponse'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'CustomClrSerializationResponseArgs', 'JsonSerializationResponseArgs', 'ParquetSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)

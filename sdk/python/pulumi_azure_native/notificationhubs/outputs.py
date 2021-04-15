@@ -17,7 +17,7 @@ __all__ = [
     'GcmCredentialResponse',
     'MpnsCredentialResponse',
     'SharedAccessAuthorizationRulePropertiesResponse',
-    'SharedAccessAuthorizationRuleResourceResponseResult',
+    'SharedAccessAuthorizationRuleResourceResponse',
     'SkuResponse',
     'WnsCredentialResponse',
 ]
@@ -435,7 +435,7 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class SharedAccessAuthorizationRuleResourceResponseResult(dict):
+class SharedAccessAuthorizationRuleResourceResponse(dict):
     """
     Description of a Namespace AuthorizationRules.
     """
@@ -470,7 +470,7 @@ class SharedAccessAuthorizationRuleResourceResponseResult(dict):
         :param str type: Resource type
         :param str location: Resource location
         :param Sequence[str] rights: The rights associated with the rule.
-        :param 'SkuResponseArgs' sku: The sku of the created namespace
+        :param 'SkuResponse' sku: The sku of the created namespace
         :param Mapping[str, str] tags: Resource tags
         """
         pulumi.set(__self__, "claim_type", claim_type)

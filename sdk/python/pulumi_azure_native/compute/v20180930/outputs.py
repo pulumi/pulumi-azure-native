@@ -36,7 +36,7 @@ class CreationDataResponse(dict):
         """
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
-        :param 'ImageDiskReferenceResponseArgs' image_reference: Disk source information.
+        :param 'ImageDiskReferenceResponse' image_reference: Disk source information.
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param str storage_account_id: If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
@@ -145,7 +145,7 @@ class EncryptionSettingsCollectionResponse(dict):
         """
         Encryption settings for disk or snapshot
         :param bool enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param Sequence['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param Sequence['EncryptionSettingsElementResponse'] encryption_settings: A collection of encryption settings, one for each disk volume.
         """
         pulumi.set(__self__, "enabled", enabled)
         if encryption_settings is not None:
@@ -181,8 +181,8 @@ class EncryptionSettingsElementResponse(dict):
                  key_encryption_key: Optional['outputs.KeyVaultAndKeyReferenceResponse'] = None):
         """
         Encryption settings for one disk volume.
-        :param 'KeyVaultAndSecretReferenceResponseArgs' disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
-        :param 'KeyVaultAndKeyReferenceResponseArgs' key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+        :param 'KeyVaultAndSecretReferenceResponse' disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
+        :param 'KeyVaultAndKeyReferenceResponse' key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -257,7 +257,7 @@ class KeyVaultAndKeyReferenceResponse(dict):
         """
         Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
         :param str key_url: Url pointing to a key or secret in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -293,7 +293,7 @@ class KeyVaultAndSecretReferenceResponse(dict):
         """
         Key Vault Secret Url and vault id of the encryption key 
         :param str secret_url: Url pointing to a key or secret in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault", source_vault)

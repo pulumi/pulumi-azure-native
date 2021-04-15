@@ -263,7 +263,7 @@ class SyncGroupSchemaResponse(dict):
         """
         Properties of sync group schema.
         :param str master_sync_member_name: Name of master sync member where the schema is from.
-        :param Sequence['SyncGroupSchemaTableResponseArgs'] tables: List of tables in sync group schema.
+        :param Sequence['SyncGroupSchemaTableResponse'] tables: List of tables in sync group schema.
         """
         if master_sync_member_name is not None:
             pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
@@ -350,7 +350,7 @@ class SyncGroupSchemaTableResponse(dict):
                  quoted_name: Optional[str] = None):
         """
         Properties of table in sync group schema.
-        :param Sequence['SyncGroupSchemaTableColumnResponseArgs'] columns: List of columns in sync group schema.
+        :param Sequence['SyncGroupSchemaTableColumnResponse'] columns: List of columns in sync group schema.
         :param str quoted_name: Quoted name of sync group schema table.
         """
         if columns is not None:

@@ -145,7 +145,7 @@ class ClusterReportedPropertiesResponse(dict):
         :param str cluster_name: Name of the on-prem cluster connected to this resource.
         :param str cluster_version: Version of the cluster software.
         :param str last_updated: Last time the cluster reported the data.
-        :param Sequence['ClusterNodeResponseArgs'] nodes: List of nodes reported by the cluster.
+        :param Sequence['ClusterNodeResponse'] nodes: List of nodes reported by the cluster.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "cluster_name", cluster_name)

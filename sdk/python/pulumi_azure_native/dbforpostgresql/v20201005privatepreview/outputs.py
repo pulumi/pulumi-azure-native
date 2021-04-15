@@ -161,7 +161,7 @@ class ServerRoleGroupResponse(dict):
         """
         Represents a server role group.
         :param bool enable_public_ip: If public IP is requested or not for a server.
-        :param Sequence['ServerNameItemResponseArgs'] server_names: The list of server names in the server role group.
+        :param Sequence['ServerNameItemResponse'] server_names: The list of server names in the server role group.
         :param bool enable_ha: If high availability is enabled or not for the server.
         :param str name: The name of the server role group.
         :param str role: The role of servers in the server role group.

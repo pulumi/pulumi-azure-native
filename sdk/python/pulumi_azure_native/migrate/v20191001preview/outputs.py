@@ -344,7 +344,7 @@ class LBFrontendIPConfigurationResourceSettingsResponse(dict):
         :param str private_ip_address: Gets or sets the IP address of the Load Balancer.This is only specified if a specific
                private IP address shall be allocated from the subnet specified in subnetRef.
         :param str private_ip_allocation_method: Gets or sets PrivateIP allocation method (Static/Dynamic).
-        :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
+        :param 'SubnetReferenceResponse' subnet: Defines reference to subnet.
         :param str zones: Gets or sets the csv list of zones.
         """
         if name is not None:
@@ -494,8 +494,8 @@ class LoadBalancerResourceSettingsResponse(dict):
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/loadBalancers'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Sequence['LBBackendAddressPoolResourceSettingsResponseArgs'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
-        :param Sequence['LBFrontendIPConfigurationResourceSettingsResponseArgs'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
+        :param Sequence['LBBackendAddressPoolResourceSettingsResponse'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
+        :param Sequence['LBFrontendIPConfigurationResourceSettingsResponse'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param str sku: Gets or sets load balancer sku (Basic/Standard).
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
@@ -603,7 +603,7 @@ class MoveCollectionPropertiesResponse(dict):
                  target_region: str):
         """
         Defines the move collection properties.
-        :param 'MoveCollectionPropertiesResponseErrorsArgs' errors: Defines the move collection errors.
+        :param 'MoveCollectionPropertiesResponseErrors' errors: Defines the move collection errors.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_region: Gets or sets the source region.
         :param str target_region: Gets or sets the target region.
@@ -658,7 +658,7 @@ class MoveCollectionPropertiesResponseErrors(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         Defines the move collection errors.
-        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -730,11 +730,11 @@ class MoveResourceDependencyResponse(dict):
                  resolution_type: Optional[str] = None):
         """
         Defines the dependency of the move resource.
-        :param 'AutomaticResolutionPropertiesResponseArgs' automatic_resolution: Defines the properties for automatic resolution.
+        :param 'AutomaticResolutionPropertiesResponse' automatic_resolution: Defines the properties for automatic resolution.
         :param str dependency_type: Defines the dependency type.
         :param str id: Gets the source ARM ID of the dependent resource.
         :param str is_optional: Gets or sets a value indicating whether the dependency is optional.
-        :param 'ManualResolutionPropertiesResponseArgs' manual_resolution: Defines the properties for manual resolution.
+        :param 'ManualResolutionPropertiesResponse' manual_resolution: Defines the properties for manual resolution.
         :param str resolution_status: Gets the dependency resolution status.
         :param str resolution_type: Defines the resolution type.
         """
@@ -826,7 +826,7 @@ class MoveResourceErrorBodyResponse(dict):
         """
         An error response from the Azure Migrate service.
         :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param Sequence['MoveResourceErrorBodyResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['MoveResourceErrorBodyResponse'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         :param str target: The target of the particular error. For example, the name of the property in error.
         """
@@ -880,7 +880,7 @@ class MoveResourceErrorResponse(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         An error response from the azure resource mover service.
-        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -916,17 +916,17 @@ class MoveResourcePropertiesResponse(dict):
                  resource_settings: Optional[Any] = None):
         """
         Defines the move resource properties.
-        :param Sequence['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
-        :param 'MoveResourcePropertiesResponseErrorsArgs' errors: Defines the move resource errors.
+        :param Sequence['MoveResourceDependencyResponse'] depends_on: Gets or sets the move resource dependencies.
+        :param 'MoveResourcePropertiesResponseErrors' errors: Defines the move resource errors.
         :param bool is_resolve_required: Gets a value indicating whether the resolve action is required over the move collection.
-        :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
+        :param 'MoveResourcePropertiesResponseMoveStatus' move_status: Defines the move resource status.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
-        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'DiskEncryptionSetResourceSettingsResponseArgs', 'KeyVaultResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] source_resource_settings: Gets or sets the source resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponse', 'DiskEncryptionSetResourceSettingsResponse', 'KeyVaultResourceSettingsResponse', 'LoadBalancerResourceSettingsResponse', 'NetworkInterfaceResourceSettingsResponse', 'NetworkSecurityGroupResourceSettingsResponse', 'PublicIPAddressResourceSettingsResponse', 'ResourceGroupResourceSettingsResponse', 'SqlDatabaseResourceSettingsResponse', 'SqlElasticPoolResourceSettingsResponse', 'SqlServerResourceSettingsResponse', 'VirtualMachineResourceSettingsResponse', 'VirtualNetworkResourceSettingsResponse'] source_resource_settings: Gets or sets the source resource settings.
         :param str target_id: Gets or sets the Target ARM Id of the resource.
-        :param Sequence['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
+        :param Sequence['MoveResourceDependencyOverrideResponse'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
-        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'DiskEncryptionSetResourceSettingsResponseArgs', 'KeyVaultResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponse', 'DiskEncryptionSetResourceSettingsResponse', 'KeyVaultResourceSettingsResponse', 'LoadBalancerResourceSettingsResponse', 'NetworkInterfaceResourceSettingsResponse', 'NetworkSecurityGroupResourceSettingsResponse', 'PublicIPAddressResourceSettingsResponse', 'ResourceGroupResourceSettingsResponse', 'SqlDatabaseResourceSettingsResponse', 'SqlElasticPoolResourceSettingsResponse', 'SqlServerResourceSettingsResponse', 'VirtualMachineResourceSettingsResponse', 'VirtualNetworkResourceSettingsResponse'] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "depends_on", depends_on)
         pulumi.set(__self__, "errors", errors)
@@ -1044,7 +1044,7 @@ class MoveResourcePropertiesResponseErrors(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         Defines the move resource errors.
-        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -1073,8 +1073,8 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         """
         Defines the move resource status.
         :param str move_state: Defines the MoveResource states.
-        :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure resource mover service.
-        :param 'JobStatusResponseArgs' job_status: Defines the job status.
+        :param 'MoveResourceErrorResponse' errors: An error response from the azure resource mover service.
+        :param 'JobStatusResponse' job_status: Defines the job status.
         """
         pulumi.set(__self__, "move_state", move_state)
         if errors is not None:
@@ -1126,7 +1126,7 @@ class NetworkInterfaceResourceSettingsResponse(dict):
                Expected value is 'Microsoft.Network/networkInterfaces'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
-        :param Sequence['NicIpConfigurationResourceSettingsResponseArgs'] ip_configurations: Gets or sets the IP configurations of the NIC.
+        :param Sequence['NicIpConfigurationResourceSettingsResponse'] ip_configurations: Gets or sets the IP configurations of the NIC.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1186,7 +1186,7 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Sequence['NsgSecurityRuleResponseArgs'] security_rules: Gets or sets Security rules of network security group.
+        :param Sequence['NsgSecurityRuleResponse'] security_rules: Gets or sets Security rules of network security group.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1238,14 +1238,14 @@ class NicIpConfigurationResourceSettingsResponse(dict):
                  subnet: Optional['outputs.SubnetReferenceResponse'] = None):
         """
         Defines NIC IP configuration properties.
-        :param Sequence['LoadBalancerBackendAddressPoolReferenceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
-        :param Sequence['LoadBalancerNatRuleReferenceResponseArgs'] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
+        :param Sequence['LoadBalancerBackendAddressPoolReferenceResponse'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param Sequence['LoadBalancerNatRuleReferenceResponse'] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
         :param str name: Gets or sets the IP configuration name.
         :param bool primary: Gets or sets a value indicating whether this IP configuration is the primary.
         :param str private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
         :param str private_ip_allocation_method: Gets or sets the private IP address allocation method.
-        :param 'PublicIpReferenceResponseArgs' public_ip: Defines reference to a public IP.
-        :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
+        :param 'PublicIpReferenceResponse' public_ip: Defines reference to a public IP.
+        :param 'SubnetReferenceResponse' subnet: Defines reference to subnet.
         """
         if load_balancer_backend_address_pools is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
@@ -1862,7 +1862,7 @@ class SubnetResourceSettingsResponse(dict):
         Defines the virtual network subnets resource settings.
         :param str address_prefix: Gets or sets address prefix for the subnet.
         :param str name: Gets or sets the Subnet name.
-        :param 'NsgReferenceResponseArgs' network_security_group: Defines reference to NSG.
+        :param 'NsgReferenceResponse' network_security_group: Defines reference to NSG.
         """
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
@@ -1995,7 +1995,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
                deployed in the virtual network.
         :param bool enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
-        :param Sequence['SubnetResourceSettingsResponseArgs'] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        :param Sequence['SubnetResourceSettingsResponse'] subnets: Gets or sets List of subnets in a VirtualNetwork.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)

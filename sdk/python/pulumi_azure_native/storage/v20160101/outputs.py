@@ -17,7 +17,7 @@ __all__ = [
     'EncryptionServicesResponse',
     'EndpointsResponse',
     'SkuResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
 ]
 
 @pulumi.output_type
@@ -68,7 +68,7 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         pulumi.set(__self__, "key_source", key_source)
         if services is not None:
@@ -140,7 +140,7 @@ class EncryptionServicesResponse(dict):
                  blob: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
         """
         if blob is not None:
             pulumi.set(__self__, "blob", blob)
@@ -252,7 +252,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """

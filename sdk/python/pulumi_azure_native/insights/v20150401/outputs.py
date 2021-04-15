@@ -37,8 +37,8 @@ class AutoscaleNotificationResponse(dict):
         """
         Autoscale notification.
         :param str operation: the operation associated with the notification and its value must be "scale"
-        :param 'EmailNotificationResponseArgs' email: the email notification.
-        :param Sequence['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
+        :param 'EmailNotificationResponse' email: the email notification.
+        :param Sequence['WebhookNotificationResponse'] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -87,11 +87,11 @@ class AutoscaleProfileResponse(dict):
                  recurrence: Optional['outputs.RecurrenceResponse'] = None):
         """
         Autoscale profile.
-        :param 'ScaleCapacityResponseArgs' capacity: the number of instances that can be used during this profile.
+        :param 'ScaleCapacityResponse' capacity: the number of instances that can be used during this profile.
         :param str name: the name of the profile.
-        :param Sequence['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-        :param 'TimeWindowResponseArgs' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
-        :param 'RecurrenceResponseArgs' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+        :param Sequence['ScaleRuleResponse'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param 'TimeWindowResponse' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
+        :param 'RecurrenceResponse' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -221,7 +221,7 @@ class MetricTriggerResponse(dict):
         :param str time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param str time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param str time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param Sequence['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param Sequence['ScaleRuleMetricDimensionResponse'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -332,7 +332,7 @@ class RecurrenceResponse(dict):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         :param str frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-        :param 'RecurrentScheduleResponseArgs' schedule: the scheduling constraints for when the profile begins.
+        :param 'RecurrentScheduleResponse' schedule: the scheduling constraints for when the profile begins.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "schedule", schedule)
@@ -580,8 +580,8 @@ class ScaleRuleResponse(dict):
                  scale_action: 'outputs.ScaleActionResponse'):
         """
         A rule that provide the triggers and parameters for the scaling action.
-        :param 'MetricTriggerResponseArgs' metric_trigger: the trigger that results in a scaling action.
-        :param 'ScaleActionResponseArgs' scale_action: the parameters for the scaling action.
+        :param 'MetricTriggerResponse' metric_trigger: the trigger that results in a scaling action.
+        :param 'ScaleActionResponse' scale_action: the parameters for the scaling action.
         """
         pulumi.set(__self__, "metric_trigger", metric_trigger)
         pulumi.set(__self__, "scale_action", scale_action)

@@ -77,8 +77,8 @@ class BudgetFilterPropertiesResponse(dict):
                  tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
         """
         The Dimensions or Tags to filter a budget by.
-        :param 'BudgetComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
-        :param 'BudgetComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
+        :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
+        :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -117,10 +117,10 @@ class BudgetFilterResponse(dict):
                  tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
-        :param Sequence['BudgetFilterPropertiesResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'BudgetComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
-        :param 'BudgetFilterPropertiesResponseArgs' not_: The logical "NOT" expression.
-        :param 'BudgetComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
+        :param Sequence['BudgetFilterPropertiesResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
+        :param 'BudgetFilterPropertiesResponse' not_: The logical "NOT" expression.
+        :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)

@@ -17,7 +17,7 @@ __all__ = [
     'EncryptionServicesResponse',
     'EndpointsResponse',
     'SkuResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
 ]
 
 @pulumi.output_type
@@ -68,7 +68,7 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         pulumi.set(__self__, "key_source", key_source)
         if services is not None:
@@ -143,10 +143,10 @@ class EncryptionServicesResponse(dict):
                  file: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' queue: The encryption function of the queue storage service.
-        :param 'EncryptionServiceResponseArgs' table: The encryption function of the table storage service.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
-        :param 'EncryptionServiceResponseArgs' file: The encryption function of the file storage service.
+        :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceResponse' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
         """
         pulumi.set(__self__, "queue", queue)
         pulumi.set(__self__, "table", table)
@@ -286,7 +286,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """

@@ -364,7 +364,7 @@ class VolumePropertiesResponseExportPolicy(dict):
                  rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
-        :param Sequence['ExportPolicyRuleResponseArgs'] rules: Export policy rule
+        :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)

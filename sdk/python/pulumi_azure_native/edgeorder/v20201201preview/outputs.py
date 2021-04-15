@@ -13,32 +13,32 @@ from ._enums import *
 __all__ = [
     'AddressDetailsResponse',
     'AddressPropertiesResponse',
-    'AvailabilityInformationResponseResult',
-    'BillingMeterDetailsResponseResult',
-    'ConfigurationResponseResult',
+    'AvailabilityInformationResponse',
+    'BillingMeterDetailsResponse',
+    'ConfigurationResponse',
     'ContactDetailsResponse',
-    'CostInformationResponseResult',
-    'DescriptionResponseResult',
+    'CostInformationResponse',
+    'DescriptionResponse',
     'DeviceDetailsResponse',
     'EncryptionPreferencesResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
-    'FilterablePropertyResponseResult',
+    'FilterablePropertyResponse',
     'HierarchyInformationResponse',
-    'ImageInformationResponseResult',
-    'LinkResponseResult',
+    'ImageInformationResponse',
+    'LinkResponse',
     'ManagementResourceDetailsResponse',
-    'MeterDetailsResponseResult',
+    'MeterDetailsResponse',
     'NotificationPreferenceResponse',
     'OrderItemDetailsResponse',
     'PreferencesResponse',
     'ProductDetailsResponse',
-    'ProductFamilyResponseResult',
-    'ProductLineResponseResult',
-    'ProductResponseResult',
+    'ProductFamilyResponse',
+    'ProductLineResponse',
+    'ProductResponse',
     'ShippingAddressResponse',
     'ShippingDetailsResponse',
-    'SpecificationResponseResult',
+    'SpecificationResponse',
     'StageDetailsResponse',
     'SystemDataResponse',
     'TransportPreferencesResponse',
@@ -54,8 +54,8 @@ class AddressDetailsResponse(dict):
                  return_address: 'outputs.AddressPropertiesResponse'):
         """
         Address details for an order.
-        :param 'AddressPropertiesResponseArgs' forward_address: Customer address and contact details. It should be address resource
-        :param 'AddressPropertiesResponseArgs' return_address: Return shipping address
+        :param 'AddressPropertiesResponse' forward_address: Customer address and contact details. It should be address resource
+        :param 'AddressPropertiesResponse' return_address: Return shipping address
         """
         pulumi.set(__self__, "forward_address", forward_address)
         pulumi.set(__self__, "return_address", return_address)
@@ -90,8 +90,8 @@ class AddressPropertiesResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Address Properties
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for the address
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping details for the address
+        :param 'ContactDetailsResponse' contact_details: Contact details for the address
+        :param 'ShippingAddressResponse' shipping_address: Shipping details for the address
         """
         pulumi.set(__self__, "contact_details", contact_details)
         if shipping_address is not None:
@@ -118,7 +118,7 @@ class AddressPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class AvailabilityInformationResponseResult(dict):
+class AvailabilityInformationResponse(dict):
     """
     Availability information of a product system.
     """
@@ -162,19 +162,19 @@ class AvailabilityInformationResponseResult(dict):
 
 
 @pulumi.output_type
-class BillingMeterDetailsResponseResult(dict):
+class BillingMeterDetailsResponse(dict):
     """
     Holds billing meter details for each type of billing
     """
     def __init__(__self__, *,
                  frequency: str,
-                 meter_details: 'outputs.MeterDetailsResponseResult',
+                 meter_details: 'outputs.MeterDetailsResponse',
                  metering_type: str,
                  name: str):
         """
         Holds billing meter details for each type of billing
         :param str frequency: Frequency of recurrence
-        :param 'MeterDetailsResponseArgs' meter_details: Represents MeterDetails
+        :param 'MeterDetailsResponse' meter_details: Represents MeterDetails
         :param str metering_type: Represents Metering type (eg one-time or recurrent)
         :param str name: Represents Billing type name
         """
@@ -193,7 +193,7 @@ class BillingMeterDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="meterDetails")
-    def meter_details(self) -> 'outputs.MeterDetailsResponseResult':
+    def meter_details(self) -> 'outputs.MeterDetailsResponse':
         """
         Represents MeterDetails
         """
@@ -217,29 +217,29 @@ class BillingMeterDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class ConfigurationResponseResult(dict):
+class ConfigurationResponse(dict):
     """
     Configuration object.
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult'],
-                 specifications: Sequence['outputs.SpecificationResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse'],
+                 specifications: Sequence['outputs.SpecificationResponse']):
         """
         Configuration object.
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
-        :param Sequence['SpecificationResponseArgs'] specifications: Specifications of the configuration
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
+        :param Sequence['SpecificationResponse'] specifications: Specifications of the configuration
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
@@ -252,7 +252,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -260,7 +260,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -268,7 +268,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -284,7 +284,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -300,7 +300,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -308,7 +308,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter
-    def specifications(self) -> Sequence['outputs.SpecificationResponseResult']:
+    def specifications(self) -> Sequence['outputs.SpecificationResponse']:
         """
         Specifications of the configuration
         """
@@ -387,17 +387,17 @@ class ContactDetailsResponse(dict):
 
 
 @pulumi.output_type
-class CostInformationResponseResult(dict):
+class CostInformationResponse(dict):
     """
     Cost information for the product system
     """
     def __init__(__self__, *,
                  billing_info_url: str,
-                 billing_meter_details: Sequence['outputs.BillingMeterDetailsResponseResult']):
+                 billing_meter_details: Sequence['outputs.BillingMeterDetailsResponse']):
         """
         Cost information for the product system
         :param str billing_info_url: Default url to display billing information
-        :param Sequence['BillingMeterDetailsResponseArgs'] billing_meter_details: Details on the various billing aspects for the product system.
+        :param Sequence['BillingMeterDetailsResponse'] billing_meter_details: Details on the various billing aspects for the product system.
         """
         pulumi.set(__self__, "billing_info_url", billing_info_url)
         pulumi.set(__self__, "billing_meter_details", billing_meter_details)
@@ -412,7 +412,7 @@ class CostInformationResponseResult(dict):
 
     @property
     @pulumi.getter(name="billingMeterDetails")
-    def billing_meter_details(self) -> Sequence['outputs.BillingMeterDetailsResponseResult']:
+    def billing_meter_details(self) -> Sequence['outputs.BillingMeterDetailsResponse']:
         """
         Details on the various billing aspects for the product system.
         """
@@ -420,7 +420,7 @@ class CostInformationResponseResult(dict):
 
 
 @pulumi.output_type
-class DescriptionResponseResult(dict):
+class DescriptionResponse(dict):
     """
     Description related properties of a product system.
     """
@@ -428,7 +428,7 @@ class DescriptionResponseResult(dict):
                  attributes: Sequence[str],
                  description_type: str,
                  keywords: Sequence[str],
-                 links: Sequence['outputs.LinkResponseResult'],
+                 links: Sequence['outputs.LinkResponse'],
                  long_description: str,
                  short_description: str):
         """
@@ -436,7 +436,7 @@ class DescriptionResponseResult(dict):
         :param Sequence[str] attributes: Attributes for the product system.
         :param str description_type: Type of description.
         :param Sequence[str] keywords: Keywords for the product system.
-        :param Sequence['LinkResponseArgs'] links: Links for the product system.
+        :param Sequence['LinkResponse'] links: Links for the product system.
         :param str long_description: Long description of the product system.
         :param str short_description: Short description of the product system.
         """
@@ -473,7 +473,7 @@ class DescriptionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Sequence['outputs.LinkResponseResult']:
+    def links(self) -> Sequence['outputs.LinkResponse']:
         """
         Links for the product system.
         """
@@ -607,9 +607,9 @@ class ErrorDetailResponse(dict):
                  target: str):
         """
         The error detail.
-        :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param str code: The error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: The error details.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
         :param str message: The error message.
         :param str target: The error target.
         """
@@ -664,7 +664,7 @@ class ErrorDetailResponse(dict):
 
 
 @pulumi.output_type
-class FilterablePropertyResponseResult(dict):
+class FilterablePropertyResponse(dict):
     """
     Class defining the list of filter values on a filter type as part of configuration request.
     """
@@ -759,7 +759,7 @@ class HierarchyInformationResponse(dict):
 
 
 @pulumi.output_type
-class ImageInformationResponseResult(dict):
+class ImageInformationResponse(dict):
     """
     Image for the product
     """
@@ -792,7 +792,7 @@ class ImageInformationResponseResult(dict):
 
 
 @pulumi.output_type
-class LinkResponseResult(dict):
+class LinkResponse(dict):
     """
     Returns link related to the product
     """
@@ -850,7 +850,7 @@ class ManagementResourceDetailsResponse(dict):
 
 
 @pulumi.output_type
-class MeterDetailsResponseResult(dict):
+class MeterDetailsResponse(dict):
     """
     Holds details about billing type and its meter guids
     """
@@ -955,20 +955,20 @@ class OrderItemDetailsResponse(dict):
         Order item details
         :param str cancellation_reason: Cancellation reason.
         :param str cancellation_status: Describes whether the order is cancellable or not.
-        :param 'StageDetailsResponseArgs' current_stage: Current Order item Status
+        :param 'StageDetailsResponse' current_stage: Current Order item Status
         :param str deletion_status: Describes whether the order item is deletable or not.
-        :param 'ErrorDetailResponseArgs' error: Top level error for the job.
-        :param 'ShippingDetailsResponseArgs' forward_shipping_details: Forward Package Shipping details
+        :param 'ErrorDetailResponse' error: Top level error for the job.
+        :param 'ShippingDetailsResponse' forward_shipping_details: Forward Package Shipping details
         :param Any management_rp_details: parent RP details
-        :param Sequence['StageDetailsResponseArgs'] order_item_stage_history: Order item status history
+        :param Sequence['StageDetailsResponse'] order_item_stage_history: Order item status history
         :param str order_item_type: Order item type.
-        :param 'ProductDetailsResponseArgs' product_details: Unique identifier for configuration.
+        :param 'ProductDetailsResponse' product_details: Unique identifier for configuration.
         :param str return_reason: Return reason.
         :param str return_status: Describes whether the order item is returnable or not.
-        :param 'ShippingDetailsResponseArgs' reverse_shipping_details: Reverse Package Shipping details
-        :param 'ManagementResourceDetailsResponseArgs' management_resource_details: Management resource details
+        :param 'ShippingDetailsResponse' reverse_shipping_details: Reverse Package Shipping details
+        :param 'ManagementResourceDetailsResponse' management_resource_details: Management resource details
         :param Sequence[str] notification_email_list: Additional notification email list
-        :param 'PreferencesResponseArgs' preferences: Customer notification Preferences
+        :param 'PreferencesResponse' preferences: Customer notification Preferences
         """
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
         pulumi.set(__self__, "cancellation_status", cancellation_status)
@@ -1133,9 +1133,9 @@ class PreferencesResponse(dict):
                  transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
         """
         Preferences related to the order
-        :param 'EncryptionPreferencesResponseArgs' encryption_preferences: Preferences related to the Encryption.
-        :param Sequence['NotificationPreferenceResponseArgs'] notification_preferences: Notification preferences.
-        :param 'TransportPreferencesResponseArgs' transport_preferences: Preferences related to the shipment logistics of the order.
+        :param 'EncryptionPreferencesResponse' encryption_preferences: Preferences related to the Encryption.
+        :param Sequence['NotificationPreferenceResponse'] notification_preferences: Notification preferences.
+        :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the order.
         """
         if encryption_preferences is not None:
             pulumi.set(__self__, "encryption_preferences", encryption_preferences)
@@ -1183,8 +1183,8 @@ class ProductDetailsResponse(dict):
                  count: Optional[int] = None):
         """
         Represents product details
-        :param Sequence['DeviceDetailsResponseArgs'] device_details: list of device details
-        :param 'HierarchyInformationResponseArgs' hierarchy_information:  Hierarchy of the product which uniquely identifies the product
+        :param Sequence['DeviceDetailsResponse'] device_details: list of device details
+        :param 'HierarchyInformationResponse' hierarchy_information:  Hierarchy of the product which uniquely identifies the product
         :param int count: Quantity of the product
         """
         pulumi.set(__self__, "device_details", device_details)
@@ -1221,29 +1221,29 @@ class ProductDetailsResponse(dict):
 
 
 @pulumi.output_type
-class ProductFamilyResponseResult(dict):
+class ProductFamilyResponse(dict):
     """
     Product Family
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult'],
-                 product_lines: Sequence['outputs.ProductLineResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse'],
+                 product_lines: Sequence['outputs.ProductLineResponse']):
         """
         Product Family
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
-        :param Sequence['ProductLineResponseArgs'] product_lines: List of product lines supported in the product family
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
+        :param Sequence['ProductLineResponse'] product_lines: List of product lines supported in the product family
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
@@ -1256,7 +1256,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -1264,7 +1264,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -1272,7 +1272,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -1288,7 +1288,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -1304,7 +1304,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -1312,7 +1312,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="productLines")
-    def product_lines(self) -> Sequence['outputs.ProductLineResponseResult']:
+    def product_lines(self) -> Sequence['outputs.ProductLineResponse']:
         """
         List of product lines supported in the product family
         """
@@ -1320,29 +1320,29 @@ class ProductFamilyResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductLineResponseResult(dict):
+class ProductLineResponse(dict):
     """
     Product line
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult'],
-                 products: Sequence['outputs.ProductResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse'],
+                 products: Sequence['outputs.ProductResponse']):
         """
         Product line
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
-        :param Sequence['ProductResponseArgs'] products: List of products in the product line
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
+        :param Sequence['ProductResponse'] products: List of products in the product line
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
@@ -1355,7 +1355,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -1363,7 +1363,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -1371,7 +1371,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -1387,7 +1387,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -1403,7 +1403,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -1411,7 +1411,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter
-    def products(self) -> Sequence['outputs.ProductResponseResult']:
+    def products(self) -> Sequence['outputs.ProductResponse']:
         """
         List of products in the product line
         """
@@ -1419,29 +1419,29 @@ class ProductLineResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductResponseResult(dict):
+class ProductResponse(dict):
     """
     List of Products
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 configurations: Sequence['outputs.ConfigurationResponseResult'],
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 configurations: Sequence['outputs.ConfigurationResponse'],
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse']):
         """
         List of Products
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param Sequence['ConfigurationResponseArgs'] configurations: List of configurations for the product
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param Sequence['ConfigurationResponse'] configurations: List of configurations for the product
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "configurations", configurations)
@@ -1454,7 +1454,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -1462,7 +1462,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def configurations(self) -> Sequence['outputs.ConfigurationResponseResult']:
+    def configurations(self) -> Sequence['outputs.ConfigurationResponse']:
         """
         List of configurations for the product
         """
@@ -1470,7 +1470,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -1478,7 +1478,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -1494,7 +1494,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -1510,7 +1510,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -1708,7 +1708,7 @@ class ShippingDetailsResponse(dict):
 
 
 @pulumi.output_type
-class SpecificationResponseResult(dict):
+class SpecificationResponse(dict):
     """
     Specifications of the configurations
     """

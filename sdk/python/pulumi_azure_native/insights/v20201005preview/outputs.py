@@ -174,7 +174,7 @@ class WebTestPropertiesResponseRequest(dict):
         """
         The collection of request properties
         :param bool follow_redirects: Follow redirects for this web test.
-        :param Sequence['HeaderFieldResponseArgs'] headers: List of headers and their values to add to the WebTest call.
+        :param Sequence['HeaderFieldResponse'] headers: List of headers and their values to add to the WebTest call.
         :param str http_verb: Http verb to use for this web test.
         :param bool parse_dependent_requests: Parse Dependent request for this WebTest.
         :param str request_body: Base64 encoded string body to send with this web test.
@@ -258,7 +258,7 @@ class WebTestPropertiesResponseValidationRules(dict):
                  s_sl_check: Optional[bool] = None):
         """
         The collection of validation rule properties
-        :param 'WebTestPropertiesResponseContentValidationArgs' content_validation: The collection of content validation properties
+        :param 'WebTestPropertiesResponseContentValidation' content_validation: The collection of content validation properties
         :param int expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param bool ignore_https_status_code: When set, validation will ignore the status code.
         :param int s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.

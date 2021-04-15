@@ -38,7 +38,7 @@ class AccessPolicyEntryResponse(dict):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        :param 'PermissionsResponseArgs' permissions: Permissions the identity has for keys, secrets and certificates.
+        :param 'PermissionsResponse' permissions: Permissions the identity has for keys, secrets and certificates.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param str application_id:  Application ID of the client making request on behalf of a principal
         """
@@ -123,8 +123,8 @@ class NetworkRuleSetResponse(dict):
         A set of rules governing the network accessibility of a vault.
         :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['IPRuleResponse'] ip_rules: The list of IP address rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
@@ -245,8 +245,8 @@ class PrivateEndpointConnectionItemResponse(dict):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
+        :param 'PrivateEndpointResponse' private_endpoint: Properties of the private endpoint object.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -444,7 +444,7 @@ class SecretPropertiesResponse(dict):
         Properties of the secret
         :param str secret_uri: The URI to retrieve the current version of the secret.
         :param str secret_uri_with_version: The URI to retrieve the specific version of the secret.
-        :param 'SecretAttributesResponseArgs' attributes: The attributes of the secret.
+        :param 'SecretAttributesResponse' attributes: The attributes of the secret.
         :param str content_type: The content type of the secret.
         :param str value: The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
         """
@@ -557,17 +557,17 @@ class VaultPropertiesResponse(dict):
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
-        :param Sequence['PrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
-        :param 'SkuResponseArgs' sku: SKU details
+        :param Sequence['PrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
+        :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         :param str create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
         :param bool enabled_for_deployment: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param bool enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-        :param 'NetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param 'NetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)

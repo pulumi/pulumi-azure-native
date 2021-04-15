@@ -27,7 +27,7 @@ class GetLabAccountRegionalAvailabilityResult:
 
     @property
     @pulumi.getter(name="regionalAvailability")
-    def regional_availability(self) -> Optional[Sequence['outputs.RegionalAvailabilityResponseResult']]:
+    def regional_availability(self) -> Optional[Sequence['outputs.RegionalAvailabilityResponse']]:
         """
         Availability information for different size categories per region
         """

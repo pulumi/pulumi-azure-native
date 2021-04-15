@@ -162,7 +162,7 @@ class MigrateProjectPropertiesResponse(dict):
         Class for migrate project properties.
         :param str last_summary_refreshed_time: Gets the last time the project summary was refreshed.
         :param str refresh_summary_state: Gets the refresh summary state.
-        :param Mapping[str, Union['DatabaseProjectSummaryResponseArgs', 'ServersProjectSummaryResponseArgs']] summary: Gets the summary of the migrate project.
+        :param Mapping[str, Union['DatabaseProjectSummaryResponse', 'ServersProjectSummaryResponse']] summary: Gets the summary of the migrate project.
         :param str provisioning_state: Provisioning state of the migrate project.
         :param Sequence[str] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
@@ -516,11 +516,11 @@ class SolutionPropertiesResponse(dict):
         """
         Class for solution properties.
         :param str cleanup_state: Gets or sets the cleanup state of the solution.
-        :param 'SolutionDetailsResponseArgs' details: Gets or sets the details of the solution.
+        :param 'SolutionDetailsResponse' details: Gets or sets the details of the solution.
         :param str goal: Gets or sets the goal of the solution.
         :param str purpose: Gets or sets the purpose of the solution.
         :param str status: Gets or sets the current status of the solution.
-        :param Union['DatabasesSolutionSummaryResponseArgs', 'ServersSolutionSummaryResponseArgs'] summary: Gets or sets the summary of the solution.
+        :param Union['DatabasesSolutionSummaryResponse', 'ServersSolutionSummaryResponse'] summary: Gets or sets the summary of the solution.
         :param str tool: Gets or sets the tool being used in the solution.
         """
         if cleanup_state is not None:

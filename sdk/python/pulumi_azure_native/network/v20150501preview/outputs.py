@@ -85,8 +85,8 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Backend Address Pool of application gateway
-        :param Sequence['ApplicationGatewayBackendAddressResponseArgs'] backend_addresses: Gets or sets the backend addresses
-        :param Sequence['SubResourceResponseArgs'] backend_ip_configurations: Gets or sets backendIPConfiguration of application gateway 
+        :param Sequence['ApplicationGatewayBackendAddressResponse'] backend_addresses: Gets or sets the backend addresses
+        :param Sequence['SubResourceResponse'] backend_ip_configurations: Gets or sets backendIPConfiguration of application gateway 
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -315,8 +315,8 @@ class ApplicationGatewayFrontendIPConfigurationResponse(dict):
         :param str private_ip_address: Gets or sets the privateIPAddress of the Network Interface IP Configuration
         :param str private_ip_allocation_method: Gets or sets PrivateIP allocation method (Static/Dynamic)
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-        :param 'SubResourceResponseArgs' public_ip_address: Gets or sets the reference of the PublicIP resource
-        :param 'SubResourceResponseArgs' subnet: Gets or sets the reference of the subnet resource
+        :param 'SubResourceResponse' public_ip_address: Gets or sets the reference of the PublicIP resource
+        :param 'SubResourceResponse' subnet: Gets or sets the reference of the subnet resource
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -494,13 +494,13 @@ class ApplicationGatewayHttpListenerResponse(dict):
         """
         Http listener of application gateway
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets frontend IP configuration resource of application gateway 
-        :param 'SubResourceResponseArgs' frontend_port: Gets or sets frontend port resource of application gateway 
+        :param 'SubResourceResponse' frontend_ip_configuration: Gets or sets frontend IP configuration resource of application gateway 
+        :param 'SubResourceResponse' frontend_port: Gets or sets frontend port resource of application gateway 
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str protocol: Gets or sets the protocol
         :param str provisioning_state: Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
-        :param 'SubResourceResponseArgs' ssl_certificate: Gets or sets ssl certificate resource of application gateway 
+        :param 'SubResourceResponse' ssl_certificate: Gets or sets ssl certificate resource of application gateway 
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -604,7 +604,7 @@ class ApplicationGatewayIPConfigurationResponse(dict):
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str provisioning_state: Gets or sets Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
-        :param 'SubResourceResponseArgs' subnet: Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address 
+        :param 'SubResourceResponse' subnet: Gets or sets the reference of the subnet resource.A subnet from where application gateway gets its private address 
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -677,10 +677,10 @@ class ApplicationGatewayRequestRoutingRuleResponse(dict):
                  rule_type: Optional[str] = None):
         """
         Request routing rule of application gateway
-        :param 'SubResourceResponseArgs' backend_address_pool: Gets or sets backend address pool resource of application gateway 
-        :param 'SubResourceResponseArgs' backend_http_settings: Gets or sets frontend port resource of application gateway 
+        :param 'SubResourceResponse' backend_address_pool: Gets or sets backend address pool resource of application gateway 
+        :param 'SubResourceResponse' backend_http_settings: Gets or sets frontend port resource of application gateway 
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param 'SubResourceResponseArgs' http_listener: Gets or sets http listener resource of application gateway 
+        :param 'SubResourceResponse' http_listener: Gets or sets http listener resource of application gateway 
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str provisioning_state: Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
@@ -934,12 +934,12 @@ class BackendAddressPoolResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Pool of backend IP addresses
-        :param Sequence['SubResourceResponseArgs'] backend_ip_configurations: Gets collection of references to IPs defined in NICs
+        :param Sequence['SubResourceResponse'] backend_ip_configurations: Gets collection of references to IPs defined in NICs
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets Load Balancing rules that use this Backend Address Pool
+        :param Sequence['SubResourceResponse'] load_balancing_rules: Gets Load Balancing rules that use this Backend Address Pool
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param 'SubResourceResponseArgs' outbound_nat_rule: Gets outbound rules that use this Backend Address Pool
+        :param 'SubResourceResponse' outbound_nat_rule: Gets outbound rules that use this Backend Address Pool
         :param str provisioning_state: Provisioning state of the PublicIP resource Updating/Deleting/Failed
         """
         if backend_ip_configurations is not None:
@@ -1218,7 +1218,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
         :param int azure_asn: Gets or sets the azure ASN
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: Gets or sets the Microsoft peering config
+        :param 'ExpressRouteCircuitPeeringConfigResponse' microsoft_peering_config: Gets or sets the Microsoft peering config
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param int peer_asn: Gets or sets the peer ASN
         :param str peering_type: Gets or sets PeeringType
@@ -1229,7 +1229,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
         :param str secondary_peer_address_prefix: Gets or sets the secondary address prefix
         :param str shared_key: Gets or sets the shared key
         :param str state: Gets or sets state of Peering
-        :param 'ExpressRouteCircuitStatsResponseArgs' stats: Gets or peering stats
+        :param 'ExpressRouteCircuitStatsResponse' stats: Gets or peering stats
         :param int vlan_id: Gets or sets the vlan id
         """
         if azure_asn is not None:
@@ -1557,16 +1557,16 @@ class FrontendIpConfigurationResponse(dict):
         Frontend IP address of the load balancer
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param Sequence['SubResourceResponseArgs'] inbound_nat_pools: Read only.Inbound pools URIs that use this frontend IP
-        :param Sequence['SubResourceResponseArgs'] inbound_nat_rules: Read only.Inbound rules URIs that use this frontend IP
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets Load Balancing rules URIs that use this frontend IP
+        :param Sequence['SubResourceResponse'] inbound_nat_pools: Read only.Inbound pools URIs that use this frontend IP
+        :param Sequence['SubResourceResponse'] inbound_nat_rules: Read only.Inbound rules URIs that use this frontend IP
+        :param Sequence['SubResourceResponse'] load_balancing_rules: Gets Load Balancing rules URIs that use this frontend IP
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param Sequence['SubResourceResponseArgs'] outbound_nat_rules: Read only.Outbound rules URIs that use this frontend IP
+        :param Sequence['SubResourceResponse'] outbound_nat_rules: Read only.Outbound rules URIs that use this frontend IP
         :param str private_ip_address: Gets or sets the IP address of the Load Balancer.This is only specified if a specific private IP address shall be allocated from the subnet specified in subnetRef
         :param str private_ip_allocation_method: Gets or sets PrivateIP allocation method (Static/Dynamic)
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-        :param 'SubResourceResponseArgs' public_ip_address: Gets or sets the reference of the PublicIP resource
-        :param 'SubResourceResponseArgs' subnet: Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address 
+        :param 'SubResourceResponse' public_ip_address: Gets or sets the reference of the PublicIP resource
+        :param 'SubResourceResponse' subnet: Gets or sets the reference of the subnet resource.A subnet from where the load balancer gets its private frontend address 
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -1715,7 +1715,7 @@ class InboundNatPoolResponse(dict):
         :param int frontend_port_range_start: Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         :param str protocol: Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
+        :param 'SubResourceResponse' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -1833,10 +1833,10 @@ class InboundNatRuleResponse(dict):
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
         :param int frontend_port: Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         :param str protocol: Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
-        :param 'SubResourceResponseArgs' backend_ip_configuration: Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
+        :param 'SubResourceResponse' backend_ip_configuration: Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
         :param int backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
+        :param 'SubResourceResponse' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
         :param str id: Resource Id
         :param int idle_timeout_in_minutes: Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -1975,18 +1975,18 @@ class LoadBalancingRuleResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Rules of the load balancer
-        :param 'SubResourceResponseArgs' backend_address_pool: Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
+        :param 'SubResourceResponse' backend_address_pool: Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
         :param int frontend_port: Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         :param str protocol: Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
         :param int backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
+        :param 'SubResourceResponse' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
         :param str id: Resource Id
         :param int idle_timeout_in_minutes: Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
         :param str load_distribution: Gets or sets the load distribution policy for this rule
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param 'SubResourceResponseArgs' probe: Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
+        :param 'SubResourceResponse' probe: Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         """
         pulumi.set(__self__, "backend_address_pool", backend_address_pool)
@@ -2202,14 +2202,14 @@ class NetworkInterfaceIpConfigurationResponse(dict):
         IPConfiguration in a NetworkInterface
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param Sequence['SubResourceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the reference of LoadBalancerBackendAddressPool resource
-        :param Sequence['SubResourceResponseArgs'] load_balancer_inbound_nat_rules: Gets or sets list of references of LoadBalancerInboundNatRules
+        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Gets or sets the reference of LoadBalancerBackendAddressPool resource
+        :param Sequence['SubResourceResponse'] load_balancer_inbound_nat_rules: Gets or sets list of references of LoadBalancerInboundNatRules
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str private_ip_address: Gets or sets the privateIPAddress of the Network Interface IP Configuration
         :param str private_ip_allocation_method: Gets or sets PrivateIP allocation method (Static/Dynamic)
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-        :param 'SubResourceResponseArgs' public_ip_address: Gets or sets the reference of the PublicIP resource
-        :param 'SubResourceResponseArgs' subnet: Gets or sets the reference of the subnet resource
+        :param 'SubResourceResponse' public_ip_address: Gets or sets the reference of the PublicIP resource
+        :param 'SubResourceResponse' subnet: Gets or sets the reference of the subnet resource
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -2332,9 +2332,9 @@ class OutboundNatRuleResponse(dict):
         """
         Outbound NAT pool of the loadbalancer
         :param int allocated_outbound_ports: Gets or sets the number of outbound ports to be used for SNAT
-        :param 'SubResourceResponseArgs' backend_address_pool: Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
+        :param 'SubResourceResponse' backend_address_pool: Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param Sequence['SubResourceResponseArgs'] frontend_ip_configurations: Gets or sets Frontend IP addresses of the load balancer
+        :param Sequence['SubResourceResponse'] frontend_ip_configurations: Gets or sets Frontend IP addresses of the load balancer
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -2435,7 +2435,7 @@ class ProbeResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param int interval_in_seconds: Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets Load balancer rules that use this probe
+        :param Sequence['SubResourceResponse'] load_balancing_rules: Gets Load balancer rules that use this probe
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param int number_of_probes: Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure. 
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -2897,11 +2897,11 @@ class SubnetResponse(dict):
         :param str address_prefix: Gets or sets Address prefix for the subnet.
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param Sequence['SubResourceResponseArgs'] ip_configurations: Gets array of references to the network interface IP configurations using subnet
+        :param Sequence['SubResourceResponse'] ip_configurations: Gets array of references to the network interface IP configurations using subnet
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param 'SubResourceResponseArgs' network_security_group: Gets or sets the reference of the NetworkSecurityGroup resource
+        :param 'SubResourceResponse' network_security_group: Gets or sets the reference of the NetworkSecurityGroup resource
         :param str provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-        :param 'SubResourceResponseArgs' route_table: Gets or sets the reference of the RouteTable resource
+        :param 'SubResourceResponse' route_table: Gets or sets the reference of the RouteTable resource
         """
         pulumi.set(__self__, "address_prefix", address_prefix)
         if etag is not None:

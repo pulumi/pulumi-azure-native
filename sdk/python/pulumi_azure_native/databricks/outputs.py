@@ -350,14 +350,14 @@ class WorkspaceCustomParametersResponse(dict):
                  require_infrastructure_encryption: Optional['outputs.WorkspaceCustomBooleanParameterResponse'] = None):
         """
         Custom Parameters used for Cluster Creation.
-        :param 'WorkspaceCustomStringParameterResponseArgs' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
-        :param 'WorkspaceCustomStringParameterResponseArgs' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
-        :param 'WorkspaceCustomStringParameterResponseArgs' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
-        :param 'WorkspaceCustomStringParameterResponseArgs' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
-        :param 'WorkspaceCustomBooleanParameterResponseArgs' enable_no_public_ip: Should the Public IP be Disabled?
-        :param 'WorkspaceEncryptionParameterResponseArgs' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
-        :param 'WorkspaceCustomBooleanParameterResponseArgs' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
-        :param 'WorkspaceCustomBooleanParameterResponseArgs' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        :param 'WorkspaceCustomStringParameterResponse' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        :param 'WorkspaceCustomStringParameterResponse' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
+        :param 'WorkspaceCustomStringParameterResponse' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
+        :param 'WorkspaceCustomStringParameterResponse' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
+        :param 'WorkspaceCustomBooleanParameterResponse' enable_no_public_ip: Should the Public IP be Disabled?
+        :param 'WorkspaceEncryptionParameterResponse' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        :param 'WorkspaceCustomBooleanParameterResponse' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        :param 'WorkspaceCustomBooleanParameterResponse' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
         """
         if aml_workspace_id is not None:
             pulumi.set(__self__, "aml_workspace_id", aml_workspace_id)
@@ -491,7 +491,7 @@ class WorkspaceEncryptionParameterResponse(dict):
         """
         The object that contains details of encryption used on the workspace.
         :param str type: The type of variable that this is
-        :param 'EncryptionResponseArgs' value: The value which should be used for this field.
+        :param 'EncryptionResponse' value: The value which should be used for this field.
         """
         pulumi.set(__self__, "type", type)
         if value is not None:

@@ -343,8 +343,8 @@ class ScopeResponse(dict):
                  namespace: Optional['outputs.ScopeNamespaceResponse'] = None):
         """
         Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
-        :param 'ScopeClusterResponseArgs' cluster: Specifies that the scope of the extensionInstance is Cluster
-        :param 'ScopeNamespaceResponseArgs' namespace: Specifies that the scope of the extensionInstance is Namespace
+        :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extensionInstance is Cluster
+        :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extensionInstance is Namespace
         """
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)

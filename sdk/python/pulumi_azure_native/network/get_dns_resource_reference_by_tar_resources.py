@@ -28,7 +28,7 @@ class GetDnsResourceReferenceByTarResourcesResult:
 
     @property
     @pulumi.getter(name="dnsResourceReferences")
-    def dns_resource_references(self) -> Optional[Sequence['outputs.DnsResourceReferenceResponseResult']]:
+    def dns_resource_references(self) -> Optional[Sequence['outputs.DnsResourceReferenceResponse']]:
         """
         The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
         """
@@ -44,14 +44,14 @@ class AwaitableGetDnsResourceReferenceByTarResourcesResult(GetDnsResourceReferen
             dns_resource_references=self.dns_resource_references)
 
 
-def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Sequence[pulumi.InputType['SubResourceArgs']]] = None,
+def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Sequence[pulumi.InputType['SubResource']]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResourceReferenceByTarResourcesResult:
     """
     Represents the properties of the Dns Resource Reference Result.
     API Version: 2018-05-01.
 
 
-    :param Sequence[pulumi.InputType['SubResourceArgs']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
+    :param Sequence[pulumi.InputType['SubResource']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
     __args__ = dict()
     __args__['targetResources'] = target_resources

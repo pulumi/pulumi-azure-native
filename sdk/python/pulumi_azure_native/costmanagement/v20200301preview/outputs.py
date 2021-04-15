@@ -64,8 +64,8 @@ class CostAllocationRuleDetailsResponse(dict):
                  target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None):
         """
         Resource details of the cost allocation rule
-        :param Sequence['SourceCostAllocationResourceResponseArgs'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
-        :param Sequence['TargetCostAllocationResourceResponseArgs'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
         if source_resources is not None:
             pulumi.set(__self__, "source_resources", source_resources)
@@ -106,7 +106,7 @@ class CostAllocationRulePropertiesResponse(dict):
         """
         The properties of a cost allocation rule
         :param str created_date: Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
-        :param 'CostAllocationRuleDetailsResponseArgs' details: Resource information for the cost allocation rule
+        :param 'CostAllocationRuleDetailsResponse' details: Resource information for the cost allocation rule
         :param str status: Status of the rule
         :param str updated_date: Time at which the rule was last updated.
         :param str description: Description of a cost allocation rule.
@@ -224,7 +224,7 @@ class TargetCostAllocationResourceResponse(dict):
         :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param str policy_type: Method of cost allocation for the rule
         :param str resource_type: Type of resources contained in this cost allocation rule
-        :param Sequence['CostAllocationProportionResponseArgs'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
+        :param Sequence['CostAllocationProportionResponse'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy_type", policy_type)

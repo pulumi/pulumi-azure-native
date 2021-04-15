@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
 __all__ = [
-    'ChannelTypeDescriptionResponseResult',
-    'KeyDescriptionResponseResult',
+    'ChannelTypeDescriptionResponse',
+    'KeyDescriptionResponse',
     'SKUResponse',
 ]
 
 @pulumi.output_type
-class ChannelTypeDescriptionResponseResult(dict):
+class ChannelTypeDescriptionResponse(dict):
     """
     EngagementFabric channel description
     """
@@ -62,7 +62,7 @@ class ChannelTypeDescriptionResponseResult(dict):
 
 
 @pulumi.output_type
-class KeyDescriptionResponseResult(dict):
+class KeyDescriptionResponse(dict):
     """
     The description of the EngagementFabric account key
     """

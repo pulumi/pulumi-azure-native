@@ -99,7 +99,7 @@ class ContainerGroupResponseInstanceView(dict):
                  state: str):
         """
         The instance view of the container group. Only valid in response.
-        :param Sequence['EventResponseArgs'] events: The events of this container group.
+        :param Sequence['EventResponse'] events: The events of this container group.
         :param str state: The state of the container group. Only valid in response.
         """
         pulumi.set(__self__, "events", events)
@@ -174,9 +174,9 @@ class ContainerPropertiesResponseInstanceView(dict):
                  restart_count: int):
         """
         The instance view of the container instance. Only valid in response.
-        :param 'ContainerStateResponseArgs' current_state: Current container instance state.
-        :param Sequence['EventResponseArgs'] events: The events of the container instance.
-        :param 'ContainerStateResponseArgs' previous_state: Previous container instance state.
+        :param 'ContainerStateResponse' current_state: Current container instance state.
+        :param Sequence['EventResponse'] events: The events of the container instance.
+        :param 'ContainerStateResponse' previous_state: Previous container instance state.
         :param int restart_count: The number of times that the container instance has been restarted.
         """
         pulumi.set(__self__, "current_state", current_state)
@@ -237,13 +237,13 @@ class ContainerResponse(dict):
         """
         A container instance.
         :param str image: The name of the image used to create the container instance.
-        :param 'ContainerPropertiesResponseInstanceViewArgs' instance_view: The instance view of the container instance. Only valid in response.
+        :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
         :param str name: The user-provided name of the container instance.
-        :param 'ResourceRequirementsResponseArgs' resources: The resource requirements of the container instance.
+        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
         :param Sequence[str] command: The commands to execute within the container instance in exec form.
-        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in the container instance.
-        :param Sequence['ContainerPortResponseArgs'] ports: The exposed ports on the container instance.
-        :param Sequence['VolumeMountResponseArgs'] volume_mounts: The volume mounts available to the container instance.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in the container instance.
+        :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
+        :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
@@ -581,7 +581,7 @@ class IpAddressResponse(dict):
                  ip: Optional[str] = None):
         """
         IP address for the container group.
-        :param Sequence['PortResponseArgs'] ports: The list of ports exposed on the container group.
+        :param Sequence['PortResponse'] ports: The list of ports exposed on the container group.
         :param str type: Specifies if the IP is exposed to the public internet.
         :param str ip: The IP exposed to the public internet.
         """
@@ -739,8 +739,8 @@ class ResourceRequirementsResponse(dict):
                  limits: Optional['outputs.ResourceLimitsResponse'] = None):
         """
         The resource requirements.
-        :param 'ResourceRequestsResponseArgs' requests: The resource requests of this container instance.
-        :param 'ResourceLimitsResponseArgs' limits: The resource limits of this container instance.
+        :param 'ResourceRequestsResponse' requests: The resource requests of this container instance.
+        :param 'ResourceLimitsResponse' limits: The resource limits of this container instance.
         """
         pulumi.set(__self__, "requests", requests)
         if limits is not None:
@@ -826,7 +826,7 @@ class VolumeResponse(dict):
         """
         The properties of the volume.
         :param str name: The name of the volume.
-        :param 'AzureFileVolumeResponseArgs' azure_file: The name of the Azure File volume.
+        :param 'AzureFileVolumeResponse' azure_file: The name of the Azure File volume.
         :param Any empty_dir: The empty directory volume.
         """
         pulumi.set(__self__, "name", name)

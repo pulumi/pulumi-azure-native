@@ -81,11 +81,11 @@ class InputPatchConfigurationResponse(dict):
                  windows_parameters: Optional['outputs.InputWindowsParametersResponse'] = None):
         """
         Input configuration for a patch run
-        :param 'InputLinuxParametersResponseArgs' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-        :param Sequence['TaskPropertiesResponseArgs'] post_tasks: List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        :param Sequence['TaskPropertiesResponseArgs'] pre_tasks: List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        :param 'InputLinuxParametersResponse' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+        :param Sequence['TaskPropertiesResponse'] post_tasks: List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        :param Sequence['TaskPropertiesResponse'] pre_tasks: List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
         :param str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-        :param 'InputWindowsParametersResponseArgs' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
         """
         if linux_parameters is not None:
             pulumi.set(__self__, "linux_parameters", linux_parameters)

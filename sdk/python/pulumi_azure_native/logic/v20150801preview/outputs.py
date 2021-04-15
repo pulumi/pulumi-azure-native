@@ -125,8 +125,8 @@ class AS2AgreementContentResponse(dict):
                  receive_agreement: Optional['outputs.AS2OneWayAgreementResponse'] = None,
                  send_agreement: Optional['outputs.AS2OneWayAgreementResponse'] = None):
         """
-        :param 'AS2OneWayAgreementResponseArgs' receive_agreement: The AS2 one-way receive agreement.
-        :param 'AS2OneWayAgreementResponseArgs' send_agreement: The AS2 one-way send agreement.
+        :param 'AS2OneWayAgreementResponse' receive_agreement: The AS2 one-way receive agreement.
+        :param 'AS2OneWayAgreementResponse' send_agreement: The AS2 one-way send agreement.
         """
         if receive_agreement is not None:
             pulumi.set(__self__, "receive_agreement", receive_agreement)
@@ -440,9 +440,9 @@ class AS2OneWayAgreementResponse(dict):
                  receiver_business_identity: Optional['outputs.BusinessIdentityResponse'] = None,
                  sender_business_identity: Optional['outputs.BusinessIdentityResponse'] = None):
         """
-        :param 'AS2ProtocolSettingsResponseArgs' protocol_settings: The AS2 protocol settings.
-        :param 'BusinessIdentityResponseArgs' receiver_business_identity: The receiver business identity
-        :param 'BusinessIdentityResponseArgs' sender_business_identity: The sender business identity
+        :param 'AS2ProtocolSettingsResponse' protocol_settings: The AS2 protocol settings.
+        :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
+        :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
         if protocol_settings is not None:
             pulumi.set(__self__, "protocol_settings", protocol_settings)
@@ -490,13 +490,13 @@ class AS2ProtocolSettingsResponse(dict):
                  security_settings: Optional['outputs.AS2SecuritySettingsResponse'] = None,
                  validation_settings: Optional['outputs.AS2ValidationSettingsResponse'] = None):
         """
-        :param 'AS2AcknowledgementConnectionSettingsResponseArgs' acknowledgement_connection_settings: The acknowledgement connection settings.
-        :param 'AS2EnvelopeSettingsResponseArgs' envelope_settings: The envelope settings.
-        :param 'AS2ErrorSettingsResponseArgs' error_settings: The error settings.
-        :param 'AS2MdnSettingsResponseArgs' mdn_settings: The MDN settings.
-        :param 'AS2MessageConnectionSettingsResponseArgs' message_connection_settings: The message connection settings.
-        :param 'AS2SecuritySettingsResponseArgs' security_settings: The security settings.
-        :param 'AS2ValidationSettingsResponseArgs' validation_settings: The validation settings.
+        :param 'AS2AcknowledgementConnectionSettingsResponse' acknowledgement_connection_settings: The acknowledgement connection settings.
+        :param 'AS2EnvelopeSettingsResponse' envelope_settings: The envelope settings.
+        :param 'AS2ErrorSettingsResponse' error_settings: The error settings.
+        :param 'AS2MdnSettingsResponse' mdn_settings: The MDN settings.
+        :param 'AS2MessageConnectionSettingsResponse' message_connection_settings: The message connection settings.
+        :param 'AS2SecuritySettingsResponse' security_settings: The security settings.
+        :param 'AS2ValidationSettingsResponse' validation_settings: The validation settings.
         """
         if acknowledgement_connection_settings is not None:
             pulumi.set(__self__, "acknowledgement_connection_settings", acknowledgement_connection_settings)
@@ -816,9 +816,9 @@ class AgreementContentResponse(dict):
                  edifact: Optional['outputs.EdifactAgreementContentResponse'] = None,
                  x12: Optional['outputs.X12AgreementContentResponse'] = None):
         """
-        :param 'AS2AgreementContentResponseArgs' a_s2: The AS2 agreement content.
-        :param 'EdifactAgreementContentResponseArgs' edifact: The EDIFACT agreement content.
-        :param 'X12AgreementContentResponseArgs' x12: The X12 agreement content.
+        :param 'AS2AgreementContentResponse' a_s2: The AS2 agreement content.
+        :param 'EdifactAgreementContentResponse' edifact: The EDIFACT agreement content.
+        :param 'X12AgreementContentResponse' x12: The X12 agreement content.
         """
         if a_s2 is not None:
             pulumi.set(__self__, "a_s2", a_s2)
@@ -860,7 +860,7 @@ class B2BPartnerContentResponse(dict):
     def __init__(__self__, *,
                  business_identities: Optional[Sequence['outputs.BusinessIdentityResponse']] = None):
         """
-        :param Sequence['BusinessIdentityResponseArgs'] business_identities: The list of partner business identities.
+        :param Sequence['BusinessIdentityResponse'] business_identities: The list of partner business identities.
         """
         if business_identities is not None:
             pulumi.set(__self__, "business_identities", business_identities)
@@ -1059,8 +1059,8 @@ class EdifactAgreementContentResponse(dict):
                  receive_agreement: Optional['outputs.EdifactOneWayAgreementResponse'] = None,
                  send_agreement: Optional['outputs.EdifactOneWayAgreementResponse'] = None):
         """
-        :param 'EdifactOneWayAgreementResponseArgs' receive_agreement: The EDIFACT one-way receive agreement.
-        :param 'EdifactOneWayAgreementResponseArgs' send_agreement: The EDIFACT one-way send agreement.
+        :param 'EdifactOneWayAgreementResponse' receive_agreement: The EDIFACT one-way receive agreement.
+        :param 'EdifactOneWayAgreementResponse' send_agreement: The EDIFACT one-way send agreement.
         """
         if receive_agreement is not None:
             pulumi.set(__self__, "receive_agreement", receive_agreement)
@@ -2126,9 +2126,9 @@ class EdifactOneWayAgreementResponse(dict):
                  receiver_business_identity: Optional['outputs.BusinessIdentityResponse'] = None,
                  sender_business_identity: Optional['outputs.BusinessIdentityResponse'] = None):
         """
-        :param 'EdifactProtocolSettingsResponseArgs' protocol_settings: The EDIFACT protocol settings.
-        :param 'BusinessIdentityResponseArgs' receiver_business_identity: The receiver business identity
-        :param 'BusinessIdentityResponseArgs' sender_business_identity: The sender business identity
+        :param 'EdifactProtocolSettingsResponse' protocol_settings: The EDIFACT protocol settings.
+        :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
+        :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
         if protocol_settings is not None:
             pulumi.set(__self__, "protocol_settings", protocol_settings)
@@ -2250,17 +2250,17 @@ class EdifactProtocolSettingsResponse(dict):
                  validation_overrides: Optional[Sequence['outputs.EdifactValidationOverrideResponse']] = None,
                  validation_settings: Optional['outputs.EdifactValidationSettingsResponse'] = None):
         """
-        :param 'EdifactAcknowledgementSettingsResponseArgs' acknowledgement_settings: The EDIFACT acknowledgement settings.
-        :param Sequence['EdifactDelimiterOverrideResponseArgs'] edifact_delimiter_overrides: The EDIFACT delimiter override settings.
-        :param Sequence['EdifactEnvelopeOverrideResponseArgs'] envelope_overrides: The EDIFACT envelope override settings.
-        :param 'EdifactEnvelopeSettingsResponseArgs' envelope_settings: The EDIFACT envelope settings.
-        :param 'EdifactFramingSettingsResponseArgs' framing_settings: The EDIFACT framing settings.
-        :param 'EdifactMessageFilterResponseArgs' message_filter: The EDIFACT message filter.
-        :param Sequence['EdifactMessageIdentifierResponseArgs'] message_filter_list: The EDIFACT message filter list.
-        :param 'EdifactProcessingSettingsResponseArgs' processing_settings: The EDIFACT processing Settings.
-        :param Sequence['EdifactSchemaReferenceResponseArgs'] schema_references: The EDIFACT schema references.
-        :param Sequence['EdifactValidationOverrideResponseArgs'] validation_overrides: The EDIFACT validation override settings.
-        :param 'EdifactValidationSettingsResponseArgs' validation_settings: The EDIFACT validation settings.
+        :param 'EdifactAcknowledgementSettingsResponse' acknowledgement_settings: The EDIFACT acknowledgement settings.
+        :param Sequence['EdifactDelimiterOverrideResponse'] edifact_delimiter_overrides: The EDIFACT delimiter override settings.
+        :param Sequence['EdifactEnvelopeOverrideResponse'] envelope_overrides: The EDIFACT envelope override settings.
+        :param 'EdifactEnvelopeSettingsResponse' envelope_settings: The EDIFACT envelope settings.
+        :param 'EdifactFramingSettingsResponse' framing_settings: The EDIFACT framing settings.
+        :param 'EdifactMessageFilterResponse' message_filter: The EDIFACT message filter.
+        :param Sequence['EdifactMessageIdentifierResponse'] message_filter_list: The EDIFACT message filter list.
+        :param 'EdifactProcessingSettingsResponse' processing_settings: The EDIFACT processing Settings.
+        :param Sequence['EdifactSchemaReferenceResponse'] schema_references: The EDIFACT schema references.
+        :param Sequence['EdifactValidationOverrideResponse'] validation_overrides: The EDIFACT validation override settings.
+        :param 'EdifactValidationSettingsResponse' validation_settings: The EDIFACT validation settings.
         """
         if acknowledgement_settings is not None:
             pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
@@ -2738,7 +2738,7 @@ class IntegrationAccountContentLinkResponse(dict):
                  metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
-        :param 'IntegrationAccountContentHashResponseArgs' content_hash: The content hash.
+        :param 'IntegrationAccountContentHashResponse' content_hash: The content hash.
         :param float content_size: The content size.
         :param str content_version: The content version.
         :param Any metadata: The metadata.
@@ -2829,7 +2829,7 @@ class KeyVaultKeyReferenceResponse(dict):
                  key_version: Optional[str] = None):
         """
         :param str key_name: The private key name in key vault.
-        :param 'KeyVaultKeyReferenceResponseKeyVaultArgs' key_vault: The key vault reference.
+        :param 'KeyVaultKeyReferenceResponseKeyVault' key_vault: The key vault reference.
         :param str key_version: The private key version in key vault.
         """
         if key_name is not None:
@@ -2920,7 +2920,7 @@ class PartnerContentResponse(dict):
     def __init__(__self__, *,
                  b2b: Optional['outputs.B2BPartnerContentResponse'] = None):
         """
-        :param 'B2BPartnerContentResponseArgs' b2b: The B2B partner content.
+        :param 'B2BPartnerContentResponse' b2b: The B2B partner content.
         """
         if b2b is not None:
             pulumi.set(__self__, "b2b", b2b)
@@ -3133,8 +3133,8 @@ class X12AgreementContentResponse(dict):
                  receive_agreement: Optional['outputs.X12OneWayAgreementResponse'] = None,
                  send_agreement: Optional['outputs.X12OneWayAgreementResponse'] = None):
         """
-        :param 'X12OneWayAgreementResponseArgs' receive_agreement: The X12 one-way receive agreement.
-        :param 'X12OneWayAgreementResponseArgs' send_agreement: The X12 one-way send agreement.
+        :param 'X12OneWayAgreementResponse' receive_agreement: The X12 one-way receive agreement.
+        :param 'X12OneWayAgreementResponse' send_agreement: The X12 one-way send agreement.
         """
         if receive_agreement is not None:
             pulumi.set(__self__, "receive_agreement", receive_agreement)
@@ -3852,9 +3852,9 @@ class X12OneWayAgreementResponse(dict):
                  receiver_business_identity: Optional['outputs.BusinessIdentityResponse'] = None,
                  sender_business_identity: Optional['outputs.BusinessIdentityResponse'] = None):
         """
-        :param 'X12ProtocolSettingsResponseArgs' protocol_settings: The X12 protocol settings.
-        :param 'BusinessIdentityResponseArgs' receiver_business_identity: The receiver business identity
-        :param 'BusinessIdentityResponseArgs' sender_business_identity: The sender business identity
+        :param 'X12ProtocolSettingsResponse' protocol_settings: The X12 protocol settings.
+        :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
+        :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
         if protocol_settings is not None:
             pulumi.set(__self__, "protocol_settings", protocol_settings)
@@ -3989,18 +3989,18 @@ class X12ProtocolSettingsResponse(dict):
                  validation_settings: Optional['outputs.X12ValidationSettingsResponse'] = None,
                  x12_delimiter_overrides: Optional[Sequence['outputs.X12DelimiterOverridesResponse']] = None):
         """
-        :param 'X12AcknowledgementSettingsResponseArgs' acknowledgement_settings: The X12 acknowledgment settings.
-        :param Sequence['X12EnvelopeOverrideResponseArgs'] envelope_overrides: The X12 envelope override settings.
-        :param 'X12EnvelopeSettingsResponseArgs' envelope_settings: The X12 envelope settings.
-        :param 'X12FramingSettingsResponseArgs' framing_settings: The X12 framing settings.
-        :param 'X12MessageFilterResponseArgs' message_filter: The X12 message filter.
-        :param Sequence['X12MessageIdentifierResponseArgs'] message_filter_list: The X12 message filter list.
-        :param 'X12ProcessingSettingsResponseArgs' processing_settings: The X12 processing settings.
-        :param Sequence['X12SchemaReferenceResponseArgs'] schema_references: The X12 schema references.
-        :param 'X12SecuritySettingsResponseArgs' security_settings: The X12 security settings.
-        :param Sequence['X12ValidationOverrideResponseArgs'] validation_overrides: The X12 validation override settings.
-        :param 'X12ValidationSettingsResponseArgs' validation_settings: The X12 validation settings.
-        :param Sequence['X12DelimiterOverridesResponseArgs'] x12_delimiter_overrides: The X12 delimiter override settings.
+        :param 'X12AcknowledgementSettingsResponse' acknowledgement_settings: The X12 acknowledgment settings.
+        :param Sequence['X12EnvelopeOverrideResponse'] envelope_overrides: The X12 envelope override settings.
+        :param 'X12EnvelopeSettingsResponse' envelope_settings: The X12 envelope settings.
+        :param 'X12FramingSettingsResponse' framing_settings: The X12 framing settings.
+        :param 'X12MessageFilterResponse' message_filter: The X12 message filter.
+        :param Sequence['X12MessageIdentifierResponse'] message_filter_list: The X12 message filter list.
+        :param 'X12ProcessingSettingsResponse' processing_settings: The X12 processing settings.
+        :param Sequence['X12SchemaReferenceResponse'] schema_references: The X12 schema references.
+        :param 'X12SecuritySettingsResponse' security_settings: The X12 security settings.
+        :param Sequence['X12ValidationOverrideResponse'] validation_overrides: The X12 validation override settings.
+        :param 'X12ValidationSettingsResponse' validation_settings: The X12 validation settings.
+        :param Sequence['X12DelimiterOverridesResponse'] x12_delimiter_overrides: The X12 delimiter override settings.
         """
         if acknowledgement_settings is not None:
             pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)

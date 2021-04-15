@@ -66,7 +66,7 @@ class EnvironmentStatusResponse(dict):
                  ingress: 'outputs.IngressEnvironmentStatusResponse'):
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        :param 'IngressEnvironmentStatusResponseArgs' ingress: An object that represents the status of ingress on an environment.
+        :param 'IngressEnvironmentStatusResponse' ingress: An object that represents the status of ingress on an environment.
         """
         pulumi.set(__self__, "ingress", ingress)
 
@@ -92,7 +92,7 @@ class IngressEnvironmentStatusResponse(dict):
                  state: Optional[str] = None):
         """
         An object that represents the status of ingress on an environment.
-        :param 'EnvironmentStateDetailsResponseArgs' state_details: An object that contains the details about an environment's state.
+        :param 'EnvironmentStateDetailsResponse' state_details: An object that contains the details about an environment's state.
         :param str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
         pulumi.set(__self__, "state_details", state_details)

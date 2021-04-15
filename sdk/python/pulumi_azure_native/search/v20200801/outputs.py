@@ -18,7 +18,7 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint',
     'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState',
     'PrivateEndpointConnectionResponse',
-    'QueryKeyResponseResult',
+    'QueryKeyResponse',
     'SharedPrivateLinkResourcePropertiesResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
@@ -106,7 +106,7 @@ class NetworkRuleSetResponse(dict):
                  ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None):
         """
         Network specific rules that determine how the Azure Cognitive Search service may be reached.
-        :param Sequence['IpRuleResponseArgs'] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+        :param Sequence['IpRuleResponse'] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
@@ -133,8 +133,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None):
         """
         Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpointArgs' private_endpoint: The private endpoint resource from Microsoft.Network provider.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs' private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint' private_endpoint: The private endpoint resource from Microsoft.Network provider.
+        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         """
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -254,7 +254,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -299,7 +299,7 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
-class QueryKeyResponseResult(dict):
+class QueryKeyResponse(dict):
     """
     Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
     """
@@ -432,7 +432,7 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'SharedPrivateLinkResourcePropertiesResponseArgs' properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        :param 'SharedPrivateLinkResourcePropertiesResponse' properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)

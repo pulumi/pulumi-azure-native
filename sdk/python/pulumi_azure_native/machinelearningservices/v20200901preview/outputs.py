@@ -27,7 +27,7 @@ __all__ = [
     'AKSServiceResponseResponseLivenessProbeRequirements',
     'AKSVariantResponseResponse',
     'AksNetworkingConfigurationResponse',
-    'AmlComputeNodeInformationResponseResult',
+    'AmlComputeNodeInformationResponse',
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
     'AssignedUserResponse',
@@ -72,7 +72,7 @@ __all__ = [
     'ModelEnvironmentDefinitionResponseResponseSpark',
     'ModelResponse',
     'NodeStateCountsResponse',
-    'PasswordResponseResult',
+    'PasswordResponse',
     'PersonalComputeInstanceSettingsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -80,7 +80,7 @@ __all__ = [
     'ProgressMetricsResponse',
     'RCranPackageResponse',
     'RGitHubPackageResponseResponse',
-    'RegistryListCredentialsResultResponseResult',
+    'RegistryListCredentialsResultResponse',
     'ResourceIdResponse',
     'ScaleSettingsResponse',
     'ScriptReferenceResponse',
@@ -137,7 +137,7 @@ class ACIServiceResponseResponse(dict):
         The response for an ACI service.
         :param str compute_type: The compute environment type for the service.
                Expected value is 'ACI'.
-        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param 'ServiceResponseBaseResponseError' error: The error details.
         :param Mapping[str, Any] model_config_map: Details on the models and configurations.
         :param str scoring_uri: The Uri for sending scoring requests.
         :param str state: The current state of the service.
@@ -145,22 +145,22 @@ class ACIServiceResponseResponse(dict):
         :param bool app_insights_enabled: Whether or not Application Insights is enabled.
         :param bool auth_enabled: Whether or not authentication is enabled on the service.
         :param str cname: The CName for the service.
-        :param 'ContainerResourceRequirementsResponseArgs' container_resource_requirements: The container resource requirements.
-        :param 'ACIServiceResponseResponseDataCollectionArgs' data_collection: Details of the data collection options specified.
+        :param 'ContainerResourceRequirementsResponse' container_resource_requirements: The container resource requirements.
+        :param 'ACIServiceResponseResponseDataCollection' data_collection: Details of the data collection options specified.
         :param str deployment_type: The deployment type for the service.
         :param str description: The service description.
-        :param 'ACIServiceResponseResponseEncryptionPropertiesArgs' encryption_properties: The encryption properties.
-        :param 'ACIServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
+        :param 'ACIServiceResponseResponseEncryptionProperties' encryption_properties: The encryption properties.
+        :param 'ACIServiceResponseResponseEnvironmentImageRequest' environment_image_request: The Environment, models and assets used for inferencing.
         :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
         :param str location: The name of the Azure location/region.
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
         :param str public_fqdn: The public Fqdn for the service.
         :param str public_ip: The public IP address for the service.
         :param str ssl_certificate: The public SSL certificate in PEM format to use if SSL is enabled.
         :param bool ssl_enabled: Whether or not SSL is enabled.
         :param str ssl_key: The public SSL key in PEM format for the certificate.
-        :param 'ACIServiceResponseResponseVnetConfigurationArgs' vnet_configuration: The virtual network configuration.
+        :param 'ACIServiceResponseResponseVnetConfiguration' vnet_configuration: The virtual network configuration.
         """
         pulumi.set(__self__, "compute_type", 'ACI')
         pulumi.set(__self__, "error", error)
@@ -511,12 +511,12 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
                  models: Optional[Sequence['outputs.ModelResponse']] = None):
         """
         The Environment, models and assets used for inferencing.
-        :param Sequence['ImageAssetResponseArgs'] assets: The list of assets.
+        :param Sequence['ImageAssetResponse'] assets: The list of assets.
         :param str driver_program: The name of the driver file.
-        :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
-        :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironment' environment: The details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironmentReference' environment_reference: The unique identifying details of the AZURE ML environment.
         :param Sequence[str] model_ids: The list of model Ids.
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -633,7 +633,7 @@ class AKSReplicaStatusResponseError(dict):
         """
         The error details.
         :param str code: Error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -691,11 +691,11 @@ class AKSResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AKSResponsePropertiesArgs' properties: AKS properties
+        :param 'AKSResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'AKS')
@@ -812,12 +812,12 @@ class AKSResponseProperties(dict):
                  ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None):
         """
         AKS properties
-        :param Sequence['SystemServiceResponseArgs'] system_services: System services
+        :param Sequence['SystemServiceResponse'] system_services: System services
         :param int agent_count: Number of agents
         :param str agent_vm_size: Agent virtual machine size
-        :param 'AksNetworkingConfigurationResponseArgs' aks_networking_configuration: AKS networking configuration for vnet
+        :param 'AksNetworkingConfigurationResponse' aks_networking_configuration: AKS networking configuration for vnet
         :param str cluster_fqdn: Cluster full qualified domain name
-        :param 'SslConfigurationResponseArgs' ssl_configuration: SSL configuration
+        :param 'SslConfigurationResponse' ssl_configuration: SSL configuration
         """
         pulumi.set(__self__, "system_services", system_services)
         if agent_count is not None:
@@ -922,8 +922,8 @@ class AKSServiceResponseResponse(dict):
         The response for an AKS service.
         :param str compute_type: The compute environment type for the service.
                Expected value is 'Custom'.
-        :param 'AKSServiceResponseResponseDeploymentStatusArgs' deployment_status: The deployment status.
-        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param 'AKSServiceResponseResponseDeploymentStatus' deployment_status: The deployment status.
+        :param 'ServiceResponseBaseResponseError' error: The error details.
         :param Mapping[str, Any] model_config_map: Details on the models and configurations.
         :param str scoring_uri: The Uri for sending scoring requests.
         :param str state: The current state of the service.
@@ -931,19 +931,19 @@ class AKSServiceResponseResponse(dict):
         :param bool aad_auth_enabled: Whether or not AAD authentication is enabled.
         :param bool app_insights_enabled: Whether or not Application Insights is enabled.
         :param bool auth_enabled: Whether or not authentication is enabled.
-        :param 'AKSServiceResponseResponseAutoScalerArgs' auto_scaler: The auto scaler properties.
+        :param 'AKSServiceResponseResponseAutoScaler' auto_scaler: The auto scaler properties.
         :param str compute_name: The name of the compute resource.
-        :param 'ContainerResourceRequirementsResponseArgs' container_resource_requirements: The container resource requirements.
-        :param 'AKSServiceResponseResponseDataCollectionArgs' data_collection: Details of the data collection options specified.
+        :param 'ContainerResourceRequirementsResponse' container_resource_requirements: The container resource requirements.
+        :param 'AKSServiceResponseResponseDataCollection' data_collection: Details of the data collection options specified.
         :param str deployment_type: The deployment type for the service.
         :param str description: The service description.
-        :param 'AKSServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
+        :param 'AKSServiceResponseResponseEnvironmentImageRequest' environment_image_request: The Environment, models and assets used for inferencing.
         :param bool is_default: Is this the default variant.
         :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
-        :param 'AKSServiceResponseResponseLivenessProbeRequirementsArgs' liveness_probe_requirements: The liveness probe requirements.
+        :param 'AKSServiceResponseResponseLivenessProbeRequirements' liveness_probe_requirements: The liveness probe requirements.
         :param int max_concurrent_requests_per_container: The maximum number of concurrent requests per container.
         :param int max_queue_wait_ms: Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         :param str namespace: The Kubernetes namespace of the deployment.
         :param int num_replicas: The number of replicas on the cluster.
         :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
@@ -1366,7 +1366,7 @@ class AKSServiceResponseResponseDeploymentStatus(dict):
         The deployment status.
         :param int available_replicas: The number of available replicas.
         :param int desired_replicas: The desired number of replicas.
-        :param 'AKSReplicaStatusResponseErrorArgs' error: The error details.
+        :param 'AKSReplicaStatusResponseError' error: The error details.
         :param int updated_replicas: The number of updated replicas.
         """
         if available_replicas is not None:
@@ -1428,12 +1428,12 @@ class AKSServiceResponseResponseEnvironmentImageRequest(dict):
                  models: Optional[Sequence['outputs.ModelResponse']] = None):
         """
         The Environment, models and assets used for inferencing.
-        :param Sequence['ImageAssetResponseArgs'] assets: The list of assets.
+        :param Sequence['ImageAssetResponse'] assets: The list of assets.
         :param str driver_program: The name of the driver file.
-        :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
-        :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironment' environment: The details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironmentReference' environment_reference: The unique identifying details of the AZURE ML environment.
         :param Sequence[str] model_ids: The list of model Ids.
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -1594,7 +1594,7 @@ class AKSVariantResponseResponse(dict):
         The response for an AKS variant.
         :param str compute_type: The compute environment type for the service.
                Expected value is 'Custom'.
-        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param 'ServiceResponseBaseResponseError' error: The error details.
         :param str state: The current state of the service.
         :param str deployment_type: The deployment type for the service.
         :param str description: The service description.
@@ -1770,7 +1770,7 @@ class AksNetworkingConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class AmlComputeNodeInformationResponseResult(dict):
+class AmlComputeNodeInformationResponse(dict):
     """
     Compute node information related to a AmlCompute.
     """
@@ -1869,11 +1869,11 @@ class AmlComputeResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AmlComputeResponsePropertiesArgs' properties: AML Compute properties
+        :param 'AmlComputeResponseProperties' properties: AML Compute properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'AmlCompute')
@@ -2003,17 +2003,17 @@ class AmlComputeResponseProperties(dict):
         :param str allocation_state: Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
         :param str allocation_state_transition_time: The time at which the compute entered its current allocation state.
         :param int current_node_count: The number of compute nodes currently assigned to the compute.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
-        :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
+        :param Sequence['MachineLearningServiceErrorResponse'] errors: Collection of errors encountered by various compute nodes during node setup.
+        :param 'NodeStateCountsResponse' node_state_counts: Counts of various node states on the compute.
         :param int target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         :param bool enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param bool isolated_network: Network is isolated or not
         :param str os_type: Compute OS Type
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
-        :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
-        :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
-        :param 'UserAccountCredentialsResponseArgs' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
-        :param 'VirtualMachineImageResponseArgs' virtual_machine_image: Virtual Machine image for AML Compute - windows only
+        :param 'ScaleSettingsResponse' scale_settings: Scale settings for AML Compute
+        :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param 'UserAccountCredentialsResponse' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
+        :param 'VirtualMachineImageResponse' virtual_machine_image: Virtual Machine image for AML Compute - windows only
         :param str vm_priority: Virtual Machine priority
         :param str vm_size: Virtual Machine Size
         """
@@ -2450,11 +2450,11 @@ class ComputeInstanceResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'ComputeInstanceResponsePropertiesArgs' properties: Compute Instance properties
+        :param 'ComputeInstanceResponseProperties' properties: Compute Instance properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'ComputeInstance')
@@ -2578,18 +2578,18 @@ class ComputeInstanceResponseProperties(dict):
                  vm_size: Optional[str] = None):
         """
         Compute Instance properties
-        :param Sequence['ComputeInstanceApplicationResponseArgs'] applications: Describes available applications and their endpoints on this ComputeInstance.
-        :param 'ComputeInstanceConnectivityEndpointsResponseArgs' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
-        :param 'ComputeInstanceCreatedByResponseArgs' created_by: Describes information on user who created this ComputeInstance.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered on this ComputeInstance.
-        :param 'ComputeInstanceLastOperationResponseArgs' last_operation: The last operation on ComputeInstance.
+        :param Sequence['ComputeInstanceApplicationResponse'] applications: Describes available applications and their endpoints on this ComputeInstance.
+        :param 'ComputeInstanceConnectivityEndpointsResponse' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
+        :param 'ComputeInstanceCreatedByResponse' created_by: Describes information on user who created this ComputeInstance.
+        :param Sequence['MachineLearningServiceErrorResponse'] errors: Collection of errors encountered on this ComputeInstance.
+        :param 'ComputeInstanceLastOperationResponse' last_operation: The last operation on ComputeInstance.
         :param str state: The current state of this ComputeInstance.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
-        :param 'PersonalComputeInstanceSettingsResponseArgs' personal_compute_instance_settings: Settings for a personal compute instance.
-        :param 'SetupScriptsResponseArgs' setup_scripts: Details of customized scripts to execute for setting up the cluster.
-        :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
-        :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param 'PersonalComputeInstanceSettingsResponse' personal_compute_instance_settings: Settings for a personal compute instance.
+        :param 'SetupScriptsResponse' setup_scripts: Details of customized scripts to execute for setting up the cluster.
+        :param 'ComputeInstanceSshSettingsResponse' ssh_settings: Specifies policy and settings for SSH access.
+        :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param str vm_size: Virtual Machine Size
         """
         pulumi.set(__self__, "applications", applications)
@@ -2871,7 +2871,7 @@ class DataFactoryResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -2990,7 +2990,7 @@ class DataLakeAnalyticsResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -3138,7 +3138,7 @@ class DatabricksResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -3307,7 +3307,7 @@ class EncryptionPropertyResponse(dict):
                  key_vault_properties: 'outputs.KeyVaultPropertiesResponse',
                  status: str):
         """
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Customer Key vault properties.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Customer Key vault properties.
         :param str status: Indicates whether or not the encryption is enabled for the workspace.
         """
         pulumi.set(__self__, "key_vault_properties", key_vault_properties)
@@ -3349,13 +3349,13 @@ class EnvironmentImageResponseResponseEnvironment(dict):
                  version: Optional[str] = None):
         """
         The details of the AZURE ML environment.
-        :param 'ModelEnvironmentDefinitionResponseResponseDockerArgs' docker: The definition of a Docker container.
+        :param 'ModelEnvironmentDefinitionResponseResponseDocker' docker: The definition of a Docker container.
         :param Mapping[str, str] environment_variables: Definition of environment variables to be defined in the environment.
         :param str inferencing_stack_version: The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
         :param str name: The name of the environment.
-        :param 'ModelEnvironmentDefinitionResponseResponsePythonArgs' python: Settings for a Python environment.
-        :param 'ModelEnvironmentDefinitionResponseResponseRArgs' r: Settings for a R environment.
-        :param 'ModelEnvironmentDefinitionResponseResponseSparkArgs' spark: The configuration for a Spark environment.
+        :param 'ModelEnvironmentDefinitionResponseResponsePython' python: Settings for a Python environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseR' r: Settings for a R environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseSpark' spark: The configuration for a Spark environment.
         :param str version: The environment version.
         """
         if docker is not None:
@@ -3529,7 +3529,7 @@ class ErrorResponseResponse(dict):
         """
         Error response information.
         :param str code: Error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -3587,7 +3587,7 @@ class HDInsightResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -3698,7 +3698,7 @@ class HDInsightResponseProperties(dict):
                  ssh_port: Optional[int] = None):
         """
         :param str address: Public IP address of the master node of the cluster.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for master node of the cluster
         :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
@@ -3751,7 +3751,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The user assigned identities associated with the resource.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -3913,7 +3913,7 @@ class LabelCategoryResponse(dict):
                  display_name: Optional[str] = None):
         """
         Represents a category of labels in a labeling job.
-        :param Mapping[str, 'LabelClassResponseArgs'] classes: Dictionary of label classes in this category.
+        :param Mapping[str, 'LabelClassResponse'] classes: Dictionary of label classes in this category.
         :param bool allow_multi_select: Indicates whether it is allowed to select multiple classes in this category.
         :param str display_name: Display name of the label category.
         """
@@ -3962,7 +3962,7 @@ class LabelClassResponse(dict):
         """
         Represents a label or a category of labels in a labeling job.
         :param str display_name: Display name of the label class.
-        :param Mapping[str, 'LabelClassResponseArgs'] subclasses: Dictionary of subclasses of the label class.
+        :param Mapping[str, 'LabelClassResponse'] subclasses: Dictionary of subclasses of the label class.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -4117,15 +4117,15 @@ class LabelingJobPropertiesResponse(dict):
         """
         Definition of a labeling job.
         :param str created_time_utc: Created time of the job in UTC timezone.
-        :param 'LabelingDatasetConfigurationResponseArgs' dataset_configuration: Dataset configuration for the job.
-        :param 'LabelingJobInstructionsResponseArgs' job_instructions: Instructions for the job.
-        :param Mapping[str, 'LabelCategoryResponseArgs'] label_categories: Label categories of the job.
-        :param 'LabelingJobImagePropertiesResponseArgs' labeling_job_media_properties: Media specific properties in a labeling job.
-        :param 'ProgressMetricsResponseArgs' progress_metrics: Progress metrics of the job.
+        :param 'LabelingDatasetConfigurationResponse' dataset_configuration: Dataset configuration for the job.
+        :param 'LabelingJobInstructionsResponse' job_instructions: Instructions for the job.
+        :param Mapping[str, 'LabelCategoryResponse'] label_categories: Label categories of the job.
+        :param 'LabelingJobImagePropertiesResponse' labeling_job_media_properties: Media specific properties in a labeling job.
+        :param 'ProgressMetricsResponse' progress_metrics: Progress metrics of the job.
         :param str project_id: Internal id of the job(Previously called project).
         :param str status: Status of the job.
-        :param Sequence['StatusMessageResponseArgs'] status_messages: Status messages of the job.
-        :param 'MLAssistConfigurationResponseArgs' ml_assist_configuration: Machine learning assisted configuration for the job.
+        :param Sequence['StatusMessageResponse'] status_messages: Status messages of the job.
+        :param 'MLAssistConfigurationResponse' ml_assist_configuration: Machine learning assisted configuration for the job.
         :param Mapping[str, str] properties: The job property dictionary. Properties can be added, but not removed or altered.
         :param Mapping[str, str] tags: The job tag dictionary. Tags can be added, removed, and updated.
         """
@@ -4319,9 +4319,9 @@ class MLAssistConfigurationResponse(dict):
                  prelabel_accuracy_threshold: Optional[float] = None):
         """
         Represents configuration for machine learning assisted features in a labeling job.
-        :param 'ComputeBindingResponseArgs' inferencing_compute_binding: The compute designated for inferencing.
+        :param 'ComputeBindingResponse' inferencing_compute_binding: The compute designated for inferencing.
         :param str model_name_prefix: Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-        :param 'ComputeBindingResponseArgs' training_compute_binding: The compute designated for training.
+        :param 'ComputeBindingResponse' training_compute_binding: The compute designated for training.
         :param bool ml_assist_enabled: Indicates whether MLAssist feature is enabled.
         :param float prelabel_accuracy_threshold: Prelabel accuracy threshold used in MLAssist feature.
         """
@@ -4386,7 +4386,7 @@ class MachineLearningServiceErrorResponse(dict):
                  error: 'outputs.ErrorResponseResponse'):
         """
         Wrapper for error response to follow ARM guidelines.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         pulumi.set(__self__, "error", error)
 
@@ -4437,7 +4437,7 @@ class ModelEnvironmentDefinitionResponseResponseDocker(dict):
         The definition of a Docker container.
         :param str base_dockerfile: Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
         :param str base_image: Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-        :param 'ModelDockerSectionResponseResponseBaseImageRegistryArgs' base_image_registry: Image registry that contains the base image.
+        :param 'ModelDockerSectionResponseResponseBaseImageRegistry' base_image_registry: Image registry that contains the base image.
         """
         if base_dockerfile is not None:
             pulumi.set(__self__, "base_dockerfile", base_dockerfile)
@@ -4549,9 +4549,9 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
         """
         Settings for a R environment.
         :param Sequence[str] bio_conductor_packages: The packages from Bioconductor.
-        :param Sequence['RCranPackageResponseArgs'] cran_packages: The CRAN packages to use.
+        :param Sequence['RCranPackageResponse'] cran_packages: The CRAN packages to use.
         :param Sequence[str] custom_url_packages: The packages from custom urls.
-        :param Sequence['RGitHubPackageResponseResponseArgs'] git_hub_packages: The packages directly from GitHub.
+        :param Sequence['RGitHubPackageResponseResponse'] git_hub_packages: The packages directly from GitHub.
         :param str r_version: The version of R to be installed
         :param str rscript_path: The Rscript path to use if an environment build is not required.
                The path specified gets used to call the user script.
@@ -4655,7 +4655,7 @@ class ModelEnvironmentDefinitionResponseResponseSpark(dict):
                  repositories: Optional[Sequence[str]] = None):
         """
         The configuration for a Spark environment.
-        :param Sequence['SparkMavenPackageResponseArgs'] packages: The Spark packages to use.
+        :param Sequence['SparkMavenPackageResponse'] packages: The Spark packages to use.
         :param bool precache_packages: Whether to precache the packages.
         :param Sequence[str] repositories: The list of spark repositories.
         """
@@ -4727,7 +4727,7 @@ class ModelResponse(dict):
         :param str name: The Model name.
         :param str url: The URL of the Model. Usually a SAS URL.
         :param str created_time: The Model creation time (UTC).
-        :param Sequence['DatasetReferenceResponseArgs'] datasets: The list of datasets associated with the model.
+        :param Sequence['DatasetReferenceResponse'] datasets: The list of datasets associated with the model.
         :param Sequence[str] derived_model_ids: Models derived from this model
         :param str description: The Model description text.
         :param str experiment_name: The name of the experiment where this model was created.
@@ -4738,7 +4738,7 @@ class ModelResponse(dict):
         :param str modified_time: The Model last modified time (UTC).
         :param str parent_model_id: The Parent Model Id.
         :param Mapping[str, str] properties: The Model property dictionary. Properties are immutable.
-        :param 'ContainerResourceRequirementsResponseArgs' resource_requirements: Resource requirements for the model
+        :param 'ContainerResourceRequirementsResponse' resource_requirements: Resource requirements for the model
         :param str run_id: The RunId that created this model.
         :param str sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param str sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
@@ -5038,7 +5038,7 @@ class NodeStateCountsResponse(dict):
 
 
 @pulumi.output_type
-class PasswordResponseResult(dict):
+class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -5065,7 +5065,7 @@ class PersonalComputeInstanceSettingsResponse(dict):
                  assigned_user: Optional['outputs.AssignedUserResponse'] = None):
         """
         Settings for a personal compute instance.
-        :param 'AssignedUserResponseArgs' assigned_user: A user explicitly assigned to a personal compute instance.
+        :param 'AssignedUserResponse' assigned_user: A user explicitly assigned to a personal compute instance.
         """
         if assigned_user is not None:
             pulumi.set(__self__, "assigned_user", assigned_user)
@@ -5102,13 +5102,13 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Specifies the resource ID.
         :param str name: Specifies the name of the resource.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: Specifies the type of the resource.
-        :param 'IdentityResponseArgs' identity: The identity of the resource.
+        :param 'IdentityResponse' identity: The identity of the resource.
         :param str location: Specifies the location of the resource.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
-        :param 'SkuResponseArgs' sku: The sku of the workspace.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'SkuResponse' sku: The sku of the workspace.
         :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "id", id)
@@ -5401,11 +5401,11 @@ class RGitHubPackageResponseResponse(dict):
 
 
 @pulumi.output_type
-class RegistryListCredentialsResultResponseResult(dict):
+class RegistryListCredentialsResultResponse(dict):
     def __init__(__self__, *,
                  location: str,
                  username: str,
-                 passwords: Optional[Sequence['outputs.PasswordResponseResult']] = None):
+                 passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "username", username)
         if passwords is not None:
@@ -5423,7 +5423,7 @@ class RegistryListCredentialsResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.PasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.PasswordResponse']]:
         return pulumi.get(self, "passwords")
 
 
@@ -5575,8 +5575,8 @@ class ScriptsToExecuteResponse(dict):
                  startup_script: Optional['outputs.ScriptReferenceResponse'] = None):
         """
         Customized setup scripts
-        :param 'ScriptReferenceResponseArgs' creation_script: Script that's run only once during provision of the compute.
-        :param 'ScriptReferenceResponseArgs' startup_script: Script that's run every time the machine starts.
+        :param 'ScriptReferenceResponse' creation_script: Script that's run only once during provision of the compute.
+        :param 'ScriptReferenceResponse' startup_script: Script that's run every time the machine starts.
         """
         if creation_script is not None:
             pulumi.set(__self__, "creation_script", creation_script)
@@ -5615,7 +5615,7 @@ class ServiceResponseBaseResponseError(dict):
         """
         The error details.
         :param str code: Error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -5659,7 +5659,7 @@ class SetupScriptsResponse(dict):
                  scripts: Optional['outputs.ScriptsToExecuteResponse'] = None):
         """
         Details of customized scripts to execute for setting up the cluster.
-        :param 'ScriptsToExecuteResponseArgs' scripts: Customized setup scripts
+        :param 'ScriptsToExecuteResponse' scripts: Customized setup scripts
         """
         if scripts is not None:
             pulumi.set(__self__, "scripts", scripts)
@@ -6213,7 +6213,7 @@ class VirtualMachineResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -6325,7 +6325,7 @@ class VirtualMachineResponseProperties(dict):
                  virtual_machine_size: Optional[str] = None):
         """
         :param str address: Public IP address of the virtual machine.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for virtual machine
         :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """

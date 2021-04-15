@@ -51,8 +51,8 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureIaasVM'.
         :param int protected_items_count: The number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy with the details on backup copy retention ranges.
-        :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: The retention policy with the details on backup copy retention ranges.
+        :param Union['LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: The backup schedule specified as part of backup policy.
         """
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
@@ -114,7 +114,7 @@ class AzureSqlProtectionPolicyResponse(dict):
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureSql'.
         :param int protected_items_count: The number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy details.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: The retention policy details.
         """
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", 'AzureSql')
@@ -161,7 +161,7 @@ class DailyRetentionFormatResponse(dict):
                  days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
-        :param Sequence['DayResponseArgs'] days_of_the_month: List of days of the month.
+        :param Sequence['DayResponse'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
             pulumi.set(__self__, "days_of_the_month", days_of_the_month)
@@ -188,7 +188,7 @@ class DailyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Daily retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: The retention duration of retention policy.
+        :param 'RetentionDurationResponse' retention_duration: The retention duration of retention policy.
         :param Sequence[str] retention_times: The retention times of retention policy.
         """
         if retention_duration is not None:
@@ -306,12 +306,12 @@ class LongTermRetentionPolicyResponse(dict):
                  yearly_schedule: Optional['outputs.YearlyRetentionScheduleResponse'] = None):
         """
         Long-term retention policy.
-        :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the backup policy.
-        :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the backup policy.
+        :param 'DailyRetentionScheduleResponse' daily_schedule: Daily retention schedule of the backup policy.
+        :param 'MonthlyRetentionScheduleResponse' monthly_schedule: Monthly retention schedule of the backup policy.
         :param str retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermRetentionPolicy'.
-        :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the backup policy.
-        :param 'YearlyRetentionScheduleResponseArgs' yearly_schedule: Yearly retention schedule of the backup policy.
+        :param 'WeeklyRetentionScheduleResponse' weekly_schedule: Weekly retention schedule of the backup policy.
+        :param 'YearlyRetentionScheduleResponse' yearly_schedule: Yearly retention schedule of the backup policy.
         """
         if daily_schedule is not None:
             pulumi.set(__self__, "daily_schedule", daily_schedule)
@@ -412,8 +412,8 @@ class MabProtectionPolicyResponse(dict):
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'MAB'.
         :param int protected_items_count: The number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The details specified in the Retention policy.
-        :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The schedule specified in the backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: The details specified in the Retention policy.
+        :param Union['LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: The schedule specified in the backup policy.
         """
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", 'MAB')
@@ -474,10 +474,10 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         The monthly retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the retention policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the monthly retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of the retention policy.
+        :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for the monthly retention policy.
         :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the monthly retention policy.
+        :param 'WeeklyRetentionFormatResponse' retention_schedule_weekly: Weekly retention format for the monthly retention policy.
         :param Sequence[str] retention_times: Retention times of the retention policy.
         """
         if retention_duration is not None:
@@ -546,7 +546,7 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
         """
         Information to be stored in Vault properties as an element of privateEndpointConnections List.
         :param str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
-        :param 'VaultPrivateEndpointConnectionResponseArgs' properties: Private Endpoint Connection Response Properties.
+        :param 'VaultPrivateEndpointConnectionResponse' properties: Private Endpoint Connection Response Properties.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)
@@ -646,7 +646,7 @@ class SimpleRetentionPolicyResponse(dict):
                  retention_policy_type: Optional[str] = None):
         """
         Simple policy retention.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the protection policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of the protection policy.
         :param str retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleRetentionPolicy'.
         """
@@ -901,8 +901,8 @@ class VaultPrivateEndpointConnectionResponse(dict):
                  provisioning_state: str):
         """
         Private Endpoint Connection Response Properties.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
-        :param 'VaultPrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state.
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         """
         pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -997,11 +997,11 @@ class VaultPropertiesResponse(dict):
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
-        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
+        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponse'] private_endpoint_connections: List of private endpoint connection.
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
-        :param 'UpgradeDetailsResponseArgs' upgrade_details: Details for upgrading vault.
+        :param 'UpgradeDetailsResponse' upgrade_details: Details for upgrading vault.
         """
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
@@ -1104,7 +1104,7 @@ class WeeklyRetentionScheduleResponse(dict):
         """
         Weekly retention schedule.
         :param Sequence[str] days_of_the_week: List of the days of the week for the weekly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention policy.
         :param Sequence[str] retention_times: Retention times of the retention policy.
         """
         if days_of_the_week is not None:
@@ -1157,10 +1157,10 @@ class YearlyRetentionScheduleResponse(dict):
         """
         Yearly retention schedule.
         :param Sequence[str] months_of_year: List of the months of year for the yearly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration for the retention policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the yearly retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration for the retention policy.
+        :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for the yearly retention policy.
         :param str retention_schedule_format_type: Retention schedule format for the yearly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the yearly retention policy.
+        :param 'WeeklyRetentionFormatResponse' retention_schedule_weekly: Weekly retention format for the yearly retention policy.
         :param Sequence[str] retention_times: Retention times for the retention policy.
         """
         if months_of_year is not None:

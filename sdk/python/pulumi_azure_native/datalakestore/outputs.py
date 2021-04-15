@@ -30,7 +30,7 @@ class EncryptionConfigResponse(dict):
         """
         The encryption configuration for the account.
         :param str type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-        :param 'KeyVaultMetaInfoResponseArgs' key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
+        :param 'KeyVaultMetaInfoResponse' key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
         """
         pulumi.set(__self__, "type", type)
         if key_vault_meta_info is not None:

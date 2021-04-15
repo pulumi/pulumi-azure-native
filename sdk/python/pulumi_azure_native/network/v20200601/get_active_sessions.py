@@ -38,7 +38,7 @@ class GetActiveSessionsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.BastionActiveSessionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.BastionActiveSessionResponse']]:
         """
         List of active sessions on the bastion.
         """

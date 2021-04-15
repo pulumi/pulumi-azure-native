@@ -83,16 +83,16 @@ class ServerEndpointSyncStatusResponse(dict):
         """
         Server Endpoint sync status
         :param str combined_health: Combined Health Status.
-        :param 'SyncActivityStatusResponseArgs' download_activity: Download sync activity
+        :param 'SyncActivityStatusResponse' download_activity: Download sync activity
         :param str download_health: Download Health Status.
-        :param 'SyncSessionStatusResponseArgs' download_status: Download Status
+        :param 'SyncSessionStatusResponse' download_status: Download Status
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str sync_activity: Sync activity
         :param float total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download). Reserved for future use.
-        :param 'SyncActivityStatusResponseArgs' upload_activity: Upload sync activity
+        :param 'SyncActivityStatusResponse' upload_activity: Upload sync activity
         :param str upload_health: Upload Health Status.
-        :param 'SyncSessionStatusResponseArgs' upload_status: Upload Status
+        :param 'SyncSessionStatusResponse' upload_status: Upload Status
         """
         pulumi.set(__self__, "combined_health", combined_health)
         pulumi.set(__self__, "download_activity", download_activity)
@@ -293,7 +293,7 @@ class SyncSessionStatusResponse(dict):
                  transient_files_not_syncing_count: float):
         """
         Sync Session status object.
-        :param Sequence['FilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session. Reserved for future use.
+        :param Sequence['FilesNotSyncingErrorResponse'] files_not_syncing_errors: Array of per-item errors coming from the last sync session. Reserved for future use.
         :param float last_sync_per_item_error_count: Last sync per item error count.
         :param int last_sync_result: Last sync result (HResult)
         :param str last_sync_success_timestamp: Last sync success timestamp

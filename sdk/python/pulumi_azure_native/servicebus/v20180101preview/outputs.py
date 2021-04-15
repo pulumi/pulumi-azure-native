@@ -263,7 +263,7 @@ class EncryptionResponse(dict):
         """
         Properties to configure Encryption
         :param str key_source: Enumerates the possible value of keySource for Encryption
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties of KeyVault
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
         """
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
@@ -502,7 +502,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
         """
         Description of VirtualNetworkRules - NetworkRules resource.
         :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
-        :param 'SubnetResponseArgs' subnet: Subnet properties
+        :param 'SubnetResponse' subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
             pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)

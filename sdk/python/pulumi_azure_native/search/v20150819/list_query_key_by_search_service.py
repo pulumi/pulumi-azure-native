@@ -27,7 +27,7 @@ class ListQueryKeyBySearchServiceResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.QueryKeyResponseResult']:
+    def value(self) -> Sequence['outputs.QueryKeyResponse']:
         """
         The query keys for the Azure Cognitive Search service.
         """

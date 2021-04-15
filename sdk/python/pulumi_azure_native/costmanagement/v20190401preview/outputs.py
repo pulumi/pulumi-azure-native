@@ -392,12 +392,12 @@ class ReportConfigDatasetResponse(dict):
                  sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None):
         """
         The definition of data present in the report.
-        :param Mapping[str, 'ReportConfigAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-        :param 'ReportConfigDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'ReportConfigFilterResponseArgs' filter: Has filter expression to use in the report.
+        :param Mapping[str, 'ReportConfigAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param 'ReportConfigDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'ReportConfigFilterResponse' filter: Has filter expression to use in the report.
         :param str granularity: The granularity of rows in the report.
-        :param Sequence['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        :param Sequence['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
+        :param Sequence['ReportConfigGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportConfigSortingResponse'] sorting: Array of order by expression to use in the report.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -477,11 +477,11 @@ class ReportConfigFilterResponse(dict):
                  tag: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
-        :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
-        :param 'ReportConfigFilterResponseArgs' not_: The logical "NOT" expression.
-        :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
+        :param Sequence['ReportConfigFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponse' dimension: Has comparison expression for a dimension
+        :param 'ReportConfigFilterResponse' not_: The logical "NOT" expression.
+        :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponse' tag: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)

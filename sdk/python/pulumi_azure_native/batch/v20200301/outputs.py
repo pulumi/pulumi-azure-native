@@ -539,7 +539,7 @@ class ContainerConfigurationResponse(dict):
                  container_registries: Optional[Sequence['outputs.ContainerRegistryResponse']] = None):
         """
         :param Sequence[str] container_image_names: This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
-        :param Sequence['ContainerRegistryResponseArgs'] container_registries: If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
+        :param Sequence['ContainerRegistryResponse'] container_registries: If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
         """
         pulumi.set(__self__, "type", type)
         if container_image_names is not None:
@@ -696,7 +696,7 @@ class DeleteCertificateErrorResponse(dict):
         An error response from the Batch service.
         :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
-        :param Sequence['DeleteCertificateErrorResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['DeleteCertificateErrorResponse'] details: A list of additional details about the error.
         :param str target: The target of the particular error. For example, the name of the property in error.
         """
         pulumi.set(__self__, "code", code)
@@ -748,8 +748,8 @@ class DeploymentConfigurationResponse(dict):
                  cloud_service_configuration: Optional['outputs.CloudServiceConfigurationResponse'] = None,
                  virtual_machine_configuration: Optional['outputs.VirtualMachineConfigurationResponse'] = None):
         """
-        :param 'CloudServiceConfigurationResponseArgs' cloud_service_configuration: This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
-        :param 'VirtualMachineConfigurationResponseArgs' virtual_machine_configuration: This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.
+        :param 'CloudServiceConfigurationResponse' cloud_service_configuration: This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
+        :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.
         """
         if cloud_service_configuration is not None:
             pulumi.set(__self__, "cloud_service_configuration", cloud_service_configuration)
@@ -809,7 +809,7 @@ class EncryptionPropertiesResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         :param str key_source: Type of the key source.
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Additional details when using Microsoft.KeyVault
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Additional details when using Microsoft.KeyVault
         """
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
@@ -1001,7 +1001,7 @@ class InboundNatPoolResponse(dict):
         :param int frontend_port_range_end: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param int frontend_port_range_start: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param str name: The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.
-        :param Sequence['NetworkSecurityGroupRuleResponseArgs'] network_security_group_rules: The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
+        :param Sequence['NetworkSecurityGroupRuleResponse'] network_security_group_rules: The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
@@ -1200,10 +1200,10 @@ class MountConfigurationResponse(dict):
                  cifs_mount_configuration: Optional['outputs.CIFSMountConfigurationResponse'] = None,
                  nfs_mount_configuration: Optional['outputs.NFSMountConfigurationResponse'] = None):
         """
-        :param 'AzureBlobFileSystemConfigurationResponseArgs' azure_blob_file_system_configuration: This property is mutually exclusive with all other properties.
-        :param 'AzureFileShareConfigurationResponseArgs' azure_file_share_configuration: This property is mutually exclusive with all other properties.
-        :param 'CIFSMountConfigurationResponseArgs' cifs_mount_configuration: This property is mutually exclusive with all other properties.
-        :param 'NFSMountConfigurationResponseArgs' nfs_mount_configuration: This property is mutually exclusive with all other properties.
+        :param 'AzureBlobFileSystemConfigurationResponse' azure_blob_file_system_configuration: This property is mutually exclusive with all other properties.
+        :param 'AzureFileShareConfigurationResponse' azure_file_share_configuration: This property is mutually exclusive with all other properties.
+        :param 'CIFSMountConfigurationResponse' cifs_mount_configuration: This property is mutually exclusive with all other properties.
+        :param 'NFSMountConfigurationResponse' nfs_mount_configuration: This property is mutually exclusive with all other properties.
         """
         if azure_blob_file_system_configuration is not None:
             pulumi.set(__self__, "azure_blob_file_system_configuration", azure_blob_file_system_configuration)
@@ -1301,8 +1301,8 @@ class NetworkConfigurationResponse(dict):
                  subnet_id: Optional[str] = None):
         """
         The network configuration for a pool.
-        :param 'PoolEndpointConfigurationResponseArgs' endpoint_configuration: Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
-        :param 'PublicIPAddressConfigurationResponseArgs' public_ip_address_configuration: This property is only supported on Pools with the virtualMachineConfiguration property.
+        :param 'PoolEndpointConfigurationResponse' endpoint_configuration: Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
+        :param 'PublicIPAddressConfigurationResponse' public_ip_address_configuration: This property is only supported on Pools with the virtualMachineConfiguration property.
         :param str subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
         if endpoint_configuration is not None:
@@ -1396,7 +1396,7 @@ class PoolEndpointConfigurationResponse(dict):
     def __init__(__self__, *,
                  inbound_nat_pools: Sequence['outputs.InboundNatPoolResponse']):
         """
-        :param Sequence['InboundNatPoolResponseArgs'] inbound_nat_pools: The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+        :param Sequence['InboundNatPoolResponse'] inbound_nat_pools: The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
         """
         pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
 
@@ -1431,8 +1431,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: The ID of the resource.
         :param str name: The name of the resource.
         :param str type: The type of the resource.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint of the private endpoint connection.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: The private link service connection state of the private endpoint connection
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state of the private endpoint connection
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -1650,7 +1650,7 @@ class ResizeOperationStatusResponse(dict):
                  target_low_priority_nodes: Optional[int] = None):
         """
         Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
-        :param Sequence['ResizeErrorResponseArgs'] errors: This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
+        :param Sequence['ResizeErrorResponse'] errors: This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
         :param str node_deallocation_option: The default value is requeue.
         :param str resize_timeout: The default value is 15 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service returns an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         """
@@ -1802,8 +1802,8 @@ class ScaleSettingsResponse(dict):
                  fixed_scale: Optional['outputs.FixedScaleSettingsResponse'] = None):
         """
         Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
-        :param 'AutoScaleSettingsResponseArgs' auto_scale: This property and fixedScale are mutually exclusive and one of the properties must be specified.
-        :param 'FixedScaleSettingsResponseArgs' fixed_scale: This property and autoScale are mutually exclusive and one of the properties must be specified.
+        :param 'AutoScaleSettingsResponse' auto_scale: This property and fixedScale are mutually exclusive and one of the properties must be specified.
+        :param 'FixedScaleSettingsResponse' fixed_scale: This property and autoScale are mutually exclusive and one of the properties must be specified.
         """
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
@@ -1846,9 +1846,9 @@ class StartTaskResponse(dict):
         """
         In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
         :param str command_line: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
-        :param 'TaskContainerSettingsResponseArgs' container_settings: When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        :param 'TaskContainerSettingsResponse' container_settings: When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         :param int max_task_retry_count: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.
-        :param 'UserIdentityResponseArgs' user_identity: If omitted, the task runs as a non-administrative user unique to the task.
+        :param 'UserIdentityResponse' user_identity: If omitted, the task runs as a non-administrative user unique to the task.
         :param bool wait_for_success: If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is true.
         """
         if command_line is not None:
@@ -1930,7 +1930,7 @@ class TaskContainerSettingsResponse(dict):
         """
         :param str image_name: This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
         :param str container_run_options: These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
-        :param 'ContainerRegistryResponseArgs' registry: This setting can be omitted if was already provided at pool creation.
+        :param 'ContainerRegistryResponse' registry: This setting can be omitted if was already provided at pool creation.
         """
         pulumi.set(__self__, "image_name", image_name)
         if container_run_options is not None:
@@ -1998,8 +1998,8 @@ class UserAccountResponse(dict):
                  windows_user_configuration: Optional['outputs.WindowsUserConfigurationResponse'] = None):
         """
         :param str elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-        :param 'LinuxUserConfigurationResponseArgs' linux_user_configuration: This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
-        :param 'WindowsUserConfigurationResponseArgs' windows_user_configuration: This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        :param 'LinuxUserConfigurationResponse' linux_user_configuration: This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        :param 'WindowsUserConfigurationResponse' windows_user_configuration: This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "password", password)
@@ -2058,7 +2058,7 @@ class UserIdentityResponse(dict):
                  user_name: Optional[str] = None):
         """
         Specify either the userName or autoUser property, but not both.
-        :param 'AutoUserSpecificationResponseArgs' auto_user: The userName and autoUser properties are mutually exclusive; you must specify one but not both.
+        :param 'AutoUserSpecificationResponse' auto_user: The userName and autoUser properties are mutually exclusive; you must specify one but not both.
         :param str user_name: The userName and autoUser properties are mutually exclusive; you must specify one but not both.
         """
         if auto_user is not None:
@@ -2098,14 +2098,14 @@ class VirtualMachineConfigurationResponse(dict):
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         :param str node_agent_sku_id: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
-        :param 'ContainerConfigurationResponseArgs' container_configuration: If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
-        :param Sequence['DataDiskResponseArgs'] data_disks: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
-        :param 'DiskEncryptionConfigurationResponseArgs' disk_encryption_configuration: If specified, encryption is performed on each node in the pool during node provisioning.
+        :param 'ContainerConfigurationResponse' container_configuration: If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
+        :param Sequence['DataDiskResponse'] data_disks: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
+        :param 'DiskEncryptionConfigurationResponse' disk_encryption_configuration: If specified, encryption is performed on each node in the pool during node provisioning.
         :param str license_type: This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
                
                 Windows_Server - The on-premises license is for Windows Server.
                 Windows_Client - The on-premises license is for Windows Client.
-        :param 'WindowsConfigurationResponseArgs' windows_configuration: This property must not be specified if the imageReference specifies a Linux OS image.
+        :param 'WindowsConfigurationResponse' windows_configuration: This property must not be specified if the imageReference specifies a Linux OS image.
         """
         pulumi.set(__self__, "image_reference", image_reference)
         pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)

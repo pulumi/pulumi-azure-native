@@ -135,7 +135,7 @@ class CloudTieringFilesNotTieringResponse(dict):
                  total_file_count: float):
         """
         Server endpoint cloud tiering status object.
-        :param Sequence['FilesNotTieringErrorResponseArgs'] errors: Array of tiering errors
+        :param Sequence['FilesNotTieringErrorResponse'] errors: Array of tiering errors
         :param str last_updated_timestamp: Last updated timestamp
         :param float total_file_count: Last cloud tiering result (HResult)
         """
@@ -350,10 +350,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -555,16 +555,16 @@ class ServerEndpointCloudTieringStatusResponse(dict):
                  volume_free_space_policy_status: 'outputs.CloudTieringVolumeFreeSpacePolicyStatusResponse'):
         """
         Server endpoint cloud tiering status object.
-        :param 'CloudTieringCachePerformanceResponseArgs' cache_performance: Information regarding how well the local cache on the server is performing.
-        :param 'CloudTieringDatePolicyStatusResponseArgs' date_policy_status: Status of the date policy
-        :param 'CloudTieringFilesNotTieringResponseArgs' files_not_tiering: Information regarding files that failed to be tiered
+        :param 'CloudTieringCachePerformanceResponse' cache_performance: Information regarding how well the local cache on the server is performing.
+        :param 'CloudTieringDatePolicyStatusResponse' date_policy_status: Status of the date policy
+        :param 'CloudTieringFilesNotTieringResponse' files_not_tiering: Information regarding files that failed to be tiered
         :param str health: Cloud tiering health state.
         :param str health_last_updated_timestamp: The last updated timestamp of health state
         :param int last_cloud_tiering_result: Last cloud tiering result (HResult)
         :param str last_success_timestamp: Last cloud tiering success timestamp
         :param str last_updated_timestamp: Last updated timestamp
-        :param 'CloudTieringSpaceSavingsResponseArgs' space_savings: Information regarding how much local space cloud tiering is saving.
-        :param 'CloudTieringVolumeFreeSpacePolicyStatusResponseArgs' volume_free_space_policy_status: Status of the volume free space policy
+        :param 'CloudTieringSpaceSavingsResponse' space_savings: Information regarding how much local space cloud tiering is saving.
+        :param 'CloudTieringVolumeFreeSpacePolicyStatusResponse' volume_free_space_policy_status: Status of the volume free space policy
         """
         pulumi.set(__self__, "cache_performance", cache_performance)
         pulumi.set(__self__, "date_policy_status", date_policy_status)
@@ -756,7 +756,7 @@ class ServerEndpointRecallStatusResponse(dict):
         """
         Server endpoint recall status object.
         :param str last_updated_timestamp: Last updated timestamp
-        :param Sequence['ServerEndpointRecallErrorResponseArgs'] recall_errors: Array of recall errors
+        :param Sequence['ServerEndpointRecallErrorResponse'] recall_errors: Array of recall errors
         :param float total_recall_errors_count: Total count of recall errors.
         """
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
@@ -898,7 +898,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
                  transient_files_not_syncing_count: float):
         """
         Sync Session status object.
-        :param Sequence['ServerEndpointFilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
+        :param Sequence['ServerEndpointFilesNotSyncingErrorResponse'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
         :param str last_sync_mode: Sync mode
         :param float last_sync_per_item_error_count: Last sync per item error count.
         :param int last_sync_result: Last sync result (HResult)
@@ -1004,18 +1004,18 @@ class ServerEndpointSyncStatusResponse(dict):
                  upload_status: 'outputs.ServerEndpointSyncSessionStatusResponse'):
         """
         Server Endpoint sync status
-        :param 'ServerEndpointBackgroundDataDownloadActivityResponseArgs' background_data_download_activity: Background data download activity
+        :param 'ServerEndpointBackgroundDataDownloadActivityResponse' background_data_download_activity: Background data download activity
         :param str combined_health: Combined Health Status.
-        :param 'ServerEndpointSyncActivityStatusResponseArgs' download_activity: Download sync activity
+        :param 'ServerEndpointSyncActivityStatusResponse' download_activity: Download sync activity
         :param str download_health: Download Health Status.
-        :param 'ServerEndpointSyncSessionStatusResponseArgs' download_status: Download Status
+        :param 'ServerEndpointSyncSessionStatusResponse' download_status: Download Status
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str sync_activity: Sync activity
         :param float total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download).
-        :param 'ServerEndpointSyncActivityStatusResponseArgs' upload_activity: Upload sync activity
+        :param 'ServerEndpointSyncActivityStatusResponse' upload_activity: Upload sync activity
         :param str upload_health: Upload Health Status.
-        :param 'ServerEndpointSyncSessionStatusResponseArgs' upload_status: Upload Status
+        :param 'ServerEndpointSyncSessionStatusResponse' upload_status: Upload Status
         """
         pulumi.set(__self__, "background_data_download_activity", background_data_download_activity)
         pulumi.set(__self__, "combined_health", combined_health)

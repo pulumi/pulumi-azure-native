@@ -219,7 +219,7 @@ class DirectConnectionResponse(dict):
         The properties that define a direct connection.
         :param str connection_state: The state of the connection.
         :param int bandwidth_in_mbps: The bandwidth of the connection.
-        :param 'BgpSessionResponseArgs' bgp_session: The BGP session associated with the connection.
+        :param 'BgpSessionResponse' bgp_session: The BGP session associated with the connection.
         :param str connection_identifier: The unique identifier (GUID) for the connection.
         :param int peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
         :param int provisioned_bandwidth_in_mbps: The bandwidth that is actually provisioned.
@@ -323,7 +323,7 @@ class ExchangeConnectionResponse(dict):
         """
         The properties that define an exchange connection.
         :param str connection_state: The state of the connection.
-        :param 'BgpSessionResponseArgs' bgp_session: The BGP session associated with the connection.
+        :param 'BgpSessionResponse' bgp_session: The BGP session associated with the connection.
         :param str connection_identifier: The unique identifier (GUID) for the connection.
         :param int peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
@@ -383,9 +383,9 @@ class PeeringPropertiesDirectResponse(dict):
                  use_for_peering_service: Optional[bool] = None):
         """
         The properties that define a direct peering.
-        :param Sequence['DirectConnectionResponseArgs'] connections: The set of connections that constitute a direct peering.
+        :param Sequence['DirectConnectionResponse'] connections: The set of connections that constitute a direct peering.
         :param str direct_peering_type: The type of direct peering.
-        :param 'SubResourceResponseArgs' peer_asn: The reference of the peer ASN.
+        :param 'SubResourceResponse' peer_asn: The reference of the peer ASN.
         :param bool use_for_peering_service: The flag that indicates whether or not the peering is used for peering service.
         """
         if connections is not None:
@@ -443,8 +443,8 @@ class PeeringPropertiesExchangeResponse(dict):
                  peer_asn: Optional['outputs.SubResourceResponse'] = None):
         """
         The properties that define an exchange peering.
-        :param Sequence['ExchangeConnectionResponseArgs'] connections: The set of connections that constitute an exchange peering.
-        :param 'SubResourceResponseArgs' peer_asn: The reference of the peer ASN.
+        :param Sequence['ExchangeConnectionResponse'] connections: The set of connections that constitute an exchange peering.
+        :param 'SubResourceResponse' peer_asn: The reference of the peer ASN.
         """
         if connections is not None:
             pulumi.set(__self__, "connections", connections)

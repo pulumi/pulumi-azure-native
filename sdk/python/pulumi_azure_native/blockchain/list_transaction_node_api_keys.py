@@ -27,7 +27,7 @@ class ListTransactionNodeApiKeysResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[Sequence['outputs.ApiKeyResponseResult']]:
+    def keys(self) -> Optional[Sequence['outputs.ApiKeyResponse']]:
         """
         Gets or sets the collection of API key.
         """

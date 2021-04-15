@@ -10,7 +10,7 @@ from ... import _utilities, _tables
 
 __all__ = [
     'HostingEnvironmentProfileResponse',
-    'IdentifierResponseResult',
+    'IdentifierResponse',
 ]
 
 @pulumi.output_type
@@ -62,7 +62,7 @@ class HostingEnvironmentProfileResponse(dict):
 
 
 @pulumi.output_type
-class IdentifierResponseResult(dict):
+class IdentifierResponse(dict):
     """
     A domain specific resource identifier.
     """

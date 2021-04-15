@@ -145,7 +145,7 @@ class CloudToDevicePropertiesResponse(dict):
         """
         The IoT hub cloud-to-device messaging properties.
         :param str default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        :param 'FeedbackPropertiesResponseArgs' feedback: The properties of the feedback queue for cloud-to-device messages.
+        :param 'FeedbackPropertiesResponse' feedback: The properties of the feedback queue for cloud-to-device messages.
         :param int max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if default_ttl_as_iso8601 is not None:
@@ -445,10 +445,10 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
-        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
-        :param Sequence['TargetIpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
-        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
+        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse'] authorization_policies: List of authorization keys for a provisioning service.
+        :param Sequence['IotHubDefinitionDescriptionResponse'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['TargetIpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str public_network_access: Whether requests from Public Network are allowed
         :param str state: Current state of the provisioning service.
@@ -749,22 +749,22 @@ class IotHubPropertiesResponse(dict):
         """
         The properties of an IoT hub.
         :param str host_name: The name of the host.
-        :param Sequence['IotHubLocationDescriptionResponseArgs'] locations: Primary and secondary location for iot hub
+        :param Sequence['IotHubLocationDescriptionResponse'] locations: Primary and secondary location for iot hub
         :param str provisioning_state: The provisioning state.
         :param str state: The hub state.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
-        :param 'CloudToDevicePropertiesResponseArgs' cloud_to_device: The IoT hub cloud-to-device messaging properties.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleResponse'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
+        :param 'CloudToDevicePropertiesResponse' cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param str comments: IoT hub comments.
         :param bool enable_file_upload_notifications: If True, file upload notifications are enabled.
-        :param Mapping[str, 'EventHubPropertiesResponseArgs'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
+        :param Mapping[str, 'EventHubPropertiesResponse'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
-        :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
-        :param Mapping[str, 'MessagingEndpointPropertiesResponseArgs'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
+        :param Sequence['IpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
+        :param Mapping[str, 'MessagingEndpointPropertiesResponse'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param str min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
-        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str public_network_access: Whether requests from Public Network are allowed
-        :param 'RoutingPropertiesResponseArgs' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-        :param Mapping[str, 'StorageEndpointPropertiesResponseArgs'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+        :param 'RoutingPropertiesResponse' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
+        :param Mapping[str, 'StorageEndpointPropertiesResponse'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "locations", locations)
@@ -1092,8 +1092,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The properties of a private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: The current state of a private endpoint connection
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint property of a private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The current state of a private endpoint connection
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint property of a private endpoint connection
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if private_endpoint is not None:
@@ -1133,7 +1133,7 @@ class PrivateEndpointConnectionResponse(dict):
         The private endpoint connection of an IotHub
         :param str id: The resource identifier.
         :param str name: The resource name.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: The properties of a private endpoint connection
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: The properties of a private endpoint connection
         :param str type: The resource type.
         """
         pulumi.set(__self__, "id", id)
@@ -1332,10 +1332,10 @@ class RoutingEndpointsResponse(dict):
                  storage_containers: Optional[Sequence['outputs.RoutingStorageContainerPropertiesResponse']] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param Sequence['RoutingEventHubPropertiesResponseArgs'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-        :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponseArgs'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-        :param Sequence['RoutingServiceBusTopicEndpointPropertiesResponseArgs'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-        :param Sequence['RoutingStorageContainerPropertiesResponseArgs'] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
+        :param Sequence['RoutingEventHubPropertiesResponse'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
+        :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponse'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
+        :param Sequence['RoutingServiceBusTopicEndpointPropertiesResponse'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
+        :param Sequence['RoutingStorageContainerPropertiesResponse'] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
         if event_hubs is not None:
             pulumi.set(__self__, "event_hubs", event_hubs)
@@ -1503,10 +1503,10 @@ class RoutingPropertiesResponse(dict):
                  routes: Optional[Sequence['outputs.RoutePropertiesResponse']] = None):
         """
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-        :param 'RoutingEndpointsResponseArgs' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param Sequence['EnrichmentPropertiesResponseArgs'] enrichments: The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-        :param 'FallbackRoutePropertiesResponseArgs' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
-        :param Sequence['RoutePropertiesResponseArgs'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
+        :param 'RoutingEndpointsResponse' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
+        :param Sequence['EnrichmentPropertiesResponse'] enrichments: The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
+        :param 'FallbackRoutePropertiesResponse' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        :param Sequence['RoutePropertiesResponse'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)

@@ -98,7 +98,7 @@ class ContainerServiceDiagnosticsProfileResponse(dict):
     def __init__(__self__, *,
                  vm_diagnostics: Optional['outputs.ContainerServiceVMDiagnosticsResponse'] = None):
         """
-        :param 'ContainerServiceVMDiagnosticsResponseArgs' vm_diagnostics: Profile for container service VM diagnostic agent
+        :param 'ContainerServiceVMDiagnosticsResponse' vm_diagnostics: Profile for container service VM diagnostic agent
         """
         if vm_diagnostics is not None:
             pulumi.set(__self__, "vm_diagnostics", vm_diagnostics)
@@ -126,7 +126,7 @@ class ContainerServiceLinuxProfileResponse(dict):
         """
         Profile for Linux VM
         :param str admin_username: The administrator username to use for all Linux VMs
-        :param 'ContainerServiceSshConfigurationResponseArgs' ssh: Specifies the ssh key configuration for Linux VMs
+        :param 'ContainerServiceSshConfigurationResponse' ssh: Specifies the ssh key configuration for Linux VMs
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh", ssh)
@@ -234,7 +234,7 @@ class ContainerServiceSshConfigurationResponse(dict):
                  public_keys: Optional[Sequence['outputs.ContainerServiceSshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: Gets or sets the list of SSH public keys used to authenticate with Linux based VMs
+        :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: Gets or sets the list of SSH public keys used to authenticate with Linux based VMs
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)

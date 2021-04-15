@@ -102,14 +102,14 @@ class RecommendedIndexResponse(dict):
         :param str action: The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
         :param Sequence[str] columns: Columns over which to build index
         :param str created: The UTC datetime showing when this resource was created (ISO8601 format).
-        :param Sequence['OperationImpactResponseArgs'] estimated_impact: The estimated impact of doing recommended index action.
+        :param Sequence['OperationImpactResponse'] estimated_impact: The estimated impact of doing recommended index action.
         :param str id: Resource ID.
         :param Sequence[str] included_columns: The list of column names to be included in the index
         :param str index_script: The full build index script
         :param str index_type: The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
         :param str last_modified: The UTC datetime of when was this resource last changed (ISO8601 format).
         :param str name: Resource name.
-        :param Sequence['OperationImpactResponseArgs'] reported_impact: The values reported after index action is complete.
+        :param Sequence['OperationImpactResponse'] reported_impact: The values reported after index action is complete.
         :param str schema: The schema where table to build index over resides
         :param str state: The current recommendation state.
         :param str table: The table on which to build index.
@@ -303,7 +303,7 @@ class ServiceTierAdvisorResponse(dict):
         :param str observation_period_start: The observation period start (ISO8601 format).
         :param str overall_recommendation_service_level_objective: Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
         :param str overall_recommendation_service_level_objective_id: Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-        :param Sequence['SloUsageMetricResponseArgs'] service_level_objective_usage_metrics: Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+        :param Sequence['SloUsageMetricResponse'] service_level_objective_usage_metrics: Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
         :param str type: Resource type.
         :param str usage_based_recommendation_service_level_objective: Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
         :param str usage_based_recommendation_service_level_objective_id: Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.

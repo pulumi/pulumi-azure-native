@@ -63,7 +63,7 @@ class HttpRequestResponse(dict):
                  method: Optional[str] = None,
                  uri: Optional[str] = None):
         """
-        :param 'HttpAuthenticationResponseArgs' authentication: Gets or sets the http authentication.
+        :param 'HttpAuthenticationResponse' authentication: Gets or sets the http authentication.
         :param str body: Gets or sets the request body.
         :param Mapping[str, str] headers: Gets or sets the headers.
         :param str method: Gets or sets the method of the request.
@@ -135,12 +135,12 @@ class JobActionResponse(dict):
                  service_bus_topic_message: Optional['outputs.ServiceBusTopicMessageResponse'] = None,
                  type: Optional[str] = None):
         """
-        :param 'JobErrorActionResponseArgs' error_action: Gets or sets the error action.
-        :param 'StorageQueueMessageResponseArgs' queue_message: Gets or sets the storage queue message.
-        :param 'HttpRequestResponseArgs' request: Gets or sets the http requests.
-        :param 'RetryPolicyResponseArgs' retry_policy: Gets or sets the retry policy.
-        :param 'ServiceBusQueueMessageResponseArgs' service_bus_queue_message: Gets or sets the service bus queue message.
-        :param 'ServiceBusTopicMessageResponseArgs' service_bus_topic_message: Gets or sets the service bus topic message.
+        :param 'JobErrorActionResponse' error_action: Gets or sets the error action.
+        :param 'StorageQueueMessageResponse' queue_message: Gets or sets the storage queue message.
+        :param 'HttpRequestResponse' request: Gets or sets the http requests.
+        :param 'RetryPolicyResponse' retry_policy: Gets or sets the retry policy.
+        :param 'ServiceBusQueueMessageResponse' service_bus_queue_message: Gets or sets the service bus queue message.
+        :param 'ServiceBusTopicMessageResponse' service_bus_topic_message: Gets or sets the service bus topic message.
         :param str type: Gets or sets the job action type.
         """
         if error_action is not None:
@@ -225,8 +225,8 @@ class JobCollectionPropertiesResponse(dict):
                  sku: Optional['outputs.SkuResponse'] = None,
                  state: Optional[str] = None):
         """
-        :param 'JobCollectionQuotaResponseArgs' quota: Gets or sets the job collection quota.
-        :param 'SkuResponseArgs' sku: Gets or sets the SKU.
+        :param 'JobCollectionQuotaResponse' quota: Gets or sets the job collection quota.
+        :param 'SkuResponse' sku: Gets or sets the SKU.
         :param str state: Gets or sets the state.
         """
         if quota is not None:
@@ -273,7 +273,7 @@ class JobCollectionQuotaResponse(dict):
         """
         :param int max_job_count: Gets or set the maximum job count.
         :param int max_job_occurrence: Gets or sets the maximum job occurrence.
-        :param 'JobMaxRecurrenceResponseArgs' max_recurrence: Gets or set the maximum recurrence.
+        :param 'JobMaxRecurrenceResponse' max_recurrence: Gets or set the maximum recurrence.
         """
         if max_job_count is not None:
             pulumi.set(__self__, "max_job_count", max_job_count)
@@ -320,11 +320,11 @@ class JobErrorActionResponse(dict):
                  service_bus_topic_message: Optional['outputs.ServiceBusTopicMessageResponse'] = None,
                  type: Optional[str] = None):
         """
-        :param 'StorageQueueMessageResponseArgs' queue_message: Gets or sets the storage queue message.
-        :param 'HttpRequestResponseArgs' request: Gets or sets the http requests.
-        :param 'RetryPolicyResponseArgs' retry_policy: Gets or sets the retry policy.
-        :param 'ServiceBusQueueMessageResponseArgs' service_bus_queue_message: Gets or sets the service bus queue message.
-        :param 'ServiceBusTopicMessageResponseArgs' service_bus_topic_message: Gets or sets the service bus topic message.
+        :param 'StorageQueueMessageResponse' queue_message: Gets or sets the storage queue message.
+        :param 'HttpRequestResponse' request: Gets or sets the http requests.
+        :param 'RetryPolicyResponse' retry_policy: Gets or sets the retry policy.
+        :param 'ServiceBusQueueMessageResponse' service_bus_queue_message: Gets or sets the service bus queue message.
+        :param 'ServiceBusTopicMessageResponse' service_bus_topic_message: Gets or sets the service bus topic message.
         :param str type: Gets or sets the job error action type.
         """
         if queue_message is not None:
@@ -435,9 +435,9 @@ class JobPropertiesResponse(dict):
                  start_time: Optional[str] = None,
                  state: Optional[str] = None):
         """
-        :param 'JobStatusResponseArgs' status: Gets the job status.
-        :param 'JobActionResponseArgs' action: Gets or sets the job action.
-        :param 'JobRecurrenceResponseArgs' recurrence: Gets or sets the job recurrence.
+        :param 'JobStatusResponse' status: Gets the job status.
+        :param 'JobActionResponse' action: Gets or sets the job action.
+        :param 'JobRecurrenceResponse' recurrence: Gets or sets the job recurrence.
         :param str start_time: Gets or sets the job start time.
         :param str state: Gets or set the job state.
         """
@@ -607,7 +607,7 @@ class JobRecurrenceScheduleResponse(dict):
         :param Sequence[int] hours: Gets or sets the hours of the day that the job should execute at.
         :param Sequence[int] minutes: Gets or sets the minutes of the hour that the job should execute at.
         :param Sequence[int] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
-        :param Sequence['JobRecurrenceScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Gets or sets the occurrences of days within a month.
+        :param Sequence['JobRecurrenceScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Gets or sets the occurrences of days within a month.
         :param Sequence[str] week_days: Gets or sets the days of the week that the job should execute on.
         """
         if hours is not None:
@@ -999,8 +999,8 @@ class ServiceBusQueueMessageResponse(dict):
                  queue_name: Optional[str] = None,
                  transport_type: Optional[str] = None):
         """
-        :param 'ServiceBusAuthenticationResponseArgs' authentication: Gets or sets the authentication.
-        :param 'ServiceBusBrokeredMessagePropertiesResponseArgs' brokered_message_properties: Gets or sets the brokered message properties.
+        :param 'ServiceBusAuthenticationResponse' authentication: Gets or sets the authentication.
+        :param 'ServiceBusBrokeredMessagePropertiesResponse' brokered_message_properties: Gets or sets the brokered message properties.
         :param Mapping[str, str] custom_message_properties: Gets or sets the custom message properties.
         :param str message: Gets or sets the message.
         :param str namespace: Gets or sets the namespace.
@@ -1093,8 +1093,8 @@ class ServiceBusTopicMessageResponse(dict):
                  topic_path: Optional[str] = None,
                  transport_type: Optional[str] = None):
         """
-        :param 'ServiceBusAuthenticationResponseArgs' authentication: Gets or sets the authentication.
-        :param 'ServiceBusBrokeredMessagePropertiesResponseArgs' brokered_message_properties: Gets or sets the brokered message properties.
+        :param 'ServiceBusAuthenticationResponse' authentication: Gets or sets the authentication.
+        :param 'ServiceBusBrokeredMessagePropertiesResponse' brokered_message_properties: Gets or sets the brokered message properties.
         :param Mapping[str, str] custom_message_properties: Gets or sets the custom message properties.
         :param str message: Gets or sets the message.
         :param str namespace: Gets or sets the namespace.

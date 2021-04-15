@@ -29,8 +29,8 @@ class ConnectivityCollectionResponse(dict):
                  peerings: Sequence['outputs.ManagedNetworkPeeringPolicyResponse']):
         """
         The collection of Connectivity related groups and policies within the Managed Network
-        :param Sequence['ManagedNetworkGroupResponseArgs'] groups: The collection of connectivity related Managed Network Groups within the Managed Network
-        :param Sequence['ManagedNetworkPeeringPolicyResponseArgs'] peerings: The collection of Managed Network Peering Policies within the Managed Network
+        :param Sequence['ManagedNetworkGroupResponse'] groups: The collection of connectivity related Managed Network Groups within the Managed Network
+        :param Sequence['ManagedNetworkPeeringPolicyResponse'] peerings: The collection of Managed Network Peering Policies within the Managed Network
         """
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "peerings", peerings)
@@ -81,10 +81,10 @@ class ManagedNetworkGroupResponse(dict):
         :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param str kind: Responsibility role under which this Managed Network Group will be created
         :param str location: The geo-location where the resource lives
-        :param Sequence['ResourceIdResponseArgs'] management_groups: The collection of management groups covered by the Managed Network
-        :param Sequence['ResourceIdResponseArgs'] subnets: The collection of  subnets covered by the Managed Network
-        :param Sequence['ResourceIdResponseArgs'] subscriptions: The collection of subscriptions covered by the Managed Network
-        :param Sequence['ResourceIdResponseArgs'] virtual_networks: The collection of virtual nets covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] management_groups: The collection of management groups covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] subnets: The collection of  subnets covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] subscriptions: The collection of subscriptions covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -213,9 +213,9 @@ class ManagedNetworkPeeringPolicyPropertiesResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: Provisioning state of the ManagedNetwork resource.
         :param str type: Gets or sets the connectivity type of a network structure policy
-        :param 'ResourceIdResponseArgs' hub: Gets or sets the hub virtual network ID
-        :param Sequence['ResourceIdResponseArgs'] mesh: Gets or sets the mesh group IDs
-        :param Sequence['ResourceIdResponseArgs'] spokes: Gets or sets the spokes group IDs
+        :param 'ResourceIdResponse' hub: Gets or sets the hub virtual network ID
+        :param Sequence['ResourceIdResponse'] mesh: Gets or sets the mesh group IDs
+        :param Sequence['ResourceIdResponse'] spokes: Gets or sets the spokes group IDs
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -296,7 +296,7 @@ class ManagedNetworkPeeringPolicyResponse(dict):
         :param str name: The name of the resource
         :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param str location: The geo-location where the resource lives
-        :param 'ManagedNetworkPeeringPolicyPropertiesResponseArgs' properties: Gets or sets the properties of a Managed Network Policy
+        :param 'ManagedNetworkPeeringPolicyPropertiesResponse' properties: Gets or sets the properties of a Managed Network Policy
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -388,10 +388,10 @@ class ScopeResponse(dict):
                  virtual_networks: Optional[Sequence['outputs.ResourceIdResponse']] = None):
         """
         Scope of a Managed Network
-        :param Sequence['ResourceIdResponseArgs'] management_groups: The collection of management groups covered by the Managed Network
-        :param Sequence['ResourceIdResponseArgs'] subnets: The collection of  subnets covered by the Managed Network
-        :param Sequence['ResourceIdResponseArgs'] subscriptions: The collection of subscriptions covered by the Managed Network
-        :param Sequence['ResourceIdResponseArgs'] virtual_networks: The collection of virtual nets covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] management_groups: The collection of management groups covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] subnets: The collection of  subnets covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] subscriptions: The collection of subscriptions covered by the Managed Network
+        :param Sequence['ResourceIdResponse'] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
         if management_groups is not None:
             pulumi.set(__self__, "management_groups", management_groups)

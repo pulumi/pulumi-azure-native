@@ -14,7 +14,7 @@ __all__ = [
     'DataLakeStoreAccountInformationResponse',
     'FirewallRuleResponse',
     'HiveMetastoreResponse',
-    'SasTokenInformationResponseResult',
+    'SasTokenInformationResponse',
     'StorageAccountInformationResponse',
     'VirtualNetworkRuleResponse',
 ]
@@ -347,7 +347,7 @@ class HiveMetastoreResponse(dict):
 
 
 @pulumi.output_type
-class SasTokenInformationResponseResult(dict):
+class SasTokenInformationResponse(dict):
     """
     SAS token information.
     """

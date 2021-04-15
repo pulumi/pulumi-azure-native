@@ -115,7 +115,7 @@ class AzureBackupServerContainerResponse(dict):
         :param str container_id: ID of container.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -278,8 +278,8 @@ class AzureFileShareProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureStorage'.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         :param str work_load_type: Type of workload for the backup management
         """
@@ -457,12 +457,12 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureFileshareProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'AzureFileshareProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of the fileshare represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -846,15 +846,15 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -1290,15 +1290,15 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -1725,15 +1725,15 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2029,8 +2029,8 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
                Expected value is 'AzureIaasVM'.
         :param int instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
@@ -2129,7 +2129,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -2410,7 +2410,7 @@ class AzureSqlProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureSqlProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureSqlProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -2610,7 +2610,7 @@ class AzureSqlProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureSql'.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy details.
         """
         pulumi.set(__self__, "backup_management_type", 'AzureSql')
         if protected_items_count is not None:
@@ -2800,7 +2800,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -3010,13 +3010,13 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -3324,8 +3324,8 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
                Expected value is 'AzureWorkload'.
         :param bool make_policy_consistent: Fix the policy inconsistency
         :param int protected_items_count: Number of items associated with this policy.
-        :param 'SettingsResponseArgs' settings: Common settings for the backup management
-        :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param 'SettingsResponse' settings: Common settings for the backup management
+        :param Sequence['SubProtectionPolicyResponse'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
         :param str work_load_type: Type of workload for the backup management
         """
         pulumi.set(__self__, "backup_management_type", 'AzureWorkload')
@@ -3436,13 +3436,13 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -3775,13 +3775,13 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -4114,13 +4114,13 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -4422,8 +4422,8 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
         """
         Extended information of the container.
         :param str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        :param 'InquiryInfoResponseArgs' inquiry_info: Inquiry Status for the container.
-        :param Sequence['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
+        :param 'InquiryInfoResponse' inquiry_info: Inquiry Status for the container.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -4484,7 +4484,7 @@ class AzureWorkloadContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -4906,7 +4906,7 @@ class DPMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'DPMProtectedItemExtendedInfoResponseArgs' extended_info: Extended info of the backup item.
+        :param 'DPMProtectedItemExtendedInfoResponse' extended_info: Extended info of the backup item.
         :param str friendly_name: Friendly name of the managed item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -5111,7 +5111,7 @@ class DailyRetentionFormatResponse(dict):
                  days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
-        :param Sequence['DayResponseArgs'] days_of_the_month: List of days of the month.
+        :param Sequence['DayResponse'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
             pulumi.set(__self__, "days_of_the_month", days_of_the_month)
@@ -5138,7 +5138,7 @@ class DailyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Daily retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if retention_duration is not None:
@@ -5249,7 +5249,7 @@ class DistributedNodesInfoResponse(dict):
                  status: Optional[str] = None):
         """
         This is used to represent the various nodes of the distributed container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param str node_name: Name of the node under a distributed container.
         :param str status: Status of this Node.
                Failed | Succeeded
@@ -5321,7 +5321,7 @@ class DpmContainerResponse(dict):
         :param str container_id: ID of container.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -5523,7 +5523,7 @@ class ExtendedPropertiesResponse(dict):
                  disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
         """
         Extended Properties for Azure IaasVM Backup.
-        :param 'DiskExclusionPropertiesResponseArgs' disk_exclusion_properties: Extended Properties for Disk Exclusion.
+        :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
         """
         if disk_exclusion_properties is not None:
             pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
@@ -5551,7 +5551,7 @@ class GenericContainerExtendedInfoResponse(dict):
                  service_endpoints: Optional[Mapping[str, str]] = None):
         """
         Container extended information
-        :param 'ContainerIdentityInfoResponseArgs' container_identity_info: Container identity information
+        :param 'ContainerIdentityInfoResponse' container_identity_info: Container identity information
         :param str raw_cert_data: Public key of container cert
         :param Mapping[str, str] service_endpoints: Azure Backup Service Endpoints for the container
         """
@@ -5611,7 +5611,7 @@ class GenericContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'GenericContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'GenericContainerExtendedInfoResponseArgs' extended_information: Extended information (not returned in List container API calls)
+        :param 'GenericContainerExtendedInfoResponse' extended_information: Extended information (not returned in List container API calls)
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -5967,7 +5967,7 @@ class GenericProtectionPolicyResponse(dict):
                Expected value is 'GenericProtectionPolicy'.
         :param str fabric_name: Name of this policy's fabric.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param Sequence['SubProtectionPolicyResponse'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         pulumi.set(__self__, "backup_management_type", 'GenericProtectionPolicy')
@@ -6153,8 +6153,8 @@ class InquiryInfoResponse(dict):
                  status: Optional[str] = None):
         """
         Details about inquired protectable items under a given container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
-        :param Sequence['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
+        :param Sequence['WorkloadInquiryDetailsResponse'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param str status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -6208,7 +6208,7 @@ class InquiryValidationResponse(dict):
         """
         Validation for inquired protectable items under a given container.
         :param str additional_detail: Error Additional Detail in case the status is non-success.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Detail in case the status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Detail in case the status is non-success.
         :param str status: Status for the Inquiry Validation.
         """
         pulumi.set(__self__, "additional_detail", additional_detail)
@@ -6279,7 +6279,7 @@ class KPIResourceHealthDetailsResponse(dict):
                  resource_health_status: Optional[str] = None):
         """
         KPI Resource Health Details
-        :param Sequence['ResourceHealthDetailsResponseArgs'] resource_health_details: Resource Health Status
+        :param Sequence['ResourceHealthDetailsResponse'] resource_health_details: Resource Health Status
         :param str resource_health_status: Resource Health Status
         """
         if resource_health_details is not None:
@@ -6361,10 +6361,10 @@ class LongTermRetentionPolicyResponse(dict):
         Long term retention policy.
         :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermRetentionPolicy'.
-        :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the protection policy.
-        :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the protection policy.
-        :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the protection policy.
-        :param 'YearlyRetentionScheduleResponseArgs' yearly_schedule: Yearly retention schedule of the protection policy.
+        :param 'DailyRetentionScheduleResponse' daily_schedule: Daily retention schedule of the protection policy.
+        :param 'MonthlyRetentionScheduleResponse' monthly_schedule: Monthly retention schedule of the protection policy.
+        :param 'WeeklyRetentionScheduleResponse' weekly_schedule: Weekly retention schedule of the protection policy.
+        :param 'YearlyRetentionScheduleResponse' yearly_schedule: Yearly retention schedule of the protection policy.
         """
         pulumi.set(__self__, "retention_policy_type", 'LongTermRetentionPolicy')
         if daily_schedule is not None:
@@ -6614,10 +6614,10 @@ class MabContainerResponse(dict):
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
         :param float container_id: ContainerID represents the container.
-        :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
+        :param 'MabContainerExtendedInfoResponse' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
+        :param Sequence['MABContainerHealthDetailsResponse'] mab_container_health_details: Health details on this mab container.
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
@@ -6838,7 +6838,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'MabFileFolderProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -7081,8 +7081,8 @@ class MabProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'MAB'.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy details.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule of backup policy.
         """
         pulumi.set(__self__, "backup_management_type", 'MAB')
         if protected_items_count is not None:
@@ -7142,10 +7142,10 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Monthly retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for monthly retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
+        :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for monthly retention policy.
         :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for monthly retention policy.
+        :param 'WeeklyRetentionFormatResponse' retention_schedule_weekly: Weekly retention format for monthly retention policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if retention_duration is not None:
@@ -7214,8 +7214,8 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Private Endpoint Connection Response Properties
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
         if private_endpoint is not None:
@@ -7491,7 +7491,7 @@ class SimpleRetentionPolicyResponse(dict):
         Simple policy retention.
         :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleRetentionPolicy'.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the protection policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of the protection policy.
         """
         pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
         if retention_duration is not None:
@@ -7605,8 +7605,8 @@ class SubProtectionPolicyResponse(dict):
         """
         Sub-protection policy which includes schedule and retention
         :param str policy_type: Type of backup policy type
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
         """
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
@@ -7693,7 +7693,7 @@ class WeeklyRetentionScheduleResponse(dict):
         """
         Weekly retention schedule.
         :param Sequence[str] days_of_the_week: List of days of week for weekly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if days_of_the_week is not None:
@@ -7742,7 +7742,7 @@ class WorkloadInquiryDetailsResponse(dict):
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
-        :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
+        :param 'InquiryValidationResponse' inquiry_validation: Inquiry validation such as permissions and other backup validations.
         :param float item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
@@ -7796,10 +7796,10 @@ class YearlyRetentionScheduleResponse(dict):
         """
         Yearly retention schedule.
         :param Sequence[str] months_of_year: List of months of year of yearly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for yearly retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
+        :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for yearly retention policy.
         :param str retention_schedule_format_type: Retention schedule format for yearly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for yearly retention policy.
+        :param 'WeeklyRetentionFormatResponse' retention_schedule_weekly: Weekly retention format for yearly retention policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if months_of_year is not None:

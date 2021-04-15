@@ -19,7 +19,7 @@ __all__ = [
     'ConflictResolutionPolicyResponse',
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
-    'DatabaseAccountConnectionStringResponseResult',
+    'DatabaseAccountConnectionStringResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
     'IncludedPathResponse',
@@ -97,9 +97,9 @@ class CassandraSchemaResponse(dict):
                  partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyResponse']] = None):
         """
         Cosmos DB Cassandra table schema
-        :param Sequence['ClusterKeyResponseArgs'] cluster_keys: List of cluster key.
-        :param Sequence['ColumnResponseArgs'] columns: List of Cassandra table columns.
-        :param Sequence['CassandraPartitionKeyResponseArgs'] partition_keys: List of partition key.
+        :param Sequence['ClusterKeyResponse'] cluster_keys: List of cluster key.
+        :param Sequence['ColumnResponse'] columns: List of Cassandra table columns.
+        :param Sequence['CassandraPartitionKeyResponse'] partition_keys: List of partition key.
         """
         if cluster_keys is not None:
             pulumi.set(__self__, "cluster_keys", cluster_keys)
@@ -354,7 +354,7 @@ class ContainerPartitionKeyResponse(dict):
 
 
 @pulumi.output_type
-class DatabaseAccountConnectionStringResponseResult(dict):
+class DatabaseAccountConnectionStringResponse(dict):
     """
     Connection string for the Cosmos DB account
     """
@@ -467,7 +467,7 @@ class IncludedPathResponse(dict):
                  path: Optional[str] = None):
         """
         The paths that are included in indexing
-        :param Sequence['IndexesResponseArgs'] indexes: List of indexes for this path
+        :param Sequence['IndexesResponse'] indexes: List of indexes for this path
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         if indexes is not None:
@@ -562,8 +562,8 @@ class IndexingPolicyResponse(dict):
         """
         Cosmos DB indexing policy
         :param bool automatic: Indicates if the indexing policy is automatic
-        :param Sequence['ExcludedPathResponseArgs'] excluded_paths: List of paths to exclude from indexing
-        :param Sequence['IncludedPathResponseArgs'] included_paths: List of paths to include in the indexing
+        :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
         :param str indexing_mode: Indicates the indexing mode.
         """
         if automatic is not None:
@@ -770,8 +770,8 @@ class MongoIndexResponse(dict):
                  options: Optional['outputs.MongoIndexOptionsResponse'] = None):
         """
         Cosmos DB MongoDB collection index key
-        :param 'MongoIndexKeysResponseArgs' key: Cosmos DB MongoDB collection index keys
-        :param 'MongoIndexOptionsResponseArgs' options: Cosmos DB MongoDB collection index key options
+        :param 'MongoIndexKeysResponse' key: Cosmos DB MongoDB collection index keys
+        :param 'MongoIndexOptionsResponse' options: Cosmos DB MongoDB collection index key options
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -807,7 +807,7 @@ class UniqueKeyPolicyResponse(dict):
                  unique_keys: Optional[Sequence['outputs.UniqueKeyResponse']] = None):
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-        :param Sequence['UniqueKeyResponseArgs'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param Sequence['UniqueKeyResponse'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         if unique_keys is not None:
             pulumi.set(__self__, "unique_keys", unique_keys)

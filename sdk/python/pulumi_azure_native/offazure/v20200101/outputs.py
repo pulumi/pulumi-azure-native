@@ -100,10 +100,10 @@ class SitePropertiesResponse(dict):
         """
         Class for site properties.
         :param str service_endpoint: Service endpoint.
-        :param 'SiteAgentPropertiesResponseArgs' agent_details: On-premises agent details.
+        :param 'SiteAgentPropertiesResponse' agent_details: On-premises agent details.
         :param str appliance_name: Appliance Name.
         :param str discovery_solution_id: ARM ID of migration hub solution for SDS.
-        :param 'SiteSpnPropertiesResponseArgs' service_principal_identity_details: Service principal identity details used by agent for communication to the service.
+        :param 'SiteSpnPropertiesResponse' service_principal_identity_details: Service principal identity details used by agent for communication to the service.
         """
         pulumi.set(__self__, "service_endpoint", service_endpoint)
         if agent_details is not None:

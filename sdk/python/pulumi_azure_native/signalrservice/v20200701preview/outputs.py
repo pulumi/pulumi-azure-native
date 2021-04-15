@@ -46,7 +46,7 @@ class ManagedIdentityResponse(dict):
         :param str tenant_id: Get the tenant id for the system assigned identity.
                Only be used in response
         :param str type: Represent the identity type: systemAssigned, userAssigned, None
-        :param Mapping[str, 'UserAssignedIdentityPropertyResponseArgs'] user_assigned_identities: Get or set the user assigned identities
+        :param Mapping[str, 'UserAssignedIdentityPropertyResponse'] user_assigned_identities: Get or set the user assigned identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -226,8 +226,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource.
         :param str provisioning_state: Provisioning state of the private endpoint connection
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -462,7 +462,7 @@ class ServerlessUpstreamSettingsResponse(dict):
                  templates: Optional[Sequence['outputs.UpstreamTemplateResponse']] = None):
         """
         The settings for the Upstream when the service is in server-less mode.
-        :param Sequence['UpstreamTemplateResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        :param Sequence['UpstreamTemplateResponse'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
             pulumi.set(__self__, "templates", templates)
@@ -569,8 +569,8 @@ class SignalRNetworkACLsResponse(dict):
         """
         Network ACLs for the resource
         :param str default_action: Default action when no other rule matches
-        :param Sequence['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponseArgs' public_network: ACL for requests from public network
+        :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
+        :param 'NetworkACLResponse' public_network: ACL for requests from public network
         """
         if default_action is None:
             default_action = 'Deny'
@@ -645,7 +645,7 @@ class UpstreamAuthSettingsResponse(dict):
                  type: Optional[str] = None):
         """
         Upstream auth settings.
-        :param 'ManagedIdentitySettingsResponseArgs' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        :param 'ManagedIdentitySettingsResponse' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
         :param str type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
         """
         if managed_identity is not None:
@@ -690,7 +690,7 @@ class UpstreamTemplateResponse(dict):
         The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
         :param str url_template: Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
                For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-        :param 'UpstreamAuthSettingsResponseArgs' auth: Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        :param 'UpstreamAuthSettingsResponse' auth: Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
         :param str category_pattern: Gets or sets the matching pattern for category names. If not set, it matches any category.
                There are 3 kind of patterns supported:
                    1. "*", it to matches any category name

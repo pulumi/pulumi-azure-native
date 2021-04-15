@@ -38,7 +38,7 @@ class ListClusterStreamingJobsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.ClusterJobResponseResult']:
+    def value(self) -> Sequence['outputs.ClusterJobResponse']:
         """
         A list of streaming jobs.
         """

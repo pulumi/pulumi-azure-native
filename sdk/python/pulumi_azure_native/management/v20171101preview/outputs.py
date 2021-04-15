@@ -29,7 +29,7 @@ class ManagementGroupChildInfoResponse(dict):
         The child information of a management group.
         :param str child_id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param str child_type: The type of child resource.
-        :param Sequence['ManagementGroupChildInfoResponseArgs'] children: The list of children.
+        :param Sequence['ManagementGroupChildInfoResponse'] children: The list of children.
         :param str display_name: The friendly name of the child resource.
         """
         if child_id is not None:
@@ -89,7 +89,7 @@ class ManagementGroupDetailsResponse(dict):
                  version: Optional[float] = None):
         """
         The details of a management group.
-        :param 'ParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param str updated_by: The identity of the principal or process that updated the object.
         :param str updated_time: The date and time when this object was last updated.
         :param float version: The version number of the object.

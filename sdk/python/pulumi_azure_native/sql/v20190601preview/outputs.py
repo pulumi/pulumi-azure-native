@@ -34,8 +34,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         """
         Properties of a private endpoint connection.
         :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -195,7 +195,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
         """
         A private endpoint connection under a server
         :param str id: Resource ID.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Private endpoint connection properties
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)
@@ -304,7 +304,7 @@ class SyncGroupSchemaResponse(dict):
         """
         Properties of sync group schema.
         :param str master_sync_member_name: Name of master sync member where the schema is from.
-        :param Sequence['SyncGroupSchemaTableResponseArgs'] tables: List of tables in sync group schema.
+        :param Sequence['SyncGroupSchemaTableResponse'] tables: List of tables in sync group schema.
         """
         if master_sync_member_name is not None:
             pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
@@ -391,7 +391,7 @@ class SyncGroupSchemaTableResponse(dict):
                  quoted_name: Optional[str] = None):
         """
         Properties of table in sync group schema.
-        :param Sequence['SyncGroupSchemaTableColumnResponseArgs'] columns: List of columns in sync group schema.
+        :param Sequence['SyncGroupSchemaTableColumnResponse'] columns: List of columns in sync group schema.
         :param str quoted_name: Quoted name of sync group schema table.
         """
         if columns is not None:

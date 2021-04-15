@@ -85,8 +85,8 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
                  subnet: Optional['outputs.ApiEntityReferenceResponse'] = None):
         """
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
-        :param 'ApiEntityReferenceResponseArgs' subnet: Specifies the identifier of the subnet.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+        :param 'ApiEntityReferenceResponse' subnet: Specifies the identifier of the subnet.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)

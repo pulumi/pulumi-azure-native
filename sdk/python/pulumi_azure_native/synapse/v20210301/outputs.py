@@ -32,13 +32,13 @@ __all__ = [
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
-    'LinkedIntegrationRuntimeResponseResult',
+    'LinkedIntegrationRuntimeResponse',
     'ManagedIdentityResponse',
-    'ManagedIntegrationRuntimeErrorResponseResult',
-    'ManagedIntegrationRuntimeNodeResponseResult',
-    'ManagedIntegrationRuntimeOperationResultResponseResult',
+    'ManagedIntegrationRuntimeErrorResponse',
+    'ManagedIntegrationRuntimeNodeResponse',
+    'ManagedIntegrationRuntimeOperationResultResponse',
     'ManagedIntegrationRuntimeResponse',
-    'ManagedIntegrationRuntimeStatusResponseResult',
+    'ManagedIntegrationRuntimeStatusResponse',
     'ManagedVirtualNetworkSettingsResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
@@ -46,18 +46,18 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'PurviewConfigurationResponse',
     'SecureStringResponse',
-    'SelfHostedIntegrationRuntimeNodeResponseResult',
+    'SelfHostedIntegrationRuntimeNodeResponse',
     'SelfHostedIntegrationRuntimeResponse',
-    'SelfHostedIntegrationRuntimeStatusResponseResult',
+    'SelfHostedIntegrationRuntimeStatusResponse',
     'SkuResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
-    'SsisEnvironmentReferenceResponseResult',
-    'SsisEnvironmentResponseResult',
-    'SsisFolderResponseResult',
-    'SsisPackageResponseResult',
-    'SsisParameterResponseResult',
-    'SsisProjectResponseResult',
-    'SsisVariableResponseResult',
+    'SsisEnvironmentReferenceResponse',
+    'SsisEnvironmentResponse',
+    'SsisFolderResponse',
+    'SsisPackageResponse',
+    'SsisParameterResponse',
+    'SsisProjectResponse',
+    'SsisVariableResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
     'WorkspaceKeyDetailsResponse',
@@ -164,7 +164,7 @@ class CmdkeySetupResponse(dict):
                  user_name: Any):
         """
         The custom setup of running cmdkey commands.
-        :param 'SecureStringResponseArgs' password: The password of data source access.
+        :param 'SecureStringResponse' password: The password of data source access.
         :param Any target_name: The server name of data source access.
         :param str type: The type of custom setup.
                Expected value is 'CmdkeySetup'.
@@ -226,7 +226,7 @@ class ComponentSetupResponse(dict):
         :param str component_name: The name of the 3rd party component.
         :param str type: The type of custom setup.
                Expected value is 'ComponentSetup'.
-        :param 'SecureStringResponseArgs' license_key: The license key to activate the component.
+        :param 'SecureStringResponse' license_key: The license key to activate the component.
         """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "type", 'ComponentSetup')
@@ -273,7 +273,7 @@ class CustomerManagedKeyDetailsResponse(dict):
         """
         Details of the customer managed key associated with the workspace
         :param str status: The customer managed key status on the workspace
-        :param 'WorkspaceKeyDetailsResponseArgs' key: The key object of the workspace
+        :param 'WorkspaceKeyDetailsResponse' key: The key object of the workspace
         """
         pulumi.set(__self__, "status", status)
         if key is not None:
@@ -374,7 +374,7 @@ class EncryptionDetailsResponse(dict):
         """
         Details of the encryption associated with the workspace
         :param bool double_encryption_enabled: Double Encryption enabled
-        :param 'CustomerManagedKeyDetailsResponseArgs' cmk: Customer Managed Key Details
+        :param 'CustomerManagedKeyDetailsResponse' cmk: Customer Managed Key Details
         """
         pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if cmk is not None:
@@ -501,12 +501,12 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
-        :param 'IntegrationRuntimeDataFlowPropertiesResponseArgs' data_flow_properties: Data flow properties for managed integration runtime.
+        :param 'IntegrationRuntimeDataFlowPropertiesResponse' data_flow_properties: Data flow properties for managed integration runtime.
         :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
         :param int number_of_nodes: The required number of nodes for managed integration runtime.
-        :param 'IntegrationRuntimeVNetPropertiesResponseArgs' v_net_properties: VNet properties for managed integration runtime.
+        :param 'IntegrationRuntimeVNetPropertiesResponse' v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
             pulumi.set(__self__, "data_flow_properties", data_flow_properties)
@@ -584,7 +584,7 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         """
         Custom setup script properties for a managed dedicated integration runtime.
         :param str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
-        :param 'SecureStringResponseArgs' sas_token: The SAS token of the Azure blob container.
+        :param 'SecureStringResponse' sas_token: The SAS token of the Azure blob container.
         """
         if blob_container_uri is not None:
             pulumi.set(__self__, "blob_container_uri", blob_container_uri)
@@ -672,9 +672,9 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
                  staging_linked_service: Optional['outputs.EntityReferenceResponse'] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
-        :param 'EntityReferenceResponseArgs' connect_via: The self-hosted integration runtime reference.
+        :param 'EntityReferenceResponse' connect_via: The self-hosted integration runtime reference.
         :param str path: The path to contain the staged data in the Blob storage.
-        :param 'EntityReferenceResponseArgs' staging_linked_service: The staging linked service reference.
+        :param 'EntityReferenceResponse' staging_linked_service: The staging linked service reference.
         """
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
@@ -723,7 +723,7 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  catalog_server_endpoint: Optional[str] = None):
         """
         Catalog information for managed dedicated integration runtime.
-        :param 'SecureStringResponseArgs' catalog_admin_password: The password of the administrator user account of the catalog database.
+        :param 'SecureStringResponse' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param str catalog_admin_user_name: The administrator user name of catalog database.
         :param str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param str catalog_server_endpoint: The catalog database server URL.
@@ -787,11 +787,11 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  license_type: Optional[str] = None):
         """
         SSIS properties for managed integration runtime.
-        :param 'IntegrationRuntimeSsisCatalogInfoResponseArgs' catalog_info: Catalog information for managed dedicated integration runtime.
-        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
-        :param 'IntegrationRuntimeDataProxyPropertiesResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeSsisCatalogInfoResponse' catalog_info: Catalog information for managed dedicated integration runtime.
+        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponse' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeDataProxyPropertiesResponse' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param str edition: The edition for the SSIS Integration Runtime
-        :param Sequence[Union['CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param Sequence[Union['CmdkeySetupResponse', 'ComponentSetupResponse', 'EnvironmentVariableSetupResponse']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param str license_type: License type for bringing your own license scenario.
         """
         if catalog_info is not None:
@@ -1065,7 +1065,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
         The key authorization type integration runtime.
         :param str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'Key'.
-        :param 'SecureStringResponseArgs' key: The key used for authorization.
+        :param 'SecureStringResponse' key: The key used for authorization.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
         pulumi.set(__self__, "key", key)
@@ -1130,7 +1130,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
 
 
 @pulumi.output_type
-class LinkedIntegrationRuntimeResponseResult(dict):
+class LinkedIntegrationRuntimeResponse(dict):
     """
     The linked integration runtime information.
     """
@@ -1244,7 +1244,7 @@ class ManagedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeErrorResponseResult(dict):
+class ManagedIntegrationRuntimeErrorResponse(dict):
     """
     Error definition for managed integration runtime.
     """
@@ -1299,19 +1299,19 @@ class ManagedIntegrationRuntimeErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeNodeResponseResult(dict):
+class ManagedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of integration runtime node.
     """
     def __init__(__self__, *,
                  node_id: str,
                  status: str,
-                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']] = None):
         """
         Properties of integration runtime node.
         :param str node_id: The managed integration runtime node id.
         :param str status: The managed integration runtime node status.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] errors: The errors that occurred on this integration runtime node.
         """
         pulumi.set(__self__, "node_id", node_id)
         pulumi.set(__self__, "status", status)
@@ -1336,7 +1336,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']]:
         """
         The errors that occurred on this integration runtime node.
         """
@@ -1344,7 +1344,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+class ManagedIntegrationRuntimeOperationResultResponse(dict):
     """
     Properties of managed integration runtime operation result.
     """
@@ -1436,9 +1436,9 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
-        :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
-        :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
+        :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", 'Managed')
@@ -1495,25 +1495,25 @@ class ManagedIntegrationRuntimeResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeStatusResponseResult(dict):
+class ManagedIntegrationRuntimeStatusResponse(dict):
     """
     Managed integration runtime status.
     """
     def __init__(__self__, *,
                  create_time: str,
                  data_factory_name: str,
-                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
-                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
-                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponse',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponse'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponse'],
                  state: str,
                  type: str):
         """
         Managed integration runtime status.
         :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param str data_factory_name: The workspace name which the integration runtime belong to.
-        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
@@ -1544,7 +1544,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="lastOperation")
-    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponse':
         """
         The last operation result that occurred on this integration runtime.
         """
@@ -1552,7 +1552,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponse']:
         """
         The list of nodes for managed integration runtime.
         """
@@ -1560,7 +1560,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="otherErrors")
-    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']:
         """
         The errors that occurred on this integration runtime.
         """
@@ -1648,8 +1648,8 @@ class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
         Private Endpoint Connection For Private Link Hub - Basic
         :param str id: identifier
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1712,8 +1712,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param str provisioning_state: Provisioning state of the private endpoint connection.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1915,7 +1915,7 @@ class SecureStringResponse(dict):
 
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+class SelfHostedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of Self-hosted integration runtime node.
     """
@@ -2137,7 +2137,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         :param str type: Type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
-        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationResponseArgs'] linked_info: Linked integration runtime type from data factory
+        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponse', 'LinkedIntegrationRuntimeRbacAuthorizationResponse'] linked_info: Linked integration runtime type from data factory
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -2175,7 +2175,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
 
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+class SelfHostedIntegrationRuntimeStatusResponse(dict):
     """
     Self-hosted integration runtime status.
     """
@@ -2198,8 +2198,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  update_delay_offset: str,
                  version: str,
                  version_status: str,
-                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
-                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None):
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None):
         """
         Self-hosted integration runtime status.
         :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
@@ -2221,8 +2221,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
-        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
-        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        :param Sequence['LinkedIntegrationRuntimeResponse'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for this integration runtime.
         """
         pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "auto_update_eta", auto_update_eta)
@@ -2394,7 +2394,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']]:
         """
         The list of linked integration runtimes that are created to share with this integration runtime.
         """
@@ -2402,7 +2402,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']]:
         """
         The list of nodes for this integration runtime.
         """
@@ -2485,7 +2485,7 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentReferenceResponseResult(dict):
+class SsisEnvironmentReferenceResponse(dict):
     """
     Ssis environment reference.
     """
@@ -2544,7 +2544,7 @@ class SsisEnvironmentReferenceResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentResponseResult(dict):
+class SsisEnvironmentResponse(dict):
     """
     Ssis environment.
     """
@@ -2554,7 +2554,7 @@ class SsisEnvironmentResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 variables: Optional[Sequence['outputs.SsisVariableResponseResult']] = None):
+                 variables: Optional[Sequence['outputs.SsisVariableResponse']] = None):
         """
         Ssis environment.
         :param str type: Type of metadata.
@@ -2563,7 +2563,7 @@ class SsisEnvironmentResponseResult(dict):
         :param float folder_id: Folder id which contains environment.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisVariableResponseArgs'] variables: Variable in environment
+        :param Sequence['SsisVariableResponse'] variables: Variable in environment
         """
         pulumi.set(__self__, "type", 'Environment')
         if description is not None:
@@ -2620,7 +2620,7 @@ class SsisEnvironmentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponseResult']]:
+    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponse']]:
         """
         Variable in environment
         """
@@ -2628,7 +2628,7 @@ class SsisEnvironmentResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisFolderResponseResult(dict):
+class SsisFolderResponse(dict):
     """
     Ssis folder.
     """
@@ -2688,7 +2688,7 @@ class SsisFolderResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisPackageResponseResult(dict):
+class SsisPackageResponse(dict):
     """
     Ssis Package.
     """
@@ -2698,7 +2698,7 @@ class SsisPackageResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponse']] = None,
                  project_id: Optional[float] = None,
                  project_version: Optional[float] = None):
         """
@@ -2709,7 +2709,7 @@ class SsisPackageResponseResult(dict):
         :param float folder_id: Folder id which contains package.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in package
+        :param Sequence['SsisParameterResponse'] parameters: Parameters in package
         :param float project_id: Project id which contains package.
         :param float project_version: Project version which contains package.
         """
@@ -2772,7 +2772,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponse']]:
         """
         Parameters in package
         """
@@ -2796,7 +2796,7 @@ class SsisPackageResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisParameterResponseResult(dict):
+class SsisParameterResponse(dict):
     """
     Ssis parameter.
     """
@@ -2951,29 +2951,29 @@ class SsisParameterResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisProjectResponseResult(dict):
+class SsisProjectResponse(dict):
     """
     Ssis project.
     """
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']] = None,
+                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponse']] = None,
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponse']] = None,
                  version: Optional[float] = None):
         """
         Ssis project.
         :param str type: Type of metadata.
                Expected value is 'Project'.
         :param str description: Metadata description.
-        :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
+        :param Sequence['SsisEnvironmentReferenceResponse'] environment_refs: Environment reference in project
         :param float folder_id: Folder id which contains project.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in project
+        :param Sequence['SsisParameterResponse'] parameters: Parameters in project
         :param float version: Project version.
         """
         pulumi.set(__self__, "type", 'Project')
@@ -3011,7 +3011,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter(name="environmentRefs")
-    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']]:
+    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponse']]:
         """
         Environment reference in project
         """
@@ -3043,7 +3043,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponse']]:
         """
         Parameters in project
         """
@@ -3059,7 +3059,7 @@ class SsisProjectResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisVariableResponseResult(dict):
+class SsisVariableResponse(dict):
     """
     Ssis variable.
     """

@@ -11,10 +11,10 @@ from ._enums import *
 
 __all__ = [
     'IdentityResponse',
-    'ScheduledSourceSynchronizationSettingResponseResult',
-    'ShareSubscriptionSynchronizationResponseResult',
-    'ShareSynchronizationResponseResult',
-    'SynchronizationDetailsResponseResult',
+    'ScheduledSourceSynchronizationSettingResponse',
+    'ShareSubscriptionSynchronizationResponse',
+    'ShareSynchronizationResponse',
+    'SynchronizationDetailsResponse',
     'SystemDataResponse',
 ]
 
@@ -67,7 +67,7 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class ScheduledSourceSynchronizationSettingResponseResult(dict):
+class ScheduledSourceSynchronizationSettingResponse(dict):
     """
     A type of synchronization setting based on schedule
     """
@@ -115,7 +115,7 @@ class ScheduledSourceSynchronizationSettingResponseResult(dict):
 
 
 @pulumi.output_type
-class ShareSubscriptionSynchronizationResponseResult(dict):
+class ShareSubscriptionSynchronizationResponse(dict):
     """
     A ShareSubscriptionSynchronization data transfer object.
     """
@@ -203,7 +203,7 @@ class ShareSubscriptionSynchronizationResponseResult(dict):
 
 
 @pulumi.output_type
-class ShareSynchronizationResponseResult(dict):
+class ShareSynchronizationResponse(dict):
     """
     A ShareSynchronization data transfer object.
     """
@@ -333,7 +333,7 @@ class ShareSynchronizationResponseResult(dict):
 
 
 @pulumi.output_type
-class SynchronizationDetailsResponseResult(dict):
+class SynchronizationDetailsResponse(dict):
     """
     Synchronization details at data set level
     """

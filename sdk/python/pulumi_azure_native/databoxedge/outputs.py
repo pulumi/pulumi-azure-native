@@ -16,7 +16,7 @@ __all__ = [
     'AzureContainerInfoResponse',
     'ClientAccessRightResponse',
     'ContactDetailsResponse',
-    'DeviceSecretsResponseResult',
+    'DeviceSecretsResponse',
     'EdgeProfileResponse',
     'EdgeProfileSubscriptionResponse',
     'MetricConfigurationResponse',
@@ -28,7 +28,7 @@ __all__ = [
     'RefreshDetailsResponse',
     'ResourceIdentityResponse',
     'ResourceMoveDetailsResponse',
-    'SecretResponseResult',
+    'SecretResponse',
     'ShareAccessRightResponse',
     'SkuResponse',
     'SubscriptionRegisteredFeaturesResponse',
@@ -324,29 +324,29 @@ class ContactDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DeviceSecretsResponseResult(dict):
+class DeviceSecretsResponse(dict):
     """
     Device Secrets
     """
     def __init__(__self__, *,
-                 bmc_default_user_password: Optional['outputs.SecretResponseResult'] = None,
-                 hcs_data_volume_bit_locker_external_key: Optional['outputs.SecretResponseResult'] = None,
-                 hcs_internal_volume_bit_locker_external_key: Optional['outputs.SecretResponseResult'] = None,
-                 rotate_key_for_data_volume_bitlocker: Optional['outputs.SecretResponseResult'] = None,
-                 rotate_keys_for_sed_drives_serialized: Optional['outputs.SecretResponseResult'] = None,
-                 sed_encryption_external_key: Optional['outputs.SecretResponseResult'] = None,
-                 sed_encryption_external_key_id: Optional['outputs.SecretResponseResult'] = None,
-                 system_volume_bit_locker_recovery_key: Optional['outputs.SecretResponseResult'] = None):
+                 bmc_default_user_password: Optional['outputs.SecretResponse'] = None,
+                 hcs_data_volume_bit_locker_external_key: Optional['outputs.SecretResponse'] = None,
+                 hcs_internal_volume_bit_locker_external_key: Optional['outputs.SecretResponse'] = None,
+                 rotate_key_for_data_volume_bitlocker: Optional['outputs.SecretResponse'] = None,
+                 rotate_keys_for_sed_drives_serialized: Optional['outputs.SecretResponse'] = None,
+                 sed_encryption_external_key: Optional['outputs.SecretResponse'] = None,
+                 sed_encryption_external_key_id: Optional['outputs.SecretResponse'] = None,
+                 system_volume_bit_locker_recovery_key: Optional['outputs.SecretResponse'] = None):
         """
         Device Secrets
-        :param 'SecretResponseArgs' bmc_default_user_password: Keyvault Id of BMCDefaultUserPassword
-        :param 'SecretResponseArgs' hcs_data_volume_bit_locker_external_key: Keyvault Id of HcsDataVolumeBitLockerExternalKey
-        :param 'SecretResponseArgs' hcs_internal_volume_bit_locker_external_key: Keyvault Id of HcsInternalVolumeBitLockerExternalKey
-        :param 'SecretResponseArgs' rotate_key_for_data_volume_bitlocker: Keyvault Id of RotateKeyForDataVolumeBitlocker
-        :param 'SecretResponseArgs' rotate_keys_for_sed_drives_serialized: Keyvault Id of RotateKeysForSedDrivesSerialized
-        :param 'SecretResponseArgs' sed_encryption_external_key: Keyvault Id of SEDEncryptionExternalKey
-        :param 'SecretResponseArgs' sed_encryption_external_key_id: Keyvault Id of SEDEncryptionExternalKeyId
-        :param 'SecretResponseArgs' system_volume_bit_locker_recovery_key: Keyvault Id of SystemVolumeBitLockerRecoveryKey
+        :param 'SecretResponse' bmc_default_user_password: Keyvault Id of BMCDefaultUserPassword
+        :param 'SecretResponse' hcs_data_volume_bit_locker_external_key: Keyvault Id of HcsDataVolumeBitLockerExternalKey
+        :param 'SecretResponse' hcs_internal_volume_bit_locker_external_key: Keyvault Id of HcsInternalVolumeBitLockerExternalKey
+        :param 'SecretResponse' rotate_key_for_data_volume_bitlocker: Keyvault Id of RotateKeyForDataVolumeBitlocker
+        :param 'SecretResponse' rotate_keys_for_sed_drives_serialized: Keyvault Id of RotateKeysForSedDrivesSerialized
+        :param 'SecretResponse' sed_encryption_external_key: Keyvault Id of SEDEncryptionExternalKey
+        :param 'SecretResponse' sed_encryption_external_key_id: Keyvault Id of SEDEncryptionExternalKeyId
+        :param 'SecretResponse' system_volume_bit_locker_recovery_key: Keyvault Id of SystemVolumeBitLockerRecoveryKey
         """
         if bmc_default_user_password is not None:
             pulumi.set(__self__, "bmc_default_user_password", bmc_default_user_password)
@@ -367,7 +367,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="bmcDefaultUserPassword")
-    def bmc_default_user_password(self) -> Optional['outputs.SecretResponseResult']:
+    def bmc_default_user_password(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of BMCDefaultUserPassword
         """
@@ -375,7 +375,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="hcsDataVolumeBitLockerExternalKey")
-    def hcs_data_volume_bit_locker_external_key(self) -> Optional['outputs.SecretResponseResult']:
+    def hcs_data_volume_bit_locker_external_key(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of HcsDataVolumeBitLockerExternalKey
         """
@@ -383,7 +383,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="hcsInternalVolumeBitLockerExternalKey")
-    def hcs_internal_volume_bit_locker_external_key(self) -> Optional['outputs.SecretResponseResult']:
+    def hcs_internal_volume_bit_locker_external_key(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of HcsInternalVolumeBitLockerExternalKey
         """
@@ -391,7 +391,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="rotateKeyForDataVolumeBitlocker")
-    def rotate_key_for_data_volume_bitlocker(self) -> Optional['outputs.SecretResponseResult']:
+    def rotate_key_for_data_volume_bitlocker(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of RotateKeyForDataVolumeBitlocker
         """
@@ -399,7 +399,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="rotateKeysForSedDrivesSerialized")
-    def rotate_keys_for_sed_drives_serialized(self) -> Optional['outputs.SecretResponseResult']:
+    def rotate_keys_for_sed_drives_serialized(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of RotateKeysForSedDrivesSerialized
         """
@@ -407,7 +407,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="sedEncryptionExternalKey")
-    def sed_encryption_external_key(self) -> Optional['outputs.SecretResponseResult']:
+    def sed_encryption_external_key(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of SEDEncryptionExternalKey
         """
@@ -415,7 +415,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="sedEncryptionExternalKeyId")
-    def sed_encryption_external_key_id(self) -> Optional['outputs.SecretResponseResult']:
+    def sed_encryption_external_key_id(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of SEDEncryptionExternalKeyId
         """
@@ -423,7 +423,7 @@ class DeviceSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="systemVolumeBitLockerRecoveryKey")
-    def system_volume_bit_locker_recovery_key(self) -> Optional['outputs.SecretResponseResult']:
+    def system_volume_bit_locker_recovery_key(self) -> Optional['outputs.SecretResponse']:
         """
         Keyvault Id of SystemVolumeBitLockerRecoveryKey
         """
@@ -439,7 +439,7 @@ class EdgeProfileResponse(dict):
                  subscription: Optional['outputs.EdgeProfileSubscriptionResponse'] = None):
         """
         Details about Edge Profile for the resource
-        :param 'EdgeProfileSubscriptionResponseArgs' subscription: Edge Profile Subscription
+        :param 'EdgeProfileSubscriptionResponse' subscription: Edge Profile Subscription
         """
         if subscription is not None:
             pulumi.set(__self__, "subscription", subscription)
@@ -570,7 +570,7 @@ class MetricConfigurationResponse(dict):
                  metric_name_space: Optional[str] = None):
         """
         Metric configuration.
-        :param Sequence['MetricCounterSetResponseArgs'] counter_sets: Host name for the IoT hub associated to the device.
+        :param Sequence['MetricCounterSetResponse'] counter_sets: Host name for the IoT hub associated to the device.
         :param str resource_id: The Resource ID on which the metrics should be pushed.
         :param str mdm_account: The MDM account to which the counters should be pushed.
         :param str metric_name_space: The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
@@ -631,8 +631,8 @@ class MetricCounterResponse(dict):
         """
         The metric counter
         :param str name: The counter name.
-        :param Sequence['MetricDimensionResponseArgs'] additional_dimensions: The additional dimensions to be added to metric.
-        :param Sequence['MetricDimensionResponseArgs'] dimension_filter: The dimension filter.
+        :param Sequence['MetricDimensionResponse'] additional_dimensions: The additional dimensions to be added to metric.
+        :param Sequence['MetricDimensionResponse'] dimension_filter: The dimension filter.
         :param str instance: The instance from which counter should be collected.
         """
         pulumi.set(__self__, "name", name)
@@ -688,7 +688,7 @@ class MetricCounterSetResponse(dict):
                  counters: Sequence['outputs.MetricCounterResponse']):
         """
         The metric counter set
-        :param Sequence['MetricCounterResponseArgs'] counters: The counters that should be collected in this set.
+        :param Sequence['MetricCounterResponse'] counters: The counters that should be collected in this set.
         """
         pulumi.set(__self__, "counters", counters)
 
@@ -825,7 +825,7 @@ class OrderStatusResponse(dict):
         :param Mapping[str, str] additional_order_details: Dictionary to hold generic information which is not stored
                by the already existing properties
         :param str status: Status of the order as per the allowed status types.
-        :param 'TrackingInfoResponseArgs' tracking_information: Tracking information related to the state in the ordering flow
+        :param 'TrackingInfoResponse' tracking_information: Tracking information related to the state in the ordering flow
         :param str update_date_time: Time of status update.
         :param str comments: Comments related to this status change.
         """
@@ -1030,7 +1030,7 @@ class ResourceMoveDetailsResponse(dict):
 
 
 @pulumi.output_type
-class SecretResponseResult(dict):
+class SecretResponse(dict):
     """
     Holds device secret either as a KeyVault reference or as an encrypted value.
     """
@@ -1039,7 +1039,7 @@ class SecretResponseResult(dict):
                  key_vault_id: Optional[str] = None):
         """
         Holds device secret either as a KeyVault reference or as an encrypted value.
-        :param 'AsymmetricEncryptedSecretResponseArgs' encrypted_secret: Encrypted (using device public key) secret value.
+        :param 'AsymmetricEncryptedSecretResponse' encrypted_secret: Encrypted (using device public key) secret value.
         :param str key_vault_id: Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
         """
         if encrypted_secret is not None:

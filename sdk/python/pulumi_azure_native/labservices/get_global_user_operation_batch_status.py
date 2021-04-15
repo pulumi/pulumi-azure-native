@@ -27,7 +27,7 @@ class GetGlobalUserOperationBatchStatusResult:
 
     @property
     @pulumi.getter
-    def items(self) -> Sequence['outputs.OperationBatchStatusResponseItemResponseResult']:
+    def items(self) -> Sequence['outputs.OperationBatchStatusResponseItemResponse']:
         """
         Gets a collection of items that contain the operation url and status.
         """

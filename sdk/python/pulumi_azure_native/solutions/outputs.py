@@ -279,7 +279,7 @@ class ApplicationJitAccessPolicyResponse(dict):
         Managed application Jit access policy.
         :param bool jit_access_enabled: Whether the JIT access is enabled.
         :param str jit_approval_mode: JIT approval mode.
-        :param Sequence['JitApproverDefinitionResponseArgs'] jit_approvers: The JIT approvers
+        :param Sequence['JitApproverDefinitionResponse'] jit_approvers: The JIT approvers
         :param str maximum_jit_access_duration: The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
         pulumi.set(__self__, "jit_access_enabled", jit_access_enabled)
@@ -386,7 +386,7 @@ class ApplicationNotificationPolicyResponse(dict):
                  notification_endpoints: Sequence['outputs.ApplicationNotificationEndpointResponse']):
         """
         Managed application notification policy.
-        :param Sequence['ApplicationNotificationEndpointResponseArgs'] notification_endpoints: The managed application notification endpoint.
+        :param Sequence['ApplicationNotificationEndpointResponse'] notification_endpoints: The managed application notification endpoint.
         """
         pulumi.set(__self__, "notification_endpoints", notification_endpoints)
 
@@ -579,7 +579,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserAssignedResourceIdentityResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedResourceIdentityResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)

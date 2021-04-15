@@ -63,7 +63,7 @@ class ActionListResponse(dict):
                  action_groups: Optional[Sequence['outputs.ActionGroupResponse']] = None):
         """
         A list of Activity Log Alert rule actions.
-        :param Sequence['ActionGroupResponseArgs'] action_groups: The list of the Action Groups.
+        :param Sequence['ActionGroupResponse'] action_groups: The list of the Action Groups.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
@@ -89,7 +89,7 @@ class AlertRuleAllOfConditionResponse(dict):
                  all_of: Sequence['outputs.AlertRuleAnyOfOrLeafConditionResponse']):
         """
         An Activity Log Alert rule condition that is met when all its member conditions are met.
-        :param Sequence['AlertRuleAnyOfOrLeafConditionResponseArgs'] all_of: The list of Activity Log Alert rule conditions.
+        :param Sequence['AlertRuleAnyOfOrLeafConditionResponse'] all_of: The list of Activity Log Alert rule conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
@@ -130,7 +130,7 @@ class AlertRuleAnyOfOrLeafConditionResponse(dict):
           * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
           _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 
-        :param Sequence['AlertRuleLeafConditionResponseArgs'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+        :param Sequence['AlertRuleLeafConditionResponse'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
         :param Sequence[str] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
         :param str equals: The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         :param str field: The name of the Activity Log event's field that this condition will examine.

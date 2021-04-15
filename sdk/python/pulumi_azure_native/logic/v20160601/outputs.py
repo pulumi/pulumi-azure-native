@@ -23,7 +23,7 @@ __all__ = [
     'AS2ValidationSettingsResponse',
     'AgreementContentResponse',
     'AssemblyPropertiesResponse',
-    'AzureResourceErrorInfoResponseResult',
+    'AzureResourceErrorInfoResponse',
     'B2BPartnerContentResponse',
     'BatchConfigurationPropertiesResponse',
     'BatchReleaseCriteriaResponse',
@@ -44,14 +44,14 @@ __all__ = [
     'EdifactSchemaReferenceResponse',
     'EdifactValidationOverrideResponse',
     'EdifactValidationSettingsResponse',
-    'ExpressionResponseResult',
-    'ExpressionRootResponseResult',
+    'ExpressionResponse',
+    'ExpressionRootResponse',
     'IntegrationAccountMapPropertiesResponseParametersSchema',
     'IntegrationAccountSkuResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultKeyReferenceResponseKeyVault',
-    'KeyVaultKeyResponseResult',
-    'KeyVaultKeyResponseAttributesResult',
+    'KeyVaultKeyResponse',
+    'KeyVaultKeyResponseAttributes',
     'PartnerContentResponse',
     'RecurrenceScheduleOccurrenceResponse',
     'RecurrenceScheduleResponse',
@@ -63,7 +63,7 @@ __all__ = [
     'RosettaNetPipRoleSettingsResponse',
     'SkuResponse',
     'WorkflowParameterResponse',
-    'WorkflowTriggerListCallbackUrlQueriesResponseResult',
+    'WorkflowTriggerListCallbackUrlQueriesResponse',
     'WorkflowTriggerRecurrenceResponse',
     'X12AcknowledgementSettingsResponse',
     'X12AgreementContentResponse',
@@ -150,8 +150,8 @@ class AS2AgreementContentResponse(dict):
                  send_agreement: 'outputs.AS2OneWayAgreementResponse'):
         """
         The integration account AS2 agreement content.
-        :param 'AS2OneWayAgreementResponseArgs' receive_agreement: The AS2 one-way receive agreement.
-        :param 'AS2OneWayAgreementResponseArgs' send_agreement: The AS2 one-way send agreement.
+        :param 'AS2OneWayAgreementResponse' receive_agreement: The AS2 one-way receive agreement.
+        :param 'AS2OneWayAgreementResponse' send_agreement: The AS2 one-way send agreement.
         """
         pulumi.set(__self__, "receive_agreement", receive_agreement)
         pulumi.set(__self__, "send_agreement", send_agreement)
@@ -466,9 +466,9 @@ class AS2OneWayAgreementResponse(dict):
                  sender_business_identity: 'outputs.BusinessIdentityResponse'):
         """
         The integration account AS2 one-way agreement.
-        :param 'AS2ProtocolSettingsResponseArgs' protocol_settings: The AS2 protocol settings.
-        :param 'BusinessIdentityResponseArgs' receiver_business_identity: The receiver business identity
-        :param 'BusinessIdentityResponseArgs' sender_business_identity: The sender business identity
+        :param 'AS2ProtocolSettingsResponse' protocol_settings: The AS2 protocol settings.
+        :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
+        :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
         pulumi.set(__self__, "protocol_settings", protocol_settings)
         pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
@@ -517,13 +517,13 @@ class AS2ProtocolSettingsResponse(dict):
                  validation_settings: 'outputs.AS2ValidationSettingsResponse'):
         """
         The AS2 agreement protocol settings.
-        :param 'AS2AcknowledgementConnectionSettingsResponseArgs' acknowledgement_connection_settings: The acknowledgement connection settings.
-        :param 'AS2EnvelopeSettingsResponseArgs' envelope_settings: The envelope settings.
-        :param 'AS2ErrorSettingsResponseArgs' error_settings: The error settings.
-        :param 'AS2MdnSettingsResponseArgs' mdn_settings: The MDN settings.
-        :param 'AS2MessageConnectionSettingsResponseArgs' message_connection_settings: The message connection settings.
-        :param 'AS2SecuritySettingsResponseArgs' security_settings: The security settings.
-        :param 'AS2ValidationSettingsResponseArgs' validation_settings: The validation settings.
+        :param 'AS2AcknowledgementConnectionSettingsResponse' acknowledgement_connection_settings: The acknowledgement connection settings.
+        :param 'AS2EnvelopeSettingsResponse' envelope_settings: The envelope settings.
+        :param 'AS2ErrorSettingsResponse' error_settings: The error settings.
+        :param 'AS2MdnSettingsResponse' mdn_settings: The MDN settings.
+        :param 'AS2MessageConnectionSettingsResponse' message_connection_settings: The message connection settings.
+        :param 'AS2SecuritySettingsResponse' security_settings: The security settings.
+        :param 'AS2ValidationSettingsResponse' validation_settings: The validation settings.
         """
         pulumi.set(__self__, "acknowledgement_connection_settings", acknowledgement_connection_settings)
         pulumi.set(__self__, "envelope_settings", envelope_settings)
@@ -856,9 +856,9 @@ class AgreementContentResponse(dict):
                  x12: Optional['outputs.X12AgreementContentResponse'] = None):
         """
         The integration account agreement content.
-        :param 'AS2AgreementContentResponseArgs' a_s2: The AS2 agreement content.
-        :param 'EdifactAgreementContentResponseArgs' edifact: The EDIFACT agreement content.
-        :param 'X12AgreementContentResponseArgs' x12: The X12 agreement content.
+        :param 'AS2AgreementContentResponse' a_s2: The AS2 agreement content.
+        :param 'EdifactAgreementContentResponse' edifact: The EDIFACT agreement content.
+        :param 'X12AgreementContentResponse' x12: The X12 agreement content.
         """
         if a_s2 is not None:
             pulumi.set(__self__, "a_s2", a_s2)
@@ -918,7 +918,7 @@ class AssemblyPropertiesResponse(dict):
         :param str assembly_public_key_token: The assembly public key token.
         :param str assembly_version: The assembly version.
         :param str changed_time: The artifact changed time.
-        :param 'ContentLinkResponseArgs' content_link: The content link.
+        :param 'ContentLinkResponse' content_link: The content link.
         :param str content_type: The content type.
         :param str created_time: The artifact creation time.
         """
@@ -1021,19 +1021,19 @@ class AssemblyPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class AzureResourceErrorInfoResponseResult(dict):
+class AzureResourceErrorInfoResponse(dict):
     """
     The azure resource error info.
     """
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 details: Optional[Sequence['outputs.AzureResourceErrorInfoResponseResult']] = None):
+                 details: Optional[Sequence['outputs.AzureResourceErrorInfoResponse']] = None):
         """
         The azure resource error info.
         :param str code: The error code.
         :param str message: The error message.
-        :param Sequence['AzureResourceErrorInfoResponseArgs'] details: The error details.
+        :param Sequence['AzureResourceErrorInfoResponse'] details: The error details.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -1058,7 +1058,7 @@ class AzureResourceErrorInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.AzureResourceErrorInfoResponseResult']]:
+    def details(self) -> Optional[Sequence['outputs.AzureResourceErrorInfoResponse']]:
         """
         The error details.
         """
@@ -1074,7 +1074,7 @@ class B2BPartnerContentResponse(dict):
                  business_identities: Optional[Sequence['outputs.BusinessIdentityResponse']] = None):
         """
         The B2B partner content.
-        :param Sequence['BusinessIdentityResponseArgs'] business_identities: The list of partner business identities.
+        :param Sequence['BusinessIdentityResponse'] business_identities: The list of partner business identities.
         """
         if business_identities is not None:
             pulumi.set(__self__, "business_identities", business_identities)
@@ -1105,7 +1105,7 @@ class BatchConfigurationPropertiesResponse(dict):
         """
         The batch configuration properties definition.
         :param str batch_group_name: The name of the batch group.
-        :param 'BatchReleaseCriteriaResponseArgs' release_criteria: The batch release criteria.
+        :param 'BatchReleaseCriteriaResponse' release_criteria: The batch release criteria.
         :param str changed_time: The artifact changed time.
         :param str created_time: The artifact creation time.
         """
@@ -1172,7 +1172,7 @@ class BatchReleaseCriteriaResponse(dict):
         The batch release criteria.
         :param int batch_size: The batch size in bytes.
         :param int message_count: The message count.
-        :param 'WorkflowTriggerRecurrenceResponseArgs' recurrence: The recurrence.
+        :param 'WorkflowTriggerRecurrenceResponse' recurrence: The recurrence.
         """
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
@@ -1296,7 +1296,7 @@ class ContentLinkResponse(dict):
                  uri: Optional[str] = None):
         """
         The content link.
-        :param 'ContentHashResponseArgs' content_hash: The content hash.
+        :param 'ContentHashResponse' content_hash: The content hash.
         :param float content_size: The content size.
         :param str content_version: The content version.
         :param Any metadata: The metadata.
@@ -1504,8 +1504,8 @@ class EdifactAgreementContentResponse(dict):
                  send_agreement: 'outputs.EdifactOneWayAgreementResponse'):
         """
         The Edifact agreement content.
-        :param 'EdifactOneWayAgreementResponseArgs' receive_agreement: The EDIFACT one-way receive agreement.
-        :param 'EdifactOneWayAgreementResponseArgs' send_agreement: The EDIFACT one-way send agreement.
+        :param 'EdifactOneWayAgreementResponse' receive_agreement: The EDIFACT one-way receive agreement.
+        :param 'EdifactOneWayAgreementResponse' send_agreement: The EDIFACT one-way send agreement.
         """
         pulumi.set(__self__, "receive_agreement", receive_agreement)
         pulumi.set(__self__, "send_agreement", send_agreement)
@@ -2565,9 +2565,9 @@ class EdifactOneWayAgreementResponse(dict):
                  sender_business_identity: 'outputs.BusinessIdentityResponse'):
         """
         The Edifact one way agreement.
-        :param 'EdifactProtocolSettingsResponseArgs' protocol_settings: The EDIFACT protocol settings.
-        :param 'BusinessIdentityResponseArgs' receiver_business_identity: The receiver business identity
-        :param 'BusinessIdentityResponseArgs' sender_business_identity: The sender business identity
+        :param 'EdifactProtocolSettingsResponse' protocol_settings: The EDIFACT protocol settings.
+        :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
+        :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
         pulumi.set(__self__, "protocol_settings", protocol_settings)
         pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
@@ -2689,17 +2689,17 @@ class EdifactProtocolSettingsResponse(dict):
                  validation_overrides: Optional[Sequence['outputs.EdifactValidationOverrideResponse']] = None):
         """
         The Edifact agreement protocol settings.
-        :param 'EdifactAcknowledgementSettingsResponseArgs' acknowledgement_settings: The EDIFACT acknowledgement settings.
-        :param 'EdifactEnvelopeSettingsResponseArgs' envelope_settings: The EDIFACT envelope settings.
-        :param 'EdifactFramingSettingsResponseArgs' framing_settings: The EDIFACT framing settings.
-        :param 'EdifactMessageFilterResponseArgs' message_filter: The EDIFACT message filter.
-        :param 'EdifactProcessingSettingsResponseArgs' processing_settings: The EDIFACT processing Settings.
-        :param Sequence['EdifactSchemaReferenceResponseArgs'] schema_references: The EDIFACT schema references.
-        :param 'EdifactValidationSettingsResponseArgs' validation_settings: The EDIFACT validation settings.
-        :param Sequence['EdifactDelimiterOverrideResponseArgs'] edifact_delimiter_overrides: The EDIFACT delimiter override settings.
-        :param Sequence['EdifactEnvelopeOverrideResponseArgs'] envelope_overrides: The EDIFACT envelope override settings.
-        :param Sequence['EdifactMessageIdentifierResponseArgs'] message_filter_list: The EDIFACT message filter list.
-        :param Sequence['EdifactValidationOverrideResponseArgs'] validation_overrides: The EDIFACT validation override settings.
+        :param 'EdifactAcknowledgementSettingsResponse' acknowledgement_settings: The EDIFACT acknowledgement settings.
+        :param 'EdifactEnvelopeSettingsResponse' envelope_settings: The EDIFACT envelope settings.
+        :param 'EdifactFramingSettingsResponse' framing_settings: The EDIFACT framing settings.
+        :param 'EdifactMessageFilterResponse' message_filter: The EDIFACT message filter.
+        :param 'EdifactProcessingSettingsResponse' processing_settings: The EDIFACT processing Settings.
+        :param Sequence['EdifactSchemaReferenceResponse'] schema_references: The EDIFACT schema references.
+        :param 'EdifactValidationSettingsResponse' validation_settings: The EDIFACT validation settings.
+        :param Sequence['EdifactDelimiterOverrideResponse'] edifact_delimiter_overrides: The EDIFACT delimiter override settings.
+        :param Sequence['EdifactEnvelopeOverrideResponse'] envelope_overrides: The EDIFACT envelope override settings.
+        :param Sequence['EdifactMessageIdentifierResponse'] message_filter_list: The EDIFACT message filter list.
+        :param Sequence['EdifactValidationOverrideResponse'] validation_overrides: The EDIFACT validation override settings.
         """
         pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
         pulumi.set(__self__, "envelope_settings", envelope_settings)
@@ -3119,14 +3119,14 @@ class EdifactValidationSettingsResponse(dict):
 
 
 @pulumi.output_type
-class ExpressionResponseResult(dict):
+class ExpressionResponse(dict):
     def __init__(__self__, *,
-                 error: Optional['outputs.AzureResourceErrorInfoResponseResult'] = None,
-                 subexpressions: Optional[Sequence['outputs.ExpressionResponseResult']] = None,
+                 error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
+                 subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
                  text: Optional[str] = None,
                  value: Optional[Any] = None):
         """
-        :param 'AzureResourceErrorInfoResponseArgs' error: The azure resource error info.
+        :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -3139,7 +3139,7 @@ class ExpressionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.AzureResourceErrorInfoResponseResult']:
+    def error(self) -> Optional['outputs.AzureResourceErrorInfoResponse']:
         """
         The azure resource error info.
         """
@@ -3147,7 +3147,7 @@ class ExpressionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def subexpressions(self) -> Optional[Sequence['outputs.ExpressionResponseResult']]:
+    def subexpressions(self) -> Optional[Sequence['outputs.ExpressionResponse']]:
         return pulumi.get(self, "subexpressions")
 
     @property
@@ -3162,15 +3162,15 @@ class ExpressionResponseResult(dict):
 
 
 @pulumi.output_type
-class ExpressionRootResponseResult(dict):
+class ExpressionRootResponse(dict):
     def __init__(__self__, *,
-                 error: Optional['outputs.AzureResourceErrorInfoResponseResult'] = None,
+                 error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
                  path: Optional[str] = None,
-                 subexpressions: Optional[Sequence['outputs.ExpressionResponseResult']] = None,
+                 subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
                  text: Optional[str] = None,
                  value: Optional[Any] = None):
         """
-        :param 'AzureResourceErrorInfoResponseArgs' error: The azure resource error info.
+        :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param str path: The path.
         """
         if error is not None:
@@ -3186,7 +3186,7 @@ class ExpressionRootResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.AzureResourceErrorInfoResponseResult']:
+    def error(self) -> Optional['outputs.AzureResourceErrorInfoResponse']:
         """
         The azure resource error info.
         """
@@ -3202,7 +3202,7 @@ class ExpressionRootResponseResult(dict):
 
     @property
     @pulumi.getter
-    def subexpressions(self) -> Optional[Sequence['outputs.ExpressionResponseResult']]:
+    def subexpressions(self) -> Optional[Sequence['outputs.ExpressionResponse']]:
         return pulumi.get(self, "subexpressions")
 
     @property
@@ -3279,7 +3279,7 @@ class KeyVaultKeyReferenceResponse(dict):
         """
         The reference to the key vault key.
         :param str key_name: The private key name in key vault.
-        :param 'KeyVaultKeyReferenceResponseKeyVaultArgs' key_vault: The key vault reference.
+        :param 'KeyVaultKeyReferenceResponseKeyVault' key_vault: The key vault reference.
         :param str key_version: The private key version in key vault.
         """
         pulumi.set(__self__, "key_name", key_name)
@@ -3364,16 +3364,16 @@ class KeyVaultKeyReferenceResponseKeyVault(dict):
 
 
 @pulumi.output_type
-class KeyVaultKeyResponseResult(dict):
+class KeyVaultKeyResponse(dict):
     """
     The key vault key.
     """
     def __init__(__self__, *,
-                 attributes: Optional['outputs.KeyVaultKeyResponseAttributesResult'] = None,
+                 attributes: Optional['outputs.KeyVaultKeyResponseAttributes'] = None,
                  kid: Optional[str] = None):
         """
         The key vault key.
-        :param 'KeyVaultKeyResponseAttributesArgs' attributes: The key attributes.
+        :param 'KeyVaultKeyResponseAttributes' attributes: The key attributes.
         :param str kid: The key id.
         """
         if attributes is not None:
@@ -3383,7 +3383,7 @@ class KeyVaultKeyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional['outputs.KeyVaultKeyResponseAttributesResult']:
+    def attributes(self) -> Optional['outputs.KeyVaultKeyResponseAttributes']:
         """
         The key attributes.
         """
@@ -3399,7 +3399,7 @@ class KeyVaultKeyResponseResult(dict):
 
 
 @pulumi.output_type
-class KeyVaultKeyResponseAttributesResult(dict):
+class KeyVaultKeyResponseAttributes(dict):
     """
     The key attributes.
     """
@@ -3454,7 +3454,7 @@ class PartnerContentResponse(dict):
                  b2b: Optional['outputs.B2BPartnerContentResponse'] = None):
         """
         The integration account partner content.
-        :param 'B2BPartnerContentResponseArgs' b2b: The B2B partner content.
+        :param 'B2BPartnerContentResponse' b2b: The B2B partner content.
         """
         if b2b is not None:
             pulumi.set(__self__, "b2b", b2b)
@@ -3525,7 +3525,7 @@ class RecurrenceScheduleResponse(dict):
         :param Sequence[int] hours: The hours.
         :param Sequence[int] minutes: The minutes.
         :param Sequence[int] month_days: The month days.
-        :param Sequence['RecurrenceScheduleOccurrenceResponseArgs'] monthly_occurrences: The monthly occurrences.
+        :param Sequence['RecurrenceScheduleOccurrenceResponse'] monthly_occurrences: The monthly occurrences.
         :param Sequence[str] week_days: The days of the week.
         """
         if hours is not None:
@@ -3779,8 +3779,8 @@ class RosettaNetPipActivitySettingsResponse(dict):
                  activity_type: str):
         """
         The integration account RosettaNet ProcessConfiguration activity settings.
-        :param 'RosettaNetPipAcknowledgmentOfReceiptSettingsResponseArgs' acknowledgment_of_receipt_settings: The RosettaNet ProcessConfiguration acknowledgement settings.
-        :param 'RosettaNetPipActivityBehaviorResponseArgs' activity_behavior: The RosettaNet ProcessConfiguration activity behavior.
+        :param 'RosettaNetPipAcknowledgmentOfReceiptSettingsResponse' acknowledgment_of_receipt_settings: The RosettaNet ProcessConfiguration acknowledgement settings.
+        :param 'RosettaNetPipActivityBehaviorResponse' activity_behavior: The RosettaNet ProcessConfiguration activity behavior.
         :param str activity_type: The RosettaNet ProcessConfiguration activity type.
         """
         pulumi.set(__self__, "acknowledgment_of_receipt_settings", acknowledgment_of_receipt_settings)
@@ -3879,7 +3879,7 @@ class RosettaNetPipRoleSettingsResponse(dict):
         """
         The integration account RosettaNet ProcessConfiguration role settings.
         :param str action: The action name.
-        :param 'RosettaNetPipBusinessDocumentResponseArgs' business_document: The RosettaNet ProcessConfiguration business document.
+        :param 'RosettaNetPipBusinessDocumentResponse' business_document: The RosettaNet ProcessConfiguration business document.
         :param str role: The role name.
         :param str role_type: The RosettaNet ProcessConfiguration role type.
         :param str service: The service name.
@@ -3966,7 +3966,7 @@ class SkuResponse(dict):
         """
         The sku type.
         :param str name: The name.
-        :param 'ResourceReferenceResponseArgs' plan: The reference to plan.
+        :param 'ResourceReferenceResponse' plan: The reference to plan.
         """
         pulumi.set(__self__, "name", name)
         if plan is not None:
@@ -4055,7 +4055,7 @@ class WorkflowParameterResponse(dict):
 
 
 @pulumi.output_type
-class WorkflowTriggerListCallbackUrlQueriesResponseResult(dict):
+class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
     """
     Gets the workflow trigger callback URL query parameters.
     """
@@ -4142,7 +4142,7 @@ class WorkflowTriggerRecurrenceResponse(dict):
         :param str end_time: The end time.
         :param str frequency: The frequency.
         :param int interval: The interval.
-        :param 'RecurrenceScheduleResponseArgs' schedule: The recurrence schedule.
+        :param 'RecurrenceScheduleResponse' schedule: The recurrence schedule.
         :param str start_time: The start time.
         :param str time_zone: The time zone.
         """
@@ -4404,8 +4404,8 @@ class X12AgreementContentResponse(dict):
                  send_agreement: 'outputs.X12OneWayAgreementResponse'):
         """
         The X12 agreement content.
-        :param 'X12OneWayAgreementResponseArgs' receive_agreement: The X12 one-way receive agreement.
-        :param 'X12OneWayAgreementResponseArgs' send_agreement: The X12 one-way send agreement.
+        :param 'X12OneWayAgreementResponse' receive_agreement: The X12 one-way receive agreement.
+        :param 'X12OneWayAgreementResponse' send_agreement: The X12 one-way send agreement.
         """
         pulumi.set(__self__, "receive_agreement", receive_agreement)
         pulumi.set(__self__, "send_agreement", send_agreement)
@@ -5104,9 +5104,9 @@ class X12OneWayAgreementResponse(dict):
                  sender_business_identity: 'outputs.BusinessIdentityResponse'):
         """
         The X12 one-way agreement.
-        :param 'X12ProtocolSettingsResponseArgs' protocol_settings: The X12 protocol settings.
-        :param 'BusinessIdentityResponseArgs' receiver_business_identity: The receiver business identity
-        :param 'BusinessIdentityResponseArgs' sender_business_identity: The sender business identity
+        :param 'X12ProtocolSettingsResponse' protocol_settings: The X12 protocol settings.
+        :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
+        :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
         """
         pulumi.set(__self__, "protocol_settings", protocol_settings)
         pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
@@ -5240,18 +5240,18 @@ class X12ProtocolSettingsResponse(dict):
                  x12_delimiter_overrides: Optional[Sequence['outputs.X12DelimiterOverridesResponse']] = None):
         """
         The X12 agreement protocol settings.
-        :param 'X12AcknowledgementSettingsResponseArgs' acknowledgement_settings: The X12 acknowledgment settings.
-        :param 'X12EnvelopeSettingsResponseArgs' envelope_settings: The X12 envelope settings.
-        :param 'X12FramingSettingsResponseArgs' framing_settings: The X12 framing settings.
-        :param 'X12MessageFilterResponseArgs' message_filter: The X12 message filter.
-        :param 'X12ProcessingSettingsResponseArgs' processing_settings: The X12 processing settings.
-        :param Sequence['X12SchemaReferenceResponseArgs'] schema_references: The X12 schema references.
-        :param 'X12SecuritySettingsResponseArgs' security_settings: The X12 security settings.
-        :param 'X12ValidationSettingsResponseArgs' validation_settings: The X12 validation settings.
-        :param Sequence['X12EnvelopeOverrideResponseArgs'] envelope_overrides: The X12 envelope override settings.
-        :param Sequence['X12MessageIdentifierResponseArgs'] message_filter_list: The X12 message filter list.
-        :param Sequence['X12ValidationOverrideResponseArgs'] validation_overrides: The X12 validation override settings.
-        :param Sequence['X12DelimiterOverridesResponseArgs'] x12_delimiter_overrides: The X12 delimiter override settings.
+        :param 'X12AcknowledgementSettingsResponse' acknowledgement_settings: The X12 acknowledgment settings.
+        :param 'X12EnvelopeSettingsResponse' envelope_settings: The X12 envelope settings.
+        :param 'X12FramingSettingsResponse' framing_settings: The X12 framing settings.
+        :param 'X12MessageFilterResponse' message_filter: The X12 message filter.
+        :param 'X12ProcessingSettingsResponse' processing_settings: The X12 processing settings.
+        :param Sequence['X12SchemaReferenceResponse'] schema_references: The X12 schema references.
+        :param 'X12SecuritySettingsResponse' security_settings: The X12 security settings.
+        :param 'X12ValidationSettingsResponse' validation_settings: The X12 validation settings.
+        :param Sequence['X12EnvelopeOverrideResponse'] envelope_overrides: The X12 envelope override settings.
+        :param Sequence['X12MessageIdentifierResponse'] message_filter_list: The X12 message filter list.
+        :param Sequence['X12ValidationOverrideResponse'] validation_overrides: The X12 validation override settings.
+        :param Sequence['X12DelimiterOverridesResponse'] x12_delimiter_overrides: The X12 delimiter override settings.
         """
         pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
         pulumi.set(__self__, "envelope_settings", envelope_settings)

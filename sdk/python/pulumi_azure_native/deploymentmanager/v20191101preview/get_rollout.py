@@ -114,7 +114,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter(name="operationInfo")
-    def operation_info(self) -> 'outputs.RolloutOperationInfoResponseResult':
+    def operation_info(self) -> 'outputs.RolloutOperationInfoResponse':
         """
         Operational information of the rollout.
         """
@@ -122,7 +122,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter
-    def services(self) -> Sequence['outputs.ServiceResponseResult']:
+    def services(self) -> Sequence['outputs.ServiceResponse']:
         """
         The detailed information on the services being deployed.
         """

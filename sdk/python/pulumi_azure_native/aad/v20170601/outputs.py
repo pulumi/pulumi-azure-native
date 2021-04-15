@@ -528,7 +528,7 @@ class MigrationPropertiesResponse(dict):
                  old_vnet_site_id: str):
         """
         Migration Properties
-        :param 'MigrationProgressResponseArgs' migration_progress: Migration Progress
+        :param 'MigrationProgressResponse' migration_progress: Migration Progress
         :param str old_subnet_id: Old Subnet Id
         :param str old_vnet_site_id: Old Vnet Site Id
         """
@@ -625,7 +625,7 @@ class ResourceForestSettingsResponse(dict):
         """
         Settings for Resource Forest
         :param str resource_forest: Resource Forest
-        :param Sequence['ForestTrustResponseArgs'] settings: List of settings for Resource Forest
+        :param Sequence['ForestTrustResponse'] settings: List of settings for Resource Forest
         """
         if resource_forest is not None:
             pulumi.set(__self__, "resource_forest", resource_forest)

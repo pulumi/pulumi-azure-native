@@ -92,7 +92,7 @@ class AssessmentPropertiesResponse(dict):
         :param str status: Whether the assessment has been created and is valid.
         :param str time_range: Time range of performance data used to recommend a size.
         :param str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.
-        :param 'VmUptimeResponseArgs' vm_uptime: Specify the duration for which the VMs are up in the on-premises environment.
+        :param 'VmUptimeResponse' vm_uptime: Specify the duration for which the VMs are up in the on-premises environment.
         """
         pulumi.set(__self__, "azure_disk_type", azure_disk_type)
         pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
@@ -661,9 +661,9 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection properties.
-        :param 'ResourceIdResponseArgs' private_endpoint: ARM id for the private endpoint resource corresponding to the connection.
+        :param 'ResourceIdResponse' private_endpoint: ARM id for the private endpoint resource corresponding to the connection.
         :param str provisioning_state: Indicates whether there is an ongoing operation on the private endpoint.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: State of the private endpoint connection.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the private endpoint connection.
         """
         pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -713,7 +713,7 @@ class PrivateEndpointConnectionResponse(dict):
         A private endpoint connection for a project.
         :param str id: Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
         :param str name: Name of the private endpoint endpoint connection.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Properties of the private endpoint endpoint connection.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Properties of the private endpoint endpoint connection.
         :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         :param str e_tag: For optimistic concurrency control.
         """
@@ -846,7 +846,7 @@ class ProjectPropertiesResponse(dict):
         :param int number_of_assessments: Number of assessments created in the project.
         :param int number_of_groups: Number of groups created in the project.
         :param int number_of_machines: Number of machines in the project.
-        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: The list of private endpoint connections to the project.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections to the project.
         :param str provisioning_state: Provisioning state of the project.
         :param str service_endpoint: Endpoint at which the collector agent can call agent REST API.
         :param str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.

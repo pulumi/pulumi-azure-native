@@ -35,7 +35,7 @@ class CloudToDevicePropertiesResponse(dict):
         """
         The IoT hub cloud-to-device messaging properties.
         :param str default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        :param 'FeedbackPropertiesResponseArgs' feedback: The properties of the feedback queue for cloud-to-device messages.
+        :param 'FeedbackPropertiesResponse' feedback: The properties of the feedback queue for cloud-to-device messages.
         :param int max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if default_ttl_as_iso8601 is not None:
@@ -216,16 +216,16 @@ class IotHubPropertiesResponse(dict):
         The properties of an IoT hub.
         :param str host_name: The name of the host.
         :param str provisioning_state: The provisioning state.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
-        :param 'CloudToDevicePropertiesResponseArgs' cloud_to_device: The IoT hub cloud-to-device messaging properties.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleResponse'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
+        :param 'CloudToDevicePropertiesResponse' cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param str comments: Comments.
         :param bool enable_file_upload_notifications: If True, file upload notifications are enabled.
-        :param Mapping[str, 'EventHubPropertiesResponseArgs'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
+        :param Mapping[str, 'EventHubPropertiesResponse'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
-        :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
-        :param Mapping[str, 'MessagingEndpointPropertiesResponseArgs'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
-        :param 'OperationsMonitoringPropertiesResponseArgs' operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
-        :param Mapping[str, 'StorageEndpointPropertiesResponseArgs'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+        :param Sequence['IpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
+        :param Mapping[str, 'MessagingEndpointPropertiesResponse'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
+        :param 'OperationsMonitoringPropertiesResponse' operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+        :param Mapping[str, 'StorageEndpointPropertiesResponse'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)

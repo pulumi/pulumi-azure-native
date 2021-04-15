@@ -151,7 +151,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
         Defines the cache expiration action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'CacheExpiration'.
-        :param 'CacheExpirationActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'CacheExpirationActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheExpiration')
         pulumi.set(__self__, "parameters", parameters)
@@ -188,9 +188,9 @@ class DeliveryRuleResponse(dict):
                  conditions: Optional[Sequence[Any]] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param Sequence['DeliveryRuleCacheExpirationActionResponseArgs'] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param Sequence['DeliveryRuleCacheExpirationActionResponse'] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
         :param int order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param Sequence[Union['DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
+        :param Sequence[Union['DeliveryRuleUrlFileExtensionConditionResponse', 'DeliveryRuleUrlPathConditionResponse']] conditions: A list of conditions that must be matched for the actions to be executed
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "order", order)
@@ -237,7 +237,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
         Defines the URL file extension condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'UrlFileExtension'.
-        :param 'UrlFileExtensionConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'UrlFileExtensionConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileExtension')
         pulumi.set(__self__, "parameters", parameters)
@@ -275,7 +275,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
         Defines the URL path condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'UrlPath'.
-        :param 'UrlPathConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'UrlPathConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlPath')
         pulumi.set(__self__, "parameters", parameters)
@@ -311,7 +311,7 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
                  description: Optional[str] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
-        :param Sequence['DeliveryRuleResponseArgs'] rules: A list of the delivery rules.
+        :param Sequence['DeliveryRuleResponse'] rules: A list of the delivery rules.
         :param str description: User-friendly description of the policy.
         """
         pulumi.set(__self__, "rules", rules)

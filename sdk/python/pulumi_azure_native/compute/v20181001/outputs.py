@@ -32,7 +32,7 @@ __all__ = [
     'KeyVaultKeyReferenceResponse',
     'KeyVaultSecretReferenceResponse',
     'LinuxConfigurationResponse',
-    'LogAnalyticsOutputResponseResult',
+    'LogAnalyticsOutputResponse',
     'MaintenanceRedeployStatusResponse',
     'ManagedDiskParametersResponse',
     'NetworkInterfaceReferenceResponse',
@@ -284,7 +284,7 @@ class BootDiagnosticsInstanceViewResponse(dict):
         The instance view of a virtual machine boot diagnostics.
         :param str console_screenshot_blob_uri: The console screenshot blob URI.
         :param str serial_console_log_blob_uri: The Linux serial console log blob Uri.
-        :param 'InstanceViewStatusResponseArgs' status: The boot diagnostics status information for the VM. <br><br> NOTE: It will be set only if there are errors encountered in enabling boot diagnostics.
+        :param 'InstanceViewStatusResponse' status: The boot diagnostics status information for the VM. <br><br> NOTE: It will be set only if there are errors encountered in enabling boot diagnostics.
         """
         pulumi.set(__self__, "console_screenshot_blob_uri", console_screenshot_blob_uri)
         pulumi.set(__self__, "serial_console_log_blob_uri", serial_console_log_blob_uri)
@@ -377,10 +377,10 @@ class DataDiskResponse(dict):
         :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-        :param 'ManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
+        :param 'VirtualHardDiskResponse' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        :param 'ManagedDiskParametersResponse' managed_disk: The managed disk parameters.
         :param str name: The disk name.
-        :param 'VirtualHardDiskResponseArgs' vhd: The virtual hard disk.
+        :param 'VirtualHardDiskResponse' vhd: The virtual hard disk.
         :param bool write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -485,7 +485,7 @@ class DiagnosticsProfileResponse(dict):
                  boot_diagnostics: Optional['outputs.BootDiagnosticsResponse'] = None):
         """
         Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-        :param 'BootDiagnosticsResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+        :param 'BootDiagnosticsResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
         """
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
@@ -539,9 +539,9 @@ class DiskEncryptionSettingsResponse(dict):
                  key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
         """
         Describes a Encryption Settings for a Disk
-        :param 'KeyVaultSecretReferenceResponseArgs' disk_encryption_key: Specifies the location of the disk encryption key, which is a Key Vault Secret.
+        :param 'KeyVaultSecretReferenceResponse' disk_encryption_key: Specifies the location of the disk encryption key, which is a Key Vault Secret.
         :param bool enabled: Specifies whether disk encryption should be enabled on the virtual machine.
-        :param 'KeyVaultKeyReferenceResponseArgs' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -589,9 +589,9 @@ class DiskInstanceViewResponse(dict):
                  statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
         """
         The instance view of the disk.
-        :param Sequence['DiskEncryptionSettingsResponseArgs'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
+        :param Sequence['DiskEncryptionSettingsResponse'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
         :param str name: The disk name.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
         """
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
@@ -673,8 +673,8 @@ class ImageDataDiskResponse(dict):
         :param str blob_uri: The Virtual Hard Disk.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param int disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'SubResourceResponseArgs' managed_disk: The managedDisk.
-        :param 'SubResourceResponseArgs' snapshot: The snapshot.
+        :param 'SubResourceResponse' managed_disk: The managedDisk.
+        :param 'SubResourceResponse' snapshot: The snapshot.
         :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         """
         pulumi.set(__self__, "lun", lun)
@@ -772,8 +772,8 @@ class ImageOSDiskResponse(dict):
         :param str blob_uri: The Virtual Hard Disk.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param int disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'SubResourceResponseArgs' managed_disk: The managedDisk.
-        :param 'SubResourceResponseArgs' snapshot: The snapshot.
+        :param 'SubResourceResponse' managed_disk: The managedDisk.
+        :param 'SubResourceResponse' snapshot: The snapshot.
         :param str storage_account_type: Specifies the storage account type for the managed disk. UltraSSD_LRS cannot be used with OS Disk.
         """
         pulumi.set(__self__, "os_state", os_state)
@@ -944,8 +944,8 @@ class ImageStorageProfileResponse(dict):
                  zone_resilient: Optional[bool] = None):
         """
         Describes a storage profile.
-        :param Sequence['ImageDataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        :param 'ImageOSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['ImageDataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param 'ImageOSDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param bool zone_resilient: Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
         """
         if data_disks is not None:
@@ -1068,7 +1068,7 @@ class KeyVaultKeyReferenceResponse(dict):
         """
         Describes a reference to Key Vault Key
         :param str key_url: The URL referencing a key encryption key in Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing the key.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the key.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1104,7 +1104,7 @@ class KeyVaultSecretReferenceResponse(dict):
         """
         Describes a reference to Key Vault Secret
         :param str secret_url: The URL referencing a secret in a Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing the secret.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the secret.
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1142,7 +1142,7 @@ class LinuxConfigurationResponse(dict):
         Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
-        :param 'SshConfigurationResponseArgs' ssh: Specifies the ssh key configuration for a Linux OS.
+        :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
@@ -1180,7 +1180,7 @@ class LinuxConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class LogAnalyticsOutputResponseResult(dict):
+class LogAnalyticsOutputResponse(dict):
     """
     LogAnalytics output properties
     """
@@ -1384,7 +1384,7 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceReferenceResponse']] = None):
         """
         Specifies the network interfaces of the virtual machine.
-        :param Sequence['NetworkInterfaceReferenceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
+        :param Sequence['NetworkInterfaceReferenceResponse'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
@@ -1422,14 +1422,14 @@ class OSDiskResponse(dict):
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param str create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param 'DiffDiskSettingsResponseArgs' diff_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        :param 'DiffDiskSettingsResponse' diff_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'DiskEncryptionSettingsResponseArgs' encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
-        :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-        :param 'ManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
+        :param 'DiskEncryptionSettingsResponse' encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
+        :param 'VirtualHardDiskResponse' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        :param 'ManagedDiskParametersResponse' managed_disk: The managed disk parameters.
         :param str name: The disk name.
         :param str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-        :param 'VirtualHardDiskResponseArgs' vhd: The virtual hard disk.
+        :param 'VirtualHardDiskResponse' vhd: The virtual hard disk.
         :param bool write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -1567,9 +1567,9 @@ class OSProfileResponse(dict):
         :param bool allow_extension_operations: Specifies whether extension operations should be allowed on the virtual machine. <br><br>This may only be set to False when no extensions are present on the virtual machine.
         :param str computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param Sequence['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machine.
-        :param 'WindowsConfigurationResponseArgs' windows_configuration: Specifies Windows operating system settings on the virtual machine.
+        :param 'LinuxConfigurationResponse' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param Sequence['VaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the virtual machine.
+        :param 'WindowsConfigurationResponse' windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
@@ -1839,7 +1839,7 @@ class SshConfigurationResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
@@ -1905,9 +1905,9 @@ class StorageProfileResponse(dict):
                  os_disk: Optional['outputs.OSDiskResponse'] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param Sequence['DataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        :param 'ImageReferenceResponseArgs' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-        :param 'OSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['DataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param 'ImageReferenceResponse' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+        :param 'OSDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -1977,9 +1977,9 @@ class UpgradePolicyResponse(dict):
                  rolling_upgrade_policy: Optional['outputs.RollingUpgradePolicyResponse'] = None):
         """
         Describes an upgrade policy - automatic, manual, or rolling.
-        :param 'AutomaticOSUpgradePolicyResponseArgs' automatic_os_upgrade_policy: Configuration parameters used for performing automatic OS Upgrade.
+        :param 'AutomaticOSUpgradePolicyResponse' automatic_os_upgrade_policy: Configuration parameters used for performing automatic OS Upgrade.
         :param str mode: Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-        :param 'RollingUpgradePolicyResponseArgs' rolling_upgrade_policy: The configuration parameters used while performing a rolling upgrade.
+        :param 'RollingUpgradePolicyResponse' rolling_upgrade_policy: The configuration parameters used while performing a rolling upgrade.
         """
         if automatic_os_upgrade_policy is not None:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
@@ -2064,8 +2064,8 @@ class VaultSecretGroupResponse(dict):
                  vault_certificates: Optional[Sequence['outputs.VaultCertificateResponse']] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         if source_vault is not None:
             pulumi.set(__self__, "source_vault", source_vault)
@@ -2129,8 +2129,8 @@ class VirtualMachineAgentInstanceViewResponse(dict):
                  vm_agent_version: Optional[str] = None):
         """
         The instance view of the VM Agent running on the virtual machine.
-        :param Sequence['VirtualMachineExtensionHandlerInstanceViewResponseArgs'] extension_handlers: The virtual machine extension handler instance view.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['VirtualMachineExtensionHandlerInstanceViewResponse'] extension_handlers: The virtual machine extension handler instance view.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
         :param str vm_agent_version: The VM Agent full version.
         """
         if extension_handlers is not None:
@@ -2179,7 +2179,7 @@ class VirtualMachineExtensionHandlerInstanceViewResponse(dict):
                  type_handler_version: Optional[str] = None):
         """
         The instance view of a virtual machine extension handler.
-        :param 'InstanceViewStatusResponseArgs' status: The extension handler status.
+        :param 'InstanceViewStatusResponse' status: The extension handler status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -2232,8 +2232,8 @@ class VirtualMachineExtensionInstanceViewResponse(dict):
         """
         The instance view of a virtual machine extension.
         :param str name: The virtual machine extension name.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
-        :param Sequence['InstanceViewStatusResponseArgs'] substatuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponse'] substatuses: The resource status information.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -2320,7 +2320,7 @@ class VirtualMachineExtensionResponse(dict):
         :param str type: Resource type
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param 'VirtualMachineExtensionInstanceViewResponseArgs' instance_view: The virtual machine extension instance view.
+        :param 'VirtualMachineExtensionInstanceViewResponse' instance_view: The virtual machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
@@ -2466,7 +2466,7 @@ class VirtualMachineHealthStatusResponse(dict):
                  status: 'outputs.InstanceViewStatusResponse'):
         """
         The health status of the VM.
-        :param 'InstanceViewStatusResponseArgs' status: The health status information for the VM.
+        :param 'InstanceViewStatusResponse' status: The health status information for the VM.
         """
         pulumi.set(__self__, "status", status)
 
@@ -2497,7 +2497,7 @@ class VirtualMachineIdentityResponse(dict):
         :param str principal_id: The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the virtual machine. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-        :param Mapping[str, 'VirtualMachineIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'VirtualMachineIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -2594,18 +2594,18 @@ class VirtualMachineInstanceViewResponse(dict):
                  vm_agent: Optional['outputs.VirtualMachineAgentInstanceViewResponse'] = None):
         """
         The instance view of a virtual machine.
-        :param 'BootDiagnosticsInstanceViewResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+        :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
         :param str computer_name: The computer name assigned to the virtual machine.
-        :param Sequence['DiskInstanceViewResponseArgs'] disks: The virtual machine disk information.
-        :param Sequence['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
-        :param 'MaintenanceRedeployStatusResponseArgs' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
+        :param Sequence['DiskInstanceViewResponse'] disks: The virtual machine disk information.
+        :param Sequence['VirtualMachineExtensionInstanceViewResponse'] extensions: The extensions information.
+        :param 'MaintenanceRedeployStatusResponse' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
         :param str os_name: The Operating System running on the virtual machine.
         :param str os_version: The version of Operating System running on the virtual machine.
         :param int platform_fault_domain: Specifies the fault domain of the virtual machine.
         :param int platform_update_domain: Specifies the update domain of the virtual machine.
         :param str rdp_thumb_print: The Remote desktop certificate thumbprint.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
-        :param 'VirtualMachineAgentInstanceViewResponseArgs' vm_agent: The VM Agent running on the virtual machine.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param 'VirtualMachineAgentInstanceViewResponse' vm_agent: The VM Agent running on the virtual machine.
         """
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
@@ -2751,7 +2751,7 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
         :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'VirtualMachineScaleSetManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
+        :param 'VirtualMachineScaleSetManagedDiskParametersResponse' managed_disk: The managed disk parameters.
         :param str name: The disk name.
         :param bool write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
@@ -2837,7 +2837,7 @@ class VirtualMachineScaleSetExtensionProfileResponse(dict):
                  extensions: Optional[Sequence['outputs.VirtualMachineScaleSetExtensionResponse']] = None):
         """
         Describes a virtual machine scale set extension profile.
-        :param Sequence['VirtualMachineScaleSetExtensionResponseArgs'] extensions: The virtual machine scale set child extension resources.
+        :param Sequence['VirtualMachineScaleSetExtensionResponse'] extensions: The virtual machine scale set child extension resources.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -3017,15 +3017,15 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
         """
         Describes a virtual machine scale set network profile's IP configuration.
         :param str name: The IP configuration name.
-        :param Sequence['SubResourceResponseArgs'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-        :param Sequence['SubResourceResponseArgs'] application_security_groups: Specifies an array of references to application security group.
+        :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+        :param Sequence['SubResourceResponse'] application_security_groups: Specifies an array of references to application security group.
         :param str id: Resource Id
-        :param Sequence['SubResourceResponseArgs'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-        :param Sequence['SubResourceResponseArgs'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
+        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        :param Sequence['SubResourceResponse'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
         :param bool primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         :param str private_ip_address_version: Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-        :param 'VirtualMachineScaleSetPublicIPAddressConfigurationResponseArgs' public_ip_address_configuration: The publicIPAddressConfiguration.
-        :param 'ApiEntityReferenceResponseArgs' subnet: Specifies the identifier of the subnet.
+        :param 'VirtualMachineScaleSetPublicIPAddressConfigurationResponse' public_ip_address_configuration: The publicIPAddressConfiguration.
+        :param 'ApiEntityReferenceResponse' subnet: Specifies the identifier of the subnet.
         """
         pulumi.set(__self__, "name", name)
         if application_gateway_backend_address_pools is not None:
@@ -3146,7 +3146,7 @@ class VirtualMachineScaleSetIdentityResponse(dict):
         :param str principal_id: The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the virtual machine scale set. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
-        :param Mapping[str, 'VirtualMachineScaleSetIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'VirtualMachineScaleSetIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -3329,13 +3329,13 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
                  primary: Optional[bool] = None):
         """
         Describes a virtual machine scale set network profile's network configurations.
-        :param Sequence['VirtualMachineScaleSetIPConfigurationResponseArgs'] ip_configurations: Specifies the IP configurations of the network interface.
+        :param Sequence['VirtualMachineScaleSetIPConfigurationResponse'] ip_configurations: Specifies the IP configurations of the network interface.
         :param str name: The network configuration name.
-        :param 'VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseArgs' dns_settings: The dns settings to be applied on the network interfaces.
+        :param 'VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse' dns_settings: The dns settings to be applied on the network interfaces.
         :param bool enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param bool enable_ip_forwarding: Whether IP forwarding enabled on this NIC.
         :param str id: Resource Id
-        :param 'SubResourceResponseArgs' network_security_group: The network security group.
+        :param 'SubResourceResponse' network_security_group: The network security group.
         :param bool primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -3431,8 +3431,8 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
                  network_interface_configurations: Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
         """
         Describes a virtual machine scale set network profile.
-        :param 'ApiEntityReferenceResponseArgs' health_probe: A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
-        :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponseArgs'] network_interface_configurations: The list of network configurations.
+        :param 'ApiEntityReferenceResponse' health_probe: A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
+        :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponse'] network_interface_configurations: The list of network configurations.
         """
         if health_probe is not None:
             pulumi.set(__self__, "health_probe", health_probe)
@@ -3479,10 +3479,10 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
         Describes a virtual machine scale set operating system disk.
         :param str create_option: Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param 'DiffDiskSettingsResponseArgs' diff_disk_settings: Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
+        :param 'DiffDiskSettingsResponse' diff_disk_settings: Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
         :param int disk_size_gb: Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'VirtualHardDiskResponseArgs' image: Specifies information about the unmanaged user image to base the scale set on.
-        :param 'VirtualMachineScaleSetManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
+        :param 'VirtualHardDiskResponse' image: Specifies information about the unmanaged user image to base the scale set on.
+        :param 'VirtualMachineScaleSetManagedDiskParametersResponse' managed_disk: The managed disk parameters.
         :param str name: The disk name.
         :param str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param Sequence[str] vhd_containers: Specifies the container urls that are used to store operating system disks for the scale set.
@@ -3611,9 +3611,9 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param str computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param Sequence['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machines in the scale set.
-        :param 'WindowsConfigurationResponseArgs' windows_configuration: Specifies Windows operating system settings on the virtual machine.
+        :param 'LinuxConfigurationResponse' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param Sequence['VaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the virtual machines in the scale set.
+        :param 'WindowsConfigurationResponse' windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
@@ -3729,10 +3729,10 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationResponse(dict):
         """
         Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
         :param str name: The publicIP address configuration name.
-        :param 'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseArgs' dns_settings: The dns settings to be applied on the publicIP addresses .
+        :param 'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse' dns_settings: The dns settings to be applied on the publicIP addresses .
         :param int idle_timeout_in_minutes: The idle timeout of the public IP address.
-        :param Sequence['VirtualMachineScaleSetIpTagResponseArgs'] ip_tags: The list of IP tags associated with the public IP address.
-        :param 'SubResourceResponseArgs' public_ip_prefix: The PublicIPPrefix from which to allocate publicIP addresses.
+        :param Sequence['VirtualMachineScaleSetIpTagResponse'] ip_tags: The list of IP tags associated with the public IP address.
+        :param 'SubResourceResponse' public_ip_prefix: The PublicIPPrefix from which to allocate publicIP addresses.
         """
         pulumi.set(__self__, "name", name)
         if dns_settings is not None:
@@ -3799,9 +3799,9 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
                  os_disk: Optional['outputs.VirtualMachineScaleSetOSDiskResponse'] = None):
         """
         Describes a virtual machine scale set storage profile.
-        :param Sequence['VirtualMachineScaleSetDataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        :param 'ImageReferenceResponseArgs' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-        :param 'VirtualMachineScaleSetOSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['VirtualMachineScaleSetDataDiskResponse'] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param 'ImageReferenceResponse' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+        :param 'VirtualMachineScaleSetOSDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -3857,17 +3857,17 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
                  vm_agent: Optional['outputs.VirtualMachineAgentInstanceViewResponse'] = None):
         """
         The instance view of a virtual machine scale set VM.
-        :param 'VirtualMachineHealthStatusResponseArgs' vm_health: The health status for the VM.
-        :param 'BootDiagnosticsInstanceViewResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-        :param Sequence['DiskInstanceViewResponseArgs'] disks: The disks information.
-        :param Sequence['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
-        :param 'MaintenanceRedeployStatusResponseArgs' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
+        :param 'VirtualMachineHealthStatusResponse' vm_health: The health status for the VM.
+        :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+        :param Sequence['DiskInstanceViewResponse'] disks: The disks information.
+        :param Sequence['VirtualMachineExtensionInstanceViewResponse'] extensions: The extensions information.
+        :param 'MaintenanceRedeployStatusResponse' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
         :param str placement_group_id: The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
         :param int platform_fault_domain: The Fault Domain count.
         :param int platform_update_domain: The Update Domain count.
         :param str rdp_thumb_print: The Remote desktop certificate thumbprint.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
-        :param 'VirtualMachineAgentInstanceViewResponseArgs' vm_agent: The VM Agent running on the virtual machine.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param 'VirtualMachineAgentInstanceViewResponse' vm_agent: The VM Agent running on the virtual machine.
         """
         pulumi.set(__self__, "vm_health", vm_health)
         if boot_diagnostics is not None:
@@ -4000,15 +4000,15 @@ class VirtualMachineScaleSetVMProfileResponse(dict):
                  storage_profile: Optional['outputs.VirtualMachineScaleSetStorageProfileResponse'] = None):
         """
         Describes a virtual machine scale set virtual machine profile.
-        :param 'AdditionalCapabilitiesResponseArgs' additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-        :param 'DiagnosticsProfileResponseArgs' diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        :param 'AdditionalCapabilitiesResponse' additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
+        :param 'DiagnosticsProfileResponse' diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param str eviction_policy: Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
-        :param 'VirtualMachineScaleSetExtensionProfileResponseArgs' extension_profile: Specifies a collection of settings for extensions installed on virtual machines in the scale set.
+        :param 'VirtualMachineScaleSetExtensionProfileResponse' extension_profile: Specifies a collection of settings for extensions installed on virtual machines in the scale set.
         :param str license_type: Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-        :param 'VirtualMachineScaleSetNetworkProfileResponseArgs' network_profile: Specifies properties of the network interfaces of the virtual machines in the scale set.
-        :param 'VirtualMachineScaleSetOSProfileResponseArgs' os_profile: Specifies the operating system settings for the virtual machines in the scale set.
+        :param 'VirtualMachineScaleSetNetworkProfileResponse' network_profile: Specifies properties of the network interfaces of the virtual machines in the scale set.
+        :param 'VirtualMachineScaleSetOSProfileResponse' os_profile: Specifies the operating system settings for the virtual machines in the scale set.
         :param str priority: Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
-        :param 'VirtualMachineScaleSetStorageProfileResponseArgs' storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param 'VirtualMachineScaleSetStorageProfileResponse' storage_profile: Specifies the storage settings for the virtual machine disks.
         """
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -4114,7 +4114,7 @@ class WinRMConfigurationResponse(dict):
                  listeners: Optional[Sequence['outputs.WinRMListenerResponse']] = None):
         """
         Describes Windows Remote Management configuration of the VM
-        :param Sequence['WinRMListenerResponseArgs'] listeners: The list of Windows Remote Management listeners
+        :param Sequence['WinRMListenerResponse'] listeners: The list of Windows Remote Management listeners
         """
         if listeners is not None:
             pulumi.set(__self__, "listeners", listeners)
@@ -4182,11 +4182,11 @@ class WindowsConfigurationResponse(dict):
                  win_rm: Optional['outputs.WinRMConfigurationResponse'] = None):
         """
         Specifies Windows operating system settings on the virtual machine.
-        :param Sequence['AdditionalUnattendContentResponseArgs'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+        :param Sequence['AdditionalUnattendContentResponse'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         :param bool enable_automatic_updates: Indicates whether virtual machine is enabled for automatic Windows updates. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         :param str time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
-        :param 'WinRMConfigurationResponseArgs' win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+        :param 'WinRMConfigurationResponse' win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
         """
         if additional_unattend_content is not None:
             pulumi.set(__self__, "additional_unattend_content", additional_unattend_content)

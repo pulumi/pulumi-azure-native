@@ -22,7 +22,7 @@ __all__ = [
     'ConflictResolutionPolicyResponse',
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
-    'DatabaseAccountConnectionStringResponseResult',
+    'DatabaseAccountConnectionStringResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
     'GremlinDatabaseGetPropertiesResponseResource',
@@ -165,9 +165,9 @@ class CassandraSchemaResponse(dict):
                  partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyResponse']] = None):
         """
         Cosmos DB Cassandra table schema
-        :param Sequence['ClusterKeyResponseArgs'] cluster_keys: List of cluster key.
-        :param Sequence['ColumnResponseArgs'] columns: List of Cassandra table columns.
-        :param Sequence['CassandraPartitionKeyResponseArgs'] partition_keys: List of partition key.
+        :param Sequence['ClusterKeyResponse'] cluster_keys: List of cluster key.
+        :param Sequence['ColumnResponse'] columns: List of Cassandra table columns.
+        :param Sequence['CassandraPartitionKeyResponse'] partition_keys: List of partition key.
         """
         if cluster_keys is not None:
             pulumi.set(__self__, "cluster_keys", cluster_keys)
@@ -219,7 +219,7 @@ class CassandraTableGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param int default_ttl: Time to live of the Cosmos DB Cassandra table
-        :param 'CassandraSchemaResponseArgs' schema: Schema of the Cosmos DB Cassandra table
+        :param 'CassandraSchemaResponse' schema: Schema of the Cosmos DB Cassandra table
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -546,7 +546,7 @@ class ContainerPartitionKeyResponse(dict):
 
 
 @pulumi.output_type
-class DatabaseAccountConnectionStringResponseResult(dict):
+class DatabaseAccountConnectionStringResponse(dict):
     """
     Connection string for the Cosmos DB account
     """
@@ -720,11 +720,11 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB Gremlin graph
         :param str rid: A system generated property. A unique identifier.
         :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the graph.
+        :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the graph.
         :param int default_ttl: Default time to live
-        :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-        :param 'ContainerPartitionKeyResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param 'UniqueKeyPolicyResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+        :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -827,7 +827,7 @@ class IncludedPathResponse(dict):
                  path: Optional[str] = None):
         """
         The paths that are included in indexing
-        :param Sequence['IndexesResponseArgs'] indexes: List of indexes for this path
+        :param Sequence['IndexesResponse'] indexes: List of indexes for this path
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         if indexes is not None:
@@ -924,11 +924,11 @@ class IndexingPolicyResponse(dict):
         """
         Cosmos DB indexing policy
         :param bool automatic: Indicates if the indexing policy is automatic
-        :param Sequence[Sequence['CompositePathResponseArgs']] composite_indexes: List of composite path list
-        :param Sequence['ExcludedPathResponseArgs'] excluded_paths: List of paths to exclude from indexing
-        :param Sequence['IncludedPathResponseArgs'] included_paths: List of paths to include in the indexing
+        :param Sequence[Sequence['CompositePathResponse']] composite_indexes: List of composite path list
+        :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
         :param str indexing_mode: Indicates the indexing mode.
-        :param Sequence['SpatialSpecResponseArgs'] spatial_indexes: List of spatial specifics
+        :param Sequence['SpatialSpecResponse'] spatial_indexes: List of spatial specifics
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -1094,7 +1094,7 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB MongoDB collection
         :param str rid: A system generated property. A unique identifier.
         :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param Sequence['MongoIndexResponseArgs'] indexes: List of index keys
+        :param Sequence['MongoIndexResponse'] indexes: List of index keys
         :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "etag", etag)
@@ -1286,8 +1286,8 @@ class MongoIndexResponse(dict):
                  options: Optional['outputs.MongoIndexOptionsResponse'] = None):
         """
         Cosmos DB MongoDB collection index key
-        :param 'MongoIndexKeysResponseArgs' key: Cosmos DB MongoDB collection index keys
-        :param 'MongoIndexOptionsResponseArgs' options: Cosmos DB MongoDB collection index key options
+        :param 'MongoIndexKeysResponse' key: Cosmos DB MongoDB collection index keys
+        :param 'MongoIndexOptionsResponse' options: Cosmos DB MongoDB collection index key options
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1365,11 +1365,11 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB SQL container
         :param str rid: A system generated property. A unique identifier.
         :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
+        :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the container.
         :param int default_ttl: Default time to live
-        :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-        :param 'ContainerPartitionKeyResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param 'UniqueKeyPolicyResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -1825,7 +1825,7 @@ class UniqueKeyPolicyResponse(dict):
                  unique_keys: Optional[Sequence['outputs.UniqueKeyResponse']] = None):
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-        :param Sequence['UniqueKeyResponseArgs'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param Sequence['UniqueKeyResponse'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         if unique_keys is not None:
             pulumi.set(__self__, "unique_keys", unique_keys)

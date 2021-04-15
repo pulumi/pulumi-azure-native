@@ -84,7 +84,7 @@ class DependencyResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Deployment dependency information.
-        :param Sequence['BasicDependencyResponseArgs'] depends_on: Gets the list of dependencies.
+        :param Sequence['BasicDependencyResponse'] depends_on: Gets the list of dependencies.
         :param str id: Gets or sets the ID of the dependency.
         :param str resource_name: Gets or sets the dependency resource name.
         :param str resource_type: Gets or sets the dependency resource type.
@@ -154,15 +154,15 @@ class DeploymentPropertiesExtendedResponse(dict):
         """
         Deployment properties with additional details.
         :param str correlation_id: Gets or sets the correlation ID of the deployment.
-        :param Sequence['DependencyResponseArgs'] dependencies: Gets the list of deployment dependencies.
+        :param Sequence['DependencyResponse'] dependencies: Gets the list of deployment dependencies.
         :param str mode: Gets or sets the deployment mode.
         :param Any outputs: Gets or sets key/value pairs that represent deployment output.
         :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
-        :param 'ParametersLinkResponseArgs' parameters_link: Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
-        :param Sequence['ProviderResponseArgs'] providers: Gets the list of resource providers needed for the deployment.
+        :param 'ParametersLinkResponse' parameters_link: Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
+        :param Sequence['ProviderResponse'] providers: Gets the list of resource providers needed for the deployment.
         :param str provisioning_state: Gets or sets the state of the provisioning.
         :param Any template: Gets or sets the template content. Use only one of Template or TemplateLink.
-        :param 'TemplateLinkResponseArgs' template_link: Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
+        :param 'TemplateLinkResponse' template_link: Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
         :param str timestamp: Gets or sets the timestamp of the template deployment.
         """
         if correlation_id is not None:
@@ -456,7 +456,7 @@ class ProviderResponse(dict):
         :param str id: Gets or sets the provider id.
         :param str namespace: Gets or sets the namespace of the provider.
         :param str registration_state: Gets or sets the registration state of the provider.
-        :param Sequence['ProviderResourceTypeResponseArgs'] resource_types: Gets or sets the collection of provider resource types.
+        :param Sequence['ProviderResourceTypeResponse'] resource_types: Gets or sets the collection of provider resource types.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)

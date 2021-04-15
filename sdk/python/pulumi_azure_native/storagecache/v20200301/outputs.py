@@ -36,7 +36,7 @@ class CacheEncryptionSettingsResponse(dict):
                  key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
         """
         Cache encryption settings.
-        :param 'KeyVaultKeyReferenceResponseArgs' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
@@ -336,7 +336,7 @@ class KeyVaultKeyReferenceResponse(dict):
         """
         Describes a reference to Key Vault Key.
         :param str key_url: The URL referencing a key encryption key in Key Vault.
-        :param 'KeyVaultKeyReferenceResponseSourceVaultArgs' source_vault: Describes a resource Id to source Key Vault.
+        :param 'KeyVaultKeyReferenceResponseSourceVault' source_vault: Describes a resource Id to source Key Vault.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)

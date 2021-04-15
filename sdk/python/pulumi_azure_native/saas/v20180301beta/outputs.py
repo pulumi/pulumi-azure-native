@@ -105,7 +105,7 @@ class SaasResourceResponseProperties(dict):
         :param str saas_subscription_id: The saas subscription id used for tenant to subscription level migration request.
         :param str sku_id: The plan id.
         :param str status: The SaaS Subscription Status.
-        :param 'SaasPropertiesResponseTermArgs' term: The current Term object.
+        :param 'SaasPropertiesResponseTerm' term: The current Term object.
         :param str term_id: The current Term id.
         """
         pulumi.set(__self__, "created", created)

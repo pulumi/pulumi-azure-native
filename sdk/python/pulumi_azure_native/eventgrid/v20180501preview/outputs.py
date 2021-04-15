@@ -254,14 +254,14 @@ class JsonInputSchemaMappingResponse(dict):
                  topic: Optional['outputs.JsonFieldResponse'] = None):
         """
         This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
-        :param 'JsonFieldWithDefaultResponseArgs' data_version: The mapping information for the DataVersion property of the Event Grid Event.
-        :param 'JsonFieldResponseArgs' event_time: The mapping information for the EventTime property of the Event Grid Event.
-        :param 'JsonFieldWithDefaultResponseArgs' event_type: The mapping information for the EventType property of the Event Grid Event.
-        :param 'JsonFieldResponseArgs' id: The mapping information for the Id property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' data_version: The mapping information for the DataVersion property of the Event Grid Event.
+        :param 'JsonFieldResponse' event_time: The mapping information for the EventTime property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' event_type: The mapping information for the EventType property of the Event Grid Event.
+        :param 'JsonFieldResponse' id: The mapping information for the Id property of the Event Grid Event.
         :param str input_schema_mapping_type: Type of the custom mapping
                Expected value is 'Json'.
-        :param 'JsonFieldWithDefaultResponseArgs' subject: The mapping information for the Subject property of the Event Grid Event.
-        :param 'JsonFieldResponseArgs' topic: The mapping information for the Topic property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' subject: The mapping information for the Subject property of the Event Grid Event.
+        :param 'JsonFieldResponse' topic: The mapping information for the Topic property of the Event Grid Event.
         """
         if data_version is not None:
             pulumi.set(__self__, "data_version", data_version)

@@ -36,7 +36,7 @@ class AssignmentInfoResponse(dict):
         """
         Information about the guest configuration assignment.
         :param str name: Name of the guest configuration assignment.
-        :param 'ConfigurationInfoResponseArgs' configuration: Information about the configuration.
+        :param 'ConfigurationInfoResponse' configuration: Information about the configuration.
         """
         pulumi.set(__self__, "name", name)
         if configuration is not None:
@@ -113,7 +113,7 @@ class AssignmentReportResourceResponse(dict):
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param Any properties: Properties of a guest configuration assignment resource.
         :param str resource_id: Name of the guest configuration assignment resource setting.
-        :param Sequence['AssignmentReportResourceComplianceReasonResponseArgs'] reasons: Compliance reason and reason code for a resource.
+        :param Sequence['AssignmentReportResourceComplianceReasonResponse'] reasons: Compliance reason and reason code for a resource.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "properties", properties)
@@ -176,9 +176,9 @@ class AssignmentReportResponse(dict):
         :param str operation_type: Type of report, Consistency or Initial
         :param str report_id: GUID that identifies the guest configuration assignment report under a subscription, resource group.
         :param str start_time: Start date and time of the guest configuration assignment compliance status check.
-        :param 'AssignmentInfoResponseArgs' assignment: Configuration details of the guest configuration assignment.
-        :param Sequence['AssignmentReportResourceResponseArgs'] resources: The list of resources for which guest configuration assignment compliance is checked.
-        :param 'VMInfoResponseArgs' vm: Information about the VM.
+        :param 'AssignmentInfoResponse' assignment: Configuration details of the guest configuration assignment.
+        :param Sequence['AssignmentReportResourceResponse'] resources: The list of resources for which guest configuration assignment compliance is checked.
+        :param 'VMInfoResponse' vm: Information about the VM.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "end_time", end_time)
@@ -460,9 +460,9 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param str resource_type: Type of the resource - VMSS / VM
         :param str target_resource_id: VM resource Id.
         :param str context: The source which initiated the guest configuration assignment. Ex: Azure Policy
-        :param 'GuestConfigurationNavigationResponseArgs' guest_configuration: The guest configuration to assign.
-        :param 'AssignmentReportResponseArgs' latest_assignment_report: Last reported guest configuration assignment report.
-        :param Sequence['VMSSVMInfoResponseArgs'] vmss_vm_list: The list of VM Compliance data for VMSS
+        :param 'GuestConfigurationNavigationResponse' guest_configuration: The guest configuration to assign.
+        :param 'AssignmentReportResponse' latest_assignment_report: Last reported guest configuration assignment report.
+        :param Sequence['VMSSVMInfoResponse'] vmss_vm_list: The list of VM Compliance data for VMSS
         """
         pulumi.set(__self__, "assignment_hash", assignment_hash)
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -589,8 +589,8 @@ class GuestConfigurationNavigationResponse(dict):
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
-        :param Sequence['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
-        :param 'ConfigurationSettingResponseArgs' configuration_setting: The configuration setting for the guest configuration.
+        :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.

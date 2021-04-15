@@ -65,7 +65,7 @@ class ConfigurationProfileResourcePropertiesResponse(dict):
                  notifications: Optional['outputs.NotificationSettingsResponse'] = None):
         """
         The properties of a configuration profile.
-        :param 'NotificationSettingsResponseArgs' notifications: Settings of change notification configuration for a subscription.
+        :param 'NotificationSettingsResponse' notifications: Settings of change notification configuration for a subscription.
         """
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
@@ -93,7 +93,7 @@ class NotificationSettingsResponse(dict):
         """
         Settings of change notification configuration for a subscription.
         :param str activation_state: The state of notifications feature.
-        :param 'AzureMonitorWorkspacePropertiesResponseArgs' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
+        :param 'AzureMonitorWorkspacePropertiesResponse' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
         if activation_state is not None:
             pulumi.set(__self__, "activation_state", activation_state)

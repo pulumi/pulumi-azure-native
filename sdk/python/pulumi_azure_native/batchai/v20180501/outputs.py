@@ -27,7 +27,7 @@ __all__ = [
     'DataDisksResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVariableWithSecretValueResponse',
-    'FileResponseResult',
+    'FileResponse',
     'FileServerReferenceResponse',
     'HorovodSettingsResponse',
     'ImageReferenceResponse',
@@ -47,7 +47,7 @@ __all__ = [
     'PerformanceCountersSettingsResponse',
     'PrivateRegistryCredentialsResponse',
     'PyTorchSettingsResponse',
-    'RemoteLoginInformationResponseResult',
+    'RemoteLoginInformationResponse',
     'ResourceIdResponse',
     'ScaleSettingsResponse',
     'SetupTaskResponse',
@@ -69,9 +69,9 @@ class AppInsightsReferenceResponse(dict):
                  instrumentation_key_secret_reference: Optional['outputs.KeyVaultSecretReferenceResponse'] = None):
         """
         Azure Application Insights information for performance counters reporting.
-        :param 'ResourceIdResponseArgs' component: Azure Application Insights component resource ID.
+        :param 'ResourceIdResponse' component: Azure Application Insights component resource ID.
         :param str instrumentation_key: Value of the Azure Application Insights instrumentation key.
-        :param 'KeyVaultSecretReferenceResponseArgs' instrumentation_key_secret_reference: KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
+        :param 'KeyVaultSecretReferenceResponse' instrumentation_key_secret_reference: KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
         """
         pulumi.set(__self__, "component", component)
         if instrumentation_key is not None:
@@ -172,7 +172,7 @@ class AzureBlobFileSystemReferenceResponse(dict):
         Azure Blob Storage Container mounting configuration.
         :param str account_name: Name of the Azure storage account.
         :param str container_name: Name of the Azure Blob Storage container to mount on the cluster.
-        :param 'AzureStorageCredentialsInfoResponseArgs' credentials: Information about the Azure storage credentials.
+        :param 'AzureStorageCredentialsInfoResponse' credentials: Information about the Azure storage credentials.
         :param str relative_mount_path: The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
         :param str mount_options: Mount options for mounting blobfuse file system.
         """
@@ -243,7 +243,7 @@ class AzureFileShareReferenceResponse(dict):
         Azure File Share mounting configuration.
         :param str account_name: Name of the Azure storage account.
         :param str azure_file_url: URL to access the Azure File.
-        :param 'AzureStorageCredentialsInfoResponseArgs' credentials: Information about the Azure storage credentials.
+        :param 'AzureStorageCredentialsInfoResponse' credentials: Information about the Azure storage credentials.
         :param str relative_mount_path: The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
         :param str directory_mode: File mode for directories on the mounted file share. Default value: 0777.
         :param str file_mode: File mode for files on the mounted file share. Default value: 0777.
@@ -324,7 +324,7 @@ class AzureStorageCredentialsInfoResponse(dict):
         """
         Azure storage account credentials.
         :param str account_key: Storage account key. One of accountKey or accountKeySecretReference must be specified.
-        :param 'KeyVaultSecretReferenceResponseArgs' account_key_secret_reference: Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
+        :param 'KeyVaultSecretReferenceResponse' account_key_secret_reference: Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
         """
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
@@ -363,7 +363,7 @@ class BatchAIErrorResponse(dict):
         """
         An error response from the Batch AI service.
         :param str code: An identifier of the error. Codes are invariant and are intended to be consumed programmatically.
-        :param Sequence['NameValuePairResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['NameValuePairResponse'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         """
         pulumi.set(__self__, "code", code)
@@ -678,7 +678,7 @@ class ContainerSettingsResponse(dict):
                  shm_size: Optional[str] = None):
         """
         Docker container settings.
-        :param 'ImageSourceRegistryResponseArgs' image_source_registry: Information about docker image and docker registry to download the container from.
+        :param 'ImageSourceRegistryResponse' image_source_registry: Information about docker image and docker registry to download the container from.
         :param str shm_size: Size of /dev/shm. Please refer to docker documentation for supported argument formats.
         """
         pulumi.set(__self__, "image_source_registry", image_source_registry)
@@ -878,7 +878,7 @@ class EnvironmentVariableWithSecretValueResponse(dict):
         An environment variable with secret value definition.
         :param str name: The name of the environment variable to store the secret value.
         :param str value: The value of the environment variable. This value will never be reported back by Batch AI.
-        :param 'KeyVaultSecretReferenceResponseArgs' value_secret_reference: KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
+        :param 'KeyVaultSecretReferenceResponse' value_secret_reference: KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
         """
         pulumi.set(__self__, "name", name)
         if value is not None:
@@ -915,7 +915,7 @@ class EnvironmentVariableWithSecretValueResponse(dict):
 
 
 @pulumi.output_type
-class FileResponseResult(dict):
+class FileResponse(dict):
     """
     Properties of the file or directory.
     """
@@ -992,7 +992,7 @@ class FileServerReferenceResponse(dict):
                  source_directory: Optional[str] = None):
         """
         File Server mounting configuration.
-        :param 'ResourceIdResponseArgs' file_server: Resource ID of the existing File Server to be mounted.
+        :param 'ResourceIdResponse' file_server: Resource ID of the existing File Server to be mounted.
         :param str relative_mount_path: The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
         :param str mount_options: Mount options to be passed to mount command.
         :param str source_directory: File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
@@ -1184,7 +1184,7 @@ class ImageSourceRegistryResponse(dict):
         """
         Information about docker image for the job.
         :param str image: The name of the image in the image repository.
-        :param 'PrivateRegistryCredentialsResponseArgs' credentials: Credentials to access the private docker repository.
+        :param 'PrivateRegistryCredentialsResponse' credentials: Credentials to access the private docker repository.
         :param str server_url: URL for image repository.
         """
         pulumi.set(__self__, "image", image)
@@ -1323,7 +1323,7 @@ class JobPropertiesResponseExecutionInfo(dict):
         """
         Information about the execution of a job.
         :param str end_time: The time at which the job completed. This property is only returned if the job is in completed state.
-        :param Sequence['BatchAIErrorResponseArgs'] errors: A collection of errors encountered by the service during job execution.
+        :param Sequence['BatchAIErrorResponse'] errors: A collection of errors encountered by the service during job execution.
         :param int exit_code: The exit code of the job. This property is only returned if the job is in completed state.
         :param str start_time: The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
         """
@@ -1379,7 +1379,7 @@ class KeyVaultSecretReferenceResponse(dict):
         """
         Key Vault Secret reference.
         :param str secret_url: The URL referencing a secret in the Key Vault.
-        :param 'ResourceIdResponseArgs' source_vault: Fully qualified resource identifier of the Key Vault.
+        :param 'ResourceIdResponse' source_vault: Fully qualified resource identifier of the Key Vault.
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1507,10 +1507,10 @@ class MountVolumesResponse(dict):
                  unmanaged_file_systems: Optional[Sequence['outputs.UnmanagedFileSystemReferenceResponse']] = None):
         """
         Details of volumes to mount on the cluster.
-        :param Sequence['AzureBlobFileSystemReferenceResponseArgs'] azure_blob_file_systems: A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
-        :param Sequence['AzureFileShareReferenceResponseArgs'] azure_file_shares: A collection of Azure File Shares that are to be mounted to the cluster nodes.
-        :param Sequence['FileServerReferenceResponseArgs'] file_servers: A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
-        :param Sequence['UnmanagedFileSystemReferenceResponseArgs'] unmanaged_file_systems: A collection of unmanaged file systems that are to be mounted to the cluster nodes.
+        :param Sequence['AzureBlobFileSystemReferenceResponse'] azure_blob_file_systems: A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
+        :param Sequence['AzureFileShareReferenceResponse'] azure_file_shares: A collection of Azure File Shares that are to be mounted to the cluster nodes.
+        :param Sequence['FileServerReferenceResponse'] file_servers: A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
+        :param Sequence['UnmanagedFileSystemReferenceResponse'] unmanaged_file_systems: A collection of unmanaged file systems that are to be mounted to the cluster nodes.
         """
         if azure_blob_file_systems is not None:
             pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
@@ -1606,9 +1606,9 @@ class NodeSetupResponse(dict):
                  setup_task: Optional['outputs.SetupTaskResponse'] = None):
         """
         Node setup settings.
-        :param 'MountVolumesResponseArgs' mount_volumes: Mount volumes to be available to setup task and all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
-        :param 'PerformanceCountersSettingsResponseArgs' performance_counters_settings: Settings for performance counters collecting and uploading.
-        :param 'SetupTaskResponseArgs' setup_task: Setup task to run on cluster nodes when nodes got created or rebooted. The setup task code needs to be idempotent. Generally the setup task is used to download static data that is required for all jobs that run on the cluster VMs and/or to download/install software.
+        :param 'MountVolumesResponse' mount_volumes: Mount volumes to be available to setup task and all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
+        :param 'PerformanceCountersSettingsResponse' performance_counters_settings: Settings for performance counters collecting and uploading.
+        :param 'SetupTaskResponse' setup_task: Setup task to run on cluster nodes when nodes got created or rebooted. The setup task code needs to be idempotent. Generally the setup task is used to download static data that is required for all jobs that run on the cluster VMs and/or to download/install software.
         """
         if mount_volumes is not None:
             pulumi.set(__self__, "mount_volumes", mount_volumes)
@@ -1771,7 +1771,7 @@ class PerformanceCountersSettingsResponse(dict):
                  app_insights_reference: 'outputs.AppInsightsReferenceResponse'):
         """
         Performance counters reporting settings.
-        :param 'AppInsightsReferenceResponseArgs' app_insights_reference: Azure Application Insights information for performance counters reporting. If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
+        :param 'AppInsightsReferenceResponse' app_insights_reference: Azure Application Insights information for performance counters reporting. If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
         """
         pulumi.set(__self__, "app_insights_reference", app_insights_reference)
 
@@ -1800,7 +1800,7 @@ class PrivateRegistryCredentialsResponse(dict):
         Credentials to access a container image in a private repository.
         :param str username: User name to login to the repository.
         :param str password: User password to login to the docker repository. One of password or passwordSecretReference must be specified.
-        :param 'KeyVaultSecretReferenceResponseArgs' password_secret_reference: KeyVault Secret storing the password. Users can store their secrets in Azure KeyVault and pass it to the Batch AI service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
+        :param 'KeyVaultSecretReferenceResponse' password_secret_reference: KeyVault Secret storing the password. Users can store their secrets in Azure KeyVault and pass it to the Batch AI service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
         """
         pulumi.set(__self__, "username", username)
         if password is not None:
@@ -1910,7 +1910,7 @@ class PyTorchSettingsResponse(dict):
 
 
 @pulumi.output_type
-class RemoteLoginInformationResponseResult(dict):
+class RemoteLoginInformationResponse(dict):
     """
     Login details to SSH to a compute node in cluster.
     """
@@ -1988,8 +1988,8 @@ class ScaleSettingsResponse(dict):
                  manual: Optional['outputs.ManualScaleSettingsResponse'] = None):
         """
         At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
-        :param 'AutoScaleSettingsResponseArgs' auto_scale: Auto-scale settings for the cluster.
-        :param 'ManualScaleSettingsResponseArgs' manual: Manual scale settings for the cluster.
+        :param 'AutoScaleSettingsResponse' auto_scale: Auto-scale settings for the cluster.
+        :param 'ManualScaleSettingsResponse' manual: Manual scale settings for the cluster.
         """
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
@@ -2032,8 +2032,8 @@ class SetupTaskResponse(dict):
         :param str command_line: The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
         :param str std_out_err_path_prefix: The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
         :param str std_out_err_path_suffix: A path segment appended by Batch AI to stdOutErrPathPrefix to form a path where stdout, stderr and execution log of the setup task will be uploaded. Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. The full path can be obtained by concatenation of stdOutErrPathPrefix and stdOutErrPathSuffix.
-        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: A collection of user defined environment variables to be set for setup task.
-        :param Sequence['EnvironmentVariableWithSecretValueResponseArgs'] secrets: A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: A collection of user defined environment variables to be set for setup task.
+        :param Sequence['EnvironmentVariableWithSecretValueResponse'] secrets: A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
         """
         pulumi.set(__self__, "command_line", command_line)
         pulumi.set(__self__, "std_out_err_path_prefix", std_out_err_path_prefix)
@@ -2097,7 +2097,7 @@ class SshConfigurationResponse(dict):
                  public_ips_to_allow: Optional[Sequence[str]] = None):
         """
         SSH configuration.
-        :param 'UserAccountSettingsResponseArgs' user_account_settings: Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
+        :param 'UserAccountSettingsResponse' user_account_settings: Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
         :param Sequence[str] public_ips_to_allow: List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
         """
         pulumi.set(__self__, "user_account_settings", user_account_settings)
@@ -2315,7 +2315,7 @@ class VirtualMachineConfigurationResponse(dict):
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None):
         """
         VM configuration.
-        :param 'ImageReferenceResponseArgs' image_reference: OS image reference for cluster nodes.
+        :param 'ImageReferenceResponse' image_reference: OS image reference for cluster nodes.
         """
         if image_reference is not None:
             pulumi.set(__self__, "image_reference", image_reference)

@@ -12,8 +12,8 @@ from ._enums import *
 
 __all__ = [
     'AssignmentPrincipalResponse',
-    'CanonicalProfileDefinitionResponseResult',
-    'CanonicalProfileDefinitionResponsePropertiesResult',
+    'CanonicalProfileDefinitionResponse',
+    'CanonicalProfileDefinitionResponseProperties',
     'ConnectorMappingAvailabilityResponse',
     'ConnectorMappingCompleteOperationResponse',
     'ConnectorMappingErrorManagementResponse',
@@ -29,8 +29,8 @@ __all__ = [
     'KpiThresholdsResponse',
     'ParticipantProfilePropertyReferenceResponse',
     'ParticipantPropertyReferenceResponse',
-    'PredictionDistributionDefinitionResponseResult',
-    'PredictionDistributionDefinitionResponseDistributionsResult',
+    'PredictionDistributionDefinitionResponse',
+    'PredictionDistributionDefinitionResponseDistributions',
     'PredictionResponseGrades',
     'PredictionResponseMappings',
     'PredictionResponseSystemGeneratedEntities',
@@ -93,17 +93,17 @@ class AssignmentPrincipalResponse(dict):
 
 
 @pulumi.output_type
-class CanonicalProfileDefinitionResponseResult(dict):
+class CanonicalProfileDefinitionResponse(dict):
     """
     Definition of canonical profile.
     """
     def __init__(__self__, *,
                  canonical_profile_id: Optional[int] = None,
-                 properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponsePropertiesResult']] = None):
+                 properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponseProperties']] = None):
         """
         Definition of canonical profile.
         :param int canonical_profile_id: Canonical profile ID.
-        :param Sequence['CanonicalProfileDefinitionResponsePropertiesArgs'] properties: Properties of the canonical profile.
+        :param Sequence['CanonicalProfileDefinitionResponseProperties'] properties: Properties of the canonical profile.
         """
         if canonical_profile_id is not None:
             pulumi.set(__self__, "canonical_profile_id", canonical_profile_id)
@@ -120,7 +120,7 @@ class CanonicalProfileDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Sequence['outputs.CanonicalProfileDefinitionResponsePropertiesResult']]:
+    def properties(self) -> Optional[Sequence['outputs.CanonicalProfileDefinitionResponseProperties']]:
         """
         Properties of the canonical profile.
         """
@@ -128,7 +128,7 @@ class CanonicalProfileDefinitionResponseResult(dict):
 
 
 @pulumi.output_type
-class CanonicalProfileDefinitionResponsePropertiesResult(dict):
+class CanonicalProfileDefinitionResponseProperties(dict):
     """
     The definition of a canonical profile property.
     """
@@ -411,11 +411,11 @@ class ConnectorMappingPropertiesResponse(dict):
                  has_header: Optional[bool] = None):
         """
         The connector mapping properties.
-        :param 'ConnectorMappingAvailabilityResponseArgs' availability: The availability of mapping property.
-        :param 'ConnectorMappingCompleteOperationResponseArgs' complete_operation: The operation after import is done.
-        :param 'ConnectorMappingErrorManagementResponseArgs' error_management: The error management setting for the mapping.
-        :param 'ConnectorMappingFormatResponseArgs' format: The format of mapping property.
-        :param Sequence['ConnectorMappingStructureResponseArgs'] structure: Ingestion mapping information at property level.
+        :param 'ConnectorMappingAvailabilityResponse' availability: The availability of mapping property.
+        :param 'ConnectorMappingCompleteOperationResponse' complete_operation: The operation after import is done.
+        :param 'ConnectorMappingErrorManagementResponse' error_management: The error management setting for the mapping.
+        :param 'ConnectorMappingFormatResponse' format: The format of mapping property.
+        :param Sequence['ConnectorMappingStructureResponse'] structure: Ingestion mapping information at property level.
         :param str file_filter: The file filter for the mapping.
         :param str folder_path: The folder path for the mapping.
         :param bool has_header: If the file contains a header or not.
@@ -958,17 +958,17 @@ class ParticipantPropertyReferenceResponse(dict):
 
 
 @pulumi.output_type
-class PredictionDistributionDefinitionResponseResult(dict):
+class PredictionDistributionDefinitionResponse(dict):
     """
     The definition of the prediction distribution.
     """
     def __init__(__self__, *,
-                 distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']] = None,
+                 distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributions']] = None,
                  total_negatives: Optional[float] = None,
                  total_positives: Optional[float] = None):
         """
         The definition of the prediction distribution.
-        :param Sequence['PredictionDistributionDefinitionResponseDistributionsArgs'] distributions: Distributions of the prediction.
+        :param Sequence['PredictionDistributionDefinitionResponseDistributions'] distributions: Distributions of the prediction.
         :param float total_negatives: Total negatives in the distribution.
         :param float total_positives: Total positive in the distribution.
         """
@@ -981,7 +981,7 @@ class PredictionDistributionDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def distributions(self) -> Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']]:
+    def distributions(self) -> Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributions']]:
         """
         Distributions of the prediction.
         """
@@ -1005,7 +1005,7 @@ class PredictionDistributionDefinitionResponseResult(dict):
 
 
 @pulumi.output_type
-class PredictionDistributionDefinitionResponseDistributionsResult(dict):
+class PredictionDistributionDefinitionResponseDistributions(dict):
     """
     The definition of a prediction distribution.
     """
@@ -1284,11 +1284,11 @@ class PropertyDefinitionResponse(dict):
                  schema_item_prop_link: Optional[str] = None):
         """
         Property definition.
-        :param Sequence['DataSourcePrecedenceResponseArgs'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+        :param Sequence['DataSourcePrecedenceResponse'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
         :param str field_name: Name of the property.
         :param str field_type: Type of the property.
         :param str array_value_separator: Array value separator for properties with isArray set.
-        :param Sequence['ProfileEnumValidValuesFormatResponseArgs'] enum_valid_values: Describes valid values for an enum property.
+        :param Sequence['ProfileEnumValidValuesFormatResponse'] enum_valid_values: Describes valid values for an enum property.
         :param bool is_array: Indicates if the property is actually an array of the fieldType above on the data api.
         :param bool is_available_in_graph: Whether property is available in graph or not.
         :param bool is_enum: Indicates if the property is an enum.
@@ -1556,7 +1556,7 @@ class RelationshipTypeMappingResponse(dict):
                  field_mappings: Sequence['outputs.RelationshipTypeFieldMappingResponse']):
         """
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
-        :param Sequence['RelationshipTypeFieldMappingResponseArgs'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+        :param Sequence['RelationshipTypeFieldMappingResponse'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         pulumi.set(__self__, "field_mappings", field_mappings)
 

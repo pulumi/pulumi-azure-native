@@ -61,7 +61,7 @@ class ContentLinkResponse(dict):
                  metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the content hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the content hash.
         :param float content_size: Gets or sets the content size.
         :param str content_version: Gets or sets the content version.
         :param Any metadata: Gets or sets the metadata.
@@ -173,7 +173,7 @@ class SkuResponse(dict):
                  plan: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         :param str name: Gets or sets the name.
-        :param 'ResourceReferenceResponseArgs' plan: Gets or sets the reference to plan.
+        :param 'ResourceReferenceResponse' plan: Gets or sets the reference to plan.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)

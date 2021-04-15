@@ -38,7 +38,7 @@ class ListStorageAccountSasTokensResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.SasTokenInformationResponseResult']:
+    def value(self) -> Sequence['outputs.SasTokenInformationResponse']:
         """
         The results of the list operation.
         """

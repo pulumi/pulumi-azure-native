@@ -78,7 +78,7 @@ class AliasTypeResponse(dict):
         """
         The alias type. 
         :param str name: The alias name.
-        :param Sequence['AliasPathTypeResponseArgs'] paths: The paths for an alias.
+        :param Sequence['AliasPathTypeResponse'] paths: The paths for an alias.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -189,7 +189,7 @@ class DependencyResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Deployment dependency information.
-        :param Sequence['BasicDependencyResponseArgs'] depends_on: The list of dependencies.
+        :param Sequence['BasicDependencyResponse'] depends_on: The list of dependencies.
         :param str id: The ID of the dependency.
         :param str resource_name: The dependency resource name.
         :param str resource_type: The dependency resource type.
@@ -263,16 +263,16 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param str correlation_id: The correlation ID of the deployment.
         :param str provisioning_state: The state of the provisioning.
         :param str timestamp: The timestamp of the template deployment.
-        :param 'DebugSettingResponseArgs' debug_setting: The debug setting of the deployment.
-        :param Sequence['DependencyResponseArgs'] dependencies: The list of deployment dependencies.
+        :param 'DebugSettingResponse' debug_setting: The debug setting of the deployment.
+        :param Sequence['DependencyResponse'] dependencies: The list of deployment dependencies.
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
-        :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
+        :param 'OnErrorDeploymentExtendedResponse' on_error_deployment: The deployment on error behavior.
         :param Any outputs: Key/value pairs that represent deployment output.
         :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
-        :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. Use only one of Parameters or ParametersLink.
-        :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
+        :param 'ParametersLinkResponse' parameters_link: The URI referencing the parameters. Use only one of Parameters or ParametersLink.
+        :param Sequence['ProviderResponse'] providers: The list of resource providers needed for the deployment.
         :param Any template: The template content. Use only one of Template or TemplateLink.
-        :param 'TemplateLinkResponseArgs' template_link: The URI referencing the template. Use only one of Template or TemplateLink.
+        :param 'TemplateLinkResponse' template_link: The URI referencing the template. Use only one of Template or TemplateLink.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -421,7 +421,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -672,7 +672,7 @@ class ProviderResourceTypeResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Resource type managed by the resource provider.
-        :param Sequence['AliasTypeResponseArgs'] aliases: The aliases that are supported by this resource type.
+        :param Sequence['AliasTypeResponse'] aliases: The aliases that are supported by this resource type.
         :param Sequence[str] api_versions: The API version.
         :param str capabilities: The additional capabilities offered by this resource type.
         :param Sequence[str] locations: The collection of locations where this resource type can be created.
@@ -760,7 +760,7 @@ class ProviderResponse(dict):
         :param str id: The provider ID.
         :param str registration_policy: The registration policy of the resource provider.
         :param str registration_state: The registration state of the resource provider.
-        :param Sequence['ProviderResourceTypeResponseArgs'] resource_types: The collection of provider resource types.
+        :param Sequence['ProviderResourceTypeResponse'] resource_types: The collection of provider resource types.
         :param str namespace: The namespace of the resource provider.
         """
         pulumi.set(__self__, "id", id)

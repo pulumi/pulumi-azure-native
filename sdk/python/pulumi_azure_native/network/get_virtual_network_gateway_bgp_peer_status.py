@@ -27,7 +27,7 @@ class GetVirtualNetworkGatewayBgpPeerStatusResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.BgpPeerStatusResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.BgpPeerStatusResponse']]:
         """
         List of BGP peers.
         """

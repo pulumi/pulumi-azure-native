@@ -52,14 +52,14 @@ class AssetItemResponse(dict):
                  parameters: Optional[Sequence['outputs.ModuleAssetParameterResponse']] = None):
         """
         Information about an asset associated with the web service.
-        :param 'BlobLocationResponseArgs' location_info: Access information for the asset.
+        :param 'BlobLocationResponse' location_info: Access information for the asset.
         :param str name: Asset's friendly name.
         :param str type: Asset's type.
         :param str id: Asset's Id.
-        :param Mapping[str, 'InputPortResponseArgs'] input_ports: Information about the asset's input ports.
+        :param Mapping[str, 'InputPortResponse'] input_ports: Information about the asset's input ports.
         :param Mapping[str, str] metadata: If the asset is a custom module, this holds the module's metadata.
-        :param Mapping[str, 'OutputPortResponseArgs'] output_ports: Information about the asset's output ports.
-        :param Sequence['ModuleAssetParameterResponseArgs'] parameters: If the asset is a custom module, this holds the module's parameters.
+        :param Mapping[str, 'OutputPortResponse'] output_ports: Information about the asset's output ports.
+        :param Sequence['ModuleAssetParameterResponse'] parameters: If the asset is a custom module, this holds the module's parameters.
         """
         pulumi.set(__self__, "location_info", location_info)
         pulumi.set(__self__, "name", name)
@@ -430,7 +430,7 @@ class GraphNodeResponse(dict):
         :param str asset_id: The id of the asset represented by this node.
         :param str input_id: The id of the input element represented by this node.
         :param str output_id: The id of the output element represented by this node.
-        :param Mapping[str, 'WebServiceParameterResponseArgs'] parameters: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        :param Mapping[str, 'WebServiceParameterResponse'] parameters: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
         """
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
@@ -488,9 +488,9 @@ class GraphPackageResponse(dict):
                  nodes: Optional[Mapping[str, 'outputs.GraphNodeResponse']] = None):
         """
         Defines the graph of modules making up the machine learning solution.
-        :param Sequence['GraphEdgeResponseArgs'] edges: The list of edges making up the graph.
-        :param Mapping[str, 'GraphParameterResponseArgs'] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
-        :param Mapping[str, 'GraphNodeResponseArgs'] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        :param Sequence['GraphEdgeResponse'] edges: The list of edges making up the graph.
+        :param Mapping[str, 'GraphParameterResponse'] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        :param Mapping[str, 'GraphNodeResponse'] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
         """
         if edges is not None:
             pulumi.set(__self__, "edges", edges)
@@ -574,7 +574,7 @@ class GraphParameterResponse(dict):
                  description: Optional[str] = None):
         """
         Defines a global parameter in the graph.
-        :param Sequence['GraphParameterLinkResponseArgs'] links: Association links for this parameter to nodes in the graph.
+        :param Sequence['GraphParameterLinkResponse'] links: Association links for this parameter to nodes in the graph.
         :param str type: Graph parameter's type.
         :param str description: Description of this graph parameter.
         """
@@ -675,7 +675,7 @@ class ModeValueInfoResponse(dict):
         """
         Nested parameter definition.
         :param str interface_string: The interface string name for the nested parameter.
-        :param Sequence['ModuleAssetParameterResponseArgs'] parameters: The definition of the parameter.
+        :param Sequence['ModuleAssetParameterResponse'] parameters: The definition of the parameter.
         """
         if interface_string is not None:
             pulumi.set(__self__, "interface_string", interface_string)
@@ -713,7 +713,7 @@ class ModuleAssetParameterResponse(dict):
                  parameter_type: Optional[str] = None):
         """
         Parameter definition for a module asset.
-        :param Mapping[str, 'ModeValueInfoResponseArgs'] mode_values_info: Definitions for nested interface parameters if this is a complex module parameter.
+        :param Mapping[str, 'ModeValueInfoResponse'] mode_values_info: Definitions for nested interface parameters if this is a complex module parameter.
         :param str name: Parameter name.
         :param str parameter_type: Parameter type.
         """
@@ -818,7 +818,7 @@ class ServiceInputOutputSpecificationResponse(dict):
                  title: Optional[str] = None):
         """
         The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
-        :param Mapping[str, 'TableSpecificationResponseArgs'] properties: Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+        :param Mapping[str, 'TableSpecificationResponse'] properties: Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
         :param str type: The type of the entity described in swagger. Always 'object'.
         :param str description: The description of the Swagger schema.
         :param str title: The title of your Swagger schema.
@@ -922,7 +922,7 @@ class TableSpecificationResponse(dict):
         :param str type: The type of the entity described in swagger.
         :param str description: Swagger schema description.
         :param str format: The format, if 'type' is not 'object'
-        :param Mapping[str, 'ColumnSpecificationResponseArgs'] properties: The set of columns within the data table.
+        :param Mapping[str, 'ColumnSpecificationResponse'] properties: The set of columns within the data table.
         :param str title: Swagger schema title.
         """
         if type is None:
@@ -1094,23 +1094,23 @@ class WebServicePropertiesForGraphResponse(dict):
                Expected value is 'Graph'.
         :param str provisioning_state: Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
         :param str swagger_location: Read Only: Contains the URI of the swagger spec associated with this web service.
-        :param Mapping[str, 'AssetItemResponseArgs'] assets: Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-        :param 'CommitmentPlanResponseArgs' commitment_plan: Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+        :param Mapping[str, 'AssetItemResponse'] assets: Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+        :param 'CommitmentPlanResponse' commitment_plan: Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
         :param str description: The description of the web service.
-        :param 'DiagnosticsConfigurationResponseArgs' diagnostics: Settings controlling the diagnostics traces collection for the web service.
-        :param 'ExampleRequestResponseArgs' example_request: Defines sample input data for one or more of the service's inputs.
+        :param 'DiagnosticsConfigurationResponse' diagnostics: Settings controlling the diagnostics traces collection for the web service.
+        :param 'ExampleRequestResponse' example_request: Defines sample input data for one or more of the service's inputs.
         :param bool expose_sample_data: When set to true, sample data is included in the web service's swagger definition. The default value is true.
-        :param 'ServiceInputOutputSpecificationResponseArgs' input: Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-        :param 'WebServiceKeysResponseArgs' keys: Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-        :param 'MachineLearningWorkspaceResponseArgs' machine_learning_workspace: Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-        :param 'ServiceInputOutputSpecificationResponseArgs' output: Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-        :param 'GraphPackageResponseArgs' package: The definition of the graph package making up this web service.
-        :param Mapping[str, 'WebServiceParameterResponseArgs'] parameters: The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+        :param 'ServiceInputOutputSpecificationResponse' input: Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+        :param 'WebServiceKeysResponse' keys: Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+        :param 'MachineLearningWorkspaceResponse' machine_learning_workspace: Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+        :param 'ServiceInputOutputSpecificationResponse' output: Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+        :param 'GraphPackageResponse' package: The definition of the graph package making up this web service.
+        :param Mapping[str, 'WebServiceParameterResponse'] parameters: The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
         :param bool payloads_in_blob_storage: When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-        :param 'BlobLocationResponseArgs' payloads_location: The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
+        :param 'BlobLocationResponse' payloads_location: The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
         :param bool read_only: When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-        :param 'RealtimeConfigurationResponseArgs' realtime_configuration: Contains the configuration settings for the web service endpoint.
-        :param 'StorageAccountResponseArgs' storage_account: Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+        :param 'RealtimeConfigurationResponse' realtime_configuration: Contains the configuration settings for the web service endpoint.
+        :param 'StorageAccountResponse' storage_account: Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
         :param str title: The title of the web service.
         """
         pulumi.set(__self__, "created_on", created_on)

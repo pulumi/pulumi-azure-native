@@ -42,11 +42,11 @@ class ActionRulePropertiesResponse(dict):
         :param str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
         :param str last_modified_by: Last modified by user name.
         :param str resource_group: Resource group where action rule is stored
-        :param 'ConditionsResponseArgs' conditions: Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+        :param 'ConditionsResponse' conditions: Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+        :param 'ScopeResponse' scope: Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
         :param str status: Indicates if the given action rule is enabled or disabled
-        :param 'SuppressionConfigResponseArgs' suppression_config: Suppression logic for a given action rule
+        :param 'SuppressionConfigResponse' suppression_config: Suppression logic for a given action rule
         """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "created_by", created_by)
@@ -205,17 +205,17 @@ class ConditionsResponse(dict):
                  target_resource_type: Optional['outputs.ConditionResponse'] = None):
         """
         Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-        :param 'ConditionResponseArgs' alert_rule_id: condition to trigger an action rule
-        :param 'ConditionResponseArgs' application_insights_search_results: condition to trigger an action rule
-        :param 'ConditionResponseArgs' description: condition to trigger an action rule
-        :param 'ConditionResponseArgs' log_analytics_search_results: condition to trigger an action rule
-        :param 'ConditionResponseArgs' monitor_condition: condition to trigger an action rule
-        :param 'ConditionResponseArgs' monitor_service: condition to trigger an action rule
-        :param 'ConditionResponseArgs' severity: condition to trigger an action rule
-        :param 'ConditionResponseArgs' signal_type: condition to trigger an action rule
-        :param 'ConditionResponseArgs' target_resource: condition to trigger an action rule
-        :param 'ConditionResponseArgs' target_resource_group: condition to trigger an action rule
-        :param 'ConditionResponseArgs' target_resource_type: condition to trigger an action rule
+        :param 'ConditionResponse' alert_rule_id: condition to trigger an action rule
+        :param 'ConditionResponse' application_insights_search_results: condition to trigger an action rule
+        :param 'ConditionResponse' description: condition to trigger an action rule
+        :param 'ConditionResponse' log_analytics_search_results: condition to trigger an action rule
+        :param 'ConditionResponse' monitor_condition: condition to trigger an action rule
+        :param 'ConditionResponse' monitor_service: condition to trigger an action rule
+        :param 'ConditionResponse' severity: condition to trigger an action rule
+        :param 'ConditionResponse' signal_type: condition to trigger an action rule
+        :param 'ConditionResponse' target_resource: condition to trigger an action rule
+        :param 'ConditionResponse' target_resource_group: condition to trigger an action rule
+        :param 'ConditionResponse' target_resource_type: condition to trigger an action rule
         """
         if alert_rule_id is not None:
             pulumi.set(__self__, "alert_rule_id", alert_rule_id)
@@ -381,7 +381,7 @@ class SuppressionConfigResponse(dict):
         """
         Suppression logic for a given action rule
         :param str recurrence_type: Specifies when the suppression should be applied
-        :param 'SuppressionScheduleResponseArgs' schedule: Schedule for a given suppression configuration.
+        :param 'SuppressionScheduleResponse' schedule: Schedule for a given suppression configuration.
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         if schedule is not None:

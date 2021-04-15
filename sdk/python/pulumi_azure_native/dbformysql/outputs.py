@@ -146,8 +146,8 @@ class ServerPrivateEndpointConnectionPropertiesResponse(dict):
         """
         Properties of a private endpoint connection.
         :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'ServerPrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'ServerPrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -194,7 +194,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
         """
         A private endpoint connection under a server
         :param str id: Resource Id of the private endpoint connection.
-        :param 'ServerPrivateEndpointConnectionPropertiesResponseArgs' properties: Private endpoint connection properties
+        :param 'ServerPrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)

@@ -38,7 +38,7 @@ class ListLabVhdsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.LabVhdResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.LabVhdResponse']]:
         """
         Results of the list operation.
         """

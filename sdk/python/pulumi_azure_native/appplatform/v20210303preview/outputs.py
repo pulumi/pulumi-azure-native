@@ -55,9 +55,9 @@ class AppResourcePropertiesResponse(dict):
         :param bool enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param str fqdn: Fully qualified dns Name.
         :param bool https_only: Indicate if only https is allowed.
-        :param 'PersistentDiskResponseArgs' persistent_disk: Persistent disk settings
+        :param 'PersistentDiskResponse' persistent_disk: Persistent disk settings
         :param bool public: Indicates whether the App exposes public endpoint
-        :param 'TemporaryDiskResponseArgs' temporary_disk: Temporary disk settings
+        :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -406,7 +406,7 @@ class ClusterResourcePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
-        :param 'NetworkProfileResponseArgs' network_profile: Network profile of the Service
+        :param 'NetworkProfileResponse' network_profile: Network profile of the Service
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
@@ -587,11 +587,11 @@ class DeploymentResourcePropertiesResponse(dict):
         :param bool active: Indicates whether the Deployment is active
         :param str app_name: App name of the deployment
         :param str created_time: Date time when the resource is created
-        :param Sequence['DeploymentInstanceResponseArgs'] instances: Collection of instances belong to the Deployment
+        :param Sequence['DeploymentInstanceResponse'] instances: Collection of instances belong to the Deployment
         :param str provisioning_state: Provisioning state of the Deployment
         :param str status: Status of the Deployment
-        :param 'DeploymentSettingsResponseArgs' deployment_settings: Deployment settings of the Deployment
-        :param 'UserSourceInfoResponseArgs' source: Uploaded source information of the deployment.
+        :param 'DeploymentSettingsResponse' deployment_settings: Deployment settings of the Deployment
+        :param 'UserSourceInfoResponse' source: Uploaded source information of the deployment.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "app_name", app_name)
@@ -692,7 +692,7 @@ class DeploymentSettingsResponse(dict):
         :param str jvm_options: JVM parameter
         :param int memory_in_gb: Required Memory size in GB. This should be in range [1, 2] for Basic tier, and in range [1, 8] for Standard tier. This is deprecated starting from API version 2020-03-03-preview. Please use the resourceRequests field to set the the memory size.
         :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
-        :param 'ResourceRequestsResponseArgs' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+        :param 'ResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         :param str runtime_version: Runtime version
         """
         if cpu is None:
@@ -839,8 +839,8 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[str] = None):
         """
         Service network profile payload
-        :param 'NetworkProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
-        :param Sequence['RequiredTrafficResponseArgs'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
+        :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
+        :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
         :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
         :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
         :param str service_cidr: Azure Spring Cloud service reserved CIDR

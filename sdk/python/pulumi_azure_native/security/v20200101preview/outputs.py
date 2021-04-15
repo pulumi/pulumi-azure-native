@@ -371,10 +371,10 @@ class HybridComputeSettingsPropertiesResponse(dict):
         Settings for hybrid compute management
         :param str auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
         :param str hybrid_compute_provisioning_state: State of the service principal and its secret
-        :param 'ProxyServerPropertiesResponseArgs' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        :param 'ProxyServerPropertiesResponse' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
         :param str region: The location where the metadata of machines will be stored
         :param str resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-        :param 'ServicePrincipalPropertiesResponseArgs' service_principal: An object to access resources that are secured by an Azure AD tenant.
+        :param 'ServicePrincipalPropertiesResponse' service_principal: An object to access resources that are secured by an Azure AD tenant.
         """
         pulumi.set(__self__, "auto_provision", auto_provision)
         pulumi.set(__self__, "hybrid_compute_provisioning_state", hybrid_compute_provisioning_state)

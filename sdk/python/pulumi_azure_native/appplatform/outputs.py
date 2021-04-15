@@ -52,9 +52,9 @@ class AppResourcePropertiesResponse(dict):
         :param str active_deployment_name: Name of the active deployment of the App
         :param str fqdn: Fully qualified dns Name.
         :param bool https_only: Indicate if only https is allowed.
-        :param 'PersistentDiskResponseArgs' persistent_disk: Persistent disk settings
+        :param 'PersistentDiskResponse' persistent_disk: Persistent disk settings
         :param bool public: Indicates whether the App exposes public endpoint
-        :param 'TemporaryDiskResponseArgs' temporary_disk: Temporary disk settings
+        :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -393,7 +393,7 @@ class ClusterResourcePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
-        :param 'NetworkProfileResponseArgs' network_profile: Network profile of the Service
+        :param 'NetworkProfileResponse' network_profile: Network profile of the Service
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
@@ -574,11 +574,11 @@ class DeploymentResourcePropertiesResponse(dict):
         :param bool active: Indicates whether the Deployment is active
         :param str app_name: App name of the deployment
         :param str created_time: Date time when the resource is created
-        :param Sequence['DeploymentInstanceResponseArgs'] instances: Collection of instances belong to the Deployment
+        :param Sequence['DeploymentInstanceResponse'] instances: Collection of instances belong to the Deployment
         :param str provisioning_state: Provisioning state of the Deployment
         :param str status: Status of the Deployment
-        :param 'DeploymentSettingsResponseArgs' deployment_settings: Deployment settings of the Deployment
-        :param 'UserSourceInfoResponseArgs' source: Uploaded source information of the deployment.
+        :param 'DeploymentSettingsResponse' deployment_settings: Deployment settings of the Deployment
+        :param 'UserSourceInfoResponse' source: Uploaded source information of the deployment.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "app_name", app_name)
@@ -814,8 +814,8 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[str] = None):
         """
         Service network profile payload
-        :param 'NetworkProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
-        :param Sequence['RequiredTrafficResponseArgs'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
+        :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
+        :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
         :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
         :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
         :param str service_cidr: Azure Spring Cloud service reserved CIDR

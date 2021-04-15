@@ -27,7 +27,7 @@ class ListAccountChannelTypesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ChannelTypeDescriptionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ChannelTypeDescriptionResponse']]:
         """
         Channel descriptions
         """

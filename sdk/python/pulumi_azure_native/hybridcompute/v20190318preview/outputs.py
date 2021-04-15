@@ -24,7 +24,7 @@ class ErrorDetailResponse(dict):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponse'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)

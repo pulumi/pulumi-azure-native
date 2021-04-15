@@ -22,7 +22,7 @@ __all__ = [
     'DscConfigurationParameterResponse',
     'ErrorResponseResponse',
     'FieldDefinitionResponse',
-    'KeyResponseResult',
+    'KeyResponse',
     'LinuxPropertiesResponse',
     'ModuleErrorInfoResponse',
     'NonAzureQueryPropertiesResponse',
@@ -90,7 +90,7 @@ class AdvancedScheduleResponse(dict):
         """
         The properties of the create Advanced Schedule.
         :param Sequence[int] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
+        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Occurrences of days within a month.
         :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
@@ -141,7 +141,7 @@ class AzureQueryPropertiesResponse(dict):
         Azure query for the update configuration.
         :param Sequence[str] locations: List of locations to scope the query to.
         :param Sequence[str] scope: List of Subscription or Resource Group ARM Ids.
-        :param 'TagSettingsPropertiesResponseArgs' tag_settings: Tag settings for the VM.
+        :param 'TagSettingsPropertiesResponse' tag_settings: Tag settings for the VM.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -251,7 +251,7 @@ class ContentLinkResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content link.
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the hash.
         :param str uri: Gets or sets the uri of the runbook content.
         :param str version: Gets or sets the version of the content.
         """
@@ -302,7 +302,7 @@ class ContentSourceResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content source.
-        :param 'ContentHashResponseArgs' hash: Gets or sets the hash.
+        :param 'ContentHashResponse' hash: Gets or sets the hash.
         :param str type: Gets or sets the content source type.
         :param str value: Gets or sets the value of the content. This is based on the content source type.
         :param str version: Gets or sets the version of the content.
@@ -528,7 +528,7 @@ class FieldDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class KeyResponseResult(dict):
+class KeyResponse(dict):
     """
     Automation key which is used to register a DSC Node
     """
@@ -746,11 +746,11 @@ class RunbookDraftResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
-        :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
+        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[str] output_types: Gets or sets the runbook output types.
-        :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
+        :param Mapping[str, 'RunbookParameterResponse'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -902,7 +902,7 @@ class SUCSchedulePropertiesResponse(dict):
         """
         Definition of schedule parameters.
         :param float start_time_offset_minutes: Gets the start time's offset in minutes.
-        :param 'AdvancedScheduleResponseArgs' advanced_schedule: Gets or sets the advanced schedule.
+        :param 'AdvancedScheduleResponse' advanced_schedule: Gets or sets the advanced schedule.
         :param str creation_time: Gets or sets the creation time.
         :param str description: Gets or sets the description.
         :param str expiry_time: Gets or sets the end time of the schedule.
@@ -1147,8 +1147,8 @@ class SoftwareUpdateConfigurationTasksResponse(dict):
                  pre_task: Optional['outputs.TaskPropertiesResponse'] = None):
         """
         Task properties of the software update configuration.
-        :param 'TaskPropertiesResponseArgs' post_task: Post task properties.
-        :param 'TaskPropertiesResponseArgs' pre_task: Pre task properties.
+        :param 'TaskPropertiesResponse' post_task: Post task properties.
+        :param 'TaskPropertiesResponse' pre_task: Pre task properties.
         """
         if post_task is not None:
             pulumi.set(__self__, "post_task", post_task)
@@ -1223,8 +1223,8 @@ class TargetPropertiesResponse(dict):
                  non_azure_queries: Optional[Sequence['outputs.NonAzureQueryPropertiesResponse']] = None):
         """
         Group specific to the update configuration.
-        :param Sequence['AzureQueryPropertiesResponseArgs'] azure_queries: List of Azure queries in the software update configuration.
-        :param Sequence['NonAzureQueryPropertiesResponseArgs'] non_azure_queries: List of non Azure queries in the software update configuration.
+        :param Sequence['AzureQueryPropertiesResponse'] azure_queries: List of Azure queries in the software update configuration.
+        :param Sequence['NonAzureQueryPropertiesResponse'] non_azure_queries: List of non Azure queries in the software update configuration.
         """
         if azure_queries is not None:
             pulumi.set(__self__, "azure_queries", azure_queries)
@@ -1307,10 +1307,10 @@ class UpdateConfigurationResponse(dict):
         :param str operating_system: operating system of target machines
         :param Sequence[str] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         :param str duration: Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-        :param 'LinuxPropertiesResponseArgs' linux: Linux specific update configuration.
+        :param 'LinuxPropertiesResponse' linux: Linux specific update configuration.
         :param Sequence[str] non_azure_computer_names: List of names of non-azure machines targeted by the software update configuration.
-        :param 'TargetPropertiesResponseArgs' targets: Group targets for the software update configuration.
-        :param 'WindowsPropertiesResponseArgs' windows: Windows specific update configuration.
+        :param 'TargetPropertiesResponse' targets: Group targets for the software update configuration.
+        :param 'WindowsPropertiesResponse' windows: Windows specific update configuration.
         """
         pulumi.set(__self__, "operating_system", operating_system)
         if azure_virtual_machines is not None:

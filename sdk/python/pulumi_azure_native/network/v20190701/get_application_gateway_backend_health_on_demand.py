@@ -40,7 +40,7 @@ class GetApplicationGatewayBackendHealthOnDemandResult:
 
     @property
     @pulumi.getter(name="backendHealthHttpSettings")
-    def backend_health_http_settings(self) -> Optional['outputs.ApplicationGatewayBackendHealthHttpSettingsResponseResult']:
+    def backend_health_http_settings(self) -> Optional['outputs.ApplicationGatewayBackendHealthHttpSettingsResponse']:
         """
         Application gateway BackendHealthHttp settings.
         """
@@ -58,11 +58,11 @@ class AwaitableGetApplicationGatewayBackendHealthOnDemandResult(GetApplicationGa
 
 
 def get_application_gateway_backend_health_on_demand(application_gateway_name: Optional[str] = None,
-                                                     backend_address_pool: Optional[pulumi.InputType['SubResourceArgs']] = None,
-                                                     backend_http_settings: Optional[pulumi.InputType['SubResourceArgs']] = None,
+                                                     backend_address_pool: Optional[pulumi.InputType['SubResource']] = None,
+                                                     backend_http_settings: Optional[pulumi.InputType['SubResource']] = None,
                                                      expand: Optional[str] = None,
                                                      host: Optional[str] = None,
-                                                     match: Optional[pulumi.InputType['ApplicationGatewayProbeHealthResponseMatchArgs']] = None,
+                                                     match: Optional[pulumi.InputType['ApplicationGatewayProbeHealthResponseMatch']] = None,
                                                      path: Optional[str] = None,
                                                      pick_host_name_from_backend_http_settings: Optional[bool] = None,
                                                      protocol: Optional[Union[str, 'ApplicationGatewayProtocol']] = None,
@@ -74,11 +74,11 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
 
 
     :param str application_gateway_name: The name of the application gateway.
-    :param pulumi.InputType['SubResourceArgs'] backend_address_pool: Reference of backend pool of application gateway to which probe request will be sent.
-    :param pulumi.InputType['SubResourceArgs'] backend_http_settings: Reference of backend http setting of application gateway to be used for test probe.
+    :param pulumi.InputType['SubResource'] backend_address_pool: Reference of backend pool of application gateway to which probe request will be sent.
+    :param pulumi.InputType['SubResource'] backend_http_settings: Reference of backend http setting of application gateway to be used for test probe.
     :param str expand: Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
     :param str host: Host name to send the probe to.
-    :param pulumi.InputType['ApplicationGatewayProbeHealthResponseMatchArgs'] match: Criterion for classifying a healthy probe response.
+    :param pulumi.InputType['ApplicationGatewayProbeHealthResponseMatch'] match: Criterion for classifying a healthy probe response.
     :param str path: Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
     :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Default value is false.
     :param Union[str, 'ApplicationGatewayProtocol'] protocol: The protocol used for the probe.

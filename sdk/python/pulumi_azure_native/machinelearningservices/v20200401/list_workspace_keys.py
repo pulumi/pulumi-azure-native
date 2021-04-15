@@ -41,12 +41,12 @@ class ListWorkspaceKeysResult:
 
     @property
     @pulumi.getter(name="containerRegistryCredentials")
-    def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponseResult':
+    def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponse':
         return pulumi.get(self, "container_registry_credentials")
 
     @property
     @pulumi.getter(name="notebookAccessKeys")
-    def notebook_access_keys(self) -> Optional['outputs.NotebookListCredentialsResultResponseResult']:
+    def notebook_access_keys(self) -> Optional['outputs.NotebookListCredentialsResultResponse']:
         return pulumi.get(self, "notebook_access_keys")
 
     @property

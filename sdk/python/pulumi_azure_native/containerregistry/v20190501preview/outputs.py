@@ -211,7 +211,7 @@ class TokenCredentialsPropertiesResponse(dict):
                  passwords: Optional[Sequence['outputs.TokenPasswordResponse']] = None):
         """
         The properties of the credentials that can be used for authenticating the token.
-        :param 'ActiveDirectoryObjectResponseArgs' active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
+        :param 'ActiveDirectoryObjectResponse' active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
         """
         if active_directory_object is not None:
             pulumi.set(__self__, "active_directory_object", active_directory_object)

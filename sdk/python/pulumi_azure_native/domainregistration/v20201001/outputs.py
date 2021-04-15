@@ -11,9 +11,9 @@ from ._enums import *
 
 __all__ = [
     'HostNameResponse',
-    'NameIdentifierResponseResult',
+    'NameIdentifierResponse',
     'SystemDataResponse',
-    'TldLegalAgreementResponseResult',
+    'TldLegalAgreementResponse',
 ]
 
 @pulumi.output_type
@@ -103,7 +103,7 @@ class HostNameResponse(dict):
 
 
 @pulumi.output_type
-class NameIdentifierResponseResult(dict):
+class NameIdentifierResponse(dict):
     """
     Identifies an object.
     """
@@ -212,7 +212,7 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class TldLegalAgreementResponseResult(dict):
+class TldLegalAgreementResponse(dict):
     """
     Legal agreement for a top level domain.
     """

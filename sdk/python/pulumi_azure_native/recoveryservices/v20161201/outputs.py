@@ -67,7 +67,7 @@ class AzureBackupServerContainerResponse(dict):
                Expected value is 'DPMContainer'.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -474,7 +474,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -828,7 +828,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -958,8 +958,8 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
         """
         Extended information of the container.
         :param str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        :param 'InquiryInfoResponseArgs' inquiry_info: Inquiry Status for the container.
-        :param Sequence['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
+        :param 'InquiryInfoResponse' inquiry_info: Inquiry Status for the container.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -1020,7 +1020,7 @@ class AzureWorkloadContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -1237,7 +1237,7 @@ class DistributedNodesInfoResponse(dict):
                  status: Optional[str] = None):
         """
         This is used to represent the various nodes of the distributed container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param str node_name: Name of the node under a distributed container.
         :param str status: Status of this Node.
                Failed | Succeeded
@@ -1309,7 +1309,7 @@ class DpmContainerResponse(dict):
                Expected value is 'DPMContainer'.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -1514,7 +1514,7 @@ class GenericContainerExtendedInfoResponse(dict):
                  service_endpoints: Optional[Mapping[str, str]] = None):
         """
         Container extended information
-        :param 'ContainerIdentityInfoResponseArgs' container_identity_info: Container identity information
+        :param 'ContainerIdentityInfoResponse' container_identity_info: Container identity information
         :param str raw_cert_data: Public key of container cert
         :param Mapping[str, str] service_endpoints: Azure Backup Service Endpoints for the container
         """
@@ -1574,7 +1574,7 @@ class GenericContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'GenericContainer'.
-        :param 'GenericContainerExtendedInfoResponseArgs' extended_information: Extended information (not returned in List container API calls)
+        :param 'GenericContainerExtendedInfoResponse' extended_information: Extended information (not returned in List container API calls)
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -1788,8 +1788,8 @@ class InquiryInfoResponse(dict):
                  status: Optional[str] = None):
         """
         Details about inquired protectable items under a given container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
-        :param Sequence['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
+        :param Sequence['WorkloadInquiryDetailsResponse'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param str status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -1843,7 +1843,7 @@ class InquiryValidationResponse(dict):
         """
         Validation for inquired protectable items under a given container.
         :param str additional_detail: Error Additional Detail in case the status is non-success.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Detail in case the status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Detail in case the status is non-success.
         :param str status: Status for the Inquiry Validation.
         """
         pulumi.set(__self__, "additional_detail", additional_detail)
@@ -2046,10 +2046,10 @@ class MabContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'Windows'.
-        :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
+        :param 'MabContainerExtendedInfoResponse' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
+        :param Sequence['MABContainerHealthDetailsResponse'] mab_container_health_details: Health details on this mab container.
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
@@ -2193,7 +2193,7 @@ class WorkloadInquiryDetailsResponse(dict):
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
-        :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
+        :param 'InquiryValidationResponse' inquiry_validation: Inquiry validation such as permissions and other backup validations.
         :param float item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """

@@ -65,8 +65,8 @@ class BootstrapConfigurationResponse(dict):
                  source_repository: Optional['outputs.CodeRepositoryResponse'] = None):
         """
         Configuration used to bootstrap a Pipeline.
-        :param 'PipelineTemplateResponseArgs' template: Template used to bootstrap the pipeline.
-        :param 'CodeRepositoryResponseArgs' source_repository: Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+        :param 'PipelineTemplateResponse' template: Template used to bootstrap the pipeline.
+        :param 'CodeRepositoryResponse' source_repository: Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
         """
         pulumi.set(__self__, "template", template)
         if source_repository is not None:
@@ -108,7 +108,7 @@ class CodeRepositoryResponse(dict):
         :param str default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
         :param str id: Unique immutable identifier of the code repository.
         :param str repository_type: Type of code repository.
-        :param 'AuthorizationResponseArgs' authorization: Authorization info to access the code repository.
+        :param 'AuthorizationResponse' authorization: Authorization info to access the code repository.
         :param Mapping[str, str] properties: Repository-specific properties.
         """
         pulumi.set(__self__, "default_branch", default_branch)

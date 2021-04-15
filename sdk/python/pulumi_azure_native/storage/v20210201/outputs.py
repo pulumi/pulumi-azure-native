@@ -66,7 +66,7 @@ __all__ = [
     'SkuResponse',
     'SmbSettingResponse',
     'StorageAccountInternetEndpointsResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
     'StorageAccountMicrosoftEndpointsResponse',
     'SystemDataResponse',
     'TagFilterResponse',
@@ -167,7 +167,7 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
         """
         Settings for Azure Files identity based authentication.
         :param str directory_service_options: Indicates the directory service used.
-        :param 'ActiveDirectoryPropertiesResponseArgs' active_directory_properties: Required if choose AD.
+        :param 'ActiveDirectoryPropertiesResponse' active_directory_properties: Required if choose AD.
         """
         pulumi.set(__self__, "directory_service_options", directory_service_options)
         if active_directory_properties is not None:
@@ -202,7 +202,7 @@ class BlobInventoryPolicyDefinitionResponse(dict):
                  filters: 'outputs.BlobInventoryPolicyFilterResponse'):
         """
         An object that defines the blob inventory rule. Each definition consists of a set of filters.
-        :param 'BlobInventoryPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        :param 'BlobInventoryPolicyFilterResponse' filters: An object that defines the filter set.
         """
         pulumi.set(__self__, "filters", filters)
 
@@ -290,7 +290,7 @@ class BlobInventoryPolicyRuleResponse(dict):
                  name: str):
         """
         An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
-        :param 'BlobInventoryPolicyDefinitionResponseArgs' definition: An object that defines the blob inventory policy rule.
+        :param 'BlobInventoryPolicyDefinitionResponse' definition: An object that defines the blob inventory policy rule.
         :param bool enabled: Rule is enabled when set to true.
         :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
@@ -340,7 +340,7 @@ class BlobInventoryPolicySchemaResponse(dict):
         The storage account blob inventory policy rules.
         :param str destination: Container name where blob inventory files are stored. Must be pre-created.
         :param bool enabled: Policy is enabled if set to true.
-        :param Sequence['BlobInventoryPolicyRuleResponseArgs'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        :param Sequence['BlobInventoryPolicyRuleResponse'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
         :param str type: The valid value is Inventory
         """
         pulumi.set(__self__, "destination", destination)
@@ -394,7 +394,7 @@ class BlobRestoreParametersResponse(dict):
                  time_to_restore: str):
         """
         Blob restore parameters
-        :param Sequence['BlobRestoreRangeResponseArgs'] blob_ranges: Blob ranges to restore.
+        :param Sequence['BlobRestoreRangeResponse'] blob_ranges: Blob ranges to restore.
         :param str time_to_restore: Restore blob to the specified time.
         """
         pulumi.set(__self__, "blob_ranges", blob_ranges)
@@ -469,7 +469,7 @@ class BlobRestoreStatusResponse(dict):
         """
         Blob restore status.
         :param str failure_reason: Failure reason when blob restore is failed.
-        :param 'BlobRestoreParametersResponseArgs' parameters: Blob restore request parameters.
+        :param 'BlobRestoreParametersResponse' parameters: Blob restore request parameters.
         :param str restore_id: Id for tracking blob restore request.
         :param str status: The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
         """
@@ -630,7 +630,7 @@ class CorsRulesResponse(dict):
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        :param Sequence['CorsRuleResponseArgs'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -825,10 +825,10 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        :param 'EncryptionIdentityResponseArgs' encryption_identity: The identity to be used with service-side encryption at rest.
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
+        :param 'EncryptionIdentityResponse' encryption_identity: The identity to be used with service-side encryption at rest.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
         :param bool require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         if key_source is None:
             key_source = 'Microsoft.Storage'
@@ -995,10 +995,10 @@ class EncryptionServicesResponse(dict):
                  table: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
-        :param 'EncryptionServiceResponseArgs' file: The encryption function of the file storage service.
-        :param 'EncryptionServiceResponseArgs' queue: The encryption function of the queue storage service.
-        :param 'EncryptionServiceResponseArgs' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
+        :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceResponse' table: The encryption function of the table storage service.
         """
         if blob is not None:
             pulumi.set(__self__, "blob", blob)
@@ -1067,8 +1067,8 @@ class EndpointsResponse(dict):
         :param str queue: Gets the queue endpoint.
         :param str table: Gets the table endpoint.
         :param str web: Gets the web endpoint.
-        :param 'StorageAccountInternetEndpointsResponseArgs' internet_endpoints: Gets the internet routing storage endpoints
-        :param 'StorageAccountMicrosoftEndpointsResponseArgs' microsoft_endpoints: Gets the microsoft routing storage endpoints.
+        :param 'StorageAccountInternetEndpointsResponse' internet_endpoints: Gets the internet routing storage endpoints
+        :param 'StorageAccountMicrosoftEndpointsResponse' microsoft_endpoints: Gets the microsoft routing storage endpoints.
         """
         pulumi.set(__self__, "blob", blob)
         pulumi.set(__self__, "dfs", dfs)
@@ -1288,7 +1288,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1347,7 +1347,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         The properties of an ImmutabilityPolicy of a blob container.
         :param str etag: ImmutabilityPolicy Etag.
         :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-        :param Sequence['UpdateHistoryPropertyResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
+        :param Sequence['UpdateHistoryPropertyResponse'] update_history: The ImmutabilityPolicy update history of the blob container.
         :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
         :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         """
@@ -1602,7 +1602,7 @@ class LegalHoldPropertiesResponse(dict):
         """
         The LegalHold property of a blob container.
         :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-        :param Sequence['TagPropertyResponseArgs'] tags: The list of LegalHold tags of a blob container.
+        :param Sequence['TagPropertyResponse'] tags: The list of LegalHold tags of a blob container.
         """
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
         if tags is not None:
@@ -1639,9 +1639,9 @@ class ManagementPolicyActionResponse(dict):
                  version: Optional['outputs.ManagementPolicyVersionResponse'] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
-        :param 'ManagementPolicyBaseBlobResponseArgs' base_blob: The management policy action for base blob
-        :param 'ManagementPolicySnapShotResponseArgs' snapshot: The management policy action for snapshot
-        :param 'ManagementPolicyVersionResponseArgs' version: The management policy action for version
+        :param 'ManagementPolicyBaseBlobResponse' base_blob: The management policy action for base blob
+        :param 'ManagementPolicySnapShotResponse' snapshot: The management policy action for snapshot
+        :param 'ManagementPolicyVersionResponse' version: The management policy action for version
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -1690,10 +1690,10 @@ class ManagementPolicyBaseBlobResponse(dict):
                  tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
-        :param 'DateAfterModificationResponseArgs' delete: The function to delete the blob
+        :param 'DateAfterModificationResponse' delete: The function to delete the blob
         :param bool enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-        :param 'DateAfterModificationResponseArgs' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-        :param 'DateAfterModificationResponseArgs' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        :param 'DateAfterModificationResponse' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+        :param 'DateAfterModificationResponse' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1750,8 +1750,8 @@ class ManagementPolicyDefinitionResponse(dict):
                  filters: Optional['outputs.ManagementPolicyFilterResponse'] = None):
         """
         An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
-        :param 'ManagementPolicyActionResponseArgs' actions: An object that defines the action set.
-        :param 'ManagementPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        :param 'ManagementPolicyActionResponse' actions: An object that defines the action set.
+        :param 'ManagementPolicyFilterResponse' filters: An object that defines the filter set.
         """
         pulumi.set(__self__, "actions", actions)
         if filters is not None:
@@ -1789,7 +1789,7 @@ class ManagementPolicyFilterResponse(dict):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
         :param Sequence[str] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-        :param Sequence['TagFilterResponseArgs'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
+        :param Sequence['TagFilterResponse'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param Sequence[str] prefix_match: An array of strings for prefixes to be match.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -1838,7 +1838,7 @@ class ManagementPolicyRuleResponse(dict):
                  enabled: Optional[bool] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
-        :param 'ManagementPolicyDefinitionResponseArgs' definition: An object that defines the Lifecycle rule.
+        :param 'ManagementPolicyDefinitionResponse' definition: An object that defines the Lifecycle rule.
         :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         :param str type: The valid value is Lifecycle
         :param bool enabled: Rule is enabled if set to true.
@@ -1894,7 +1894,7 @@ class ManagementPolicySchemaResponse(dict):
                  rules: Sequence['outputs.ManagementPolicyRuleResponse']):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        :param Sequence['ManagementPolicyRuleResponseArgs'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param Sequence['ManagementPolicyRuleResponse'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -1921,9 +1921,9 @@ class ManagementPolicySnapShotResponse(dict):
                  tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
-        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob snapshot
-        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
-        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        :param 'DateAfterCreationResponse' delete: The function to delete the blob snapshot
+        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1971,9 +1971,9 @@ class ManagementPolicyVersionResponse(dict):
                  tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for blob version.
-        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob version
-        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
-        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        :param 'DateAfterCreationResponse' delete: The function to delete the blob version
+        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -2051,9 +2051,9 @@ class NetworkRuleSetResponse(dict):
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param Sequence['ResourceAccessRuleResponseArgs'] resource_access_rules: Sets the resource access rules
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponse'] ip_rules: Sets the IP ACL rules
+        :param Sequence['ResourceAccessRuleResponse'] resource_access_rules: Sets the resource access rules
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
             default_action = 'Allow'
@@ -2165,7 +2165,7 @@ class ObjectReplicationPolicyRuleResponse(dict):
         The replication policy rule between two containers.
         :param str destination_container: Required. Destination container name.
         :param str source_container: Required. Source container name.
-        :param 'ObjectReplicationPolicyFilterResponseArgs' filters: Optional. An object that defines the filter set.
+        :param 'ObjectReplicationPolicyFilterResponse' filters: Optional. An object that defines the filter set.
         :param str rule_id: Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
         """
         pulumi.set(__self__, "destination_container", destination_container)
@@ -2227,10 +2227,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2376,7 +2376,7 @@ class ProtocolSettingsResponse(dict):
                  smb: Optional['outputs.SmbSettingResponse'] = None):
         """
         Protocol settings for file service
-        :param 'SmbSettingResponseArgs' smb: Setting for SMB protocol
+        :param 'SmbSettingResponse' smb: Setting for SMB protocol
         """
         if smb is not None:
             pulumi.set(__self__, "smb", smb)
@@ -2630,7 +2630,7 @@ class SmbSettingResponse(dict):
         :param str authentication_methods: SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
         :param str channel_encryption: SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
         :param str kerberos_ticket_encryption: Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
-        :param 'MultichannelResponseArgs' multichannel: Multichannel setting. Applies to Premium FileStorage only.
+        :param 'MultichannelResponse' multichannel: Multichannel setting. Applies to Premium FileStorage only.
         :param str versions: SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
         """
         if authentication_methods is not None:
@@ -2747,7 +2747,7 @@ class StorageAccountInternetEndpointsResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """

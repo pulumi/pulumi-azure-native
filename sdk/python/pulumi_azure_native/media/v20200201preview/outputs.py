@@ -94,7 +94,7 @@ class MediaGraphClearEndpointResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
         :param str url: Url for the endpoint.
-        :param 'MediaGraphUsernamePasswordCredentialsResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
+        :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
         pulumi.set(__self__, "url", url)
@@ -180,7 +180,7 @@ class MediaGraphRtspSourceResponse(dict):
                  transport: str):
         """
         RTSP source.
-        :param Union['MediaGraphClearEndpointResponseArgs', 'MediaGraphTlsEndpointResponseArgs'] endpoint: RTSP endpoint of the stream being connected to.
+        :param Union['MediaGraphClearEndpointResponse', 'MediaGraphTlsEndpointResponse'] endpoint: RTSP endpoint of the stream being connected to.
         :param str name: Source name.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
@@ -244,9 +244,9 @@ class MediaGraphTlsEndpointResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
         :param str url: Url for the endpoint.
-        :param 'MediaGraphUsernamePasswordCredentialsResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
-        :param 'MediaGraphPemCertificateListResponseArgs' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-        :param 'MediaGraphTlsValidationOptionsResponseArgs' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
+        :param 'MediaGraphPemCertificateListResponse' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
+        :param 'MediaGraphTlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
         pulumi.set(__self__, "url", url)

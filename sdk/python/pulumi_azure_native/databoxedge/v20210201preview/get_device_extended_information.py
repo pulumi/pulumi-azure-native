@@ -92,7 +92,7 @@ class GetDeviceExtendedInformationResult:
 
     @property
     @pulumi.getter(name="deviceSecrets")
-    def device_secrets(self) -> Mapping[str, 'outputs.SecretResponseResult']:
+    def device_secrets(self) -> Mapping[str, 'outputs.SecretResponse']:
         """
         Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
         """

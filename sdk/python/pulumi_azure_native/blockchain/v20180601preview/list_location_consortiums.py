@@ -27,7 +27,7 @@ class ListLocationConsortiumsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ConsortiumResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ConsortiumResponse']]:
         """
         Gets or sets the collection of consortiums.
         """

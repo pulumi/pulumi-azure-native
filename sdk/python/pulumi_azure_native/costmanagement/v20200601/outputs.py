@@ -48,11 +48,11 @@ class CommonExportPropertiesResponse(dict):
                  run_history: Optional['outputs.ExportExecutionListResultResponse'] = None):
         """
         The common properties of the export.
-        :param 'ExportDefinitionResponseArgs' definition: Has the definition for the export.
-        :param 'ExportDeliveryInfoResponseArgs' delivery_info: Has delivery information for the export.
+        :param 'ExportDefinitionResponse' definition: Has the definition for the export.
+        :param 'ExportDeliveryInfoResponse' delivery_info: Has delivery information for the export.
         :param str next_run_time_estimate: If the export has an active schedule, provides an estimate of the next execution time.
         :param str format: The format of the export being delivered. Currently only 'Csv' is supported.
-        :param 'ExportExecutionListResultResponseArgs' run_history: If requested, has the most recent execution history for the export.
+        :param 'ExportExecutionListResultResponse' run_history: If requested, has the most recent execution history for the export.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "delivery_info", delivery_info)
@@ -178,7 +178,7 @@ class ExportDatasetResponse(dict):
                  granularity: Optional[str] = None):
         """
         The definition for data in the export.
-        :param 'ExportDatasetConfigurationResponseArgs' configuration: The export dataset configuration.
+        :param 'ExportDatasetConfigurationResponse' configuration: The export dataset configuration.
         :param str granularity: The granularity of rows in the export. Currently only 'Daily' is supported.
         """
         if configuration is not None:
@@ -220,8 +220,8 @@ class ExportDefinitionResponse(dict):
         The definition of an export.
         :param str timeframe: The time frame for pulling data for the export. If custom, then a specific time period must be provided.
         :param str type: The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-        :param 'ExportDatasetResponseArgs' data_set: The definition for data in the export.
-        :param 'ExportTimePeriodResponseArgs' time_period: Has time period for pulling data for the export.
+        :param 'ExportDatasetResponse' data_set: The definition for data in the export.
+        :param 'ExportTimePeriodResponse' time_period: Has time period for pulling data for the export.
         """
         pulumi.set(__self__, "timeframe", timeframe)
         pulumi.set(__self__, "type", type)
@@ -323,7 +323,7 @@ class ExportDeliveryInfoResponse(dict):
                  destination: 'outputs.ExportDeliveryDestinationResponse'):
         """
         The delivery information associated with a export.
-        :param 'ExportDeliveryDestinationResponseArgs' destination: Has destination for the export being delivered.
+        :param 'ExportDeliveryDestinationResponse' destination: Has destination for the export being delivered.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -348,7 +348,7 @@ class ExportExecutionListResultResponse(dict):
                  value: Sequence['outputs.ExportExecutionResponse']):
         """
         Result of listing the execution history of an export.
-        :param Sequence['ExportExecutionResponseArgs'] value: A list of export executions.
+        :param Sequence['ExportExecutionResponse'] value: A list of export executions.
         """
         pulumi.set(__self__, "value", value)
 
@@ -389,12 +389,12 @@ class ExportExecutionResponse(dict):
         :param str name: Resource name.
         :param str type: Resource type.
         :param str e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        :param 'ErrorDetailsResponseArgs' error: The details of any error.
+        :param 'ErrorDetailsResponse' error: The details of any error.
         :param str execution_type: The type of the export execution.
         :param str file_name: The name of the exported file.
         :param str processing_end_time: The time when the export execution finished.
         :param str processing_start_time: The time when export was picked up to be executed.
-        :param 'CommonExportPropertiesResponseArgs' run_settings: The export settings that were in effect for this execution.
+        :param 'CommonExportPropertiesResponse' run_settings: The export settings that were in effect for this execution.
         :param str status: The last known status of the export execution.
         :param str submitted_by: The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
         :param str submitted_time: The time when export was queued to be executed.
@@ -580,7 +580,7 @@ class ExportScheduleResponse(dict):
         """
         The schedule associated with the export.
         :param str recurrence: The schedule recurrence.
-        :param 'ExportRecurrencePeriodResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param 'ExportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
         if recurrence is not None:
@@ -865,12 +865,12 @@ class ReportConfigDatasetResponse(dict):
                  sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None):
         """
         The definition of data present in the report.
-        :param Mapping[str, 'ReportConfigAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-        :param 'ReportConfigDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'ReportConfigFilterResponseArgs' filter: Has filter expression to use in the report.
+        :param Mapping[str, 'ReportConfigAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param 'ReportConfigDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'ReportConfigFilterResponse' filter: Has filter expression to use in the report.
         :param str granularity: The granularity of rows in the report.
-        :param Sequence['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        :param Sequence['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
+        :param Sequence['ReportConfigGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportConfigSortingResponse'] sorting: Array of order by expression to use in the report.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -950,11 +950,11 @@ class ReportConfigFilterResponse(dict):
                  tag: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
-        :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
-        :param 'ReportConfigFilterResponseArgs' not_: The logical "NOT" expression.
-        :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
+        :param Sequence['ReportConfigFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponse' dimension: Has comparison expression for a dimension
+        :param 'ReportConfigFilterResponse' not_: The logical "NOT" expression.
+        :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponse' tag: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)

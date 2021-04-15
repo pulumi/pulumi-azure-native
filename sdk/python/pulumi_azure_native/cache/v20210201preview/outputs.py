@@ -32,7 +32,7 @@ class DatabasePropertiesResponseGeoReplication(dict):
         """
         Optional set of properties to configure geo replication for this database.
         :param str group_nickname: Name for the group of linked database resources
-        :param Sequence['LinkedDatabaseResponseArgs'] linked_databases: List of database resources to link with this database
+        :param Sequence['LinkedDatabaseResponse'] linked_databases: List of database resources to link with this database
         """
         if group_nickname is not None:
             pulumi.set(__self__, "group_nickname", group_nickname)
@@ -259,10 +259,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)

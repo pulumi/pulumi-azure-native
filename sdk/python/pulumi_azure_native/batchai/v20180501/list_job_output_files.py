@@ -38,7 +38,7 @@ class ListJobOutputFilesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.FileResponseResult']:
+    def value(self) -> Sequence['outputs.FileResponse']:
         """
         The collection of returned job directories and files.
         """

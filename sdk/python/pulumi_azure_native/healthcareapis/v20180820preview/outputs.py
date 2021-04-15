@@ -256,10 +256,10 @@ class ServicesPropertiesResponse(dict):
         """
         The properties of a service instance.
         :param str provisioning_state: The provisioning state.
-        :param Sequence['ServiceAccessPolicyEntryResponseArgs'] access_policies: The access policies of the service instance.
-        :param 'ServiceAuthenticationConfigurationInfoResponseArgs' authentication_configuration: The authentication configuration for the service instance.
-        :param 'ServiceCorsConfigurationInfoResponseArgs' cors_configuration: The settings for the CORS configuration of the service instance.
-        :param 'ServiceCosmosDbConfigurationInfoResponseArgs' cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
+        :param Sequence['ServiceAccessPolicyEntryResponse'] access_policies: The access policies of the service instance.
+        :param 'ServiceAuthenticationConfigurationInfoResponse' authentication_configuration: The authentication configuration for the service instance.
+        :param 'ServiceCorsConfigurationInfoResponse' cors_configuration: The settings for the CORS configuration of the service instance.
+        :param 'ServiceCosmosDbConfigurationInfoResponse' cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if access_policies is not None:

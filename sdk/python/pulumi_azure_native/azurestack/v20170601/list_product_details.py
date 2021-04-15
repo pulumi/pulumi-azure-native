@@ -65,7 +65,7 @@ class ListProductDetailsResult:
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Sequence['outputs.DataDiskImageResponseResult']:
+    def data_disk_images(self) -> Sequence['outputs.DataDiskImageResponse']:
         """
         List of attached data disks.
         """
@@ -89,7 +89,7 @@ class ListProductDetailsResult:
 
     @property
     @pulumi.getter(name="osDiskImage")
-    def os_disk_image(self) -> 'outputs.OsDiskImageResponseResult':
+    def os_disk_image(self) -> 'outputs.OsDiskImageResponse':
         """
         OS disk image used by product.
         """

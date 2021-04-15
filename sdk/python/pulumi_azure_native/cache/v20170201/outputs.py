@@ -63,7 +63,7 @@ class RedisLinkedServerListResponse(dict):
                  value: Sequence['outputs.RedisLinkedServerResponse']):
         """
         List of linked server Ids of a Redis cache.
-        :param Sequence['RedisLinkedServerResponseArgs'] value: List of linked server Ids of a Redis cache.
+        :param Sequence['RedisLinkedServerResponse'] value: List of linked server Ids of a Redis cache.
         """
         pulumi.set(__self__, "value", value)
 

@@ -186,20 +186,20 @@ class CognitiveServicesAccountPropertiesResponse(dict):
                  user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
         Properties of Cognitive Services account.
-        :param Sequence['SkuCapabilityResponseArgs'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
+        :param Sequence['SkuCapabilityResponse'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
         :param str date_created: Gets the date of cognitive services account creation.
         :param str endpoint: Endpoint of the created account.
         :param str internal_id: The internal identifier.
         :param bool is_migrated: If the resource is migrated from an existing key.
         :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
-        :param 'CognitiveServicesAccountSkuChangeInfoResponseArgs' sku_change_info: Sku change info of account.
-        :param 'CognitiveServicesAccountApiPropertiesResponseArgs' api_properties: The api properties for special APIs.
+        :param 'CognitiveServicesAccountSkuChangeInfoResponse' sku_change_info: Sku change info of account.
+        :param 'CognitiveServicesAccountApiPropertiesResponse' api_properties: The api properties for special APIs.
         :param str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
-        :param 'EncryptionResponseArgs' encryption: The encryption properties for this resource.
-        :param 'NetworkRuleSetResponseArgs' network_acls: A collection of rules governing the accessibility from specific network locations.
-        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
+        :param 'EncryptionResponse' encryption: The encryption properties for this resource.
+        :param 'NetworkRuleSetResponse' network_acls: A collection of rules governing the accessibility from specific network locations.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
         :param str public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param Sequence['UserOwnedStorageResponseArgs'] user_owned_storage: The storage accounts for this resource.
+        :param Sequence['UserOwnedStorageResponse'] user_owned_storage: The storage accounts for this resource.
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "date_created", date_created)
@@ -397,7 +397,7 @@ class EncryptionResponse(dict):
         """
         Properties to configure Encryption
         :param str key_source: Enumerates the possible value of keySource for Encryption
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties of KeyVault
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
         """
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
@@ -441,7 +441,7 @@ class IdentityResponse(dict):
         :param str principal_id: Principal Id of managed service identity.
         :param str tenant_id: Tenant of managed service identity.
         :param str type: Type of managed service identity.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -573,8 +573,8 @@ class NetworkRuleSetResponse(dict):
         """
         A set of rules governing the network accessibility.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param Sequence['IpRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['IpRuleResponse'] ip_rules: The list of IP address rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -622,9 +622,9 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the PrivateEndpointConnectProperties.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param Sequence[str] group_ids: The private link resource group ids.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if group_ids is not None:
@@ -679,7 +679,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str location: The location of the private endpoint connection
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Resource properties.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Resource properties.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)

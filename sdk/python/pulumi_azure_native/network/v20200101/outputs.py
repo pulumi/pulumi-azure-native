@@ -109,10 +109,10 @@ class BackendPoolResponse(dict):
         A backend pool is a collection of backends that can be routed to.
         :param str resource_state: Resource status.
         :param str type: Resource type.
-        :param Sequence['BackendResponseArgs'] backends: The set of backends for this pool
-        :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
+        :param Sequence['BackendResponse'] backends: The set of backends for this pool
+        :param 'SubResourceResponse' health_probe_settings: L7 health probe settings for a backend pool
         :param str id: Resource ID.
-        :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
+        :param 'SubResourceResponse' load_balancing_settings: Load balancing settings for a backend pool
         :param str name: Resource name.
         """
         pulumi.set(__self__, "resource_state", resource_state)
@@ -470,7 +470,7 @@ class CustomHttpsConfigurationResponse(dict):
         :param str certificate_type: Defines the type of the certificate used for secure connections to a frontendEndpoint
         :param str secret_name: The name of the Key Vault secret representing the full certificate PFX
         :param str secret_version: The version of the Key Vault secret representing the full certificate PFX
-        :param 'KeyVaultCertificateSourceParametersResponseVaultArgs' vault: The Key Vault containing the SSL certificate
+        :param 'KeyVaultCertificateSourceParametersResponseVault' vault: The Key Vault containing the SSL certificate
         """
         pulumi.set(__self__, "certificate_source", certificate_source)
         pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
@@ -559,8 +559,8 @@ class ForwardingConfigurationResponse(dict):
         Describes Forwarding Route.
         :param str odata_type: 
                Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-        :param 'SubResourceResponseArgs' backend_pool: A reference to the BackendPool which this rule routes to.
-        :param 'CacheConfigurationResponseArgs' cache_configuration: The caching configuration associated with this rule.
+        :param 'SubResourceResponse' backend_pool: A reference to the BackendPool which this rule routes to.
+        :param 'CacheConfigurationResponse' cache_configuration: The caching configuration associated with this rule.
         :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
         :param str forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         """
@@ -638,7 +638,7 @@ class FrontendEndpointResponse(dict):
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
         """
         A frontend endpoint used for routing.
-        :param 'CustomHttpsConfigurationResponseArgs' custom_https_configuration: The configuration specifying how to enable HTTPS
+        :param 'CustomHttpsConfigurationResponse' custom_https_configuration: The configuration specifying how to enable HTTPS
         :param str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
         :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
         :param str resource_state: Resource status.
@@ -648,7 +648,7 @@ class FrontendEndpointResponse(dict):
         :param str name: Resource name.
         :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
+        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
@@ -1263,12 +1263,12 @@ class RoutingRuleResponse(dict):
         :param str type: Resource type.
         :param Sequence[str] accepted_protocols: Protocol schemes to match for this rule
         :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-        :param Sequence['SubResourceResponseArgs'] frontend_endpoints: Frontend endpoints associated with this rule
+        :param Sequence['SubResourceResponse'] frontend_endpoints: Frontend endpoints associated with this rule
         :param str id: Resource ID.
         :param str name: Resource name.
         :param Sequence[str] patterns_to_match: The route patterns of the rule.
-        :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration: A reference to the routing configuration.
-        :param 'SubResourceResponseArgs' rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
+        :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration: A reference to the routing configuration.
+        :param 'SubResourceResponse' rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
         """
         pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
@@ -1384,9 +1384,9 @@ class RulesEngineActionResponse(dict):
                  route_configuration_override: Optional[Any] = None):
         """
         One or more actions that will execute, modifying the request and/or response.
-        :param Sequence['HeaderActionResponseArgs'] request_header_actions: A list of header actions to apply from the request from AFD to the origin.
-        :param Sequence['HeaderActionResponseArgs'] response_header_actions: A list of header actions to apply from the response from AFD to the client.
-        :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration_override: Override the route configuration.
+        :param Sequence['HeaderActionResponse'] request_header_actions: A list of header actions to apply from the request from AFD to the origin.
+        :param Sequence['HeaderActionResponse'] response_header_actions: A list of header actions to apply from the response from AFD to the client.
+        :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration_override: Override the route configuration.
         """
         if request_header_actions is not None:
             pulumi.set(__self__, "request_header_actions", request_header_actions)
@@ -1523,7 +1523,7 @@ class RulesEngineResponse(dict):
         :param str name: Resource name.
         :param str resource_state: Resource status.
         :param str type: Resource type.
-        :param Sequence['RulesEngineRuleResponseArgs'] rules: A list of rules that define a particular Rules Engine Configuration.
+        :param Sequence['RulesEngineRuleResponse'] rules: A list of rules that define a particular Rules Engine Configuration.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1589,10 +1589,10 @@ class RulesEngineRuleResponse(dict):
                  match_processing_behavior: Optional[str] = None):
         """
         Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
-        :param 'RulesEngineActionResponseArgs' action: Actions to perform on the request and response if all of the match conditions are met.
+        :param 'RulesEngineActionResponse' action: Actions to perform on the request and response if all of the match conditions are met.
         :param str name: A name to refer to this specific rule.
         :param int priority: A priority assigned to this rule. 
-        :param Sequence['RulesEngineMatchConditionResponseArgs'] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
+        :param Sequence['RulesEngineMatchConditionResponse'] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
         :param str match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
         pulumi.set(__self__, "action", action)

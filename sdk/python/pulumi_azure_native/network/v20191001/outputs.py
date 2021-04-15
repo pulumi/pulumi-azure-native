@@ -32,7 +32,7 @@ class CustomRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
-        :param Sequence['CustomRuleResponseArgs'] rules: List of rules
+        :param Sequence['CustomRuleResponse'] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -66,7 +66,7 @@ class CustomRuleResponse(dict):
         """
         Defines contents of a web application rule
         :param str action: Describes what action to be applied when rule matches.
-        :param Sequence['FrontDoorMatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['FrontDoorMatchConditionResponse'] match_conditions: List of match conditions.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -167,8 +167,8 @@ class FrontDoorManagedRuleGroupOverrideResponse(dict):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group to override.
-        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the group.
-        :param Sequence['FrontDoorManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the group.
+        :param Sequence['FrontDoorManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -219,7 +219,7 @@ class FrontDoorManagedRuleOverrideResponse(dict):
         :param str rule_id: Identifier for the managed rule.
         :param str action: Describes the override action to be applied when rule matches.
         :param str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to this specific rule.
+        :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to this specific rule.
         """
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -279,8 +279,8 @@ class FrontDoorManagedRuleSetResponse(dict):
         Defines a managed rule set.
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
-        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the set.
-        :param Sequence['FrontDoorManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the set.
+        :param Sequence['FrontDoorManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -564,7 +564,7 @@ class ManagedRuleSetListResponse(dict):
                  managed_rule_sets: Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param Sequence['FrontDoorManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        :param Sequence['FrontDoorManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)

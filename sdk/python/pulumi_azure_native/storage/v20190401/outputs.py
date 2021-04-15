@@ -41,7 +41,7 @@ __all__ = [
     'RestrictionResponse',
     'SKUCapabilityResponse',
     'SkuResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
     'TagPropertyResponse',
     'UpdateHistoryPropertyResponse',
     'VirtualNetworkRuleResponse',
@@ -138,7 +138,7 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
         """
         Settings for Azure Files identity based authentication.
         :param str directory_service_options: Indicates the directory service used.
-        :param 'ActiveDirectoryPropertiesResponseArgs' active_directory_properties: Required if choose AD.
+        :param 'ActiveDirectoryPropertiesResponse' active_directory_properties: Required if choose AD.
         """
         pulumi.set(__self__, "directory_service_options", directory_service_options)
         if active_directory_properties is not None:
@@ -268,7 +268,7 @@ class CorsRulesResponse(dict):
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        :param Sequence['CorsRuleResponseArgs'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -422,8 +422,8 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         if key_source is None:
             key_source = 'Microsoft.Storage'
@@ -510,10 +510,10 @@ class EncryptionServicesResponse(dict):
                  file: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' queue: The encryption function of the queue storage service.
-        :param 'EncryptionServiceResponseArgs' table: The encryption function of the table storage service.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
-        :param 'EncryptionServiceResponseArgs' file: The encryption function of the file storage service.
+        :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceResponse' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
         """
         pulumi.set(__self__, "queue", queue)
         pulumi.set(__self__, "table", table)
@@ -786,7 +786,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         :param str etag: ImmutabilityPolicy Etag.
         :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-        :param Sequence['UpdateHistoryPropertyResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
+        :param Sequence['UpdateHistoryPropertyResponse'] update_history: The ImmutabilityPolicy update history of the blob container.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
@@ -890,7 +890,7 @@ class LegalHoldPropertiesResponse(dict):
         """
         The LegalHold property of a blob container.
         :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-        :param Sequence['TagPropertyResponseArgs'] tags: The list of LegalHold tags of a blob container.
+        :param Sequence['TagPropertyResponse'] tags: The list of LegalHold tags of a blob container.
         """
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
         if tags is not None:
@@ -926,8 +926,8 @@ class ManagementPolicyActionResponse(dict):
                  snapshot: Optional['outputs.ManagementPolicySnapShotResponse'] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
-        :param 'ManagementPolicyBaseBlobResponseArgs' base_blob: The management policy action for base blob
-        :param 'ManagementPolicySnapShotResponseArgs' snapshot: The management policy action for snapshot
+        :param 'ManagementPolicyBaseBlobResponse' base_blob: The management policy action for base blob
+        :param 'ManagementPolicySnapShotResponse' snapshot: The management policy action for snapshot
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -965,9 +965,9 @@ class ManagementPolicyBaseBlobResponse(dict):
                  tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
-        :param 'DateAfterModificationResponseArgs' delete: The function to delete the blob
-        :param 'DateAfterModificationResponseArgs' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-        :param 'DateAfterModificationResponseArgs' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        :param 'DateAfterModificationResponse' delete: The function to delete the blob
+        :param 'DateAfterModificationResponse' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+        :param 'DateAfterModificationResponse' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1014,8 +1014,8 @@ class ManagementPolicyDefinitionResponse(dict):
                  filters: Optional['outputs.ManagementPolicyFilterResponse'] = None):
         """
         An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
-        :param 'ManagementPolicyActionResponseArgs' actions: An object that defines the action set.
-        :param 'ManagementPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        :param 'ManagementPolicyActionResponse' actions: An object that defines the action set.
+        :param 'ManagementPolicyFilterResponse' filters: An object that defines the filter set.
         """
         pulumi.set(__self__, "actions", actions)
         if filters is not None:
@@ -1090,7 +1090,7 @@ class ManagementPolicyRuleResponse(dict):
                  enabled: Optional[bool] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
-        :param 'ManagementPolicyDefinitionResponseArgs' definition: An object that defines the Lifecycle rule.
+        :param 'ManagementPolicyDefinitionResponse' definition: An object that defines the Lifecycle rule.
         :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         :param str type: The valid value is Lifecycle
         :param bool enabled: Rule is enabled if set to true.
@@ -1146,7 +1146,7 @@ class ManagementPolicySchemaResponse(dict):
                  rules: Sequence['outputs.ManagementPolicyRuleResponse']):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        :param Sequence['ManagementPolicyRuleResponseArgs'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param Sequence['ManagementPolicyRuleResponse'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -1171,7 +1171,7 @@ class ManagementPolicySnapShotResponse(dict):
                  delete: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
-        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob snapshot
+        :param 'DateAfterCreationResponse' delete: The function to delete the blob snapshot
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1202,8 +1202,8 @@ class NetworkRuleSetResponse(dict):
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponse'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
             default_action = 'Allow'
@@ -1352,13 +1352,13 @@ class SkuResponse(dict):
                  restrictions: Optional[Sequence['outputs.RestrictionResponse']] = None):
         """
         The SKU of the storage account.
-        :param Sequence['SKUCapabilityResponseArgs'] capabilities: The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
+        :param Sequence['SKUCapabilityResponse'] capabilities: The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
         :param str kind: Indicates the type of storage account.
         :param Sequence[str] locations: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
         :param str name: Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         :param str resource_type: The type of the resource, usually it is 'storageAccounts'.
         :param str tier: Gets the SKU tier. This is based on the SKU name.
-        :param Sequence['RestrictionResponseArgs'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        :param Sequence['RestrictionResponse'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "kind", kind)
@@ -1430,7 +1430,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """

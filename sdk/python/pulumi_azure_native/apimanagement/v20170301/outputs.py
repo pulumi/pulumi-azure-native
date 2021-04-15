@@ -55,9 +55,9 @@ class AdditionalLocationResponse(dict):
         Description of an additional API Management resource location.
         :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param str location: The location name of the additional region among Azure Data center regions.
-        :param 'ApiManagementServiceSkuPropertiesResponseArgs' sku: SKU properties of the API Management service.
+        :param 'ApiManagementServiceSkuPropertiesResponse' sku: SKU properties of the API Management service.
         :param Sequence[str] static_ips: Static IP addresses of the location's virtual machines.
-        :param 'VirtualNetworkConfigurationResponseArgs' virtual_network_configuration: Virtual network configuration for the location.
+        :param 'VirtualNetworkConfigurationResponse' virtual_network_configuration: Virtual network configuration for the location.
         """
         pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         pulumi.set(__self__, "location", location)
@@ -310,7 +310,7 @@ class AuthenticationSettingsContractResponse(dict):
                  o_auth2: Optional['outputs.OAuth2AuthenticationSettingsContractResponse'] = None):
         """
         API Authentication Settings.
-        :param 'OAuth2AuthenticationSettingsContractResponseArgs' o_auth2: OAuth2 Authentication settings
+        :param 'OAuth2AuthenticationSettingsContractResponse' o_auth2: OAuth2 Authentication settings
         """
         if o_auth2 is not None:
             pulumi.set(__self__, "o_auth2", o_auth2)
@@ -375,7 +375,7 @@ class BackendCredentialsContractResponse(dict):
                  query: Optional[Mapping[str, Sequence[str]]] = None):
         """
         Details of the Credentials used to connect to Backend.
-        :param 'BackendAuthorizationHeaderCredentialsResponseArgs' authorization: Authorization header authentication
+        :param 'BackendAuthorizationHeaderCredentialsResponse' authorization: Authorization header authentication
         :param Sequence[str] certificate: List of Client Certificate Thumbprint.
         :param Mapping[str, Sequence[str]] header: Header Parameter description.
         :param Mapping[str, Sequence[str]] query: Query Parameter description.
@@ -434,7 +434,7 @@ class BackendPropertiesResponse(dict):
                  service_fabric_cluster: Optional['outputs.BackendServiceFabricClusterPropertiesResponse'] = None):
         """
         Properties specific to the Backend Type.
-        :param 'BackendServiceFabricClusterPropertiesResponseArgs' service_fabric_cluster: Backend Service Fabric Cluster Properties
+        :param 'BackendServiceFabricClusterPropertiesResponse' service_fabric_cluster: Backend Service Fabric Cluster Properties
         """
         if service_fabric_cluster is not None:
             pulumi.set(__self__, "service_fabric_cluster", service_fabric_cluster)
@@ -517,7 +517,7 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
         :param Sequence[str] management_endpoints: The cluster management endpoint.
         :param int max_partition_resolution_retries: Maximum number of retries while attempting resolve the partition.
         :param Sequence[str] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
-        :param Sequence['X509CertificateNameResponseArgs'] server_x509_names: Server X509 Certificate Names Collection
+        :param Sequence['X509CertificateNameResponse'] server_x509_names: Server X509 Certificate Names Collection
         """
         pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
@@ -626,7 +626,7 @@ class CertificateConfigurationResponse(dict):
                  encoded_certificate: Optional[str] = None):
         """
         Certificate configuration which consist of non-trusted intermediates and root certificates.
-        :param 'CertificateInformationResponseArgs' certificate: Certificate information.
+        :param 'CertificateInformationResponse' certificate: Certificate information.
         :param str store_name: The local certificate store location. Only Root and CertificateAuthority are valid locations.
         :param str certificate_password: Certificate Password.
         :param str encoded_certificate: Base64 Encoded certificate.
@@ -880,7 +880,7 @@ class HostnameConfigurationResponse(dict):
                  negotiate_client_certificate: Optional[bool] = None):
         """
         Custom hostname configuration.
-        :param 'CertificateInformationResponseArgs' certificate: Certificate information.
+        :param 'CertificateInformationResponse' certificate: Certificate information.
         :param str host_name: Hostname to configure on the Api Management service.
         :param str type: Hostname type.
         :param str certificate_password: Certificate Password.
@@ -1245,7 +1245,7 @@ class RepresentationContractResponse(dict):
         """
         Operation request/response representation details.
         :param str content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
-        :param Sequence['ParameterContractResponseArgs'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+        :param Sequence['ParameterContractResponse'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         :param str sample: An example of the representation.
         :param str schema_id: Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         :param str type_name: Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -1317,9 +1317,9 @@ class RequestContractResponse(dict):
         """
         Operation request details.
         :param str description: Operation request description.
-        :param Sequence['ParameterContractResponseArgs'] headers: Collection of operation request headers.
-        :param Sequence['ParameterContractResponseArgs'] query_parameters: Collection of operation request query parameters.
-        :param Sequence['RepresentationContractResponseArgs'] representations: Collection of operation request representations.
+        :param Sequence['ParameterContractResponse'] headers: Collection of operation request headers.
+        :param Sequence['ParameterContractResponse'] query_parameters: Collection of operation request query parameters.
+        :param Sequence['RepresentationContractResponse'] representations: Collection of operation request representations.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -1380,8 +1380,8 @@ class ResponseContractResponse(dict):
         Operation response details.
         :param int status_code: Operation response HTTP status code.
         :param str description: Operation response description.
-        :param Sequence['ParameterContractResponseArgs'] headers: Collection of operation response headers.
-        :param Sequence['RepresentationContractResponseArgs'] representations: Collection of operation response representations.
+        :param Sequence['ParameterContractResponse'] headers: Collection of operation response headers.
+        :param Sequence['RepresentationContractResponse'] representations: Collection of operation response representations.
         """
         pulumi.set(__self__, "status_code", status_code)
         if description is not None:

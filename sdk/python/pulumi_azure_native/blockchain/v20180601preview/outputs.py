@@ -10,15 +10,15 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
-    'ApiKeyResponseResult',
+    'ApiKeyResponse',
     'BlockchainMemberNodesSkuResponse',
-    'ConsortiumResponseResult',
+    'ConsortiumResponse',
     'FirewallRuleResponse',
     'SkuResponse',
 ]
 
 @pulumi.output_type
-class ApiKeyResponseResult(dict):
+class ApiKeyResponse(dict):
     """
     API key payload which is exposed in the request/response of the resource provider.
     """
@@ -79,7 +79,7 @@ class BlockchainMemberNodesSkuResponse(dict):
 
 
 @pulumi.output_type
-class ConsortiumResponseResult(dict):
+class ConsortiumResponse(dict):
     """
     Consortium payload
     """

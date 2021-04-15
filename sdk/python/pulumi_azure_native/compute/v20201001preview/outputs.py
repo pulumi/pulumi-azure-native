@@ -39,7 +39,7 @@ class CloudServiceExtensionProfileResponse(dict):
                  extensions: Optional[Sequence['outputs.ExtensionResponse']] = None):
         """
         Describes a cloud service extension profile.
-        :param Sequence['ExtensionResponseArgs'] extensions: List of extensions for the cloud service.
+        :param Sequence['ExtensionResponse'] extensions: List of extensions for the cloud service.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -203,7 +203,7 @@ class CloudServiceNetworkProfileResponse(dict):
                  swappable_cloud_service: Optional['outputs.SubResourceResponse'] = None):
         """
         Network Profile for the cloud service.
-        :param Sequence['LoadBalancerConfigurationResponseArgs'] load_balancer_configurations: The list of load balancer configurations for the cloud service.
+        :param Sequence['LoadBalancerConfigurationResponse'] load_balancer_configurations: The list of load balancer configurations for the cloud service.
         """
         if load_balancer_configurations is not None:
             pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
@@ -236,7 +236,7 @@ class CloudServiceOsProfileResponse(dict):
                  secrets: Optional[Sequence['outputs.CloudServiceVaultSecretGroupResponse']] = None):
         """
         Describes the OS profile for the cloud service.
-        :param Sequence['CloudServiceVaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the role instances.
+        :param Sequence['CloudServiceVaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the role instances.
         """
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
@@ -277,12 +277,12 @@ class CloudServicePropertiesResponse(dict):
         :param str configuration: Specifies the XML service configuration (.cscfg) for the cloud service.
         :param str configuration_url: Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
                This is a write-only property and is not returned in GET calls.
-        :param 'CloudServiceExtensionProfileResponseArgs' extension_profile: Describes a cloud service extension profile.
-        :param 'CloudServiceNetworkProfileResponseArgs' network_profile: Network Profile for the cloud service.
-        :param 'CloudServiceOsProfileResponseArgs' os_profile: Describes the OS profile for the cloud service.
+        :param 'CloudServiceExtensionProfileResponse' extension_profile: Describes a cloud service extension profile.
+        :param 'CloudServiceNetworkProfileResponse' network_profile: Network Profile for the cloud service.
+        :param 'CloudServiceOsProfileResponse' os_profile: Describes the OS profile for the cloud service.
         :param str package_url: Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
                This is a write-only property and is not returned in GET calls.
-        :param 'CloudServiceRoleProfileResponseArgs' role_profile: Describes the role profile for the cloud service.
+        :param 'CloudServiceRoleProfileResponse' role_profile: Describes the role profile for the cloud service.
         :param bool start_cloud_service: (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
                If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
         :param str upgrade_mode: Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
@@ -418,7 +418,7 @@ class CloudServiceRoleProfilePropertiesResponse(dict):
         """
         Describes the role properties.
         :param str name: Resource name.
-        :param 'CloudServiceRoleSkuResponseArgs' sku: Describes the cloud service role sku.
+        :param 'CloudServiceRoleSkuResponse' sku: Describes the cloud service role sku.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -454,7 +454,7 @@ class CloudServiceRoleProfileResponse(dict):
                  roles: Optional[Sequence['outputs.CloudServiceRoleProfilePropertiesResponse']] = None):
         """
         Describes the role profile for the cloud service.
-        :param Sequence['CloudServiceRoleProfilePropertiesResponseArgs'] roles: List of roles for the cloud service.
+        :param Sequence['CloudServiceRoleProfilePropertiesResponse'] roles: List of roles for the cloud service.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -581,8 +581,8 @@ class CloudServiceVaultSecretGroupResponse(dict):
                  vault_certificates: Optional[Sequence['outputs.CloudServiceVaultCertificateResponse']] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['CloudServiceVaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param Sequence['CloudServiceVaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         if source_vault is not None:
             pulumi.set(__self__, "source_vault", source_vault)
@@ -620,7 +620,7 @@ class ExtensionResponse(dict):
         """
         Describes a cloud service Extension.
         :param str name: The name of the extension.
-        :param 'CloudServiceExtensionPropertiesResponseArgs' properties: Extension Properties.
+        :param 'CloudServiceExtensionPropertiesResponse' properties: Extension Properties.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -652,7 +652,7 @@ class LoadBalancerConfigurationPropertiesResponse(dict):
     def __init__(__self__, *,
                  frontend_ip_configurations: Optional[Sequence['outputs.LoadBalancerFrontendIPConfigurationResponse']] = None):
         """
-        :param Sequence['LoadBalancerFrontendIPConfigurationResponseArgs'] frontend_ip_configurations: List of IP
+        :param Sequence['LoadBalancerFrontendIPConfigurationResponse'] frontend_ip_configurations: List of IP
         """
         if frontend_ip_configurations is not None:
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
@@ -751,7 +751,7 @@ class LoadBalancerFrontendIPConfigurationResponse(dict):
                  name: Optional[str] = None,
                  properties: Optional['outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse'] = None):
         """
-        :param 'LoadBalancerFrontendIPConfigurationPropertiesResponseArgs' properties: Describes a cloud service IP Configuration
+        :param 'LoadBalancerFrontendIPConfigurationPropertiesResponse' properties: Describes a cloud service IP Configuration
         """
         if name is not None:
             pulumi.set(__self__, "name", name)

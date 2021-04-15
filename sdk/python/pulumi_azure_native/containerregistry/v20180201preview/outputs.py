@@ -173,13 +173,13 @@ class DockerBuildStepResponse(dict):
                  no_cache: Optional[bool] = None):
         """
         The Docker build step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str provisioning_state: The provisioning state of the build step.
         :param str type: The type of the step.
                Expected value is 'Docker'.
         :param str base_image_trigger: The type of the auto trigger for base image dependency updates.
         :param str branch: The repository branch name.
-        :param Sequence['BuildArgumentResponseArgs'] build_arguments: The custom arguments for building this build step.
+        :param Sequence['BuildArgumentResponse'] build_arguments: The custom arguments for building this build step.
         :param str context_path: The relative context path for a docker build in the source.
         :param str docker_file_path: The Docker file path relative to the source control root.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
@@ -428,7 +428,7 @@ class SourceRepositoryPropertiesResponse(dict):
         :param str repository_url: The full URL to the source code repository
         :param str source_control_type: The type of source control service.
         :param bool is_commit_trigger_enabled: The value of this property indicates whether the source control commit trigger is enabled or not.
-        :param 'SourceControlAuthInfoResponseArgs' source_control_auth_properties: The authorization properties for accessing the source code repository.
+        :param 'SourceControlAuthInfoResponse' source_control_auth_properties: The authorization properties for accessing the source code repository.
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_control_type", source_control_type)

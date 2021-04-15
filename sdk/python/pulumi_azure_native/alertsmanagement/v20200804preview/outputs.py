@@ -64,7 +64,7 @@ class HealthAlertCriteriaResponse(dict):
                  all_of: Optional[Sequence['outputs.VmGuestHealthAlertCriterionResponse']] = None):
         """
         Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
-        :param Sequence['VmGuestHealthAlertCriterionResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['VmGuestHealthAlertCriterionResponse'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)
@@ -129,7 +129,7 @@ class VmGuestHealthAlertCriterionResponse(dict):
                  monitor_types: Optional[Sequence[str]] = None):
         """
         Specifies the health alert criteria to alert on.
-        :param Sequence['HealthStateResponseArgs'] health_states: Health states to alert on
+        :param Sequence['HealthStateResponse'] health_states: Health states to alert on
         :param str namespace: specifies the type of the alert criterion.
                Expected value is 'GuestVmHealth'.
         :param Sequence[str] monitor_names: Names of health monitor on which to define alert

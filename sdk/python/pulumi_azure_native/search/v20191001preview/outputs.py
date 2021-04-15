@@ -18,7 +18,7 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint',
     'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState',
     'PrivateEndpointConnectionResponse',
-    'QueryKeyResponseResult',
+    'QueryKeyResponse',
     'SkuResponse',
 ]
 
@@ -106,7 +106,7 @@ class NetworkRuleSetResponse(dict):
         """
         Network specific rules that determine how the Azure Cognitive Search service may be reached.
         :param str endpoint_access: The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-        :param Sequence['IpRuleResponseArgs'] ip_rules: A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
+        :param Sequence['IpRuleResponse'] ip_rules: A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
         """
         if endpoint_access is None:
             endpoint_access = 'Public'
@@ -145,8 +145,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None):
         """
         Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpointArgs' private_endpoint: The private endpoint resource from Microsoft.Network provider.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs' private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint' private_endpoint: The private endpoint resource from Microsoft.Network provider.
+        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         """
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -266,7 +266,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the private endpoint connection.
         :param str type: The resource type.
         :param str id: The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -312,7 +312,7 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
-class QueryKeyResponseResult(dict):
+class QueryKeyResponse(dict):
     """
     Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
     """

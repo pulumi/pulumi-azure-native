@@ -148,7 +148,7 @@ class ActionListResponse(dict):
                  action_groups: Optional[Sequence['outputs.ActionGroupResponse']] = None):
         """
         A list of Activity Log Alert rule actions.
-        :param Sequence['ActionGroupResponseArgs'] action_groups: The list of the Action Groups.
+        :param Sequence['ActionGroupResponse'] action_groups: The list of the Action Groups.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
@@ -174,7 +174,7 @@ class AlertRuleAllOfConditionResponse(dict):
                  all_of: Sequence['outputs.AlertRuleAnyOfOrLeafConditionResponse']):
         """
         An Activity Log Alert rule condition that is met when all its member conditions are met.
-        :param Sequence['AlertRuleAnyOfOrLeafConditionResponseArgs'] all_of: The list of Activity Log Alert rule conditions.
+        :param Sequence['AlertRuleAnyOfOrLeafConditionResponse'] all_of: The list of Activity Log Alert rule conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
@@ -215,7 +215,7 @@ class AlertRuleAnyOfOrLeafConditionResponse(dict):
           * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
           _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 
-        :param Sequence['AlertRuleLeafConditionResponseArgs'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+        :param Sequence['AlertRuleLeafConditionResponse'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
         :param Sequence[str] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
         :param str equals: The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         :param str field: The name of the Activity Log event's field that this condition will examine.
@@ -337,8 +337,8 @@ class AlertingActionResponse(dict):
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
                Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         :param str severity: Severity of the alert
-        :param 'TriggerConditionResponseArgs' trigger: The trigger condition that results in the alert rule being.
-        :param 'AzNsActionGroupResponseArgs' azns_action: Azure action group reference.
+        :param 'TriggerConditionResponse' trigger: The trigger condition that results in the alert rule being.
+        :param 'AzNsActionGroupResponse' azns_action: Azure action group reference.
         :param int throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
@@ -766,8 +766,8 @@ class AutoscaleNotificationResponse(dict):
         """
         Autoscale notification.
         :param str operation: the operation associated with the notification and its value must be "scale"
-        :param 'EmailNotificationResponseArgs' email: the email notification.
-        :param Sequence['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
+        :param 'EmailNotificationResponse' email: the email notification.
+        :param Sequence['WebhookNotificationResponse'] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -816,11 +816,11 @@ class AutoscaleProfileResponse(dict):
                  recurrence: Optional['outputs.RecurrenceResponse'] = None):
         """
         Autoscale profile.
-        :param 'ScaleCapacityResponseArgs' capacity: the number of instances that can be used during this profile.
+        :param 'ScaleCapacityResponse' capacity: the number of instances that can be used during this profile.
         :param str name: the name of the profile.
-        :param Sequence['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-        :param 'TimeWindowResponseArgs' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
-        :param 'RecurrenceResponseArgs' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+        :param Sequence['ScaleRuleResponse'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param 'TimeWindowResponse' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
+        :param 'RecurrenceResponse' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -1040,7 +1040,7 @@ class CriteriaResponse(dict):
         """
         Specifies the criteria for converting log to metric.
         :param str metric_name: Name of the metric
-        :param Sequence['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
+        :param Sequence['DimensionResponse'] dimensions: List of Dimensions for creating metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
@@ -1080,10 +1080,10 @@ class DataCollectionRuleResponseDataSources(dict):
         """
         The specification of data sources. 
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-        :param Sequence['ExtensionDataSourceResponseArgs'] extensions: The list of Azure VM extension data source configurations.
-        :param Sequence['PerfCounterDataSourceResponseArgs'] performance_counters: The list of performance counter data source configurations.
-        :param Sequence['SyslogDataSourceResponseArgs'] syslog: The list of Syslog data source configurations.
-        :param Sequence['WindowsEventLogDataSourceResponseArgs'] windows_event_logs: The list of Windows Event Log data source configurations.
+        :param Sequence['ExtensionDataSourceResponse'] extensions: The list of Azure VM extension data source configurations.
+        :param Sequence['PerfCounterDataSourceResponse'] performance_counters: The list of performance counter data source configurations.
+        :param Sequence['SyslogDataSourceResponse'] syslog: The list of Syslog data source configurations.
+        :param Sequence['WindowsEventLogDataSourceResponse'] windows_event_logs: The list of Windows Event Log data source configurations.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -1140,8 +1140,8 @@ class DataCollectionRuleResponseDestinations(dict):
                  log_analytics: Optional[Sequence['outputs.LogAnalyticsDestinationResponse']] = None):
         """
         The specification of destinations.
-        :param 'DestinationsSpecResponseAzureMonitorMetricsArgs' azure_monitor_metrics: Azure Monitor Metrics destination.
-        :param Sequence['LogAnalyticsDestinationResponseArgs'] log_analytics: List of Log Analytics destinations.
+        :param 'DestinationsSpecResponseAzureMonitorMetrics' azure_monitor_metrics: Azure Monitor Metrics destination.
+        :param Sequence['LogAnalyticsDestinationResponse'] log_analytics: List of Log Analytics destinations.
         """
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
@@ -1213,9 +1213,9 @@ class DataSourceConfigurationResponse(dict):
                  perf_counters: Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']] = None,
                  providers: Optional[Sequence['outputs.EtwProviderConfigurationResponse']] = None):
         """
-        :param Sequence['EventLogConfigurationResponseArgs'] event_logs: Windows event logs configuration.
-        :param Sequence['PerformanceCounterConfigurationResponseArgs'] perf_counters: Performance counter configuration
-        :param Sequence['EtwProviderConfigurationResponseArgs'] providers: ETW providers configuration
+        :param Sequence['EventLogConfigurationResponse'] event_logs: Windows event logs configuration.
+        :param Sequence['PerformanceCounterConfigurationResponse'] perf_counters: Performance counter configuration
+        :param Sequence['EtwProviderConfigurationResponse'] providers: ETW providers configuration
         """
         if event_logs is not None:
             pulumi.set(__self__, "event_logs", event_logs)
@@ -1388,12 +1388,12 @@ class DynamicMetricCriteriaResponse(dict):
         :param str alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param str criterion_type: Specifies the type of threshold criteria
                Expected value is 'DynamicThresholdCriterion'.
-        :param 'DynamicThresholdFailingPeriodsResponseArgs' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param 'DynamicThresholdFailingPeriodsResponse' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param str metric_name: Name of the metric.
         :param str name: Name of the criteria.
         :param str operator: The operator used to compare the metric value against the threshold.
         :param str time_aggregation: the criteria time aggregation types.
-        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponse'] dimensions: List of dimension conditions.
         :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -1889,7 +1889,7 @@ class LocationThresholdRuleConditionResponse(dict):
         :param int failed_location_count: the number of locations that must fail to activate the alert.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
                Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         pulumi.set(__self__, "failed_location_count", failed_location_count)
@@ -2062,7 +2062,7 @@ class LogSettingsResponse(dict):
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
         :param bool enabled: a value indicating whether this log is enabled.
         :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponseArgs' retention_policy: the retention policy for this log.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
         """
         pulumi.set(__self__, "enabled", enabled)
         if category is not None:
@@ -2108,7 +2108,7 @@ class LogToMetricActionResponse(dict):
                  odata_type: str):
         """
         Specify action need to be taken when rule type is converting log to metric
-        :param Sequence['CriteriaResponseArgs'] criteria: Criteria of Metric
+        :param Sequence['CriteriaResponse'] criteria: Criteria of Metric
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
                Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
@@ -2205,7 +2205,7 @@ class ManagedIdentityResponse(dict):
         """
         Customer Managed Identity
         :param str type: The identity type.
-        :param 'UserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        :param 'UserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -2295,8 +2295,8 @@ class ManagementEventRuleConditionResponse(dict):
         A management event rule condition.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
                Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-        :param 'ManagementEventAggregationConditionResponseArgs' aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param 'ManagementEventAggregationConditionResponse' aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition')
         if aggregation is not None:
@@ -2419,7 +2419,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-        :param Sequence[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param Sequence[Union['DynamicMetricCriteriaResponse', 'MetricCriteriaResponse']] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -2458,7 +2458,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-        :param Sequence['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['MetricCriteriaResponse'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -2509,7 +2509,7 @@ class MetricCriteriaResponse(dict):
         :param str operator: the criteria operator.
         :param float threshold: the criteria threshold value that activates the alert.
         :param str time_aggregation: the criteria time aggregation types.
-        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponse'] dimensions: List of dimension conditions.
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
@@ -2664,7 +2664,7 @@ class MetricSettingsResponse(dict):
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
         :param bool enabled: a value indicating whether this category is enabled.
         :param str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponseArgs' retention_policy: the retention policy for this category.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
         :param str time_grain: the timegrain of the metric in ISO8601 format.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2737,7 +2737,7 @@ class MetricTriggerResponse(dict):
         :param str time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param str time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param str time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param Sequence['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param Sequence['ScaleRuleMetricDimensionResponse'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -2848,7 +2848,7 @@ class MyManagedIdentityResponse(dict):
         """
         Customer Managed Identity
         :param str type: The identity type.
-        :param 'MyUserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        :param 'MyUserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -3031,8 +3031,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: Azure resource name
         :param str provisioning_state: State of the private endpoint connection.
         :param str type: Azure resource type
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3217,7 +3217,7 @@ class RecurrenceResponse(dict):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         :param str frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-        :param 'RecurrentScheduleResponseArgs' schedule: the scheduling constraints for when the profile begins.
+        :param 'RecurrentScheduleResponse' schedule: the scheduling constraints for when the profile begins.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "schedule", schedule)
@@ -3437,7 +3437,7 @@ class RuleManagementEventDataSourceResponse(dict):
         A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
         :param str odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
                Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-        :param 'RuleManagementEventClaimsDataSourceResponseArgs' claims: the claims.
+        :param 'RuleManagementEventClaimsDataSourceResponse' claims: the claims.
         :param str event_name: the event name.
         :param str event_source: the event source.
         :param str legacy_resource_id: the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -3899,8 +3899,8 @@ class ScaleRuleResponse(dict):
                  scale_action: 'outputs.ScaleActionResponse'):
         """
         A rule that provide the triggers and parameters for the scaling action.
-        :param 'MetricTriggerResponseArgs' metric_trigger: the trigger that results in a scaling action.
-        :param 'ScaleActionResponseArgs' scale_action: the parameters for the scaling action.
+        :param 'MetricTriggerResponse' metric_trigger: the trigger that results in a scaling action.
+        :param 'ScaleActionResponse' scale_action: the parameters for the scaling action.
         """
         pulumi.set(__self__, "metric_trigger", metric_trigger)
         pulumi.set(__self__, "scale_action", scale_action)
@@ -4218,7 +4218,7 @@ class ThresholdRuleConditionResponse(dict):
                Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
         :param str operator: the operator used to compare the data and the threshold.
         :param float threshold: the threshold value that activates the alert.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
@@ -4346,7 +4346,7 @@ class TriggerConditionResponse(dict):
         The condition that results in the Log Search rule.
         :param float threshold: Result or count threshold based on which rule should be triggered.
         :param str threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        :param 'LogMetricTriggerResponseArgs' metric_trigger: Trigger condition for metric query rule
+        :param 'LogMetricTriggerResponse' metric_trigger: Trigger condition for metric query rule
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "threshold_operator", threshold_operator)
@@ -4862,7 +4862,7 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
                  template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
-        :param Sequence['WorkbookTemplateGalleryResponseArgs'] galleries: Workbook galleries supported by the template.
+        :param Sequence['WorkbookTemplateGalleryResponse'] galleries: Workbook galleries supported by the template.
         :param Any template_data: Valid JSON object containing workbook template payload.
         """
         if galleries is not None:

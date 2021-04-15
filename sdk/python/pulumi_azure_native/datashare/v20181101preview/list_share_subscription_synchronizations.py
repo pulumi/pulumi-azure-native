@@ -38,7 +38,7 @@ class ListShareSubscriptionSynchronizationsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.ShareSubscriptionSynchronizationResponseResult']:
+    def value(self) -> Sequence['outputs.ShareSubscriptionSynchronizationResponse']:
         """
         Collection of items of type DataTransferObjects.
         """

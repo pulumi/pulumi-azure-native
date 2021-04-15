@@ -40,7 +40,7 @@ class ListConfigurationsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.ConfigurationResponseResult']:
+    def value(self) -> Sequence['outputs.ConfigurationResponse']:
         """
         List of configurations.
         """
@@ -57,16 +57,16 @@ class AwaitableListConfigurationsResult(ListConfigurationsResult):
             value=self.value)
 
 
-def list_configurations(configuration_filters: Optional[Sequence[pulumi.InputType['ConfigurationFiltersArgs']]] = None,
-                        customer_subscription_details: Optional[pulumi.InputType['CustomerSubscriptionDetailsArgs']] = None,
+def list_configurations(configuration_filters: Optional[Sequence[pulumi.InputType['ConfigurationFilters']]] = None,
+                        customer_subscription_details: Optional[pulumi.InputType['CustomerSubscriptionDetails']] = None,
                         skip_token: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationsResult:
     """
     The list of configurations.
 
 
-    :param Sequence[pulumi.InputType['ConfigurationFiltersArgs']] configuration_filters: Holds details about product hierarchy information and filterable property.
-    :param pulumi.InputType['CustomerSubscriptionDetailsArgs'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+    :param Sequence[pulumi.InputType['ConfigurationFilters']] configuration_filters: Holds details about product hierarchy information and filterable property.
+    :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str skip_token: $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
     """
     __args__ = dict()

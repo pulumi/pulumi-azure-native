@@ -11,7 +11,7 @@ from ._enums import *
 
 __all__ = [
     'AzureSkuResponse',
-    'DatabasePrincipalResponseResult',
+    'DatabasePrincipalResponse',
     'DatabaseStatisticsResponse',
     'TrustedExternalTenantResponse',
 ]
@@ -61,7 +61,7 @@ class AzureSkuResponse(dict):
 
 
 @pulumi.output_type
-class DatabasePrincipalResponseResult(dict):
+class DatabasePrincipalResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  role: str,

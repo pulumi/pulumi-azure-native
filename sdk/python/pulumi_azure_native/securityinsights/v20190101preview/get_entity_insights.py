@@ -30,7 +30,7 @@ class GetEntityInsightsResult:
 
     @property
     @pulumi.getter(name="metaData")
-    def meta_data(self) -> Optional['outputs.GetInsightsResultsMetadataResponseResult']:
+    def meta_data(self) -> Optional['outputs.GetInsightsResultsMetadataResponse']:
         """
         The metadata from the get insights operation results.
         """
@@ -38,7 +38,7 @@ class GetEntityInsightsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EntityInsightItemResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.EntityInsightItemResponse']]:
         """
         The insights result values.
         """

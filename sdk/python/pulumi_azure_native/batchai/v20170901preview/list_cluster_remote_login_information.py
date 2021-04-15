@@ -38,7 +38,7 @@ class ListClusterRemoteLoginInformationResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.RemoteLoginInformationResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.RemoteLoginInformationResponse']]:
         """
         The collection of returned remote login details.
         """

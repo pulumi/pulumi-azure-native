@@ -38,7 +38,7 @@ class ListSiteIdentifiersAssignedToHostNameResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.IdentifierResponseResult']:
+    def value(self) -> Sequence['outputs.IdentifierResponse']:
         """
         Collection of resources.
         """

@@ -115,7 +115,7 @@ class ImageTemplateIdentityResponse(dict):
         """
         Identity for the image template.
         :param str type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-        :param Mapping[str, 'ImageTemplateIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ImageTemplateIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)

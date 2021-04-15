@@ -127,8 +127,8 @@ class LedgerPropertiesResponse(dict):
         :param str ledger_name: Unique name for the Confidential Ledger.
         :param str ledger_uri: Endpoint for calling Ledger Service.
         :param str provisioning_state: Provisioning state of Ledger Resource
-        :param Sequence['AADBasedSecurityPrincipalResponseArgs'] aad_based_security_principals: Array of all AAD based Security Principals.
-        :param Sequence['CertBasedSecurityPrincipalResponseArgs'] cert_based_security_principals: Array of all cert based Security Principals.
+        :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
+        :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
         :param str ledger_storage_account: Name of the Blob Storage Account for saving ledger files
         :param str ledger_type: Type of Confidential Ledger
         """

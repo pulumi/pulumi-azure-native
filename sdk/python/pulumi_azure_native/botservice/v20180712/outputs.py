@@ -28,9 +28,9 @@ __all__ = [
     'KikChannelResponse',
     'MsTeamsChannelPropertiesResponse',
     'MsTeamsChannelResponse',
-    'ServiceProviderParameterResponseResult',
-    'ServiceProviderPropertiesResponseResult',
-    'ServiceProviderResponseResult',
+    'ServiceProviderParameterResponse',
+    'ServiceProviderPropertiesResponse',
+    'ServiceProviderResponse',
     'SkuResponse',
     'SkypeChannelPropertiesResponse',
     'SkypeChannelResponse',
@@ -265,7 +265,7 @@ class ConnectionSettingPropertiesResponse(dict):
         :param str setting_id: Setting Id set by the service for the Connection Setting.
         :param str client_id: Client Id associated with the Connection Setting.
         :param str client_secret: Client Secret associated with the Connection Setting
-        :param Sequence['ConnectionSettingParameterResponseArgs'] parameters: Service Provider Parameters associated with the Connection Setting
+        :param Sequence['ConnectionSettingParameterResponse'] parameters: Service Provider Parameters associated with the Connection Setting
         :param str scopes: Scopes associated with the Connection Setting
         :param str service_provider_display_name: Service Provider Display Name associated with the Connection Setting
         :param str service_provider_id: Service Provider Id associated with the Connection Setting
@@ -353,7 +353,7 @@ class DirectLineChannelPropertiesResponse(dict):
                  sites: Optional[Sequence['outputs.DirectLineSiteResponse']] = None):
         """
         The parameters to provide for the Direct Line channel.
-        :param Sequence['DirectLineSiteResponseArgs'] sites: The list of Direct Line sites
+        :param Sequence['DirectLineSiteResponse'] sites: The list of Direct Line sites
         """
         if sites is not None:
             pulumi.set(__self__, "sites", sites)
@@ -382,7 +382,7 @@ class DirectLineChannelResponse(dict):
         Direct Line channel definition
         :param str channel_name: The channel name
                Expected value is 'DirectLineChannel'.
-        :param 'DirectLineChannelPropertiesResponseArgs' properties: The set of properties specific to Direct Line channel resource
+        :param 'DirectLineChannelPropertiesResponse' properties: The set of properties specific to Direct Line channel resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineChannel')
         if properties is not None:
@@ -583,7 +583,7 @@ class EmailChannelResponse(dict):
         Email channel definition
         :param str channel_name: The channel name
                Expected value is 'EmailChannel'.
-        :param 'EmailChannelPropertiesResponseArgs' properties: The set of properties specific to email channel resource
+        :param 'EmailChannelPropertiesResponse' properties: The set of properties specific to email channel resource
         """
         pulumi.set(__self__, "channel_name", 'EmailChannel')
         if properties is not None:
@@ -690,7 +690,7 @@ class EnterpriseChannelPropertiesResponse(dict):
                  state: Optional[str] = None):
         """
         The parameters to provide for the Enterprise Channel.
-        :param Sequence['EnterpriseChannelNodeResponseArgs'] nodes: The nodes associated with the Enterprise Channel.
+        :param Sequence['EnterpriseChannelNodeResponse'] nodes: The nodes associated with the Enterprise Channel.
         :param str state: The current state of the Enterprise Channel.
         """
         pulumi.set(__self__, "nodes", nodes)
@@ -736,7 +736,7 @@ class FacebookChannelPropertiesResponse(dict):
         :param str callback_url: Callback Url
         :param bool is_enabled: Whether this channel is enabled for the bot
         :param str verify_token: Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
-        :param Sequence['FacebookPageResponseArgs'] pages: The list of Facebook pages
+        :param Sequence['FacebookPageResponse'] pages: The list of Facebook pages
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -810,7 +810,7 @@ class FacebookChannelResponse(dict):
         Facebook channel definition
         :param str channel_name: The channel name
                Expected value is 'FacebookChannel'.
-        :param 'FacebookChannelPropertiesResponseArgs' properties: The set of properties specific to bot facebook channel
+        :param 'FacebookChannelPropertiesResponse' properties: The set of properties specific to bot facebook channel
         """
         pulumi.set(__self__, "channel_name", 'FacebookChannel')
         if properties is not None:
@@ -944,7 +944,7 @@ class KikChannelResponse(dict):
         Kik channel definition
         :param str channel_name: The channel name
                Expected value is 'KikChannel'.
-        :param 'KikChannelPropertiesResponseArgs' properties: The set of properties specific to Kik channel resource
+        :param 'KikChannelPropertiesResponse' properties: The set of properties specific to Kik channel resource
         """
         pulumi.set(__self__, "channel_name", 'KikChannel')
         if properties is not None:
@@ -1032,7 +1032,7 @@ class MsTeamsChannelResponse(dict):
         Microsoft Teams channel definition
         :param str channel_name: The channel name
                Expected value is 'MsTeamsChannel'.
-        :param 'MsTeamsChannelPropertiesResponseArgs' properties: The set of properties specific to Microsoft Teams channel resource
+        :param 'MsTeamsChannelPropertiesResponse' properties: The set of properties specific to Microsoft Teams channel resource
         """
         pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
         if properties is not None:
@@ -1060,7 +1060,7 @@ class MsTeamsChannelResponse(dict):
 
 
 @pulumi.output_type
-class ServiceProviderParameterResponseResult(dict):
+class ServiceProviderParameterResponse(dict):
     """
     Extra Parameters specific to each Service Provider
     """
@@ -1137,7 +1137,7 @@ class ServiceProviderParameterResponseResult(dict):
 
 
 @pulumi.output_type
-class ServiceProviderPropertiesResponseResult(dict):
+class ServiceProviderPropertiesResponse(dict):
     """
     The Object used to describe a Service Provider supported by Bot Service
     """
@@ -1147,7 +1147,7 @@ class ServiceProviderPropertiesResponseResult(dict):
                  icon_url: str,
                  id: str,
                  service_provider_name: str,
-                 parameters: Optional[Sequence['outputs.ServiceProviderParameterResponseResult']] = None):
+                 parameters: Optional[Sequence['outputs.ServiceProviderParameterResponse']] = None):
         """
         The Object used to describe a Service Provider supported by Bot Service
         :param str dev_portal_url: Display Name of the Service Provider
@@ -1155,7 +1155,7 @@ class ServiceProviderPropertiesResponseResult(dict):
         :param str icon_url: Display Name of the Service Provider
         :param str id: Id for Service Provider
         :param str service_provider_name: Display Name of the Service Provider
-        :param Sequence['ServiceProviderParameterResponseArgs'] parameters: The list of parameters for the Service Provider
+        :param Sequence['ServiceProviderParameterResponse'] parameters: The list of parameters for the Service Provider
         """
         pulumi.set(__self__, "dev_portal_url", dev_portal_url)
         pulumi.set(__self__, "display_name", display_name)
@@ -1207,7 +1207,7 @@ class ServiceProviderPropertiesResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.ServiceProviderParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.ServiceProviderParameterResponse']]:
         """
         The list of parameters for the Service Provider
         """
@@ -1215,22 +1215,22 @@ class ServiceProviderPropertiesResponseResult(dict):
 
 
 @pulumi.output_type
-class ServiceProviderResponseResult(dict):
+class ServiceProviderResponse(dict):
     """
     Service Provider Definition
     """
     def __init__(__self__, *,
-                 properties: Optional['outputs.ServiceProviderPropertiesResponseResult'] = None):
+                 properties: Optional['outputs.ServiceProviderPropertiesResponse'] = None):
         """
         Service Provider Definition
-        :param 'ServiceProviderPropertiesResponseArgs' properties: The Properties of a Service Provider Object
+        :param 'ServiceProviderPropertiesResponse' properties: The Properties of a Service Provider Object
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.ServiceProviderPropertiesResponseResult']:
+    def properties(self) -> Optional['outputs.ServiceProviderPropertiesResponse']:
         """
         The Properties of a Service Provider Object
         """
@@ -1406,7 +1406,7 @@ class SkypeChannelResponse(dict):
         Skype channel definition
         :param str channel_name: The channel name
                Expected value is 'SkypeChannel'.
-        :param 'SkypeChannelPropertiesResponseArgs' properties: The set of properties specific to Skype channel resource
+        :param 'SkypeChannelPropertiesResponse' properties: The set of properties specific to Skype channel resource
         """
         pulumi.set(__self__, "channel_name", 'SkypeChannel')
         if properties is not None:
@@ -1559,7 +1559,7 @@ class SlackChannelResponse(dict):
         Slack channel definition
         :param str channel_name: The channel name
                Expected value is 'SlackChannel'.
-        :param 'SlackChannelPropertiesResponseArgs' properties: The set of properties specific to Slack channel resource
+        :param 'SlackChannelPropertiesResponse' properties: The set of properties specific to Slack channel resource
         """
         pulumi.set(__self__, "channel_name", 'SlackChannel')
         if properties is not None:
@@ -1668,7 +1668,7 @@ class SmsChannelResponse(dict):
         Sms channel definition
         :param str channel_name: The channel name
                Expected value is 'SmsChannel'.
-        :param 'SmsChannelPropertiesResponseArgs' properties: The set of properties specific to Sms channel resource
+        :param 'SmsChannelPropertiesResponse' properties: The set of properties specific to Sms channel resource
         """
         pulumi.set(__self__, "channel_name", 'SmsChannel')
         if properties is not None:
@@ -1755,7 +1755,7 @@ class TelegramChannelResponse(dict):
         Telegram channel definition
         :param str channel_name: The channel name
                Expected value is 'TelegramChannel'.
-        :param 'TelegramChannelPropertiesResponseArgs' properties: The set of properties specific to Telegram channel resource
+        :param 'TelegramChannelPropertiesResponse' properties: The set of properties specific to Telegram channel resource
         """
         pulumi.set(__self__, "channel_name", 'TelegramChannel')
         if properties is not None:
@@ -1793,7 +1793,7 @@ class WebChatChannelPropertiesResponse(dict):
         """
         The parameters to provide for the Web Chat channel.
         :param str web_chat_embed_code: Web chat control embed code
-        :param Sequence['WebChatSiteResponseArgs'] sites: The list of Web Chat sites
+        :param Sequence['WebChatSiteResponse'] sites: The list of Web Chat sites
         """
         pulumi.set(__self__, "web_chat_embed_code", web_chat_embed_code)
         if sites is not None:
@@ -1831,7 +1831,7 @@ class WebChatChannelResponse(dict):
         Web Chat channel definition
         :param str channel_name: The channel name
                Expected value is 'WebChatChannel'.
-        :param 'WebChatChannelPropertiesResponseArgs' properties: The set of properties specific to Web Chat channel resource
+        :param 'WebChatChannelPropertiesResponse' properties: The set of properties specific to Web Chat channel resource
         """
         pulumi.set(__self__, "channel_name", 'WebChatChannel')
         if properties is not None:

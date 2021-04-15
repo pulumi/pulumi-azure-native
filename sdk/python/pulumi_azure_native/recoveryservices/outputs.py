@@ -1019,8 +1019,8 @@ class A2AReplicationDetailsResponse(dict):
         :param str multi_vm_group_name: The multi vm group name.
         :param str os_type: The type of operating system.
         :param str primary_fabric_location: Primary fabric location.
-        :param Sequence['A2AProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
-        :param Sequence['A2AProtectedManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
+        :param Sequence['A2AProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
+        :param Sequence['A2AProtectedManagedDiskDetailsResponse'] protected_managed_disks: The list of protected managed disks.
         :param str recovery_availability_set: The recovery availability set.
         :param str recovery_availability_zone: The recovery availability zone.
         :param str recovery_azure_resource_group_id: The recovery resource group.
@@ -1036,11 +1036,11 @@ class A2AReplicationDetailsResponse(dict):
         :param str selected_tfo_azure_network_id: The test failover virtual network.
         :param str test_failover_recovery_fabric_object_id: The test failover fabric object Id.
         :param str tfo_azure_vm_name: The test failover VM name.
-        :param Sequence['A2AUnprotectedDiskDetailsResponseArgs'] unprotected_disks: The list of unprotected disks.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The virtual machine nic details.
+        :param Sequence['A2AUnprotectedDiskDetailsResponse'] unprotected_disks: The list of unprotected disks.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The virtual machine nic details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
-        :param 'AzureToAzureVmSyncedConfigDetailsResponseArgs' vm_synced_config_details: The synced configuration details.
+        :param 'AzureToAzureVmSyncedConfigDetailsResponse' vm_synced_config_details: The synced configuration details.
         """
         pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
         pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
@@ -1503,7 +1503,7 @@ class AgentDetailsResponse(dict):
         Agent details.
         :param str agent_id: The Id of the agent running on the server.
         :param str bios_id: The machine BIOS Id.
-        :param Sequence['AgentDiskDetailsResponseArgs'] disks: The details of agent disks.
+        :param Sequence['AgentDiskDetailsResponse'] disks: The details of agent disks.
         :param str fqdn: The machine FQDN.
         :param str machine_id: The Id of the machine to which the agent is registered.
         """
@@ -1657,7 +1657,7 @@ class AzureBackupServerContainerResponse(dict):
         :param str container_id: ID of container.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -1871,8 +1871,8 @@ class AzureFileShareProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureStorage'.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         :param str work_load_type: Type of workload for the backup management
         """
@@ -2050,12 +2050,12 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureFileshareProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'AzureFileshareProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of the fileshare represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2439,15 +2439,15 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2883,15 +2883,15 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -3318,15 +3318,15 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -3622,8 +3622,8 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
                Expected value is 'AzureIaasVM'.
         :param int instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
@@ -3908,7 +3908,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -4189,7 +4189,7 @@ class AzureSqlProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureSqlProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureSqlProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -4389,7 +4389,7 @@ class AzureSqlProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureSql'.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy details.
         """
         pulumi.set(__self__, "backup_management_type", 'AzureSql')
         if protected_items_count is not None:
@@ -4616,7 +4616,7 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure to Azure VM synced configuration details.
-        :param Sequence['InputEndpointResponseArgs'] input_endpoints: The Azure VM input endpoints.
+        :param Sequence['InputEndpointResponse'] input_endpoints: The Azure VM input endpoints.
         :param Mapping[str, str] tags: The Azure VM tags.
         """
         if input_endpoints is not None:
@@ -4668,7 +4668,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -5000,13 +5000,13 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -5314,8 +5314,8 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
                Expected value is 'AzureWorkload'.
         :param bool make_policy_consistent: Fix the policy inconsistency
         :param int protected_items_count: Number of items associated with this policy.
-        :param 'SettingsResponseArgs' settings: Common settings for the backup management
-        :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param 'SettingsResponse' settings: Common settings for the backup management
+        :param Sequence['SubProtectionPolicyResponse'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
         :param str work_load_type: Type of workload for the backup management
         """
         pulumi.set(__self__, "backup_management_type", 'AzureWorkload')
@@ -5426,13 +5426,13 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -5765,13 +5765,13 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -6104,13 +6104,13 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -6499,8 +6499,8 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
         """
         Extended information of the container.
         :param str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        :param 'InquiryInfoResponseArgs' inquiry_info: Inquiry Status for the container.
-        :param Sequence['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
+        :param 'InquiryInfoResponse' inquiry_info: Inquiry Status for the container.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -6561,7 +6561,7 @@ class AzureWorkloadContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -7246,7 +7246,7 @@ class DPMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'DPMProtectedItemExtendedInfoResponseArgs' extended_info: Extended info of the backup item.
+        :param 'DPMProtectedItemExtendedInfoResponse' extended_info: Extended info of the backup item.
         :param str friendly_name: Friendly name of the managed item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -7451,7 +7451,7 @@ class DailyRetentionFormatResponse(dict):
                  days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
-        :param Sequence['DayResponseArgs'] days_of_the_month: List of days of the month.
+        :param Sequence['DayResponse'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
             pulumi.set(__self__, "days_of_the_month", days_of_the_month)
@@ -7478,7 +7478,7 @@ class DailyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Daily retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if retention_duration is not None:
@@ -7725,7 +7725,7 @@ class DistributedNodesInfoResponse(dict):
                  status: Optional[str] = None):
         """
         This is used to represent the various nodes of the distributed container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param str node_name: Name of the node under a distributed container.
         :param str status: Status of this Node.
                Failed | Succeeded
@@ -7797,7 +7797,7 @@ class DpmContainerResponse(dict):
         :param str container_id: ID of container.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -7958,7 +7958,7 @@ class DraDetailsResponse(dict):
         """
         DRA details.
         :param str health: The health of the DRA.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The DRA Id.
         :param str last_heartbeat_utc: The last heartbeat received from the DRA.
         :param str name: The DRA name.
@@ -8129,7 +8129,7 @@ class ExtendedPropertiesResponse(dict):
                  disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
         """
         Extended Properties for Azure IaasVM Backup.
-        :param 'DiskExclusionPropertiesResponseArgs' disk_exclusion_properties: Extended Properties for Disk Exclusion.
+        :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
         """
         if disk_exclusion_properties is not None:
             pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
@@ -8163,13 +8163,13 @@ class FabricPropertiesResponse(dict):
         """
         Fabric properties.
         :param str bcdr_state: BCDR state of the fabric.
-        :param Union['AzureFabricSpecificDetailsResponseArgs', 'HyperVSiteDetailsResponseArgs', 'InMageRcmFabricSpecificDetailsResponseArgs', 'VMwareDetailsResponseArgs', 'VMwareV2FabricSpecificDetailsResponseArgs', 'VmmDetailsResponseArgs'] custom_details: Fabric specific settings.
-        :param 'EncryptionDetailsResponseArgs' encryption_details: Encryption details for the fabric.
+        :param Union['AzureFabricSpecificDetailsResponse', 'HyperVSiteDetailsResponse', 'InMageRcmFabricSpecificDetailsResponse', 'VMwareDetailsResponse', 'VMwareV2FabricSpecificDetailsResponse', 'VmmDetailsResponse'] custom_details: Fabric specific settings.
+        :param 'EncryptionDetailsResponse' encryption_details: Encryption details for the fabric.
         :param str friendly_name: Friendly name of the fabric.
         :param str health: Health of fabric.
-        :param Sequence['HealthErrorResponseArgs'] health_error_details: Fabric health error details.
+        :param Sequence['HealthErrorResponse'] health_error_details: Fabric health error details.
         :param str internal_identifier: Dra Registration Id.
-        :param 'EncryptionDetailsResponseArgs' rollover_encryption_details: Rollover encryption details for the fabric.
+        :param 'EncryptionDetailsResponse' rollover_encryption_details: Rollover encryption details for the fabric.
         """
         if bcdr_state is not None:
             pulumi.set(__self__, "bcdr_state", bcdr_state)
@@ -8267,7 +8267,7 @@ class GenericContainerExtendedInfoResponse(dict):
                  service_endpoints: Optional[Mapping[str, str]] = None):
         """
         Container extended information
-        :param 'ContainerIdentityInfoResponseArgs' container_identity_info: Container identity information
+        :param 'ContainerIdentityInfoResponse' container_identity_info: Container identity information
         :param str raw_cert_data: Public key of container cert
         :param Mapping[str, str] service_endpoints: Azure Backup Service Endpoints for the container
         """
@@ -8327,7 +8327,7 @@ class GenericContainerResponse(dict):
                Backup is VMAppContainer
                Expected value is 'GenericContainer'.
         :param str backup_management_type: Type of backup management for the container.
-        :param 'GenericContainerExtendedInfoResponseArgs' extended_information: Extended information (not returned in List container API calls)
+        :param 'GenericContainerExtendedInfoResponse' extended_information: Extended information (not returned in List container API calls)
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -8683,7 +8683,7 @@ class GenericProtectionPolicyResponse(dict):
                Expected value is 'GenericProtectionPolicy'.
         :param str fabric_name: Name of this policy's fabric.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param Sequence['SubProtectionPolicyResponse'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         pulumi.set(__self__, "backup_management_type", 'GenericProtectionPolicy')
@@ -8774,7 +8774,7 @@ class HealthErrorResponse(dict):
         :param str error_message: Error message.
         :param str error_source: Source of error.
         :param str error_type: Type of error.
-        :param Sequence['InnerHealthErrorResponseArgs'] inner_health_errors: The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+        :param Sequence['InnerHealthErrorResponse'] inner_health_errors: The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
         :param str possible_causes: Possible causes of error.
         :param str recommended_action: Recommended action to resolve error.
         :param str recovery_provider_error_message: DRA error message.
@@ -9071,14 +9071,14 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         Hyper V Replica Azure provider specific settings.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaAzure'.
-        :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
+        :param Sequence['AzureVmDiskDetailsResponse'] azure_vm_disk_details: Azure VM Disk details.
         :param str enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param str encryption: The encryption info.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str license_type: License Type of the VM to be used.
-        :param 'OSDetailsResponseArgs' o_s_details: The operating system info.
+        :param 'OSDetailsResponse' o_s_details: The operating system info.
         :param str recovery_availability_set_id: The recovery availability set Id.
         :param str recovery_azure_log_storage_account_id: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
         :param str recovery_azure_resource_group_id: The target resource group Id.
@@ -9094,7 +9094,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str target_proximity_placement_group_id: The target proximity placement group Id.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -9538,11 +9538,11 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
         Hyper V replica provider specific settings base class.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaBaseReplicationDetails'.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponse'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -9808,11 +9808,11 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
         HyperV replica 2012 R2 (Blue) replication details.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplica2012R2'.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponse'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -10066,11 +10066,11 @@ class HyperVReplicaReplicationDetailsResponse(dict):
         HyperV replica 2012 replication details.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplica2012'.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponse'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -10368,7 +10368,7 @@ class IdentityDataResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        :param Mapping[str, 'UserIdentityResponseArgs'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -10947,7 +10947,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str process_server_name: The process server name.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent version.
-        :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
+        :param Sequence['AzureVmDiskDetailsResponse'] azure_vm_disk_details: Azure VM Disk details.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
         :param Sequence[str] datastores: The data stores of the on-premise machine. Value can be list of strings that contain data store names.
         :param str discovery_type: A value indicating the discovery type of the machine. Value can be vCenter or physical.
@@ -10969,8 +10969,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str os_type: The type of the OS on the VM.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
-        :param Sequence['InMageAzureV2ProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
-        :param Sequence['InMageAzureV2ManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
+        :param Sequence['InMageAzureV2ProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
+        :param Sequence['InMageAzureV2ManagedDiskDetailsResponse'] protected_managed_disks: The list of protected managed disks.
         :param str protection_stage: The protection stage.
         :param str recovery_availability_set_id: The recovery availability set Id.
         :param str recovery_azure_log_storage_account_id: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
@@ -10992,10 +10992,10 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param Sequence['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
+        :param Sequence['HealthErrorResponse'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
         :param str vhd_name: The OS disk VHD name.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -12000,18 +12000,18 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
                  vmware_site_id: str):
         """
         InMageRcm fabric specific details.
-        :param Sequence['AgentDetailsResponseArgs'] agent_details: The list of agent details.
+        :param Sequence['AgentDetailsResponse'] agent_details: The list of agent details.
         :param str control_plane_uri: The control plane Uri.
         :param str data_plane_uri: The data plane Uri.
-        :param Sequence['DraDetailsResponseArgs'] dras: The list of DRAs.
+        :param Sequence['DraDetailsResponse'] dras: The list of DRAs.
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcm'.
         :param str physical_site_id: The ARM Id of the physical site.
-        :param Sequence['ProcessServerDetailsResponseArgs'] process_servers: The list of process servers.
-        :param Sequence['PushInstallerDetailsResponseArgs'] push_installers: The list of push installers.
-        :param Sequence['RcmProxyDetailsResponseArgs'] rcm_proxies: The list of RCM proxies.
-        :param Sequence['ReplicationAgentDetailsResponseArgs'] replication_agents: The list of replication agents.
-        :param Sequence['ReprotectAgentDetailsResponseArgs'] reprotect_agents: The list of reprotect agents.
+        :param Sequence['ProcessServerDetailsResponse'] process_servers: The list of process servers.
+        :param Sequence['PushInstallerDetailsResponse'] push_installers: The list of push installers.
+        :param Sequence['RcmProxyDetailsResponse'] rcm_proxies: The list of RCM proxies.
+        :param Sequence['ReplicationAgentDetailsResponse'] replication_agents: The list of replication agents.
+        :param Sequence['ReprotectAgentDetailsResponse'] reprotect_agents: The list of reprotect agents.
         :param str service_container_id: The service container Id.
         :param str service_endpoint: The service endpoint.
         :param str service_resource_id: The service resource Id.
@@ -12745,7 +12745,7 @@ class InMageRcmReplicationDetailsResponse(dict):
                  vm_nics: Sequence['outputs.InMageRcmNicDetailsResponse']):
         """
         InMageRcm provider specific details.
-        :param Sequence['InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs'] agent_upgrade_blocking_error_details: The agent upgrade blocking error information.
+        :param Sequence['InMageRcmAgentUpgradeBlockingErrorDetailsResponse'] agent_upgrade_blocking_error_details: The agent upgrade blocking error information.
         :param str agent_upgrade_state: The agent auto upgrade state.
         :param float allocated_memory_in_mb: The allocated memory in MB.
         :param str discovery_type: The type of the discovered VM.
@@ -12759,7 +12759,7 @@ class InMageRcmReplicationDetailsResponse(dict):
                Expected value is 'InMageRcm'.
         :param str internal_identifier: The virtual machine internal identifier.
         :param str is_last_upgrade_successful: A value indicating whether last agent upgrade was successful or not.
-        :param Sequence['InMageRcmLastAgentUpgradeErrorDetailsResponseArgs'] last_agent_upgrade_error_details: The last agent upgrade error information.
+        :param Sequence['InMageRcmLastAgentUpgradeErrorDetailsResponse'] last_agent_upgrade_error_details: The last agent upgrade error information.
         :param str last_agent_upgrade_failed_job_id: The last agent upgrade failed or cancelled job Id.
         :param str last_agent_upgrade_type: The last agent upgrade type.
         :param str last_recovery_point_id: The last recovery point Id.
@@ -12767,13 +12767,13 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str last_rpo_calculated_time: The last recovery point objective calculated time.
         :param float last_rpo_in_seconds: The last recovery point objective value.
         :param str license_type: License Type of the VM to be used.
-        :param 'InMageRcmMobilityAgentDetailsResponseArgs' mobility_agent_details: The mobility agent information.
+        :param 'InMageRcmMobilityAgentDetailsResponse' mobility_agent_details: The mobility agent information.
         :param str multi_vm_group_name: The multi VM group name.
         :param str os_type: The type of the OS on the VM.
         :param str process_server_id: The process server Id.
         :param str process_server_name: The process server name.
         :param int processor_core_count: The processor core count.
-        :param Sequence['InMageRcmProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['InMageRcmProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param float resync_processed_bytes: The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         :param int resync_progress_percentage: The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         :param str resync_required: A value indicating whether resync is required.
@@ -12790,7 +12790,7 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str target_vm_name: Target VM name.
         :param str target_vm_size: The target VM size.
         :param str test_network_id: The test network Id.
-        :param Sequence['InMageRcmNicDetailsResponseArgs'] vm_nics: The network details.
+        :param Sequence['InMageRcmNicDetailsResponse'] vm_nics: The network details.
         """
         pulumi.set(__self__, "agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
         pulumi.set(__self__, "agent_upgrade_state", agent_upgrade_state)
@@ -13252,7 +13252,7 @@ class InMageReplicationDetailsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMage'.
         :param str active_site_type: The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
-        :param 'InMageAgentDetailsResponseArgs' agent_details: The agent details.
+        :param 'InMageAgentDetailsResponse' agent_details: The agent details.
         :param str azure_storage_account_id: A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
         :param Mapping[str, str] consistency_points: The collection of Consistency points.
@@ -13268,14 +13268,14 @@ class InMageReplicationDetailsResponse(dict):
         :param str multi_vm_group_id: The multi vm group Id, if any.
         :param str multi_vm_group_name: The multi vm group name, if any.
         :param str multi_vm_sync_status: A value indicating whether the multi vm sync is enabled or disabled.
-        :param 'OSDiskDetailsResponseArgs' os_details: The OS details.
+        :param 'OSDiskDetailsResponse' os_details: The OS details.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
-        :param Sequence['InMageProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['InMageProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param str protection_stage: The protection stage.
         :param str reboot_after_update_status: A value indicating whether the source server requires a restart after update.
         :param str replica_id: The replica id of the protected item.
-        :param 'InitialReplicationDetailsResponseArgs' resync_details: The resync details of the machine
+        :param 'InitialReplicationDetailsResponse' resync_details: The resync details of the machine
         :param str retention_window_end: The retention window end time.
         :param str retention_window_start: The retention window start time.
         :param float rpo_in_seconds: The RPO in seconds.
@@ -13283,9 +13283,9 @@ class InMageReplicationDetailsResponse(dict):
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param Sequence['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
+        :param Sequence['HealthErrorResponse'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -13943,8 +13943,8 @@ class InquiryInfoResponse(dict):
                  status: Optional[str] = None):
         """
         Details about inquired protectable items under a given container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
-        :param Sequence['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
+        :param Sequence['WorkloadInquiryDetailsResponse'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param str status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -13998,7 +13998,7 @@ class InquiryValidationResponse(dict):
         """
         Validation for inquired protectable items under a given container.
         :param str additional_detail: Error Additional Detail in case the status is non-success.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Detail in case the status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Detail in case the status is non-success.
         :param str status: Status for the Inquiry Validation.
         """
         pulumi.set(__self__, "additional_detail", additional_detail)
@@ -14069,7 +14069,7 @@ class KPIResourceHealthDetailsResponse(dict):
                  resource_health_status: Optional[str] = None):
         """
         KPI Resource Health Details
-        :param Sequence['ResourceHealthDetailsResponseArgs'] resource_health_details: Resource Health Status
+        :param Sequence['ResourceHealthDetailsResponse'] resource_health_details: Resource Health Status
         :param str resource_health_status: Resource Health Status
         """
         if resource_health_details is not None:
@@ -14151,10 +14151,10 @@ class LongTermRetentionPolicyResponse(dict):
         Long term retention policy.
         :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermRetentionPolicy'.
-        :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the protection policy.
-        :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the protection policy.
-        :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the protection policy.
-        :param 'YearlyRetentionScheduleResponseArgs' yearly_schedule: Yearly retention schedule of the protection policy.
+        :param 'DailyRetentionScheduleResponse' daily_schedule: Daily retention schedule of the protection policy.
+        :param 'MonthlyRetentionScheduleResponse' monthly_schedule: Monthly retention schedule of the protection policy.
+        :param 'WeeklyRetentionScheduleResponse' weekly_schedule: Weekly retention schedule of the protection policy.
+        :param 'YearlyRetentionScheduleResponse' yearly_schedule: Yearly retention schedule of the protection policy.
         """
         pulumi.set(__self__, "retention_policy_type", 'LongTermRetentionPolicy')
         if daily_schedule is not None:
@@ -14404,10 +14404,10 @@ class MabContainerResponse(dict):
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
         :param float container_id: ContainerID represents the container.
-        :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
+        :param 'MabContainerExtendedInfoResponse' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
+        :param Sequence['MABContainerHealthDetailsResponse'] mab_container_health_details: Health details on this mab container.
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
@@ -14628,7 +14628,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'MabFileFolderProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -14871,8 +14871,8 @@ class MabProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'MAB'.
         :param int protected_items_count: Number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy details.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule of backup policy.
         """
         pulumi.set(__self__, "backup_management_type", 'MAB')
         if protected_items_count is not None:
@@ -14947,21 +14947,21 @@ class MasterTargetServerResponse(dict):
         Details of a Master Target Server.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The version of the scout component on the server.
-        :param 'VersionDetailsResponseArgs' agent_version_details: Agent version details.
-        :param Sequence['DataStoreResponseArgs'] data_stores: The list of data stores in the fabric.
+        :param 'VersionDetailsResponse' agent_version_details: Agent version details.
+        :param Sequence['DataStoreResponse'] data_stores: The list of data stores in the fabric.
         :param int disk_count: Disk count of the master target.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: Health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: Health errors.
         :param str id: The server Id.
         :param str ip_address: The IP address of the server.
         :param str last_heartbeat: The last heartbeat received from the server.
         :param str mars_agent_expiry_date: MARS agent expiry date.
         :param str mars_agent_version: MARS agent version.
-        :param 'VersionDetailsResponseArgs' mars_agent_version_details: Mars agent version details.
+        :param 'VersionDetailsResponse' mars_agent_version_details: Mars agent version details.
         :param str name: The server name.
         :param str os_type: The OS type of the server.
         :param str os_version: OS Version of the master target.
-        :param Sequence['RetentionVolumeResponseArgs'] retention_volumes: The retention volumes of Master target Server.
-        :param Sequence['HealthErrorResponseArgs'] validation_errors: Validation errors.
+        :param Sequence['RetentionVolumeResponse'] retention_volumes: The retention volumes of Master target Server.
+        :param Sequence['HealthErrorResponse'] validation_errors: Validation errors.
         :param str version_status: Version status
         """
         if agent_expiry_date is not None:
@@ -15171,9 +15171,9 @@ class MigrationItemPropertiesResponse(dict):
         """
         Migration item properties.
         :param Sequence[str] allowed_operations: The allowed operations on the migration item, based on the current migration state of the item.
-        :param 'CurrentJobDetailsResponseArgs' current_job: The current job details.
+        :param 'CurrentJobDetailsResponse' current_job: The current job details.
         :param str health: The consolidated health.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The list of health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The list of health errors.
         :param str machine_name: The on-premise virtual machine name.
         :param str migration_state: The migration status.
         :param str migration_state_description: The migration state description.
@@ -15182,7 +15182,7 @@ class MigrationItemPropertiesResponse(dict):
         :param str recovery_services_provider_id: The recovery services provider ARM Id.
         :param str test_migrate_state: The test migrate state.
         :param str test_migrate_state_description: The test migrate state description.
-        :param 'VMwareCbtMigrationDetailsResponseArgs' provider_specific_details: The migration provider custom settings.
+        :param 'VMwareCbtMigrationDetailsResponse' provider_specific_details: The migration provider custom settings.
         """
         pulumi.set(__self__, "allowed_operations", allowed_operations)
         pulumi.set(__self__, "current_job", current_job)
@@ -15370,10 +15370,10 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Monthly retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for monthly retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
+        :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for monthly retention policy.
         :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for monthly retention policy.
+        :param 'WeeklyRetentionFormatResponse' retention_schedule_weekly: Weekly retention format for monthly retention policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if retention_duration is not None:
@@ -15448,7 +15448,7 @@ class NetworkMappingPropertiesResponse(dict):
                  state: Optional[str] = None):
         """
         Network Mapping Properties.
-        :param Union['AzureToAzureNetworkMappingSettingsResponseArgs', 'VmmToAzureNetworkMappingSettingsResponseArgs', 'VmmToVmmNetworkMappingSettingsResponseArgs'] fabric_specific_settings: The fabric specific settings.
+        :param Union['AzureToAzureNetworkMappingSettingsResponse', 'VmmToAzureNetworkMappingSettingsResponse', 'VmmToVmmNetworkMappingSettingsResponse'] fabric_specific_settings: The fabric specific settings.
         :param str primary_fabric_friendly_name: The primary fabric friendly name.
         :param str primary_network_friendly_name: The primary network friendly name.
         :param str primary_network_id: The primary network id for network mapping.
@@ -15700,7 +15700,7 @@ class PolicyPropertiesResponse(dict):
         """
         Protection profile custom data details.
         :param str friendly_name: The FriendlyName.
-        :param Union['A2APolicyDetailsResponseArgs', 'HyperVReplicaAzurePolicyDetailsResponseArgs', 'HyperVReplicaBasePolicyDetailsResponseArgs', 'HyperVReplicaBluePolicyDetailsResponseArgs', 'HyperVReplicaPolicyDetailsResponseArgs', 'InMageAzureV2PolicyDetailsResponseArgs', 'InMageBasePolicyDetailsResponseArgs', 'InMagePolicyDetailsResponseArgs', 'InMageRcmPolicyDetailsResponseArgs', 'RcmAzureMigrationPolicyDetailsResponseArgs', 'VmwareCbtPolicyDetailsResponseArgs'] provider_specific_details: The ReplicationChannelSetting.
+        :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'InMageRcmPolicyDetailsResponse', 'RcmAzureMigrationPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
         """
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
@@ -15738,8 +15738,8 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Private Endpoint Connection Response Properties
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
         if private_endpoint is not None:
@@ -15788,7 +15788,7 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
         """
         Information to be stored in Vault properties as an element of privateEndpointConnections List.
         :param str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
-        :param 'VaultPrivateEndpointConnectionResponseArgs' properties: Private Endpoint Connection Response Properties.
+        :param 'VaultPrivateEndpointConnectionResponse' properties: Private Endpoint Connection Response Properties.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)
@@ -15918,7 +15918,7 @@ class ProcessServerDetailsResponse(dict):
         :param float available_space_in_bytes: The available disk space.
         :param float free_space_percentage: The free disk space percentage.
         :param str health: The health of the process server.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str historic_health: The historic health of the process server based on the health in last 24 hours.
         :param str id: The process server Id.
         :param str last_heartbeat_utc: The last heartbeat received from the process server.
@@ -16154,20 +16154,20 @@ class ProcessServerResponse(dict):
         :param float throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The version of the scout component on the server.
-        :param 'VersionDetailsResponseArgs' agent_version_details: The agent version details.
+        :param 'VersionDetailsResponse' agent_version_details: The agent version details.
         :param float available_memory_in_bytes: The available memory.
         :param float available_space_in_bytes: The available space.
         :param str cpu_load: The percentage of the CPU load.
         :param str cpu_load_status: The CPU load status.
         :param str friendly_name: The Process Server's friendly name.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: Health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: Health errors.
         :param str host_id: The agent generated Id.
         :param str id: The Process Server Id.
         :param str ip_address: The IP address of the server.
         :param str last_heartbeat: The last heartbeat received from the server.
         :param str machine_count: The servers configured with this PS.
         :param str memory_usage_status: The memory usage status.
-        :param Sequence['MobilityServiceUpdateResponseArgs'] mobility_service_updates: The list of the mobility service updates available on the Process Server.
+        :param Sequence['MobilityServiceUpdateResponse'] mobility_service_updates: The list of the mobility service updates available on the Process Server.
         :param str os_type: The OS type of the server.
         :param str os_version: OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
         :param str ps_service_status: The PS service status.
@@ -16558,10 +16558,10 @@ class ProtectionContainerMappingPropertiesResponse(dict):
         """
         Protection container mapping properties.
         :param str health: Health of pairing.
-        :param Sequence['HealthErrorResponseArgs'] health_error_details: Health error.
+        :param Sequence['HealthErrorResponse'] health_error_details: Health error.
         :param str policy_friendly_name: Friendly name of replication policy.
         :param str policy_id: Policy ARM Id.
-        :param Union['A2AProtectionContainerMappingDetailsResponseArgs', 'VMwareCbtProtectionContainerMappingDetailsResponseArgs'] provider_specific_details: Provider specific provider details.
+        :param Union['A2AProtectionContainerMappingDetailsResponse', 'VMwareCbtProtectionContainerMappingDetailsResponse'] provider_specific_details: Provider specific provider details.
         :param str source_fabric_friendly_name: Friendly name of source fabric.
         :param str source_protection_container_friendly_name: Friendly name of source protection container.
         :param str state: Association Status
@@ -16699,7 +16699,7 @@ class PushInstallerDetailsResponse(dict):
         """
         Push installer details.
         :param str health: The health of the push installer.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The push installer Id.
         :param str last_heartbeat_utc: The last heartbeat received from the push installer.
         :param str name: The push installer name.
@@ -16866,7 +16866,7 @@ class RcmProxyDetailsResponse(dict):
         """
         RCM proxy details.
         :param str health: The health of the RCM proxy.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The RCM proxy Id.
         :param str last_heartbeat_utc: The last heartbeat received from the RCM proxy.
         :param str name: The RCM proxy name.
@@ -16995,7 +16995,7 @@ class RecoveryPlanActionResponse(dict):
         """
         Recovery plan action details.
         :param str action_name: The action name.
-        :param Union['RecoveryPlanAutomationRunbookActionDetailsResponseArgs', 'RecoveryPlanManualActionDetailsResponseArgs', 'RecoveryPlanScriptActionDetailsResponseArgs'] custom_details: The custom details.
+        :param Union['RecoveryPlanAutomationRunbookActionDetailsResponse', 'RecoveryPlanManualActionDetailsResponse', 'RecoveryPlanScriptActionDetailsResponse'] custom_details: The custom details.
         :param Sequence[str] failover_directions: The list of failover directions.
         :param Sequence[str] failover_types: The list of failover types.
         """
@@ -17115,9 +17115,9 @@ class RecoveryPlanGroupResponse(dict):
         """
         Recovery plan group details.
         :param str group_type: The group type.
-        :param Sequence['RecoveryPlanActionResponseArgs'] end_group_actions: The end group actions.
-        :param Sequence['RecoveryPlanProtectedItemResponseArgs'] replication_protected_items: The list of protected items.
-        :param Sequence['RecoveryPlanActionResponseArgs'] start_group_actions: The start group actions.
+        :param Sequence['RecoveryPlanActionResponse'] end_group_actions: The end group actions.
+        :param Sequence['RecoveryPlanProtectedItemResponse'] replication_protected_items: The list of protected items.
+        :param Sequence['RecoveryPlanActionResponse'] start_group_actions: The start group actions.
         """
         pulumi.set(__self__, "group_type", group_type)
         if end_group_actions is not None:
@@ -17226,14 +17226,14 @@ class RecoveryPlanPropertiesResponse(dict):
                  replication_providers: Optional[Sequence[str]] = None):
         """
         Recovery plan custom details.
-        :param Sequence['RecoveryPlanA2ADetailsResponseArgs'] provider_specific_details: The provider id and provider specific details.
+        :param Sequence['RecoveryPlanA2ADetailsResponse'] provider_specific_details: The provider id and provider specific details.
         :param Sequence[str] allowed_operations: The list of allowed operations.
-        :param 'CurrentScenarioDetailsResponseArgs' current_scenario: The current scenario details.
+        :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario details.
         :param str current_scenario_status: The recovery plan status.
         :param str current_scenario_status_description: The recovery plan status description.
         :param str failover_deployment_model: The failover deployment model.
         :param str friendly_name: The friendly name.
-        :param Sequence['RecoveryPlanGroupResponseArgs'] groups: The recovery plan groups.
+        :param Sequence['RecoveryPlanGroupResponse'] groups: The recovery plan groups.
         :param str last_planned_failover_time: The start time of the last planned failover.
         :param str last_test_failover_time: The start time of the last test failover.
         :param str last_unplanned_failover_time: The start time of the last unplanned failover.
@@ -17531,20 +17531,20 @@ class RecoveryServicesProviderPropertiesResponse(dict):
         """
         Recovery services provider properties.
         :param Sequence[str] allowed_scenarios: The scenarios allowed on this provider.
-        :param 'IdentityProviderDetailsResponseArgs' authentication_identity_details: The authentication identity details.
+        :param 'IdentityProviderDetailsResponse' authentication_identity_details: The authentication identity details.
         :param str connection_status: A value indicating whether DRA is responsive.
         :param str dra_identifier: The DRA Id.
         :param str fabric_friendly_name: The fabric friendly name.
         :param str fabric_type: Type of the site.
         :param str friendly_name: Friendly name of the DRA.
-        :param Sequence['HealthErrorResponseArgs'] health_error_details: The recovery services provider health error details.
+        :param Sequence['HealthErrorResponse'] health_error_details: The recovery services provider health error details.
         :param str last_heart_beat: Time when last heartbeat was sent by the DRA.
         :param int protected_item_count: Number of protected VMs currently managed by the DRA.
         :param str provider_version: The provider version.
-        :param 'VersionDetailsResponseArgs' provider_version_details: The provider version details.
+        :param 'VersionDetailsResponse' provider_version_details: The provider version details.
         :param str provider_version_expiry_date: Expiry date of the version.
         :param str provider_version_state: DRA version status.
-        :param 'IdentityProviderDetailsResponseArgs' resource_access_identity_details: The resource access identity details.
+        :param 'IdentityProviderDetailsResponse' resource_access_identity_details: The resource access identity details.
         :param str server_version: The fabric provider.
         """
         if allowed_scenarios is not None:
@@ -17727,7 +17727,7 @@ class ReplicationAgentDetailsResponse(dict):
         """
         Replication agent details.
         :param str health: The health of the replication agent.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The replication agent Id.
         :param str last_heartbeat_utc: The last heartbeat received from the replication agent.
         :param str name: The replication agent name.
@@ -17829,11 +17829,11 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         Replication protected item custom data details.
         :param str active_location: The Current active location of the PE.
         :param Sequence[str] allowed_operations: The allowed operations on the Replication protected item.
-        :param 'CurrentScenarioDetailsResponseArgs' current_scenario: The current scenario.
+        :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario.
         :param str failover_health: The consolidated failover health for the VM.
         :param str failover_recovery_point_id: The recovery point ARM Id to which the Vm was failed over.
         :param str friendly_name: The name.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: List of health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: List of health errors.
         :param str last_successful_failover_time: The Last successful failover time.
         :param str last_successful_test_failover_time: The Last successful test failover time.
         :param str policy_friendly_name: The name of Policy governing this PE.
@@ -17845,7 +17845,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str protected_item_type: The type of protected item type.
         :param str protection_state: The protection status.
         :param str protection_state_description: The protection state description.
-        :param Union['A2AReplicationDetailsResponseArgs', 'HyperVReplicaAzureReplicationDetailsResponseArgs', 'HyperVReplicaBaseReplicationDetailsResponseArgs', 'HyperVReplicaBlueReplicationDetailsResponseArgs', 'HyperVReplicaReplicationDetailsResponseArgs', 'InMageAzureV2ReplicationDetailsResponseArgs', 'InMageRcmReplicationDetailsResponseArgs', 'InMageReplicationDetailsResponseArgs'] provider_specific_details: The Replication provider custom settings.
+        :param Union['A2AReplicationDetailsResponse', 'HyperVReplicaAzureReplicationDetailsResponse', 'HyperVReplicaBaseReplicationDetailsResponse', 'HyperVReplicaBlueReplicationDetailsResponse', 'HyperVReplicaReplicationDetailsResponse', 'InMageAzureV2ReplicationDetailsResponse', 'InMageRcmReplicationDetailsResponse', 'InMageReplicationDetailsResponse'] provider_specific_details: The Replication provider custom settings.
         :param str recovery_container_id: The recovery container Id.
         :param str recovery_fabric_friendly_name: The friendly name of recovery fabric.
         :param str recovery_fabric_id: The Arm Id of recovery fabric.
@@ -18145,7 +18145,7 @@ class ReprotectAgentDetailsResponse(dict):
         """
         Reprotect agent details.
         :param str health: The health of the reprotect agent.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The reprotect agent Id.
         :param str last_heartbeat_utc: The last heartbeat received from the reprotect agent.
         :param str name: The reprotect agent name.
@@ -18528,7 +18528,7 @@ class SimpleRetentionPolicyResponse(dict):
         Simple policy retention.
         :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleRetentionPolicy'.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the protection policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of the protection policy.
         """
         pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
         if retention_duration is not None:
@@ -18705,8 +18705,8 @@ class SubProtectionPolicyResponse(dict):
         """
         Sub-protection policy which includes schedule and retention
         :param str policy_type: Type of backup policy type
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
         """
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
@@ -19000,7 +19000,7 @@ class VCenterPropertiesResponse(dict):
         :param str discovery_status: The VCenter discovery status.
         :param str fabric_arm_resource_name: The ARM resource name of the fabric containing this VCenter.
         :param str friendly_name: Friendly name of the vCenter.
-        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors for this VCenter.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors for this VCenter.
         :param str infrastructure_id: The infrastructure Id of vCenter.
         :param str internal_id: VCenter internal ID.
         :param str ip_address: The IP address of the vCenter.
@@ -19177,7 +19177,7 @@ class VMNicDetailsResponse(dict):
         :param bool reuse_existing_nic: A value indicating whether an existing NIC is allowed to be reused during failover subject to availability.
         :param str selection_type: Selection type for failover.
         :param str source_nic_arm_id: The source nic ARM Id.
-        :param Sequence['IPConfigResponseArgs'] tfo_ip_configs: The IP configurations to be used by NIC during test failover.
+        :param Sequence['IPConfigResponse'] tfo_ip_configs: The IP configurations to be used by NIC during test failover.
         :param str tfo_network_security_group_id: The NSG to be used by NIC during test failover.
         :param str tfo_recovery_nic_name: The name of the NIC to be used when creating target NICs in TFO.
         :param str tfo_recovery_nic_resource_group_name: The resource group of the NIC to be used when creating target NICs in TFO.
@@ -19501,14 +19501,14 @@ class VMwareCbtMigrationDetailsResponse(dict):
         :param str target_location: The target location.
         :param str vmware_machine_id: The ARM Id of the VM discovered in VMware.
         :param str license_type: License Type of the VM to be used.
-        :param Sequence['VMwareCbtProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['VMwareCbtProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param str target_availability_set_id: The target availability set Id.
         :param str target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
         :param str target_network_id: The target network Id.
         :param str target_resource_group_id: The target resource group Id.
         :param str target_vm_name: Target VM name.
         :param str target_vm_size: The target VM size.
-        :param Sequence['VMwareCbtNicDetailsResponseArgs'] vm_nics: The network details.
+        :param Sequence['VMwareCbtNicDetailsResponse'] vm_nics: The network details.
         """
         pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
         pulumi.set(__self__, "instance_type", 'VMwareCbt')
@@ -20060,7 +20060,7 @@ class VMwareDetailsResponse(dict):
         :param str agent_count: The number of source and target servers configured to talk to this CS.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent Version.
-        :param 'VersionDetailsResponseArgs' agent_version_details: The agent version details.
+        :param 'VersionDetailsResponse' agent_version_details: The agent version details.
         :param float available_memory_in_bytes: The available memory.
         :param float available_space_in_bytes: The available space.
         :param str cpu_load: The percentage of the CPU load.
@@ -20071,14 +20071,14 @@ class VMwareDetailsResponse(dict):
         :param str host_name: The host name.
         :param str ip_address: The IP address.
         :param str last_heartbeat: The last heartbeat received from CS server.
-        :param Sequence['MasterTargetServerResponseArgs'] master_target_servers: The list of Master Target servers associated with the fabric.
+        :param Sequence['MasterTargetServerResponse'] master_target_servers: The list of Master Target servers associated with the fabric.
         :param str memory_usage_status: The memory usage status.
         :param str process_server_count: The number of process servers.
-        :param Sequence['ProcessServerResponseArgs'] process_servers: The list of Process Servers associated with the fabric.
+        :param Sequence['ProcessServerResponse'] process_servers: The list of Process Servers associated with the fabric.
         :param str protected_servers: The number of protected servers.
         :param str ps_template_version: PS template version.
         :param str replication_pair_count: The number of replication pairs configured in this CS.
-        :param Sequence['RunAsAccountResponseArgs'] run_as_accounts: The list of run as accounts created on the server.
+        :param Sequence['RunAsAccountResponse'] run_as_accounts: The list of run as accounts created on the server.
         :param str space_usage_status: The space usage status.
         :param str ssl_cert_expiry_date: CS SSL cert expiry date.
         :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
@@ -20507,8 +20507,8 @@ class VaultPrivateEndpointConnectionResponse(dict):
                  provisioning_state: str):
         """
         Private Endpoint Connection Response Properties.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
-        :param 'VaultPrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state.
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         """
         pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -20604,12 +20604,12 @@ class VaultPropertiesResponse(dict):
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
-        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
+        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponse'] private_endpoint_connections: List of private endpoint connection.
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
-        :param 'VaultPropertiesResponseEncryptionArgs' encryption: Customer Managed Key details of the resource.
-        :param 'UpgradeDetailsResponseArgs' upgrade_details: Details for upgrading vault.
+        :param 'VaultPropertiesResponseEncryption' encryption: Customer Managed Key details of the resource.
+        :param 'UpgradeDetailsResponse' upgrade_details: Details for upgrading vault.
         """
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
@@ -20684,8 +20684,8 @@ class VaultPropertiesResponseEncryption(dict):
         """
         Customer Managed Key details of the resource.
         :param str infrastructure_encryption: Enabling/Disabling the Double Encryption state
-        :param 'CmkKekIdentityResponseArgs' kek_identity: The details of the identity used for CMK
-        :param 'CmkKeyVaultPropertiesResponseArgs' key_vault_properties: The properties of the Key Vault which hosts CMK
+        :param 'CmkKekIdentityResponse' kek_identity: The details of the identity used for CMK
+        :param 'CmkKeyVaultPropertiesResponse' key_vault_properties: The properties of the Key Vault which hosts CMK
         """
         if infrastructure_encryption is not None:
             pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
@@ -20966,7 +20966,7 @@ class WeeklyRetentionScheduleResponse(dict):
         """
         Weekly retention schedule.
         :param Sequence[str] days_of_the_week: List of days of week for weekly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if days_of_the_week is not None:
@@ -21015,7 +21015,7 @@ class WorkloadInquiryDetailsResponse(dict):
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
-        :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
+        :param 'InquiryValidationResponse' inquiry_validation: Inquiry validation such as permissions and other backup validations.
         :param float item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
@@ -21069,10 +21069,10 @@ class YearlyRetentionScheduleResponse(dict):
         """
         Yearly retention schedule.
         :param Sequence[str] months_of_year: List of months of year of yearly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for yearly retention policy.
+        :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
+        :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for yearly retention policy.
         :param str retention_schedule_format_type: Retention schedule format for yearly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for yearly retention policy.
+        :param 'WeeklyRetentionFormatResponse' retention_schedule_weekly: Weekly retention format for yearly retention policy.
         :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if months_of_year is not None:

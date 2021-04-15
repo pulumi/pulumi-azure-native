@@ -50,7 +50,7 @@ class GetLogAnalyticExportThrottledRequestsResult:
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ApiErrorResponseResult':
+    def error(self) -> 'outputs.ApiErrorResponse':
         """
         Api error
         """
@@ -66,7 +66,7 @@ class GetLogAnalyticExportThrottledRequestsResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.LogAnalyticsOutputResponseResult':
+    def properties(self) -> 'outputs.LogAnalyticsOutputResponse':
         """
         LogAnalyticsOutput
         """

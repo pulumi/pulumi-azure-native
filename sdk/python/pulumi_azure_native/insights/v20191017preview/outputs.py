@@ -35,8 +35,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: Azure resource name
         :param str provisioning_state: State of the private endpoint connection.
         :param str type: Azure resource type
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -256,7 +256,7 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
                  template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
-        :param Sequence['WorkbookTemplateGalleryResponseArgs'] galleries: Workbook galleries supported by the template.
+        :param Sequence['WorkbookTemplateGalleryResponse'] galleries: Workbook galleries supported by the template.
         :param Any template_data: Valid JSON object containing workbook template payload.
         """
         if galleries is not None:

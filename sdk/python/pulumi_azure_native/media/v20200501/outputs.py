@@ -16,8 +16,8 @@ __all__ = [
     'AccountEncryptionResponse',
     'AkamaiAccessControlResponse',
     'AkamaiSignatureHeaderAuthenticationKeyResponse',
-    'AssetFileEncryptionMetadataResponseResult',
-    'AssetStreamingLocatorResponseResult',
+    'AssetFileEncryptionMetadataResponse',
+    'AssetStreamingLocatorResponse',
     'AudioAnalyzerPresetResponse',
     'AudioOverlayResponse',
     'AudioResponse',
@@ -51,8 +51,8 @@ __all__ = [
     'CrossSiteAccessPoliciesResponse',
     'DefaultKeyResponse',
     'DeinterlaceResponse',
-    'EdgeUsageDataCollectionPolicyResponseResult',
-    'EdgeUsageDataEventHubResponseResult',
+    'EdgeUsageDataCollectionPolicyResponse',
+    'EdgeUsageDataEventHubResponse',
     'EnabledProtocolsResponse',
     'EnvelopeEncryptionResponse',
     'FaceDetectorPresetResponse',
@@ -113,7 +113,7 @@ __all__ = [
     'StorageAccountResponse',
     'StreamingEndpointAccessControlResponse',
     'StreamingLocatorContentKeyResponse',
-    'StreamingPathResponseResult',
+    'StreamingPathResponse',
     'StreamingPolicyContentKeyResponse',
     'StreamingPolicyContentKeysResponse',
     'StreamingPolicyFairPlayConfigurationResponse',
@@ -263,7 +263,7 @@ class AccountEncryptionResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         :param str type: The type of key used to encrypt the Account Key.
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: The properties of the key used to encrypt the account.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: The properties of the key used to encrypt the account.
         """
         pulumi.set(__self__, "type", type)
         if key_vault_properties is not None:
@@ -298,7 +298,7 @@ class AkamaiAccessControlResponse(dict):
                  akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
         """
         Akamai access control
-        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
@@ -366,7 +366,7 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
 
 
 @pulumi.output_type
-class AssetFileEncryptionMetadataResponseResult(dict):
+class AssetFileEncryptionMetadataResponse(dict):
     """
     The Asset File Storage encryption metadata.
     """
@@ -412,7 +412,7 @@ class AssetFileEncryptionMetadataResponseResult(dict):
 
 
 @pulumi.output_type
-class AssetStreamingLocatorResponseResult(dict):
+class AssetStreamingLocatorResponse(dict):
     """
     Properties of the Streaming Locator.
     """
@@ -834,9 +834,9 @@ class CbcsDrmConfigurationResponse(dict):
                  widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None):
         """
         Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
-        :param 'StreamingPolicyFairPlayConfigurationResponseArgs' fair_play: FairPlay configurations
-        :param 'StreamingPolicyPlayReadyConfigurationResponseArgs' play_ready: PlayReady configurations
-        :param 'StreamingPolicyWidevineConfigurationResponseArgs' widevine: Widevine configurations
+        :param 'StreamingPolicyFairPlayConfigurationResponse' fair_play: FairPlay configurations
+        :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
+        :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
         """
         if fair_play is not None:
             pulumi.set(__self__, "fair_play", fair_play)
@@ -883,8 +883,8 @@ class CencDrmConfigurationResponse(dict):
                  widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None):
         """
         Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
-        :param 'StreamingPolicyPlayReadyConfigurationResponseArgs' play_ready: PlayReady configurations
-        :param 'StreamingPolicyWidevineConfigurationResponseArgs' widevine: Widevine configurations
+        :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
+        :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
         """
         if play_ready is not None:
             pulumi.set(__self__, "play_ready", play_ready)
@@ -923,10 +923,10 @@ class CommonEncryptionCbcsResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for CommonEncryptionCbcs encryption scheme
-        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
-        :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
-        :param 'CbcsDrmConfigurationResponseArgs' drm: Configuration of DRMs for current encryption scheme
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param 'CbcsDrmConfigurationResponse' drm: Configuration of DRMs for current encryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if clear_tracks is not None:
             pulumi.set(__self__, "clear_tracks", clear_tracks)
@@ -985,10 +985,10 @@ class CommonEncryptionCencResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for envelope encryption scheme
-        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
-        :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
-        :param 'CencDrmConfigurationResponseArgs' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param 'CencDrmConfigurationResponse' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if clear_tracks is not None:
             pulumi.set(__self__, "clear_tracks", clear_tracks)
@@ -1084,7 +1084,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
                Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
         :param str rental_and_lease_key_type: The rental and lease key type.
         :param float rental_duration: The rental duration. Must be greater than or equal to 0.
-        :param 'ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseArgs' offline_rental_configuration: Offline rental policy
+        :param 'ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse' offline_rental_configuration: Offline rental policy
         """
         pulumi.set(__self__, "ask", ask)
         pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
@@ -1227,9 +1227,9 @@ class ContentKeyPolicyOptionResponse(dict):
                  name: Optional[str] = None):
         """
         Represents a policy option.
-        :param Union['ContentKeyPolicyClearKeyConfigurationResponseArgs', 'ContentKeyPolicyFairPlayConfigurationResponseArgs', 'ContentKeyPolicyPlayReadyConfigurationResponseArgs', 'ContentKeyPolicyUnknownConfigurationResponseArgs', 'ContentKeyPolicyWidevineConfigurationResponseArgs'] configuration: The key delivery configuration.
+        :param Union['ContentKeyPolicyClearKeyConfigurationResponse', 'ContentKeyPolicyFairPlayConfigurationResponse', 'ContentKeyPolicyPlayReadyConfigurationResponse', 'ContentKeyPolicyUnknownConfigurationResponse', 'ContentKeyPolicyWidevineConfigurationResponse'] configuration: The key delivery configuration.
         :param str policy_option_id: The legacy Policy Option ID.
-        :param Union['ContentKeyPolicyOpenRestrictionResponseArgs', 'ContentKeyPolicyTokenRestrictionResponseArgs', 'ContentKeyPolicyUnknownRestrictionResponseArgs'] restriction: The requirements that must be met to deliver keys with this configuration
+        :param Union['ContentKeyPolicyOpenRestrictionResponse', 'ContentKeyPolicyTokenRestrictionResponse', 'ContentKeyPolicyUnknownRestrictionResponse'] restriction: The requirements that must be met to deliver keys with this configuration
         :param str name: The Policy Option description.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -1285,7 +1285,7 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
                  response_custom_data: Optional[str] = None):
         """
         Specifies a configuration for PlayReady licenses.
-        :param Sequence['ContentKeyPolicyPlayReadyLicenseResponseArgs'] licenses: The PlayReady licenses.
+        :param Sequence['ContentKeyPolicyPlayReadyLicenseResponse'] licenses: The PlayReady licenses.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         :param str response_custom_data: The custom response data.
@@ -1444,13 +1444,13 @@ class ContentKeyPolicyPlayReadyLicenseResponse(dict):
         """
         The PlayReady license
         :param bool allow_test_devices: A flag indicating whether test devices can use the license.
-        :param Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseArgs', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseArgs'] content_key_location: The content key location.
+        :param Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse'] content_key_location: The content key location.
         :param str content_type: The PlayReady content type.
         :param str license_type: The license type.
         :param str begin_date: The begin date of license
         :param str expiration_date: The expiration date of license.
         :param str grace_period: The grace period of license.
-        :param 'ContentKeyPolicyPlayReadyPlayRightResponseArgs' play_right: The license PlayRight
+        :param 'ContentKeyPolicyPlayReadyPlayRightResponse' play_right: The license PlayRight
         :param str relative_begin_date: The relative begin date of license.
         :param str relative_expiration_date: The relative expiration date of license.
         """
@@ -1584,7 +1584,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
         :param int analog_video_opl: Specifies the output protection level for compressed digital audio.
         :param int compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.
         :param int compressed_digital_video_opl: Specifies the output protection level for compressed digital video.
-        :param 'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs' explicit_analog_television_output_restriction: Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+        :param 'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse' explicit_analog_television_output_restriction: Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
         :param str first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
         :param int scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
         :param int uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
@@ -1866,11 +1866,11 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
         :param str issuer: The token issuer.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
-        :param Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs'] primary_verification_key: The primary verification key.
+        :param Union['ContentKeyPolicyRsaTokenKeyResponse', 'ContentKeyPolicySymmetricTokenKeyResponse', 'ContentKeyPolicyX509CertificateTokenKeyResponse'] primary_verification_key: The primary verification key.
         :param str restriction_token_type: The type of token.
-        :param Sequence[Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs']] alternate_verification_keys: A list of alternative verification keys.
+        :param Sequence[Union['ContentKeyPolicyRsaTokenKeyResponse', 'ContentKeyPolicySymmetricTokenKeyResponse', 'ContentKeyPolicyX509CertificateTokenKeyResponse']] alternate_verification_keys: A list of alternative verification keys.
         :param str open_id_connect_discovery_document: The OpenID connect discovery document.
-        :param Sequence['ContentKeyPolicyTokenClaimResponseArgs'] required_claims: A list of required token claims.
+        :param Sequence['ContentKeyPolicyTokenClaimResponse'] required_claims: A list of required token claims.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "issuer", issuer)
@@ -2276,16 +2276,16 @@ class DeinterlaceResponse(dict):
 
 
 @pulumi.output_type
-class EdgeUsageDataCollectionPolicyResponseResult(dict):
+class EdgeUsageDataCollectionPolicyResponse(dict):
     def __init__(__self__, *,
                  data_collection_frequency: Optional[str] = None,
                  data_reporting_frequency: Optional[str] = None,
-                 event_hub_details: Optional['outputs.EdgeUsageDataEventHubResponseResult'] = None,
+                 event_hub_details: Optional['outputs.EdgeUsageDataEventHubResponse'] = None,
                  max_allowed_unreported_usage_duration: Optional[str] = None):
         """
         :param str data_collection_frequency: Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
         :param str data_reporting_frequency: Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-        :param 'EdgeUsageDataEventHubResponseArgs' event_hub_details: Details of Event Hub where the usage will be reported.
+        :param 'EdgeUsageDataEventHubResponse' event_hub_details: Details of Event Hub where the usage will be reported.
         :param str max_allowed_unreported_usage_duration: Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
         """
         if data_collection_frequency is not None:
@@ -2315,7 +2315,7 @@ class EdgeUsageDataCollectionPolicyResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventHubDetails")
-    def event_hub_details(self) -> Optional['outputs.EdgeUsageDataEventHubResponseResult']:
+    def event_hub_details(self) -> Optional['outputs.EdgeUsageDataEventHubResponse']:
         """
         Details of Event Hub where the usage will be reported.
         """
@@ -2331,7 +2331,7 @@ class EdgeUsageDataCollectionPolicyResponseResult(dict):
 
 
 @pulumi.output_type
-class EdgeUsageDataEventHubResponseResult(dict):
+class EdgeUsageDataEventHubResponse(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  namespace: Optional[str] = None,
@@ -2443,10 +2443,10 @@ class EnvelopeEncryptionResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for EnvelopeEncryption encryption scheme
-        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
-        :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
         :param str custom_key_acquisition_url_template: Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if clear_tracks is not None:
             pulumi.set(__self__, "clear_tracks", clear_tracks)
@@ -2624,7 +2624,7 @@ class FilterTrackSelectionResponse(dict):
                  track_selections: Sequence['outputs.FilterTrackPropertyConditionResponse']):
         """
         Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
-        :param Sequence['FilterTrackPropertyConditionResponseArgs'] track_selections: The track selections.
+        :param Sequence['FilterTrackPropertyConditionResponse'] track_selections: The track selections.
         """
         pulumi.set(__self__, "track_selections", track_selections)
 
@@ -2652,9 +2652,9 @@ class FiltersResponse(dict):
                  rotation: Optional[str] = None):
         """
         Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
-        :param 'RectangleResponseArgs' crop: The parameters for the rectangular window with which to crop the input video.
-        :param 'DeinterlaceResponseArgs' deinterlace: The de-interlacing settings.
-        :param Sequence[Union['AudioOverlayResponseArgs', 'VideoOverlayResponseArgs']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+        :param 'RectangleResponse' crop: The parameters for the rectangular window with which to crop the input video.
+        :param 'DeinterlaceResponse' deinterlace: The de-interlacing settings.
+        :param Sequence[Union['AudioOverlayResponse', 'VideoOverlayResponse']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         :param str rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
         if crop is not None:
@@ -2739,7 +2739,7 @@ class FromAllInputFileResponse(dict):
         An InputDefinition that looks across all of the files provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to allow selection of a single track across a set of input files.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.FromAllInputFile'.
-        :param Sequence[Union['AudioTrackDescriptorResponseArgs', 'SelectAudioTrackByAttributeResponseArgs', 'SelectAudioTrackByIdResponseArgs', 'SelectVideoTrackByAttributeResponseArgs', 'SelectVideoTrackByIdResponseArgs', 'VideoTrackDescriptorResponseArgs']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        :param Sequence[Union['AudioTrackDescriptorResponse', 'SelectAudioTrackByAttributeResponse', 'SelectAudioTrackByIdResponse', 'SelectVideoTrackByAttributeResponse', 'SelectVideoTrackByIdResponse', 'VideoTrackDescriptorResponse']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromAllInputFile')
         if included_tracks is not None:
@@ -2778,7 +2778,7 @@ class FromEachInputFileResponse(dict):
         An InputDefinition that looks at each input file provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to select tracks from each file given.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.FromEachInputFile'.
-        :param Sequence[Union['AudioTrackDescriptorResponseArgs', 'SelectAudioTrackByAttributeResponseArgs', 'SelectAudioTrackByIdResponseArgs', 'SelectVideoTrackByAttributeResponseArgs', 'SelectVideoTrackByIdResponseArgs', 'VideoTrackDescriptorResponseArgs']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        :param Sequence[Union['AudioTrackDescriptorResponse', 'SelectAudioTrackByAttributeResponse', 'SelectAudioTrackByIdResponse', 'SelectVideoTrackByAttributeResponse', 'SelectVideoTrackByIdResponse', 'VideoTrackDescriptorResponse']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromEachInputFile')
         if included_tracks is not None:
@@ -3020,7 +3020,7 @@ class H264VideoResponse(dict):
         :param str complexity: Tells the encoder how to choose its encoding settings. The default value is Balanced.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['H264LayerResponseArgs'] layers: The collection of output H.264 layers to be produced by the encoder.
+        :param Sequence['H264LayerResponse'] layers: The collection of output H.264 layers to be produced by the encoder.
         :param bool scene_change_detection: Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
@@ -3313,7 +3313,7 @@ class H265VideoResponse(dict):
         :param str complexity: Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['H265LayerResponseArgs'] layers: The collection of output H.265 layers to be produced by the encoder.
+        :param Sequence['H265LayerResponse'] layers: The collection of output H.265 layers to be produced by the encoder.
         :param bool scene_change_detection: Specifies whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
@@ -3438,7 +3438,7 @@ class IPAccessControlResponse(dict):
                  allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
         """
         The IP access control.
-        :param Sequence['IPRangeResponseArgs'] allow: The IP allow list.
+        :param Sequence['IPRangeResponse'] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -3667,7 +3667,7 @@ class InputFileResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.InputFile'.
         :param str filename: Name of the file that this input definition applies to.
-        :param Sequence[Union['AudioTrackDescriptorResponseArgs', 'SelectAudioTrackByAttributeResponseArgs', 'SelectAudioTrackByIdResponseArgs', 'SelectVideoTrackByAttributeResponseArgs', 'SelectVideoTrackByIdResponseArgs', 'VideoTrackDescriptorResponseArgs']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        :param Sequence[Union['AudioTrackDescriptorResponse', 'SelectAudioTrackByAttributeResponse', 'SelectAudioTrackByIdResponse', 'SelectVideoTrackByAttributeResponse', 'SelectVideoTrackByIdResponse', 'VideoTrackDescriptorResponse']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.InputFile')
         if filename is not None:
@@ -3755,7 +3755,7 @@ class JobErrorResponse(dict):
         Details of JobOutput errors.
         :param str category: Helps with categorization of errors.
         :param str code: Error code describing the error.
-        :param Sequence['JobErrorDetailResponseArgs'] details: An array of details about specific errors that led to this reported error.
+        :param Sequence['JobErrorDetailResponse'] details: An array of details about specific errors that led to this reported error.
         :param str message: A human-readable language-dependent representation of the error.
         :param str retry: Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
         """
@@ -3827,11 +3827,11 @@ class JobInputAssetResponse(dict):
         :param str asset_name: The name of the input Asset.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputClip'.
-        :param Union['AbsoluteClipTimeResponseArgs', 'UtcClipTimeResponseArgs'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+        :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
-        :param Sequence[Union['FromAllInputFileResponseArgs', 'FromEachInputFileResponseArgs', 'InputFileResponseArgs']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        :param Sequence[Union['FromAllInputFileResponse', 'FromEachInputFileResponse', 'InputFileResponse']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-        :param Union['AbsoluteClipTimeResponseArgs', 'UtcClipTimeResponseArgs'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+        :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
         pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
@@ -3923,11 +3923,11 @@ class JobInputClipResponse(dict):
         Represents input files for a Job.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputClip'.
-        :param Union['AbsoluteClipTimeResponseArgs', 'UtcClipTimeResponseArgs'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+        :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
-        :param Sequence[Union['FromAllInputFileResponseArgs', 'FromEachInputFileResponseArgs', 'InputFileResponseArgs']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        :param Sequence[Union['FromAllInputFileResponse', 'FromEachInputFileResponse', 'InputFileResponse']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-        :param Union['AbsoluteClipTimeResponseArgs', 'UtcClipTimeResponseArgs'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+        :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
         if end is not None:
@@ -4012,11 +4012,11 @@ class JobInputHttpResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputClip'.
         :param str base_uri: Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
-        :param Union['AbsoluteClipTimeResponseArgs', 'UtcClipTimeResponseArgs'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+        :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
-        :param Sequence[Union['FromAllInputFileResponseArgs', 'FromEachInputFileResponseArgs', 'InputFileResponseArgs']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        :param Sequence[Union['FromAllInputFileResponse', 'FromEachInputFileResponse', 'InputFileResponse']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-        :param Union['AbsoluteClipTimeResponseArgs', 'UtcClipTimeResponseArgs'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+        :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
         if base_uri is not None:
@@ -4105,7 +4105,7 @@ class JobInputSequenceResponse(dict):
         A Sequence contains an ordered list of Clips where each clip is a JobInput.  The Sequence will be treated as a single input.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputSequence'.
-        :param Sequence['JobInputClipResponseArgs'] inputs: JobInputs that make up the timeline.
+        :param Sequence['JobInputClipResponse'] inputs: JobInputs that make up the timeline.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputSequence')
         if inputs is not None:
@@ -4144,7 +4144,7 @@ class JobInputsResponse(dict):
         Describes a list of inputs to a Job.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputs'.
-        :param Sequence[Union['JobInputAssetResponseArgs', 'JobInputClipResponseArgs', 'JobInputHttpResponseArgs', 'JobInputSequenceResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
+        :param Sequence[Union['JobInputAssetResponse', 'JobInputClipResponse', 'JobInputHttpResponse', 'JobInputSequenceResponse', 'JobInputsResponse']] inputs: List of inputs to a Job.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
         if inputs is not None:
@@ -4189,7 +4189,7 @@ class JobOutputAssetResponse(dict):
         Represents an Asset used as a JobOutput.
         :param str asset_name: The name of the output Asset.
         :param str end_time: The UTC date and time at which this Job Output finished processing.
-        :param 'JobErrorResponseArgs' error: If the JobOutput is in the Error state, it contains the details of the error.
+        :param 'JobErrorResponse' error: If the JobOutput is in the Error state, it contains the details of the error.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobOutputAsset'.
         :param int progress: If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
@@ -4337,7 +4337,7 @@ class JpgImageResponse(dict):
         :param str start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, PT05S to start at 5 seconds), or a frame count (For example, 10 to start at the 10th frame), or a relative value to stream duration (For example, 10% to start at 10% of stream duration). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for Step and Range. The default value is macro {Best}.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['JpgLayerResponseArgs'] layers: A collection of output JPEG image layers to be produced by the encoder.
+        :param Sequence['JpgLayerResponse'] layers: A collection of output JPEG image layers to be produced by the encoder.
         :param str range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, PT5M30S to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, 300 to stop at the 300th frame from the frame at start time. If this value is 1, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, 50% to stop at half of stream duration from start time). The default value is 100%, which means to stop at the end of the stream.
         :param int sprite_column: Sets the number of columns used in thumbnail sprite image.  The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit 65535x65535.
         :param str step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, PT05S for one image every 5 seconds), or a frame count (For example, 30 for one image every 30 frames), or a relative value to stream duration (For example, 10% for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is 10%, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at 1 if only one thumbnail is needed at start time.
@@ -4665,7 +4665,7 @@ class LiveEventInputAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for live event input.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -4696,9 +4696,9 @@ class LiveEventInputResponse(dict):
         """
         The live event input.
         :param str streaming_protocol: The input protocol for the live event. This is specified at creation time and cannot be updated.
-        :param 'LiveEventInputAccessControlResponseArgs' access_control: Access control for live event input.
+        :param 'LiveEventInputAccessControlResponse' access_control: Access control for live event input.
         :param str access_token: A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the live event.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The input endpoints for the live event.
         :param str key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -4839,7 +4839,7 @@ class LiveEventPreviewAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for the live event preview endpoint.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -4869,9 +4869,9 @@ class LiveEventPreviewResponse(dict):
                  streaming_policy_name: Optional[str] = None):
         """
         Live event preview settings.
-        :param 'LiveEventPreviewAccessControlResponseArgs' access_control: The access control for live event preview.
+        :param 'LiveEventPreviewAccessControlResponse' access_control: The access control for live event preview.
         :param str alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview. Do not share the preview URL with the live event audience.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The endpoints for preview. Do not share the preview URL with the live event audience.
         :param str preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
         :param str streaming_policy_name: The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
         """
@@ -4941,9 +4941,9 @@ class LiveEventTranscriptionResponse(dict):
                  output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None):
         """
         Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
-        :param Sequence['LiveEventInputTrackSelectionResponseArgs'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+        :param Sequence['LiveEventInputTrackSelectionResponse'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
         :param str language: Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
-        :param 'LiveEventOutputTranscriptionTrackResponseArgs' output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        :param 'LiveEventOutputTranscriptionTrackResponse' output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         """
         if input_track_selection is not None:
             pulumi.set(__self__, "input_track_selection", input_track_selection)
@@ -5037,7 +5037,7 @@ class Mp4FormatResponse(dict):
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
@@ -5087,7 +5087,7 @@ class MultiBitrateFormatResponse(dict):
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
@@ -5132,7 +5132,7 @@ class NoEncryptionResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for NoEncryption scheme
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if enabled_protocols is not None:
             pulumi.set(__self__, "enabled_protocols", enabled_protocols)
@@ -5234,7 +5234,7 @@ class PngImageResponse(dict):
         :param str start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, PT05S to start at 5 seconds), or a frame count (For example, 10 to start at the 10th frame), or a relative value to stream duration (For example, 10% to start at 10% of stream duration). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for Step and Range. The default value is macro {Best}.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['PngLayerResponseArgs'] layers: A collection of output PNG image layers to be produced by the encoder.
+        :param Sequence['PngLayerResponse'] layers: A collection of output PNG image layers to be produced by the encoder.
         :param str range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, PT5M30S to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, 300 to stop at the 300th frame from the frame at start time. If this value is 1, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, 50% to stop at half of stream duration from start time). The default value is 100%, which means to stop at the end of the stream.
         :param str step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, PT05S for one image every 5 seconds), or a frame count (For example, 30 for one image every 30 frames), or a relative value to stream duration (For example, 10% for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is 10%, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at 1 if only one thumbnail is needed at start time.
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
@@ -5854,11 +5854,11 @@ class StandardEncoderPresetResponse(dict):
                  filters: Optional['outputs.FiltersResponse'] = None):
         """
         Describes all the settings to be used when encoding the input video with the Standard Encoder.
-        :param Sequence[Union['AacAudioResponseArgs', 'AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'H264VideoResponseArgs', 'H265VideoResponseArgs', 'ImageResponseArgs', 'JpgImageResponseArgs', 'PngImageResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
-        :param Sequence[Union['ImageFormatResponseArgs', 'JpgFormatResponseArgs', 'Mp4FormatResponseArgs', 'MultiBitrateFormatResponseArgs', 'PngFormatResponseArgs', 'TransportStreamFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
+        :param Sequence[Union['AacAudioResponse', 'AudioResponse', 'CopyAudioResponse', 'CopyVideoResponse', 'H264VideoResponse', 'H265VideoResponse', 'ImageResponse', 'JpgImageResponse', 'PngImageResponse', 'VideoResponse']] codecs: The list of codecs to be used when encoding the input video.
+        :param Sequence[Union['ImageFormatResponse', 'JpgFormatResponse', 'Mp4FormatResponse', 'MultiBitrateFormatResponse', 'PngFormatResponse', 'TransportStreamFormatResponse']] formats: The list of outputs to be produced by the encoder.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.StandardEncoderPreset'.
-        :param 'FiltersResponseArgs' filters: One or more filtering operations that are applied to the input media before encoding.
+        :param 'FiltersResponse' filters: One or more filtering operations that are applied to the input media before encoding.
         """
         pulumi.set(__self__, "codecs", codecs)
         pulumi.set(__self__, "formats", formats)
@@ -5950,8 +5950,8 @@ class StreamingEndpointAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         Streaming endpoint access control definition.
-        :param 'AkamaiAccessControlResponseArgs' akamai: The access control of Akamai
-        :param 'IPAccessControlResponseArgs' ip: The IP access control of the streaming endpoint.
+        :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
+        :param 'IPAccessControlResponse' ip: The IP access control of the streaming endpoint.
         """
         if akamai is not None:
             pulumi.set(__self__, "akamai", akamai)
@@ -5994,7 +5994,7 @@ class StreamingLocatorContentKeyResponse(dict):
         Class for content key in Streaming Locator
         :param str id: ID of Content Key
         :param str policy_name: ContentKeyPolicy used by Content Key
-        :param Sequence['TrackSelectionResponseArgs'] tracks: Tracks which use this Content Key
+        :param Sequence['TrackSelectionResponse'] tracks: Tracks which use this Content Key
         :param str type: Encryption type of Content Key
         :param str label_reference_in_streaming_policy: Label of Content Key as specified in the Streaming Policy
         :param str value: Value of Content Key
@@ -6061,7 +6061,7 @@ class StreamingLocatorContentKeyResponse(dict):
 
 
 @pulumi.output_type
-class StreamingPathResponseResult(dict):
+class StreamingPathResponse(dict):
     """
     Class of paths for streaming
     """
@@ -6118,7 +6118,7 @@ class StreamingPolicyContentKeyResponse(dict):
         Class to specify properties of content key
         :param str label: Label can be used to specify Content Key when creating a Streaming Locator
         :param str policy_name: Policy used by Content Key
-        :param Sequence['TrackSelectionResponseArgs'] tracks: Tracks which use this content key
+        :param Sequence['TrackSelectionResponse'] tracks: Tracks which use this content key
         """
         if label is not None:
             pulumi.set(__self__, "label", label)
@@ -6165,8 +6165,8 @@ class StreamingPolicyContentKeysResponse(dict):
                  key_to_track_mappings: Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']] = None):
         """
         Class to specify properties of all content keys in Streaming Policy
-        :param 'DefaultKeyResponseArgs' default_key: Default content key for an encryption scheme
-        :param Sequence['StreamingPolicyContentKeyResponseArgs'] key_to_track_mappings: Representing tracks needs separate content key
+        :param 'DefaultKeyResponse' default_key: Default content key for an encryption scheme
+        :param Sequence['StreamingPolicyContentKeyResponse'] key_to_track_mappings: Representing tracks needs separate content key
         """
         if default_key is not None:
             pulumi.set(__self__, "default_key", default_key)
@@ -6437,7 +6437,7 @@ class TrackSelectionResponse(dict):
                  track_selections: Optional[Sequence['outputs.TrackPropertyConditionResponse']] = None):
         """
         Class to select a track
-        :param Sequence['TrackPropertyConditionResponseArgs'] track_selections: TrackSelections is a track property condition list which can specify track(s)
+        :param Sequence['TrackPropertyConditionResponse'] track_selections: TrackSelections is a track property condition list which can specify track(s)
         """
         if track_selections is not None:
             pulumi.set(__self__, "track_selections", track_selections)
@@ -6465,7 +6465,7 @@ class TransformOutputResponse(dict):
                  relative_priority: Optional[str] = None):
         """
         Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
-        :param Union['AudioAnalyzerPresetResponseArgs', 'BuiltInStandardEncoderPresetResponseArgs', 'FaceDetectorPresetResponseArgs', 'StandardEncoderPresetResponseArgs', 'VideoAnalyzerPresetResponseArgs'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+        :param Union['AudioAnalyzerPresetResponse', 'BuiltInStandardEncoderPresetResponse', 'FaceDetectorPresetResponse', 'StandardEncoderPresetResponse', 'VideoAnalyzerPresetResponse'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         :param str on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
         :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
@@ -6517,7 +6517,7 @@ class TransportStreamFormatResponse(dict):
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
-        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
@@ -6688,12 +6688,12 @@ class VideoOverlayResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoOverlay'.
         :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-        :param 'RectangleResponseArgs' crop_rectangle: An optional rectangular window used to crop the overlay image or video.
+        :param 'RectangleResponse' crop_rectangle: An optional rectangular window used to crop the overlay image or video.
         :param str end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
         :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
         :param float opacity: The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
-        :param 'RectangleResponseArgs' position: The location in the input video where the overlay is applied.
+        :param 'RectangleResponse' position: The location in the input video where the overlay is applied.
         :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         pulumi.set(__self__, "input_label", input_label)

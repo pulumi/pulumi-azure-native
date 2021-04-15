@@ -68,7 +68,7 @@ class ActivityLogAlertActionListResponse(dict):
                  action_groups: Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']] = None):
         """
         A list of activity log alert actions.
-        :param Sequence['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
+        :param Sequence['ActivityLogAlertActionGroupResponse'] action_groups: The list of activity log alerts.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
@@ -94,7 +94,7 @@ class ActivityLogAlertAllOfConditionResponse(dict):
                  all_of: Sequence['outputs.ActivityLogAlertLeafConditionResponse']):
         """
         An Activity Log alert condition that is met when all its member conditions are met.
-        :param Sequence['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
+        :param Sequence['ActivityLogAlertLeafConditionResponse'] all_of: The list of activity log alert conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 

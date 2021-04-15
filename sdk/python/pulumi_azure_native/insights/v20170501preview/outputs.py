@@ -29,7 +29,7 @@ class LogSettingsResponse(dict):
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
         :param bool enabled: a value indicating whether this log is enabled.
         :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponseArgs' retention_policy: the retention policy for this log.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
         """
         pulumi.set(__self__, "enabled", enabled)
         if category is not None:
@@ -79,7 +79,7 @@ class MetricSettingsResponse(dict):
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
         :param bool enabled: a value indicating whether this category is enabled.
         :param str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponseArgs' retention_policy: the retention policy for this category.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
         :param str time_grain: the timegrain of the metric in ISO8601 format.
         """
         pulumi.set(__self__, "enabled", enabled)

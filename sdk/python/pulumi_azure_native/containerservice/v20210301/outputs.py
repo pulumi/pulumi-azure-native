@@ -18,7 +18,7 @@ __all__ = [
     'ContainerServiceNetworkProfileResponse',
     'ContainerServiceSshConfigurationResponse',
     'ContainerServiceSshPublicKeyResponse',
-    'CredentialResultResponseResult',
+    'CredentialResultResponse',
     'ExtendedLocationResponse',
     'KubeletConfigResponse',
     'LinuxOSConfigResponse',
@@ -95,7 +95,7 @@ class CloudErrorBodyResponse(dict):
         """
         An error response from the Container service.
         :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param Sequence['CloudErrorBodyResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['CloudErrorBodyResponse'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         :param str target: The target of the particular error. For example, the name of the property in error.
         """
@@ -153,7 +153,7 @@ class CloudErrorResponse(dict):
                  error: Optional['outputs.CloudErrorBodyResponse'] = None):
         """
         An error response from the Container service.
-        :param 'CloudErrorBodyResponseArgs' error: Details about the error.
+        :param 'CloudErrorBodyResponse' error: Details about the error.
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -181,7 +181,7 @@ class ContainerServiceLinuxProfileResponse(dict):
         """
         Profile for Linux VMs in the container service cluster.
         :param str admin_username: The administrator username to use for Linux VMs.
-        :param 'ContainerServiceSshConfigurationResponseArgs' ssh: SSH configuration for Linux-based VMs running on Azure.
+        :param 'ContainerServiceSshConfigurationResponse' ssh: SSH configuration for Linux-based VMs running on Azure.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh", ssh)
@@ -226,7 +226,7 @@ class ContainerServiceNetworkProfileResponse(dict):
         Profile of network configuration.
         :param str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param str docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        :param 'ManagedClusterLoadBalancerProfileResponseArgs' load_balancer_profile: Profile of the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponse' load_balancer_profile: Profile of the cluster load balancer.
         :param str load_balancer_sku: The load balancer sku for the managed cluster.
         :param str network_mode: Network mode used for building Kubernetes network.
         :param str network_plugin: Network plugin used for building Kubernetes network.
@@ -361,7 +361,7 @@ class ContainerServiceSshConfigurationResponse(dict):
                  public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
@@ -403,7 +403,7 @@ class ContainerServiceSshPublicKeyResponse(dict):
 
 
 @pulumi.output_type
-class CredentialResultResponseResult(dict):
+class CredentialResultResponse(dict):
     """
     The credential result response.
     """
@@ -632,7 +632,7 @@ class LinuxOSConfigResponse(dict):
         """
         OS configurations of Linux agent nodes.
         :param int swap_file_size_mb: SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
-        :param 'SysctlConfigResponseArgs' sysctls: Sysctl settings for Linux agent nodes.
+        :param 'SysctlConfigResponse' sysctls: Sysctl settings for Linux agent nodes.
         :param str transparent_huge_page_defrag: Transparent Huge Page defrag configuration.
         :param str transparent_huge_page_enabled: Transparent Huge Page enabled configuration.
         """
@@ -841,7 +841,7 @@ class ManagedClusterAddonProfileResponse(dict):
         """
         A Kubernetes add-on profile for a managed cluster.
         :param bool enabled: Whether the add-on is enabled or not.
-        :param 'ManagedClusterAddonProfileResponseIdentityArgs' identity: Information of user assigned identity used by this add-on.
+        :param 'ManagedClusterAddonProfileResponseIdentity' identity: Information of user assigned identity used by this add-on.
         :param Mapping[str, str] config: Key-value pairs for configuring an add-on.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -973,7 +973,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         Profile for the container service agent pool.
         :param str name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param str node_image_version: Version of node image
-        :param 'PowerStateResponseArgs' power_state: Describes whether the Agent Pool is Running or Stopped
+        :param 'PowerStateResponse' power_state: Describes whether the Agent Pool is Running or Stopped
         :param str provisioning_state: The current deployment or provisioning state, which only appears in the response.
         :param Sequence[str] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
@@ -982,9 +982,9 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param bool enable_fips: Whether to use FIPS enabled OS
         :param bool enable_node_public_ip: Enable public IP for nodes
         :param str gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-        :param 'KubeletConfigResponseArgs' kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
+        :param 'KubeletConfigResponse' kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param str kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-        :param 'LinuxOSConfigResponseArgs' linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        :param 'LinuxOSConfigResponse' linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
         :param int max_count: Maximum number of nodes for auto-scaling
         :param int max_pods: Maximum number of pods that can run on a node.
         :param int min_count: Minimum number of nodes for auto-scaling
@@ -1004,7 +1004,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param float spot_max_price: SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
         :param Mapping[str, str] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
         :param str type: AgentPoolType represents types of an agent pool
-        :param 'AgentPoolUpgradeSettingsResponseArgs' upgrade_settings: Settings for upgrading the agentpool
+        :param 'AgentPoolUpgradeSettingsResponse' upgrade_settings: Settings for upgrading the agentpool
         :param str vm_size: Size of agent VMs.
         :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
@@ -1472,7 +1472,7 @@ class ManagedClusterIdentityResponse(dict):
         :param str principal_id: The principal id of the system assigned identity which is used by master components.
         :param str tenant_id: The tenant id of the system assigned identity which is used by master components.
         :param str type: The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-        :param Mapping[str, 'ManagedClusterIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ManagedClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1564,11 +1564,11 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         """
         Profile of the managed cluster load balancer.
         :param int allocated_outbound_ports: Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-        :param Sequence['ResourceReferenceResponseArgs'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
+        :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-        :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
         """
         if allocated_outbound_ports is None:
             allocated_outbound_ports = 0
@@ -1676,7 +1676,7 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes(dict):
                  public_ip_prefixes: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
-        :param Sequence['ResourceReferenceResponseArgs'] public_ip_prefixes: A list of public IP prefix resources.
+        :param Sequence['ResourceReferenceResponse'] public_ip_prefixes: A list of public IP prefix resources.
         """
         if public_ip_prefixes is not None:
             pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
@@ -1702,7 +1702,7 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
                  public_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP resources for the cluster load balancer.
-        :param Sequence['ResourceReferenceResponseArgs'] public_ips: A list of public IP resources.
+        :param Sequence['ResourceReferenceResponse'] public_ips: A list of public IP resources.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
@@ -1772,8 +1772,8 @@ class ManagedClusterPodIdentityProfileResponse(dict):
         """
         :param bool allow_network_plugin_kubenet: Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
         :param bool enabled: Whether the pod identity addon is enabled.
-        :param Sequence['ManagedClusterPodIdentityResponseArgs'] user_assigned_identities: User assigned pod identity settings.
-        :param Sequence['ManagedClusterPodIdentityExceptionResponseArgs'] user_assigned_identity_exceptions: User assigned pod identity exception settings.
+        :param Sequence['ManagedClusterPodIdentityResponse'] user_assigned_identities: User assigned pod identity settings.
+        :param Sequence['ManagedClusterPodIdentityExceptionResponse'] user_assigned_identity_exceptions: User assigned pod identity exception settings.
         """
         if allow_network_plugin_kubenet is not None:
             pulumi.set(__self__, "allow_network_plugin_kubenet", allow_network_plugin_kubenet)
@@ -1830,7 +1830,7 @@ class ManagedClusterPodIdentityResponse(dict):
                  provisioning_state: str,
                  binding_selector: Optional[str] = None):
         """
-        :param 'UserAssignedIdentityResponseArgs' identity: Information of the user assigned identity.
+        :param 'UserAssignedIdentityResponse' identity: Information of the user assigned identity.
         :param str name: Name of the pod identity.
         :param str namespace: Namespace of the pod identity.
         :param str provisioning_state: The current provisioning state of the pod identity.
@@ -1898,7 +1898,7 @@ class ManagedClusterPodIdentityResponseProvisioningInfo(dict):
     def __init__(__self__, *,
                  error: Optional['outputs.CloudErrorResponse'] = None):
         """
-        :param 'CloudErrorResponseArgs' error: Pod identity assignment error (if any).
+        :param 'CloudErrorResponse' error: Pod identity assignment error (if any).
         """
         if error is not None:
             pulumi.set(__self__, "error", error)

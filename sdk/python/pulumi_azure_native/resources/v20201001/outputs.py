@@ -84,10 +84,10 @@ class AliasPathResponse(dict):
                  pattern: Optional['outputs.AliasPatternResponse'] = None):
         """
         The type of the paths for alias.
-        :param 'AliasPathMetadataResponseArgs' metadata: The metadata of the alias path. If missing, fall back to the default metadata of the alias.
+        :param 'AliasPathMetadataResponse' metadata: The metadata of the alias path. If missing, fall back to the default metadata of the alias.
         :param Sequence[str] api_versions: The API versions.
         :param str path: The path of an alias.
-        :param 'AliasPatternResponseArgs' pattern: The pattern for an alias path.
+        :param 'AliasPatternResponse' pattern: The pattern for an alias path.
         """
         pulumi.set(__self__, "metadata", metadata)
         if api_versions is not None:
@@ -197,11 +197,11 @@ class AliasResponse(dict):
                  type: Optional[str] = None):
         """
         The alias type. 
-        :param 'AliasPathMetadataResponseArgs' default_metadata: The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+        :param 'AliasPathMetadataResponse' default_metadata: The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
         :param str default_path: The default path for an alias.
-        :param 'AliasPatternResponseArgs' default_pattern: The default pattern for an alias.
+        :param 'AliasPatternResponse' default_pattern: The default pattern for an alias.
         :param str name: The alias name.
-        :param Sequence['AliasPathResponseArgs'] paths: The paths for an alias.
+        :param Sequence['AliasPathResponse'] paths: The paths for an alias.
         :param str type: The type of the alias.
         """
         pulumi.set(__self__, "default_metadata", default_metadata)
@@ -388,7 +388,7 @@ class DependencyResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Deployment dependency information.
-        :param Sequence['BasicDependencyResponseArgs'] depends_on: The list of dependencies.
+        :param Sequence['BasicDependencyResponse'] depends_on: The list of dependencies.
         :param str id: The ID of the dependency.
         :param str resource_name: The dependency resource name.
         :param str resource_type: The dependency resource type.
@@ -464,22 +464,22 @@ class DeploymentPropertiesExtendedResponse(dict):
         """
         Deployment properties with additional details.
         :param str correlation_id: The correlation ID of the deployment.
-        :param 'DebugSettingResponseArgs' debug_setting: The debug setting of the deployment.
-        :param Sequence['DependencyResponseArgs'] dependencies: The list of deployment dependencies.
+        :param 'DebugSettingResponse' debug_setting: The debug setting of the deployment.
+        :param Sequence['DependencyResponse'] dependencies: The list of deployment dependencies.
         :param str duration: The duration of the template deployment.
-        :param 'ErrorResponseResponseArgs' error: The deployment error.
+        :param 'ErrorResponseResponse' error: The deployment error.
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
-        :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
-        :param Sequence['ResourceReferenceResponseArgs'] output_resources: Array of provisioned resources.
+        :param 'OnErrorDeploymentExtendedResponse' on_error_deployment: The deployment on error behavior.
+        :param Sequence['ResourceReferenceResponse'] output_resources: Array of provisioned resources.
         :param Any outputs: Key/value pairs that represent deployment output.
         :param Any parameters: Deployment parameters. 
-        :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. 
-        :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
+        :param 'ParametersLinkResponse' parameters_link: The URI referencing the parameters. 
+        :param Sequence['ProviderResponse'] providers: The list of resource providers needed for the deployment.
         :param str provisioning_state: Denotes the state of provisioning.
         :param str template_hash: The hash produced for the template.
-        :param 'TemplateLinkResponseArgs' template_link: The URI referencing the template.
+        :param 'TemplateLinkResponse' template_link: The URI referencing the template.
         :param str timestamp: The timestamp of the template deployment.
-        :param Sequence['ResourceReferenceResponseArgs'] validated_resources: Array of validated resources.
+        :param Sequence['ResourceReferenceResponse'] validated_resources: Array of validated resources.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
         pulumi.set(__self__, "debug_setting", debug_setting)
@@ -688,9 +688,9 @@ class ErrorResponseResponse(dict):
                  target: str):
         """
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
-        :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param str code: The error code.
-        :param Sequence['ErrorResponseResponseArgs'] details: The error details.
+        :param Sequence['ErrorResponseResponse'] details: The error details.
         :param str message: The error message.
         :param str target: The error target.
         """
@@ -759,7 +759,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -849,7 +849,7 @@ class ManagedServiceIdentityResponse(dict):
         Managed identity generic object.
         :param str tenant_id: ID of the Azure Active Directory.
         :param str type: Type of the managed identity.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
@@ -1112,12 +1112,12 @@ class ProviderResourceTypeResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Resource type managed by the resource provider.
-        :param Sequence['ApiProfileResponseArgs'] api_profiles: The API profiles for the resource provider.
+        :param Sequence['ApiProfileResponse'] api_profiles: The API profiles for the resource provider.
         :param str default_api_version: The default API version.
-        :param Sequence['AliasResponseArgs'] aliases: The aliases that are supported by this resource type.
+        :param Sequence['AliasResponse'] aliases: The aliases that are supported by this resource type.
         :param Sequence[str] api_versions: The API version.
         :param str capabilities: The additional capabilities offered by this resource type.
-        :param Sequence['ProviderExtendedLocationResponseArgs'] location_mappings: The location mappings that are supported by this resource type.
+        :param Sequence['ProviderExtendedLocationResponse'] location_mappings: The location mappings that are supported by this resource type.
         :param Sequence[str] locations: The collection of locations where this resource type can be created.
         :param Mapping[str, str] properties: The properties.
         :param str resource_type: The resource type.
@@ -1231,7 +1231,7 @@ class ProviderResponse(dict):
         :param str id: The provider ID.
         :param str registration_policy: The registration policy of the resource provider.
         :param str registration_state: The registration state of the resource provider.
-        :param Sequence['ProviderResourceTypeResponseArgs'] resource_types: The collection of provider resource types.
+        :param Sequence['ProviderResourceTypeResponse'] resource_types: The collection of provider resource types.
         :param str namespace: The namespace of the resource provider.
         """
         pulumi.set(__self__, "id", id)

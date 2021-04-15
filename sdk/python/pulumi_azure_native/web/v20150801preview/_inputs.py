@@ -19,7 +19,7 @@ __all__ = [
     'ConnectionErrorArgs',
     'ConnectionParameterArgs',
     'ConnectionStatusArgs',
-    'ConsentLinkInputParameterArgs',
+    'ConsentLinkInputParameter',
     'CustomLoginSettingValueArgs',
     'ExpandedParentApiEntityArgs',
     'GeneralApiInformationArgs',
@@ -1201,7 +1201,7 @@ class ConnectionStatusArgs:
 
 
 @pulumi.input_type
-class ConsentLinkInputParameterArgs:
+class ConsentLinkInputParameter:
     def __init__(__self__, *,
                  object_id: Optional[str] = None,
                  parameter_name: Optional[str] = None,

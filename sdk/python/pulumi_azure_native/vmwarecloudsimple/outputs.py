@@ -570,10 +570,10 @@ class VirtualNicResponse(dict):
                  virtual_nic_id: Optional[str] = None):
         """
         Virtual NIC model
-        :param 'VirtualNetworkResponseArgs' network: Virtual Network
+        :param 'VirtualNetworkResponse' network: Virtual Network
         :param str nic_type: NIC type
         :param str virtual_nic_name: NIC name
-        :param 'GuestOSNICCustomizationResponseArgs' customization: guest OS customization for nic
+        :param 'GuestOSNICCustomizationResponse' customization: guest OS customization for nic
         :param Sequence[str] ip_addresses: NIC ip address
         :param str mac_address: NIC MAC address
         :param bool power_on_boot: Is NIC powered on/off on boot

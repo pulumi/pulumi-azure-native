@@ -27,7 +27,7 @@ __all__ = [
     'RefreshDetailsResponse',
     'ResourceIdentityResponse',
     'ResourceMoveDetailsResponse',
-    'SecretResponseResult',
+    'SecretResponse',
     'ShareAccessRightResponse',
     'SkuResponse',
     'SubscriptionRegisteredFeaturesResponse',
@@ -331,7 +331,7 @@ class EdgeProfileResponse(dict):
                  subscription: Optional['outputs.EdgeProfileSubscriptionResponse'] = None):
         """
         Details about Edge Profile for the resource
-        :param 'EdgeProfileSubscriptionResponseArgs' subscription: Edge Profile Subscription
+        :param 'EdgeProfileSubscriptionResponse' subscription: Edge Profile Subscription
         """
         if subscription is not None:
             pulumi.set(__self__, "subscription", subscription)
@@ -462,7 +462,7 @@ class MetricConfigurationResponse(dict):
                  metric_name_space: Optional[str] = None):
         """
         Metric configuration.
-        :param Sequence['MetricCounterSetResponseArgs'] counter_sets: Host name for the IoT hub associated to the device.
+        :param Sequence['MetricCounterSetResponse'] counter_sets: Host name for the IoT hub associated to the device.
         :param str resource_id: The Resource ID on which the metrics should be pushed.
         :param str mdm_account: The MDM account to which the counters should be pushed.
         :param str metric_name_space: The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
@@ -523,8 +523,8 @@ class MetricCounterResponse(dict):
         """
         The metric counter
         :param str name: The counter name.
-        :param Sequence['MetricDimensionResponseArgs'] additional_dimensions: The additional dimensions to be added to metric.
-        :param Sequence['MetricDimensionResponseArgs'] dimension_filter: The dimension filter.
+        :param Sequence['MetricDimensionResponse'] additional_dimensions: The additional dimensions to be added to metric.
+        :param Sequence['MetricDimensionResponse'] dimension_filter: The dimension filter.
         :param str instance: The instance from which counter should be collected.
         """
         pulumi.set(__self__, "name", name)
@@ -580,7 +580,7 @@ class MetricCounterSetResponse(dict):
                  counters: Sequence['outputs.MetricCounterResponse']):
         """
         The metric counter set
-        :param Sequence['MetricCounterResponseArgs'] counters: The counters that should be collected in this set.
+        :param Sequence['MetricCounterResponse'] counters: The counters that should be collected in this set.
         """
         pulumi.set(__self__, "counters", counters)
 
@@ -717,7 +717,7 @@ class OrderStatusResponse(dict):
         :param Mapping[str, str] additional_order_details: Dictionary to hold generic information which is not stored
                by the already existing properties
         :param str status: Status of the order as per the allowed status types.
-        :param 'TrackingInfoResponseArgs' tracking_information: Tracking information related to the state in the ordering flow
+        :param 'TrackingInfoResponse' tracking_information: Tracking information related to the state in the ordering flow
         :param str update_date_time: Time of status update.
         :param str comments: Comments related to this status change.
         """
@@ -922,7 +922,7 @@ class ResourceMoveDetailsResponse(dict):
 
 
 @pulumi.output_type
-class SecretResponseResult(dict):
+class SecretResponse(dict):
     """
     Holds device secret either as a KeyVault reference or as an encrypted value.
     """
@@ -931,7 +931,7 @@ class SecretResponseResult(dict):
                  key_vault_id: Optional[str] = None):
         """
         Holds device secret either as a KeyVault reference or as an encrypted value.
-        :param 'AsymmetricEncryptedSecretResponseArgs' encrypted_secret: Encrypted (using device public key) secret value.
+        :param 'AsymmetricEncryptedSecretResponse' encrypted_secret: Encrypted (using device public key) secret value.
         :param str key_vault_id: Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
         """
         if encrypted_secret is not None:

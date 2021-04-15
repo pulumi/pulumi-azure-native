@@ -143,7 +143,7 @@ class NetworkProfileResponse(dict):
         """
         Specifies the network settings for the HANA instance disks.
         :param str circuit_id: Specifies the circuit id for connecting to express route.
-        :param Sequence['IpAddressResponseArgs'] network_interfaces: Specifies the network interfaces for the HANA instance.
+        :param Sequence['IpAddressResponse'] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
         if circuit_id is not None:
             pulumi.set(__self__, "circuit_id", circuit_id)
@@ -243,7 +243,7 @@ class StorageProfileResponse(dict):
         """
         Specifies the storage settings for the HANA instance disks.
         :param str nfs_ip_address: IP Address to connect to storage.
-        :param Sequence['DiskResponseArgs'] os_disks: Specifies information about the operating system disk used by the hana instance.
+        :param Sequence['DiskResponse'] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
         if nfs_ip_address is not None:
             pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)

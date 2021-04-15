@@ -108,7 +108,7 @@ class ConfigurationProfileAssignmentPropertiesResponse(dict):
         Automanage configuration profile assignment properties.
         :param str provisioning_state: The state of onboarding, which only appears in the response.
         :param str account_id: The Automanage account ARM Resource URI
-        :param 'ConfigurationProfileAssignmentComplianceResponseArgs' compliance: The configuration setting for the configuration profile.
+        :param 'ConfigurationProfileAssignmentComplianceResponse' compliance: The configuration setting for the configuration profile.
         :param str configuration_profile: A value indicating configuration profile.
         :param str configuration_profile_preference_id: The configuration profile custom preferences ARM resource URI
         :param str target_id: The target VM resource URI
@@ -273,8 +273,8 @@ class ConfigurationProfilePreferencePropertiesResponse(dict):
                  vm_backup: Optional['outputs.ConfigurationProfilePreferenceVmBackupResponse'] = None):
         """
         Automanage configuration profile preference properties.
-        :param 'ConfigurationProfilePreferenceAntiMalwareResponseArgs' anti_malware: The custom preferences for Azure Antimalware.
-        :param 'ConfigurationProfilePreferenceVmBackupResponseArgs' vm_backup: The custom preferences for Azure VM Backup.
+        :param 'ConfigurationProfilePreferenceAntiMalwareResponse' anti_malware: The custom preferences for Azure Antimalware.
+        :param 'ConfigurationProfilePreferenceVmBackupResponse' vm_backup: The custom preferences for Azure VM Backup.
         """
         if anti_malware is not None:
             pulumi.set(__self__, "anti_malware", anti_malware)

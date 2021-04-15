@@ -547,7 +547,7 @@ class MigrationPropertiesResponse(dict):
                  old_vnet_site_id: str):
         """
         Migration Properties
-        :param 'MigrationProgressResponseArgs' migration_progress: Migration Progress
+        :param 'MigrationProgressResponse' migration_progress: Migration Progress
         :param str old_subnet_id: Old Subnet Id
         :param str old_vnet_site_id: Old Vnet Site Id
         """
@@ -653,9 +653,9 @@ class ReplicaSetResponse(dict):
         Replica Set Definition
         :param Sequence[str] domain_controller_ip_address: List of Domain Controller IP Address
         :param str external_access_ip_address: External access ip address.
-        :param Sequence['HealthAlertResponseArgs'] health_alerts: List of Domain Health Alerts
+        :param Sequence['HealthAlertResponse'] health_alerts: List of Domain Health Alerts
         :param str health_last_evaluated: Last domain evaluation run DateTime
-        :param Sequence['HealthMonitorResponseArgs'] health_monitors: List of Domain Health Monitors
+        :param Sequence['HealthMonitorResponse'] health_monitors: List of Domain Health Monitors
         :param str replica_set_id: ReplicaSet Id
         :param str service_status: Status of Domain Service instance
         :param str vnet_site_id: Virtual network site id
@@ -770,7 +770,7 @@ class ResourceForestSettingsResponse(dict):
         """
         Settings for Resource Forest
         :param str resource_forest: Resource Forest
-        :param Sequence['ForestTrustResponseArgs'] settings: List of settings for Resource Forest
+        :param Sequence['ForestTrustResponse'] settings: List of settings for Resource Forest
         """
         if resource_forest is not None:
             pulumi.set(__self__, "resource_forest", resource_forest)

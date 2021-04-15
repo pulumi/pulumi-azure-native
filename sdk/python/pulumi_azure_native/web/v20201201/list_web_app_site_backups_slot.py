@@ -38,7 +38,7 @@ class ListWebAppSiteBackupsSlotResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.BackupItemResponseResult']:
+    def value(self) -> Sequence['outputs.BackupItemResponse']:
         """
         Collection of resources.
         """

@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
 __all__ = [
-    'RegistryPasswordResponseResult',
+    'RegistryPasswordResponse',
     'SkuResponse',
     'StorageAccountPropertiesResponse',
 ]
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordResponse(dict):
     """
     The login password for the container registry.
     """

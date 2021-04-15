@@ -91,7 +91,7 @@ class MediaGraphRtspSourceResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param str rtsp_url: RTSP URL
-        :param 'MediaGraphUserCredentialsResponseArgs' credentials: RTSP Credentials
+        :param 'MediaGraphUserCredentialsResponse' credentials: RTSP Credentials
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')

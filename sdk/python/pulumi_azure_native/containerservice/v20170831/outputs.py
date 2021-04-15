@@ -163,7 +163,7 @@ class ContainerServiceLinuxProfileResponse(dict):
         """
         Profile for Linux VMs in the container service cluster.
         :param str admin_username: The administrator username to use for Linux VMs.
-        :param 'ContainerServiceSshConfigurationResponseArgs' ssh: SSH configuration for Linux-based VMs running on Azure.
+        :param 'ContainerServiceSshConfigurationResponse' ssh: SSH configuration for Linux-based VMs running on Azure.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh", ssh)
@@ -200,7 +200,7 @@ class ContainerServiceServicePrincipalProfileResponse(dict):
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         :param str client_id: The ID for the service principal.
-        :param 'KeyVaultSecretRefResponseArgs' key_vault_secret_ref: Reference to a secret stored in Azure Key Vault.
+        :param 'KeyVaultSecretRefResponse' key_vault_secret_ref: Reference to a secret stored in Azure Key Vault.
         :param str secret: The secret password associated with the service principal in plain text.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -246,7 +246,7 @@ class ContainerServiceSshConfigurationResponse(dict):
                  public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 

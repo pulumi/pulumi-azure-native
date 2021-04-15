@@ -38,7 +38,7 @@ class ListRemediationDeploymentsAtResourceResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.RemediationDeploymentResponseResult']:
+    def value(self) -> Sequence['outputs.RemediationDeploymentResponse']:
         """
         Array of deployments for the remediation.
         """

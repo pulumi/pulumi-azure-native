@@ -12,7 +12,7 @@ from ._enums import *
 
 __all__ = [
     'DeliveryPackageInformationResponse',
-    'DriveBitLockerKeyResponseResult',
+    'DriveBitLockerKeyResponse',
     'DriveStatusResponse',
     'EncryptionKeyDetailsResponse',
     'ExportResponse',
@@ -86,7 +86,7 @@ class DeliveryPackageInformationResponse(dict):
 
 
 @pulumi.output_type
-class DriveBitLockerKeyResponseResult(dict):
+class DriveBitLockerKeyResponse(dict):
     """
     BitLocker recovery key or password to the specified drive
     """
@@ -458,20 +458,20 @@ class JobDetailsResponse(dict):
         Specifies the job properties
         :param bool backup_drive_manifest: Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
         :param bool cancel_requested: Indicates whether a request has been submitted to cancel the job.
-        :param 'DeliveryPackageInformationResponseArgs' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
+        :param 'DeliveryPackageInformationResponse' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
         :param str diagnostics_path: The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-        :param Sequence['DriveStatusResponseArgs'] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-        :param 'EncryptionKeyDetailsResponseArgs' encryption_key: Contains information about the encryption key.
-        :param 'ExportResponseArgs' export: A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
+        :param Sequence['DriveStatusResponse'] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
+        :param 'EncryptionKeyDetailsResponse' encryption_key: Contains information about the encryption key.
+        :param 'ExportResponse' export: A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
         :param str incomplete_blob_list_uri: A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
         :param str job_type: The type of job
         :param str log_level: Default value is Error. Indicates whether error logging or verbose logging will be enabled.
         :param int percent_complete: Overall percentage completed for the job.
         :param str provisioning_state: Specifies the provisioning state of the job.
-        :param 'ReturnAddressResponseArgs' return_address: Specifies the return address information for the job. 
-        :param 'PackageInfomationResponseArgs' return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
-        :param 'ReturnShippingResponseArgs' return_shipping: Specifies the return carrier and customer's account with the carrier. 
-        :param 'ShippingInformationResponseArgs' shipping_information: Contains information about the Microsoft datacenter to which the drives should be shipped. 
+        :param 'ReturnAddressResponse' return_address: Specifies the return address information for the job. 
+        :param 'PackageInfomationResponse' return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
+        :param 'ReturnShippingResponse' return_shipping: Specifies the return carrier and customer's account with the carrier. 
+        :param 'ShippingInformationResponse' shipping_information: Contains information about the Microsoft datacenter to which the drives should be shipped. 
         :param str state: Current state of the job.
         :param str storage_account_id: The resource identifier of the storage account where data will be imported to or exported from.
         """

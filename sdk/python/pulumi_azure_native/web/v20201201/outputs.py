@@ -34,7 +34,7 @@ __all__ = [
     'AzureStaticWebAppsResponse',
     'AzureStorageInfoValueResponse',
     'AzureTableStorageApplicationLogsConfigResponse',
-    'BackupItemResponseResult',
+    'BackupItemResponse',
     'BackupScheduleResponse',
     'BlobStorageTokenStoreResponse',
     'CapabilityResponse',
@@ -64,7 +64,7 @@ __all__ = [
     'HttpLogsConfigResponse',
     'HttpSettingsResponse',
     'HttpSettingsRoutesResponse',
-    'IdentifierResponseResult',
+    'IdentifierResponse',
     'IdentityProvidersResponse',
     'IpSecurityRestrictionResponse',
     'JwtClaimChecksResponse',
@@ -94,7 +94,7 @@ __all__ = [
     'SlowRequestsBasedTriggerResponse',
     'StaticSiteBuildPropertiesResponse',
     'StaticSiteTemplateOptionsResponse',
-    'StaticSiteUserARMResourceResponseResult',
+    'StaticSiteUserARMResourceResponse',
     'StaticSiteUserProvidedFunctionAppResponse',
     'StatusCodesBasedTriggerResponse',
     'StatusCodesRangeBasedTriggerResponse',
@@ -454,9 +454,9 @@ class ApplicationLogsConfigResponse(dict):
                  file_system: Optional['outputs.FileSystemApplicationLogsConfigResponse'] = None):
         """
         Application logs configuration.
-        :param 'AzureBlobStorageApplicationLogsConfigResponseArgs' azure_blob_storage: Application logs to blob storage configuration.
-        :param 'AzureTableStorageApplicationLogsConfigResponseArgs' azure_table_storage: Application logs to azure table storage configuration.
-        :param 'FileSystemApplicationLogsConfigResponseArgs' file_system: Application logs to file system configuration.
+        :param 'AzureBlobStorageApplicationLogsConfigResponse' azure_blob_storage: Application logs to blob storage configuration.
+        :param 'AzureTableStorageApplicationLogsConfigResponse' azure_table_storage: Application logs to azure table storage configuration.
+        :param 'FileSystemApplicationLogsConfigResponse' file_system: Application logs to file system configuration.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -605,7 +605,7 @@ class AutoHealActionsResponse(dict):
         """
         Actions which to take by the auto-heal module when a rule is triggered.
         :param str action_type: Predefined action to be taken.
-        :param 'AutoHealCustomActionResponseArgs' custom_action: Custom action to be taken.
+        :param 'AutoHealCustomActionResponse' custom_action: Custom action to be taken.
         :param str min_process_execution_time: Minimum time the process must execute
                before taking the action
         """
@@ -695,8 +695,8 @@ class AutoHealRulesResponse(dict):
                  triggers: Optional['outputs.AutoHealTriggersResponse'] = None):
         """
         Rules that can be defined for auto-heal.
-        :param 'AutoHealActionsResponseArgs' actions: Actions to be executed when a rule is triggered.
-        :param 'AutoHealTriggersResponseArgs' triggers: Conditions that describe when to execute the auto-heal actions.
+        :param 'AutoHealActionsResponse' actions: Actions to be executed when a rule is triggered.
+        :param 'AutoHealTriggersResponse' triggers: Conditions that describe when to execute the auto-heal actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -738,11 +738,11 @@ class AutoHealTriggersResponse(dict):
         """
         Triggers for auto-heal.
         :param int private_bytes_in_kb: A rule based on private bytes.
-        :param 'RequestsBasedTriggerResponseArgs' requests: A rule based on total requests.
-        :param 'SlowRequestsBasedTriggerResponseArgs' slow_requests: A rule based on request execution time.
-        :param Sequence['SlowRequestsBasedTriggerResponseArgs'] slow_requests_with_path: A rule based on multiple Slow Requests Rule with path
-        :param Sequence['StatusCodesBasedTriggerResponseArgs'] status_codes: A rule based on status codes.
-        :param Sequence['StatusCodesRangeBasedTriggerResponseArgs'] status_codes_range: A rule based on status codes ranges.
+        :param 'RequestsBasedTriggerResponse' requests: A rule based on total requests.
+        :param 'SlowRequestsBasedTriggerResponse' slow_requests: A rule based on request execution time.
+        :param Sequence['SlowRequestsBasedTriggerResponse'] slow_requests_with_path: A rule based on multiple Slow Requests Rule with path
+        :param Sequence['StatusCodesBasedTriggerResponse'] status_codes: A rule based on status codes.
+        :param Sequence['StatusCodesRangeBasedTriggerResponse'] status_codes_range: A rule based on status codes ranges.
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -1498,7 +1498,7 @@ class AzureTableStorageApplicationLogsConfigResponse(dict):
 
 
 @pulumi.output_type
-class BackupItemResponseResult(dict):
+class BackupItemResponse(dict):
     """
     Backup description.
     """
@@ -1526,7 +1526,7 @@ class BackupItemResponseResult(dict):
         :param str blob_name: Name of the blob which contains data for this backup.
         :param str correlation_id: Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
         :param str created: Timestamp of the backup creation.
-        :param Sequence['DatabaseBackupSettingResponseArgs'] databases: List of databases included in the backup.
+        :param Sequence['DatabaseBackupSettingResponse'] databases: List of databases included in the backup.
         :param str finished_time_stamp: Timestamp when this backup finished.
         :param str id: Resource Id.
         :param str last_restore_time_stamp: Timestamp of a last restore operation which used this backup.
@@ -2343,7 +2343,7 @@ class ExperimentsResponse(dict):
                  ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
         """
         Routing rules in production experiments.
-        :param Sequence['RampUpRuleResponseArgs'] ramp_up_rules: List of ramp-up rules.
+        :param Sequence['RampUpRuleResponse'] ramp_up_rules: List of ramp-up rules.
         """
         if ramp_up_rules is not None:
             pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
@@ -2725,8 +2725,8 @@ class GitHubActionConfigurationResponse(dict):
                  is_linux: Optional[bool] = None):
         """
         The GitHub action configuration.
-        :param 'GitHubActionCodeConfigurationResponseArgs' code_configuration: GitHub Action code configuration.
-        :param 'GitHubActionContainerConfigurationResponseArgs' container_configuration: GitHub Action container configuration.
+        :param 'GitHubActionCodeConfigurationResponse' code_configuration: GitHub Action code configuration.
+        :param 'GitHubActionContainerConfigurationResponse' container_configuration: GitHub Action container configuration.
         :param bool generate_workflow_file: Workflow option to determine whether the workflow file should be generated and written to the repository.
         :param bool is_linux: This will help determine the workflow configuration to select.
         """
@@ -3286,8 +3286,8 @@ class HttpLogsConfigResponse(dict):
                  file_system: Optional['outputs.FileSystemHttpLogsConfigResponse'] = None):
         """
         Http logs configuration.
-        :param 'AzureBlobStorageHttpLogsConfigResponseArgs' azure_blob_storage: Http logs to azure blob storage configuration.
-        :param 'FileSystemHttpLogsConfigResponseArgs' file_system: Http logs to file system configuration.
+        :param 'AzureBlobStorageHttpLogsConfigResponse' azure_blob_storage: Http logs to azure blob storage configuration.
+        :param 'FileSystemHttpLogsConfigResponse' file_system: Http logs to file system configuration.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -3457,7 +3457,7 @@ class HttpSettingsRoutesResponse(dict):
 
 
 @pulumi.output_type
-class IdentifierResponseResult(dict):
+class IdentifierResponse(dict):
     """
     A domain specific resource identifier.
     """
@@ -4283,7 +4283,7 @@ class ManagedServiceIdentityResponse(dict):
         :param str principal_id: Principal Id of managed service identity.
         :param str tenant_id: Tenant of managed service identity.
         :param str type: Type of managed service identity.
-        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -5173,38 +5173,38 @@ class SiteConfigResponse(dict):
                  x_managed_service_identity_id: Optional[int] = None):
         """
         Configuration of an App Service app.
-        :param 'SiteMachineKeyResponseArgs' machine_key: Site MachineKey.
+        :param 'SiteMachineKeyResponse' machine_key: Site MachineKey.
         :param bool always_on: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-        :param 'ApiDefinitionInfoResponseArgs' api_definition: Information about the formal API definition for the app.
-        :param 'ApiManagementConfigResponseArgs' api_management_config: Azure API management settings linked to the app.
+        :param 'ApiDefinitionInfoResponse' api_definition: Information about the formal API definition for the app.
+        :param 'ApiManagementConfigResponse' api_management_config: Azure API management settings linked to the app.
         :param str app_command_line: App command line to launch.
-        :param Sequence['NameValuePairResponseArgs'] app_settings: Application settings.
+        :param Sequence['NameValuePairResponse'] app_settings: Application settings.
         :param bool auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-        :param 'AutoHealRulesResponseArgs' auto_heal_rules: Auto Heal rules.
+        :param 'AutoHealRulesResponse' auto_heal_rules: Auto Heal rules.
         :param str auto_swap_slot_name: Auto-swap slot name.
-        :param Mapping[str, 'AzureStorageInfoValueResponseArgs'] azure_storage_accounts: List of Azure Storage Accounts.
-        :param Sequence['ConnStringInfoResponseArgs'] connection_strings: Connection strings.
-        :param 'CorsSettingsResponseArgs' cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param Mapping[str, 'AzureStorageInfoValueResponse'] azure_storage_accounts: List of Azure Storage Accounts.
+        :param Sequence['ConnStringInfoResponse'] connection_strings: Connection strings.
+        :param 'CorsSettingsResponse' cors: Cross-Origin Resource Sharing (CORS) settings.
         :param Sequence[str] default_documents: Default documents.
         :param bool detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
         :param str document_root: Document root.
-        :param 'ExperimentsResponseArgs' experiments: This is work around for polymorphic types.
+        :param 'ExperimentsResponse' experiments: This is work around for polymorphic types.
         :param str ftps_state: State of FTP / FTPS service
         :param int function_app_scale_limit: Maximum number of workers that a site can scale out to.
                This setting only applies to the Consumption and Elastic Premium Plans
         :param bool functions_runtime_scale_monitoring_enabled: Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
                the ScaleController will not monitor event sources directly, but will instead call to the
                runtime to get scale status.
-        :param Sequence['HandlerMappingResponseArgs'] handler_mappings: Handler mappings.
+        :param Sequence['HandlerMappingResponse'] handler_mappings: Handler mappings.
         :param str health_check_path: Health check path
         :param bool http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
         :param bool http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-        :param Sequence['IpSecurityRestrictionResponseArgs'] ip_security_restrictions: IP security restrictions for main.
+        :param Sequence['IpSecurityRestrictionResponse'] ip_security_restrictions: IP security restrictions for main.
         :param str java_container: Java container.
         :param str java_container_version: Java container version.
         :param str java_version: Java version.
         :param str key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
-        :param 'SiteLimitsResponseArgs' limits: Site limits.
+        :param 'SiteLimitsResponse' limits: Site limits.
         :param str linux_fx_version: Linux App Framework and version
         :param str load_balancing: Site load balancing.
         :param bool local_my_sql_enabled: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -5222,19 +5222,19 @@ class SiteConfigResponse(dict):
         :param int pre_warmed_instance_count: Number of preWarmed instances.
                This setting only applies to the Consumption and Elastic Plans
         :param str publishing_username: Publishing user name.
-        :param 'PushSettingsResponseArgs' push: Push endpoint settings.
+        :param 'PushSettingsResponse' push: Push endpoint settings.
         :param str python_version: Version of Python.
         :param bool remote_debugging_enabled: <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
         :param str remote_debugging_version: Remote debugging version.
         :param bool request_tracing_enabled: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
         :param str request_tracing_expiration_time: Request tracing expiration time.
-        :param Sequence['IpSecurityRestrictionResponseArgs'] scm_ip_security_restrictions: IP security restrictions for scm.
+        :param Sequence['IpSecurityRestrictionResponse'] scm_ip_security_restrictions: IP security restrictions for scm.
         :param bool scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
         :param str scm_min_tls_version: ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
         :param str scm_type: SCM type.
         :param str tracing_options: Tracing options.
         :param bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-        :param Sequence['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications.
+        :param Sequence['VirtualApplicationResponse'] virtual_applications: Virtual applications.
         :param str vnet_name: Virtual Network name.
         :param int vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
         :param bool vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
@@ -6100,13 +6100,13 @@ class SkuDescriptionResponse(dict):
                  tier: Optional[str] = None):
         """
         Description of a SKU for a scalable resource.
-        :param Sequence['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param Sequence['CapabilityResponse'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
         :param int capacity: Current number of instances assigned to the resource.
         :param str family: Family code of the resource SKU.
         :param Sequence[str] locations: Locations of the SKU.
         :param str name: Name of the resource SKU.
         :param str size: Size specifier of the resource SKU.
-        :param 'SkuCapacityResponseArgs' sku_capacity: Min, max, and default scale values of the SKU.
+        :param 'SkuCapacityResponse' sku_capacity: Min, max, and default scale values of the SKU.
         :param str tier: Service tier of the resource SKU.
         """
         if capabilities is not None:
@@ -6488,7 +6488,7 @@ class StaticSiteTemplateOptionsResponse(dict):
 
 
 @pulumi.output_type
-class StaticSiteUserARMResourceResponseResult(dict):
+class StaticSiteUserARMResourceResponse(dict):
     """
     Static Site User ARM resource.
     """
@@ -7069,7 +7069,7 @@ class VirtualApplicationResponse(dict):
         Virtual application in an app.
         :param str physical_path: Physical path.
         :param bool preload_enabled: <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-        :param Sequence['VirtualDirectoryResponseArgs'] virtual_directories: Virtual directories for virtual application.
+        :param Sequence['VirtualDirectoryResponse'] virtual_directories: Virtual directories for virtual application.
         :param str virtual_path: Virtual path.
         """
         if physical_path is not None:

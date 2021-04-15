@@ -228,12 +228,12 @@ class DynamicMetricCriteriaResponse(dict):
         :param str alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param str criterion_type: Specifies the type of threshold criteria
                Expected value is 'DynamicThresholdCriterion'.
-        :param 'DynamicThresholdFailingPeriodsResponseArgs' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param 'DynamicThresholdFailingPeriodsResponse' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param str metric_name: Name of the metric.
         :param str name: Name of the criteria.
         :param str operator: The operator used to compare the metric value against the threshold.
         :param str time_aggregation: the criteria time aggregation types.
-        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponse'] dimensions: List of dimension conditions.
         :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -596,7 +596,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-        :param Sequence[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param Sequence[Union['DynamicMetricCriteriaResponse', 'MetricCriteriaResponse']] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -635,7 +635,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-        :param Sequence['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['MetricCriteriaResponse'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -686,7 +686,7 @@ class MetricCriteriaResponse(dict):
         :param str operator: the criteria operator.
         :param float threshold: the criteria threshold value that activates the alert.
         :param str time_aggregation: the criteria time aggregation types.
-        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponse'] dimensions: List of dimension conditions.
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """

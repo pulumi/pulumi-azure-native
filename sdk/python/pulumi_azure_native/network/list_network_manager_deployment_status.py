@@ -39,7 +39,7 @@ class ListNetworkManagerDeploymentStatusResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.NetworkManagerDeploymentStatusResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.NetworkManagerDeploymentStatusResponse']]:
         """
         Gets a page of Network Manager Deployment Status
         """

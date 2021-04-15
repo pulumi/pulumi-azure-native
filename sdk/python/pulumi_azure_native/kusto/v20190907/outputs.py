@@ -12,8 +12,8 @@ from ._enums import *
 
 __all__ = [
     'AzureSkuResponse',
-    'DatabasePrincipalResponseResult',
-    'FollowerDatabaseDefinitionResponseResult',
+    'DatabasePrincipalResponse',
+    'FollowerDatabaseDefinitionResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
     'KeyVaultPropertiesResponse',
@@ -71,7 +71,7 @@ class AzureSkuResponse(dict):
 
 
 @pulumi.output_type
-class DatabasePrincipalResponseResult(dict):
+class DatabasePrincipalResponse(dict):
     """
     A class representing database principal entity.
     """
@@ -162,7 +162,7 @@ class DatabasePrincipalResponseResult(dict):
 
 
 @pulumi.output_type
-class FollowerDatabaseDefinitionResponseResult(dict):
+class FollowerDatabaseDefinitionResponse(dict):
     """
     A class representing follower database request.
     """
@@ -220,7 +220,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)

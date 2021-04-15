@@ -58,7 +58,7 @@ __all__ = [
     'IpAddressRangeArgs',
     'KeyVaultKeyReferenceArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
-    'KeyVaultReferenceArgs',
+    'KeyVaultReference',
     'NetworkConfigurationArgs',
     'OpenAuthenticationAccessPoliciesArgs',
     'OpenAuthenticationAccessPolicyArgs',
@@ -4467,7 +4467,7 @@ class KeyVaultKeyReferenceKeyVaultArgs:
 
 
 @pulumi.input_type
-class KeyVaultReferenceArgs:
+class KeyVaultReference:
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):

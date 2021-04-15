@@ -148,7 +148,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
         """
         Properties of a registration assignment.
         :param str provisioning_state: Current state of the registration assignment.
-        :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs' registration_definition: Registration definition inside registration assignment.
+        :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinition' registration_definition: Registration definition inside registration assignment.
         :param str registration_definition_id: Fully qualified path of the registration definition.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -199,7 +199,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
                  registration_definition_name: Optional[str] = None):
         """
         Properties of registration definition inside registration assignment.
-        :param Sequence['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param Sequence['AuthorizationResponse'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param str description: Description of the registration definition.
         :param str managed_by_tenant_id: Id of the managedBy tenant.
         :param str managed_by_tenant_name: Name of the managedBy tenant.
@@ -309,8 +309,8 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
         :param str id: Fully qualified path of the registration definition.
         :param str name: Name of the registration definition.
         :param str type: Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-        :param 'PlanResponseArgs' plan: Plan details for the managed services.
-        :param 'RegistrationAssignmentPropertiesResponsePropertiesArgs' properties: Properties of registration definition inside registration assignment.
+        :param 'PlanResponse' plan: Plan details for the managed services.
+        :param 'RegistrationAssignmentPropertiesResponseProperties' properties: Properties of registration definition inside registration assignment.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -378,7 +378,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
                  registration_definition_name: Optional[str] = None):
         """
         Properties of a registration definition.
-        :param Sequence['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param Sequence['AuthorizationResponse'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param str managed_by_tenant_id: Id of the managedBy tenant.
         :param str managed_by_tenant_name: Name of the managedBy tenant.
         :param str provisioning_state: Current state of the registration definition.

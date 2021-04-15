@@ -43,7 +43,7 @@ class ArmIdentityResponse(dict):
         :param str principal_id: Principal Id
         :param str tenant_id: Tenant Id
         :param str identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-        :param Mapping[str, 'ArmUserIdentityResponseArgs'] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
+        :param Mapping[str, 'ArmUserIdentityResponse'] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -241,9 +241,9 @@ class EncryptionPropertiesDescriptionResponse(dict):
                  key_vault_properties: Optional[Sequence['outputs.KeyVaultKeyPropertiesResponse']] = None):
         """
         The customer-managed encryption key (CMK) properties for the IoT DPS instance.
-        :param 'EncryptionKeyIdentityResponseArgs' identity: The identity used to access the encryption key in KeyVault.
+        :param 'EncryptionKeyIdentityResponse' identity: The identity used to access the encryption key in KeyVault.
         :param str key_source: The source of the encryption key. Typically, Microsoft.KeyVault
-        :param Sequence['KeyVaultKeyPropertiesResponseArgs'] key_vault_properties: The properties of the encryption key configured in KeyVault.
+        :param Sequence['KeyVaultKeyPropertiesResponse'] key_vault_properties: The properties of the encryption key configured in KeyVault.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -304,11 +304,11 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
-        :param 'EncryptionPropertiesDescriptionResponseArgs' encryption: The encryption properties for the IoT DPS instance.
-        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
-        :param Sequence['TargetIpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
-        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
+        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse'] authorization_policies: List of authorization keys for a provisioning service.
+        :param 'EncryptionPropertiesDescriptionResponse' encryption: The encryption properties for the IoT DPS instance.
+        :param Sequence['IotHubDefinitionDescriptionResponse'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['TargetIpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str public_network_access: Whether requests from Public Network are allowed
         :param str state: Current state of the provisioning service.
@@ -591,8 +591,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The properties of a private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: The current state of a private endpoint connection
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint property of a private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The current state of a private endpoint connection
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint property of a private endpoint connection
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if private_endpoint is not None:
@@ -632,7 +632,7 @@ class PrivateEndpointConnectionResponse(dict):
         The private endpoint connection of a provisioning service
         :param str id: The resource identifier.
         :param str name: The resource name.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: The properties of a private endpoint connection
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: The properties of a private endpoint connection
         :param str type: The resource type.
         """
         pulumi.set(__self__, "id", id)

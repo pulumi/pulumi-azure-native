@@ -197,7 +197,7 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of the managed identity.
         :param str principal_id: Azure Active Directory principal ID associated with this Identity.
         :param str tenant_id: ID of the Azure Active Directory.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -338,7 +338,7 @@ class ParameterValueResponse(dict):
                  value: Optional[Any] = None):
         """
         Value for the specified parameter. Can be either 'value' or 'reference' but not both.
-        :param 'SecretValueReferenceResponseArgs' reference: Parameter value as reference type.
+        :param 'SecretValueReferenceResponse' reference: Parameter value as reference type.
         :param Any value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
         if reference is not None:
@@ -513,7 +513,7 @@ class SecretValueReferenceResponse(dict):
                  secret_version: Optional[str] = None):
         """
         Reference to a Key Vault secret.
-        :param 'KeyVaultReferenceResponseArgs' key_vault: Specifies the reference to a given Azure Key Vault.
+        :param 'KeyVaultReferenceResponse' key_vault: Specifies the reference to a given Azure Key Vault.
         :param str secret_name: Name of the secret.
         :param str secret_version: The version of the secret to use. If left blank, the latest version of the secret is used.
         """

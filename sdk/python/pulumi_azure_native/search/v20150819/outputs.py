@@ -11,7 +11,7 @@ from ._enums import *
 
 __all__ = [
     'IdentityResponse',
-    'QueryKeyResponseResult',
+    'QueryKeyResponse',
     'SkuResponse',
 ]
 
@@ -63,7 +63,7 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class QueryKeyResponseResult(dict):
+class QueryKeyResponse(dict):
     """
     Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
     """

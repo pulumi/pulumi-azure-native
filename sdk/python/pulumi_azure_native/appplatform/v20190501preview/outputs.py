@@ -58,9 +58,9 @@ class AppResourcePropertiesResponse(dict):
         :param str active_deployment_name: Name of the active deployment of the App
         :param str fqdn: Fully qualified dns Name.
         :param bool https_only: Indicate if only https is allowed.
-        :param 'PersistentDiskResponseArgs' persistent_disk: Persistent disk settings
+        :param 'PersistentDiskResponse' persistent_disk: Persistent disk settings
         :param bool public: Indicates whether the App exposes public endpoint
-        :param 'TemporaryDiskResponseArgs' temporary_disk: Temporary disk settings
+        :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -401,9 +401,9 @@ class ClusterResourcePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
-        :param 'ConfigServerPropertiesResponseArgs' config_server_properties: Config server git properties of the Service
-        :param 'NetworkProfileResponseArgs' network_profile: Network profile of the Service
-        :param 'TracePropertiesResponseArgs' trace: Trace properties of the Service
+        :param 'ConfigServerPropertiesResponse' config_server_properties: Config server git properties of the Service
+        :param 'NetworkProfileResponse' network_profile: Network profile of the Service
+        :param 'TracePropertiesResponse' trace: Trace properties of the Service
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
@@ -491,7 +491,7 @@ class ConfigServerGitPropertyResponse(dict):
         :param str label: Label of the repository
         :param str password: Password of git repository basic auth.
         :param str private_key: Private sshKey algorithm of git repository.
-        :param Sequence['GitPatternRepositoryResponseArgs'] repositories: Repositories of git.
+        :param Sequence['GitPatternRepositoryResponse'] repositories: Repositories of git.
         :param Sequence[str] search_paths: Searching path of the repository
         :param bool strict_host_key_checking: Strict host key checking or not.
         :param str username: Username of git repository basic auth.
@@ -612,8 +612,8 @@ class ConfigServerPropertiesResponse(dict):
         """
         Config server git properties payload
         :param str state: State of the config server.
-        :param 'ConfigServerSettingsResponseArgs' config_server: Settings of config server.
-        :param 'ErrorResponseArgs' error: Error when apply config server settings.
+        :param 'ConfigServerSettingsResponse' config_server: Settings of config server.
+        :param 'ErrorResponse' error: Error when apply config server settings.
         """
         pulumi.set(__self__, "state", state)
         if config_server is not None:
@@ -658,7 +658,7 @@ class ConfigServerSettingsResponse(dict):
                  git_property: Optional['outputs.ConfigServerGitPropertyResponse'] = None):
         """
         The settings of config server.
-        :param 'ConfigServerGitPropertyResponseArgs' git_property: Property of git environment.
+        :param 'ConfigServerGitPropertyResponse' git_property: Property of git environment.
         """
         if git_property is not None:
             pulumi.set(__self__, "git_property", git_property)
@@ -812,11 +812,11 @@ class DeploymentResourcePropertiesResponse(dict):
         :param bool active: Indicates whether the Deployment is active
         :param str app_name: App name of the deployment
         :param str created_time: Date time when the resource is created
-        :param Sequence['DeploymentInstanceResponseArgs'] instances: Collection of instances belong to the Deployment
+        :param Sequence['DeploymentInstanceResponse'] instances: Collection of instances belong to the Deployment
         :param str provisioning_state: Provisioning state of the Deployment
         :param str status: Status of the Deployment
-        :param 'DeploymentSettingsResponseArgs' deployment_settings: Deployment settings of the Deployment
-        :param 'UserSourceInfoResponseArgs' source: Uploaded source information of the deployment.
+        :param 'DeploymentSettingsResponse' deployment_settings: Deployment settings of the Deployment
+        :param 'UserSourceInfoResponse' source: Uploaded source information of the deployment.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "app_name", app_name)
@@ -1236,8 +1236,8 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[str] = None):
         """
         Service network profile payload
-        :param 'NetworkProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
-        :param Sequence['RequiredTrafficResponseArgs'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
+        :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
+        :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
         :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
         :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
         :param str service_cidr: Azure Spring Cloud service reserved CIDR
@@ -1567,7 +1567,7 @@ class TracePropertiesResponse(dict):
         :param str state: State of the trace proxy.
         :param str app_insight_instrumentation_key: Target application insight instrumentation key
         :param bool enabled: Indicates whether enable the tracing functionality
-        :param 'ErrorResponseArgs' error: Error when apply trace proxy changes.
+        :param 'ErrorResponse' error: Error when apply trace proxy changes.
         """
         pulumi.set(__self__, "state", state)
         if app_insight_instrumentation_key is not None:

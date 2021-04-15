@@ -70,7 +70,7 @@ class JitNetworkAccessPolicyVirtualMachineResponse(dict):
                  public_ip_address: Optional[str] = None):
         """
         :param str id: Resource ID of the virtual machine that is linked to this policy
-        :param Sequence['JitNetworkAccessPortRuleResponseArgs'] ports: Port configurations for the virtual machine
+        :param Sequence['JitNetworkAccessPortRuleResponse'] ports: Port configurations for the virtual machine
         :param str public_ip_address: Public IP address of the Azure Firewall that is linked to this policy, if applicable
         """
         pulumi.set(__self__, "id", id)
@@ -309,7 +309,7 @@ class JitNetworkAccessRequestVirtualMachineResponse(dict):
                  ports: Sequence['outputs.JitNetworkAccessRequestPortResponse']):
         """
         :param str id: Resource ID of the virtual machine that is linked to this policy
-        :param Sequence['JitNetworkAccessRequestPortResponseArgs'] ports: The ports that were opened for the virtual machine
+        :param Sequence['JitNetworkAccessRequestPortResponse'] ports: The ports that were opened for the virtual machine
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ports", ports)
@@ -356,7 +356,7 @@ class PathRecommendationResponse(dict):
         :param str configuration_status: The configuration status of the VM/server group or machine or rule on the machine
         :param str file_type: The type of the file (for Linux files - Executable is used)
         :param str path: The full path to whitelist
-        :param 'PublisherInfoResponseArgs' publisher_info: Represents the publisher information of a process/rule
+        :param 'PublisherInfoResponse' publisher_info: Represents the publisher information of a process/rule
         :param str type: The type of the rule to be allowed
         """
         if action is not None:

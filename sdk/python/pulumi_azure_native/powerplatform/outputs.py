@@ -122,7 +122,7 @@ class KeyVaultPropertiesResponse(dict):
         """
         Settings concerning key vault encryption for a configuration store.
         :param str id: Uri of KeyVault
-        :param 'KeyPropertiesResponseArgs' key: Identity of the secret that includes name and version.
+        :param 'KeyPropertiesResponse' key: Identity of the secret that includes name and version.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -234,7 +234,7 @@ class PropertiesResponseEncryption(dict):
                  state: Optional[str] = None):
         """
         The encryption settings for a configuration store.
-        :param 'KeyVaultPropertiesResponseArgs' key_vault: Key vault properties.
+        :param 'KeyVaultPropertiesResponse' key_vault: Key vault properties.
         :param str state: The state of onboarding, which only appears in the response.
         """
         if key_vault is not None:
@@ -297,7 +297,7 @@ class PropertiesResponseNetworkInjection(dict):
                  virtual_networks: Optional['outputs.VirtualNetworkPropertiesListResponse'] = None):
         """
         Settings concerning network injection.
-        :param 'VirtualNetworkPropertiesListResponseArgs' virtual_networks: Network injection configuration
+        :param 'VirtualNetworkPropertiesListResponse' virtual_networks: Network injection configuration
         """
         if virtual_networks is not None:
             pulumi.set(__self__, "virtual_networks", virtual_networks)
@@ -435,7 +435,7 @@ class VirtualNetworkPropertiesListResponse(dict):
                  value: Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']] = None):
         """
         A list of private link resources
-        :param Sequence['VirtualNetworkPropertiesResponseArgs'] value: Array of virtual networks.
+        :param Sequence['VirtualNetworkPropertiesResponse'] value: Array of virtual networks.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -463,7 +463,7 @@ class VirtualNetworkPropertiesResponse(dict):
         """
         Settings concerning the virtual network.
         :param str id: Uri of the virtual network.
-        :param 'SubnetPropertiesResponseArgs' subnet: Properties of a subnet.
+        :param 'SubnetPropertiesResponse' subnet: Properties of a subnet.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)

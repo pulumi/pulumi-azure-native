@@ -129,8 +129,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource.
         :param str provisioning_state: Provisioning state of the private endpoint connection
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -365,7 +365,7 @@ class ServerlessUpstreamSettingsResponse(dict):
                  templates: Optional[Sequence['outputs.UpstreamTemplateResponse']] = None):
         """
         The settings for the Upstream when the Azure SignalR is in server-less mode.
-        :param Sequence['UpstreamTemplateResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        :param Sequence['UpstreamTemplateResponse'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
             pulumi.set(__self__, "templates", templates)
@@ -472,8 +472,8 @@ class SignalRNetworkACLsResponse(dict):
         """
         Network ACLs for SignalR
         :param str default_action: Default action when no other rule matches
-        :param Sequence['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponseArgs' public_network: ACL for requests from public network
+        :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
+        :param 'NetworkACLResponse' public_network: ACL for requests from public network
         """
         if default_action is None:
             default_action = 'Deny'

@@ -11,29 +11,29 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActorResponseResult',
-    'EventContentResponseResult',
-    'EventRequestMessageResponseResult',
-    'EventResponseResult',
-    'EventResponseMessageResponseResult',
+    'ActorResponse',
+    'EventContentResponse',
+    'EventRequestMessageResponse',
+    'EventResponse',
+    'EventResponseMessageResponse',
     'IPRuleResponse',
     'NetworkRuleSetResponse',
     'PoliciesResponse',
     'QuarantinePolicyResponse',
-    'RegistryPasswordResponseResult',
-    'RequestResponseResult',
+    'RegistryPasswordResponse',
+    'RequestResponse',
     'RetentionPolicyResponse',
     'SkuResponse',
-    'SourceResponseResult',
+    'SourceResponse',
     'StatusResponse',
     'StorageAccountPropertiesResponse',
-    'TargetResponseResult',
+    'TargetResponse',
     'TrustPolicyResponse',
     'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
-class ActorResponseResult(dict):
+class ActorResponse(dict):
     """
     The agent that initiated the event. For most situations, this could be from the authorization context of the request.
     """
@@ -56,26 +56,26 @@ class ActorResponseResult(dict):
 
 
 @pulumi.output_type
-class EventContentResponseResult(dict):
+class EventContentResponse(dict):
     """
     The content of the event request message.
     """
     def __init__(__self__, *,
                  action: Optional[str] = None,
-                 actor: Optional['outputs.ActorResponseResult'] = None,
+                 actor: Optional['outputs.ActorResponse'] = None,
                  id: Optional[str] = None,
-                 request: Optional['outputs.RequestResponseResult'] = None,
-                 source: Optional['outputs.SourceResponseResult'] = None,
-                 target: Optional['outputs.TargetResponseResult'] = None,
+                 request: Optional['outputs.RequestResponse'] = None,
+                 source: Optional['outputs.SourceResponse'] = None,
+                 target: Optional['outputs.TargetResponse'] = None,
                  timestamp: Optional[str] = None):
         """
         The content of the event request message.
         :param str action: The action that encompasses the provided event.
-        :param 'ActorResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+        :param 'ActorResponse' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param str id: The event ID.
-        :param 'RequestResponseArgs' request: The request that generated the event.
-        :param 'SourceResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-        :param 'TargetResponseArgs' target: The target of the event.
+        :param 'RequestResponse' request: The request that generated the event.
+        :param 'SourceResponse' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+        :param 'TargetResponse' target: The target of the event.
         :param str timestamp: The time at which the event occurred.
         """
         if action is not None:
@@ -103,7 +103,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def actor(self) -> Optional['outputs.ActorResponseResult']:
+    def actor(self) -> Optional['outputs.ActorResponse']:
         """
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         """
@@ -119,7 +119,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestResponseResult']:
+    def request(self) -> Optional['outputs.RequestResponse']:
         """
         The request that generated the event.
         """
@@ -127,7 +127,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.SourceResponseResult']:
+    def source(self) -> Optional['outputs.SourceResponse']:
         """
         The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
         """
@@ -135,7 +135,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.TargetResponseResult']:
+    def target(self) -> Optional['outputs.TargetResponse']:
         """
         The target of the event.
         """
@@ -151,19 +151,19 @@ class EventContentResponseResult(dict):
 
 
 @pulumi.output_type
-class EventRequestMessageResponseResult(dict):
+class EventRequestMessageResponse(dict):
     """
     The event request message sent to the service URI.
     """
     def __init__(__self__, *,
-                 content: Optional['outputs.EventContentResponseResult'] = None,
+                 content: Optional['outputs.EventContentResponse'] = None,
                  headers: Optional[Mapping[str, str]] = None,
                  method: Optional[str] = None,
                  request_uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The event request message sent to the service URI.
-        :param 'EventContentResponseArgs' content: The content of the event request message.
+        :param 'EventContentResponse' content: The content of the event request message.
         :param Mapping[str, str] headers: The headers of the event request message.
         :param str method: The HTTP method used to send the event request message.
         :param str request_uri: The URI used to send the event request message.
@@ -182,7 +182,7 @@ class EventRequestMessageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.EventContentResponseResult']:
+    def content(self) -> Optional['outputs.EventContentResponse']:
         """
         The content of the event request message.
         """
@@ -222,18 +222,18 @@ class EventRequestMessageResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseResult(dict):
+class EventResponse(dict):
     """
     The event for a webhook.
     """
     def __init__(__self__, *,
-                 event_request_message: Optional['outputs.EventRequestMessageResponseResult'] = None,
-                 event_response_message: Optional['outputs.EventResponseMessageResponseResult'] = None,
+                 event_request_message: Optional['outputs.EventRequestMessageResponse'] = None,
+                 event_response_message: Optional['outputs.EventResponseMessageResponse'] = None,
                  id: Optional[str] = None):
         """
         The event for a webhook.
-        :param 'EventRequestMessageResponseArgs' event_request_message: The event request message sent to the service URI.
-        :param 'EventResponseMessageResponseArgs' event_response_message: The event response message received from the service URI.
+        :param 'EventRequestMessageResponse' event_request_message: The event request message sent to the service URI.
+        :param 'EventResponseMessageResponse' event_response_message: The event response message received from the service URI.
         :param str id: The event ID.
         """
         if event_request_message is not None:
@@ -245,7 +245,7 @@ class EventResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventRequestMessage")
-    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponseResult']:
+    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponse']:
         """
         The event request message sent to the service URI.
         """
@@ -253,7 +253,7 @@ class EventResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventResponseMessage")
-    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponseResult']:
+    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponse']:
         """
         The event response message received from the service URI.
         """
@@ -269,7 +269,7 @@ class EventResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseMessageResponseResult(dict):
+class EventResponseMessageResponse(dict):
     """
     The event response message received from the service URI.
     """
@@ -390,8 +390,8 @@ class NetworkRuleSetResponse(dict):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
+        :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
         """
         if default_action is None:
             default_action = 'Allow'
@@ -440,9 +440,9 @@ class PoliciesResponse(dict):
                  trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
         """
         The policies for a container registry.
-        :param 'QuarantinePolicyResponseArgs' quarantine_policy: The quarantine policy for a container registry.
-        :param 'RetentionPolicyResponseArgs' retention_policy: The retention policy for a container registry.
-        :param 'TrustPolicyResponseArgs' trust_policy: The content trust policy for a container registry.
+        :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
+        :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
+        :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
@@ -508,7 +508,7 @@ class QuarantinePolicyResponse(dict):
 
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordResponse(dict):
     """
     The login password for the container registry.
     """
@@ -543,7 +543,7 @@ class RegistryPasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RequestResponseResult(dict):
+class RequestResponse(dict):
     """
     The request that generated the event.
     """
@@ -703,7 +703,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class SourceResponseResult(dict):
+class SourceResponse(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
     """
@@ -810,7 +810,7 @@ class StorageAccountPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class TargetResponseResult(dict):
+class TargetResponse(dict):
     """
     The target of the event.
     """

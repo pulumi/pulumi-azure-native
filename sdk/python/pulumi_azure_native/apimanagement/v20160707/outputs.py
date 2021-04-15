@@ -35,7 +35,7 @@ class AdditionalRegionResponse(dict):
         :param str sku_type: The SKU type in the location.
         :param Sequence[str] static_ips: Static IP addresses of the location's virtual machines.
         :param int sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
-        :param 'VirtualNetworkConfigurationResponseArgs' vpnconfiguration: Virtual network configuration for the location.
+        :param 'VirtualNetworkConfigurationResponse' vpnconfiguration: Virtual network configuration for the location.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "sku_type", sku_type)
@@ -188,7 +188,7 @@ class HostnameConfigurationResponse(dict):
                  type: str):
         """
         Custom hostname configuration.
-        :param 'CertificateInformationResponseArgs' certificate: Certificate information.
+        :param 'CertificateInformationResponse' certificate: Certificate information.
         :param str hostname: Hostname.
         :param str type: Hostname type.
         """

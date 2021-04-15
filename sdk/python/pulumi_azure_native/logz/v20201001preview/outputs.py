@@ -16,7 +16,7 @@ __all__ = [
     'LogRulesResponse',
     'LogzOrganizationPropertiesResponse',
     'MonitorPropertiesResponse',
-    'MonitoredResourceResponseResult',
+    'MonitoredResourceResponse',
     'MonitoringTagRulesPropertiesResponse',
     'PlanDataResponse',
     'SystemDataResponse',
@@ -125,7 +125,7 @@ class LogRulesResponse(dict):
                  send_subscription_logs: Optional[bool] = None):
         """
         Set of rules for sending logs for the Monitor resource.
-        :param Sequence['FilteringTagResponseArgs'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param bool send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
         :param bool send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         :param bool send_subscription_logs: Flag specifying if subscription logs should be sent for the Monitor resource.
@@ -308,7 +308,7 @@ class MonitorPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class MonitoredResourceResponseResult(dict):
+class MonitoredResourceResponse(dict):
     """
     The properties of a resource currently being monitored by the Logz monitor resource.
     """
@@ -321,7 +321,7 @@ class MonitoredResourceResponseResult(dict):
                  sending_metrics: Optional[bool] = None):
         """
         The properties of a resource currently being monitored by the Logz monitor resource.
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str id: The ARM id of the resource.
         :param str reason_for_logs_status: Reason for why the resource is sending logs (or why it is not sending).
         :param str reason_for_metrics_status: Reason for why the resource is sending metrics (or why it is not sending).
@@ -399,8 +399,8 @@ class MonitoringTagRulesPropertiesResponse(dict):
                  log_rules: Optional['outputs.LogRulesResponse'] = None):
         """
         Definition of the properties for a TagRules resource.
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param 'LogRulesResponseArgs' log_rules: Set of rules for sending logs for the Monitor resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'LogRulesResponse' log_rules: Set of rules for sending logs for the Monitor resource.
         """
         pulumi.set(__self__, "system_data", system_data)
         if log_rules is not None:

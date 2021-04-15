@@ -31,7 +31,7 @@ class ListConnectedClusterUserCredentialsResult:
 
     @property
     @pulumi.getter(name="hybridConnectionConfig")
-    def hybrid_connection_config(self) -> 'outputs.HybridConnectionConfigResponseResult':
+    def hybrid_connection_config(self) -> 'outputs.HybridConnectionConfigResponse':
         """
         Contains the REP (rendezvous endpoint) and “Sender” access token.
         """
@@ -39,7 +39,7 @@ class ListConnectedClusterUserCredentialsResult:
 
     @property
     @pulumi.getter
-    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponseResult']:
+    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponse']:
         """
         Base64-encoded Kubernetes configuration file.
         """

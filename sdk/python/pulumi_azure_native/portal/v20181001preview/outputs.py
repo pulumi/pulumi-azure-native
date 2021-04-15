@@ -27,7 +27,7 @@ class DashboardLensResponse(dict):
         """
         A dashboard lens.
         :param int order: The lens order.
-        :param Mapping[str, 'DashboardPartsResponseArgs'] parts: The dashboard parts.
+        :param Mapping[str, 'DashboardPartsResponse'] parts: The dashboard parts.
         :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
@@ -73,7 +73,7 @@ class DashboardPartsResponse(dict):
                  metadata: Optional[Mapping[str, Any]] = None):
         """
         A dashboard part.
-        :param 'DashboardPartsResponsePositionArgs' position: The dashboard's part position.
+        :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
         :param Mapping[str, Any] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "position", position)

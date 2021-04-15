@@ -168,8 +168,8 @@ class UserPropertiesResponse(dict):
         :param str preferred_location: The preferred location of the cloud shell.
         :param str preferred_os_type: The operating system type of the cloud shell. Deprecated, use preferredShellType.
         :param str preferred_shell_type: The shell type of the cloud shell.
-        :param 'StorageProfileResponseArgs' storage_profile: The storage profile of the user settings.
-        :param 'TerminalSettingsResponseArgs' terminal_settings: Settings for terminal appearance.
+        :param 'StorageProfileResponse' storage_profile: The storage profile of the user settings.
+        :param 'TerminalSettingsResponse' terminal_settings: Settings for terminal appearance.
         """
         pulumi.set(__self__, "preferred_location", preferred_location)
         pulumi.set(__self__, "preferred_os_type", preferred_os_type)

@@ -288,7 +288,7 @@ class SettingsSectionDescriptionResponse(dict):
         """
         Describes a section in the fabric settings of the cluster.
         :param str name: The section name of the fabric settings.
-        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
+        :param Sequence['SettingsParameterDescriptionResponse'] parameters: The collection of parameters in the section.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -539,8 +539,8 @@ class VaultSecretGroupResponse(dict):
                  vault_certificates: Sequence['outputs.VaultCertificateResponse']):
         """
         Specifies set of certificates that should be installed onto the virtual machines.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         pulumi.set(__self__, "source_vault", source_vault)
         pulumi.set(__self__, "vault_certificates", vault_certificates)

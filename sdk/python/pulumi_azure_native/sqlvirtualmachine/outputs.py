@@ -326,7 +326,7 @@ class LoadBalancerConfigurationResponse(dict):
         """
         A load balancer configuration for an availability group listener.
         :param str load_balancer_resource_id: Resource id of the load balancer.
-        :param 'PrivateIPAddressResponseArgs' private_ip_address: Private IP address.
+        :param 'PrivateIPAddressResponse' private_ip_address: Private IP address.
         :param int probe_port: Probe port.
         :param str public_ip_address_resource_id: Resource id of the public IP.
         :param Sequence[str] sql_virtual_machine_instances: List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
@@ -522,10 +522,10 @@ class ServerConfigurationsManagementSettingsResponse(dict):
                  sql_workload_type_update_settings: Optional['outputs.SqlWorkloadTypeUpdateSettingsResponse'] = None):
         """
         Set the connectivity, storage and workload settings.
-        :param 'AdditionalFeaturesServerConfigurationsResponseArgs' additional_features_server_configurations: Additional SQL feature settings.
-        :param 'SqlConnectivityUpdateSettingsResponseArgs' sql_connectivity_update_settings: SQL connectivity type settings.
-        :param 'SqlStorageUpdateSettingsResponseArgs' sql_storage_update_settings: SQL storage update settings.
-        :param 'SqlWorkloadTypeUpdateSettingsResponseArgs' sql_workload_type_update_settings: SQL workload type settings.
+        :param 'AdditionalFeaturesServerConfigurationsResponse' additional_features_server_configurations: Additional SQL feature settings.
+        :param 'SqlConnectivityUpdateSettingsResponse' sql_connectivity_update_settings: SQL connectivity type settings.
+        :param 'SqlStorageUpdateSettingsResponse' sql_storage_update_settings: SQL storage update settings.
+        :param 'SqlWorkloadTypeUpdateSettingsResponse' sql_workload_type_update_settings: SQL workload type settings.
         """
         if additional_features_server_configurations is not None:
             pulumi.set(__self__, "additional_features_server_configurations", additional_features_server_configurations)
@@ -700,9 +700,9 @@ class StorageConfigurationSettingsResponse(dict):
         """
         Storage Configurations for SQL Data, Log and TempDb.
         :param str disk_configuration_type: Disk configuration to apply to SQL Server.
-        :param 'SQLStorageSettingsResponseArgs' sql_data_settings: SQL Server Data Storage Settings.
-        :param 'SQLStorageSettingsResponseArgs' sql_log_settings: SQL Server Log Storage Settings.
-        :param 'SQLStorageSettingsResponseArgs' sql_temp_db_settings: SQL Server TempDb Storage Settings.
+        :param 'SQLStorageSettingsResponse' sql_data_settings: SQL Server Data Storage Settings.
+        :param 'SQLStorageSettingsResponse' sql_log_settings: SQL Server Log Storage Settings.
+        :param 'SQLStorageSettingsResponse' sql_temp_db_settings: SQL Server TempDb Storage Settings.
         :param str storage_workload_type: Storage workload type.
         """
         if disk_configuration_type is not None:

@@ -544,8 +544,8 @@ class A2AReplicationDetailsResponse(dict):
         :param str multi_vm_group_name: The multi vm group name.
         :param str os_type: The type of operating system.
         :param str primary_fabric_location: Primary fabric location.
-        :param Sequence['A2AProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
-        :param Sequence['A2AProtectedManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
+        :param Sequence['A2AProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
+        :param Sequence['A2AProtectedManagedDiskDetailsResponse'] protected_managed_disks: The list of protected managed disks.
         :param str recovery_availability_set: The recovery availability set.
         :param str recovery_azure_resource_group_id: The recovery resource group.
         :param str recovery_azure_vm_name: The name of recovery virtual machine.
@@ -556,10 +556,10 @@ class A2AReplicationDetailsResponse(dict):
         :param float rpo_in_seconds: The last RPO value in seconds.
         :param str selected_recovery_azure_network_id: The recovery virtual network.
         :param str test_failover_recovery_fabric_object_id: The test failover fabric object Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The virtual machine nic details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The virtual machine nic details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
-        :param 'AzureToAzureVmSyncedConfigDetailsResponseArgs' vm_synced_config_details: The synced configuration details.
+        :param 'AzureToAzureVmSyncedConfigDetailsResponse' vm_synced_config_details: The synced configuration details.
         """
         pulumi.set(__self__, "instance_type", 'A2A')
         if agent_version is not None:
@@ -979,8 +979,8 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure to Azure VM synced configuration details.
-        :param Sequence['InputEndpointResponseArgs'] input_endpoints: The Azure VM input endpoints.
-        :param Sequence['RoleAssignmentResponseArgs'] role_assignments: The Azure role assignments.
+        :param Sequence['InputEndpointResponse'] input_endpoints: The Azure VM input endpoints.
+        :param Sequence['RoleAssignmentResponse'] role_assignments: The Azure role assignments.
         :param Mapping[str, str] tags: The Azure VM tags.
         """
         if input_endpoints is not None:
@@ -1369,13 +1369,13 @@ class FabricPropertiesResponse(dict):
         """
         Fabric properties.
         :param str bcdr_state: BCDR state of the fabric.
-        :param Union['AzureFabricSpecificDetailsResponseArgs', 'HyperVSiteDetailsResponseArgs', 'VMwareDetailsResponseArgs', 'VMwareV2FabricSpecificDetailsResponseArgs', 'VmmDetailsResponseArgs'] custom_details: Fabric specific settings.
-        :param 'EncryptionDetailsResponseArgs' encryption_details: Encryption details for the fabric.
+        :param Union['AzureFabricSpecificDetailsResponse', 'HyperVSiteDetailsResponse', 'VMwareDetailsResponse', 'VMwareV2FabricSpecificDetailsResponse', 'VmmDetailsResponse'] custom_details: Fabric specific settings.
+        :param 'EncryptionDetailsResponse' encryption_details: Encryption details for the fabric.
         :param str friendly_name: Friendly name of the fabric.
         :param str health: Health of fabric.
-        :param Sequence['HealthErrorResponseArgs'] health_error_details: Fabric health error details.
+        :param Sequence['HealthErrorResponse'] health_error_details: Fabric health error details.
         :param str internal_identifier: Dra Registration Id.
-        :param 'EncryptionDetailsResponseArgs' rollover_encryption_details: Rollover encryption details for the fabric.
+        :param 'EncryptionDetailsResponse' rollover_encryption_details: Rollover encryption details for the fabric.
         """
         if bcdr_state is not None:
             pulumi.set(__self__, "bcdr_state", bcdr_state)
@@ -1481,7 +1481,7 @@ class HealthErrorResponse(dict):
                  recovery_provider_error_message: Optional[str] = None):
         """
         Health Error
-        :param Sequence['HealthErrorResponseArgs'] child_errors: The child health errors.
+        :param Sequence['HealthErrorResponse'] child_errors: The child health errors.
         :param str creation_time_utc: Error creation time (UTC)
         :param str entity_id: ID of the entity.
         :param str error_code: Error code.
@@ -1739,13 +1739,13 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         Hyper V Replica Azure provider specific settings.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaAzure'.
-        :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
+        :param Sequence['AzureVmDiskDetailsResponse'] azure_vm_disk_details: Azure VM Disk details.
         :param str enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param str encryption: The encryption info.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
         :param str license_type: License Type of the VM to be used.
-        :param 'OSDetailsResponseArgs' o_s_details: The operating system info.
+        :param 'OSDetailsResponse' o_s_details: The operating system info.
         :param str recovery_availability_set_id: The recovery availability set Id.
         :param str recovery_azure_log_storage_account_id: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
         :param str recovery_azure_resource_group_id: The target resource group Id.
@@ -1757,7 +1757,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -2151,11 +2151,11 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
         Hyper V replica provider specific settings base class.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaBaseReplicationDetails'.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponse'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -2421,11 +2421,11 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
         HyperV replica 2012 R2 (Blue) replication details.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplica2012R2'.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponse'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -2679,11 +2679,11 @@ class HyperVReplicaReplicationDetailsResponse(dict):
         HyperV replica 2012 replication details.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplica2012'.
-        :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
+        :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponse'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -3189,7 +3189,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMageAzureV2'.
         :param str agent_version: The agent version.
-        :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
+        :param Sequence['AzureVmDiskDetailsResponse'] azure_vm_disk_details: Azure VM Disk details.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
         :param Sequence[str] datastores: The data stores of the on-premise machine. Value can be list of strings that contain data store names.
         :param str discovery_type: A value indicating the discovery type of the machine. Value can be vCenter or physical.
@@ -3211,7 +3211,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str os_type: The type of the OS on the VM.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
-        :param Sequence['InMageAzureV2ProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['InMageAzureV2ProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param str protection_stage: The protection stage.
         :param str recovery_availability_set_id: The recovery availability set Id.
         :param str recovery_azure_log_storage_account_id: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
@@ -3229,10 +3229,10 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param Sequence['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
+        :param Sequence['HealthErrorResponse'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
         :param str vhd_name: The OS disk VHD name.
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -4114,7 +4114,7 @@ class InMageReplicationDetailsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMage'.
         :param str active_site_type: The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
-        :param 'InMageAgentDetailsResponseArgs' agent_details: The agent details.
+        :param 'InMageAgentDetailsResponse' agent_details: The agent details.
         :param str azure_storage_account_id: A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
         :param Mapping[str, str] consistency_points: The collection of Consistency points.
@@ -4130,14 +4130,14 @@ class InMageReplicationDetailsResponse(dict):
         :param str multi_vm_group_id: The multi vm group Id, if any.
         :param str multi_vm_group_name: The multi vm group name, if any.
         :param str multi_vm_sync_status: A value indicating whether the multi vm sync is enabled or disabled.
-        :param 'OSDiskDetailsResponseArgs' os_details: The OS details.
+        :param 'OSDiskDetailsResponse' os_details: The OS details.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
-        :param Sequence['InMageProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['InMageProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param str protection_stage: The protection stage.
         :param str reboot_after_update_status: A value indicating whether the source server requires a restart after update.
         :param str replica_id: The replica id of the protected item.
-        :param 'InitialReplicationDetailsResponseArgs' resync_details: The resync details of the machine
+        :param 'InitialReplicationDetailsResponse' resync_details: The resync details of the machine
         :param str retention_window_end: The retention window end time.
         :param str retention_window_start: The retention window start time.
         :param float rpo_in_seconds: The RPO in seconds.
@@ -4145,9 +4145,9 @@ class InMageReplicationDetailsResponse(dict):
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param Sequence['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
+        :param Sequence['HealthErrorResponse'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
         :param str vm_id: The virtual machine Id.
-        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -4657,7 +4657,7 @@ class MasterTargetServerResponse(dict):
         """
         Details of a Master Target Server.
         :param str agent_version: The version of the scout component on the server.
-        :param Sequence['DataStoreResponseArgs'] data_stores: The list of data stores in the fabric.
+        :param Sequence['DataStoreResponse'] data_stores: The list of data stores in the fabric.
         :param int disk_count: Disk count of the master target.
         :param str id: The server Id.
         :param str ip_address: The IP address of the server.
@@ -4665,8 +4665,8 @@ class MasterTargetServerResponse(dict):
         :param str name: The server name.
         :param str os_type: The OS type of the server.
         :param str os_version: OS Version of the master target.
-        :param Sequence['RetentionVolumeResponseArgs'] retention_volumes: The retention volumes of Master target Server.
-        :param Sequence['HealthErrorResponseArgs'] validation_errors: Validation errors.
+        :param Sequence['RetentionVolumeResponse'] retention_volumes: The retention volumes of Master target Server.
+        :param Sequence['HealthErrorResponse'] validation_errors: Validation errors.
         :param str version_status: Version status
         """
         if agent_version is not None:
@@ -4861,7 +4861,7 @@ class NetworkMappingPropertiesResponse(dict):
                  state: Optional[str] = None):
         """
         Network Mapping Properties.
-        :param Union['AzureToAzureNetworkMappingSettingsResponseArgs', 'VmmToAzureNetworkMappingSettingsResponseArgs', 'VmmToVmmNetworkMappingSettingsResponseArgs'] fabric_specific_settings: The fabric specific settings.
+        :param Union['AzureToAzureNetworkMappingSettingsResponse', 'VmmToAzureNetworkMappingSettingsResponse', 'VmmToVmmNetworkMappingSettingsResponse'] fabric_specific_settings: The fabric specific settings.
         :param str primary_fabric_friendly_name: The primary fabric friendly name.
         :param str primary_network_friendly_name: The primary network friendly name.
         :param str primary_network_id: The primary network id for network mapping.
@@ -5113,7 +5113,7 @@ class PolicyPropertiesResponse(dict):
         """
         Protection profile custom data details.
         :param str friendly_name: The FriendlyName.
-        :param Union['A2APolicyDetailsResponseArgs', 'HyperVReplicaAzurePolicyDetailsResponseArgs', 'HyperVReplicaBasePolicyDetailsResponseArgs', 'HyperVReplicaBluePolicyDetailsResponseArgs', 'HyperVReplicaPolicyDetailsResponseArgs', 'InMageAzureV2PolicyDetailsResponseArgs', 'InMageBasePolicyDetailsResponseArgs', 'InMagePolicyDetailsResponseArgs', 'RcmAzureMigrationPolicyDetailsResponseArgs', 'VmwareCbtPolicyDetailsResponseArgs'] provider_specific_details: The ReplicationChannelSetting.
+        :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'RcmAzureMigrationPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
         """
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
@@ -5185,7 +5185,7 @@ class ProcessServerResponse(dict):
         :param str last_heartbeat: The last heartbeat received from the server.
         :param str machine_count: The servers configured with this PS.
         :param str memory_usage_status: The memory usage status.
-        :param Sequence['MobilityServiceUpdateResponseArgs'] mobility_service_updates: The list of the mobility service updates available on the Process Server.
+        :param Sequence['MobilityServiceUpdateResponse'] mobility_service_updates: The list of the mobility service updates available on the Process Server.
         :param str os_type: The OS type of the server.
         :param str os_version: OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
         :param str ps_service_status: The PS service status.
@@ -5474,10 +5474,10 @@ class ProtectionContainerMappingPropertiesResponse(dict):
         """
         Protection container mapping properties.
         :param str health: Health of pairing.
-        :param Sequence['HealthErrorResponseArgs'] health_error_details: Health error.
+        :param Sequence['HealthErrorResponse'] health_error_details: Health error.
         :param str policy_friendly_name: Friendly name of replication policy.
         :param str policy_id: Policy ARM Id.
-        :param 'ProtectionContainerMappingProviderSpecificDetailsResponseArgs' provider_specific_details: Provider specific provider details.
+        :param 'ProtectionContainerMappingProviderSpecificDetailsResponse' provider_specific_details: Provider specific provider details.
         :param str source_fabric_friendly_name: Friendly name of source fabric.
         :param str source_protection_container_friendly_name: Friendly name of source protection container.
         :param str state: Association Status
@@ -5725,7 +5725,7 @@ class RecoveryPlanActionResponse(dict):
         """
         Recovery plan action details.
         :param str action_name: The action name.
-        :param Union['RecoveryPlanAutomationRunbookActionDetailsResponseArgs', 'RecoveryPlanManualActionDetailsResponseArgs', 'RecoveryPlanScriptActionDetailsResponseArgs'] custom_details: The custom details.
+        :param Union['RecoveryPlanAutomationRunbookActionDetailsResponse', 'RecoveryPlanManualActionDetailsResponse', 'RecoveryPlanScriptActionDetailsResponse'] custom_details: The custom details.
         :param Sequence[str] failover_directions: The list of failover directions.
         :param Sequence[str] failover_types: The list of failover types.
         """
@@ -5845,9 +5845,9 @@ class RecoveryPlanGroupResponse(dict):
         """
         Recovery plan group details.
         :param str group_type: The group type.
-        :param Sequence['RecoveryPlanActionResponseArgs'] end_group_actions: The end group actions.
-        :param Sequence['RecoveryPlanProtectedItemResponseArgs'] replication_protected_items: The list of protected items.
-        :param Sequence['RecoveryPlanActionResponseArgs'] start_group_actions: The start group actions.
+        :param Sequence['RecoveryPlanActionResponse'] end_group_actions: The end group actions.
+        :param Sequence['RecoveryPlanProtectedItemResponse'] replication_protected_items: The list of protected items.
+        :param Sequence['RecoveryPlanActionResponse'] start_group_actions: The start group actions.
         """
         pulumi.set(__self__, "group_type", group_type)
         if end_group_actions is not None:
@@ -5956,12 +5956,12 @@ class RecoveryPlanPropertiesResponse(dict):
         """
         Recovery plan custom details.
         :param Sequence[str] allowed_operations: The list of allowed operations.
-        :param 'CurrentScenarioDetailsResponseArgs' current_scenario: The current scenario details.
+        :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario details.
         :param str current_scenario_status: The recovery plan status.
         :param str current_scenario_status_description: The recovery plan status description.
         :param str failover_deployment_model: The failover deployment model.
         :param str friendly_name: The friendly name.
-        :param Sequence['RecoveryPlanGroupResponseArgs'] groups: The recovery plan groups.
+        :param Sequence['RecoveryPlanGroupResponse'] groups: The recovery plan groups.
         :param str last_planned_failover_time: The start time of the last planned failover.
         :param str last_test_failover_time: The start time of the last test failover.
         :param str last_unplanned_failover_time: The start time of the last unplanned failover.
@@ -6262,9 +6262,9 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         Replication protected item custom data details.
         :param str active_location: The Current active location of the PE.
         :param Sequence[str] allowed_operations: The allowed operations on the Replication protected item.
-        :param 'CurrentScenarioDetailsResponseArgs' current_scenario: The current scenario.
+        :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario.
         :param str failover_health: The consolidated failover health for the VM.
-        :param Sequence['HealthErrorResponseArgs'] failover_health_errors: List of failover health errors.
+        :param Sequence['HealthErrorResponse'] failover_health_errors: List of failover health errors.
         :param str failover_recovery_point_id: The recovery point ARM Id to which the Vm was failed over.
         :param str friendly_name: The name.
         :param str last_successful_failover_time: The Last successful failover time.
@@ -6277,14 +6277,14 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str protected_item_type: The type of protected item type.
         :param str protection_state: The protection status.
         :param str protection_state_description: The protection state description.
-        :param Union['A2AReplicationDetailsResponseArgs', 'HyperVReplicaAzureReplicationDetailsResponseArgs', 'HyperVReplicaBaseReplicationDetailsResponseArgs', 'HyperVReplicaBlueReplicationDetailsResponseArgs', 'HyperVReplicaReplicationDetailsResponseArgs', 'InMageAzureV2ReplicationDetailsResponseArgs', 'InMageReplicationDetailsResponseArgs'] provider_specific_details: The Replication provider custom settings.
+        :param Union['A2AReplicationDetailsResponse', 'HyperVReplicaAzureReplicationDetailsResponse', 'HyperVReplicaBaseReplicationDetailsResponse', 'HyperVReplicaBlueReplicationDetailsResponse', 'HyperVReplicaReplicationDetailsResponse', 'InMageAzureV2ReplicationDetailsResponse', 'InMageReplicationDetailsResponse'] provider_specific_details: The Replication provider custom settings.
         :param str recovery_container_id: The recovery container Id.
         :param str recovery_fabric_friendly_name: The friendly name of recovery fabric.
         :param str recovery_fabric_id: The Arm Id of recovery fabric.
         :param str recovery_protection_container_friendly_name: The name of recovery container friendly name.
         :param str recovery_services_provider_id: The recovery provider ARM Id.
         :param str replication_health: The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-        :param Sequence['HealthErrorResponseArgs'] replication_health_errors: List of replication health errors.
+        :param Sequence['HealthErrorResponse'] replication_health_errors: List of replication health errors.
         :param str test_failover_state: The Test failover state.
         :param str test_failover_state_description: The Test failover state description.
         """
@@ -7108,14 +7108,14 @@ class VMwareDetailsResponse(dict):
         :param str host_name: The host name.
         :param str ip_address: The IP address.
         :param str last_heartbeat: The last heartbeat received from CS server.
-        :param Sequence['MasterTargetServerResponseArgs'] master_target_servers: The list of Master Target servers associated with the fabric.
+        :param Sequence['MasterTargetServerResponse'] master_target_servers: The list of Master Target servers associated with the fabric.
         :param str memory_usage_status: The memory usage status.
         :param str process_server_count: The number of process servers.
-        :param Sequence['ProcessServerResponseArgs'] process_servers: The list of Process Servers associated with the fabric.
+        :param Sequence['ProcessServerResponse'] process_servers: The list of Process Servers associated with the fabric.
         :param str protected_servers: The number of protected servers.
         :param str ps_template_version: PS template version.
         :param str replication_pair_count: The number of replication pairs configured in this CS.
-        :param Sequence['RunAsAccountResponseArgs'] run_as_accounts: The list of run as accounts created on the server.
+        :param Sequence['RunAsAccountResponse'] run_as_accounts: The list of run as accounts created on the server.
         :param str space_usage_status: The space usage status.
         :param str ssl_cert_expiry_date: CS SSL cert expiry date.
         :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.

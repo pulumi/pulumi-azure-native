@@ -16,8 +16,8 @@ __all__ = [
     'ApplicationGatewayAutoscaleConfigurationResponse',
     'ApplicationGatewayBackendAddressPoolResponse',
     'ApplicationGatewayBackendAddressResponse',
-    'ApplicationGatewayBackendHealthHttpSettingsResponseResult',
-    'ApplicationGatewayBackendHealthServerResponseResult',
+    'ApplicationGatewayBackendHealthHttpSettingsResponse',
+    'ApplicationGatewayBackendHealthServerResponse',
     'ApplicationGatewayBackendHttpSettingsResponse',
     'ApplicationGatewayConnectionDrainingResponse',
     'ApplicationGatewayCustomErrorResponse',
@@ -60,7 +60,7 @@ __all__ = [
     'BackendPoolsSettingsResponse',
     'BackendResponse',
     'BastionHostIPConfigurationResponse',
-    'BgpPeerStatusResponseResult',
+    'BgpPeerStatusResponse',
     'BgpSettingsResponse',
     'CacheConfigurationResponse',
     'ConnectionMonitorDestinationResponse',
@@ -91,7 +91,7 @@ __all__ = [
     'FrontendEndpointResponse',
     'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink',
     'FrontendIPConfigurationResponse',
-    'GatewayRouteResponseResult',
+    'GatewayRouteResponse',
     'HealthProbeSettingsModelResponse',
     'HubVirtualNetworkConnectionResponse',
     'IPConfigurationProfileResponse',
@@ -163,7 +163,7 @@ __all__ = [
     'VirtualNetworkPeeringResponse',
     'VirtualNetworkTapResponse',
     'VpnClientConfigurationResponse',
-    'VpnClientConnectionHealthDetailResponseResult',
+    'VpnClientConnectionHealthDetailResponse',
     'VpnClientConnectionHealthResponse',
     'VpnClientRevokedCertificateResponse',
     'VpnClientRootCertificateResponse',
@@ -335,8 +335,8 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
                  type: Optional[str] = None):
         """
         Backend Address Pool of an application gateway.
-        :param Sequence['ApplicationGatewayBackendAddressResponseArgs'] backend_addresses: Backend addresses.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Collection of references to IPs defined in network interfaces.
+        :param Sequence['ApplicationGatewayBackendAddressResponse'] backend_addresses: Backend addresses.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: Collection of references to IPs defined in network interfaces.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: Name of the backend address pool that is unique within an Application Gateway.
@@ -457,17 +457,17 @@ class ApplicationGatewayBackendAddressResponse(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
+class ApplicationGatewayBackendHealthHttpSettingsResponse(dict):
     """
     Application gateway BackendHealthHttp settings.
     """
     def __init__(__self__, *,
                  backend_http_settings: Optional['outputs.ApplicationGatewayBackendHttpSettingsResponse'] = None,
-                 servers: Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponseResult']] = None):
+                 servers: Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponse']] = None):
         """
         Application gateway BackendHealthHttp settings.
-        :param 'ApplicationGatewayBackendHttpSettingsResponseArgs' backend_http_settings: Reference of an ApplicationGatewayBackendHttpSettings resource.
-        :param Sequence['ApplicationGatewayBackendHealthServerResponseArgs'] servers: List of ApplicationGatewayBackendHealthServer resources.
+        :param 'ApplicationGatewayBackendHttpSettingsResponse' backend_http_settings: Reference of an ApplicationGatewayBackendHttpSettings resource.
+        :param Sequence['ApplicationGatewayBackendHealthServerResponse'] servers: List of ApplicationGatewayBackendHealthServer resources.
         """
         if backend_http_settings is not None:
             pulumi.set(__self__, "backend_http_settings", backend_http_settings)
@@ -484,7 +484,7 @@ class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
 
     @property
     @pulumi.getter
-    def servers(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponseResult']]:
+    def servers(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponse']]:
         """
         List of ApplicationGatewayBackendHealthServer resources.
         """
@@ -492,7 +492,7 @@ class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendHealthServerResponseResult(dict):
+class ApplicationGatewayBackendHealthServerResponse(dict):
     """
     Application gateway backendhealth http settings.
     """
@@ -506,7 +506,7 @@ class ApplicationGatewayBackendHealthServerResponseResult(dict):
         :param str address: IP address or FQDN of backend server.
         :param str health: Health of backend server.
         :param str health_probe_log: Health Probe Log.
-        :param 'NetworkInterfaceIPConfigurationResponseArgs' ip_configuration: Reference of IP configuration of backend server.
+        :param 'NetworkInterfaceIPConfigurationResponse' ip_configuration: Reference of IP configuration of backend server.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -577,8 +577,8 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
         """
         Backend address pool settings of an application gateway.
         :param str affinity_cookie_name: Cookie name to use for the affinity cookie.
-        :param Sequence['SubResourceResponseArgs'] authentication_certificates: Array of references to application gateway authentication certificates.
-        :param 'ApplicationGatewayConnectionDrainingResponseArgs' connection_draining: Connection draining of the backend http settings resource.
+        :param Sequence['SubResourceResponse'] authentication_certificates: Array of references to application gateway authentication certificates.
+        :param 'ApplicationGatewayConnectionDrainingResponse' connection_draining: Connection draining of the backend http settings resource.
         :param str cookie_based_affinity: Cookie based affinity.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str host_name: Host header to be sent to the backend servers.
@@ -587,12 +587,12 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
         :param str path: Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
         :param bool pick_host_name_from_backend_address: Whether to pick host header should be picked from the host name of the backend server. Default value is false.
         :param int port: The destination port on the backend.
-        :param 'SubResourceResponseArgs' probe: Probe resource of an application gateway.
+        :param 'SubResourceResponse' probe: Probe resource of an application gateway.
         :param bool probe_enabled: Whether the probe is enabled. Default value is false.
         :param str protocol: The protocol used to communicate with the backend.
         :param str provisioning_state: Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param int request_timeout: Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
-        :param Sequence['SubResourceResponseArgs'] trusted_root_certificates: Array of references to application gateway trusted root certificates.
+        :param Sequence['SubResourceResponse'] trusted_root_certificates: Array of references to application gateway trusted root certificates.
         :param str type: Type of the resource.
         """
         if affinity_cookie_name is not None:
@@ -961,8 +961,8 @@ class ApplicationGatewayFrontendIPConfigurationResponse(dict):
         :param str private_ip_address: PrivateIPAddress of the network interface IP Configuration.
         :param str private_ip_allocation_method: The private IP address allocation method.
         :param str provisioning_state: Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'SubResourceResponseArgs' public_ip_address: Reference of the PublicIP resource.
-        :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource.
+        :param 'SubResourceResponse' public_ip_address: Reference of the PublicIP resource.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource.
         :param str type: Type of the resource.
         """
         if etag is not None:
@@ -1204,17 +1204,17 @@ class ApplicationGatewayHttpListenerResponse(dict):
                  type: Optional[str] = None):
         """
         Http listener of an application gateway.
-        :param Sequence['ApplicationGatewayCustomErrorResponseArgs'] custom_error_configurations: Custom error configurations of the HTTP listener.
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the HTTP listener.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: Frontend IP configuration resource of an application gateway.
-        :param 'SubResourceResponseArgs' frontend_port: Frontend port resource of an application gateway.
+        :param 'SubResourceResponse' frontend_ip_configuration: Frontend IP configuration resource of an application gateway.
+        :param 'SubResourceResponse' frontend_port: Frontend port resource of an application gateway.
         :param str host_name: Host name of HTTP listener.
         :param str id: Resource ID.
         :param str name: Name of the HTTP listener that is unique within an Application Gateway.
         :param str protocol: Protocol of the HTTP listener.
         :param str provisioning_state: Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param bool require_server_name_indication: Applicable only if protocol is https. Enables SNI for multi-hosting.
-        :param 'SubResourceResponseArgs' ssl_certificate: SSL certificate resource of an application gateway.
+        :param 'SubResourceResponse' ssl_certificate: SSL certificate resource of an application gateway.
         :param str type: Type of the resource.
         """
         if custom_error_configurations is not None:
@@ -1360,7 +1360,7 @@ class ApplicationGatewayIPConfigurationResponse(dict):
         :param str id: Resource ID.
         :param str name: Name of the IP configuration that is unique within an Application Gateway.
         :param str provisioning_state: Provisioning state of the application gateway subnet resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource. A subnet from where application gateway gets its private address.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource. A subnet from where application gateway gets its private address.
         :param str type: Type of the resource.
         """
         if etag is not None:
@@ -1446,15 +1446,15 @@ class ApplicationGatewayPathRuleResponse(dict):
                  type: Optional[str] = None):
         """
         Path rule of URL path map of an application gateway.
-        :param 'SubResourceResponseArgs' backend_address_pool: Backend address pool resource of URL path map path rule.
-        :param 'SubResourceResponseArgs' backend_http_settings: Backend http settings resource of URL path map path rule.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of URL path map path rule.
+        :param 'SubResourceResponse' backend_http_settings: Backend http settings resource of URL path map path rule.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: Name of the path rule that is unique within an Application Gateway.
         :param Sequence[str] paths: Path rules of URL path map.
         :param str provisioning_state: Path rule of URL path map resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'SubResourceResponseArgs' redirect_configuration: Redirect configuration resource of URL path map path rule.
-        :param 'SubResourceResponseArgs' rewrite_rule_set: Rewrite rule set resource of URL path map path rule.
+        :param 'SubResourceResponse' redirect_configuration: Redirect configuration resource of URL path map path rule.
+        :param 'SubResourceResponse' rewrite_rule_set: Rewrite rule set resource of URL path map path rule.
         :param str type: Type of the resource.
         """
         if backend_address_pool is not None:
@@ -1627,7 +1627,7 @@ class ApplicationGatewayProbeResponse(dict):
         :param str host: Host name to send the probe to.
         :param str id: Resource ID.
         :param int interval: The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
-        :param 'ApplicationGatewayProbeHealthResponseMatchResponseArgs' match: Criterion for classifying a healthy probe response.
+        :param 'ApplicationGatewayProbeHealthResponseMatchResponse' match: Criterion for classifying a healthy probe response.
         :param int min_servers: Minimum number of servers that are always marked healthy. Default value is 0.
         :param str name: Name of the probe that is unique within an Application Gateway.
         :param str path: Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
@@ -1819,13 +1819,13 @@ class ApplicationGatewayRedirectConfigurationResponse(dict):
         :param bool include_path: Include path in the redirected url.
         :param bool include_query_string: Include query string in the redirected url.
         :param str name: Name of the redirect configuration that is unique within an Application Gateway.
-        :param Sequence['SubResourceResponseArgs'] path_rules: Path rules specifying redirect configuration.
+        :param Sequence['SubResourceResponse'] path_rules: Path rules specifying redirect configuration.
         :param str redirect_type: HTTP redirection type.
-        :param Sequence['SubResourceResponseArgs'] request_routing_rules: Request routing specifying redirect configuration.
-        :param 'SubResourceResponseArgs' target_listener: Reference to a listener to redirect the request to.
+        :param Sequence['SubResourceResponse'] request_routing_rules: Request routing specifying redirect configuration.
+        :param 'SubResourceResponse' target_listener: Reference to a listener to redirect the request to.
         :param str target_url: Url to redirect the request to.
         :param str type: Type of the resource.
-        :param Sequence['SubResourceResponseArgs'] url_path_maps: Url path maps specifying default redirect configuration.
+        :param Sequence['SubResourceResponse'] url_path_maps: Url path maps specifying default redirect configuration.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -1972,18 +1972,18 @@ class ApplicationGatewayRequestRoutingRuleResponse(dict):
                  url_path_map: Optional['outputs.SubResourceResponse'] = None):
         """
         Request routing rule of an application gateway.
-        :param 'SubResourceResponseArgs' backend_address_pool: Backend address pool resource of the application gateway.
-        :param 'SubResourceResponseArgs' backend_http_settings: Backend http settings resource of the application gateway.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
+        :param 'SubResourceResponse' backend_http_settings: Backend http settings resource of the application gateway.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' http_listener: Http listener resource of the application gateway.
+        :param 'SubResourceResponse' http_listener: Http listener resource of the application gateway.
         :param str id: Resource ID.
         :param str name: Name of the request routing rule that is unique within an Application Gateway.
         :param str provisioning_state: Provisioning state of the request routing rule resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'SubResourceResponseArgs' redirect_configuration: Redirect configuration resource of the application gateway.
-        :param 'SubResourceResponseArgs' rewrite_rule_set: Rewrite Rule Set resource in Basic rule of the application gateway.
+        :param 'SubResourceResponse' redirect_configuration: Redirect configuration resource of the application gateway.
+        :param 'SubResourceResponse' rewrite_rule_set: Rewrite Rule Set resource in Basic rule of the application gateway.
         :param str rule_type: Rule type.
         :param str type: Type of the resource.
-        :param 'SubResourceResponseArgs' url_path_map: URL path map resource of the application gateway.
+        :param 'SubResourceResponse' url_path_map: URL path map resource of the application gateway.
         """
         if backend_address_pool is not None:
             pulumi.set(__self__, "backend_address_pool", backend_address_pool)
@@ -2154,35 +2154,35 @@ class ApplicationGatewayResponse(dict):
         :param str name: Resource name.
         :param str operational_state: Operational state of the application gateway resource.
         :param str type: Resource type.
-        :param Sequence['ApplicationGatewayAuthenticationCertificateResponseArgs'] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param 'ApplicationGatewayAutoscaleConfigurationResponseArgs' autoscale_configuration: Autoscale Configuration.
-        :param Sequence['ApplicationGatewayBackendAddressPoolResponseArgs'] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayBackendHttpSettingsResponseArgs'] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayCustomErrorResponseArgs'] custom_error_configurations: Custom error configurations of the application gateway resource.
+        :param Sequence['ApplicationGatewayAuthenticationCertificateResponse'] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayAutoscaleConfigurationResponse' autoscale_configuration: Autoscale Configuration.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayBackendHttpSettingsResponse'] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the application gateway resource.
         :param bool enable_fips: Whether FIPS is enabled on the application gateway resource.
         :param bool enable_http2: Whether HTTP2 is enabled on the application gateway resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' firewall_policy: Reference of the FirewallPolicy resource.
-        :param Sequence['ApplicationGatewayFrontendIPConfigurationResponseArgs'] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayFrontendPortResponseArgs'] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayIPConfigurationResponseArgs'] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayHttpListenerResponseArgs'] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'SubResourceResponse' firewall_policy: Reference of the FirewallPolicy resource.
+        :param Sequence['ApplicationGatewayFrontendIPConfigurationResponse'] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayFrontendPortResponse'] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayIPConfigurationResponse'] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayHttpListenerResponse'] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param str id: Resource ID.
-        :param 'ManagedServiceIdentityResponseArgs' identity: The identity of the application gateway, if configured.
+        :param 'ManagedServiceIdentityResponse' identity: The identity of the application gateway, if configured.
         :param str location: Resource location.
-        :param Sequence['ApplicationGatewayProbeResponseArgs'] probes: Probes of the application gateway resource.
+        :param Sequence['ApplicationGatewayProbeResponse'] probes: Probes of the application gateway resource.
         :param str provisioning_state: Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param Sequence['ApplicationGatewayRedirectConfigurationResponseArgs'] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayRequestRoutingRuleResponseArgs'] request_routing_rules: Request routing rules of the application gateway resource.
+        :param Sequence['ApplicationGatewayRedirectConfigurationResponse'] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayRequestRoutingRuleResponse'] request_routing_rules: Request routing rules of the application gateway resource.
         :param str resource_guid: Resource GUID property of the application gateway resource.
-        :param Sequence['ApplicationGatewayRewriteRuleSetResponseArgs'] rewrite_rule_sets: Rewrite rules for the application gateway resource.
-        :param 'ApplicationGatewaySkuResponseArgs' sku: SKU of the application gateway resource.
-        :param Sequence['ApplicationGatewaySslCertificateResponseArgs'] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param 'ApplicationGatewaySslPolicyResponseArgs' ssl_policy: SSL policy of the application gateway resource.
+        :param Sequence['ApplicationGatewayRewriteRuleSetResponse'] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param 'ApplicationGatewaySkuResponse' sku: SKU of the application gateway resource.
+        :param Sequence['ApplicationGatewaySslCertificateResponse'] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewaySslPolicyResponse' ssl_policy: SSL policy of the application gateway resource.
         :param Mapping[str, str] tags: Resource tags.
-        :param Sequence['ApplicationGatewayTrustedRootCertificateResponseArgs'] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayUrlPathMapResponseArgs'] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponseArgs' web_application_firewall_configuration: Web application firewall configuration.
+        :param Sequence['ApplicationGatewayTrustedRootCertificateResponse'] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayUrlPathMapResponse'] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponse' web_application_firewall_configuration: Web application firewall configuration.
         :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "name", name)
@@ -2527,8 +2527,8 @@ class ApplicationGatewayRewriteRuleActionSetResponse(dict):
                  response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']] = None):
         """
         Set of actions in the Rewrite Rule in Application Gateway.
-        :param Sequence['ApplicationGatewayHeaderConfigurationResponseArgs'] request_header_configurations: Request Header Actions in the Action Set.
-        :param Sequence['ApplicationGatewayHeaderConfigurationResponseArgs'] response_header_configurations: Response Header Actions in the Action Set.
+        :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] request_header_configurations: Request Header Actions in the Action Set.
+        :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] response_header_configurations: Response Header Actions in the Action Set.
         """
         if request_header_configurations is not None:
             pulumi.set(__self__, "request_header_configurations", request_header_configurations)
@@ -2629,8 +2629,8 @@ class ApplicationGatewayRewriteRuleResponse(dict):
                  rule_sequence: Optional[int] = None):
         """
         Rewrite rule of an application gateway.
-        :param 'ApplicationGatewayRewriteRuleActionSetResponseArgs' action_set: Set of actions to be done as part of the rewrite Rule.
-        :param Sequence['ApplicationGatewayRewriteRuleConditionResponseArgs'] conditions: Conditions based on which the action set execution will be evaluated.
+        :param 'ApplicationGatewayRewriteRuleActionSetResponse' action_set: Set of actions to be done as part of the rewrite Rule.
+        :param Sequence['ApplicationGatewayRewriteRuleConditionResponse'] conditions: Conditions based on which the action set execution will be evaluated.
         :param str name: Name of the rewrite rule that is unique within an Application Gateway.
         :param int rule_sequence: Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
         """
@@ -2696,7 +2696,7 @@ class ApplicationGatewayRewriteRuleSetResponse(dict):
         :param str provisioning_state: Provisioning state of the rewrite rule set resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str id: Resource ID.
         :param str name: Name of the rewrite rule set that is unique within an Application Gateway.
-        :param Sequence['ApplicationGatewayRewriteRuleResponseArgs'] rewrite_rules: Rewrite rules in the rewrite rule set.
+        :param Sequence['ApplicationGatewayRewriteRuleResponse'] rewrite_rules: Rewrite rules in the rewrite rule set.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -3113,14 +3113,14 @@ class ApplicationGatewayUrlPathMapResponse(dict):
                  type: Optional[str] = None):
         """
         UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
-        :param 'SubResourceResponseArgs' default_backend_address_pool: Default backend address pool resource of URL path map.
-        :param 'SubResourceResponseArgs' default_backend_http_settings: Default backend http settings resource of URL path map.
-        :param 'SubResourceResponseArgs' default_redirect_configuration: Default redirect configuration resource of URL path map.
-        :param 'SubResourceResponseArgs' default_rewrite_rule_set: Default Rewrite rule set resource of URL path map.
+        :param 'SubResourceResponse' default_backend_address_pool: Default backend address pool resource of URL path map.
+        :param 'SubResourceResponse' default_backend_http_settings: Default backend http settings resource of URL path map.
+        :param 'SubResourceResponse' default_redirect_configuration: Default redirect configuration resource of URL path map.
+        :param 'SubResourceResponse' default_rewrite_rule_set: Default Rewrite rule set resource of URL path map.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: Name of the URL path map that is unique within an Application Gateway.
-        :param Sequence['ApplicationGatewayPathRuleResponseArgs'] path_rules: Path rule of URL path map resource.
+        :param Sequence['ApplicationGatewayPathRuleResponse'] path_rules: Path rule of URL path map resource.
         :param str provisioning_state: Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str type: Type of the resource.
         """
@@ -3251,8 +3251,8 @@ class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
         :param str firewall_mode: Web application firewall mode.
         :param str rule_set_type: The type of the web application firewall rule set. Possible values are: 'OWASP'.
         :param str rule_set_version: The version of the rule set type.
-        :param Sequence['ApplicationGatewayFirewallDisabledRuleGroupResponseArgs'] disabled_rule_groups: The disabled rule groups.
-        :param Sequence['ApplicationGatewayFirewallExclusionResponseArgs'] exclusions: The exclusion list.
+        :param Sequence['ApplicationGatewayFirewallDisabledRuleGroupResponse'] disabled_rule_groups: The disabled rule groups.
+        :param Sequence['ApplicationGatewayFirewallExclusionResponse'] exclusions: The exclusion list.
         :param int file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
         :param int max_request_body_size: Maximum request body size for WAF.
         :param int max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
@@ -3481,11 +3481,11 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
         Application rule collection resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the resource.
-        :param 'AzureFirewallRCActionResponseArgs' action: The action type of a rule collection.
+        :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int priority: Priority of the application rule collection resource.
-        :param Sequence['AzureFirewallApplicationRuleResponseArgs'] rules: Collection of rules used by a application rule collection.
+        :param Sequence['AzureFirewallApplicationRuleResponse'] rules: Collection of rules used by a application rule collection.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -3615,7 +3615,7 @@ class AzureFirewallApplicationRuleResponse(dict):
         :param str description: Description of the rule.
         :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule.
         :param str name: Name of the application rule.
-        :param Sequence['AzureFirewallApplicationRuleProtocolResponseArgs'] protocols: Array of ApplicationRuleProtocols.
+        :param Sequence['AzureFirewallApplicationRuleProtocolResponse'] protocols: Array of ApplicationRuleProtocols.
         :param Sequence[str] source_addresses: List of source IP addresses for this rule.
         :param Sequence[str] target_fqdns: List of FQDNs for this rule.
         """
@@ -3704,8 +3704,8 @@ class AzureFirewallIPConfigurationResponse(dict):
         :param str provisioning_state: The provisioning state of the resource.
         :param str id: Resource ID.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' public_ip_address: Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
-        :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
+        :param 'SubResourceResponse' public_ip_address: Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -3822,11 +3822,11 @@ class AzureFirewallNatRuleCollectionResponse(dict):
         NAT rule collection resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the resource.
-        :param 'AzureFirewallNatRCActionResponseArgs' action: The action type of a NAT rule collection.
+        :param 'AzureFirewallNatRCActionResponse' action: The action type of a NAT rule collection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int priority: Priority of the NAT rule collection resource.
-        :param Sequence['AzureFirewallNatRuleResponseArgs'] rules: Collection of rules used by a NAT rule collection.
+        :param Sequence['AzureFirewallNatRuleResponse'] rules: Collection of rules used by a NAT rule collection.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -4028,11 +4028,11 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
         Network rule collection resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the resource.
-        :param 'AzureFirewallRCActionResponseArgs' action: The action type of a rule collection.
+        :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int priority: Priority of the network rule collection resource.
-        :param Sequence['AzureFirewallNetworkRuleResponseArgs'] rules: Collection of rules used by a network rule collection.
+        :param Sequence['AzureFirewallNetworkRuleResponse'] rules: Collection of rules used by a network rule collection.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -4235,10 +4235,10 @@ class BackendAddressPoolResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Pool of backend IP addresses.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Gets collection of references to IP addresses defined in network interfaces.
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets load balancing rules that use this backend address pool.
-        :param 'SubResourceResponseArgs' outbound_rule: Gets outbound rules that use this backend address pool.
-        :param Sequence['SubResourceResponseArgs'] outbound_rules: Gets outbound rules that use this backend address pool.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: Gets collection of references to IP addresses defined in network interfaces.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: Gets load balancing rules that use this backend address pool.
+        :param 'SubResourceResponse' outbound_rule: Gets outbound rules that use this backend address pool.
+        :param Sequence['SubResourceResponse'] outbound_rules: Gets outbound rules that use this backend address pool.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -4342,10 +4342,10 @@ class BackendPoolResponse(dict):
         A backend pool is a collection of backends that can be routed to.
         :param str resource_state: Resource status.
         :param str type: Resource type.
-        :param Sequence['BackendResponseArgs'] backends: The set of backends for this pool
-        :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
+        :param Sequence['BackendResponse'] backends: The set of backends for this pool
+        :param 'SubResourceResponse' health_probe_settings: L7 health probe settings for a backend pool
         :param str id: Resource ID.
-        :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
+        :param 'SubResourceResponse' load_balancing_settings: Load balancing settings for a backend pool
         :param str name: Resource name.
         """
         pulumi.set(__self__, "resource_state", resource_state)
@@ -4565,8 +4565,8 @@ class BastionHostIPConfigurationResponse(dict):
         IP configuration of an Bastion Host.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the resource.
-        :param 'SubResourceResponseArgs' public_ip_address: Reference of the PublicIP resource.
-        :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource.
+        :param 'SubResourceResponse' public_ip_address: Reference of the PublicIP resource.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource.
         :param str type: Ip configuration type.
         :param str id: Resource ID.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -4653,7 +4653,7 @@ class BastionHostIPConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class BgpPeerStatusResponseResult(dict):
+class BgpPeerStatusResponse(dict):
     """
     BGP peer status details.
     """
@@ -4943,10 +4943,10 @@ class ContainerNetworkInterfaceConfigurationResponse(dict):
         Container network interface configuration child resource.
         :param str provisioning_state: The provisioning state of the resource.
         :param str type: Sub Resource type.
-        :param Sequence['SubResourceResponseArgs'] container_network_interfaces: A list of container network interfaces created from this container network interface configuration.
+        :param Sequence['SubResourceResponse'] container_network_interfaces: A list of container network interfaces created from this container network interface configuration.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
-        :param Sequence['IPConfigurationProfileResponseArgs'] ip_configurations: A list of ip configurations of the container network interface configuration.
+        :param Sequence['IPConfigurationProfileResponse'] ip_configurations: A list of ip configurations of the container network interface configuration.
         :param str name: The name of the resource. This name can be used to access the resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -5100,11 +5100,11 @@ class ContainerNetworkInterfaceResponse(dict):
         Container network interface child resource.
         :param str provisioning_state: The provisioning state of the resource.
         :param str type: Sub Resource type.
-        :param 'ContainerResponseArgs' container: Reference to the container to which this container network interface is attached.
-        :param 'ContainerNetworkInterfaceConfigurationResponseArgs' container_network_interface_configuration: Container network interface configuration from which this container network interface is created.
+        :param 'ContainerResponse' container: Reference to the container to which this container network interface is attached.
+        :param 'ContainerNetworkInterfaceConfigurationResponse' container_network_interface_configuration: Container network interface configuration from which this container network interface is created.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
-        :param Sequence['ContainerNetworkInterfaceIpConfigurationResponseArgs'] ip_configurations: Reference to the ip configuration on this container nic.
+        :param Sequence['ContainerNetworkInterfaceIpConfigurationResponse'] ip_configurations: Reference to the ip configuration on this container nic.
         :param str name: The name of the resource. This name can be used to access the resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -5235,7 +5235,7 @@ class CustomHttpsConfigurationResponse(dict):
         :param str protocol_type: Defines the TLS extension protocol that is used for secure delivery
         :param str secret_name: The name of the Key Vault secret representing the full certificate PFX
         :param str secret_version: The version of the Key Vault secret representing the full certificate PFX
-        :param 'KeyVaultCertificateSourceParametersResponseVaultArgs' vault: The Key Vault containing the SSL certificate
+        :param 'KeyVaultCertificateSourceParametersResponseVault' vault: The Key Vault containing the SSL certificate
         """
         if certificate_source is not None:
             pulumi.set(__self__, "certificate_source", certificate_source)
@@ -5312,7 +5312,7 @@ class DdosSettingsResponse(dict):
                  protection_coverage: Optional[str] = None):
         """
         Contains the DDoS protection settings of the public IP.
-        :param 'SubResourceResponseArgs' ddos_custom_policy: The DDoS custom policy associated with the public IP.
+        :param 'SubResourceResponse' ddos_custom_policy: The DDoS custom policy associated with the public IP.
         :param str protection_coverage: The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
         """
         if ddos_custom_policy is not None:
@@ -5621,10 +5621,10 @@ class ExpressRouteCircuitConnectionResponse(dict):
         :param str type: Type of the resource.
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str authorization_key: The authorization key.
-        :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        :param 'SubResourceResponse' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        :param 'SubResourceResponse' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
@@ -5872,28 +5872,28 @@ class ExpressRouteCircuitPeeringResponse(dict):
         """
         Peering in an ExpressRouteCircuit resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['PeerExpressRouteCircuitConnectionResponseArgs'] peered_connections: The list of peered circuit connections associated with Azure Private Peering for this circuit.
+        :param Sequence['PeerExpressRouteCircuitConnectionResponse'] peered_connections: The list of peered circuit connections associated with Azure Private Peering for this circuit.
         :param str type: Type of the resource.
         :param int azure_asn: The Azure ASN.
-        :param Sequence['ExpressRouteCircuitConnectionResponseArgs'] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
-        :param 'ExpressRouteConnectionIdResponseArgs' express_route_connection: The ExpressRoute connection.
+        :param Sequence['ExpressRouteCircuitConnectionResponse'] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
+        :param 'ExpressRouteConnectionIdResponse' express_route_connection: The ExpressRoute connection.
         :param str gateway_manager_etag: The GatewayManager Etag.
         :param str id: Resource ID.
-        :param 'Ipv6ExpressRouteCircuitPeeringConfigResponseArgs' ipv6_peering_config: The IPv6 peering configuration.
+        :param 'Ipv6ExpressRouteCircuitPeeringConfigResponse' ipv6_peering_config: The IPv6 peering configuration.
         :param str last_modified_by: Gets whether the provider or the customer last modified the peering.
-        :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: The Microsoft peering configuration.
+        :param 'ExpressRouteCircuitPeeringConfigResponse' microsoft_peering_config: The Microsoft peering configuration.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param float peer_asn: The peer ASN.
         :param str peering_type: The peering type.
         :param str primary_azure_port: The primary port.
         :param str primary_peer_address_prefix: The primary address prefix.
         :param str provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'SubResourceResponseArgs' route_filter: The reference of the RouteFilter resource.
+        :param 'SubResourceResponse' route_filter: The reference of the RouteFilter resource.
         :param str secondary_azure_port: The secondary port.
         :param str secondary_peer_address_prefix: The secondary address prefix.
         :param str shared_key: The shared key.
         :param str state: The peering state.
-        :param 'ExpressRouteCircuitStatsResponseArgs' stats: Gets peering stats.
+        :param 'ExpressRouteCircuitStatsResponse' stats: Gets peering stats.
         :param int vlan_id: The VLAN ID.
         """
         pulumi.set(__self__, "etag", etag)
@@ -6339,7 +6339,7 @@ class ExpressRouteConnectionResponse(dict):
                  routing_weight: Optional[int] = None):
         """
         ExpressRouteConnection resource.
-        :param 'ExpressRouteCircuitPeeringIdResponseArgs' express_route_circuit_peering: The ExpressRoute circuit peering.
+        :param 'ExpressRouteCircuitPeeringIdResponse' express_route_circuit_peering: The ExpressRoute circuit peering.
         :param str name: The name of the resource.
         :param str provisioning_state: The provisioning state of the resource.
         :param str authorization_key: Authorization key to establish the connection.
@@ -6417,7 +6417,7 @@ class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
                  bounds: Optional['outputs.ExpressRouteGatewayPropertiesResponseBounds'] = None):
         """
         Configuration for auto scaling.
-        :param 'ExpressRouteGatewayPropertiesResponseBoundsArgs' bounds: Minimum and maximum number of scale units to deploy.
+        :param 'ExpressRouteGatewayPropertiesResponseBounds' bounds: Minimum and maximum number of scale units to deploy.
         """
         if bounds is not None:
             pulumi.set(__self__, "bounds", bounds)
@@ -6614,8 +6614,8 @@ class ForwardingConfigurationResponse(dict):
         Describes Forwarding Route.
         :param str odata_type: 
                Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-        :param 'SubResourceResponseArgs' backend_pool: A reference to the BackendPool which this rule routes to.
-        :param 'CacheConfigurationResponseArgs' cache_configuration: The caching configuration associated with this rule.
+        :param 'SubResourceResponse' backend_pool: A reference to the BackendPool which this rule routes to.
+        :param 'CacheConfigurationResponse' cache_configuration: The caching configuration associated with this rule.
         :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
         :param str forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         """
@@ -6693,7 +6693,7 @@ class FrontendEndpointResponse(dict):
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
         """
         A frontend endpoint used for routing.
-        :param 'CustomHttpsConfigurationResponseArgs' custom_https_configuration: The configuration specifying how to enable HTTPS
+        :param 'CustomHttpsConfigurationResponse' custom_https_configuration: The configuration specifying how to enable HTTPS
         :param str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
         :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
         :param str resource_state: Resource status.
@@ -6703,7 +6703,7 @@ class FrontendEndpointResponse(dict):
         :param str name: Resource name.
         :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
+        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
@@ -6864,10 +6864,10 @@ class FrontendIPConfigurationResponse(dict):
                  zones: Optional[Sequence[str]] = None):
         """
         Frontend IP address of the load balancer.
-        :param Sequence['SubResourceResponseArgs'] inbound_nat_pools: Read only. Inbound pools URIs that use this frontend IP.
-        :param Sequence['SubResourceResponseArgs'] inbound_nat_rules: Read only. Inbound rules URIs that use this frontend IP.
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets load balancing rules URIs that use this frontend IP.
-        :param Sequence['SubResourceResponseArgs'] outbound_rules: Read only. Outbound rules URIs that use this frontend IP.
+        :param Sequence['SubResourceResponse'] inbound_nat_pools: Read only. Inbound pools URIs that use this frontend IP.
+        :param Sequence['SubResourceResponse'] inbound_nat_rules: Read only. Inbound rules URIs that use this frontend IP.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: Gets load balancing rules URIs that use this frontend IP.
+        :param Sequence['SubResourceResponse'] outbound_rules: Read only. Outbound rules URIs that use this frontend IP.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -6875,9 +6875,9 @@ class FrontendIPConfigurationResponse(dict):
         :param str private_ip_address_version: It represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         :param str private_ip_allocation_method: The Private IP allocation method.
         :param str provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'PublicIPAddressResponseArgs' public_ip_address: The reference of the Public IP resource.
-        :param 'SubResourceResponseArgs' public_ip_prefix: The reference of the Public IP Prefix resource.
-        :param 'SubnetResponseArgs' subnet: The reference of the subnet resource.
+        :param 'PublicIPAddressResponse' public_ip_address: The reference of the Public IP resource.
+        :param 'SubResourceResponse' public_ip_prefix: The reference of the Public IP Prefix resource.
+        :param 'SubnetResponse' subnet: The reference of the subnet resource.
         :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
@@ -7032,7 +7032,7 @@ class FrontendIPConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class GatewayRouteResponseResult(dict):
+class GatewayRouteResponse(dict):
     """
     Gateway routing details.
     """
@@ -7238,7 +7238,7 @@ class HubVirtualNetworkConnectionResponse(dict):
         :param bool enable_internet_security: Enable internet security.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' remote_virtual_network: Reference to the remote virtual network.
+        :param 'SubResourceResponse' remote_virtual_network: Reference to the remote virtual network.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -7342,7 +7342,7 @@ class IPConfigurationProfileResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: The name of the resource. This name can be used to access the resource.
-        :param 'SubnetResponseArgs' subnet: The reference of the subnet resource to create a container network interface ip configuration.
+        :param 'SubnetResponse' subnet: The reference of the subnet resource to create a container network interface ip configuration.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
@@ -7429,8 +7429,8 @@ class IPConfigurationResponse(dict):
         :param str private_ip_address: The private IP address of the IP configuration.
         :param str private_ip_allocation_method: The private IP address allocation method.
         :param str provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'PublicIPAddressResponseArgs' public_ip_address: The reference of the public IP resource.
-        :param 'SubnetResponseArgs' subnet: The reference of the subnet resource.
+        :param 'PublicIPAddressResponse' public_ip_address: The reference of the public IP resource.
+        :param 'SubnetResponse' subnet: The reference of the subnet resource.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -7544,7 +7544,7 @@ class InboundNatPoolResponse(dict):
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -7691,12 +7691,12 @@ class InboundNatRuleResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Inbound NAT rule of the load balancer.
-        :param 'NetworkInterfaceIPConfigurationResponseArgs' backend_ip_configuration: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        :param 'NetworkInterfaceIPConfigurationResponse' backend_ip_configuration: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         :param int backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
         :param int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
@@ -7981,9 +7981,9 @@ class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
                  state: Optional[str] = None):
         """
         Contains IPv6 peering config.
-        :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: The Microsoft peering configuration.
+        :param 'ExpressRouteCircuitPeeringConfigResponse' microsoft_peering_config: The Microsoft peering configuration.
         :param str primary_peer_address_prefix: The primary address prefix.
-        :param 'SubResourceResponseArgs' route_filter: The reference of the RouteFilter resource.
+        :param 'SubResourceResponse' route_filter: The reference of the RouteFilter resource.
         :param str secondary_peer_address_prefix: The secondary address prefix.
         :param str state: The state of peering.
         """
@@ -8119,18 +8119,18 @@ class LoadBalancingRuleResponse(dict):
         A load balancing rule for a load balancer.
         :param int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 0 and 65534. Note that value 0 enables "Any Port".
         :param str protocol: The reference to the transport protocol used by the load balancing rule.
-        :param 'SubResourceResponseArgs' backend_address_pool: A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
+        :param 'SubResourceResponse' backend_address_pool: A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
         :param int backend_port: The port used for internal connections on the endpoint. Acceptable values are between 0 and 65535. Note that value 0 enables "Any Port".
         :param bool disable_outbound_snat: Configures SNAT for the VMs in the backend pool to use the publicIP address specified in the frontend of the load balancing rule.
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param str load_distribution: The load distribution policy for this rule.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' probe: The reference of the load balancer probe used by the load balancing rule.
+        :param 'SubResourceResponse' probe: The reference of the load balancer probe used by the load balancing rule.
         :param str provisioning_state: Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
         pulumi.set(__self__, "frontend_port", frontend_port)
@@ -8404,11 +8404,11 @@ class LocalNetworkGatewayResponse(dict):
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str type: Resource type.
-        :param 'BgpSettingsResponseArgs' bgp_settings: Local network gateway's BGP speaker settings.
+        :param 'BgpSettingsResponse' bgp_settings: Local network gateway's BGP speaker settings.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str gateway_ip_address: IP address of local network gateway.
         :param str id: Resource ID.
-        :param 'AddressSpaceResponseArgs' local_network_address_space: Local network site address space.
+        :param 'AddressSpaceResponse' local_network_address_space: Local network site address space.
         :param str location: Resource location.
         :param str resource_guid: The resource GUID property of the LocalNetworkGateway resource.
         :param Mapping[str, str] tags: Resource tags.
@@ -8540,7 +8540,7 @@ class ManagedServiceIdentityResponse(dict):
         :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -8631,7 +8631,7 @@ class MatchConditionResponse(dict):
         """
         Define match conditions.
         :param Sequence[str] match_values: Match value.
-        :param Sequence['MatchVariableResponseArgs'] match_variables: List of match variables.
+        :param Sequence['MatchVariableResponse'] match_variables: List of match variables.
         :param str operator: Describes operator to be matched.
         :param bool negation_conditon: Describes if this is negate condition or not.
         :param Sequence[str] transforms: List of transforms.
@@ -8848,21 +8848,21 @@ class NetworkInterfaceIPConfigurationResponse(dict):
                  virtual_network_taps: Optional[Sequence['outputs.VirtualNetworkTapResponse']] = None):
         """
         IPConfiguration in a network interface.
-        :param Sequence['ApplicationGatewayBackendAddressPoolResponseArgs'] application_gateway_backend_address_pools: The reference of ApplicationGatewayBackendAddressPool resource.
-        :param Sequence['ApplicationSecurityGroupResponseArgs'] application_security_groups: Application security groups in which the IP configuration is included.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] application_gateway_backend_address_pools: The reference of ApplicationGatewayBackendAddressPool resource.
+        :param Sequence['ApplicationSecurityGroupResponse'] application_security_groups: Application security groups in which the IP configuration is included.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
-        :param Sequence['BackendAddressPoolResponseArgs'] load_balancer_backend_address_pools: The reference of LoadBalancerBackendAddressPool resource.
-        :param Sequence['InboundNatRuleResponseArgs'] load_balancer_inbound_nat_rules: A list of references of LoadBalancerInboundNatRules.
+        :param Sequence['BackendAddressPoolResponse'] load_balancer_backend_address_pools: The reference of LoadBalancerBackendAddressPool resource.
+        :param Sequence['InboundNatRuleResponse'] load_balancer_inbound_nat_rules: A list of references of LoadBalancerInboundNatRules.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param bool primary: Gets whether this is a primary customer address on the network interface.
         :param str private_ip_address: Private IP address of the IP configuration.
         :param str private_ip_address_version: Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         :param str private_ip_allocation_method: The private IP address allocation method.
         :param str provisioning_state: The provisioning state of the network interface IP configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param 'PublicIPAddressResponseArgs' public_ip_address: Public IP address bound to the IP configuration.
-        :param 'SubnetResponseArgs' subnet: Subnet bound to the IP configuration.
-        :param Sequence['VirtualNetworkTapResponseArgs'] virtual_network_taps: The reference to Virtual Network Taps.
+        :param 'PublicIPAddressResponse' public_ip_address: Public IP address bound to the IP configuration.
+        :param 'SubnetResponse' subnet: Subnet bound to the IP configuration.
+        :param Sequence['VirtualNetworkTapResponse'] virtual_network_taps: The reference to Virtual Network Taps.
         """
         if application_gateway_backend_address_pools is not None:
             pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
@@ -9048,23 +9048,23 @@ class NetworkInterfaceResponse(dict):
         A network interface in a resource group.
         :param Sequence[str] hosted_workloads: A list of references to linked BareMetal resources.
         :param str name: Resource name.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: A reference to the private endpoint to which the network interface is linked.
+        :param 'PrivateEndpointResponse' private_endpoint: A reference to the private endpoint to which the network interface is linked.
         :param str type: Resource type.
-        :param 'SubResourceResponseArgs' virtual_machine: The reference of a virtual machine.
-        :param 'NetworkInterfaceDnsSettingsResponseArgs' dns_settings: The DNS settings in network interface.
+        :param 'SubResourceResponse' virtual_machine: The reference of a virtual machine.
+        :param 'NetworkInterfaceDnsSettingsResponse' dns_settings: The DNS settings in network interface.
         :param bool enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param bool enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: A list of IPConfigurations of the network interface.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] ip_configurations: A list of IPConfigurations of the network interface.
         :param str location: Resource location.
         :param str mac_address: The MAC address of the network interface.
-        :param 'NetworkSecurityGroupResponseArgs' network_security_group: The reference of the NetworkSecurityGroup resource.
+        :param 'NetworkSecurityGroupResponse' network_security_group: The reference of the NetworkSecurityGroup resource.
         :param bool primary: Gets whether this is a primary network interface on a virtual machine.
         :param str provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str resource_guid: The resource GUID property of the network interface resource.
         :param Mapping[str, str] tags: Resource tags.
-        :param Sequence['NetworkInterfaceTapConfigurationResponseArgs'] tap_configurations: A list of TapConfigurations of the network interface.
+        :param Sequence['NetworkInterfaceTapConfigurationResponse'] tap_configurations: A list of TapConfigurations of the network interface.
         """
         pulumi.set(__self__, "hosted_workloads", hosted_workloads)
         pulumi.set(__self__, "name", name)
@@ -9275,7 +9275,7 @@ class NetworkInterfaceTapConfigurationResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'VirtualNetworkTapResponseArgs' virtual_network_tap: The reference of the Virtual Network Tap resource.
+        :param 'VirtualNetworkTapResponse' virtual_network_tap: The reference of the Virtual Network Tap resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
@@ -9361,16 +9361,16 @@ class NetworkSecurityGroupResponse(dict):
         """
         NetworkSecurityGroup resource.
         :param str name: Resource name.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: A collection of references to network interfaces.
-        :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: A collection of references to network interfaces.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
         :param str type: Resource type.
-        :param Sequence['SecurityRuleResponseArgs'] default_security_rules: The default security rules of network security group.
+        :param Sequence['SecurityRuleResponse'] default_security_rules: The default security rules of network security group.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str location: Resource location.
         :param str provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str resource_guid: The resource GUID property of the network security group resource.
-        :param Sequence['SecurityRuleResponseArgs'] security_rules: A collection of security rules of the network security group.
+        :param Sequence['SecurityRuleResponse'] security_rules: A collection of security rules of the network security group.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "name", name)
@@ -9512,8 +9512,8 @@ class OutboundRuleResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Outbound rule of the load balancer.
-        :param 'SubResourceResponseArgs' backend_address_pool: A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-        :param Sequence['SubResourceResponseArgs'] frontend_ip_configurations: The Frontend IP addresses of the load balancer.
+        :param 'SubResourceResponse' backend_address_pool: A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        :param Sequence['SubResourceResponse'] frontend_ip_configurations: The Frontend IP addresses of the load balancer.
         :param str protocol: The protocol for the outbound rule in load balancer.
         :param int allocated_outbound_ports: The number of outbound ports to be used for NAT.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
@@ -9937,17 +9937,17 @@ class P2SVpnServerConfigurationResponse(dict):
         """
         P2SVpnServerConfiguration Resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['SubResourceResponseArgs'] p2_s_vpn_gateways: List of references to P2SVpnGateways.
+        :param Sequence['SubResourceResponse'] p2_s_vpn_gateways: List of references to P2SVpnGateways.
         :param str provisioning_state: The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str id: Resource ID.
         :param str name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
-        :param Sequence['P2SVpnServerConfigRadiusClientRootCertificateResponseArgs'] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
-        :param Sequence['P2SVpnServerConfigRadiusServerRootCertificateResponseArgs'] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
-        :param Sequence['P2SVpnServerConfigVpnClientRevokedCertificateResponseArgs'] p2_s_vpn_server_config_vpn_client_revoked_certificates: VPN client revoked certificate of P2SVpnServerConfiguration.
-        :param Sequence['P2SVpnServerConfigVpnClientRootCertificateResponseArgs'] p2_s_vpn_server_config_vpn_client_root_certificates: VPN client root certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigRadiusClientRootCertificateResponse'] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigRadiusServerRootCertificateResponse'] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigVpnClientRevokedCertificateResponse'] p2_s_vpn_server_config_vpn_client_revoked_certificates: VPN client revoked certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigVpnClientRootCertificateResponse'] p2_s_vpn_server_config_vpn_client_root_certificates: VPN client root certificate of P2SVpnServerConfiguration.
         :param str radius_server_address: The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
         :param str radius_server_secret: The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-        :param Sequence['IpsecPolicyResponseArgs'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        :param Sequence['IpsecPolicyResponse'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         :param Sequence[str] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
         pulumi.set(__self__, "etag", etag)
@@ -10234,10 +10234,10 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str auth_resource_guid: The resource guid of the authorization used for the express route circuit connection.
         :param str connection_name: The name of the express route circuit connection resource.
-        :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit.
+        :param 'SubResourceResponse' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        :param 'SubResourceResponse' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
@@ -10408,8 +10408,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The resource type.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -10503,15 +10503,15 @@ class PrivateEndpointResponse(dict):
         """
         Private endpoint resource.
         :param str name: Resource name.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: Gets an array of references to the network interfaces created for this private endpoint.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: Gets an array of references to the network interfaces created for this private endpoint.
         :param str provisioning_state: The provisioning state of the private endpoint.
         :param str type: Resource type.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] private_link_service_connections: A grouping of information about the connection to the remote resource.
-        :param 'SubnetResponseArgs' subnet: The ID of the subnet from which the private IP will be allocated.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param 'SubnetResponse' subnet: The ID of the subnet from which the private IP will be allocated.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "name", name)
@@ -10648,7 +10648,7 @@ class PrivateLinkServiceConnectionResponse(dict):
         :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
         :param str private_link_service_id: The resource id of private link service.
         :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
@@ -10821,7 +10821,7 @@ class PrivateLinkServiceIpConfigurationResponse(dict):
         :param str private_ip_address: The private IP address of the IP configuration.
         :param str private_ip_address_version: Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'SubnetResponseArgs' subnet: The reference of the subnet resource.
+        :param 'SubnetResponse' subnet: The reference of the subnet resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -10995,7 +10995,7 @@ class ProbeResponse(dict):
                  request_path: Optional[str] = None):
         """
         A load balancer probe.
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: The load balancer rules that use this probe.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: The load balancer rules that use this probe.
         :param int port: The port for communicating the probe. Possible values range from 1 to 65535, inclusive.
         :param str protocol: The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
@@ -11247,23 +11247,23 @@ class PublicIPAddressResponse(dict):
                  zones: Optional[Sequence[str]] = None):
         """
         Public IP address resource.
-        :param 'IPConfigurationResponseArgs' ip_configuration: The IP configuration associated with the public IP address.
+        :param 'IPConfigurationResponse' ip_configuration: The IP configuration associated with the public IP address.
         :param str name: Resource name.
         :param str type: Resource type.
-        :param 'DdosSettingsResponseArgs' ddos_settings: The DDoS protection custom policy associated with the public IP address.
-        :param 'PublicIPAddressDnsSettingsResponseArgs' dns_settings: The FQDN of the DNS record associated with the public IP address.
+        :param 'DdosSettingsResponse' ddos_settings: The DDoS protection custom policy associated with the public IP address.
+        :param 'PublicIPAddressDnsSettingsResponse' dns_settings: The FQDN of the DNS record associated with the public IP address.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param str ip_address: The IP address associated with the public IP address resource.
-        :param Sequence['IpTagResponseArgs'] ip_tags: The list of tags associated with the public IP address.
+        :param Sequence['IpTagResponse'] ip_tags: The list of tags associated with the public IP address.
         :param str location: Resource location.
         :param str provisioning_state: The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str public_ip_address_version: The public IP address version.
         :param str public_ip_allocation_method: The public IP address allocation method.
-        :param 'SubResourceResponseArgs' public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
+        :param 'SubResourceResponse' public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
         :param str resource_guid: The resource GUID property of the public IP resource.
-        :param 'PublicIPAddressSkuResponseArgs' sku: The public IP address SKU.
+        :param 'PublicIPAddressSkuResponse' sku: The public IP address SKU.
         :param Mapping[str, str] tags: Resource tags.
         :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
@@ -11951,14 +11951,14 @@ class RouteTableResponse(dict):
         """
         Route table resource.
         :param str name: Resource name.
-        :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
         :param str type: Resource type.
         :param bool disable_bgp_route_propagation: Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str location: Resource location.
         :param str provisioning_state: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param Sequence['RouteResponseArgs'] routes: Collection of routes contained within a route table.
+        :param Sequence['RouteResponse'] routes: Collection of routes contained within a route table.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "name", name)
@@ -12084,11 +12084,11 @@ class RoutingRuleResponse(dict):
         :param str type: Resource type.
         :param Sequence[str] accepted_protocols: Protocol schemes to match for this rule
         :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-        :param Sequence['SubResourceResponseArgs'] frontend_endpoints: Frontend endpoints associated with this rule
+        :param Sequence['SubResourceResponse'] frontend_endpoints: Frontend endpoints associated with this rule
         :param str id: Resource ID.
         :param str name: Resource name.
         :param Sequence[str] patterns_to_match: The route patterns of the rule.
-        :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration: A reference to the routing configuration.
+        :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration: A reference to the routing configuration.
         """
         pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
@@ -12216,7 +12216,7 @@ class SecurityRuleResponse(dict):
         :param str description: A description for this rule. Restricted to 140 chars.
         :param str destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         :param Sequence[str] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
-        :param Sequence['ApplicationSecurityGroupResponseArgs'] destination_application_security_groups: The application security group specified as destination.
+        :param Sequence['ApplicationSecurityGroupResponse'] destination_application_security_groups: The application security group specified as destination.
         :param str destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] destination_port_ranges: The destination port ranges.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
@@ -12226,7 +12226,7 @@ class SecurityRuleResponse(dict):
         :param str provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param Sequence[str] source_address_prefixes: The CIDR or source IP ranges.
-        :param Sequence['ApplicationSecurityGroupResponseArgs'] source_application_security_groups: The application security group specified as source.
+        :param Sequence['ApplicationSecurityGroupResponse'] source_application_security_groups: The application security group specified as source.
         :param str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] source_port_ranges: The source port ranges.
         """
@@ -12660,12 +12660,12 @@ class ServiceEndpointPolicyResponse(dict):
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str resource_guid: The resource GUID property of the service endpoint policy resource.
-        :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
         :param str type: Resource type.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param Sequence['ServiceEndpointPolicyDefinitionResponseArgs'] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
+        :param Sequence['ServiceEndpointPolicyDefinitionResponse'] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "name", name)
@@ -12872,26 +12872,26 @@ class SubnetResponse(dict):
                  service_endpoints: Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']] = None):
         """
         Subnet in a virtual network resource.
-        :param Sequence['IPConfigurationProfileResponseArgs'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
-        :param Sequence['IPConfigurationResponseArgs'] ip_configurations: Gets an array of references to the network interface IP configurations using subnet.
-        :param Sequence['PrivateEndpointResponseArgs'] private_endpoints: An array of references to private endpoints.
+        :param Sequence['IPConfigurationProfileResponse'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
+        :param Sequence['IPConfigurationResponse'] ip_configurations: Gets an array of references to the network interface IP configurations using subnet.
+        :param Sequence['PrivateEndpointResponse'] private_endpoints: An array of references to private endpoints.
         :param str purpose: A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
         :param str address_prefix: The address prefix for the subnet.
         :param Sequence[str] address_prefixes: List of address prefixes for the subnet.
-        :param Sequence['DelegationResponseArgs'] delegations: Gets an array of references to the delegations on the subnet.
+        :param Sequence['DelegationResponse'] delegations: Gets an array of references to the delegations on the subnet.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' nat_gateway: Nat gateway associated with this subnet.
-        :param 'NetworkSecurityGroupResponseArgs' network_security_group: The reference of the NetworkSecurityGroup resource.
+        :param 'SubResourceResponse' nat_gateway: Nat gateway associated with this subnet.
+        :param 'NetworkSecurityGroupResponse' network_security_group: The reference of the NetworkSecurityGroup resource.
         :param str private_endpoint_network_policies: Enable or Disable private end point on the subnet.
         :param str private_link_service_network_policies: Enable or Disable private link service on the subnet.
         :param str provisioning_state: The provisioning state of the resource.
-        :param Sequence['ResourceNavigationLinkResponseArgs'] resource_navigation_links: Gets an array of references to the external resources using subnet.
-        :param 'RouteTableResponseArgs' route_table: The reference of the RouteTable resource.
-        :param Sequence['ServiceAssociationLinkResponseArgs'] service_association_links: Gets an array of references to services injecting into this subnet.
-        :param Sequence['ServiceEndpointPolicyResponseArgs'] service_endpoint_policies: An array of service endpoint policies.
-        :param Sequence['ServiceEndpointPropertiesFormatResponseArgs'] service_endpoints: An array of service endpoints.
+        :param Sequence['ResourceNavigationLinkResponse'] resource_navigation_links: Gets an array of references to the external resources using subnet.
+        :param 'RouteTableResponse' route_table: The reference of the RouteTable resource.
+        :param Sequence['ServiceAssociationLinkResponse'] service_association_links: Gets an array of references to services injecting into this subnet.
+        :param Sequence['ServiceEndpointPolicyResponse'] service_endpoint_policies: An array of service endpoint policies.
+        :param Sequence['ServiceEndpointPropertiesFormatResponse'] service_endpoints: An array of service endpoints.
         """
         pulumi.set(__self__, "ip_configuration_profiles", ip_configuration_profiles)
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -13236,7 +13236,7 @@ class VirtualHubRouteTableResponse(dict):
                  routes: Optional[Sequence['outputs.VirtualHubRouteResponse']] = None):
         """
         VirtualHub route table.
-        :param Sequence['VirtualHubRouteResponseArgs'] routes: List of all routes.
+        :param Sequence['VirtualHubRouteResponse'] routes: List of all routes.
         """
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
@@ -13273,8 +13273,8 @@ class VirtualNetworkGatewayIPConfigurationResponse(dict):
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'SubResourceResponseArgs' public_ip_address: The reference of the public IP resource.
-        :param 'SubResourceResponseArgs' subnet: The reference of the subnet resource.
+        :param 'SubResourceResponse' public_ip_address: The reference of the public IP resource.
+        :param 'SubResourceResponse' subnet: The reference of the subnet resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
@@ -13380,19 +13380,19 @@ class VirtualNetworkGatewayResponse(dict):
         :param str provisioning_state: The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str type: Resource type.
         :param bool active_active: ActiveActive flag.
-        :param 'BgpSettingsResponseArgs' bgp_settings: Virtual network gateway's BGP speaker settings.
-        :param 'AddressSpaceResponseArgs' custom_routes: The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+        :param 'BgpSettingsResponse' bgp_settings: Virtual network gateway's BGP speaker settings.
+        :param 'AddressSpaceResponse' custom_routes: The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param bool enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
-        :param 'SubResourceResponseArgs' gateway_default_site: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        :param 'SubResourceResponse' gateway_default_site: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param str gateway_type: The type of this virtual network gateway.
         :param str id: Resource ID.
-        :param Sequence['VirtualNetworkGatewayIPConfigurationResponseArgs'] ip_configurations: IP configurations for virtual network gateway.
+        :param Sequence['VirtualNetworkGatewayIPConfigurationResponse'] ip_configurations: IP configurations for virtual network gateway.
         :param str location: Resource location.
         :param str resource_guid: The resource GUID property of the VirtualNetworkGateway resource.
-        :param 'VirtualNetworkGatewaySkuResponseArgs' sku: The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        :param 'VirtualNetworkGatewaySkuResponse' sku: The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param Mapping[str, str] tags: Resource tags.
-        :param 'VpnClientConfigurationResponseArgs' vpn_client_configuration: The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        :param 'VpnClientConfigurationResponse' vpn_client_configuration: The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param str vpn_type: The type of this virtual network gateway.
         """
         pulumi.set(__self__, "name", name)
@@ -13654,8 +13654,8 @@ class VirtualNetworkPeeringResponse(dict):
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str peering_state: The status of the virtual network peering.
         :param str provisioning_state: The provisioning state of the resource.
-        :param 'AddressSpaceResponseArgs' remote_address_space: The reference of the remote virtual network address space.
-        :param 'SubResourceResponseArgs' remote_virtual_network: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        :param 'AddressSpaceResponse' remote_address_space: The reference of the remote virtual network address space.
+        :param 'SubResourceResponse' remote_virtual_network: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param bool use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         if allow_forwarded_traffic is not None:
@@ -13794,12 +13794,12 @@ class VirtualNetworkTapResponse(dict):
         """
         Virtual Network Tap resource.
         :param str name: Resource name.
-        :param Sequence['NetworkInterfaceTapConfigurationResponseArgs'] network_interface_tap_configurations: Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+        :param Sequence['NetworkInterfaceTapConfigurationResponse'] network_interface_tap_configurations: Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         :param str provisioning_state: The provisioning state of the virtual network tap. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param str resource_guid: The resourceGuid property of the virtual network tap.
         :param str type: Resource type.
-        :param 'FrontendIPConfigurationResponseArgs' destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
-        :param 'NetworkInterfaceIPConfigurationResponseArgs' destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
+        :param 'FrontendIPConfigurationResponse' destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        :param 'NetworkInterfaceIPConfigurationResponse' destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
         :param int destination_port: The VXLAN destination port that will receive the tapped traffic.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param str id: Resource ID.
@@ -13949,11 +13949,11 @@ class VpnClientConfigurationResponse(dict):
         :param str aad_tenant: The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         :param str radius_server_address: The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
         :param str radius_server_secret: The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
-        :param 'AddressSpaceResponseArgs' vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
-        :param Sequence['IpsecPolicyResponseArgs'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for virtual network gateway P2S client.
+        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
+        :param Sequence['IpsecPolicyResponse'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for virtual network gateway P2S client.
         :param Sequence[str] vpn_client_protocols: VpnClientProtocols for Virtual network gateway.
-        :param Sequence['VpnClientRevokedCertificateResponseArgs'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
-        :param Sequence['VpnClientRootCertificateResponseArgs'] vpn_client_root_certificates: VpnClientRootCertificate for virtual network gateway.
+        :param Sequence['VpnClientRevokedCertificateResponse'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
+        :param Sequence['VpnClientRootCertificateResponse'] vpn_client_root_certificates: VpnClientRootCertificate for virtual network gateway.
         """
         if aad_audience is not None:
             pulumi.set(__self__, "aad_audience", aad_audience)
@@ -14061,7 +14061,7 @@ class VpnClientConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class VpnClientConnectionHealthDetailResponseResult(dict):
+class VpnClientConnectionHealthDetailResponse(dict):
     """
     VPN client connection health detail.
     """
@@ -14444,9 +14444,9 @@ class VpnConnectionResponse(dict):
         :param bool enable_internet_security: Enable internet security.
         :param bool enable_rate_limiting: EnableBgp flag.
         :param str id: Resource ID.
-        :param Sequence['IpsecPolicyResponseArgs'] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param Sequence['IpsecPolicyResponse'] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' remote_vpn_site: Id of the connected vpn site.
+        :param 'SubResourceResponse' remote_vpn_site: Id of the connected vpn site.
         :param int routing_weight: Routing weight for vpn connection.
         :param str shared_key: SharedKey for the vpn connection.
         :param bool use_local_azure_ip_address: Use local azure ip to initiate connection.
@@ -14649,7 +14649,7 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         Defines contents of a web application rule.
         :param str action: Type of Actions.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
-        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.

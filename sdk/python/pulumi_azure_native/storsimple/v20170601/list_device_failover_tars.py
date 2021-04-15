@@ -27,7 +27,7 @@ class ListDeviceFailoverTarsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.FailoverTargetResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.FailoverTargetResponse']]:
         """
         The list of all the failover targets.
         """

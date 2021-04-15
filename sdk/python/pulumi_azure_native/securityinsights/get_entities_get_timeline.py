@@ -31,7 +31,7 @@ class GetEntitiesGetTimelineResult:
 
     @property
     @pulumi.getter(name="metaData")
-    def meta_data(self) -> Optional['outputs.TimelineResultsMetadataResponseResult']:
+    def meta_data(self) -> Optional['outputs.TimelineResultsMetadataResponse']:
         """
         The metadata from the timeline operation results.
         """

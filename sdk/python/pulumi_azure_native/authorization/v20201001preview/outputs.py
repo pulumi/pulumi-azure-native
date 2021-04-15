@@ -25,9 +25,9 @@ class PolicyAssignmentPropertiesResponse(dict):
                  role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
                  scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None):
         """
-        :param 'PolicyAssignmentPropertiesResponsePolicyArgs' policy: Details of the policy
-        :param 'PolicyAssignmentPropertiesResponseRoleDefinitionArgs' role_definition: Details of role definition
-        :param 'PolicyAssignmentPropertiesResponseScopeArgs' scope: Details of the resource scope
+        :param 'PolicyAssignmentPropertiesResponsePolicy' policy: Details of the policy
+        :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
+        :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -75,7 +75,7 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
                  last_modified_date_time: Optional[str] = None):
         """
         Details of the policy
-        :param 'PrincipalResponseArgs' last_modified_by: The name of the entity last modified it
+        :param 'PrincipalResponse' last_modified_by: The name of the entity last modified it
         :param str id: Id of the policy
         :param str last_modified_date_time: The last modified date time.
         """

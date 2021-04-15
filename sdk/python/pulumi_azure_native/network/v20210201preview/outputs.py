@@ -12,9 +12,9 @@ from ._enums import *
 __all__ = [
     'AddressPrefixItemResponse',
     'ConnectivityGroupItemResponse',
-    'EffectiveVirtualNetworkResponseResult',
+    'EffectiveVirtualNetworkResponse',
     'GroupMembersItemResponse',
-    'NetworkManagerDeploymentStatusResponseResult',
+    'NetworkManagerDeploymentStatusResponse',
     'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
     'SystemDataResponse',
@@ -117,7 +117,7 @@ class ConnectivityGroupItemResponse(dict):
 
 
 @pulumi.output_type
-class EffectiveVirtualNetworkResponseResult(dict):
+class EffectiveVirtualNetworkResponse(dict):
     """
     Effective Virtual Network
     """
@@ -190,7 +190,7 @@ class GroupMembersItemResponse(dict):
 
 
 @pulumi.output_type
-class NetworkManagerDeploymentStatusResponseResult(dict):
+class NetworkManagerDeploymentStatusResponse(dict):
     """
     Network Manager Deployment Status.
     """

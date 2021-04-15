@@ -77,8 +77,8 @@ class ConditionResponse(dict):
         :param str operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
         :param float threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
         :param str time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
-        :param Sequence['DimensionResponseArgs'] dimensions: List of Dimensions conditions
-        :param 'ConditionResponseFailingPeriodsArgs' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
+        :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
         :param str query: Log query alert
@@ -274,7 +274,7 @@ class ScheduledQueryRuleCriteriaResponse(dict):
                  all_of: Optional[Sequence['outputs.ConditionResponse']] = None):
         """
         The rule criteria that defines the conditions of the scheduled query rule.
-        :param Sequence['ConditionResponseArgs'] all_of: A list of conditions to evaluate against the specified scopes
+        :param Sequence['ConditionResponse'] all_of: A list of conditions to evaluate against the specified scopes
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)

@@ -118,8 +118,8 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
-        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse'] authorization_policies: List of authorization keys for a provisioning service.
+        :param Sequence['IotHubDefinitionDescriptionResponse'] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str state: Current state of the provisioning service.
         """

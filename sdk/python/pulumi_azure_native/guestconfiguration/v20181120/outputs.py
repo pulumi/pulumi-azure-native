@@ -166,7 +166,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param str latest_report_id: Id of the latest report for the guest configuration assignment. 
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str context: The source which initiated the guest configuration assignment. Ex: Azure Policy
-        :param 'GuestConfigurationNavigationResponseArgs' guest_configuration: The guest configuration to assign.
+        :param 'GuestConfigurationNavigationResponse' guest_configuration: The guest configuration to assign.
         """
         pulumi.set(__self__, "assignment_hash", assignment_hash)
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -255,8 +255,8 @@ class GuestConfigurationNavigationResponse(dict):
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
-        :param Sequence['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
-        :param 'ConfigurationSettingResponseArgs' configuration_setting: The configuration setting for the guest configuration.
+        :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.

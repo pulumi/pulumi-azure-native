@@ -77,7 +77,7 @@ class AzureFunctionEventSubscriptionDestinationResponse(dict):
         Information about the azure function destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'AzureFunction'.
-        :param Sequence[Union['DynamicDeliveryAttributeMappingResponseArgs', 'StaticDeliveryAttributeMappingResponseArgs']] delivery_attribute_mappings: Delivery attribute details.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         :param str resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
@@ -252,9 +252,9 @@ class DeadLetterWithResourceIdentityResponse(dict):
                  identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
         """
         Information about the deadletter destination with resource identity.
-        :param 'StorageBlobDeadLetterDestinationResponseArgs' dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
+        :param 'StorageBlobDeadLetterDestinationResponse' dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-        :param 'EventSubscriptionIdentityResponseArgs' identity: The identity to use when dead-lettering events.
+        :param 'EventSubscriptionIdentityResponse' identity: The identity to use when dead-lettering events.
         """
         if dead_letter_destination is not None:
             pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
@@ -292,9 +292,9 @@ class DeliveryWithResourceIdentityResponse(dict):
                  identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
         """
         Information about the delivery for an event subscription with resource identity.
-        :param Union['AzureFunctionEventSubscriptionDestinationResponseArgs', 'EventHubEventSubscriptionDestinationResponseArgs', 'HybridConnectionEventSubscriptionDestinationResponseArgs', 'ServiceBusQueueEventSubscriptionDestinationResponseArgs', 'ServiceBusTopicEventSubscriptionDestinationResponseArgs', 'StorageQueueEventSubscriptionDestinationResponseArgs', 'WebHookEventSubscriptionDestinationResponseArgs'] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-        :param 'EventSubscriptionIdentityResponseArgs' identity: The identity to use when delivering events.
+        :param 'EventSubscriptionIdentityResponse' identity: The identity to use when delivering events.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -437,7 +437,7 @@ class EventChannelFilterResponse(dict):
                  enable_advanced_filtering_on_arrays: Optional[bool] = None):
         """
         Filter for the Event Channel.
-        :param Sequence[Union['BoolEqualsAdvancedFilterResponseArgs', 'IsNotNullAdvancedFilterResponseArgs', 'IsNullOrUndefinedAdvancedFilterResponseArgs', 'NumberGreaterThanAdvancedFilterResponseArgs', 'NumberGreaterThanOrEqualsAdvancedFilterResponseArgs', 'NumberInAdvancedFilterResponseArgs', 'NumberInRangeAdvancedFilterResponseArgs', 'NumberLessThanAdvancedFilterResponseArgs', 'NumberLessThanOrEqualsAdvancedFilterResponseArgs', 'NumberNotInAdvancedFilterResponseArgs', 'NumberNotInRangeAdvancedFilterResponseArgs', 'StringBeginsWithAdvancedFilterResponseArgs', 'StringContainsAdvancedFilterResponseArgs', 'StringEndsWithAdvancedFilterResponseArgs', 'StringInAdvancedFilterResponseArgs', 'StringNotBeginsWithAdvancedFilterResponseArgs', 'StringNotContainsAdvancedFilterResponseArgs', 'StringNotEndsWithAdvancedFilterResponseArgs', 'StringNotInAdvancedFilterResponseArgs']] advanced_filters: An array of advanced filters that are used for filtering event channels.
+        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event channels.
         :param bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
         """
         if advanced_filters is not None:
@@ -506,7 +506,7 @@ class EventHubEventSubscriptionDestinationResponse(dict):
         Information about the event hub destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'EventHub'.
-        :param Sequence[Union['DynamicDeliveryAttributeMappingResponseArgs', 'StaticDeliveryAttributeMappingResponseArgs']] delivery_attribute_mappings: Delivery attribute details.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -558,7 +558,7 @@ class EventSubscriptionFilterResponse(dict):
                  subject_ends_with: Optional[str] = None):
         """
         Filter for the Event Subscription.
-        :param Sequence[Union['BoolEqualsAdvancedFilterResponseArgs', 'IsNotNullAdvancedFilterResponseArgs', 'IsNullOrUndefinedAdvancedFilterResponseArgs', 'NumberGreaterThanAdvancedFilterResponseArgs', 'NumberGreaterThanOrEqualsAdvancedFilterResponseArgs', 'NumberInAdvancedFilterResponseArgs', 'NumberInRangeAdvancedFilterResponseArgs', 'NumberLessThanAdvancedFilterResponseArgs', 'NumberLessThanOrEqualsAdvancedFilterResponseArgs', 'NumberNotInAdvancedFilterResponseArgs', 'NumberNotInRangeAdvancedFilterResponseArgs', 'StringBeginsWithAdvancedFilterResponseArgs', 'StringContainsAdvancedFilterResponseArgs', 'StringEndsWithAdvancedFilterResponseArgs', 'StringInAdvancedFilterResponseArgs', 'StringNotBeginsWithAdvancedFilterResponseArgs', 'StringNotContainsAdvancedFilterResponseArgs', 'StringNotEndsWithAdvancedFilterResponseArgs', 'StringNotInAdvancedFilterResponseArgs']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
         :param bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
         :param Sequence[str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
@@ -729,7 +729,7 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
         Information about the HybridConnection destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'HybridConnection'.
-        :param Sequence[Union['DynamicDeliveryAttributeMappingResponseArgs', 'StaticDeliveryAttributeMappingResponseArgs']] delivery_attribute_mappings: Delivery attribute details.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'HybridConnection')
@@ -782,7 +782,7 @@ class IdentityInfoResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
-        :param Mapping[str, 'UserIdentityPropertiesResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
                This property is currently not used and reserved for future usage.
         """
@@ -1032,12 +1032,12 @@ class JsonInputSchemaMappingResponse(dict):
         This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
         :param str input_schema_mapping_type: Type of the custom mapping
                Expected value is 'Json'.
-        :param 'JsonFieldWithDefaultResponseArgs' data_version: The mapping information for the DataVersion property of the Event Grid Event.
-        :param 'JsonFieldResponseArgs' event_time: The mapping information for the EventTime property of the Event Grid Event.
-        :param 'JsonFieldWithDefaultResponseArgs' event_type: The mapping information for the EventType property of the Event Grid Event.
-        :param 'JsonFieldResponseArgs' id: The mapping information for the Id property of the Event Grid Event.
-        :param 'JsonFieldWithDefaultResponseArgs' subject: The mapping information for the Subject property of the Event Grid Event.
-        :param 'JsonFieldResponseArgs' topic: The mapping information for the Topic property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' data_version: The mapping information for the DataVersion property of the Event Grid Event.
+        :param 'JsonFieldResponse' event_time: The mapping information for the EventTime property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' event_type: The mapping information for the EventType property of the Event Grid Event.
+        :param 'JsonFieldResponse' id: The mapping information for the Id property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' subject: The mapping information for the Subject property of the Event Grid Event.
+        :param 'JsonFieldResponse' topic: The mapping information for the Topic property of the Event Grid Event.
         """
         pulumi.set(__self__, "input_schema_mapping_type", 'Json')
         if data_version is not None:
@@ -1537,8 +1537,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: Name of the resource.
         :param str type: Type of the resource.
         :param Sequence[str] group_ids: GroupIds from the private link service resource.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint resource for this Connection.
-        :param 'ConnectionStateResponseArgs' private_link_service_connection_state: Details about the state of the connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint resource for this Connection.
+        :param 'ConnectionStateResponse' private_link_service_connection_state: Details about the state of the connection.
         :param str provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
         pulumi.set(__self__, "id", id)
@@ -1722,7 +1722,7 @@ class ServiceBusQueueEventSubscriptionDestinationResponse(dict):
         Information about the service bus destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'ServiceBusQueue'.
-        :param Sequence[Union['DynamicDeliveryAttributeMappingResponseArgs', 'StaticDeliveryAttributeMappingResponseArgs']] delivery_attribute_mappings: Delivery attribute details.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param str resource_id: The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'ServiceBusQueue')
@@ -1773,7 +1773,7 @@ class ServiceBusTopicEventSubscriptionDestinationResponse(dict):
         Information about the service bus topic destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'ServiceBusTopic'.
-        :param Sequence[Union['DynamicDeliveryAttributeMappingResponseArgs', 'StaticDeliveryAttributeMappingResponseArgs']] delivery_attribute_mappings: Delivery attribute details.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param str resource_id: The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'ServiceBusTopic')
@@ -2541,7 +2541,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
                Expected value is 'WebHook'.
         :param str azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
         :param str azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-        :param Sequence[Union['DynamicDeliveryAttributeMappingResponseArgs', 'StaticDeliveryAttributeMappingResponseArgs']] delivery_attribute_mappings: Delivery attribute details.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.

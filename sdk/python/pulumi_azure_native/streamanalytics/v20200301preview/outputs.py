@@ -11,7 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ClusterJobResponseResult',
+    'ClusterJobResponse',
     'ClusterPropertiesResponse',
     'ClusterSkuResponse',
     'PrivateEndpointPropertiesResponse',
@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterJobResponseResult(dict):
+class ClusterJobResponse(dict):
     """
     A streaming job.
     """
@@ -181,7 +181,7 @@ class PrivateEndpointPropertiesResponse(dict):
         """
         The properties associated with a private endpoint.
         :param str created_date: The date when this private endpoint was created.
-        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         """
         pulumi.set(__self__, "created_date", created_date)
         if manual_private_link_service_connections is not None:
@@ -267,7 +267,7 @@ class PrivateLinkServiceConnectionResponse(dict):
         """
         A grouping of information about the connection to the remote resource.
         :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
-        :param 'PrivateLinkConnectionStateResponseArgs' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
+        :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
         :param str private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
         :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """

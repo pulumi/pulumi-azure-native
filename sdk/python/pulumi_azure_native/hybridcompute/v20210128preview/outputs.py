@@ -76,9 +76,9 @@ class ErrorDetailResponse(dict):
                  target: str):
         """
         The error detail.
-        :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param str code: The error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: The error details.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
         :param str message: The error message.
         :param str target: The error target.
         """
@@ -302,7 +302,7 @@ class MachineExtensionInstanceViewResponse(dict):
         """
         Describes the Machine Extension Instance View.
         :param str name: The machine extension name.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -445,7 +445,7 @@ class MachineExtensionPropertiesResponse(dict):
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param 'MachineExtensionInstanceViewResponseArgs' instance_view: The machine extension instance view.
+        :param 'MachineExtensionInstanceViewResponse' instance_view: The machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
@@ -579,19 +579,19 @@ class MachinePropertiesResponse(dict):
         :param str display_name: Specifies the hybrid machine display name.
         :param str dns_fqdn: Specifies the DNS fully qualified display name.
         :param str domain_name: Specifies the Windows domain name.
-        :param Sequence['ErrorDetailResponseArgs'] error_details: Details about the error state.
+        :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
         :param str last_status_change: The time of the last status change.
         :param str machine_fqdn: Specifies the hybrid machine FQDN.
         :param str os_name: The Operating System running on the hybrid machine.
-        :param 'OSProfileResponseArgs' os_profile: Specifies the operating system settings for the hybrid machine.
+        :param 'OSProfileResponse' os_profile: Specifies the operating system settings for the hybrid machine.
         :param str os_sku: Specifies the Operating System product SKU.
         :param str os_version: The version of Operating System running on the hybrid machine.
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str status: The status of the hybrid machine agent.
         :param str vm_uuid: Specifies the Arc Machine's unique SMBIOS ID
         :param str client_public_key: Public Key that the client provides to be used during initial resource onboarding
-        :param Sequence['MachineExtensionInstanceViewResponseArgs'] extensions: Machine Extensions information
-        :param 'LocationDataResponseArgs' location_data: Metadata pertaining to the geographic location of the resource.
+        :param Sequence['MachineExtensionInstanceViewResponse'] extensions: Machine Extensions information
+        :param 'LocationDataResponse' location_data: Metadata pertaining to the geographic location of the resource.
         :param str private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
         :param str vm_id: Specifies the hybrid machine unique ID.
         """
@@ -822,8 +822,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         """
         Properties of a private endpoint connection.
         :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:

@@ -21,7 +21,7 @@ __all__ = [
     'StorageProfileResponse',
     'TerminalSettingsResponse',
     'UserPropertiesResponse',
-    'ViolationResponseResult',
+    'ViolationResponse',
 ]
 
 @pulumi.output_type
@@ -83,7 +83,7 @@ class DashboardLensResponse(dict):
         """
         A dashboard lens.
         :param int order: The lens order.
-        :param Sequence['DashboardPartsResponseArgs'] parts: The dashboard parts.
+        :param Sequence['DashboardPartsResponse'] parts: The dashboard parts.
         :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
@@ -129,8 +129,8 @@ class DashboardPartsResponse(dict):
                  metadata: Optional['outputs.MarkdownPartMetadataResponse'] = None):
         """
         A dashboard part.
-        :param 'DashboardPartsResponsePositionArgs' position: The dashboard's part position.
-        :param 'MarkdownPartMetadataResponseArgs' metadata: The dashboard part's metadata.
+        :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
+        :param 'MarkdownPartMetadataResponse' metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "position", position)
         if metadata is not None:
@@ -240,7 +240,7 @@ class MarkdownPartMetadataResponse(dict):
         :param str type: The type of dashboard part.
                Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         :param Sequence[Any] inputs: Input to dashboard part.
-        :param 'MarkdownPartMetadataResponseSettingsArgs' settings: Markdown part settings.
+        :param 'MarkdownPartMetadataResponseSettings' settings: Markdown part settings.
         """
         pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
         if inputs is not None:
@@ -286,7 +286,7 @@ class MarkdownPartMetadataResponseContent(dict):
                  settings: Optional['outputs.MarkdownPartMetadataResponseSettings'] = None):
         """
         The content of markdown part.
-        :param 'MarkdownPartMetadataResponseSettingsArgs' settings: The setting of the content of markdown part.
+        :param 'MarkdownPartMetadataResponseSettings' settings: The setting of the content of markdown part.
         """
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
@@ -312,7 +312,7 @@ class MarkdownPartMetadataResponseSettings(dict):
                  content: Optional['outputs.MarkdownPartMetadataResponseContent'] = None):
         """
         Markdown part settings.
-        :param 'MarkdownPartMetadataResponseContentArgs' content: The content of markdown part.
+        :param 'MarkdownPartMetadataResponseContent' content: The content of markdown part.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -433,8 +433,8 @@ class UserPropertiesResponse(dict):
         :param str preferred_location: The preferred location of the cloud shell.
         :param str preferred_os_type: The operating system type of the cloud shell. Deprecated, use preferredShellType.
         :param str preferred_shell_type: The shell type of the cloud shell.
-        :param 'StorageProfileResponseArgs' storage_profile: The storage profile of the user settings.
-        :param 'TerminalSettingsResponseArgs' terminal_settings: Settings for terminal appearance.
+        :param 'StorageProfileResponse' storage_profile: The storage profile of the user settings.
+        :param 'TerminalSettingsResponse' terminal_settings: Settings for terminal appearance.
         """
         pulumi.set(__self__, "preferred_location", preferred_location)
         pulumi.set(__self__, "preferred_os_type", preferred_os_type)
@@ -487,7 +487,7 @@ class UserPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ViolationResponseResult(dict):
+class ViolationResponse(dict):
     """
     Violation information.
     """

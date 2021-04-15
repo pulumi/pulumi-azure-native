@@ -30,7 +30,7 @@ class AccessPolicyEntryResponse(dict):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        :param 'PermissionsResponseArgs' permissions: Permissions the identity has for keys, secrets and certificates.
+        :param 'PermissionsResponse' permissions: Permissions the identity has for keys, secrets and certificates.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param str application_id:  Application ID of the client making request on behalf of a principal
         """
@@ -178,8 +178,8 @@ class VaultPropertiesResponse(dict):
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
-        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-        :param 'SkuResponseArgs' sku: SKU details
+        :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+        :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault.
         :param bool enabled_for_deployment: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.

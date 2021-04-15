@@ -46,9 +46,9 @@ class ActionGroupResponse(dict):
         :param str last_modified_by: Last modified by user name.
         :param str type: Indicates type of action rule
                Expected value is 'ActionGroup'.
-        :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
+        :param 'ConditionsResponse' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: scope on which action rule will apply
+        :param 'ScopeResponse' scope: scope on which action rule will apply
         :param str status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
@@ -204,13 +204,13 @@ class ConditionsResponse(dict):
                  target_resource_type: Optional['outputs.ConditionResponse'] = None):
         """
         Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-        :param 'ConditionResponseArgs' alert_context: filter alerts by alert context (payload)
-        :param 'ConditionResponseArgs' alert_rule_id: filter alerts by alert rule id
-        :param 'ConditionResponseArgs' description: filter alerts by alert rule description
-        :param 'ConditionResponseArgs' monitor_condition: filter alerts by monitor condition
-        :param 'ConditionResponseArgs' monitor_service: filter alerts by monitor service
-        :param 'ConditionResponseArgs' severity: filter alerts by severity
-        :param 'ConditionResponseArgs' target_resource_type: filter alerts by target resource type
+        :param 'ConditionResponse' alert_context: filter alerts by alert context (payload)
+        :param 'ConditionResponse' alert_rule_id: filter alerts by alert rule id
+        :param 'ConditionResponse' description: filter alerts by alert rule description
+        :param 'ConditionResponse' monitor_condition: filter alerts by monitor condition
+        :param 'ConditionResponse' monitor_service: filter alerts by monitor service
+        :param 'ConditionResponse' severity: filter alerts by severity
+        :param 'ConditionResponse' target_resource_type: filter alerts by target resource type
         """
         if alert_context is not None:
             pulumi.set(__self__, "alert_context", alert_context)
@@ -310,9 +310,9 @@ class DiagnosticsResponse(dict):
         :param str last_modified_by: Last modified by user name.
         :param str type: Indicates type of action rule
                Expected value is 'Diagnostics'.
-        :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
+        :param 'ConditionsResponse' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: scope on which action rule will apply
+        :param 'ScopeResponse' scope: scope on which action rule will apply
         :param str status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "created_at", created_at)
@@ -455,7 +455,7 @@ class SuppressionConfigResponse(dict):
         """
         Suppression logic for a given action rule
         :param str recurrence_type: Specifies when the suppression should be applied
-        :param 'SuppressionScheduleResponseArgs' schedule: suppression schedule configuration
+        :param 'SuppressionScheduleResponse' schedule: suppression schedule configuration
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         if schedule is not None:
@@ -503,12 +503,12 @@ class SuppressionResponse(dict):
         :param str created_by: Created by user name.
         :param str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
         :param str last_modified_by: Last modified by user name.
-        :param 'SuppressionConfigResponseArgs' suppression_config: suppression configuration for the action rule
+        :param 'SuppressionConfigResponse' suppression_config: suppression configuration for the action rule
         :param str type: Indicates type of action rule
                Expected value is 'Suppression'.
-        :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
+        :param 'ConditionsResponse' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: scope on which action rule will apply
+        :param 'ScopeResponse' scope: scope on which action rule will apply
         :param str status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "created_at", created_at)

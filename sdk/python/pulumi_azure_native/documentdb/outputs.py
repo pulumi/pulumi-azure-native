@@ -31,7 +31,7 @@ __all__ = [
     'ContinuousModeBackupPolicyResponse',
     'CorsPolicyResponse',
     'DataCenterResourceResponseProperties',
-    'DatabaseAccountConnectionStringResponseResult',
+    'DatabaseAccountConnectionStringResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
     'GremlinDatabaseGetPropertiesResponseOptions',
@@ -150,7 +150,7 @@ class CassandraKeyspaceGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -269,9 +269,9 @@ class CassandraSchemaResponse(dict):
                  partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyResponse']] = None):
         """
         Cosmos DB Cassandra table schema
-        :param Sequence['ClusterKeyResponseArgs'] cluster_keys: List of cluster key.
-        :param Sequence['ColumnResponseArgs'] columns: List of Cassandra table columns.
-        :param Sequence['CassandraPartitionKeyResponseArgs'] partition_keys: List of partition key.
+        :param Sequence['ClusterKeyResponse'] cluster_keys: List of cluster key.
+        :param Sequence['ColumnResponse'] columns: List of Cassandra table columns.
+        :param Sequence['CassandraPartitionKeyResponse'] partition_keys: List of partition key.
         """
         if cluster_keys is not None:
             pulumi.set(__self__, "cluster_keys", cluster_keys)
@@ -314,7 +314,7 @@ class CassandraTableGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -359,7 +359,7 @@ class CassandraTableGetPropertiesResponseResource(dict):
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param int analytical_storage_ttl: Analytical TTL.
         :param int default_ttl: Time to live of the Cosmos DB Cassandra table
-        :param 'CassandraSchemaResponseArgs' schema: Schema of the Cosmos DB Cassandra table
+        :param 'CassandraSchemaResponse' schema: Schema of the Cosmos DB Cassandra table
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -513,17 +513,17 @@ class ClusterResourceResponseProperties(dict):
                  repair_enabled: Optional[bool] = None):
         """
         Properties of a managed Cassandra cluster.
-        :param Sequence['CertificateResponseArgs'] gossip_certificates: List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
-        :param Sequence['SeedNodeResponseArgs'] seed_nodes: List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+        :param Sequence['CertificateResponse'] gossip_certificates: List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+        :param Sequence['SeedNodeResponse'] seed_nodes: List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
         :param str authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
         :param str cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
-        :param Sequence['CertificateResponseArgs'] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+        :param Sequence['CertificateResponse'] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
         :param str cluster_name_override: If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
         :param str delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-        :param Sequence['CertificateResponseArgs'] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
-        :param Sequence['SeedNodeResponseArgs'] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+        :param Sequence['CertificateResponse'] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+        :param Sequence['SeedNodeResponse'] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
         :param int hours_between_backups: Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
-        :param 'SeedNodeResponseArgs' prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        :param 'SeedNodeResponse' prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         :param str provisioning_state: The status of the resource at the time the operation was called.
         :param bool repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
@@ -1010,7 +1010,7 @@ class DataCenterResourceResponseProperties(dict):
                  provisioning_state: Optional[str] = None):
         """
         Properties of a managed Cassandra data center.
-        :param Sequence['SeedNodeResponseArgs'] seed_nodes: IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+        :param Sequence['SeedNodeResponse'] seed_nodes: IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
         :param str base64_encoded_cassandra_yaml_fragment: A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
         :param str data_center_location: The region this data center should be created in.
         :param str delegated_subnet_id: Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
@@ -1082,7 +1082,7 @@ class DataCenterResourceResponseProperties(dict):
 
 
 @pulumi.output_type
-class DatabaseAccountConnectionStringResponseResult(dict):
+class DatabaseAccountConnectionStringResponse(dict):
     """
     Connection string for the Cosmos DB account
     """
@@ -1191,7 +1191,7 @@ class GremlinDatabaseGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -1279,7 +1279,7 @@ class GremlinGraphGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -1324,11 +1324,11 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB Gremlin graph
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the graph.
+        :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the graph.
         :param int default_ttl: Default time to live
-        :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-        :param 'ContainerPartitionKeyResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param 'UniqueKeyPolicyResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+        :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -1431,7 +1431,7 @@ class IncludedPathResponse(dict):
                  path: Optional[str] = None):
         """
         The paths that are included in indexing
-        :param Sequence['IndexesResponseArgs'] indexes: List of indexes for this path
+        :param Sequence['IndexesResponse'] indexes: List of indexes for this path
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         if indexes is not None:
@@ -1528,11 +1528,11 @@ class IndexingPolicyResponse(dict):
         """
         Cosmos DB indexing policy
         :param bool automatic: Indicates if the indexing policy is automatic
-        :param Sequence[Sequence['CompositePathResponseArgs']] composite_indexes: List of composite path list
-        :param Sequence['ExcludedPathResponseArgs'] excluded_paths: List of paths to exclude from indexing
-        :param Sequence['IncludedPathResponseArgs'] included_paths: List of paths to include in the indexing
+        :param Sequence[Sequence['CompositePathResponse']] composite_indexes: List of composite path list
+        :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
         :param str indexing_mode: Indicates the indexing mode.
-        :param Sequence['SpatialSpecResponseArgs'] spatial_indexes: List of spatial specifics
+        :param Sequence['SpatialSpecResponse'] spatial_indexes: List of spatial specifics
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -1725,7 +1725,7 @@ class ManagedServiceIdentityResponse(dict):
         :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1808,7 +1808,7 @@ class MongoDBCollectionGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -1852,7 +1852,7 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param int analytical_storage_ttl: Analytical TTL.
-        :param Sequence['MongoIndexResponseArgs'] indexes: List of index keys
+        :param Sequence['MongoIndexResponse'] indexes: List of index keys
         :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "etag", etag)
@@ -1932,7 +1932,7 @@ class MongoDBDatabaseGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -2088,8 +2088,8 @@ class MongoIndexResponse(dict):
                  options: Optional['outputs.MongoIndexOptionsResponse'] = None):
         """
         Cosmos DB MongoDB collection index key
-        :param 'MongoIndexKeysResponseArgs' key: Cosmos DB MongoDB collection index keys
-        :param 'MongoIndexOptionsResponseArgs' options: Cosmos DB MongoDB collection index key options
+        :param 'MongoIndexKeysResponse' key: Cosmos DB MongoDB collection index keys
+        :param 'MongoIndexOptionsResponse' options: Cosmos DB MongoDB collection index key options
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2128,7 +2128,7 @@ class PeriodicModeBackupPolicyResponse(dict):
         The object representing periodic mode backup policy.
         :param str type: Describes the mode of backups.
                Expected value is 'Periodic'.
-        :param 'PeriodicModePropertiesResponseArgs' periodic_mode_properties: Configuration values for periodic mode backup
+        :param 'PeriodicModePropertiesResponse' periodic_mode_properties: Configuration values for periodic mode backup
         """
         pulumi.set(__self__, "type", 'Periodic')
         if periodic_mode_properties is not None:
@@ -2250,8 +2250,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str group_id: Group id of the private endpoint.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         :param str provisioning_state: Provisioning state of the private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -2463,7 +2463,7 @@ class SqlContainerGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -2510,11 +2510,11 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param float analytical_storage_ttl: Analytical TTL.
-        :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
+        :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the container.
         :param int default_ttl: Default time to live
-        :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-        :param 'ContainerPartitionKeyResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param 'UniqueKeyPolicyResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -2623,7 +2623,7 @@ class SqlDatabaseGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -2957,7 +2957,7 @@ class TableGetPropertiesResponseOptions(dict):
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
                  throughput: Optional[int] = None):
         """
-        :param 'AutoscaleSettingsResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
         if autoscale_settings is not None:
@@ -3048,7 +3048,7 @@ class UniqueKeyPolicyResponse(dict):
                  unique_keys: Optional[Sequence['outputs.UniqueKeyResponse']] = None):
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-        :param Sequence['UniqueKeyResponseArgs'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param Sequence['UniqueKeyResponse'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         if unique_keys is not None:
             pulumi.set(__self__, "unique_keys", unique_keys)

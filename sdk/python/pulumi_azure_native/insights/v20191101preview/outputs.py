@@ -36,10 +36,10 @@ class DataCollectionRuleResponseDataSources(dict):
         """
         The specification of data sources. 
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-        :param Sequence['ExtensionDataSourceResponseArgs'] extensions: The list of Azure VM extension data source configurations.
-        :param Sequence['PerfCounterDataSourceResponseArgs'] performance_counters: The list of performance counter data source configurations.
-        :param Sequence['SyslogDataSourceResponseArgs'] syslog: The list of Syslog data source configurations.
-        :param Sequence['WindowsEventLogDataSourceResponseArgs'] windows_event_logs: The list of Windows Event Log data source configurations.
+        :param Sequence['ExtensionDataSourceResponse'] extensions: The list of Azure VM extension data source configurations.
+        :param Sequence['PerfCounterDataSourceResponse'] performance_counters: The list of performance counter data source configurations.
+        :param Sequence['SyslogDataSourceResponse'] syslog: The list of Syslog data source configurations.
+        :param Sequence['WindowsEventLogDataSourceResponse'] windows_event_logs: The list of Windows Event Log data source configurations.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -96,8 +96,8 @@ class DataCollectionRuleResponseDestinations(dict):
                  log_analytics: Optional[Sequence['outputs.LogAnalyticsDestinationResponse']] = None):
         """
         The specification of destinations.
-        :param 'DestinationsSpecResponseAzureMonitorMetricsArgs' azure_monitor_metrics: Azure Monitor Metrics destination.
-        :param Sequence['LogAnalyticsDestinationResponseArgs'] log_analytics: List of Log Analytics destinations.
+        :param 'DestinationsSpecResponseAzureMonitorMetrics' azure_monitor_metrics: Azure Monitor Metrics destination.
+        :param Sequence['LogAnalyticsDestinationResponse'] log_analytics: List of Log Analytics destinations.
         """
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)

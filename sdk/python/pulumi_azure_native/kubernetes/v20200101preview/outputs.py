@@ -12,8 +12,8 @@ from ._enums import *
 __all__ = [
     'ConnectedClusterAADProfileResponse',
     'ConnectedClusterIdentityResponse',
-    'CredentialResultResponseResult',
-    'HybridConnectionConfigResponseResult',
+    'CredentialResultResponse',
+    'HybridConnectionConfigResponse',
 ]
 
 @pulumi.output_type
@@ -111,7 +111,7 @@ class ConnectedClusterIdentityResponse(dict):
 
 
 @pulumi.output_type
-class CredentialResultResponseResult(dict):
+class CredentialResultResponse(dict):
     """
     The credential result response.
     """
@@ -144,7 +144,7 @@ class CredentialResultResponseResult(dict):
 
 
 @pulumi.output_type
-class HybridConnectionConfigResponseResult(dict):
+class HybridConnectionConfigResponse(dict):
     """
     Contains the REP (rendezvous endpoint) and “Sender” access token.
     """

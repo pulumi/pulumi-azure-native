@@ -310,7 +310,7 @@ class BackupSetInfoResponse(dict):
         :param bool is_backup_restored: Whether the backup set is restored or not
         :param str last_lsn: Last log sequence number of the backup file
         :param str last_modified_time: Last modified time of the backup file in share location
-        :param Sequence['BackupFileInfoResponseArgs'] list_of_backup_files: List of files in the backup set
+        :param Sequence['BackupFileInfoResponse'] list_of_backup_files: List of files in the backup set
         """
         if backup_finished_date is not None:
             pulumi.set(__self__, "backup_finished_date", backup_finished_date)
@@ -457,14 +457,14 @@ class ConnectToMongoDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MongoDbConnectionInfoResponse'] = None):
         """
         Properties for the task that validates the connection to and provides information about a MongoDB server
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['MongoDbClusterInfoResponseArgs'] output: An array containing a single MongoDbClusterInfo object
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['MongoDbClusterInfoResponse'] output: An array containing a single MongoDbClusterInfo object
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Connect.MongoDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MongoDbConnectionInfoResponseArgs' input: Describes a connection to a MongoDB data source
+        :param 'MongoDbConnectionInfoResponse' input: Describes a connection to a MongoDB data source
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -546,7 +546,7 @@ class ConnectToSourceOracleSyncTaskInputResponse(dict):
                  source_connection_info: 'outputs.OracleConnectionInfoResponse'):
         """
         Input for the task that validates Oracle database connection
-        :param 'OracleConnectionInfoResponseArgs' source_connection_info: Information for connecting to Oracle source
+        :param 'OracleConnectionInfoResponse' source_connection_info: Information for connecting to Oracle source
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
 
@@ -577,7 +577,7 @@ class ConnectToSourceOracleSyncTaskOutputResponse(dict):
         :param Sequence[str] databases: List of schemas on source server
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Version of the source server
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
         pulumi.set(__self__, "databases", databases)
         pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
@@ -635,14 +635,14 @@ class ConnectToSourceOracleSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceOracleSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates Oracle database connection
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToSourceOracleSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToSourceOracleSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToSource.Oracle.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToSourceOracleSyncTaskInputResponseArgs' input: Task input
+        :param 'ConnectToSourceOracleSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -724,7 +724,7 @@ class ConnectToSourcePostgreSqlSyncTaskInputResponse(dict):
                  source_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to PostgreSQL and source server requirements
-        :param 'PostgreSqlConnectionInfoResponseArgs' source_connection_info: Connection information for source PostgreSQL server
+        :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
 
@@ -757,7 +757,7 @@ class ConnectToSourcePostgreSqlSyncTaskOutputResponse(dict):
         :param str id: Result identifier
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Version of the source server
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
         pulumi.set(__self__, "databases", databases)
         pulumi.set(__self__, "id", id)
@@ -824,14 +824,14 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourcePostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToSourcePostgreSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToSource.PostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToSourcePostgreSqlSyncTaskInputResponseArgs' input: Task input
+        :param 'ConnectToSourcePostgreSqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -919,14 +919,14 @@ class ConnectToSourceSqlServerSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL Server and source server requirements for online migration
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponse', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToSource.SqlServer.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToSourceSqlServerTaskInputResponseArgs' input: Task input
+        :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -1014,7 +1014,7 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
                  validate_ssis_catalog_only: Optional[bool] = None):
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Connection information for Source SQL Server
+        :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for Source SQL Server
         :param str check_permissions_group: Permission group for validations
         :param bool collect_agent_jobs: Flag for whether to collect agent jobs from source server.
         :param bool collect_databases: Flag for whether to collect databases from source server.
@@ -1128,11 +1128,11 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
         :param str job_category: The type of Agent Job.
         :param str job_owner: The owner of the Agent Job
         :param str last_executed_on: UTC Date and time when the Agent Job was last executed.
-        :param 'MigrationEligibilityInfoResponseArgs' migration_eligibility: Information about eligibility of agent job for migration.
+        :param 'MigrationEligibilityInfoResponse' migration_eligibility: Information about eligibility of agent job for migration.
         :param str name: Agent Job name
         :param str result_type: Type of result - database level or task level
                Expected value is 'AgentJobLevelOutput'.
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -1237,7 +1237,7 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
         """
         Database level output for the task that validates connection to SQL Server and also validates source server requirements
         :param str compatibility_level: SQL Server compatibility level of database
-        :param Sequence['DatabaseFileInfoResponseArgs'] database_files: The list of database files
+        :param Sequence['DatabaseFileInfoResponse'] database_files: The list of database files
         :param str database_state: State of the database
         :param str id: Result identifier
         :param str name: Database name
@@ -1333,7 +1333,7 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
         :param str id: Result identifier
         :param bool is_enabled: The state of the login.
         :param str login_type: The type of login.
-        :param 'MigrationEligibilityInfoResponseArgs' migration_eligibility: Information about eligibility of login for migration.
+        :param 'MigrationEligibilityInfoResponse' migration_eligibility: Information about eligibility of login for migration.
         :param str name: Login name.
         :param str result_type: Type of result - database level or task level
                Expected value is 'LoginLevelOutput'.
@@ -1433,7 +1433,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
                Expected value is 'TaskLevelOutput'.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "agent_jobs", agent_jobs)
         pulumi.set(__self__, "database_tde_certificate_mapping", database_tde_certificate_mapping)
@@ -1537,14 +1537,14 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponse', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToSource.SqlServer'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToSourceSqlServerTaskInputResponseArgs' input: Task input
+        :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -1627,8 +1627,8 @@ class ConnectToTargetAzureDbForMySqlTaskInputResponse(dict):
                  target_connection_info: 'outputs.MySqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure Database for MySQL and target server requirements
-        :param 'MySqlConnectionInfoResponseArgs' source_connection_info: Connection information for source MySQL server
-        :param 'MySqlConnectionInfoResponseArgs' target_connection_info: Connection information for target Azure Database for MySQL server
+        :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL server
+        :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL server
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
@@ -1670,7 +1670,7 @@ class ConnectToTargetAzureDbForMySqlTaskOutputResponse(dict):
         :param str id: Result identifier
         :param str server_version: Version of the target server
         :param str target_server_brand_version: Target server brand version
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
         pulumi.set(__self__, "databases", databases)
         pulumi.set(__self__, "id", id)
@@ -1737,14 +1737,14 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetAzureDbForMySqlTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure Database for MySQL and target server requirements
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetAzureDbForMySqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.AzureDbForMySql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetAzureDbForMySqlTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetAzureDbForMySqlTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -1827,8 +1827,8 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
-        :param 'PostgreSqlConnectionInfoResponseArgs' source_connection_info: Connection information for source PostgreSQL server
-        :param 'PostgreSqlConnectionInfoResponseArgs' target_connection_info: Connection information for target Azure Database for PostgreSQL server
+        :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
+        :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
@@ -1870,7 +1870,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
         :param str id: Result identifier
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Version of the target server
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
         pulumi.set(__self__, "databases", databases)
         pulumi.set(__self__, "id", id)
@@ -1937,14 +1937,14 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2026,7 +2026,7 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
-        :param 'PostgreSqlConnectionInfoResponseArgs' target_connection_info: Connection information for target Azure Database for PostgreSQL server
+        :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
 
@@ -2058,8 +2058,8 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
         :param Sequence[str] databases: List of databases on target server
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Version of the target server
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
-        :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMapArgs'] database_schema_map: Mapping of schemas per database
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
+        :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap'] database_schema_map: Mapping of schemas per database
         """
         pulumi.set(__self__, "databases", databases)
         pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
@@ -2151,14 +2151,14 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration for Oracle source.
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2240,7 +2240,7 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to SQL DB and target server requirements
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Connection information for target SQL DB
+        :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
 
@@ -2329,14 +2329,14 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlDbTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetSqlDbTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlDbTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.SqlDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetSqlDbTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetSqlDbTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2419,8 +2419,8 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.MiSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponseArgs' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-        :param 'MiSqlConnectionInfoResponseArgs' target_connection_info: Connection information for Azure SQL Database Managed Instance
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
         pulumi.set(__self__, "azure_app", azure_app)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
@@ -2458,7 +2458,7 @@ class ConnectToTargetSqlMISyncTaskOutputResponse(dict):
         Output for the task that validates connection to Azure SQL Database Managed Instance.
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
         pulumi.set(__self__, "target_server_version", target_server_version)
@@ -2507,14 +2507,14 @@ class ConnectToTargetSqlMISyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlMISyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetSqlMISyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlMISyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetSqlMISyncTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetSqlMISyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2599,7 +2599,7 @@ class ConnectToTargetSqlMITaskInputResponse(dict):
                  validate_ssis_catalog_only: Optional[bool] = None):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance.
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Connection information for target SQL Server
+        :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL Server
         :param bool collect_agent_jobs: Flag for whether to collect agent jobs from target SQL MI server.
         :param bool collect_logins: Flag for whether to collect logins from target SQL MI server.
         :param bool validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
@@ -2673,7 +2673,7 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
         :param Sequence[str] logins: List of logins on the target server.
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "agent_jobs", agent_jobs)
         pulumi.set(__self__, "id", id)
@@ -2749,14 +2749,14 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlMITaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetSqlMITaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlMITaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetSqlMITaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetSqlMITaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2839,8 +2839,8 @@ class ConnectToTargetSqlSqlDbSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL DB and target server requirements
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Connection information for source SQL Server
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Connection information for target SQL DB
+        :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
+        :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
@@ -2880,14 +2880,14 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlSqlDbSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements for online migration
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetSqlDbTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlDbTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.SqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetSqlSqlDbSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -3518,9 +3518,9 @@ class GetTdeCertificatesSqlTaskInputResponse(dict):
                  selected_certificates: Sequence['outputs.SelectedCertificateInputResponse']):
         """
         Input for the task that gets TDE certificates in Base64 encoded format.
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for file share to be used for temporarily storing files.
-        :param 'SqlConnectionInfoResponseArgs' connection_info: Connection information for SQL Server
-        :param Sequence['SelectedCertificateInputResponseArgs'] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
+        :param 'FileShareResponse' backup_file_share: Backup file share information for file share to be used for temporarily storing files.
+        :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
+        :param Sequence['SelectedCertificateInputResponse'] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
         """
         pulumi.set(__self__, "backup_file_share", backup_file_share)
         pulumi.set(__self__, "connection_info", connection_info)
@@ -3565,7 +3565,7 @@ class GetTdeCertificatesSqlTaskOutputResponse(dict):
         """
         Output of the task that gets TDE certificates in Base64 encoded format.
         :param Mapping[str, Sequence[str]] base64_encoded_certificates: Mapping from certificate name to base 64 encoded format.
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "base64_encoded_certificates", base64_encoded_certificates)
         pulumi.set(__self__, "validation_errors", validation_errors)
@@ -3605,14 +3605,14 @@ class GetTdeCertificatesSqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetTdeCertificatesSqlTaskInputResponse'] = None):
         """
         Properties for the task that gets TDE certificates in Base64 encoded format.
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['GetTdeCertificatesSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetTdeCertificatesSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'GetTDECertificates.Sql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'GetTdeCertificatesSqlTaskInputResponseArgs' input: Task input
+        :param 'GetTdeCertificatesSqlTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -3695,7 +3695,7 @@ class GetUserTablesOracleTaskInputResponse(dict):
                  selected_schemas: Sequence[str]):
         """
         Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
-        :param 'OracleConnectionInfoResponseArgs' connection_info: Information for connecting to Oracle source
+        :param 'OracleConnectionInfoResponse' connection_info: Information for connecting to Oracle source
         :param Sequence[str] selected_schemas: List of Oracle schemas for which to collect tables
         """
         pulumi.set(__self__, "connection_info", connection_info)
@@ -3733,8 +3733,8 @@ class GetUserTablesOracleTaskOutputResponse(dict):
         """
         Output for the task that gets the list of tables contained within a provided list of Oracle schemas.
         :param str schema_name: The schema this result is for
-        :param Sequence['DatabaseTableResponseArgs'] tables: List of valid tables found for this schema
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
+        :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this schema
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
         pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "tables", tables)
@@ -3783,14 +3783,14 @@ class GetUserTablesOracleTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesOracleTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of Oracle schemas
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['GetUserTablesOracleTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetUserTablesOracleTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'GetUserTablesOracle'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'GetUserTablesOracleTaskInputResponseArgs' input: Task input
+        :param 'GetUserTablesOracleTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -3873,7 +3873,7 @@ class GetUserTablesPostgreSqlTaskInputResponse(dict):
                  selected_databases: Sequence[str]):
         """
         Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
-        :param 'PostgreSqlConnectionInfoResponseArgs' connection_info: Information for connecting to PostgreSQL source
+        :param 'PostgreSqlConnectionInfoResponse' connection_info: Information for connecting to PostgreSQL source
         :param Sequence[str] selected_databases: List of PostgreSQL databases for which to collect tables
         """
         pulumi.set(__self__, "connection_info", connection_info)
@@ -3911,8 +3911,8 @@ class GetUserTablesPostgreSqlTaskOutputResponse(dict):
         """
         Output for the task that gets the list of tables for a provided list of PostgreSQL databases.
         :param str database_name: The database this result is for
-        :param Sequence['DatabaseTableResponseArgs'] tables: List of valid tables found for this database
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors associated with the task
+        :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this database
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "tables", tables)
@@ -3961,14 +3961,14 @@ class GetUserTablesPostgreSqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesPostgreSqlTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['GetUserTablesPostgreSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetUserTablesPostgreSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'GetUserTablesPostgreSql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'GetUserTablesPostgreSqlTaskInputResponseArgs' input: Task input
+        :param 'GetUserTablesPostgreSqlTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -4055,8 +4055,8 @@ class GetUserTablesSqlSyncTaskInputResponse(dict):
         Input for the task that collects user tables for the given list of databases
         :param Sequence[str] selected_source_databases: List of source database names to collect tables for
         :param Sequence[str] selected_target_databases: List of target database names to collect tables for
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Connection information for SQL Server
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Connection information for SQL DB
+        :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for SQL Server
+        :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for SQL DB
         """
         pulumi.set(__self__, "selected_source_databases", selected_source_databases)
         pulumi.set(__self__, "selected_target_databases", selected_target_databases)
@@ -4111,10 +4111,10 @@ class GetUserTablesSqlSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
-        :param Mapping[str, Sequence['DatabaseTableResponseArgs']] databases_to_source_tables: Mapping from database name to list of source tables
-        :param Mapping[str, Sequence['DatabaseTableResponseArgs']] databases_to_target_tables: Mapping from database name to list of target tables
+        :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_source_tables: Mapping from database name to list of source tables
+        :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_target_tables: Mapping from database name to list of target tables
         :param Mapping[str, Sequence[str]] table_validation_errors: Mapping from database name to list of validation errors
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "databases_to_source_tables", databases_to_source_tables)
         pulumi.set(__self__, "databases_to_target_tables", databases_to_target_tables)
@@ -4172,14 +4172,14 @@ class GetUserTablesSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['GetUserTablesSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetUserTablesSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'GetUserTables.AzureSqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'GetUserTablesSqlSyncTaskInputResponseArgs' input: Task input
+        :param 'GetUserTablesSqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -4262,7 +4262,7 @@ class GetUserTablesSqlTaskInputResponse(dict):
                  selected_databases: Sequence[str]):
         """
         Input for the task that collects user tables for the given list of databases
-        :param 'SqlConnectionInfoResponseArgs' connection_info: Connection information for SQL Server
+        :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[str] selected_databases: List of database names to collect tables for
         """
         pulumi.set(__self__, "connection_info", connection_info)
@@ -4299,9 +4299,9 @@ class GetUserTablesSqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
-        :param Mapping[str, Sequence['DatabaseTableResponseArgs']] databases_to_tables: Mapping from database name to list of tables
+        :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_tables: Mapping from database name to list of tables
         :param str id: Result identifier
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "databases_to_tables", databases_to_tables)
         pulumi.set(__self__, "id", id)
@@ -4350,14 +4350,14 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesSqlTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['GetUserTablesSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetUserTablesSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'GetUserTables.Sql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'GetUserTablesSqlTaskInputResponseArgs' input: Task input
+        :param 'GetUserTablesSqlTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -4526,7 +4526,7 @@ class MigrateMISyncCompleteCommandOutputResponse(dict):
                  errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None):
         """
         Output for command that completes online migration for an Azure SQL Database Managed Instance.
-        :param Sequence['ReportableExceptionResponseArgs'] errors: List of errors that happened during the command execution
+        :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         """
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
@@ -4558,10 +4558,10 @@ class MigrateMISyncCompleteCommandPropertiesResponse(dict):
         Properties for the command that completes online migration for an Azure SQL Database Managed Instance.
         :param str command_type: Command type.
                Expected value is 'Migrate.SqlServer.AzureDbSqlMi.Complete'.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param 'MigrateMISyncCompleteCommandOutputResponseArgs' output: Command output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param 'MigrateMISyncCompleteCommandOutputResponse' output: Command output. This is ignored if submitted.
         :param str state: The state of the command. This is ignored if submitted.
-        :param 'MigrateMISyncCompleteCommandInputResponseArgs' input: Command input
+        :param 'MigrateMISyncCompleteCommandInputResponse' input: Command input
         """
         pulumi.set(__self__, "command_type", 'Migrate.SqlServer.AzureDbSqlMi.Complete')
         pulumi.set(__self__, "errors", errors)
@@ -4630,13 +4630,13 @@ class MigrateMongoDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None):
         """
         Properties for the task that migrates data between MongoDB data sources
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.MongoDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MongoDbMigrationSettingsResponseArgs' input: Describes how a MongoDB data migration should be performed
+        :param 'MongoDbMigrationSettingsResponse' input: Describes how a MongoDB data migration should be performed
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -4803,9 +4803,9 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.MySqlConnectionInfoResponse'):
         """
         Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-        :param Sequence['MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'MySqlConnectionInfoResponseArgs' source_connection_info: Connection information for source MySQL
-        :param 'MySqlConnectionInfoResponseArgs' target_connection_info: Connection information for target Azure Database for MySQL
+        :param Sequence['MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL
+        :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -4851,7 +4851,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
-        :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
+        :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
@@ -5103,7 +5103,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -5433,14 +5433,14 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateMySqlAzureDbForMySqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs' input: Task input
+        :param 'MigrateMySqlAzureDbForMySqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -5528,14 +5528,14 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponseArgs' input: Task input
+        :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -5729,9 +5729,9 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
-        :param Sequence['MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'OracleConnectionInfoResponseArgs' source_connection_info: Connection information for source Oracle
-        :param 'PostgreSqlConnectionInfoResponseArgs' target_connection_info: Connection information for target Azure Database for PostgreSQL
+        :param Sequence['MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'OracleConnectionInfoResponse' source_connection_info: Connection information for source Oracle
+        :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -5777,7 +5777,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
-        :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
+        :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
@@ -6029,7 +6029,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -6360,7 +6360,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
         :param Mapping[str, str] migration_setting: Migration settings which tune the migration behavior
         :param str name: Name of the database
-        :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs'] selected_tables: Tables selected for migration
+        :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse'] selected_tables: Tables selected for migration
         :param Mapping[str, str] source_setting: Source settings to tune source endpoint migration behavior
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
@@ -6467,9 +6467,9 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-        :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'PostgreSqlConnectionInfoResponseArgs' source_connection_info: Connection information for source PostgreSQL
-        :param 'PostgreSqlConnectionInfoResponseArgs' target_connection_info: Connection information for target Azure Database for PostgreSQL
+        :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL
+        :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -6515,7 +6515,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse(d
         :param str result_type: Result type
                Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
-        :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
+        :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
@@ -6767,7 +6767,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -7130,14 +7130,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs' input: Task input
+        :param 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -7394,10 +7394,10 @@ class MigrateSqlServerSqlDbSyncTaskInputResponse(dict):
                  validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-        :param Sequence['MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
-        :param 'MigrationValidationOptionsResponseArgs' validation_options: Validation options
+        :param Sequence['MigrateSqlServerSqlDbSyncDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param 'MigrationValidationOptionsResponse' validation_options: Validation options
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -7453,7 +7453,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
-        :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
+        :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
@@ -7705,7 +7705,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -8046,14 +8046,14 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlDbSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse', 'MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlDbSyncTaskOutputErrorResponse', 'MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse', 'MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateSqlServerSqlDbSyncTaskInputResponseArgs' input: Task input
+        :param 'MigrateSqlServerSqlDbSyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -8138,10 +8138,10 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
                  validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
-        :param Sequence['MigrateSqlServerSqlDbDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
-        :param 'MigrationValidationOptionsResponseArgs' validation_options: Options for enabling various post migration validations. Available options, 
+        :param Sequence['MigrateSqlServerSqlDbDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param 'MigrationValidationOptionsResponse' validation_options: Options for enabling various post migration validations. Available options, 
                 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
@@ -8213,12 +8213,12 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         :param str ended_on: Migration end time
         :param float error_count: Number of database/object errors.
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
         :param float number_of_objects: Number of objects
         :param float number_of_objects_completed: Number of successfully completed objects
-        :param Mapping[str, 'DataItemMigrationSummaryResultResponseArgs'] object_summary: Summary of object results in the migration
+        :param Mapping[str, 'DataItemMigrationSummaryResultResponse'] object_summary: Summary of object results in the migration
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
                Expected value is 'DatabaseLevelOutput'.
@@ -8418,7 +8418,7 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -8477,11 +8477,11 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
                  migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None,
                  migration_validation_result: Optional['outputs.MigrationValidationResultResponse'] = None):
         """
-        :param Mapping[str, 'DatabaseSummaryResultResponseArgs'] database_summary: Summary of database results in the migration
+        :param Mapping[str, 'DatabaseSummaryResultResponse'] database_summary: Summary of database results in the migration
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param float duration_in_seconds: Duration of task execution in seconds.
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
@@ -8493,8 +8493,8 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         :param str status_message: Migration status message
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
-        :param 'MigrationReportResultResponseArgs' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
-        :param 'MigrationValidationResultResponseArgs' migration_validation_result: Migration Validation Results
+        :param 'MigrationReportResultResponse' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
+        :param 'MigrationValidationResultResponse' migration_validation_result: Migration Validation Results
         """
         pulumi.set(__self__, "database_summary", database_summary)
         pulumi.set(__self__, "databases", databases)
@@ -8839,14 +8839,14 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse'] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs', 'MigrateSqlServerSqlDbTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse', 'MigrateSqlServerSqlDbTaskOutputErrorResponse', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse', 'MigrateSqlServerSqlDbTaskOutputTableLevelResponse', 'MigrateSqlServerSqlDbTaskOutputValidationResultResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.SqlDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateSqlServerSqlDbTaskInputResponseArgs' input: Task input
+        :param 'MigrateSqlServerSqlDbTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -8934,7 +8934,7 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
         :param str name: Name of the database
         :param str restore_database_name: Name of the database at destination
         :param Sequence[str] backup_file_paths: The list of backup files to be used in case of existing backups.
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for backing up this database.
+        :param 'FileShareResponse' backup_file_share: Backup file share information for backing up this database.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "restore_database_name", restore_database_name)
@@ -8993,12 +8993,12 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
                  backup_file_share: Optional['outputs.FileShareResponse'] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponseArgs' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Connection information for source SQL Server
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param str storage_resource_id: Fully qualified resourceId of storage
-        :param 'MiSqlConnectionInfoResponseArgs' target_connection_info: Connection information for Azure SQL Database Managed Instance
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
+        :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         """
         pulumi.set(__self__, "azure_app", azure_app)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -9077,15 +9077,15 @@ class MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse(dict):
                  source_database_name: str,
                  started_on: str):
         """
-        :param Sequence['BackupSetInfoResponseArgs'] active_backup_sets: Backup sets that are currently active (Either being uploaded or getting restored)
+        :param Sequence['BackupSetInfoResponse'] active_backup_sets: Backup sets that are currently active (Either being uploaded or getting restored)
         :param str container_name: Name of container created in the Azure Storage account where backups are copied to
         :param str ended_on: Database migration end time
         :param str error_prefix: prefix string to use for querying errors for this database
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings
-        :param 'BackupSetInfoResponseArgs' full_backup_set_info: Details of full backup set
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings
+        :param 'BackupSetInfoResponse' full_backup_set_info: Details of full backup set
         :param str id: Result identifier
         :param bool is_full_backup_restored: Whether full backup has been applied to the target database or not
-        :param 'BackupSetInfoResponseArgs' last_restored_backup_set_info: Last applied backup set information
+        :param 'BackupSetInfoResponse' last_restored_backup_set_info: Last applied backup set information
         :param str migration_state: Current state of database
         :param str result_type: Result type
                Expected value is 'DatabaseLevelOutput'.
@@ -9222,7 +9222,7 @@ class MigrateSqlServerSqlMISyncTaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -9430,14 +9430,14 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlMISyncTaskInputResponse'] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlMISyncTaskOutputErrorResponse', 'MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateSqlServerSqlMISyncTaskInputResponseArgs' input: Task input
+        :param 'MigrateSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -9527,12 +9527,12 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
                  selected_logins: Optional[Sequence[str]] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
-        :param 'BlobShareResponseArgs' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
-        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
+        :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         :param str aad_domain_name: Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         :param str backup_mode: Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
         :param Sequence[str] selected_agent_jobs: Agent Jobs to migrate.
         :param Sequence[str] selected_logins: Logins to migrate.
@@ -9642,7 +9642,7 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
                  state: str):
         """
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration errors and warnings per job
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration errors and warnings per job
         :param str id: Result identifier
         :param bool is_enabled: The state of the original Agent Job.
         :param str message: Migration progress message
@@ -9755,7 +9755,7 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
         """
         :param str database_name: Name of the database
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
@@ -9868,7 +9868,7 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -9920,7 +9920,7 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
                  state: str):
         """
         :param str ended_on: Login migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Login migration errors and warnings per login
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Login migration errors and warnings per login
         :param str id: Result identifier
         :param str login_name: Login name.
         :param str message: Login migration progress message
@@ -10041,14 +10041,14 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
         :param Mapping[str, str] agent_jobs: Selected agent jobs as a map from name to id
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param Mapping[str, str] logins: Selected logins as a map from name to id
         :param str message: Migration progress message
-        :param Sequence['OrphanedUserInfoResponseArgs'] orphaned_users_info: List of orphaned users.
+        :param Sequence['OrphanedUserInfoResponse'] orphaned_users_info: List of orphaned users.
         :param str result_type: Result type
                Expected value is 'MigrationLevelOutput'.
-        :param Mapping[str, 'StartMigrationScenarioServerRoleResultResponseArgs'] server_role_results: Map of server role migration results.
+        :param Mapping[str, 'StartMigrationScenarioServerRoleResultResponse'] server_role_results: Map of server role migration results.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
         :param str started_on: Migration start time
@@ -10231,14 +10231,14 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlMITaskInputResponse'] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputErrorResponseArgs', 'MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse', 'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlMITaskOutputErrorResponse', 'MigrateSqlServerSqlMITaskOutputLoginLevelResponse', 'MigrateSqlServerSqlMITaskOutputMigrationLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateSqlServerSqlMITaskInputResponseArgs' input: Task input
+        :param 'MigrateSqlServerSqlMITaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -10322,9 +10322,9 @@ class MigrateSsisTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SsisMigrationInfoResponseArgs' ssis_migration_info: SSIS package migration information.
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SsisMigrationInfoResponse' ssis_migration_info: SSIS package migration information.
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         pulumi.set(__self__, "ssis_migration_info", ssis_migration_info)
@@ -10375,7 +10375,7 @@ class MigrateSsisTaskOutputMigrationLevelResponse(dict):
                  target_server_version: str):
         """
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
@@ -10517,7 +10517,7 @@ class MigrateSsisTaskOutputProjectLevelResponse(dict):
                  state: str):
         """
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings
         :param str folder_name: Name of the folder
         :param str id: Result identifier
         :param str message: Migration progress message
@@ -10639,14 +10639,14 @@ class MigrateSsisTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSsisTaskInputResponse'] = None):
         """
         Properties for task that migrates SSIS packages from SQL Server databases to Azure SQL Database Managed Instance.
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSsisTaskOutputMigrationLevelResponseArgs', 'MigrateSsisTaskOutputProjectLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSsisTaskOutputMigrationLevelResponse', 'MigrateSsisTaskOutputProjectLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.Ssis'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateSsisTaskInputResponseArgs' input: Task input
+        :param 'MigrateSsisTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -10766,7 +10766,7 @@ class MigrateSyncCompleteCommandOutputResponse(dict):
                  id: str):
         """
         Output for command that completes sync migration for a database.
-        :param Sequence['ReportableExceptionResponseArgs'] errors: List of errors that happened during the command execution
+        :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         :param str id: Result identifier
         """
         pulumi.set(__self__, "errors", errors)
@@ -10807,10 +10807,10 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         Properties for the command that completes sync migration for a database.
         :param str command_type: Command type.
                Expected value is 'Migrate.Sync.Complete.Database'.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param 'MigrateSyncCompleteCommandOutputResponseArgs' output: Command output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param 'MigrateSyncCompleteCommandOutputResponse' output: Command output. This is ignored if submitted.
         :param str state: The state of the command. This is ignored if submitted.
-        :param 'MigrateSyncCompleteCommandInputResponseArgs' input: Command input
+        :param 'MigrateSyncCompleteCommandInputResponse' input: Command input
         """
         pulumi.set(__self__, "command_type", 'Migrate.Sync.Complete.Database')
         pulumi.set(__self__, "errors", errors)
@@ -11094,7 +11094,7 @@ class MigrationValidationResultResponse(dict):
         :param str id: Migration validation result identifier
         :param str migration_id: Migration Identifier
         :param str status: Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
-        :param Mapping[str, 'MigrationValidationDatabaseSummaryResultResponseArgs'] summary_results: Validation summary results for each database
+        :param Mapping[str, 'MigrationValidationDatabaseSummaryResultResponse'] summary_results: Validation summary results for each database
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "migration_id", migration_id)
@@ -11150,7 +11150,7 @@ class MongoDbClusterInfoResponse(dict):
                  version: str):
         """
         Describes a MongoDB data source
-        :param Sequence['MongoDbDatabaseInfoResponseArgs'] databases: A list of non-system databases in the cluster
+        :param Sequence['MongoDbDatabaseInfoResponse'] databases: A list of non-system databases in the cluster
         :param bool supports_sharding: Whether the cluster supports sharded collections
         :param str type: The type of data source
         :param str version: The version of the data source in the form x.y.z (e.g. 3.6.7). Not used if Type is BlobContainer.
@@ -11226,7 +11226,7 @@ class MongoDbCollectionInfoResponse(dict):
         :param str name: The unqualified name of the database or collection
         :param str qualified_name: The qualified name of the database or collection. For a collection, this is the database-qualified name.
         :param bool supports_sharding: Whether the database has sharding enabled. Note that the migration task will enable sharding on the target if necessary.
-        :param 'MongoDbShardKeyInfoResponseArgs' shard_key: The shard key on the collection, or null if the collection is not sharded
+        :param 'MongoDbShardKeyInfoResponse' shard_key: The shard key on the collection, or null if the collection is not sharded
         :param str view_of: The name of the collection that this is a view of, if IsView is true
         """
         pulumi.set(__self__, "average_document_size", average_document_size)
@@ -11369,7 +11369,7 @@ class MongoDbCollectionProgressResponse(dict):
         :param float bytes_copied: The number of document bytes copied during the Copying stage
         :param float documents_copied: The number of documents copied during the Copying stage
         :param str elapsed_time: The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
-        :param Mapping[str, 'MongoDbErrorResponseArgs'] errors: The errors and warnings that have occurred for the current object. The keys are the error codes.
+        :param Mapping[str, 'MongoDbErrorResponse'] errors: The errors and warnings that have occurred for the current object. The keys are the error codes.
         :param float events_pending: The number of oplog events awaiting replay
         :param float events_replayed: The number of oplog events replayed so far
         :param str result_type: The type of progress object
@@ -11526,7 +11526,7 @@ class MongoDbCollectionSettingsResponse(dict):
         """
         Describes how an individual MongoDB collection should be migrated
         :param bool can_delete: Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
-        :param 'MongoDbShardKeySettingResponseArgs' shard_key: Describes a MongoDB shard key
+        :param 'MongoDbShardKeySettingResponse' shard_key: Describes a MongoDB shard key
         :param int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
         """
         if can_delete is not None:
@@ -11642,7 +11642,7 @@ class MongoDbDatabaseInfoResponse(dict):
         """
         Describes a database within a MongoDB data source
         :param float average_document_size: The average document size, or -1 if the average size is unknown
-        :param Sequence['MongoDbCollectionInfoResponseArgs'] collections: A list of supported collections in a MongoDB database
+        :param Sequence['MongoDbCollectionInfoResponse'] collections: A list of supported collections in a MongoDB database
         :param float data_size: The estimated total data size, in bytes, or -1 if the size is unknown.
         :param float document_count: The estimated total number of documents, or -1 if the document count is unknown
         :param str name: The unqualified name of the database or collection
@@ -11743,14 +11743,14 @@ class MongoDbDatabaseProgressResponse(dict):
         :param float bytes_copied: The number of document bytes copied during the Copying stage
         :param float documents_copied: The number of documents copied during the Copying stage
         :param str elapsed_time: The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
-        :param Mapping[str, 'MongoDbErrorResponseArgs'] errors: The errors and warnings that have occurred for the current object. The keys are the error codes.
+        :param Mapping[str, 'MongoDbErrorResponse'] errors: The errors and warnings that have occurred for the current object. The keys are the error codes.
         :param float events_pending: The number of oplog events awaiting replay
         :param float events_replayed: The number of oplog events replayed so far
         :param str result_type: The type of progress object
                Expected value is 'Database'.
         :param float total_bytes: The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
         :param float total_documents: The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-        :param Mapping[str, 'MongoDbCollectionProgressResponseArgs'] collections: The progress of the collections in the database. The keys are the unqualified names of the collections
+        :param Mapping[str, 'MongoDbCollectionProgressResponse'] collections: The progress of the collections in the database. The keys are the unqualified names of the collections
         :param str last_event_time: The timestamp of the last oplog event received, or null if no oplog event has been received yet
         :param str last_replay_time: The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
@@ -11909,7 +11909,7 @@ class MongoDbDatabaseSettingsResponse(dict):
                  target_rus: Optional[int] = None):
         """
         Describes how an individual MongoDB database should be migrated
-        :param Mapping[str, 'MongoDbCollectionSettingsResponseArgs'] collections: The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
+        :param Mapping[str, 'MongoDbCollectionSettingsResponse'] collections: The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
         :param int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
         """
         pulumi.set(__self__, "collections", collections)
@@ -12024,14 +12024,14 @@ class MongoDbMigrationProgressResponse(dict):
         :param float bytes_copied: The number of document bytes copied during the Copying stage
         :param float documents_copied: The number of documents copied during the Copying stage
         :param str elapsed_time: The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
-        :param Mapping[str, 'MongoDbErrorResponseArgs'] errors: The errors and warnings that have occurred for the current object. The keys are the error codes.
+        :param Mapping[str, 'MongoDbErrorResponse'] errors: The errors and warnings that have occurred for the current object. The keys are the error codes.
         :param float events_pending: The number of oplog events awaiting replay
         :param float events_replayed: The number of oplog events replayed so far
         :param str result_type: The type of progress object
                Expected value is 'Migration'.
         :param float total_bytes: The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
         :param float total_documents: The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-        :param Mapping[str, 'MongoDbDatabaseProgressResponseArgs'] databases: The progress of the databases in the migration. The keys are the names of the databases
+        :param Mapping[str, 'MongoDbDatabaseProgressResponse'] databases: The progress of the databases in the migration. The keys are the names of the databases
         :param str last_event_time: The timestamp of the last oplog event received, or null if no oplog event has been received yet
         :param str last_replay_time: The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
@@ -12194,12 +12194,12 @@ class MongoDbMigrationSettingsResponse(dict):
                  throttling: Optional['outputs.MongoDbThrottlingSettingsResponse'] = None):
         """
         Describes how a MongoDB data migration should be performed
-        :param Mapping[str, 'MongoDbDatabaseSettingsResponseArgs'] databases: The databases on the source cluster to migrate to the target. The keys are the names of the databases.
-        :param 'MongoDbConnectionInfoResponseArgs' source: Settings used to connect to the source cluster
-        :param 'MongoDbConnectionInfoResponseArgs' target: Settings used to connect to the target cluster
+        :param Mapping[str, 'MongoDbDatabaseSettingsResponse'] databases: The databases on the source cluster to migrate to the target. The keys are the names of the databases.
+        :param 'MongoDbConnectionInfoResponse' source: Settings used to connect to the source cluster
+        :param 'MongoDbConnectionInfoResponse' target: Settings used to connect to the target cluster
         :param int boost_rus: The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
         :param str replication: Describes how changes will be replicated from the source to the target. The default is OneTime.
-        :param 'MongoDbThrottlingSettingsResponseArgs' throttling: Settings used to limit the resource usage of the migration
+        :param 'MongoDbThrottlingSettingsResponse' throttling: Settings used to limit the resource usage of the migration
         """
         pulumi.set(__self__, "databases", databases)
         pulumi.set(__self__, "source", source)
@@ -12309,7 +12309,7 @@ class MongoDbShardKeyInfoResponse(dict):
                  is_unique: bool):
         """
         Describes a MongoDB shard key
-        :param Sequence['MongoDbShardKeyFieldResponseArgs'] fields: The fields within the shard key
+        :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
         pulumi.set(__self__, "fields", fields)
@@ -12345,7 +12345,7 @@ class MongoDbShardKeySettingResponse(dict):
                  is_unique: bool):
         """
         Describes a MongoDB shard key
-        :param Sequence['MongoDbShardKeyFieldResponseArgs'] fields: The fields within the shard key
+        :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
         pulumi.set(__self__, "fields", fields)
@@ -12506,7 +12506,7 @@ class ODataErrorResponse(dict):
         """
         Error information in OData format.
         :param str code: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
-        :param Sequence['ODataErrorResponseArgs'] details: Inner errors that caused this error
+        :param Sequence['ODataErrorResponse'] details: Inner errors that caused this error
         :param str message: The human-readable description of the error
         """
         if code is not None:
@@ -13212,7 +13212,7 @@ class StartMigrationScenarioServerRoleResultResponse(dict):
                  state: str):
         """
         Server role migration result
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str name: Name of server role.
         :param str state: Current state of migration
         """
@@ -13310,14 +13310,14 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateSyncMigrationInputSqlServerTaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ValidateSyncMigrationInputSqlServerTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ValidateSyncMigrationInputSqlServerTaskInputResponseArgs' input: Task input
+        :param 'ValidateSyncMigrationInputSqlServerTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -13404,12 +13404,12 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
                  backup_file_share: Optional['outputs.FileShareResponse'] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponseArgs' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Connection information for source SQL Server
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param str storage_resource_id: Fully qualified resourceId of storage
-        :param 'MiSqlConnectionInfoResponseArgs' target_connection_info: Connection information for Azure SQL Database Managed Instance
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
+        :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         """
         pulumi.set(__self__, "azure_app", azure_app)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -13484,7 +13484,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse(dict):
         Output for task that validates migration input for Azure SQL Database Managed Instance online migration
         :param str id: Database identifier
         :param str name: Name of database
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Errors associated with a selected database object
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -13533,14 +13533,14 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs' input: Task input
+        :param 'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -13628,11 +13628,11 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
                  selected_logins: Optional[Sequence[str]] = None):
         """
         Input for task that validates migration input for SQL to Azure SQL Managed Instance
-        :param 'BlobShareResponseArgs' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
-        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         :param str backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
         :param Sequence[str] selected_logins: Logins to migrate
         """
@@ -13723,14 +13723,14 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
                  database_backup_info: Optional['outputs.DatabaseBackupInfoResponse'] = None):
         """
         Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
-        :param Sequence['ReportableExceptionResponseArgs'] backup_folder_errors: Errors associated with the BackupFolder path
-        :param Sequence['ReportableExceptionResponseArgs'] backup_share_credentials_errors: Errors associated with backup share user name and password credentials
-        :param Sequence['ReportableExceptionResponseArgs'] backup_storage_account_errors: Errors associated with the storage account provided.
-        :param Sequence['ReportableExceptionResponseArgs'] existing_backup_errors: Errors associated with existing backup files.
+        :param Sequence['ReportableExceptionResponse'] backup_folder_errors: Errors associated with the BackupFolder path
+        :param Sequence['ReportableExceptionResponse'] backup_share_credentials_errors: Errors associated with backup share user name and password credentials
+        :param Sequence['ReportableExceptionResponse'] backup_storage_account_errors: Errors associated with the storage account provided.
+        :param Sequence['ReportableExceptionResponse'] existing_backup_errors: Errors associated with existing backup files.
         :param str id: Result identifier
         :param str name: Name of database
-        :param Sequence['ReportableExceptionResponseArgs'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
-        :param 'DatabaseBackupInfoResponseArgs' database_backup_info: Information about backup files when existing backup mode is used.
+        :param Sequence['ReportableExceptionResponse'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
+        :param 'DatabaseBackupInfoResponse' database_backup_info: Information about backup files when existing backup mode is used.
         """
         pulumi.set(__self__, "backup_folder_errors", backup_folder_errors)
         pulumi.set(__self__, "backup_share_credentials_errors", backup_share_credentials_errors)
@@ -13825,14 +13825,14 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs' input: Task input
+        :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -13920,14 +13920,14 @@ class ValidateMongoDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None):
         """
         Properties for the task that validates a migration between MongoDB data sources
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['MongoDbMigrationProgressResponseArgs'] output: An array containing a single MongoDbMigrationProgress object
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['MongoDbMigrationProgressResponse'] output: An array containing a single MongoDbMigrationProgress object
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Validate.MongoDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MongoDbMigrationSettingsResponseArgs' input: Describes how a MongoDB data migration should be performed
+        :param 'MongoDbMigrationSettingsResponse' input: Describes how a MongoDB data migration should be performed
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -14015,14 +14015,14 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
-        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponseArgs', 'MigrateSyncCompleteCommandPropertiesResponseArgs']] commands: Array of command properties.
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponseArgs'] output: An array containing a single validation error response object
+        :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse'] output: An array containing a single validation error response object
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
-        :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponseArgs' input: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+        :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse' input: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -14104,7 +14104,7 @@ class ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for task that validates migration input for Oracle to Azure Database for PostgreSQL for online migrations
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Errors associated with a selected database object
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
         pulumi.set(__self__, "validation_errors", validation_errors)
 
@@ -14131,9 +14131,9 @@ class ValidateSyncMigrationInputSqlServerTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for task that validates migration input for SQL sync migrations
-        :param Sequence['MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source SQL server
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
+        :param Sequence['MigrateSqlServerSqlDbSyncDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source SQL server
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -14180,7 +14180,7 @@ class ValidateSyncMigrationInputSqlServerTaskOutputResponse(dict):
         Output for task that validates migration input for SQL sync migrations
         :param str id: Database identifier
         :param str name: Name of database
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Errors associated with a selected database object
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)

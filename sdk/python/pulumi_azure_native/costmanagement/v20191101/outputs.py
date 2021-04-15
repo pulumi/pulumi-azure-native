@@ -50,8 +50,8 @@ class ExportDefinitionResponse(dict):
         The definition of a query.
         :param str timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
         :param str type: The type of the query.
-        :param 'QueryDatasetResponseArgs' data_set: Has definition for data in this query.
-        :param 'QueryTimePeriodResponseArgs' time_period: Has time period for pulling data for the query.
+        :param 'QueryDatasetResponse' data_set: Has definition for data in this query.
+        :param 'QueryTimePeriodResponse' time_period: Has time period for pulling data for the query.
         """
         pulumi.set(__self__, "timeframe", timeframe)
         pulumi.set(__self__, "type", type)
@@ -153,7 +153,7 @@ class ExportDeliveryInfoResponse(dict):
                  destination: 'outputs.ExportDeliveryDestinationResponse'):
         """
         The delivery information associated with a export.
-        :param 'ExportDeliveryDestinationResponseArgs' destination: Has destination for the export being delivered.
+        :param 'ExportDeliveryDestinationResponse' destination: Has destination for the export being delivered.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -218,7 +218,7 @@ class ExportScheduleResponse(dict):
         """
         The schedule associated with a export.
         :param str recurrence: The schedule recurrence.
-        :param 'ExportRecurrencePeriodResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param 'ExportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
         pulumi.set(__self__, "recurrence", recurrence)
@@ -465,11 +465,11 @@ class QueryDatasetResponse(dict):
                  grouping: Optional[Sequence['outputs.QueryGroupingResponse']] = None):
         """
         The definition of data present in the query.
-        :param Mapping[str, 'QueryAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-        :param 'QueryDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'QueryFilterResponseArgs' filter: Has filter expression to use in the query.
+        :param Mapping[str, 'QueryAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+        :param 'QueryDatasetConfigurationResponse' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'QueryFilterResponse' filter: Has filter expression to use in the query.
         :param str granularity: The granularity of rows in the query.
-        :param Sequence['QueryGroupingResponseArgs'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        :param Sequence['QueryGroupingResponse'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -538,10 +538,10 @@ class QueryFilterResponse(dict):
                  tags: Optional['outputs.QueryComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the export.
-        :param Sequence['QueryFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'QueryComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
-        :param Sequence['QueryFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'QueryComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
+        :param Sequence['QueryFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'QueryComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
+        :param Sequence['QueryFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'QueryComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
@@ -783,12 +783,12 @@ class ReportConfigDatasetResponse(dict):
                  sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None):
         """
         The definition of data present in the report.
-        :param Mapping[str, 'ReportConfigAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-        :param 'ReportConfigDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'ReportConfigFilterResponseArgs' filter: Has filter expression to use in the report.
+        :param Mapping[str, 'ReportConfigAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param 'ReportConfigDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'ReportConfigFilterResponse' filter: Has filter expression to use in the report.
         :param str granularity: The granularity of rows in the report.
-        :param Sequence['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        :param Sequence['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
+        :param Sequence['ReportConfigGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportConfigSortingResponse'] sorting: Array of order by expression to use in the report.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -869,12 +869,12 @@ class ReportConfigFilterResponse(dict):
                  tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
-        :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
-        :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponseArgs' tag_key: Has comparison expression for a tag key
-        :param 'ReportConfigComparisonExpressionResponseArgs' tag_value: Has comparison expression for a tag value
-        :param 'ReportConfigComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
+        :param Sequence['ReportConfigFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
+        :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponse' tag_key: Has comparison expression for a tag key
+        :param 'ReportConfigComparisonExpressionResponse' tag_value: Has comparison expression for a tag value
+        :param 'ReportConfigComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)

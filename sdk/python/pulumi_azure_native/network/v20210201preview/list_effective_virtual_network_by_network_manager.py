@@ -71,7 +71,7 @@ class ListEffectiveVirtualNetworkByNetworkManagerResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EffectiveVirtualNetworkResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.EffectiveVirtualNetworkResponse']]:
         """
         Gets a page of EffectiveVirtualNetwork
         """

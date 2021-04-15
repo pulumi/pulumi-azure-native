@@ -38,8 +38,8 @@ class AlertingActionResponse(dict):
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
                Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         :param str severity: Severity of the alert
-        :param 'TriggerConditionResponseArgs' trigger: The trigger condition that results in the alert rule being.
-        :param 'AzNsActionGroupResponseArgs' azns_action: Azure action group reference.
+        :param 'TriggerConditionResponse' trigger: The trigger condition that results in the alert rule being.
+        :param 'AzNsActionGroupResponse' azns_action: Azure action group reference.
         :param int throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
@@ -156,7 +156,7 @@ class CriteriaResponse(dict):
         """
         Specifies the criteria for converting log to metric.
         :param str metric_name: Name of the metric
-        :param Sequence['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
+        :param Sequence['DimensionResponse'] dimensions: List of Dimensions for creating metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
@@ -301,7 +301,7 @@ class LogToMetricActionResponse(dict):
                  odata_type: str):
         """
         Specify action need to be taken when rule type is converting log to metric
-        :param Sequence['CriteriaResponseArgs'] criteria: Criteria of Metric
+        :param Sequence['CriteriaResponse'] criteria: Criteria of Metric
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
                Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
@@ -439,7 +439,7 @@ class TriggerConditionResponse(dict):
         The condition that results in the Log Search rule.
         :param float threshold: Result or count threshold based on which rule should be triggered.
         :param str threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        :param 'LogMetricTriggerResponseArgs' metric_trigger: Trigger condition for metric query rule
+        :param 'LogMetricTriggerResponse' metric_trigger: Trigger condition for metric query rule
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "threshold_operator", threshold_operator)

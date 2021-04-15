@@ -329,7 +329,7 @@ class InnerErrorResponse(dict):
         Inner Error
         :param Mapping[str, str] additional_info: Any Key value pairs that can be provided to the client for additional  verbose information.
         :param str code: Unique code for this error
-        :param 'InnerErrorResponseArgs' embedded_inner_error: Child Inner Error, to allow Nesting.
+        :param 'InnerErrorResponse' embedded_inner_error: Child Inner Error, to allow Nesting.
         """
         if additional_info is not None:
             pulumi.set(__self__, "additional_info", additional_info)
@@ -377,7 +377,7 @@ class PolicyInfoResponse(dict):
                  policy_parameters: Optional['outputs.PolicyParametersResponse'] = None):
         """
         Policy Info in backupInstance
-        :param 'PolicyParametersResponseArgs' policy_parameters: Policy parameters for the backup instance
+        :param 'PolicyParametersResponse' policy_parameters: Policy parameters for the backup instance
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "policy_version", policy_version)
@@ -415,7 +415,7 @@ class PolicyParametersResponse(dict):
                  data_store_parameters_list: Optional[Sequence['outputs.AzureOperationalStoreParametersResponse']] = None):
         """
         Parameters in Policy
-        :param Sequence['AzureOperationalStoreParametersResponseArgs'] data_store_parameters_list: Gets or sets the DataStore Parameters
+        :param Sequence['AzureOperationalStoreParametersResponse'] data_store_parameters_list: Gets or sets the DataStore Parameters
         """
         if data_store_parameters_list is not None:
             pulumi.set(__self__, "data_store_parameters_list", data_store_parameters_list)
@@ -442,7 +442,7 @@ class ProtectionStatusDetailsResponse(dict):
                  status: Optional[str] = None):
         """
         Protection status details
-        :param 'UserFacingErrorResponseArgs' error_details: Specifies the protection status error of the resource
+        :param 'UserFacingErrorResponse' error_details: Specifies the protection status error of the resource
         :param str status: Specifies the protection status of the resource
         """
         if error_details is not None:
@@ -612,8 +612,8 @@ class UserFacingErrorResponse(dict):
         """
         Error object used by layers that have access to localized content, and propagate that to user
         :param str code: Unique code for this error
-        :param Sequence['UserFacingErrorResponseArgs'] details: Additional related Errors
-        :param 'InnerErrorResponseArgs' inner_error: Inner Error
+        :param Sequence['UserFacingErrorResponse'] details: Additional related Errors
+        :param 'InnerErrorResponse' inner_error: Inner Error
         :param bool is_retryable: Whether the operation will be retryable or not
         :param bool is_user_error: Whether the operation is due to a user error or service error
         :param Mapping[str, str] properties: Any key value pairs that can be injected inside error object

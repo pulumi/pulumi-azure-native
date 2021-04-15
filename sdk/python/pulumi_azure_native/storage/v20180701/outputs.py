@@ -29,7 +29,7 @@ __all__ = [
     'RestrictionResponse',
     'SKUCapabilityResponse',
     'SkuResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
     'TagPropertyResponse',
     'UpdateHistoryPropertyResponse',
     'VirtualNetworkRuleResponse',
@@ -113,7 +113,7 @@ class CorsRulesResponse(dict):
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        :param Sequence['CorsRuleResponseArgs'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -217,8 +217,8 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         if key_source is None:
             key_source = 'Microsoft.Storage'
@@ -305,10 +305,10 @@ class EncryptionServicesResponse(dict):
                  file: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' queue: The encryption function of the queue storage service.
-        :param 'EncryptionServiceResponseArgs' table: The encryption function of the table storage service.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
-        :param 'EncryptionServiceResponseArgs' file: The encryption function of the file storage service.
+        :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceResponse' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
         """
         pulumi.set(__self__, "queue", queue)
         pulumi.set(__self__, "table", table)
@@ -581,7 +581,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         :param str etag: ImmutabilityPolicy Etag.
         :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-        :param Sequence['UpdateHistoryPropertyResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
+        :param Sequence['UpdateHistoryPropertyResponse'] update_history: The ImmutabilityPolicy update history of the blob container.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
@@ -685,7 +685,7 @@ class LegalHoldPropertiesResponse(dict):
         """
         The LegalHold property of a blob container.
         :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-        :param Sequence['TagPropertyResponseArgs'] tags: The list of LegalHold tags of a blob container.
+        :param Sequence['TagPropertyResponse'] tags: The list of LegalHold tags of a blob container.
         """
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
         if tags is not None:
@@ -725,8 +725,8 @@ class NetworkRuleSetResponse(dict):
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponse'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
             default_action = 'Allow'
@@ -875,13 +875,13 @@ class SkuResponse(dict):
                  restrictions: Optional[Sequence['outputs.RestrictionResponse']] = None):
         """
         The SKU of the storage account.
-        :param Sequence['SKUCapabilityResponseArgs'] capabilities: The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
+        :param Sequence['SKUCapabilityResponse'] capabilities: The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
         :param str kind: Indicates the type of storage account.
         :param Sequence[str] locations: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
         :param str name: Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         :param str resource_type: The type of the resource, usually it is 'storageAccounts'.
         :param str tier: Gets the SKU tier. This is based on the SKU name.
-        :param Sequence['RestrictionResponseArgs'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        :param Sequence['RestrictionResponse'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "kind", kind)
@@ -953,7 +953,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """

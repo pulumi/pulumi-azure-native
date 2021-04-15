@@ -38,7 +38,7 @@ class ListStreamingLocatorPathsResult:
 
     @property
     @pulumi.getter(name="streamingPaths")
-    def streaming_paths(self) -> Optional[Sequence['outputs.StreamingPathResponseResult']]:
+    def streaming_paths(self) -> Optional[Sequence['outputs.StreamingPathResponse']]:
         """
         Streaming Paths supported by current Streaming Locator
         """

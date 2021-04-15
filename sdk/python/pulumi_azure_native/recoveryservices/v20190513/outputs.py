@@ -142,7 +142,7 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureFileshareProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'AzureFileshareProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of the fileshare represented by this backup item.
         :param str health_status: backups running status for this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
@@ -414,10 +414,10 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -730,10 +730,10 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1154,10 +1154,10 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1512,7 +1512,7 @@ class AzureSqlProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureSqlProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureSqlProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -1791,12 +1791,12 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2119,12 +2119,12 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2447,12 +2447,12 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2775,12 +2775,12 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -3278,7 +3278,7 @@ class DPMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'DPMProtectedItemExtendedInfoResponseArgs' extended_info: Extended info of the backup item.
+        :param 'DPMProtectedItemExtendedInfoResponse' extended_info: Extended info of the backup item.
         :param str friendly_name: Friendly name of the managed item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -3567,7 +3567,7 @@ class ExtendedPropertiesResponse(dict):
                  disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
         """
         Extended Properties for Azure IaasVM Backup.
-        :param 'DiskExclusionPropertiesResponseArgs' disk_exclusion_properties: Extended Properties for Disk Exclusion.
+        :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
         """
         if disk_exclusion_properties is not None:
             pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
@@ -3927,7 +3927,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'MabFileFolderProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state

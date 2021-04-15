@@ -73,8 +73,8 @@ class CreationDataResponse(dict):
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
         :param str source_unique_id: If this field is set, this is the unique id identifying the source of this resource.
-        :param 'ImageDiskReferenceResponseArgs' gallery_image_reference: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
-        :param 'ImageDiskReferenceResponseArgs' image_reference: Disk source information.
+        :param 'ImageDiskReferenceResponse' gallery_image_reference: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+        :param 'ImageDiskReferenceResponse' image_reference: Disk source information.
         :param int logical_sector_size: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
@@ -284,8 +284,8 @@ class EncryptionImagesResponse(dict):
                  os_disk_image: Optional['outputs.OSDiskImageEncryptionResponse'] = None):
         """
         Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param Sequence['DataDiskImageEncryptionResponseArgs'] data_disk_images: A list of encryption specifications for data disk images.
-        :param 'OSDiskImageEncryptionResponseArgs' os_disk_image: Contains encryption settings for an OS disk image.
+        :param Sequence['DataDiskImageEncryptionResponse'] data_disk_images: A list of encryption specifications for data disk images.
+        :param 'OSDiskImageEncryptionResponse' os_disk_image: Contains encryption settings for an OS disk image.
         """
         if data_disk_images is not None:
             pulumi.set(__self__, "data_disk_images", data_disk_images)
@@ -410,7 +410,7 @@ class EncryptionSettingsCollectionResponse(dict):
         """
         Encryption settings for disk or snapshot
         :param bool enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param Sequence['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param Sequence['EncryptionSettingsElementResponse'] encryption_settings: A collection of encryption settings, one for each disk volume.
         :param str encryption_settings_version: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -457,8 +457,8 @@ class EncryptionSettingsElementResponse(dict):
                  key_encryption_key: Optional['outputs.KeyVaultAndKeyReferenceResponse'] = None):
         """
         Encryption settings for one disk volume.
-        :param 'KeyVaultAndSecretReferenceResponseArgs' disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
-        :param 'KeyVaultAndKeyReferenceResponseArgs' key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+        :param 'KeyVaultAndSecretReferenceResponse' disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
+        :param 'KeyVaultAndKeyReferenceResponse' key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -541,13 +541,13 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         """
         The publishing profile of a gallery image version.
         :param str published_date: The timestamp for when the gallery image version is published.
-        :param 'UserArtifactSourceResponseArgs' source: The source image from which the Image Version is going to be created.
+        :param 'UserArtifactSourceResponse' source: The source image from which the Image Version is going to be created.
         :param bool enable_health_check: Optional. Whether or not this application reports health.
         :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         pulumi.set(__self__, "source", source)
@@ -692,7 +692,7 @@ class GalleryDataDiskImageResponse(dict):
         :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-        :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
+        :param 'GalleryArtifactVersionSourceResponse' source: The gallery artifact version source.
         """
         pulumi.set(__self__, "lun", lun)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
@@ -866,7 +866,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         if end_of_life_date is not None:
@@ -943,9 +943,9 @@ class GalleryImageVersionStorageProfileResponse(dict):
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the storage profile of a Gallery Image Version.
-        :param Sequence['GalleryDataDiskImageResponseArgs'] data_disk_images: A list of data disk images.
-        :param 'GalleryOSDiskImageResponseArgs' os_disk_image: This is the OS disk image.
-        :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
+        :param Sequence['GalleryDataDiskImageResponse'] data_disk_images: A list of data disk images.
+        :param 'GalleryOSDiskImageResponse' os_disk_image: This is the OS disk image.
+        :param 'GalleryArtifactVersionSourceResponse' source: The gallery artifact version source.
         """
         if data_disk_images is not None:
             pulumi.set(__self__, "data_disk_images", data_disk_images)
@@ -995,7 +995,7 @@ class GalleryOSDiskImageResponse(dict):
         This is the OS disk image.
         :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-        :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
+        :param 'GalleryArtifactVersionSourceResponse' source: The gallery artifact version source.
         """
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         if host_caching is not None:
@@ -1129,7 +1129,7 @@ class KeyForDiskEncryptionSetResponse(dict):
         """
         Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
         :param str key_url: Fully versioned Key Url pointing to a key in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
         """
         pulumi.set(__self__, "key_url", key_url)
         if source_vault is not None:
@@ -1166,7 +1166,7 @@ class KeyVaultAndKeyReferenceResponse(dict):
         """
         Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
         :param str key_url: Url pointing to a key or secret in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1202,7 +1202,7 @@ class KeyVaultAndSecretReferenceResponse(dict):
         """
         Key Vault Secret Url and vault id of the encryption key 
         :param str secret_url: Url pointing to a key or secret in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1269,10 +1269,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: private endpoint connection Id
         :param str name: private endpoint connection name
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: private endpoint connection type
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1478,8 +1478,8 @@ class RecommendedMachineConfigurationResponse(dict):
                  v_cpus: Optional['outputs.ResourceRangeResponse'] = None):
         """
         The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-        :param 'ResourceRangeResponseArgs' memory: Describes the resource range.
-        :param 'ResourceRangeResponseArgs' v_cpus: Describes the resource range.
+        :param 'ResourceRangeResponse' memory: Describes the resource range.
+        :param 'ResourceRangeResponse' v_cpus: Describes the resource range.
         """
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
@@ -1575,7 +1575,7 @@ class ReplicationStatusResponse(dict):
         """
         This is the replication status of the gallery image version.
         :param str aggregated_state: This is the aggregated replication status based on all the regional replication status flags.
-        :param Sequence['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
+        :param Sequence['RegionalReplicationStatusResponse'] summary: This is a summary of replication status for each region.
         """
         pulumi.set(__self__, "aggregated_state", aggregated_state)
         pulumi.set(__self__, "summary", summary)
@@ -1707,7 +1707,7 @@ class SharingProfileResponse(dict):
                  permissions: Optional[str] = None):
         """
         Profile for gallery sharing to subscription or tenant
-        :param Sequence['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
+        :param Sequence['SharingProfileGroupResponse'] groups: A list of sharing profile groups.
         :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         pulumi.set(__self__, "groups", groups)
@@ -1810,7 +1810,7 @@ class TargetRegionResponse(dict):
         """
         Describes the target region information.
         :param str name: The name of the region.
-        :param 'EncryptionImagesResponseArgs' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+        :param 'EncryptionImagesResponse' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         :param int regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """

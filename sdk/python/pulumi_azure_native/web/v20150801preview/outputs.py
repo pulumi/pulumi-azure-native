@@ -20,7 +20,7 @@ __all__ = [
     'ConnectionErrorResponse',
     'ConnectionParameterResponse',
     'ConnectionStatusResponse',
-    'ConsentLinkResponseResult',
+    'ConsentLinkResponse',
     'CustomLoginSettingValueResponse',
     'ExpandedParentApiEntityResponse',
     'GeneralApiInformationResponse',
@@ -58,18 +58,18 @@ class ApiEntityResponse(dict):
         API Management
         :param str location: Resource Location
         :param str api_definition_url: API definition Url - url where the swagger can be downloaded from
-        :param 'BackendServiceDefinitionResponseArgs' backend_service: Backend service definition
+        :param 'BackendServiceDefinitionResponse' backend_service: Backend service definition
         :param Sequence[str] capabilities: Capabilities
         :param str changed_time: Timestamp of last connection change.
-        :param Mapping[str, 'ConnectionParameterResponseArgs'] connection_parameters: Connection parameters
+        :param Mapping[str, 'ConnectionParameterResponse'] connection_parameters: Connection parameters
         :param str created_time: Timestamp of the connection creation
-        :param 'GeneralApiInformationResponseArgs' general_information: the URL path of this API when exposed via APIM
+        :param 'GeneralApiInformationResponse' general_information: the URL path of this API when exposed via APIM
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param Any metadata: Free form object for the data caller wants to store
         :param str name: Resource Name
         :param str path: the URL path of this API when exposed via APIM
-        :param 'ApiPoliciesResponseArgs' policies: API policies
+        :param 'ApiPoliciesResponse' policies: API policies
         :param Sequence[str] protocols: Protocols supported by the front end - http/https
         :param Sequence[str] runtime_urls: Read only property returning the runtime endpoints where the API can be called
         :param Mapping[str, str] tags: Resource tags
@@ -326,7 +326,7 @@ class ApiOAuthSettingsResponse(dict):
         OAuth settings for the connection provider
         :param str client_id: Resource provider client id
         :param str client_secret: Client Secret needed for OAuth
-        :param Mapping[str, 'ApiOAuthSettingsParameterResponseArgs'] custom_parameters: OAuth parameters key is the name of parameter
+        :param Mapping[str, 'ApiOAuthSettingsParameterResponse'] custom_parameters: OAuth parameters key is the name of parameter
         :param str identity_provider: Identity provider
         :param Any properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
@@ -595,7 +595,7 @@ class BackendServiceDefinitionResponse(dict):
         """
         API definitions with backend urls
         :param str location: Resource Location
-        :param Sequence['HostingEnvironmentServiceDescriptionsResponseArgs'] hosting_environment_service_urls: Service Urls per Hosting environment
+        :param Sequence['HostingEnvironmentServiceDescriptionsResponse'] hosting_environment_service_urls: Service Urls per Hosting environment
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -809,7 +809,7 @@ class ConnectionParameterResponse(dict):
         """
         connection provider parameters
         :param Any default_value: Default parameter value
-        :param 'ApiOAuthSettingsResponseArgs' o_auth_settings: Settings defining OAuth flow for the back end provider
+        :param 'ApiOAuthSettingsResponse' o_auth_settings: Settings defining OAuth flow for the back end provider
         :param str type: Type of the parameter
         :param Any ui_definition: UI definitions
         """
@@ -876,7 +876,7 @@ class ConnectionStatusResponse(dict):
         """
         Connection status
         :param str location: Resource Location
-        :param 'ConnectionErrorResponseArgs' error: Error details
+        :param 'ConnectionErrorResponse' error: Error details
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -980,7 +980,7 @@ class ConnectionStatusResponse(dict):
 
 
 @pulumi.output_type
-class ConsentLinkResponseResult(dict):
+class ConsentLinkResponse(dict):
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  first_party_login_uri: Optional[str] = None,
@@ -1147,7 +1147,7 @@ class ExpandedParentApiEntityResponse(dict):
         """
         expanded parent object for expansion
         :param str location: Resource Location
-        :param 'ResponseMessageEnvelopeApiEntityResponseArgs' entity: Id of connection provider
+        :param 'ResponseMessageEnvelopeApiEntityResponse' entity: Id of connection provider
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -1469,7 +1469,7 @@ class ParameterCustomLoginSettingValuesResponse(dict):
         """
         Custom logging setting values
         :param str location: Resource Location
-        :param Mapping[str, 'CustomLoginSettingValueResponseArgs'] custom_parameters: Custom parameters.
+        :param Mapping[str, 'CustomLoginSettingValueResponse'] custom_parameters: Custom parameters.
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -1571,9 +1571,9 @@ class ResponseMessageEnvelopeApiEntityResponse(dict):
                            For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
         :param str location: Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
         :param str name: Name of resource
-        :param 'ArmPlanResponseArgs' plan: Azure resource manager plan
-        :param 'ApiEntityResponseArgs' properties: Resource specific properties
-        :param 'SkuDescriptionResponseArgs' sku: Sku description of the resource
+        :param 'ArmPlanResponse' plan: Azure resource manager plan
+        :param 'ApiEntityResponse' properties: Resource specific properties
+        :param 'SkuDescriptionResponse' sku: Sku description of the resource
         :param Mapping[str, str] tags: Tags associated with resource
         :param str type: Type of resource e.g Microsoft.Web/sites
         """

@@ -167,18 +167,18 @@ class ContainerCodePackagePropertiesResponse(dict):
         """
         Describes a container and its runtime properties.
         :param str image: The Container image to use.
-        :param 'ContainerInstanceViewResponseArgs' instance_view: Runtime information of a container instance.
+        :param 'ContainerInstanceViewResponse' instance_view: Runtime information of a container instance.
         :param str name: The name of the code package.
-        :param 'ResourceRequirementsResponseArgs' resources: This type describes the resource requirements for a container or a service.
+        :param 'ResourceRequirementsResponse' resources: This type describes the resource requirements for a container or a service.
         :param Sequence[str] commands: Command array to execute within the container in exec form.
-        :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param Sequence['EndpointPropertiesResponseArgs'] endpoints: The endpoints exposed by this container.
+        :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
+        :param Sequence['EndpointPropertiesResponse'] endpoints: The endpoints exposed by this container.
         :param str entrypoint: Override for the default entry point in the container.
-        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in this container
-        :param 'ImageRegistryCredentialResponseArgs' image_registry_credential: Image registry credential.
-        :param Sequence['ContainerLabelResponseArgs'] labels: The labels to set in this container.
-        :param Sequence['SettingResponseArgs'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-        :param Sequence['ContainerVolumeResponseArgs'] volume_refs: The volumes to be attached to the container.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in this container
+        :param 'ImageRegistryCredentialResponse' image_registry_credential: Image registry credential.
+        :param Sequence['ContainerLabelResponse'] labels: The labels to set in this container.
+        :param Sequence['SettingResponse'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
+        :param Sequence['ContainerVolumeResponse'] volume_refs: The volumes to be attached to the container.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
@@ -409,9 +409,9 @@ class ContainerInstanceViewResponse(dict):
                  restart_count: Optional[int] = None):
         """
         Runtime information of a container instance.
-        :param 'ContainerStateResponseArgs' current_state: Current container instance state.
-        :param Sequence['ContainerEventResponseArgs'] events: The events of this container instance.
-        :param 'ContainerStateResponseArgs' previous_state: Previous container instance state.
+        :param 'ContainerStateResponse' current_state: Current container instance state.
+        :param Sequence['ContainerEventResponse'] events: The events of this container instance.
+        :param 'ContainerStateResponse' previous_state: Previous container instance state.
         :param int restart_count: The number of times the container has been restarted.
         """
         if current_state is not None:
@@ -630,7 +630,7 @@ class DiagnosticsDescriptionResponse(dict):
         Describes the diagnostics options available
         :param Sequence[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
+        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponse'] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -840,7 +840,7 @@ class IngressConfigResponse(dict):
         """
         Describes public connectivity configuration for the network.
         :param str public_ip_address: The public IP address for reaching this network.
-        :param Sequence['Layer4IngressConfigResponseArgs'] layer4: Configuration for layer4 public connectivity for this network.
+        :param Sequence['Layer4IngressConfigResponse'] layer4: Configuration for layer4 public connectivity for this network.
         :param str qos_level: The QoS tier for ingress.
         """
         pulumi.set(__self__, "public_ip_address", public_ip_address)
@@ -1062,8 +1062,8 @@ class ResourceRequirementsResponse(dict):
                  limits: Optional['outputs.ResourceLimitsResponse'] = None):
         """
         This type describes the resource requirements for a container or a service.
-        :param 'ResourceRequestsResponseArgs' requests: Describes the requested resources for a given container.
-        :param 'ResourceLimitsResponseArgs' limits: Describes the maximum limits on the resources for a given container.
+        :param 'ResourceRequestsResponse' requests: Describes the requested resources for a given container.
+        :param 'ResourceLimitsResponse' limits: Describes the maximum limits on the resources for a given container.
         """
         pulumi.set(__self__, "requests", requests)
         if limits is not None:
@@ -1108,16 +1108,16 @@ class ServiceResourceDescriptionResponse(dict):
                  replica_count: Optional[int] = None):
         """
         This type describes a service resource.
-        :param Sequence['ContainerCodePackagePropertiesResponseArgs'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+        :param Sequence['ContainerCodePackagePropertiesResponse'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str os_type: The Operating system type required by the code in service.
         :param str status: Represents the status of the service.
         :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param str description: User readable description of the service.
-        :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
+        :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
         :param str health_state: The health state of a resource such as Application, Service, or Network.
         :param str name: The name of the resource
-        :param Sequence['NetworkRefResponseArgs'] network_refs: The names of the private networks that this service needs to be part of.
+        :param Sequence['NetworkRefResponse'] network_refs: The names of the private networks that this service needs to be part of.
         :param int replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)

@@ -38,7 +38,7 @@ class GetProductsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ProductResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ProductResponse']]:
         """
         List of products.
         """

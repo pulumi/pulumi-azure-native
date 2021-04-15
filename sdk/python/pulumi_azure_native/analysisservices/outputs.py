@@ -127,7 +127,7 @@ class IPv4FirewallSettingsResponse(dict):
         """
         An array of firewall rules.
         :param bool enable_power_bi_service: The indicator of enabling PBI service.
-        :param Sequence['IPv4FirewallRuleResponseArgs'] firewall_rules: An array of firewall rules.
+        :param Sequence['IPv4FirewallRuleResponse'] firewall_rules: An array of firewall rules.
         """
         if enable_power_bi_service is not None:
             pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)

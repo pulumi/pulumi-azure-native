@@ -38,7 +38,7 @@ class ListJobCredentialsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.UnencryptedCredentialsResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.UnencryptedCredentialsResponse']]:
         """
         List of unencrypted credentials.
         """

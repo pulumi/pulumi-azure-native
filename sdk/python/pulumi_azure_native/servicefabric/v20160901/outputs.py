@@ -313,11 +313,11 @@ class ClusterUpgradePolicyResponse(dict):
         :param str health_check_retry_timeout: The length of time that health checks can fail continuously,it represents .Net TimeSpan
         :param str health_check_stable_duration: The length of time that health checks must pass continuously,it represents .Net TimeSpan
         :param str health_check_wait_duration: The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
-        :param 'ClusterHealthPolicyResponseArgs' health_policy: Cluster health Policy
+        :param 'ClusterHealthPolicyResponse' health_policy: Cluster health Policy
         :param str upgrade_domain_timeout: The timeout for any upgrade domain,it represents .Net TimeSpan
         :param str upgrade_replica_set_check_timeout: Timeout for replica set upgrade to complete,it represents .Net TimeSpan
         :param str upgrade_timeout: The upgrade timeout,it represents .Net TimeSpan
-        :param 'ClusterUpgradeDeltaHealthPolicyResponseArgs' delta_health_policy: Delta health policy
+        :param 'ClusterUpgradeDeltaHealthPolicyResponse' delta_health_policy: Delta health policy
         :param bool force_restart: Force node to restart or not
         :param bool override_user_upgrade_policy: Use the user defined upgrade policy or not
         """
@@ -598,10 +598,10 @@ class NodeTypeDescriptionResponse(dict):
         :param bool is_primary: Mark this as the primary node type
         :param str name: Name of the node type
         :param int vm_instance_count: The number of node instances in the node type
-        :param 'EndpointRangeDescriptionResponseArgs' application_ports: Ports used by applications
+        :param 'EndpointRangeDescriptionResponse' application_ports: Ports used by applications
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
         :param str durability_level: Node type durability Level
-        :param 'EndpointRangeDescriptionResponseArgs' ephemeral_ports: System assigned application ports
+        :param 'EndpointRangeDescriptionResponse' ephemeral_ports: System assigned application ports
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
         :param int reverse_proxy_endpoint_port: Endpoint used by reverse proxy
         """
@@ -762,7 +762,7 @@ class SettingsSectionDescriptionResponse(dict):
         """
         ServiceFabric section settings
         :param str name: The name of settings section
-        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: Collection of settings in the section, each setting is a tuple consisting of setting name and value
+        :param Sequence['SettingsParameterDescriptionResponse'] parameters: Collection of settings in the section, each setting is a tuple consisting of setting name and value
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)

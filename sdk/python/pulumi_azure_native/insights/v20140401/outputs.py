@@ -37,7 +37,7 @@ class LocationThresholdRuleConditionResponse(dict):
         :param int failed_location_count: the number of locations that must fail to activate the alert.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
                Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         pulumi.set(__self__, "failed_location_count", failed_location_count)
@@ -147,8 +147,8 @@ class ManagementEventRuleConditionResponse(dict):
         A management event rule condition.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
                Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-        :param 'ManagementEventAggregationConditionResponseArgs' aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param 'ManagementEventAggregationConditionResponse' aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition')
         if aggregation is not None:
@@ -286,7 +286,7 @@ class RuleManagementEventDataSourceResponse(dict):
         A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
         :param str odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
                Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-        :param 'RuleManagementEventClaimsDataSourceResponseArgs' claims: the claims.
+        :param 'RuleManagementEventClaimsDataSourceResponse' claims: the claims.
         :param str event_name: the event name.
         :param str event_source: the event source.
         :param str legacy_resource_id: the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -601,7 +601,7 @@ class ThresholdRuleConditionResponse(dict):
                Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
         :param str operator: the operator used to compare the data and the threshold.
         :param float threshold: the threshold value that activates the alert.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """

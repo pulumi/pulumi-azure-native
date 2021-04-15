@@ -28,7 +28,7 @@ class LogSettingsResponse(dict):
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
         :param bool enabled: A value indicating whether this log is enabled.
         :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponseArgs' retention_policy: The retention policy for this log.
+        :param 'RetentionPolicyResponse' retention_policy: The retention policy for this log.
         """
         pulumi.set(__self__, "enabled", enabled)
         if category is not None:

@@ -304,7 +304,7 @@ class EncryptionResponse(dict):
         """
         Properties to configure Encryption
         :param str key_source: Enumerates the possible value of keySource for Encryption
-        :param Sequence['KeyVaultPropertiesResponseArgs'] key_vault_properties: Properties of KeyVault
+        :param Sequence['KeyVaultPropertiesResponse'] key_vault_properties: Properties of KeyVault
         :param bool require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
         """
         if key_source is None:
@@ -359,7 +359,7 @@ class IdentityResponse(dict):
         :param str principal_id: ObjectId from the KeyVault
         :param str tenant_id: TenantId from the KeyVault
         :param str type: Type of managed service identity.
-        :param Mapping[str, 'DictionaryValueResponseArgs'] user_assigned_identities: Properties for User Assigned Identities
+        :param Mapping[str, 'DictionaryValueResponse'] user_assigned_identities: Properties for User Assigned Identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -582,7 +582,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
         """
         Description of VirtualNetworkRules - NetworkRules resource.
         :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
-        :param 'SubnetResponseArgs' subnet: Subnet properties
+        :param 'SubnetResponse' subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
             pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
@@ -626,10 +626,10 @@ class PrivateEndpointConnectionResponse(dict):
         Properties of the PrivateEndpointConnection.
         :param str id: Resource Id
         :param str name: Resource name
-        :param 'SystemDataResponseArgs' system_data: The system meta data relating to this resource.
+        :param 'SystemDataResponse' system_data: The system meta data relating to this resource.
         :param str type: Resource type
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint resource for this Connection.
-        :param 'ConnectionStateResponseArgs' private_link_service_connection_state: Details about the state of the connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint resource for this Connection.
+        :param 'ConnectionStateResponse' private_link_service_connection_state: Details about the state of the connection.
         :param str provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
         pulumi.set(__self__, "id", id)

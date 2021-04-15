@@ -93,7 +93,7 @@ class ManagementConfigurationPropertiesResponse(dict):
                  application_id: Optional[str] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
-        :param Sequence['ArmTemplateParameterResponseArgs'] parameters: Parameters to run the ARM template
+        :param Sequence['ArmTemplateParameterResponse'] parameters: Parameters to run the ARM template
         :param str parent_resource_type: The type of the parent resource.
         :param str provisioning_state: The provisioning state for the ManagementConfiguration.
         :param Any template: The Json object containing the ARM template to deploy

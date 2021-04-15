@@ -15,7 +15,7 @@ __all__ = [
     'ContainerServiceNetworkProfileResponse',
     'ContainerServiceSshConfigurationResponse',
     'ContainerServiceSshPublicKeyResponse',
-    'CredentialResultResponseResult',
+    'CredentialResultResponse',
     'ManagedClusterAADProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
     'ManagedClusterAddonProfileResponse',
@@ -41,7 +41,7 @@ class ContainerServiceLinuxProfileResponse(dict):
         """
         Profile for Linux VMs in the container service cluster.
         :param str admin_username: The administrator username to use for Linux VMs.
-        :param 'ContainerServiceSshConfigurationResponseArgs' ssh: SSH configuration for Linux-based VMs running on Azure.
+        :param 'ContainerServiceSshConfigurationResponse' ssh: SSH configuration for Linux-based VMs running on Azure.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh", ssh)
@@ -84,7 +84,7 @@ class ContainerServiceNetworkProfileResponse(dict):
         Profile of network configuration.
         :param str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param str docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        :param 'ManagedClusterLoadBalancerProfileResponseArgs' load_balancer_profile: Profile of the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponse' load_balancer_profile: Profile of the cluster load balancer.
         :param str load_balancer_sku: The load balancer sku for the managed cluster.
         :param str network_plugin: Network plugin used for building Kubernetes network.
         :param str network_policy: Network policy used for building Kubernetes network.
@@ -195,7 +195,7 @@ class ContainerServiceSshConfigurationResponse(dict):
                  public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
@@ -237,7 +237,7 @@ class ContainerServiceSshPublicKeyResponse(dict):
 
 
 @pulumi.output_type
-class CredentialResultResponseResult(dict):
+class CredentialResultResponse(dict):
     """
     The credential result response.
     """
@@ -692,10 +692,10 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
                  outbound_ips: Optional['outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPs'] = None):
         """
         Profile of the managed cluster load balancer
-        :param Sequence['ResourceReferenceResponseArgs'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
+        :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
         """
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
@@ -779,7 +779,7 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes(dict):
                  public_ip_prefixes: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
-        :param Sequence['ResourceReferenceResponseArgs'] public_ip_prefixes: A list of public IP prefix resources.
+        :param Sequence['ResourceReferenceResponse'] public_ip_prefixes: A list of public IP prefix resources.
         """
         if public_ip_prefixes is not None:
             pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
@@ -805,7 +805,7 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
                  public_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP resources for the cluster load balancer.
-        :param Sequence['ResourceReferenceResponseArgs'] public_ips: A list of public IP resources.
+        :param Sequence['ResourceReferenceResponse'] public_ips: A list of public IP resources.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)

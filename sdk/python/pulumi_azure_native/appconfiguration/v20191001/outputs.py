@@ -11,14 +11,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ApiKeyResponseResult',
+    'ApiKeyResponse',
     'ResourceIdentityResponse',
     'SkuResponse',
     'UserIdentityResponse',
 ]
 
 @pulumi.output_type
-class ApiKeyResponseResult(dict):
+class ApiKeyResponse(dict):
     """
     An API key used for authenticating with a configuration store endpoint.
     """
@@ -105,7 +105,7 @@ class ResourceIdentityResponse(dict):
         :param str principal_id: The principal id of the identity. This property will only be provided for a system-assigned identity.
         :param str tenant_id: The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        :param Mapping[str, 'UserIdentityResponseArgs'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)

@@ -50,7 +50,7 @@ class ListMachineLearningComputeNodesResult:
 
     @property
     @pulumi.getter
-    def nodes(self) -> Sequence['outputs.AmlComputeNodeInformationResponseResult']:
+    def nodes(self) -> Sequence['outputs.AmlComputeNodeInformationResponse']:
         """
         The collection of returned AmlCompute nodes details.
         """

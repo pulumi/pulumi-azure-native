@@ -106,7 +106,7 @@ class IdentityDataResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        :param Mapping[str, 'UserIdentityResponseArgs'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -161,8 +161,8 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Private Endpoint Connection Response Properties
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
         if private_endpoint is not None:
@@ -211,7 +211,7 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
         """
         Information to be stored in Vault properties as an element of privateEndpointConnections List.
         :param str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
-        :param 'VaultPrivateEndpointConnectionResponseArgs' properties: Private Endpoint Connection Response Properties.
+        :param 'VaultPrivateEndpointConnectionResponse' properties: Private Endpoint Connection Response Properties.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)
@@ -496,8 +496,8 @@ class VaultPrivateEndpointConnectionResponse(dict):
                  provisioning_state: str):
         """
         Private Endpoint Connection Response Properties.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
-        :param 'VaultPrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state.
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         """
         pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -593,12 +593,12 @@ class VaultPropertiesResponse(dict):
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
-        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
+        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponse'] private_endpoint_connections: List of private endpoint connection.
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
-        :param 'VaultPropertiesResponseEncryptionArgs' encryption: Customer Managed Key details of the resource.
-        :param 'UpgradeDetailsResponseArgs' upgrade_details: Details for upgrading vault.
+        :param 'VaultPropertiesResponseEncryption' encryption: Customer Managed Key details of the resource.
+        :param 'UpgradeDetailsResponse' upgrade_details: Details for upgrading vault.
         """
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
@@ -673,8 +673,8 @@ class VaultPropertiesResponseEncryption(dict):
         """
         Customer Managed Key details of the resource.
         :param str infrastructure_encryption: Enabling/Disabling the Double Encryption state
-        :param 'CmkKekIdentityResponseArgs' kek_identity: The details of the identity used for CMK
-        :param 'CmkKeyVaultPropertiesResponseArgs' key_vault_properties: The properties of the Key Vault which hosts CMK
+        :param 'CmkKekIdentityResponse' kek_identity: The details of the identity used for CMK
+        :param 'CmkKeyVaultPropertiesResponse' key_vault_properties: The properties of the Key Vault which hosts CMK
         """
         if infrastructure_encryption is not None:
             pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)

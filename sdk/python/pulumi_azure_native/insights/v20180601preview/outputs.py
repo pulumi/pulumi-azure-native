@@ -26,9 +26,9 @@ class DataSourceConfigurationResponse(dict):
                  perf_counters: Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']] = None,
                  providers: Optional[Sequence['outputs.EtwProviderConfigurationResponse']] = None):
         """
-        :param Sequence['EventLogConfigurationResponseArgs'] event_logs: Windows event logs configuration.
-        :param Sequence['PerformanceCounterConfigurationResponseArgs'] perf_counters: Performance counter configuration
-        :param Sequence['EtwProviderConfigurationResponseArgs'] providers: ETW providers configuration
+        :param Sequence['EventLogConfigurationResponse'] event_logs: Windows event logs configuration.
+        :param Sequence['PerformanceCounterConfigurationResponse'] perf_counters: Performance counter configuration
+        :param Sequence['EtwProviderConfigurationResponse'] providers: ETW providers configuration
         """
         if event_logs is not None:
             pulumi.set(__self__, "event_logs", event_logs)

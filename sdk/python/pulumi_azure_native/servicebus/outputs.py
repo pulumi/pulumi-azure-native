@@ -370,7 +370,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
         """
         Description of VirtualNetworkRules - NetworkRules resource.
         :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
-        :param 'SubnetResponseArgs' subnet: Subnet properties
+        :param 'SubnetResponse' subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
             pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)

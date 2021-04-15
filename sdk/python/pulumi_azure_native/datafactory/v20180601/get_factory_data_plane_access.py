@@ -49,7 +49,7 @@ class GetFactoryDataPlaneAccessResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional['outputs.UserAccessPolicyResponseResult']:
+    def policy(self) -> Optional['outputs.UserAccessPolicyResponse']:
         """
         The user access policy.
         """

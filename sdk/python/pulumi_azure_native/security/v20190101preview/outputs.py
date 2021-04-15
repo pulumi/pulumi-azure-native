@@ -324,7 +324,7 @@ class AutomationSourceResponse(dict):
         """
         The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
         :param str event_source: A valid event source type.
-        :param Sequence['AutomationRuleSetResponseArgs'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        :param Sequence['AutomationRuleSetResponse'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
@@ -646,7 +646,7 @@ class SuppressionAlertsScopeResponse(dict):
     def __init__(__self__, *,
                  all_of: Sequence['outputs.ScopeElementResponse']):
         """
-        :param Sequence['ScopeElementResponseArgs'] all_of: All the conditions inside need to be true in order to suppress the alert
+        :param Sequence['ScopeElementResponse'] all_of: All the conditions inside need to be true in order to suppress the alert
         """
         pulumi.set(__self__, "all_of", all_of)
 

@@ -216,8 +216,8 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
         :param str api_key: The API key used to authenticate with Request-Response endpoint.
         :param int batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param str endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
-        :param 'AzureMachineLearningWebServiceInputsResponseArgs' inputs: The inputs for the Azure Machine Learning web service endpoint.
-        :param Sequence['AzureMachineLearningWebServiceOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
+        :param 'AzureMachineLearningWebServiceInputsResponse' inputs: The inputs for the Azure Machine Learning web service endpoint.
+        :param Sequence['AzureMachineLearningWebServiceOutputColumnResponse'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         :param str type: Indicates the function binding type.
                Expected value is 'Microsoft.MachineLearning/WebService'.
         """
@@ -347,7 +347,7 @@ class AzureMachineLearningWebServiceInputsResponse(dict):
                  name: Optional[str] = None):
         """
         The inputs for the Azure Machine Learning web service endpoint.
-        :param Sequence['AzureMachineLearningWebServiceInputColumnResponseArgs'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
+        :param Sequence['AzureMachineLearningWebServiceInputColumnResponse'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
         :param str name: The name of the input. This is the name provided while authoring the endpoint.
         """
         if column_names is not None:
@@ -630,7 +630,7 @@ class BlobOutputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
@@ -718,7 +718,7 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
@@ -808,7 +808,7 @@ class BlobStreamInputDataSourceResponse(dict):
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
         :param int source_partition_count: The partition count of the blob input data source. Range 1 - 256.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
@@ -997,7 +997,7 @@ class DiagnosticsResponse(dict):
                  conditions: Sequence['outputs.DiagnosticConditionResponse']):
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-        :param Sequence['DiagnosticConditionResponseArgs'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+        :param Sequence['DiagnosticConditionResponse'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -1368,7 +1368,7 @@ class FunctionResponse(dict):
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param 'ScalarFunctionPropertiesResponseArgs' properties: The properties that are associated with a function.
+        :param 'ScalarFunctionPropertiesResponse' properties: The properties that are associated with a function.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -1428,7 +1428,7 @@ class InputResponse(dict):
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param Union['ReferenceInputPropertiesResponseArgs', 'StreamInputPropertiesResponseArgs'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+        :param Union['ReferenceInputPropertiesResponse', 'StreamInputPropertiesResponse'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -1668,13 +1668,13 @@ class OutputResponse(dict):
                  serialization: Optional[Any] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str id: Resource Id
         :param str type: Resource type
-        :param Union['AzureDataLakeStoreOutputDataSourceResponseArgs', 'AzureSqlDatabaseOutputDataSourceResponseArgs', 'AzureTableOutputDataSourceResponseArgs', 'BlobOutputDataSourceResponseArgs', 'DocumentDbOutputDataSourceResponseArgs', 'EventHubOutputDataSourceResponseArgs', 'PowerBIOutputDataSourceResponseArgs', 'ServiceBusQueueOutputDataSourceResponseArgs', 'ServiceBusTopicOutputDataSourceResponseArgs'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -1872,10 +1872,10 @@ class ReferenceInputPropertiesResponse(dict):
                  type: Optional[str] = None):
         """
         The properties that are associated with an input containing reference data.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-        :param 'BlobReferenceInputDataSourceResponseArgs' datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param 'BlobReferenceInputDataSourceResponse' datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Reference'.
         """
@@ -1947,9 +1947,9 @@ class ScalarFunctionPropertiesResponse(dict):
         """
         The properties that are associated with a scalar function.
         :param str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-        :param Union['AzureMachineLearningWebServiceFunctionBindingResponseArgs', 'JavaScriptFunctionBindingResponseArgs'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param Sequence['FunctionInputResponseArgs'] inputs: A list of inputs describing the parameters of the function.
-        :param 'FunctionOutputResponseArgs' output: The output of the function.
+        :param Union['AzureMachineLearningWebServiceFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        :param Sequence['FunctionInputResponse'] inputs: A list of inputs describing the parameters of the function.
+        :param 'FunctionOutputResponse' output: The output of the function.
         :param str type: Indicates the type of function.
                Expected value is 'Scalar'.
         """
@@ -2261,10 +2261,10 @@ class StreamInputPropertiesResponse(dict):
                  type: Optional[str] = None):
         """
         The properties that are associated with an input containing stream data.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-        :param Union['BlobStreamInputDataSourceResponseArgs', 'EventHubStreamInputDataSourceResponseArgs', 'IoTHubStreamInputDataSourceResponseArgs'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['BlobStreamInputDataSourceResponse', 'EventHubStreamInputDataSourceResponse', 'IoTHubStreamInputDataSourceResponse'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Stream'.
         """

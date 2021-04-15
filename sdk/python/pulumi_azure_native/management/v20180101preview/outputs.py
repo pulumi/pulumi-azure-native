@@ -10,15 +10,15 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'EntityInfoResponseResult',
-    'EntityParentGroupInfoResponseResult',
+    'EntityInfoResponse',
+    'EntityParentGroupInfoResponse',
     'ManagementGroupChildInfoResponse',
     'ManagementGroupDetailsResponse',
     'ParentGroupInfoResponse',
 ]
 
 @pulumi.output_type
-class EntityInfoResponseResult(dict):
+class EntityInfoResponse(dict):
     """
     The entity.
     """
@@ -27,7 +27,7 @@ class EntityInfoResponseResult(dict):
                  name: str,
                  type: str,
                  display_name: Optional[str] = None,
-                 parent: Optional['outputs.EntityParentGroupInfoResponseResult'] = None,
+                 parent: Optional['outputs.EntityParentGroupInfoResponse'] = None,
                  permissions: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
@@ -36,7 +36,7 @@ class EntityInfoResponseResult(dict):
         :param str name: The name of the entity. For example, 00000000-0000-0000-0000-000000000000
         :param str type: The type of the resource. For example, /providers/Microsoft.Management/managementGroups
         :param str display_name: The friendly name of the management group.
-        :param 'EntityParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param 'EntityParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param str permissions: The users specific permissions to this item.
         :param str tenant_id: The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
         """
@@ -86,7 +86,7 @@ class EntityInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parent(self) -> Optional['outputs.EntityParentGroupInfoResponseResult']:
+    def parent(self) -> Optional['outputs.EntityParentGroupInfoResponse']:
         """
         (Optional) The ID of the parent management group.
         """
@@ -110,7 +110,7 @@ class EntityInfoResponseResult(dict):
 
 
 @pulumi.output_type
-class EntityParentGroupInfoResponseResult(dict):
+class EntityParentGroupInfoResponse(dict):
     """
     (Optional) The ID of the parent management group.
     """
@@ -146,7 +146,7 @@ class ManagementGroupChildInfoResponse(dict):
                  type: Optional[str] = None):
         """
         The child information of a management group.
-        :param Sequence['ManagementGroupChildInfoResponseArgs'] children: The list of children.
+        :param Sequence['ManagementGroupChildInfoResponse'] children: The list of children.
         :param str display_name: The friendly name of the child resource.
         :param str id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param str name: The name of the child entity.
@@ -230,7 +230,7 @@ class ManagementGroupDetailsResponse(dict):
                  version: Optional[float] = None):
         """
         The details of a management group.
-        :param 'ParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param str updated_by: The identity of the principal or process that updated the object.
         :param str updated_time: The date and time when this object was last updated.
         :param float version: The version number of the object.

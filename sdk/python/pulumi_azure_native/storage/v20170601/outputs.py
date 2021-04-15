@@ -23,7 +23,7 @@ __all__ = [
     'RestrictionResponse',
     'SKUCapabilityResponse',
     'SkuResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
     'VirtualNetworkRuleResponse',
 ]
 
@@ -76,8 +76,8 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         if key_source is None:
             key_source = 'Microsoft.Storage'
@@ -164,10 +164,10 @@ class EncryptionServicesResponse(dict):
                  file: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' queue: The encryption function of the queue storage service.
-        :param 'EncryptionServiceResponseArgs' table: The encryption function of the table storage service.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
-        :param 'EncryptionServiceResponseArgs' file: The encryption function of the file storage service.
+        :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceResponse' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
         """
         pulumi.set(__self__, "queue", queue)
         pulumi.set(__self__, "table", table)
@@ -420,8 +420,8 @@ class NetworkRuleSetResponse(dict):
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponse'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
             default_action = 'Allow'
@@ -570,13 +570,13 @@ class SkuResponse(dict):
                  restrictions: Optional[Sequence['outputs.RestrictionResponse']] = None):
         """
         The SKU of the storage account.
-        :param Sequence['SKUCapabilityResponseArgs'] capabilities: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        :param Sequence['SKUCapabilityResponse'] capabilities: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
         :param str kind: Indicates the type of storage account.
         :param Sequence[str] locations: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
         :param str name: Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         :param str resource_type: The type of the resource, usually it is 'storageAccounts'.
         :param str tier: Gets the sku tier. This is based on the SKU name.
-        :param Sequence['RestrictionResponseArgs'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        :param Sequence['RestrictionResponse'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "kind", kind)
@@ -648,7 +648,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """

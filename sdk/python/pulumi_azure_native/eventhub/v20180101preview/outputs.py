@@ -39,7 +39,7 @@ class CaptureDescriptionResponse(dict):
                  skip_empty_archives: Optional[bool] = None):
         """
         Properties to configure capture description for eventhub
-        :param 'DestinationResponseArgs' destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+        :param 'DestinationResponse' destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
         :param bool enabled: A value that indicates whether capture description is enabled. 
         :param str encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
         :param int interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -259,7 +259,7 @@ class EncryptionResponse(dict):
         """
         Properties to configure Encryption
         :param str key_source: Enumerates the possible value of keySource for Encryption
-        :param Sequence['KeyVaultPropertiesResponseArgs'] key_vault_properties: Properties of KeyVault
+        :param Sequence['KeyVaultPropertiesResponse'] key_vault_properties: Properties of KeyVault
         """
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
@@ -439,7 +439,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
         """
         The response from the List namespace operation.
         :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
-        :param 'SubnetResponseArgs' subnet: Subnet properties
+        :param 'SubnetResponse' subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
             pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)

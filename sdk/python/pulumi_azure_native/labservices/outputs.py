@@ -11,26 +11,26 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'EnvironmentDetailsResponseResult',
+    'EnvironmentDetailsResponse',
     'EnvironmentSizeResponse',
     'GalleryImageReferenceResponse',
-    'LabDetailsResponseResult',
+    'LabDetailsResponse',
     'LatestOperationResultResponse',
     'NetworkInterfaceResponse',
-    'OperationBatchStatusResponseItemResponseResult',
+    'OperationBatchStatusResponseItemResponse',
     'ReferenceVmResponse',
-    'RegionalAvailabilityResponseResult',
+    'RegionalAvailabilityResponse',
     'ResourceSetResponse',
     'ResourceSettingsResponse',
-    'SizeAvailabilityResponseResult',
+    'SizeAvailabilityResponse',
     'SizeConfigurationPropertiesResponse',
     'SizeInfoResponse',
-    'VirtualMachineDetailsResponseResult',
+    'VirtualMachineDetailsResponse',
     'VmStateDetailsResponse',
 ]
 
 @pulumi.output_type
-class EnvironmentDetailsResponseResult(dict):
+class EnvironmentDetailsResponse(dict):
     """
     This represents the details about a User's environment and its state.
     """
@@ -43,18 +43,18 @@ class EnvironmentDetailsResponseResult(dict):
                  password_last_reset: str,
                  provisioning_state: str,
                  total_usage: str,
-                 virtual_machine_details: 'outputs.VirtualMachineDetailsResponseResult'):
+                 virtual_machine_details: 'outputs.VirtualMachineDetailsResponse'):
         """
         This represents the details about a User's environment and its state.
         :param str description: Description of the Environment
         :param str environment_state: Publishing state of the environment setting Possible values are Creating, Created, Failed
         :param str id: Resource Id of the environment
-        :param 'LatestOperationResultResponseArgs' latest_operation_result: The details of the latest operation. ex: status, error
+        :param 'LatestOperationResultResponse' latest_operation_result: The details of the latest operation. ex: status, error
         :param str name: Name of the Environment
         :param str password_last_reset: When the password was last reset on the environment.
         :param str provisioning_state: The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
         :param str total_usage: How long the environment has been used by a lab user
-        :param 'VirtualMachineDetailsResponseArgs' virtual_machine_details: Details of backing DTL virtual machine with compute and network details.
+        :param 'VirtualMachineDetailsResponse' virtual_machine_details: Details of backing DTL virtual machine with compute and network details.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "environment_state", environment_state)
@@ -132,7 +132,7 @@ class EnvironmentDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="virtualMachineDetails")
-    def virtual_machine_details(self) -> 'outputs.VirtualMachineDetailsResponseResult':
+    def virtual_machine_details(self) -> 'outputs.VirtualMachineDetailsResponse':
         """
         Details of backing DTL virtual machine with compute and network details.
         """
@@ -156,7 +156,7 @@ class EnvironmentSizeResponse(dict):
         :param float min_memory: The amount of memory available (in GB). This is the minimum amount of memory within this tier.
         :param int min_number_of_cores: The number of cores a VM of this size has. This is the minimum number of cores within this tier.
         :param str name: The size category
-        :param Sequence['SizeInfoResponseArgs'] vm_sizes: Represents a set of compute sizes that can serve this given size type
+        :param Sequence['SizeInfoResponse'] vm_sizes: Represents a set of compute sizes that can serve this given size type
         """
         pulumi.set(__self__, "max_price", max_price)
         pulumi.set(__self__, "min_memory", min_memory)
@@ -285,7 +285,7 @@ class GalleryImageReferenceResponse(dict):
 
 
 @pulumi.output_type
-class LabDetailsResponseResult(dict):
+class LabDetailsResponse(dict):
     """
     This represents the details about a lab that the User is in, and its state.
     """
@@ -481,7 +481,7 @@ class NetworkInterfaceResponse(dict):
 
 
 @pulumi.output_type
-class OperationBatchStatusResponseItemResponseResult(dict):
+class OperationBatchStatusResponseItemResponse(dict):
     """
     Represents the status of an operation that used the batch API.
     """
@@ -527,7 +527,7 @@ class ReferenceVmResponse(dict):
         Details of a Reference Vm
         :param str user_name: The username of the virtual machine
         :param str vm_resource_id: VM resource Id for the environment
-        :param 'VmStateDetailsResponseArgs' vm_state_details: The state details for the reference virtual machine.
+        :param 'VmStateDetailsResponse' vm_state_details: The state details for the reference virtual machine.
         :param str password: The password of the virtual machine. This will be set to null in GET resource API
         """
         pulumi.set(__self__, "user_name", user_name)
@@ -573,17 +573,17 @@ class ReferenceVmResponse(dict):
 
 
 @pulumi.output_type
-class RegionalAvailabilityResponseResult(dict):
+class RegionalAvailabilityResponse(dict):
     """
     The availability information of sizes across regions
     """
     def __init__(__self__, *,
                  region: Optional[str] = None,
-                 size_availabilities: Optional[Sequence['outputs.SizeAvailabilityResponseResult']] = None):
+                 size_availabilities: Optional[Sequence['outputs.SizeAvailabilityResponse']] = None):
         """
         The availability information of sizes across regions
         :param str region: Corresponding region
-        :param Sequence['SizeAvailabilityResponseArgs'] size_availabilities: List of all the size information for the region
+        :param Sequence['SizeAvailabilityResponse'] size_availabilities: List of all the size information for the region
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -600,7 +600,7 @@ class RegionalAvailabilityResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeAvailabilities")
-    def size_availabilities(self) -> Optional[Sequence['outputs.SizeAvailabilityResponseResult']]:
+    def size_availabilities(self) -> Optional[Sequence['outputs.SizeAvailabilityResponse']]:
         """
         List of all the size information for the region
         """
@@ -662,7 +662,7 @@ class ResourceSettingsResponse(dict):
         :param int cores: The translated compute cores of the virtual machine
         :param str id: The unique id of the resource setting
         :param str image_name: The name of the image used to created the environment setting
-        :param 'ReferenceVmResponseArgs' reference_vm: Details specific to Reference Vm
+        :param 'ReferenceVmResponse' reference_vm: Details specific to Reference Vm
         :param str gallery_image_resource_id: The resource id of the gallery image used for creating the virtual machine
         :param str size: The size of the virtual machine
         """
@@ -728,7 +728,7 @@ class ResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
-class SizeAvailabilityResponseResult(dict):
+class SizeAvailabilityResponse(dict):
     """
     Represents the size information
     """
@@ -771,7 +771,7 @@ class SizeConfigurationPropertiesResponse(dict):
                  environment_sizes: Optional[Sequence['outputs.EnvironmentSizeResponse']] = None):
         """
         Represents the size configuration under the lab account
-        :param Sequence['EnvironmentSizeResponseArgs'] environment_sizes: Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
+        :param Sequence['EnvironmentSizeResponse'] environment_sizes: Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
         """
         if environment_sizes is not None:
             pulumi.set(__self__, "environment_sizes", environment_sizes)
@@ -851,7 +851,7 @@ class SizeInfoResponse(dict):
 
 
 @pulumi.output_type
-class VirtualMachineDetailsResponseResult(dict):
+class VirtualMachineDetailsResponse(dict):
     """
     Details of the backing virtual machine.
     """

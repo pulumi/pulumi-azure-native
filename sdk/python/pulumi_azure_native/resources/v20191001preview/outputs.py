@@ -29,7 +29,7 @@ class ManagedServiceIdentityResponse(dict):
         Managed identity generic object.
         :param str tenant_id: ID of the Azure Active Directory.
         :param str type: Type of the managed identity.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:

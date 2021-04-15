@@ -85,7 +85,7 @@ class DataPoolLocationResponse(dict):
         """
         Location of a Data Pool
         :param str name: The location name
-        :param 'DataPoolEncryptionResponseArgs' encryption: Encryption properties of a Data Pool location
+        :param 'DataPoolEncryptionResponse' encryption: Encryption properties of a Data Pool location
         """
         pulumi.set(__self__, "name", name)
         if encryption is not None:

@@ -11,23 +11,23 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DatadogApiKeyResponseResult',
-    'DatadogHostMetadataResponseResult',
-    'DatadogHostResponseResult',
-    'DatadogInstallMethodResponseResult',
-    'DatadogLogsAgentResponseResult',
+    'DatadogApiKeyResponse',
+    'DatadogHostMetadataResponse',
+    'DatadogHostResponse',
+    'DatadogInstallMethodResponse',
+    'DatadogLogsAgentResponse',
     'DatadogOrganizationPropertiesResponse',
     'IdentityPropertiesResponse',
-    'LinkedResourceResponseResult',
+    'LinkedResourceResponse',
     'MonitorPropertiesResponse',
-    'MonitoredResourceResponseResult',
+    'MonitoredResourceResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
     'UserInfoResponse',
 ]
 
 @pulumi.output_type
-class DatadogApiKeyResponseResult(dict):
+class DatadogApiKeyResponse(dict):
     def __init__(__self__, *,
                  key: str,
                  created: Optional[str] = None,
@@ -81,11 +81,11 @@ class DatadogApiKeyResponseResult(dict):
 
 
 @pulumi.output_type
-class DatadogHostMetadataResponseResult(dict):
+class DatadogHostMetadataResponse(dict):
     def __init__(__self__, *,
                  agent_version: Optional[str] = None,
-                 install_method: Optional['outputs.DatadogInstallMethodResponseResult'] = None,
-                 logs_agent: Optional['outputs.DatadogLogsAgentResponseResult'] = None):
+                 install_method: Optional['outputs.DatadogInstallMethodResponse'] = None,
+                 logs_agent: Optional['outputs.DatadogLogsAgentResponse'] = None):
         """
         :param str agent_version: The agent version.
         """
@@ -106,21 +106,21 @@ class DatadogHostMetadataResponseResult(dict):
 
     @property
     @pulumi.getter(name="installMethod")
-    def install_method(self) -> Optional['outputs.DatadogInstallMethodResponseResult']:
+    def install_method(self) -> Optional['outputs.DatadogInstallMethodResponse']:
         return pulumi.get(self, "install_method")
 
     @property
     @pulumi.getter(name="logsAgent")
-    def logs_agent(self) -> Optional['outputs.DatadogLogsAgentResponseResult']:
+    def logs_agent(self) -> Optional['outputs.DatadogLogsAgentResponse']:
         return pulumi.get(self, "logs_agent")
 
 
 @pulumi.output_type
-class DatadogHostResponseResult(dict):
+class DatadogHostResponse(dict):
     def __init__(__self__, *,
                  aliases: Optional[Sequence[str]] = None,
                  apps: Optional[Sequence[str]] = None,
-                 meta: Optional['outputs.DatadogHostMetadataResponseResult'] = None,
+                 meta: Optional['outputs.DatadogHostMetadataResponse'] = None,
                  name: Optional[str] = None):
         """
         :param Sequence[str] aliases: The aliases for the host.
@@ -154,7 +154,7 @@ class DatadogHostResponseResult(dict):
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional['outputs.DatadogHostMetadataResponseResult']:
+    def meta(self) -> Optional['outputs.DatadogHostMetadataResponse']:
         return pulumi.get(self, "meta")
 
     @property
@@ -167,7 +167,7 @@ class DatadogHostResponseResult(dict):
 
 
 @pulumi.output_type
-class DatadogInstallMethodResponseResult(dict):
+class DatadogInstallMethodResponse(dict):
     def __init__(__self__, *,
                  installer_version: Optional[str] = None,
                  tool: Optional[str] = None,
@@ -210,7 +210,7 @@ class DatadogInstallMethodResponseResult(dict):
 
 
 @pulumi.output_type
-class DatadogLogsAgentResponseResult(dict):
+class DatadogLogsAgentResponse(dict):
     def __init__(__self__, *,
                  transport: Optional[str] = None):
         """
@@ -309,7 +309,7 @@ class IdentityPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class LinkedResourceResponseResult(dict):
+class LinkedResourceResponse(dict):
     """
     The definition of a linked resource.
     """
@@ -348,9 +348,9 @@ class MonitorPropertiesResponse(dict):
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param 'DatadogOrganizationPropertiesResponseArgs' datadog_organization_properties: Datadog organization properties
+        :param 'DatadogOrganizationPropertiesResponse' datadog_organization_properties: Datadog organization properties
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
-        :param 'UserInfoResponseArgs' user_info: User info
+        :param 'UserInfoResponse' user_info: User info
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
@@ -418,7 +418,7 @@ class MonitorPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class MonitoredResourceResponseResult(dict):
+class MonitoredResourceResponse(dict):
     """
     The properties of a resource currently being monitored by the Datadog monitor resource.
     """

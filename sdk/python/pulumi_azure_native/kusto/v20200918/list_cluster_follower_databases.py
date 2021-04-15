@@ -27,7 +27,7 @@ class ListClusterFollowerDatabasesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.FollowerDatabaseDefinitionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.FollowerDatabaseDefinitionResponse']]:
         """
         The list of follower database result.
         """

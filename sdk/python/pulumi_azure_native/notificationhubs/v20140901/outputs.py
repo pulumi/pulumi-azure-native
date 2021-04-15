@@ -87,7 +87,7 @@ class AdmCredentialResponse(dict):
                  properties: Optional['outputs.AdmCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub AdmCredential.
-        :param 'AdmCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub AdmCredential.
+        :param 'AdmCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub AdmCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -175,7 +175,7 @@ class ApnsCredentialResponse(dict):
                  properties: Optional['outputs.ApnsCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub ApnsCredential.
-        :param 'ApnsCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub ApnsCredential.
+        :param 'ApnsCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub ApnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -251,7 +251,7 @@ class BaiduCredentialResponse(dict):
                  properties: Optional['outputs.BaiduCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub BaiduCredential.
-        :param 'BaiduCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub BaiduCredential.
+        :param 'BaiduCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub BaiduCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -315,7 +315,7 @@ class GcmCredentialResponse(dict):
                  properties: Optional['outputs.GcmCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub GcmCredential.
-        :param 'GcmCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub GcmCredential.
+        :param 'GcmCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub GcmCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -391,7 +391,7 @@ class MpnsCredentialResponse(dict):
                  properties: Optional['outputs.MpnsCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub MpnsCredential.
-        :param 'MpnsCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub MpnsCredential.
+        :param 'MpnsCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub MpnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -571,15 +571,15 @@ class NotificationHubPropertiesResponse(dict):
                  wns_credential: Optional['outputs.WnsCredentialResponse'] = None):
         """
         NotificationHub properties.
-        :param 'AdmCredentialResponseArgs' adm_credential: The AdmCredential of the created NotificationHub
-        :param 'ApnsCredentialResponseArgs' apns_credential: The ApnsCredential of the created NotificationHub
-        :param Sequence['SharedAccessAuthorizationRulePropertiesResponseArgs'] authorization_rules: The AuthorizationRules of the created NotificationHub
-        :param 'BaiduCredentialResponseArgs' baidu_credential: The BaiduCredential of the created NotificationHub
-        :param 'GcmCredentialResponseArgs' gcm_credential: The GcmCredential of the created NotificationHub
-        :param 'MpnsCredentialResponseArgs' mpns_credential: The MpnsCredential of the created NotificationHub
+        :param 'AdmCredentialResponse' adm_credential: The AdmCredential of the created NotificationHub
+        :param 'ApnsCredentialResponse' apns_credential: The ApnsCredential of the created NotificationHub
+        :param Sequence['SharedAccessAuthorizationRulePropertiesResponse'] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param 'BaiduCredentialResponse' baidu_credential: The BaiduCredential of the created NotificationHub
+        :param 'GcmCredentialResponse' gcm_credential: The GcmCredential of the created NotificationHub
+        :param 'MpnsCredentialResponse' mpns_credential: The MpnsCredential of the created NotificationHub
         :param str name: The NotificationHub name.
         :param str registration_ttl: The RegistrationTtl of the created NotificationHub
-        :param 'WnsCredentialResponseArgs' wns_credential: The WnsCredential of the created NotificationHub
+        :param 'WnsCredentialResponse' wns_credential: The WnsCredential of the created NotificationHub
         """
         if adm_credential is not None:
             pulumi.set(__self__, "adm_credential", adm_credential)
@@ -857,7 +857,7 @@ class WnsCredentialResponse(dict):
                  properties: Optional['outputs.WnsCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub WnsCredential.
-        :param 'WnsCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub WnsCredential.
+        :param 'WnsCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub WnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)

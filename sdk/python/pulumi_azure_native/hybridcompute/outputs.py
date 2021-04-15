@@ -35,7 +35,7 @@ class ErrorDetailResponse(dict):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponse'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)
@@ -205,7 +205,7 @@ class MachineExtensionInstanceViewResponse(dict):
         :param str name: The machine extension name.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -333,7 +333,7 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
         :param str name: The machine extension name.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -458,8 +458,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         """
         Properties of a private endpoint connection.
         :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:

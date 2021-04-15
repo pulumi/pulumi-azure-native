@@ -87,9 +87,9 @@ class ApplicationLogsConfigResponse(dict):
                  file_system: Optional['outputs.FileSystemApplicationLogsConfigResponse'] = None):
         """
         Application logs configuration.
-        :param 'AzureBlobStorageApplicationLogsConfigResponseArgs' azure_blob_storage: Application logs to blob storage configuration.
-        :param 'AzureTableStorageApplicationLogsConfigResponseArgs' azure_table_storage: Application logs to azure table storage configuration.
-        :param 'FileSystemApplicationLogsConfigResponseArgs' file_system: Application logs to file system configuration.
+        :param 'AzureBlobStorageApplicationLogsConfigResponse' azure_blob_storage: Application logs to blob storage configuration.
+        :param 'AzureTableStorageApplicationLogsConfigResponse' azure_table_storage: Application logs to azure table storage configuration.
+        :param 'FileSystemApplicationLogsConfigResponse' file_system: Application logs to file system configuration.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -138,7 +138,7 @@ class AutoHealActionsResponse(dict):
         """
         Actions which to take by the auto-heal module when a rule is triggered.
         :param str action_type: Predefined action to be taken.
-        :param 'AutoHealCustomActionResponseArgs' custom_action: Custom action to be taken.
+        :param 'AutoHealCustomActionResponse' custom_action: Custom action to be taken.
         :param str min_process_execution_time: Minimum time the process must execute
                before taking the action
         """
@@ -228,8 +228,8 @@ class AutoHealRulesResponse(dict):
                  triggers: Optional['outputs.AutoHealTriggersResponse'] = None):
         """
         Rules that can be defined for auto-heal.
-        :param 'AutoHealActionsResponseArgs' actions: Actions to be executed when a rule is triggered.
-        :param 'AutoHealTriggersResponseArgs' triggers: Conditions that describe when to execute the auto-heal actions.
+        :param 'AutoHealActionsResponse' actions: Actions to be executed when a rule is triggered.
+        :param 'AutoHealTriggersResponse' triggers: Conditions that describe when to execute the auto-heal actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -269,9 +269,9 @@ class AutoHealTriggersResponse(dict):
         """
         Triggers for auto-heal.
         :param int private_bytes_in_kb: A rule based on private bytes.
-        :param 'RequestsBasedTriggerResponseArgs' requests: A rule based on total requests.
-        :param 'SlowRequestsBasedTriggerResponseArgs' slow_requests: A rule based on request execution time.
-        :param Sequence['StatusCodesBasedTriggerResponseArgs'] status_codes: A rule based on status codes.
+        :param 'RequestsBasedTriggerResponse' requests: A rule based on total requests.
+        :param 'SlowRequestsBasedTriggerResponse' slow_requests: A rule based on request execution time.
+        :param Sequence['StatusCodesBasedTriggerResponse'] status_codes: A rule based on status codes.
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -760,7 +760,7 @@ class ExperimentsResponse(dict):
                  ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
         """
         Routing rules in production experiments.
-        :param Sequence['RampUpRuleResponseArgs'] ramp_up_rules: List of ramp-up rules.
+        :param Sequence['RampUpRuleResponse'] ramp_up_rules: List of ramp-up rules.
         """
         if ramp_up_rules is not None:
             pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
@@ -1059,8 +1059,8 @@ class HttpLogsConfigResponse(dict):
                  file_system: Optional['outputs.FileSystemHttpLogsConfigResponse'] = None):
         """
         Http logs configuration.
-        :param 'AzureBlobStorageHttpLogsConfigResponseArgs' azure_blob_storage: Http logs to azure blob storage configuration.
-        :param 'FileSystemHttpLogsConfigResponseArgs' file_system: Http logs to file system configuration.
+        :param 'AzureBlobStorageHttpLogsConfigResponse' azure_blob_storage: Http logs to azure blob storage configuration.
+        :param 'FileSystemHttpLogsConfigResponse' file_system: Http logs to file system configuration.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -1529,28 +1529,28 @@ class SiteConfigResponse(dict):
                  web_sockets_enabled: Optional[bool] = None):
         """
         Configuration of an App Service app.
-        :param 'SiteMachineKeyResponseArgs' machine_key: Site MachineKey.
+        :param 'SiteMachineKeyResponse' machine_key: Site MachineKey.
         :param bool always_on: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-        :param 'ApiDefinitionInfoResponseArgs' api_definition: Information about the formal API definition for the app.
+        :param 'ApiDefinitionInfoResponse' api_definition: Information about the formal API definition for the app.
         :param str app_command_line: App command line to launch.
-        :param Sequence['NameValuePairResponseArgs'] app_settings: Application settings.
+        :param Sequence['NameValuePairResponse'] app_settings: Application settings.
         :param bool auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-        :param 'AutoHealRulesResponseArgs' auto_heal_rules: Auto Heal rules.
+        :param 'AutoHealRulesResponse' auto_heal_rules: Auto Heal rules.
         :param str auto_swap_slot_name: Auto-swap slot name.
-        :param Sequence['ConnStringInfoResponseArgs'] connection_strings: Connection strings.
-        :param 'CorsSettingsResponseArgs' cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param Sequence['ConnStringInfoResponse'] connection_strings: Connection strings.
+        :param 'CorsSettingsResponse' cors: Cross-Origin Resource Sharing (CORS) settings.
         :param Sequence[str] default_documents: Default documents.
         :param bool detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
         :param str document_root: Document root.
-        :param 'ExperimentsResponseArgs' experiments: This is work around for polymorphic types.
-        :param Sequence['HandlerMappingResponseArgs'] handler_mappings: Handler mappings.
+        :param 'ExperimentsResponse' experiments: This is work around for polymorphic types.
+        :param Sequence['HandlerMappingResponse'] handler_mappings: Handler mappings.
         :param bool http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
         :param bool http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-        :param Sequence['IpSecurityRestrictionResponseArgs'] ip_security_restrictions: IP security restrictions.
+        :param Sequence['IpSecurityRestrictionResponse'] ip_security_restrictions: IP security restrictions.
         :param str java_container: Java container.
         :param str java_container_version: Java container version.
         :param str java_version: Java version.
-        :param 'SiteLimitsResponseArgs' limits: Site limits.
+        :param 'SiteLimitsResponse' limits: Site limits.
         :param str linux_fx_version: Linux App Framework and version
         :param str load_balancing: Site load balancing.
         :param bool local_my_sql_enabled: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -1562,7 +1562,7 @@ class SiteConfigResponse(dict):
         :param int number_of_workers: Number of workers.
         :param str php_version: Version of PHP.
         :param str publishing_username: Publishing user name.
-        :param 'PushSettingsResponseArgs' push: Push endpoint settings.
+        :param 'PushSettingsResponse' push: Push endpoint settings.
         :param str python_version: Version of Python.
         :param bool remote_debugging_enabled: <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
         :param str remote_debugging_version: Remote debugging version.
@@ -1571,7 +1571,7 @@ class SiteConfigResponse(dict):
         :param str scm_type: SCM type.
         :param str tracing_options: Tracing options.
         :param bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-        :param Sequence['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications.
+        :param Sequence['VirtualApplicationResponse'] virtual_applications: Virtual applications.
         :param str vnet_name: Virtual Network name.
         :param bool web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
         """
@@ -2332,7 +2332,7 @@ class VirtualApplicationResponse(dict):
         Virtual application in an app.
         :param str physical_path: Physical path.
         :param bool preload_enabled: <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-        :param Sequence['VirtualDirectoryResponseArgs'] virtual_directories: Virtual directories for virtual application.
+        :param Sequence['VirtualDirectoryResponse'] virtual_directories: Virtual directories for virtual application.
         :param str virtual_path: Virtual path.
         """
         if physical_path is not None:

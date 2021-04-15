@@ -190,7 +190,7 @@ class JitNetworkAccessPolicyVirtualMachineResponse(dict):
                  public_ip_address: Optional[str] = None):
         """
         :param str id: Resource ID of the virtual machine that is linked to this policy
-        :param Sequence['JitNetworkAccessPortRuleResponseArgs'] ports: Port configurations for the virtual machine
+        :param Sequence['JitNetworkAccessPortRuleResponse'] ports: Port configurations for the virtual machine
         :param str public_ip_address: Public IP address of the Azure Firewall that is linked to this policy, if applicable
         """
         pulumi.set(__self__, "id", id)
@@ -429,7 +429,7 @@ class JitNetworkAccessRequestVirtualMachineResponse(dict):
                  ports: Sequence['outputs.JitNetworkAccessRequestPortResponse']):
         """
         :param str id: Resource ID of the virtual machine that is linked to this policy
-        :param Sequence['JitNetworkAccessRequestPortResponseArgs'] ports: The ports that were opened for the virtual machine
+        :param Sequence['JitNetworkAccessRequestPortResponse'] ports: The ports that were opened for the virtual machine
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ports", ports)
@@ -640,7 +640,7 @@ class PathRecommendationResponse(dict):
         :param str configuration_status: The configuration status of the machines group or machine or rule
         :param str file_type: The type of the file (for Linux files - Executable is used)
         :param str path: The full path of the file, or an identifier of the application
-        :param 'PublisherInfoResponseArgs' publisher_info: Represents the publisher information of a process/rule
+        :param 'PublisherInfoResponse' publisher_info: Represents the publisher information of a process/rule
         :param str type: The type of the rule to be allowed
         """
         if action is not None:
@@ -930,7 +930,7 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
         :param str severity: The severity level of the assessment
         :param str description: Human readable description of the assessment
         :param str implementation_effort: The implementation effort required to remediate this assessment
-        :param 'SecurityAssessmentMetadataPartnerDataResponseArgs' partner_data: Describes the partner that created the assessment
+        :param 'SecurityAssessmentMetadataPartnerDataResponse' partner_data: Describes the partner that created the assessment
         :param bool preview: True if this assessment is in preview release status
         :param str remediation_description: Human readable description of what you should do to mitigate this security issue
         :param str user_impact: The user impact of the assessment

@@ -48,7 +48,7 @@ class AccessPolicyEntryResponse(dict):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        :param 'PermissionsResponseArgs' permissions: Permissions the identity has for keys, secrets and certificates.
+        :param 'PermissionsResponse' permissions: Permissions the identity has for keys, secrets and certificates.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param str application_id:  Application ID of the client making request on behalf of a principal
         """
@@ -241,8 +241,8 @@ class MHSMNetworkRuleSetResponse(dict):
         A set of rules governing the network accessibility of a managed hsm pool.
         :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param Sequence['MHSMIPRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param Sequence['MHSMVirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['MHSMIPRuleResponse'] ip_rules: The list of IP address rules.
+        :param Sequence['MHSMVirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
@@ -301,8 +301,8 @@ class MHSMPrivateEndpointConnectionItemResponse(dict):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param 'MHSMPrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
-        :param 'MHSMPrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
+        :param 'MHSMPrivateEndpointResponse' private_endpoint: Properties of the private endpoint object.
+        :param 'MHSMPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -460,7 +460,7 @@ class ManagedHsmPropertiesResponse(dict):
         """
         Properties of the managed HSM Pool
         :param str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
-        :param Sequence['MHSMPrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
+        :param Sequence['MHSMPrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
         :param str provisioning_state: Provisioning state.
         :param str scheduled_purge_date: The scheduled purge date in UTC.
         :param str status_message: Resource Status Message.
@@ -468,7 +468,7 @@ class ManagedHsmPropertiesResponse(dict):
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
-        :param 'MHSMNetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param 'MHSMNetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
@@ -659,8 +659,8 @@ class NetworkRuleSetResponse(dict):
         A set of rules governing the network accessibility of a vault.
         :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['IPRuleResponse'] ip_rules: The list of IP address rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
@@ -785,8 +785,8 @@ class PrivateEndpointConnectionItemResponse(dict):
         :param str provisioning_state: Provisioning state of the private endpoint connection.
         :param str etag: Modified whenever there is a change in the state of private endpoint connection.
         :param str id: Id of private endpoint connection.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
+        :param 'PrivateEndpointResponse' private_endpoint: Properties of the private endpoint object.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
@@ -1004,7 +1004,7 @@ class SecretPropertiesResponse(dict):
         Properties of the secret
         :param str secret_uri: The URI to retrieve the current version of the secret.
         :param str secret_uri_with_version: The URI to retrieve the specific version of the secret.
-        :param 'SecretAttributesResponseArgs' attributes: The attributes of the secret.
+        :param 'SecretAttributesResponse' attributes: The attributes of the secret.
         :param str content_type: The content type of the secret.
         :param str value: The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
         """
@@ -1207,17 +1207,17 @@ class VaultPropertiesResponse(dict):
         """
         Properties of the vault
         :param str hsm_pool_resource_id: The resource id of HSM Pool.
-        :param Sequence['PrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
-        :param 'SkuResponseArgs' sku: SKU details
+        :param Sequence['PrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
+        :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param bool enabled_for_deployment: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param bool enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-        :param 'NetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param 'NetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param str provisioning_state: Provisioning state of the vault.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly

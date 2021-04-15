@@ -11,7 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActivityTimelineItemResponseResult',
+    'ActivityTimelineItemResponse',
     'AutomationRuleModifyPropertiesActionResponse',
     'AutomationRuleModifyPropertiesActionResponseActionConfiguration',
     'AutomationRulePropertyValuesConditionResponse',
@@ -19,28 +19,28 @@ __all__ = [
     'AutomationRuleRunPlaybookActionResponse',
     'AutomationRuleRunPlaybookActionResponseActionConfiguration',
     'AutomationRuleTriggeringLogicResponse',
-    'BookmarkTimelineItemResponseResult',
+    'BookmarkTimelineItemResponse',
     'ClientInfoResponse',
-    'EntityInsightItemResponseResult',
-    'EntityInsightItemResponseQueryTimeIntervalResult',
-    'GetInsightsErrorResponseResult',
-    'GetInsightsResultsMetadataResponseResult',
+    'EntityInsightItemResponse',
+    'EntityInsightItemResponseQueryTimeInterval',
+    'GetInsightsErrorResponse',
+    'GetInsightsResultsMetadataResponse',
     'IncidentAdditionalDataResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
-    'InsightsTableResultResponseResult',
-    'InsightsTableResultResponseColumnsResult',
-    'SecurityAlertTimelineItemResponseResult',
-    'TimelineAggregationResponseResult',
-    'TimelineErrorResponseResult',
-    'TimelineResultsMetadataResponseResult',
+    'InsightsTableResultResponse',
+    'InsightsTableResultResponseColumns',
+    'SecurityAlertTimelineItemResponse',
+    'TimelineAggregationResponse',
+    'TimelineErrorResponse',
+    'TimelineResultsMetadataResponse',
     'UserInfoResponse',
     'WatchlistUserInfoResponse',
 ]
 
 @pulumi.output_type
-class ActivityTimelineItemResponseResult(dict):
+class ActivityTimelineItemResponse(dict):
     """
     Represents Activity timeline item.
     """
@@ -151,7 +151,7 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
                  order: int):
         """
         Describes an automation rule action to modify an object's properties
-        :param 'AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs' action_configuration: The configuration of the modify properties automation rule action
+        :param 'AutomationRuleModifyPropertiesActionResponseActionConfiguration' action_configuration: The configuration of the modify properties automation rule action
         :param str action_type: The type of the automation rule action
                Expected value is 'ModifyProperties'.
         :param int order: The order of execution of the automation rule action
@@ -207,8 +207,8 @@ class AutomationRuleModifyPropertiesActionResponseActionConfiguration(dict):
         :param str classification: The reason the incident was closed
         :param str classification_comment: Describes the reason the incident was closed
         :param str classification_reason: The classification reason to close the incident with
-        :param Sequence['IncidentLabelResponseArgs'] labels: List of labels to add to the incident
-        :param 'IncidentOwnerInfoResponseArgs' owner: Describes a user that the incident is assigned to
+        :param Sequence['IncidentLabelResponse'] labels: List of labels to add to the incident
+        :param 'IncidentOwnerInfoResponse' owner: Describes a user that the incident is assigned to
         :param str severity: The severity of the incident
         :param str status: The status of the incident
         """
@@ -297,7 +297,7 @@ class AutomationRulePropertyValuesConditionResponse(dict):
                  condition_type: str):
         """
         Describes an automation rule condition that evaluates a property's value
-        :param 'AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs' condition_properties: The configuration of the automation rule condition
+        :param 'AutomationRulePropertyValuesConditionResponseConditionProperties' condition_properties: The configuration of the automation rule condition
         :param str condition_type: The type of the automation rule condition
                Expected value is 'Property'.
         """
@@ -386,7 +386,7 @@ class AutomationRuleRunPlaybookActionResponse(dict):
                  order: int):
         """
         Describes an automation rule action to run a playbook
-        :param 'AutomationRuleRunPlaybookActionResponseActionConfigurationArgs' action_configuration: The configuration of the run playbook automation rule action
+        :param 'AutomationRuleRunPlaybookActionResponseActionConfiguration' action_configuration: The configuration of the run playbook automation rule action
         :param str action_type: The type of the automation rule action
                Expected value is 'RunPlaybook'.
         :param int order: The order of execution of the automation rule action
@@ -478,7 +478,7 @@ class AutomationRuleTriggeringLogicResponse(dict):
         :param bool is_enabled: Determines whether the automation rule is enabled or disabled.
         :param str triggers_on: The type of object the automation rule triggers on
         :param str triggers_when: The type of event the automation rule triggers on
-        :param Sequence['AutomationRulePropertyValuesConditionResponseArgs'] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        :param Sequence['AutomationRulePropertyValuesConditionResponse'] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
         :param str expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -534,7 +534,7 @@ class AutomationRuleTriggeringLogicResponse(dict):
 
 
 @pulumi.output_type
-class BookmarkTimelineItemResponseResult(dict):
+class BookmarkTimelineItemResponse(dict):
     """
     Represents bookmark timeline item.
     """
@@ -553,7 +553,7 @@ class BookmarkTimelineItemResponseResult(dict):
         :param str azure_resource_id: The bookmark azure resource id.
         :param str kind: The entity query kind type.
                Expected value is 'Bookmark'.
-        :param 'UserInfoResponseArgs' created_by: Describes a user that created the bookmark
+        :param 'UserInfoResponse' created_by: Describes a user that created the bookmark
         :param str display_name: The bookmark display name.
         :param str end_time_utc: The bookmark end time.
         :param str event_time: The bookmark event time.
@@ -715,21 +715,21 @@ class ClientInfoResponse(dict):
 
 
 @pulumi.output_type
-class EntityInsightItemResponseResult(dict):
+class EntityInsightItemResponse(dict):
     """
     Entity insight Item.
     """
     def __init__(__self__, *,
-                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponseResult']] = None,
+                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponse']] = None,
                  query_id: Optional[str] = None,
-                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult'] = None,
-                 table_query_results: Optional['outputs.InsightsTableResultResponseResult'] = None):
+                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeInterval'] = None,
+                 table_query_results: Optional['outputs.InsightsTableResultResponse'] = None):
         """
         Entity insight Item.
-        :param Sequence['InsightsTableResultResponseArgs'] chart_query_results: Query results for table insights query.
+        :param Sequence['InsightsTableResultResponse'] chart_query_results: Query results for table insights query.
         :param str query_id: The query id of the insight
-        :param 'EntityInsightItemResponseQueryTimeIntervalArgs' query_time_interval: The Time interval that the query actually executed on.
-        :param 'InsightsTableResultResponseArgs' table_query_results: Query results for table insights query.
+        :param 'EntityInsightItemResponseQueryTimeInterval' query_time_interval: The Time interval that the query actually executed on.
+        :param 'InsightsTableResultResponse' table_query_results: Query results for table insights query.
         """
         if chart_query_results is not None:
             pulumi.set(__self__, "chart_query_results", chart_query_results)
@@ -742,7 +742,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="chartQueryResults")
-    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponseResult']]:
+    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponse']]:
         """
         Query results for table insights query.
         """
@@ -758,7 +758,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="queryTimeInterval")
-    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult']:
+    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeInterval']:
         """
         The Time interval that the query actually executed on.
         """
@@ -766,7 +766,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="tableQueryResults")
-    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponseResult']:
+    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponse']:
         """
         Query results for table insights query.
         """
@@ -774,7 +774,7 @@ class EntityInsightItemResponseResult(dict):
 
 
 @pulumi.output_type
-class EntityInsightItemResponseQueryTimeIntervalResult(dict):
+class EntityInsightItemResponseQueryTimeInterval(dict):
     """
     The Time interval that the query actually executed on.
     """
@@ -809,7 +809,7 @@ class EntityInsightItemResponseQueryTimeIntervalResult(dict):
 
 
 @pulumi.output_type
-class GetInsightsErrorResponseResult(dict):
+class GetInsightsErrorResponse(dict):
     """
     GetInsights Query Errors.
     """
@@ -854,17 +854,17 @@ class GetInsightsErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class GetInsightsResultsMetadataResponseResult(dict):
+class GetInsightsResultsMetadataResponse(dict):
     """
     Get Insights result metadata.
     """
     def __init__(__self__, *,
                  total_count: int,
-                 errors: Optional[Sequence['outputs.GetInsightsErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.GetInsightsErrorResponse']] = None):
         """
         Get Insights result metadata.
         :param int total_count: the total items found for the insights request
-        :param Sequence['GetInsightsErrorResponseArgs'] errors: information about the failed queries
+        :param Sequence['GetInsightsErrorResponse'] errors: information about the failed queries
         """
         pulumi.set(__self__, "total_count", total_count)
         if errors is not None:
@@ -880,7 +880,7 @@ class GetInsightsResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorResponse']]:
         """
         information about the failed queries
         """
@@ -1117,16 +1117,16 @@ class IncidentOwnerInfoResponse(dict):
 
 
 @pulumi.output_type
-class InsightsTableResultResponseResult(dict):
+class InsightsTableResultResponse(dict):
     """
     Query results for table insights query.
     """
     def __init__(__self__, *,
-                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']] = None,
+                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumns']] = None,
                  rows: Optional[Sequence[Sequence[str]]] = None):
         """
         Query results for table insights query.
-        :param Sequence['InsightsTableResultResponseColumnsArgs'] columns: Columns Metadata of the table
+        :param Sequence['InsightsTableResultResponseColumns'] columns: Columns Metadata of the table
         :param Sequence[Sequence[str]] rows: Rows data of the table
         """
         if columns is not None:
@@ -1136,7 +1136,7 @@ class InsightsTableResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']]:
+    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumns']]:
         """
         Columns Metadata of the table
         """
@@ -1152,7 +1152,7 @@ class InsightsTableResultResponseResult(dict):
 
 
 @pulumi.output_type
-class InsightsTableResultResponseColumnsResult(dict):
+class InsightsTableResultResponseColumns(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -1183,7 +1183,7 @@ class InsightsTableResultResponseColumnsResult(dict):
 
 
 @pulumi.output_type
-class SecurityAlertTimelineItemResponseResult(dict):
+class SecurityAlertTimelineItemResponse(dict):
     """
     Represents security alert timeline item.
     """
@@ -1308,7 +1308,7 @@ class SecurityAlertTimelineItemResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineAggregationResponseResult(dict):
+class TimelineAggregationResponse(dict):
     """
     timeline aggregation information per kind
     """
@@ -1341,7 +1341,7 @@ class TimelineAggregationResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineErrorResponseResult(dict):
+class TimelineErrorResponse(dict):
     """
     Timeline Query Errors.
     """
@@ -1386,19 +1386,19 @@ class TimelineErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineResultsMetadataResponseResult(dict):
+class TimelineResultsMetadataResponse(dict):
     """
     Expansion result metadata.
     """
     def __init__(__self__, *,
-                 aggregations: Sequence['outputs.TimelineAggregationResponseResult'],
+                 aggregations: Sequence['outputs.TimelineAggregationResponse'],
                  total_count: int,
-                 errors: Optional[Sequence['outputs.TimelineErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.TimelineErrorResponse']] = None):
         """
         Expansion result metadata.
-        :param Sequence['TimelineAggregationResponseArgs'] aggregations: timeline aggregation per kind
+        :param Sequence['TimelineAggregationResponse'] aggregations: timeline aggregation per kind
         :param int total_count: the total items found for the timeline request
-        :param Sequence['TimelineErrorResponseArgs'] errors: information about the failure queries
+        :param Sequence['TimelineErrorResponse'] errors: information about the failure queries
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "total_count", total_count)
@@ -1407,7 +1407,7 @@ class TimelineResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def aggregations(self) -> Sequence['outputs.TimelineAggregationResponseResult']:
+    def aggregations(self) -> Sequence['outputs.TimelineAggregationResponse']:
         """
         timeline aggregation per kind
         """
@@ -1423,7 +1423,7 @@ class TimelineResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.TimelineErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.TimelineErrorResponse']]:
         """
         information about the failure queries
         """

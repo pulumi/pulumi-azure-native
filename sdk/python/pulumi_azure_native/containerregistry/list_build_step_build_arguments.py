@@ -38,7 +38,7 @@ class ListBuildStepBuildArgumentsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.BuildArgumentResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.BuildArgumentResponse']]:
         """
         The collection value.
         """

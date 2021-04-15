@@ -15,7 +15,7 @@ __all__ = [
     'AaaaRecordResponse',
     'CaaRecordResponse',
     'CnameRecordResponse',
-    'DnsResourceReferenceResponseResult',
+    'DnsResourceReferenceResponse',
     'MxRecordResponse',
     'NsRecordResponse',
     'PtrRecordResponse',
@@ -154,7 +154,7 @@ class CnameRecordResponse(dict):
 
 
 @pulumi.output_type
-class DnsResourceReferenceResponseResult(dict):
+class DnsResourceReferenceResponse(dict):
     """
     Represents a single Azure resource and its referencing DNS records.
     """
@@ -163,8 +163,8 @@ class DnsResourceReferenceResponseResult(dict):
                  target_resource: Optional['outputs.SubResourceResponse'] = None):
         """
         Represents a single Azure resource and its referencing DNS records.
-        :param Sequence['SubResourceResponseArgs'] dns_resources: A list of dns Records 
-        :param 'SubResourceResponseArgs' target_resource: A reference to an azure resource from where the dns resource value is taken.
+        :param Sequence['SubResourceResponse'] dns_resources: A list of dns Records 
+        :param 'SubResourceResponse' target_resource: A reference to an azure resource from where the dns resource value is taken.
         """
         if dns_resources is not None:
             pulumi.set(__self__, "dns_resources", dns_resources)

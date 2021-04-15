@@ -27,7 +27,7 @@ class GetGlobalUserEnvironmentResult:
 
     @property
     @pulumi.getter
-    def environment(self) -> 'outputs.EnvironmentDetailsResponseResult':
+    def environment(self) -> 'outputs.EnvironmentDetailsResponse':
         """
         Details of the environment
         """

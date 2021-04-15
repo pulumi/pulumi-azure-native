@@ -172,7 +172,7 @@ class ApplicationScopedVolumeResponse(dict):
                  read_only: Optional[bool] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
-        :param 'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs' creation_parameters: Describes parameters for creating application-scoped volumes.
+        :param 'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse' creation_parameters: Describes parameters for creating application-scoped volumes.
         :param str destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param str name: Name of the volume being referenced.
         :param bool read_only: The flag indicating whether the volume is read only. Default is 'false'.
@@ -230,9 +230,9 @@ class AutoScalingPolicyResponse(dict):
                  trigger: 'outputs.AverageLoadScalingTriggerResponse'):
         """
         Describes the auto scaling policy
-        :param 'AddRemoveReplicaScalingMechanismResponseArgs' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
+        :param 'AddRemoveReplicaScalingMechanismResponse' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
         :param str name: The name of the auto scaling policy.
-        :param 'AverageLoadScalingTriggerResponseArgs' trigger: Determines when auto scaling operation will be invoked.
+        :param 'AverageLoadScalingTriggerResponse' trigger: Determines when auto scaling operation will be invoked.
         """
         pulumi.set(__self__, "mechanism", mechanism)
         pulumi.set(__self__, "name", name)
@@ -320,7 +320,7 @@ class AverageLoadScalingTriggerResponse(dict):
         :param str kind: The type of auto scaling trigger
                Expected value is 'AverageLoad'.
         :param float lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
-        :param 'AutoScalingResourceMetricResponseArgs' metric: Description of the metric that is used for scaling.
+        :param 'AutoScalingResourceMetricResponse' metric: Description of the metric that is used for scaling.
         :param int scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
         :param float upper_load_threshold: Upper load threshold (if average load is above this threshold, service will scale up).
         """
@@ -510,20 +510,20 @@ class ContainerCodePackagePropertiesResponse(dict):
         """
         Describes a container and its runtime properties.
         :param str image: The Container image to use.
-        :param 'ContainerInstanceViewResponseArgs' instance_view: Runtime information of a container instance.
+        :param 'ContainerInstanceViewResponse' instance_view: Runtime information of a container instance.
         :param str name: The name of the code package.
-        :param 'ResourceRequirementsResponseArgs' resources: The resources required by this container.
+        :param 'ResourceRequirementsResponse' resources: The resources required by this container.
         :param Sequence[str] commands: Command array to execute within the container in exec form.
-        :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param Sequence['EndpointPropertiesResponseArgs'] endpoints: The endpoints exposed by this container.
+        :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
+        :param Sequence['EndpointPropertiesResponse'] endpoints: The endpoints exposed by this container.
         :param str entrypoint: Override for the default entry point in the container.
-        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in this container
-        :param 'ImageRegistryCredentialResponseArgs' image_registry_credential: Image registry credential.
-        :param Sequence['ContainerLabelResponseArgs'] labels: The labels to set in this container.
-        :param Sequence['ReliableCollectionsRefResponseArgs'] reliable_collections_refs: A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-        :param Sequence['SettingResponseArgs'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-        :param Sequence['VolumeReferenceResponseArgs'] volume_refs: Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-        :param Sequence['ApplicationScopedVolumeResponseArgs'] volumes: Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in this container
+        :param 'ImageRegistryCredentialResponse' image_registry_credential: Image registry credential.
+        :param Sequence['ContainerLabelResponse'] labels: The labels to set in this container.
+        :param Sequence['ReliableCollectionsRefResponse'] reliable_collections_refs: A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
+        :param Sequence['SettingResponse'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
+        :param Sequence['VolumeReferenceResponse'] volume_refs: Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
+        :param Sequence['ApplicationScopedVolumeResponse'] volumes: Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
@@ -774,9 +774,9 @@ class ContainerInstanceViewResponse(dict):
                  restart_count: Optional[int] = None):
         """
         Runtime information of a container instance.
-        :param 'ContainerStateResponseArgs' current_state: Current container instance state.
-        :param Sequence['ContainerEventResponseArgs'] events: The events of this container instance.
-        :param 'ContainerStateResponseArgs' previous_state: Previous container instance state.
+        :param 'ContainerStateResponse' current_state: Current container instance state.
+        :param Sequence['ContainerEventResponse'] events: The events of this container instance.
+        :param 'ContainerStateResponse' previous_state: Previous container instance state.
         :param int restart_count: The number of times the container has been restarted.
         """
         if current_state is not None:
@@ -947,7 +947,7 @@ class DiagnosticsDescriptionResponse(dict):
         Describes the diagnostics options available
         :param Sequence[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
+        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponse'] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -1181,7 +1181,7 @@ class HttpConfigResponse(dict):
                  port: int):
         """
         Describes the http configuration for external connectivity for this network.
-        :param Sequence['HttpHostConfigResponseArgs'] hosts: description for routing.
+        :param Sequence['HttpHostConfigResponse'] hosts: description for routing.
         :param str name: http gateway config name.
         :param int port: Specifies the port at which the service endpoint below needs to be exposed.
         """
@@ -1228,7 +1228,7 @@ class HttpHostConfigResponse(dict):
         """
         Describes the hostname properties for http routing.
         :param str name: http hostname config name.
-        :param Sequence['HttpRouteConfigResponseArgs'] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+        :param Sequence['HttpRouteConfigResponse'] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "routes", routes)
@@ -1264,8 +1264,8 @@ class HttpRouteConfigResponse(dict):
                  name: str):
         """
         Describes the hostname properties for http routing.
-        :param 'GatewayDestinationResponseArgs' destination: Describes destination endpoint for routing traffic.
-        :param 'HttpRouteMatchRuleResponseArgs' match: Describes a rule for http route matching.
+        :param 'GatewayDestinationResponse' destination: Describes destination endpoint for routing traffic.
+        :param 'HttpRouteMatchRuleResponse' match: Describes a rule for http route matching.
         :param str name: http route name.
         """
         pulumi.set(__self__, "destination", destination)
@@ -1407,8 +1407,8 @@ class HttpRouteMatchRuleResponse(dict):
                  headers: Optional[Sequence['outputs.HttpRouteMatchHeaderResponse']] = None):
         """
         Describes a rule for http route matching.
-        :param 'HttpRouteMatchPathResponseArgs' path: Path to match for routing.
-        :param Sequence['HttpRouteMatchHeaderResponseArgs'] headers: headers and their values to match in request.
+        :param 'HttpRouteMatchPathResponse' path: Path to match for routing.
+        :param Sequence['HttpRouteMatchHeaderResponse'] headers: headers and their values to match in request.
         """
         pulumi.set(__self__, "path", path)
         if headers is not None:
@@ -1492,7 +1492,7 @@ class NetworkRefResponse(dict):
                  name: Optional[str] = None):
         """
         Describes a network reference in a service.
-        :param Sequence['EndpointRefResponseArgs'] endpoint_refs: A list of endpoints that are exposed on this network.
+        :param Sequence['EndpointRefResponse'] endpoint_refs: A list of endpoints that are exposed on this network.
         :param str name: Name of the network
         """
         if endpoint_refs is not None:
@@ -1713,8 +1713,8 @@ class ResourceRequirementsResponse(dict):
                  limits: Optional['outputs.ResourceLimitsResponse'] = None):
         """
         This type describes the resource requirements for a container or a service.
-        :param 'ResourceRequestsResponseArgs' requests: Describes the requested resources for a given container.
-        :param 'ResourceLimitsResponseArgs' limits: Describes the maximum limits on the resources for a given container.
+        :param 'ResourceRequestsResponse' requests: Describes the requested resources for a given container.
+        :param 'ResourceLimitsResponse' limits: Describes the maximum limits on the resources for a given container.
         """
         pulumi.set(__self__, "requests", requests)
         if limits is not None:
@@ -1847,7 +1847,7 @@ class ServiceResourceDescriptionResponse(dict):
                  replica_count: Optional[int] = None):
         """
         This type describes a service resource.
-        :param Sequence['ContainerCodePackagePropertiesResponseArgs'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+        :param Sequence['ContainerCodePackagePropertiesResponse'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param str health_state: Describes the health state of an application resource.
         :param str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str os_type: The operation system required by the code in service.
@@ -1856,11 +1856,11 @@ class ServiceResourceDescriptionResponse(dict):
         :param str status_details: Gives additional information about the current status of the service.
         :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param str unhealthy_evaluation: When the service's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the service is marked unhealthy.
-        :param Sequence['AutoScalingPolicyResponseArgs'] auto_scaling_policies: Auto scaling policies
+        :param Sequence['AutoScalingPolicyResponse'] auto_scaling_policies: Auto scaling policies
         :param str description: User readable description of the service.
-        :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
+        :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
         :param str name: The name of the resource
-        :param Sequence['NetworkRefResponseArgs'] network_refs: The names of the private networks that this service needs to be part of.
+        :param Sequence['NetworkRefResponse'] network_refs: The names of the private networks that this service needs to be part of.
         :param int replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)
@@ -2058,7 +2058,7 @@ class TcpConfigResponse(dict):
                  port: int):
         """
         Describes the tcp configuration for external connectivity for this network.
-        :param 'GatewayDestinationResponseArgs' destination: Describes destination endpoint for routing traffic.
+        :param 'GatewayDestinationResponse' destination: Describes destination endpoint for routing traffic.
         :param str name: tcp gateway config name.
         :param int port: Specifies the port at which the service endpoint below needs to be exposed.
         """

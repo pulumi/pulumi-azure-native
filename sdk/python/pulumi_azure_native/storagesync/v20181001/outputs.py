@@ -32,13 +32,13 @@ class ServerEndpointHealthResponse(dict):
         """
         ServerEndpoint Health object.
         :param str combined_health: Combined Health Status.
-        :param 'SyncProgressStatusResponseArgs' current_progress: Current progress
+        :param 'SyncProgressStatusResponse' current_progress: Current progress
         :param str download_health: Download Health Status.
-        :param 'SyncSessionStatusResponseArgs' download_status: Download Status
+        :param 'SyncSessionStatusResponse' download_status: Download Status
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str upload_health: Upload Health Status.
-        :param 'SyncSessionStatusResponseArgs' upload_status: Upload Status
+        :param 'SyncSessionStatusResponse' upload_status: Upload Status
         """
         if combined_health is not None:
             pulumi.set(__self__, "combined_health", combined_health)

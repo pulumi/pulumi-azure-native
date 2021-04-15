@@ -38,7 +38,7 @@ class AkamaiAccessControlResponse(dict):
                  akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
         """
         Akamai access control
-        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
@@ -178,7 +178,7 @@ class IPAccessControlResponse(dict):
                  allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
         """
         The IP access control.
-        :param Sequence['IPRangeResponseArgs'] allow: The IP allow list.
+        :param Sequence['IPRangeResponse'] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -330,7 +330,7 @@ class LiveEventInputAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for Live Event Input.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -361,9 +361,9 @@ class LiveEventInputResponse(dict):
         """
         The Live Event input.
         :param str streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-        :param 'LiveEventInputAccessControlResponseArgs' access_control: The access control for LiveEvent Input.
+        :param 'LiveEventInputAccessControlResponse' access_control: The access control for LiveEvent Input.
         :param str access_token: A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The input endpoints for the Live Event.
         :param str key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -504,7 +504,7 @@ class LiveEventPreviewAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for Live Event preview.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -534,9 +534,9 @@ class LiveEventPreviewResponse(dict):
                  streaming_policy_name: Optional[str] = None):
         """
         The Live Event preview.
-        :param 'LiveEventPreviewAccessControlResponseArgs' access_control: The access control for LiveEvent preview.
+        :param 'LiveEventPreviewAccessControlResponse' access_control: The access control for LiveEvent preview.
         :param str alternative_media_id: An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The endpoints for preview.
         :param str preview_locator: The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
         :param str streaming_policy_name: The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
         """
@@ -606,9 +606,9 @@ class LiveEventTranscriptionResponse(dict):
                  output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None):
         """
         Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
-        :param Sequence['LiveEventInputTrackSelectionResponseArgs'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+        :param Sequence['LiveEventInputTrackSelectionResponse'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
         :param str language: Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
-        :param 'LiveEventOutputTranscriptionTrackResponseArgs' output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+        :param 'LiveEventOutputTranscriptionTrackResponse' output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
         if input_track_selection is not None:
             pulumi.set(__self__, "input_track_selection", input_track_selection)
@@ -655,8 +655,8 @@ class StreamingEndpointAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         StreamingEndpoint access control definition.
-        :param 'AkamaiAccessControlResponseArgs' akamai: The access control of Akamai
-        :param 'IPAccessControlResponseArgs' ip: The IP access control of the StreamingEndpoint.
+        :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
+        :param 'IPAccessControlResponse' ip: The IP access control of the StreamingEndpoint.
         """
         if akamai is not None:
             pulumi.set(__self__, "akamai", akamai)

@@ -274,7 +274,7 @@ class ParameterDefinitionsValueResponse(dict):
         The definition of a parameter that can be provided to the policy.
         :param Sequence[Any] allowed_values: The allowed values for the parameter.
         :param Any default_value: The default value for the parameter if no value is provided.
-        :param 'ParameterDefinitionsValueResponseMetadataArgs' metadata: General metadata for the parameter.
+        :param 'ParameterDefinitionsValueResponseMetadata' metadata: General metadata for the parameter.
         :param str type: The data type of the parameter.
         """
         if allowed_values is not None:
@@ -479,9 +479,9 @@ class PolicyAssignmentPropertiesResponse(dict):
                  role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
                  scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None):
         """
-        :param 'PolicyAssignmentPropertiesResponsePolicyArgs' policy: Details of the policy
-        :param 'PolicyAssignmentPropertiesResponseRoleDefinitionArgs' role_definition: Details of role definition
-        :param 'PolicyAssignmentPropertiesResponseScopeArgs' scope: Details of the resource scope
+        :param 'PolicyAssignmentPropertiesResponsePolicy' policy: Details of the policy
+        :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
+        :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -529,7 +529,7 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
                  last_modified_date_time: Optional[str] = None):
         """
         Details of the policy
-        :param 'PrincipalResponseArgs' last_modified_by: The name of the entity last modified it
+        :param 'PrincipalResponse' last_modified_by: The name of the entity last modified it
         :param str id: Id of the policy
         :param str last_modified_date_time: The last modified date time.
         """
@@ -754,7 +754,7 @@ class PolicyDefinitionReferenceResponse(dict):
         The policy definition reference.
         :param str policy_definition_id: The ID of the policy definition or policy set definition.
         :param Sequence[str] group_names: The name of the groups that this policy definition reference belongs to.
-        :param Mapping[str, 'ParameterValuesValueResponseArgs'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
+        :param Mapping[str, 'ParameterValuesValueResponse'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)

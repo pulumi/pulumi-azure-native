@@ -83,7 +83,7 @@ class ExportDeliveryInfoResponse(dict):
                  destination: 'outputs.ExportDeliveryDestinationResponse'):
         """
         The delivery information associated with a export.
-        :param 'ExportDeliveryDestinationResponseArgs' destination: Has destination for the export being delivered.
+        :param 'ExportDeliveryDestinationResponse' destination: Has destination for the export being delivered.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -148,7 +148,7 @@ class ExportScheduleResponse(dict):
         """
         The schedule associated with a export.
         :param str recurrence: The schedule recurrence.
-        :param 'ExportRecurrencePeriodResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param 'ExportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
         pulumi.set(__self__, "recurrence", recurrence)
@@ -308,12 +308,12 @@ class QueryDatasetResponse(dict):
                  sorting: Optional[Sequence['outputs.QuerySortingConfigurationResponse']] = None):
         """
         The definition of data present in the query.
-        :param Mapping[str, 'QueryAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-        :param 'QueryDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'QueryFilterResponseArgs' filter: Has filter expression to use in the query.
+        :param Mapping[str, 'QueryAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+        :param 'QueryDatasetConfigurationResponse' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'QueryFilterResponse' filter: Has filter expression to use in the query.
         :param str granularity: The granularity of rows in the query.
-        :param Sequence['QueryGroupingResponseArgs'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-        :param Sequence['QuerySortingConfigurationResponseArgs'] sorting: Array of sorting by columns in query.
+        :param Sequence['QueryGroupingResponse'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        :param Sequence['QuerySortingConfigurationResponse'] sorting: Array of sorting by columns in query.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -394,8 +394,8 @@ class QueryDefinitionResponse(dict):
         The definition of a query.
         :param str timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
         :param str type: The type of the query.
-        :param 'QueryDatasetResponseArgs' dataset: Has definition for data in this query.
-        :param 'QueryTimePeriodResponseArgs' time_period: Has time period for pulling data for the query.
+        :param 'QueryDatasetResponse' dataset: Has definition for data in this query.
+        :param 'QueryTimePeriodResponse' time_period: Has time period for pulling data for the query.
         """
         pulumi.set(__self__, "timeframe", timeframe)
         pulumi.set(__self__, "type", type)
@@ -453,11 +453,11 @@ class QueryFilterResponse(dict):
                  tag: Optional['outputs.QueryComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the export.
-        :param Sequence['QueryFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'QueryComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
-        :param 'QueryFilterResponseArgs' not_: The logical "NOT" expression.
-        :param Sequence['QueryFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'QueryComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
+        :param Sequence['QueryFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'QueryComparisonExpressionResponse' dimension: Has comparison expression for a dimension
+        :param 'QueryFilterResponse' not_: The logical "NOT" expression.
+        :param Sequence['QueryFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'QueryComparisonExpressionResponse' tag: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)

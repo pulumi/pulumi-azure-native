@@ -172,7 +172,7 @@ class ServerEndpointRecallStatusResponse(dict):
         """
         Server endpoint recall status object.
         :param str last_updated_timestamp: Last updated timestamp
-        :param Sequence['ServerEndpointRecallErrorResponseArgs'] recall_errors: Array of recall errors
+        :param Sequence['ServerEndpointRecallErrorResponse'] recall_errors: Array of recall errors
         :param float total_recall_errors_count: Total count of recall errors.
         """
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
@@ -302,7 +302,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
                  transient_files_not_syncing_count: float):
         """
         Sync Session status object.
-        :param Sequence['ServerEndpointFilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
+        :param Sequence['ServerEndpointFilesNotSyncingErrorResponse'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
         :param float last_sync_per_item_error_count: Last sync per item error count.
         :param int last_sync_result: Last sync result (HResult)
         :param str last_sync_success_timestamp: Last sync success timestamp
@@ -398,16 +398,16 @@ class ServerEndpointSyncStatusResponse(dict):
         """
         Server Endpoint sync status
         :param str combined_health: Combined Health Status.
-        :param 'ServerEndpointSyncActivityStatusResponseArgs' download_activity: Download sync activity
+        :param 'ServerEndpointSyncActivityStatusResponse' download_activity: Download sync activity
         :param str download_health: Download Health Status.
-        :param 'ServerEndpointSyncSessionStatusResponseArgs' download_status: Download Status
+        :param 'ServerEndpointSyncSessionStatusResponse' download_status: Download Status
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str sync_activity: Sync activity
         :param float total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download).
-        :param 'ServerEndpointSyncActivityStatusResponseArgs' upload_activity: Upload sync activity
+        :param 'ServerEndpointSyncActivityStatusResponse' upload_activity: Upload sync activity
         :param str upload_health: Upload Health Status.
-        :param 'ServerEndpointSyncSessionStatusResponseArgs' upload_status: Upload Status
+        :param 'ServerEndpointSyncSessionStatusResponse' upload_status: Upload Status
         """
         pulumi.set(__self__, "combined_health", combined_health)
         pulumi.set(__self__, "download_activity", download_activity)

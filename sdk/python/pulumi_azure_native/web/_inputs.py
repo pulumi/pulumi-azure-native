@@ -51,7 +51,7 @@ __all__ = [
     'ConnectionGatewayReferenceArgs',
     'ConnectionParameterArgs',
     'ConnectionStatusDefinitionArgs',
-    'ConsentLinkParameterDefinitionArgs',
+    'ConsentLinkParameterDefinition',
     'CookieExpirationArgs',
     'CorsSettingsArgs',
     'CustomApiPropertiesDefinitionArgs',
@@ -2740,7 +2740,7 @@ class ConnectionStatusDefinitionArgs:
 
 
 @pulumi.input_type
-class ConsentLinkParameterDefinitionArgs:
+class ConsentLinkParameterDefinition:
     def __init__(__self__, *,
                  object_id: Optional[str] = None,
                  parameter_name: Optional[str] = None,

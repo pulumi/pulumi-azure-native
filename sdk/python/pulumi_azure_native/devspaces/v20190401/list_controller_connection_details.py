@@ -24,7 +24,7 @@ class ListControllerConnectionDetailsResult:
 
     @property
     @pulumi.getter(name="connectionDetailsList")
-    def connection_details_list(self) -> Optional[Sequence['outputs.ControllerConnectionDetailsResponseResult']]:
+    def connection_details_list(self) -> Optional[Sequence['outputs.ControllerConnectionDetailsResponse']]:
         """
         List of Azure Dev Spaces Controller connection details.
         """

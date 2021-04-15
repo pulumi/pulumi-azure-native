@@ -12,23 +12,23 @@ from ._enums import *
 
 __all__ = [
     'ActivationPropertiesResponse',
-    'ActorResponseResult',
+    'ActorResponse',
     'AgentPropertiesResponse',
     'ArgumentResponse',
     'AuthInfoResponse',
     'BaseImageDependencyResponse',
     'BaseImageTriggerResponse',
-    'BuildArgumentResponseResult',
+    'BuildArgumentResponse',
     'CredentialsResponse',
     'CustomRegistryCredentialsResponse',
     'DockerBuildRequestResponse',
     'DockerBuildStepResponse',
     'EncodedTaskRunRequestResponse',
     'EncodedTaskStepResponse',
-    'EventContentResponseResult',
-    'EventRequestMessageResponseResult',
-    'EventResponseResult',
-    'EventResponseMessageResponseResult',
+    'EventContentResponse',
+    'EventRequestMessageResponse',
+    'EventResponse',
+    'EventResponseMessageResponse',
     'ExportPipelineTargetPropertiesResponse',
     'FileTaskRunRequestResponse',
     'FileTaskStepResponse',
@@ -56,17 +56,17 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'ProgressPropertiesResponse',
     'QuarantinePolicyResponse',
-    'RegistryPasswordResponseResult',
-    'RequestResponseResult',
+    'RegistryPasswordResponse',
+    'RequestResponse',
     'RetentionPolicyResponse',
     'RunResponse',
     'SecretObjectResponse',
     'SetValueResponse',
     'SkuResponse',
-    'SourceControlAuthInfoResponseResult',
+    'SourceControlAuthInfoResponse',
     'SourcePropertiesResponse',
     'SourceRegistryCredentialsResponse',
-    'SourceResponseResult',
+    'SourceResponse',
     'SourceTriggerDescriptorResponse',
     'SourceTriggerResponse',
     'StatusDetailPropertiesResponse',
@@ -74,7 +74,7 @@ __all__ = [
     'StorageAccountPropertiesResponse',
     'SyncPropertiesResponse',
     'SystemDataResponse',
-    'TargetResponseResult',
+    'TargetResponse',
     'TaskRunRequestResponse',
     'TimerTriggerDescriptorResponse',
     'TimerTriggerResponse',
@@ -115,7 +115,7 @@ class ActivationPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ActorResponseResult(dict):
+class ActorResponse(dict):
     """
     The agent that initiated the event. For most situations, this could be from the authorization context of the request.
     """
@@ -434,7 +434,7 @@ class BaseImageTriggerResponse(dict):
 
 
 @pulumi.output_type
-class BuildArgumentResponseResult(dict):
+class BuildArgumentResponse(dict):
     """
     Properties of a build argument.
     """
@@ -501,10 +501,10 @@ class CredentialsResponse(dict):
                  source_registry: Optional['outputs.SourceRegistryCredentialsResponse'] = None):
         """
         The parameters that describes a set of credentials that will be used when a run is invoked.
-        :param Mapping[str, 'CustomRegistryCredentialsResponseArgs'] custom_registries: Describes the credential parameters for accessing other custom registries. The key
+        :param Mapping[str, 'CustomRegistryCredentialsResponse'] custom_registries: Describes the credential parameters for accessing other custom registries. The key
                for the dictionary item will be the registry login server (myregistry.azurecr.io) and
                the value of the item will be the registry credentials for accessing the registry.
-        :param 'SourceRegistryCredentialsResponseArgs' source_registry: Describes the credential parameters for accessing the source registry.
+        :param 'SourceRegistryCredentialsResponse' source_registry: Describes the credential parameters for accessing the source registry.
         """
         if custom_registries is not None:
             pulumi.set(__self__, "custom_registries", custom_registries)
@@ -549,9 +549,9 @@ class CustomRegistryCredentialsResponse(dict):
                the case of a system-assigned identity, the Client ID will be determined by the runner. This
                identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
                source of authentication used for accessing the registry.
-        :param 'SecretObjectResponseArgs' password: The password for logging into the custom registry. The password is a secret 
+        :param 'SecretObjectResponse' password: The password for logging into the custom registry. The password is a secret 
                object that allows multiple ways of providing the value for it.
-        :param 'SecretObjectResponseArgs' user_name: The username for logging into the custom registry.
+        :param 'SecretObjectResponse' user_name: The username for logging into the custom registry.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -617,13 +617,13 @@ class DockerBuildRequestResponse(dict):
         """
         The parameters for a docker quick build.
         :param str docker_file_path: The Docker file path relative to the source location.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param str type: The type of the run request.
                Expected value is 'DockerBuildRequest'.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
-        :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing the run.
-        :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param Sequence['ArgumentResponse'] arguments: The collection of override arguments to be used when executing the run.
+        :param 'CredentialsResponse' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
@@ -814,11 +814,11 @@ class DockerBuildStepResponse(dict):
                  target: Optional[str] = None):
         """
         The Docker build step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str docker_file_path: The Docker file path relative to the source context.
         :param str type: The type of the step.
                Expected value is 'Docker'.
-        :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
+        :param Sequence['ArgumentResponse'] arguments: The collection of override arguments to be used when executing this build step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
@@ -954,19 +954,19 @@ class EncodedTaskRunRequestResponse(dict):
         """
         The parameters for a quick task run request.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param str type: The type of the run request.
                Expected value is 'EncodedTaskRunRequest'.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
-        :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param 'CredentialsResponse' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param int timeout: Run timeout in seconds.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         """
         pulumi.set(__self__, "encoded_task_content", encoded_task_content)
         pulumi.set(__self__, "platform", platform)
@@ -1111,14 +1111,14 @@ class EncodedTaskStepResponse(dict):
                  values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
         The properties of a encoded task step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param str type: The type of the step.
                Expected value is 'EncodedTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
         pulumi.set(__self__, "encoded_task_content", encoded_task_content)
@@ -1194,26 +1194,26 @@ class EncodedTaskStepResponse(dict):
 
 
 @pulumi.output_type
-class EventContentResponseResult(dict):
+class EventContentResponse(dict):
     """
     The content of the event request message.
     """
     def __init__(__self__, *,
                  action: Optional[str] = None,
-                 actor: Optional['outputs.ActorResponseResult'] = None,
+                 actor: Optional['outputs.ActorResponse'] = None,
                  id: Optional[str] = None,
-                 request: Optional['outputs.RequestResponseResult'] = None,
-                 source: Optional['outputs.SourceResponseResult'] = None,
-                 target: Optional['outputs.TargetResponseResult'] = None,
+                 request: Optional['outputs.RequestResponse'] = None,
+                 source: Optional['outputs.SourceResponse'] = None,
+                 target: Optional['outputs.TargetResponse'] = None,
                  timestamp: Optional[str] = None):
         """
         The content of the event request message.
         :param str action: The action that encompasses the provided event.
-        :param 'ActorResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+        :param 'ActorResponse' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param str id: The event ID.
-        :param 'RequestResponseArgs' request: The request that generated the event.
-        :param 'SourceResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-        :param 'TargetResponseArgs' target: The target of the event.
+        :param 'RequestResponse' request: The request that generated the event.
+        :param 'SourceResponse' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+        :param 'TargetResponse' target: The target of the event.
         :param str timestamp: The time at which the event occurred.
         """
         if action is not None:
@@ -1241,7 +1241,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def actor(self) -> Optional['outputs.ActorResponseResult']:
+    def actor(self) -> Optional['outputs.ActorResponse']:
         """
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         """
@@ -1257,7 +1257,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestResponseResult']:
+    def request(self) -> Optional['outputs.RequestResponse']:
         """
         The request that generated the event.
         """
@@ -1265,7 +1265,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.SourceResponseResult']:
+    def source(self) -> Optional['outputs.SourceResponse']:
         """
         The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
         """
@@ -1273,7 +1273,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.TargetResponseResult']:
+    def target(self) -> Optional['outputs.TargetResponse']:
         """
         The target of the event.
         """
@@ -1289,19 +1289,19 @@ class EventContentResponseResult(dict):
 
 
 @pulumi.output_type
-class EventRequestMessageResponseResult(dict):
+class EventRequestMessageResponse(dict):
     """
     The event request message sent to the service URI.
     """
     def __init__(__self__, *,
-                 content: Optional['outputs.EventContentResponseResult'] = None,
+                 content: Optional['outputs.EventContentResponse'] = None,
                  headers: Optional[Mapping[str, str]] = None,
                  method: Optional[str] = None,
                  request_uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The event request message sent to the service URI.
-        :param 'EventContentResponseArgs' content: The content of the event request message.
+        :param 'EventContentResponse' content: The content of the event request message.
         :param Mapping[str, str] headers: The headers of the event request message.
         :param str method: The HTTP method used to send the event request message.
         :param str request_uri: The URI used to send the event request message.
@@ -1320,7 +1320,7 @@ class EventRequestMessageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.EventContentResponseResult']:
+    def content(self) -> Optional['outputs.EventContentResponse']:
         """
         The content of the event request message.
         """
@@ -1360,18 +1360,18 @@ class EventRequestMessageResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseResult(dict):
+class EventResponse(dict):
     """
     The event for a webhook.
     """
     def __init__(__self__, *,
-                 event_request_message: Optional['outputs.EventRequestMessageResponseResult'] = None,
-                 event_response_message: Optional['outputs.EventResponseMessageResponseResult'] = None,
+                 event_request_message: Optional['outputs.EventRequestMessageResponse'] = None,
+                 event_response_message: Optional['outputs.EventResponseMessageResponse'] = None,
                  id: Optional[str] = None):
         """
         The event for a webhook.
-        :param 'EventRequestMessageResponseArgs' event_request_message: The event request message sent to the service URI.
-        :param 'EventResponseMessageResponseArgs' event_response_message: The event response message received from the service URI.
+        :param 'EventRequestMessageResponse' event_request_message: The event request message sent to the service URI.
+        :param 'EventResponseMessageResponse' event_response_message: The event response message received from the service URI.
         :param str id: The event ID.
         """
         if event_request_message is not None:
@@ -1383,7 +1383,7 @@ class EventResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventRequestMessage")
-    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponseResult']:
+    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponse']:
         """
         The event request message sent to the service URI.
         """
@@ -1391,7 +1391,7 @@ class EventResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventResponseMessage")
-    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponseResult']:
+    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponse']:
         """
         The event response message received from the service URI.
         """
@@ -1407,7 +1407,7 @@ class EventResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseMessageResponseResult(dict):
+class EventResponseMessageResponse(dict):
     """
     The event response message received from the service URI.
     """
@@ -1550,19 +1550,19 @@ class FileTaskRunRequestResponse(dict):
                  values_file_path: Optional[str] = None):
         """
         The request parameters for a scheduling run against a task file.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param str task_file_path: The template/definition file path relative to the source.
         :param str type: The type of the run request.
                Expected value is 'FileTaskRunRequest'.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
-        :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param 'CredentialsResponse' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param int timeout: Run timeout in seconds.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         :param str values_file_path: The values/parameters file path relative to the source.
         """
         pulumi.set(__self__, "platform", platform)
@@ -1708,13 +1708,13 @@ class FileTaskStepResponse(dict):
                  values_file_path: Optional[str] = None):
         """
         The properties of a task step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str task_file_path: The task template/definition file path relative to the source context.
         :param str type: The type of the step.
                Expected value is 'FileTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         :param str values_file_path: The task values/parameters file path relative to the source context.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
@@ -1844,7 +1844,7 @@ class IdentityPropertiesResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserIdentityPropertiesResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
                dictionary key references will be ARM resource ids in the form: 
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -1971,7 +1971,7 @@ class ImageUpdateTriggerResponse(dict):
         """
         The image update trigger that caused a build.
         :param str id: The unique ID of the trigger.
-        :param Sequence['ImageDescriptorResponseArgs'] images: The list of image updates that caused the build.
+        :param Sequence['ImageDescriptorResponse'] images: The list of image updates that caused the build.
         :param str timestamp: The timestamp when the image update happened.
         """
         if id is not None:
@@ -2117,7 +2117,7 @@ class LoginServerPropertiesResponse(dict):
         """
         The login server properties of the connected registry.
         :param str host: The host of the connected registry. Can be FQDN or IP.
-        :param 'TlsPropertiesResponseArgs' tls: The TLS properties of the connected registry login server.
+        :param 'TlsPropertiesResponse' tls: The TLS properties of the connected registry login server.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "tls", tls)
@@ -2154,8 +2154,8 @@ class NetworkRuleSetResponse(dict):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
+        :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
         """
         if default_action is None:
             default_action = 'Allow'
@@ -2203,13 +2203,13 @@ class OverrideTaskStepPropertiesResponse(dict):
                  update_trigger_token: Optional[str] = None,
                  values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
-        :param Sequence['ArgumentResponseArgs'] arguments: Gets or sets the collection of override arguments to be used when
+        :param Sequence['ArgumentResponse'] arguments: Gets or sets the collection of override arguments to be used when
                executing a build step.
         :param str context_path: The source context against which run has to be queued.
         :param str file: The file against which run has to be queued.
         :param str target: The name of the target build stage for the docker build.
         :param str update_trigger_token: Base64 encoded update trigger token that will be attached with the base image trigger webhook.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a Task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a Task.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -2287,7 +2287,7 @@ class ParentPropertiesResponse(dict):
                  id: Optional[str] = None):
         """
         The properties of the connected registry parent.
-        :param 'SyncPropertiesResponseArgs' sync_properties: The sync properties of the connected registry with its parent.
+        :param 'SyncPropertiesResponse' sync_properties: The sync properties of the connected registry with its parent.
         :param str id: The resource ID of the parent to which the connected registry will be associated.
         """
         pulumi.set(__self__, "sync_properties", sync_properties)
@@ -2333,8 +2333,8 @@ class PipelineRunRequestResponse(dict):
                Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
         :param str catalog_digest: The digest of the tar used to transfer the artifacts.
         :param str pipeline_resource_id: The resource ID of the pipeline to run.
-        :param 'PipelineRunSourcePropertiesResponseArgs' source: The source properties of the pipeline run.
-        :param 'PipelineRunTargetPropertiesResponseArgs' target: The target properties of the pipeline run.
+        :param 'PipelineRunSourcePropertiesResponse' source: The source properties of the pipeline run.
+        :param 'PipelineRunTargetPropertiesResponse' target: The target properties of the pipeline run.
         """
         if artifacts is not None:
             pulumi.set(__self__, "artifacts", artifacts)
@@ -2416,12 +2416,12 @@ class PipelineRunResponseResponse(dict):
         :param str finish_time: The time the pipeline run finished.
         :param Sequence[str] imported_artifacts: The artifacts imported in the pipeline run.
         :param str pipeline_run_error_message: The detailed error message for the pipeline run in the case of failure.
-        :param 'ProgressPropertiesResponseArgs' progress: The current progress of the copy operation.
-        :param 'ImportPipelineSourcePropertiesResponseArgs' source: The source of the pipeline run.
+        :param 'ProgressPropertiesResponse' progress: The current progress of the copy operation.
+        :param 'ImportPipelineSourcePropertiesResponse' source: The source of the pipeline run.
         :param str start_time: The time the pipeline run started.
         :param str status: The current status of the pipeline run.
-        :param 'ExportPipelineTargetPropertiesResponseArgs' target: The target of the pipeline run.
-        :param 'PipelineTriggerDescriptorResponseArgs' trigger: The trigger that caused the pipeline run.
+        :param 'ExportPipelineTargetPropertiesResponse' target: The target of the pipeline run.
+        :param 'PipelineTriggerDescriptorResponse' trigger: The trigger that caused the pipeline run.
         """
         if catalog_digest is not None:
             pulumi.set(__self__, "catalog_digest", catalog_digest)
@@ -2650,7 +2650,7 @@ class PipelineTriggerDescriptorResponse(dict):
     def __init__(__self__, *,
                  source_trigger: Optional['outputs.PipelineSourceTriggerDescriptorResponse'] = None):
         """
-        :param 'PipelineSourceTriggerDescriptorResponseArgs' source_trigger: The source trigger that caused the pipeline run.
+        :param 'PipelineSourceTriggerDescriptorResponse' source_trigger: The source trigger that caused the pipeline run.
         """
         if source_trigger is not None:
             pulumi.set(__self__, "source_trigger", source_trigger)
@@ -2672,7 +2672,7 @@ class PipelineTriggerPropertiesResponse(dict):
     def __init__(__self__, *,
                  source_trigger: Optional['outputs.PipelineSourceTriggerPropertiesResponse'] = None):
         """
-        :param 'PipelineSourceTriggerPropertiesResponseArgs' source_trigger: The source trigger properties of the pipeline.
+        :param 'PipelineSourceTriggerPropertiesResponse' source_trigger: The source trigger properties of the pipeline.
         """
         if source_trigger is not None:
             pulumi.set(__self__, "source_trigger", source_trigger)
@@ -2749,9 +2749,9 @@ class PoliciesResponse(dict):
                  trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
         """
         The policies for a container registry.
-        :param 'QuarantinePolicyResponseArgs' quarantine_policy: The quarantine policy for a container registry.
-        :param 'RetentionPolicyResponseArgs' retention_policy: The retention policy for a container registry.
-        :param 'TrustPolicyResponseArgs' trust_policy: The content trust policy for a container registry.
+        :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
+        :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
+        :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
@@ -2915,7 +2915,7 @@ class QuarantinePolicyResponse(dict):
 
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordResponse(dict):
     """
     The login password for the container registry.
     """
@@ -2950,7 +2950,7 @@ class RegistryPasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RequestResponseResult(dict):
+class RequestResponse(dict):
     """
     The request that generated the event.
     """
@@ -3108,30 +3108,30 @@ class RunResponse(dict):
         """
         Run resource properties
         :param str id: The resource ID.
-        :param 'ImageDescriptorResponseArgs' log_artifact: The image description for the log artifact.
+        :param 'ImageDescriptorResponse' log_artifact: The image description for the log artifact.
         :param str name: The name of the resource.
         :param str run_error_message: The error message received from backend systems after the run is scheduled.
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param str create_time: The time the run was scheduled.
         :param Sequence[str] custom_registries: The list of custom registries that were logged in during this run.
         :param str finish_time: The time the run finished.
-        :param 'ImageUpdateTriggerResponseArgs' image_update_trigger: The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+        :param 'ImageUpdateTriggerResponse' image_update_trigger: The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled or not.
         :param str last_updated_time: The last updated time for the run.
-        :param Sequence['ImageDescriptorResponseArgs'] output_images: The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run will happen.
+        :param Sequence['ImageDescriptorResponse'] output_images: The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run will happen.
         :param str provisioning_state: The provisioning state of a run.
         :param str run_id: The unique identifier for the run.
         :param str run_type: The type of run.
         :param str source_registry_auth: The scope of the credentials that were used to login to the source registry during this run.
-        :param 'SourceTriggerDescriptorResponseArgs' source_trigger: The source trigger that caused the run.
+        :param 'SourceTriggerDescriptorResponse' source_trigger: The source trigger that caused the run.
         :param str start_time: The time the run started.
         :param str status: The current status of the run.
         :param str task: The task against which run was scheduled.
-        :param 'TimerTriggerDescriptorResponseArgs' timer_trigger: The timer trigger that caused the run.
+        :param 'TimerTriggerDescriptorResponse' timer_trigger: The timer trigger that caused the run.
         :param str update_trigger_token: The update trigger token passed for the Run.
         """
         pulumi.set(__self__, "id", id)
@@ -3526,7 +3526,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class SourceControlAuthInfoResponseResult(dict):
+class SourceControlAuthInfoResponse(dict):
     """
     The authorization properties for accessing the source code repository.
     """
@@ -3610,7 +3610,7 @@ class SourcePropertiesResponse(dict):
         :param str repository_url: The full URL to the source code repository
         :param str source_control_type: The type of source control service.
         :param str branch: The branch name of the source code.
-        :param 'AuthInfoResponseArgs' source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
+        :param 'AuthInfoResponse' source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
                webhooks for notifications.
         """
         pulumi.set(__self__, "repository_url", repository_url)
@@ -3688,7 +3688,7 @@ class SourceRegistryCredentialsResponse(dict):
 
 
 @pulumi.output_type
-class SourceResponseResult(dict):
+class SourceResponse(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
     """
@@ -3833,7 +3833,7 @@ class SourceTriggerResponse(dict):
         """
         The properties of a source based trigger.
         :param str name: The name of the trigger.
-        :param 'SourcePropertiesResponseArgs' source_repository: The properties that describes the source(code) for the task.
+        :param 'SourcePropertiesResponse' source_repository: The properties that describes the source(code) for the task.
         :param Sequence[str] source_trigger_events: The source event corresponding to the trigger.
         :param str status: The current status of trigger.
         """
@@ -4191,7 +4191,7 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class TargetResponseResult(dict):
+class TargetResponse(dict):
     """
     The target of the event.
     """
@@ -4329,7 +4329,7 @@ class TaskRunRequestResponse(dict):
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
-        :param 'OverrideTaskStepPropertiesResponseArgs' override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
+        :param 'OverrideTaskStepPropertiesResponse' override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
         """
         pulumi.set(__self__, "task_id", task_id)
         pulumi.set(__self__, "type", 'TaskRunRequest')
@@ -4527,7 +4527,7 @@ class TlsPropertiesResponse(dict):
                  status: str):
         """
         The TLS properties of the connected registry login server.
-        :param 'TlsCertificatePropertiesResponseArgs' certificate: The certificate used to configure HTTPS for the login server.
+        :param 'TlsCertificatePropertiesResponse' certificate: The certificate used to configure HTTPS for the login server.
         :param str status: Indicates whether HTTPS is enabled for the login server.
         """
         pulumi.set(__self__, "certificate", certificate)
@@ -4713,9 +4713,9 @@ class TriggerPropertiesResponse(dict):
                  timer_triggers: Optional[Sequence['outputs.TimerTriggerResponse']] = None):
         """
         The properties of a trigger.
-        :param 'BaseImageTriggerResponseArgs' base_image_trigger: The trigger based on base image dependencies.
-        :param Sequence['SourceTriggerResponseArgs'] source_triggers: The collection of triggers based on source code repository.
-        :param Sequence['TimerTriggerResponseArgs'] timer_triggers: The collection of timer triggers.
+        :param 'BaseImageTriggerResponse' base_image_trigger: The trigger based on base image dependencies.
+        :param Sequence['SourceTriggerResponse'] source_triggers: The collection of triggers based on source code repository.
+        :param Sequence['TimerTriggerResponse'] timer_triggers: The collection of timer triggers.
         """
         if base_image_trigger is not None:
             pulumi.set(__self__, "base_image_trigger", base_image_trigger)

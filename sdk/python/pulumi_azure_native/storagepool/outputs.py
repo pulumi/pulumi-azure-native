@@ -274,10 +274,10 @@ class TargetPortalGroupResponse(dict):
                  tag: int):
         """
         Response properties for iSCSI target portal group.
-        :param Sequence['AclResponseArgs'] acls: Access Control List (ACL) for an iSCSI target portal group.
-        :param 'AttributesResponseArgs' attributes: Attributes of an iSCSI target portal group.
+        :param Sequence['AclResponse'] acls: Access Control List (ACL) for an iSCSI target portal group.
+        :param 'AttributesResponse' attributes: Attributes of an iSCSI target portal group.
         :param Sequence[str] endpoints: List of private IPv4 addresses to connect to the iSCSI target.
-        :param Sequence['IscsiLunResponseArgs'] luns: List of LUNs to be exposed through iSCSI target portal group.
+        :param Sequence['IscsiLunResponse'] luns: List of LUNs to be exposed through iSCSI target portal group.
         :param int port: The port used by iSCSI target portal group.
         :param int tag: The tag associated with the iSCSI target portal group.
         """

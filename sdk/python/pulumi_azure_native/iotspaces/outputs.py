@@ -31,7 +31,7 @@ class IoTSpacesPropertiesResponse(dict):
         :param str management_api_url: The management Api endpoint.
         :param str provisioning_state: The provisioning state.
         :param str web_portal_url: The management UI endpoint.
-        :param 'StorageContainerPropertiesResponseArgs' storage_container: The properties of the designated storage container.
+        :param 'StorageContainerPropertiesResponse' storage_container: The properties of the designated storage container.
         """
         pulumi.set(__self__, "management_api_url", management_api_url)
         pulumi.set(__self__, "provisioning_state", provisioning_state)

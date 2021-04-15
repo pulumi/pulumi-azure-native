@@ -20,7 +20,7 @@ __all__ = [
     'DscConfigurationAssociationPropertyResponse',
     'DscConfigurationParameterResponse',
     'FieldDefinitionResponse',
-    'KeyResponseResult',
+    'KeyResponse',
     'ModuleErrorInfoResponse',
     'RunbookAssociationPropertyResponse',
     'RunbookDraftResponse',
@@ -79,7 +79,7 @@ class AdvancedScheduleResponse(dict):
         """
         The properties of the create Advanced Schedule.
         :param Sequence[int] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
+        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Occurrences of days within a month.
         :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
@@ -190,7 +190,7 @@ class ContentLinkResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content link.
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the hash.
         :param str uri: Gets or sets the uri of the runbook content.
         :param str version: Gets or sets the version of the content.
         """
@@ -241,7 +241,7 @@ class ContentSourceResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content source.
-        :param 'ContentHashResponseArgs' hash: Gets or sets the hash.
+        :param 'ContentHashResponse' hash: Gets or sets the hash.
         :param str type: Gets or sets the content source type.
         :param str value: Gets or sets the value of the content. This is based on the content source type.
         :param str version: Gets or sets the version of the content.
@@ -429,7 +429,7 @@ class FieldDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class KeyResponseResult(dict):
+class KeyResponse(dict):
     """
     Automation key which is used to register a DSC Node
     """
@@ -547,11 +547,11 @@ class RunbookDraftResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
-        :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
+        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[str] output_types: Gets or sets the runbook output types.
-        :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
+        :param Mapping[str, 'RunbookParameterResponse'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)

@@ -22,7 +22,7 @@ __all__ = [
     'FieldDefinitionResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
-    'KeyResponseResult',
+    'KeyResponse',
     'KeyVaultPropertiesResponse',
     'ModuleErrorInfoResponse',
     'PrivateEndpointConnectionResponse',
@@ -83,7 +83,7 @@ class AdvancedScheduleResponse(dict):
         """
         The properties of the create Advanced Schedule.
         :param Sequence[int] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
+        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Occurrences of days within a month.
         :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
@@ -194,7 +194,7 @@ class ContentLinkResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content link.
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the hash.
         :param str uri: Gets or sets the uri of the runbook content.
         :param str version: Gets or sets the version of the content.
         """
@@ -270,9 +270,9 @@ class EncryptionPropertiesResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         The encryption settings for automation account
-        :param 'EncryptionPropertiesResponseIdentityArgs' identity: User identity used for CMK.
+        :param 'EncryptionPropertiesResponseIdentity' identity: User identity used for CMK.
         :param str key_source: Encryption Key Source
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Key vault properties.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -399,7 +399,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -477,7 +477,7 @@ class IdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
-class KeyResponseResult(dict):
+class KeyResponse(dict):
     """
     Automation key which is used to register a DSC Node
     """
@@ -624,8 +624,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: Fully qualified resource Id for the resource
         :param str name: The name of the resource
         :param str type: The type of the resource.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)

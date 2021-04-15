@@ -299,13 +299,13 @@ class SkuDescriptionResponse(dict):
                  tier: Optional[str] = None):
         """
         Description of a SKU for a scalable resource.
-        :param Sequence['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param Sequence['CapabilityResponse'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
         :param int capacity: Current number of instances assigned to the resource.
         :param str family: Family code of the resource SKU.
         :param Sequence[str] locations: Locations of the SKU.
         :param str name: Name of the resource SKU.
         :param str size: Size specifier of the resource SKU.
-        :param 'SkuCapacityResponseArgs' sku_capacity: Min, max, and default scale values of the SKU.
+        :param 'SkuCapacityResponse' sku_capacity: Min, max, and default scale values of the SKU.
         :param str tier: Service tier of the resource SKU.
         """
         if capabilities is not None:

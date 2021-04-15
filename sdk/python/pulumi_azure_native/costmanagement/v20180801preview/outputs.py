@@ -89,7 +89,7 @@ class ConnectorCollectionInfoResponse(dict):
         :param str last_run: Last time the data acquisition process completed (even if no new data was found)
         :param str last_updated: Last time the external data was updated into Azure
         :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-        :param 'ConnectorCollectionErrorInfoResponseArgs' error: Error information of last collection
+        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
         """
         pulumi.set(__self__, "last_run", last_run)
         pulumi.set(__self__, "last_updated", last_updated)
@@ -255,11 +255,11 @@ class ReportDatasetResponse(dict):
                  grouping: Optional[Sequence['outputs.ReportGroupingResponse']] = None):
         """
         The definition of data present in the report.
-        :param Mapping[str, 'ReportAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-        :param 'ReportDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'ReportFilterResponseArgs' filter: Has filter expression to use in the report.
+        :param Mapping[str, 'ReportAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param 'ReportDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'ReportFilterResponse' filter: Has filter expression to use in the report.
         :param str granularity: The granularity of rows in the report.
-        :param Sequence['ReportGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -330,8 +330,8 @@ class ReportDefinitionResponse(dict):
         The definition of a report.
         :param str timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         :param str type: The type of the report.
-        :param 'ReportDatasetResponseArgs' dataset: Has definition for data in this report.
-        :param 'ReportTimePeriodResponseArgs' time_period: Has time period for pulling data for the report.
+        :param 'ReportDatasetResponse' dataset: Has definition for data in this report.
+        :param 'ReportTimePeriodResponse' time_period: Has time period for pulling data for the report.
         """
         pulumi.set(__self__, "timeframe", timeframe)
         pulumi.set(__self__, "type", type)
@@ -433,7 +433,7 @@ class ReportDeliveryInfoResponse(dict):
                  destination: 'outputs.ReportDeliveryDestinationResponse'):
         """
         The delivery information associated with a report.
-        :param 'ReportDeliveryDestinationResponseArgs' destination: Has destination for the report being delivered.
+        :param 'ReportDeliveryDestinationResponse' destination: Has destination for the report being delivered.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -462,11 +462,11 @@ class ReportFilterResponse(dict):
                  tag: Optional['outputs.ReportComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
-        :param Sequence['ReportFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'ReportComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
-        :param 'ReportFilterResponseArgs' not_: The logical "NOT" expression.
-        :param Sequence['ReportFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'ReportComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
+        :param Sequence['ReportFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'ReportComparisonExpressionResponse' dimension: Has comparison expression for a dimension
+        :param 'ReportFilterResponse' not_: The logical "NOT" expression.
+        :param Sequence['ReportFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportComparisonExpressionResponse' tag: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
@@ -608,7 +608,7 @@ class ReportScheduleResponse(dict):
         """
         The schedule associated with a report.
         :param str recurrence: The schedule recurrence.
-        :param 'ReportRecurrencePeriodResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param 'ReportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
         pulumi.set(__self__, "recurrence", recurrence)

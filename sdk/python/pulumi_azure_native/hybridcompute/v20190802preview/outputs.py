@@ -27,7 +27,7 @@ class ErrorDetailResponse(dict):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponse'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)
@@ -86,7 +86,7 @@ class MachineExtensionInstanceViewResponse(dict):
         """
         Describes the Machine Extension Instance View.
         :param str name: The machine extension name.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """

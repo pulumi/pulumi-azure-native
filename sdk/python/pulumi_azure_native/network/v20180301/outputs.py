@@ -127,7 +127,7 @@ class EndpointResponse(dict):
                  weight: Optional[float] = None):
         """
         Class representing a Traffic Manager endpoint.
-        :param Sequence['EndpointPropertiesResponseCustomHeadersArgs'] custom_headers: List of custom headers.
+        :param Sequence['EndpointPropertiesResponseCustomHeaders'] custom_headers: List of custom headers.
         :param str endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
         :param str endpoint_monitor_status: The monitoring status of the endpoint.
         :param str endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
@@ -293,8 +293,8 @@ class MonitorConfigResponse(dict):
                  tolerated_number_of_failures: Optional[float] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
-        :param Sequence['MonitorConfigResponseCustomHeadersArgs'] custom_headers: List of custom headers.
-        :param Sequence['MonitorConfigResponseExpectedStatusCodeRangesArgs'] expected_status_code_ranges: List of expected status code ranges.
+        :param Sequence['MonitorConfigResponseCustomHeaders'] custom_headers: List of custom headers.
+        :param Sequence['MonitorConfigResponseExpectedStatusCodeRanges'] expected_status_code_ranges: List of expected status code ranges.
         :param float interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         :param str path: The path relative to the endpoint domain name used to probe for endpoint health.
         :param float port: The TCP port used to probe for endpoint health.

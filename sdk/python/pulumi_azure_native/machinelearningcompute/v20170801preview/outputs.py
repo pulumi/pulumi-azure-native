@@ -12,12 +12,12 @@ from ._enums import *
 
 __all__ = [
     'AcsClusterPropertiesResponse',
-    'AppInsightsCredentialsResponseResult',
+    'AppInsightsCredentialsResponse',
     'AppInsightsPropertiesResponse',
     'AutoScaleConfigurationResponse',
-    'ContainerRegistryCredentialsResponseResult',
+    'ContainerRegistryCredentialsResponse',
     'ContainerRegistryPropertiesResponse',
-    'ContainerServiceCredentialsResponseResult',
+    'ContainerServiceCredentialsResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
     'ErrorResponseWrapperResponse',
@@ -26,7 +26,7 @@ __all__ = [
     'ServiceAuthConfigurationResponse',
     'ServicePrincipalPropertiesResponse',
     'SslConfigurationResponse',
-    'StorageAccountCredentialsResponseResult',
+    'StorageAccountCredentialsResponse',
     'StorageAccountPropertiesResponse',
     'SystemServiceResponse',
 ]
@@ -51,8 +51,8 @@ class AcsClusterPropertiesResponse(dict):
         :param int agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
         :param str agent_vm_size: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
         :param int master_count: The number of master nodes in the container service.
-        :param 'KubernetesClusterPropertiesResponseArgs' orchestrator_properties: Orchestrator specific properties
-        :param Sequence['SystemServiceResponseArgs'] system_services: The system services deployed to the cluster
+        :param 'KubernetesClusterPropertiesResponse' orchestrator_properties: Orchestrator specific properties
+        :param Sequence['SystemServiceResponse'] system_services: The system services deployed to the cluster
         """
         pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
         pulumi.set(__self__, "orchestrator_type", orchestrator_type)
@@ -134,7 +134,7 @@ class AcsClusterPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class AppInsightsCredentialsResponseResult(dict):
+class AppInsightsCredentialsResponse(dict):
     """
     AppInsights credentials.
     """
@@ -275,7 +275,7 @@ class AutoScaleConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class ContainerRegistryCredentialsResponseResult(dict):
+class ContainerRegistryCredentialsResponse(dict):
     """
     Information about the Azure Container Registry which contains the images deployed to the cluster.
     """
@@ -356,7 +356,7 @@ class ContainerRegistryPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ContainerServiceCredentialsResponseResult(dict):
+class ContainerServiceCredentialsResponse(dict):
     """
     Information about the Azure Container Registry which contains the images deployed to the cluster.
     """
@@ -368,7 +368,7 @@ class ContainerServiceCredentialsResponseResult(dict):
         Information about the Azure Container Registry which contains the images deployed to the cluster.
         :param str acs_kube_config: The ACS kube config file.
         :param str image_pull_secret_name: The ACR image pull secret name which was created in Kubernetes.
-        :param 'ServicePrincipalPropertiesResponseArgs' service_principal_configuration: Service principal configuration used by Kubernetes.
+        :param 'ServicePrincipalPropertiesResponse' service_principal_configuration: Service principal configuration used by Kubernetes.
         """
         pulumi.set(__self__, "acs_kube_config", acs_kube_config)
         pulumi.set(__self__, "image_pull_secret_name", image_pull_secret_name)
@@ -448,7 +448,7 @@ class ErrorResponseResponse(dict):
         Error response information.
         :param str code: Error code.
         :param str message: Error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -492,7 +492,7 @@ class ErrorResponseWrapperResponse(dict):
                  error: Optional['outputs.ErrorResponseResponse'] = None):
         """
         Wrapper for error response to follow ARM guidelines.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -521,10 +521,10 @@ class GlobalServiceConfigurationResponse(dict):
                  ssl: Optional['outputs.SslConfigurationResponse'] = None):
         """
         Global configuration for services in the cluster.
-        :param 'AutoScaleConfigurationResponseArgs' auto_scale: The auto-scale configuration
+        :param 'AutoScaleConfigurationResponse' auto_scale: The auto-scale configuration
         :param str etag: The configuration ETag for updates.
-        :param 'ServiceAuthConfigurationResponseArgs' service_auth: Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
-        :param 'SslConfigurationResponseArgs' ssl: The SSL configuration properties
+        :param 'ServiceAuthConfigurationResponse' service_auth: Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+        :param 'SslConfigurationResponse' ssl: The SSL configuration properties
         """
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
@@ -580,7 +580,7 @@ class KubernetesClusterPropertiesResponse(dict):
                  service_principal: Optional['outputs.ServicePrincipalPropertiesResponse'] = None):
         """
         Kubernetes cluster specific properties
-        :param 'ServicePrincipalPropertiesResponseArgs' service_principal: The Azure Service Principal used by Kubernetes
+        :param 'ServicePrincipalPropertiesResponse' service_principal: The Azure Service Principal used by Kubernetes
         """
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
@@ -734,7 +734,7 @@ class SslConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountCredentialsResponseResult(dict):
+class StorageAccountCredentialsResponse(dict):
     """
     Access information for the storage account.
     """

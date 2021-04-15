@@ -30,7 +30,7 @@ class GetAssetEncryptionKeyResult:
 
     @property
     @pulumi.getter(name="assetFileEncryptionMetadata")
-    def asset_file_encryption_metadata(self) -> Optional[Sequence['outputs.AssetFileEncryptionMetadataResponseResult']]:
+    def asset_file_encryption_metadata(self) -> Optional[Sequence['outputs.AssetFileEncryptionMetadataResponse']]:
         """
         Asset File encryption metadata.
         """

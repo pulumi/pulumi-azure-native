@@ -18,7 +18,7 @@ __all__ = [
     'IdentityPropertiesResponse',
     'LogRulesResponse',
     'MonitorPropertiesResponse',
-    'MonitoredResourceResponseResult',
+    'MonitoredResourceResponse',
     'MonitoringTagRulesPropertiesResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
@@ -172,8 +172,8 @@ class ElasticPropertiesResponse(dict):
                  elastic_cloud_user: Optional['outputs.ElasticCloudUserResponse'] = None):
         """
         Elastic Resource Properties.
-        :param 'ElasticCloudDeploymentResponseArgs' elastic_cloud_deployment: Details of the elastic cloud deployment.
-        :param 'ElasticCloudUserResponseArgs' elastic_cloud_user: Details of the user's elastic account.
+        :param 'ElasticCloudDeploymentResponse' elastic_cloud_deployment: Details of the elastic cloud deployment.
+        :param 'ElasticCloudUserResponse' elastic_cloud_user: Details of the user's elastic account.
         """
         if elastic_cloud_deployment is not None:
             pulumi.set(__self__, "elastic_cloud_deployment", elastic_cloud_deployment)
@@ -310,7 +310,7 @@ class LogRulesResponse(dict):
                  send_subscription_logs: Optional[bool] = None):
         """
         Set of rules for sending logs for the Monitor resource.
-        :param Sequence['FilteringTagResponseArgs'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param bool send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
         :param bool send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         :param bool send_subscription_logs: Flag specifying if subscription logs should be sent for the Monitor resource.
@@ -374,7 +374,7 @@ class MonitorPropertiesResponse(dict):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
-        :param 'ElasticPropertiesResponseArgs' elastic_properties: Elastic cloud properties.
+        :param 'ElasticPropertiesResponse' elastic_properties: Elastic cloud properties.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param str provisioning_state: Provisioning state of the monitor resource.
         """
@@ -429,7 +429,7 @@ class MonitorPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class MonitoredResourceResponseResult(dict):
+class MonitoredResourceResponse(dict):
     """
     The properties of a resource currently being monitored by the Elastic monitor resource.
     """
@@ -485,7 +485,7 @@ class MonitoringTagRulesPropertiesResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Definition of the properties for a TagRules resource.
-        :param 'LogRulesResponseArgs' log_rules: Rules for sending logs.
+        :param 'LogRulesResponse' log_rules: Rules for sending logs.
         :param str provisioning_state: Provisioning state of the monitoring tag rules.
         """
         if log_rules is not None:

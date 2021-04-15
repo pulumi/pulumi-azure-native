@@ -20,7 +20,7 @@ __all__ = [
     'FormulaPropertiesFromVmResponse',
     'GalleryImageReferenceResponse',
     'HourDetailsResponse',
-    'LabVhdResponseResult',
+    'LabVhdResponse',
     'LabVirtualMachineResponse',
     'LinuxOsInfoResponse',
     'SubnetOverrideResponse',
@@ -90,7 +90,7 @@ class ArtifactInstallPropertiesResponse(dict):
         """
         Properties of an artifact.
         :param str artifact_id: The artifact's identifier.
-        :param Sequence['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
+        :param Sequence['ArtifactParameterPropertiesResponse'] parameters: The parameters of the artifact.
         """
         if artifact_id is not None:
             pulumi.set(__self__, "artifact_id", artifact_id)
@@ -205,10 +205,10 @@ class CustomImagePropertiesFromVmResponse(dict):
                  windows_os_info: Optional['outputs.WindowsOsInfoResponse'] = None):
         """
         Properties for creating a custom image from a virtual machine.
-        :param 'LinuxOsInfoResponseArgs' linux_os_info: The Linux OS information of the VM.
+        :param 'LinuxOsInfoResponse' linux_os_info: The Linux OS information of the VM.
         :param str source_vm_id: The source vm identifier.
         :param bool sys_prep: Indicates whether sysprep has been run on the VHD.
-        :param 'WindowsOsInfoResponseArgs' windows_os_info: The Windows OS information of the VM.
+        :param 'WindowsOsInfoResponse' windows_os_info: The Windows OS information of the VM.
         """
         if linux_os_info is not None:
             pulumi.set(__self__, "linux_os_info", linux_os_info)
@@ -404,7 +404,7 @@ class HourDetailsResponse(dict):
 
 
 @pulumi.output_type
-class LabVhdResponseResult(dict):
+class LabVhdResponse(dict):
     """
     Properties of a VHD in the lab.
     """
@@ -459,15 +459,15 @@ class LabVirtualMachineResponse(dict):
                  user_name: Optional[str] = None):
         """
         A virtual machine.
-        :param 'ArtifactDeploymentStatusPropertiesResponseArgs' artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param Sequence['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
+        :param 'ArtifactDeploymentStatusPropertiesResponse' artifact_deployment_status: The artifact deployment status for the virtual machine.
+        :param Sequence['ArtifactInstallPropertiesResponse'] artifacts: The artifacts to be installed on the virtual machine.
         :param str compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param str created_by_user: The email address of creator of the virtual machine.
         :param str created_by_user_id: The object identifier of the creator of the virtual machine.
         :param str custom_image_id: The custom image identifier of the virtual machine.
         :param bool disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param str fqdn: The fully-qualified domain name of the virtual machine.
-        :param 'GalleryImageReferenceResponseArgs' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param 'GalleryImageReferenceResponse' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
         :param str id: The identifier of the resource.
         :param bool is_authentication_with_ssh_key: A value indicating whether this virtual machine uses an SSH key for authentication.
         :param str lab_subnet_name: The lab subnet name of the virtual machine.

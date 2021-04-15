@@ -188,7 +188,7 @@ class LinuxConfigurationResponse(dict):
                  ssh: Optional['outputs.SshConfigurationResponse'] = None):
         """
         Specifies the Linux operating system settings on the virtual machine.
-        :param 'SshConfigurationResponseArgs' ssh: Specifies the ssh key configuration for a Linux OS.
+        :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
         if ssh is not None:
             pulumi.set(__self__, "ssh", ssh)
@@ -222,12 +222,12 @@ class NetworkFunctionRoleConfigurationResponse(dict):
                  virtual_machine_size: Optional[str] = None):
         """
         Network function role configuration.
-        :param 'CustomProfileResponseArgs' custom_profile: Specifies the custom settings for the virtual machine.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configurations.
-        :param 'OsProfileResponseArgs' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+        :param 'CustomProfileResponse' custom_profile: Specifies the custom settings for the virtual machine.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: The network interface configurations.
+        :param 'OsProfileResponse' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
         :param str role_name: The name of the network function role.
         :param str role_type: Role type.
-        :param 'StorageProfileResponseArgs' storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param 'StorageProfileResponse' storage_profile: Specifies the storage settings for the virtual machine disks.
         :param Any user_data_parameters: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
         :param Any user_data_template: The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
         :param str virtual_machine_size: The size of the virtual machine.
@@ -336,7 +336,7 @@ class NetworkFunctionTemplateResponse(dict):
                  network_function_role_configurations: Optional[Sequence['outputs.NetworkFunctionRoleConfigurationResponse']] = None):
         """
         The network function template.
-        :param Sequence['NetworkFunctionRoleConfigurationResponseArgs'] network_function_role_configurations: An array of network function role definitions.
+        :param Sequence['NetworkFunctionRoleConfigurationResponse'] network_function_role_configurations: An array of network function role definitions.
         """
         if network_function_role_configurations is not None:
             pulumi.set(__self__, "network_function_role_configurations", network_function_role_configurations)
@@ -365,8 +365,8 @@ class NetworkFunctionUserConfigurationResponse(dict):
                  user_data_parameters: Optional[Any] = None):
         """
         The network function user configuration.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configuration.
-        :param 'NetworkFunctionUserConfigurationResponseOsProfileArgs' os_profile: Specifies the operating system settings for the role instance.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: The network interface configuration.
+        :param 'NetworkFunctionUserConfigurationResponseOsProfile' os_profile: Specifies the operating system settings for the role instance.
         :param str role_name: The name of the network function role.
         :param Any user_data_parameters: The user data parameters from the customer.
         """
@@ -539,7 +539,7 @@ class NetworkInterfaceResponse(dict):
                  vm_switch_type: Optional[str] = None):
         """
         Network interface properties.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: A list of IP configurations of the network interface.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] ip_configurations: A list of IP configurations of the network interface.
         :param str mac_address: The MAC address of the network interface.
         :param str network_interface_name: The name of the network interface.
         :param str vm_switch_type: The type of the VM switch.
@@ -654,7 +654,7 @@ class OsProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param bool custom_data_required: Indicates if custom data is required to deploy this role.
-        :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param 'LinuxConfigurationResponse' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         """
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
@@ -712,7 +712,7 @@ class SshConfigurationResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
@@ -778,9 +778,9 @@ class StorageProfileResponse(dict):
                  os_disk: Optional['outputs.OsDiskResponse'] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param Sequence['DataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine.
-        :param 'ImageReferenceResponseArgs' image_reference: The image reference properties.
-        :param 'OsDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine.
+        :param Sequence['DataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine.
+        :param 'ImageReferenceResponse' image_reference: The image reference properties.
+        :param 'OsDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine.
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)

@@ -231,12 +231,12 @@ class ApplicationPropertiesResponse(dict):
         :param str marketplace_identifier: The marketplace identifier.
         :param str provisioning_state: The provisioning state of the application.
         :param str application_type: The application type.
-        :param 'ComputeProfileResponseArgs' compute_profile: The list of roles in the cluster.
-        :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
-        :param Sequence['ApplicationGetHttpsEndpointResponseArgs'] https_endpoints: The list of application HTTPS endpoints.
-        :param Sequence['RuntimeScriptActionResponseArgs'] install_script_actions: The list of install script actions.
-        :param Sequence['ApplicationGetEndpointResponseArgs'] ssh_endpoints: The list of application SSH endpoints.
-        :param Sequence['RuntimeScriptActionResponseArgs'] uninstall_script_actions: The list of uninstall script actions.
+        :param 'ComputeProfileResponse' compute_profile: The list of roles in the cluster.
+        :param Sequence['ErrorsResponse'] errors: The list of errors.
+        :param Sequence['ApplicationGetHttpsEndpointResponse'] https_endpoints: The list of application HTTPS endpoints.
+        :param Sequence['RuntimeScriptActionResponse'] install_script_actions: The list of install script actions.
+        :param Sequence['ApplicationGetEndpointResponse'] ssh_endpoints: The list of application SSH endpoints.
+        :param Sequence['RuntimeScriptActionResponse'] uninstall_script_actions: The list of uninstall script actions.
         """
         pulumi.set(__self__, "application_state", application_state)
         pulumi.set(__self__, "created_date", created_date)
@@ -397,7 +397,7 @@ class AutoscaleRecurrenceResponse(dict):
                  time_zone: Optional[str] = None):
         """
         Schedule-based autoscale request parameters
-        :param Sequence['AutoscaleScheduleResponseArgs'] schedule: Array of schedule-based autoscale rules
+        :param Sequence['AutoscaleScheduleResponse'] schedule: Array of schedule-based autoscale rules
         :param str time_zone: The time zone for the autoscale schedule times
         """
         if schedule is not None:
@@ -435,8 +435,8 @@ class AutoscaleResponse(dict):
                  recurrence: Optional['outputs.AutoscaleRecurrenceResponse'] = None):
         """
         The autoscale request parameters
-        :param 'AutoscaleCapacityResponseArgs' capacity: Parameters for load-based autoscale
-        :param 'AutoscaleRecurrenceResponseArgs' recurrence: Parameters for schedule-based autoscale
+        :param 'AutoscaleCapacityResponse' capacity: Parameters for load-based autoscale
+        :param 'AutoscaleRecurrenceResponse' recurrence: Parameters for schedule-based autoscale
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -474,7 +474,7 @@ class AutoscaleScheduleResponse(dict):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
         :param Sequence[str] days: Days of the week for a schedule-based autoscale rule
-        :param 'AutoscaleTimeAndCapacityResponseArgs' time_and_capacity: Time and capacity for a schedule-based autoscale rule
+        :param 'AutoscaleTimeAndCapacityResponse' time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -681,27 +681,27 @@ class ClusterGetPropertiesResponse(dict):
                  tier: Optional[str] = None):
         """
         The properties of cluster.
-        :param 'ClusterDefinitionResponseArgs' cluster_definition: The cluster definition.
+        :param 'ClusterDefinitionResponse' cluster_definition: The cluster definition.
         :param str cluster_hdp_version: The hdp version of the cluster.
         :param str cluster_id: The cluster id.
         :param str cluster_state: The state of the cluster.
         :param str cluster_version: The version of the cluster.
-        :param 'ComputeIsolationPropertiesResponseArgs' compute_isolation_properties: The compute isolation properties.
-        :param 'ComputeProfileResponseArgs' compute_profile: The compute profile.
-        :param Sequence['ConnectivityEndpointResponseArgs'] connectivity_endpoints: The list of connectivity endpoints.
+        :param 'ComputeIsolationPropertiesResponse' compute_isolation_properties: The compute isolation properties.
+        :param 'ComputeProfileResponse' compute_profile: The compute profile.
+        :param Sequence['ConnectivityEndpointResponse'] connectivity_endpoints: The list of connectivity endpoints.
         :param str created_date: The date on which the cluster was created.
-        :param 'DiskEncryptionPropertiesResponseArgs' disk_encryption_properties: The disk encryption properties.
-        :param 'EncryptionInTransitPropertiesResponseArgs' encryption_in_transit_properties: The encryption-in-transit properties.
-        :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
-        :param 'ExcludedServicesConfigResponseArgs' excluded_services_config: The excluded services config.
-        :param 'KafkaRestPropertiesResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
+        :param 'DiskEncryptionPropertiesResponse' disk_encryption_properties: The disk encryption properties.
+        :param 'EncryptionInTransitPropertiesResponse' encryption_in_transit_properties: The encryption-in-transit properties.
+        :param Sequence['ErrorsResponse'] errors: The list of errors.
+        :param 'ExcludedServicesConfigResponse' excluded_services_config: The excluded services config.
+        :param 'KafkaRestPropertiesResponse' kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param str min_supported_tls_version: The minimal supported tls version.
-        :param 'NetworkPropertiesResponseArgs' network_properties: The network properties.
+        :param 'NetworkPropertiesResponse' network_properties: The network properties.
         :param str os_type: The type of operating system.
         :param str provisioning_state: The provisioning state, which only appears in the response.
-        :param 'QuotaInfoResponseArgs' quota_info: The quota information.
-        :param 'SecurityProfileResponseArgs' security_profile: The security profile.
-        :param 'StorageProfileResponseArgs' storage_profile: The storage profile.
+        :param 'QuotaInfoResponse' quota_info: The quota information.
+        :param 'SecurityProfileResponse' security_profile: The security profile.
+        :param 'StorageProfileResponse' storage_profile: The storage profile.
         :param str tier: The cluster tier.
         """
         pulumi.set(__self__, "cluster_definition", cluster_definition)
@@ -943,7 +943,7 @@ class ClusterIdentityResponse(dict):
         :param str principal_id: The principal id of cluster identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        :param Mapping[str, 'ClusterIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1081,7 +1081,7 @@ class ComputeProfileResponse(dict):
                  roles: Optional[Sequence['outputs.RoleResponse']] = None):
         """
         Describes the compute profile.
-        :param Sequence['RoleResponseArgs'] roles: The list of roles in the cluster.
+        :param Sequence['RoleResponse'] roles: The list of roles in the cluster.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -1448,7 +1448,7 @@ class KafkaRestPropertiesResponse(dict):
                  configuration_override: Optional[Mapping[str, str]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
-        :param 'ClientGroupInfoResponseArgs' client_group_info: The information of AAD security group.
+        :param 'ClientGroupInfoResponse' client_group_info: The information of AAD security group.
         :param Mapping[str, str] configuration_override: The configurations that need to be overriden.
         """
         if client_group_info is not None:
@@ -1488,7 +1488,7 @@ class LinuxOperatingSystemProfileResponse(dict):
         """
         The ssh username, password, and ssh public key.
         :param str password: The password.
-        :param 'SshProfileResponseArgs' ssh_profile: The SSH profile.
+        :param 'SshProfileResponse' ssh_profile: The SSH profile.
         :param str username: The username.
         """
         if password is not None:
@@ -1573,7 +1573,7 @@ class OsProfileResponse(dict):
                  linux_operating_system_profile: Optional['outputs.LinuxOperatingSystemProfileResponse'] = None):
         """
         The Linux operation systems profile.
-        :param 'LinuxOperatingSystemProfileResponseArgs' linux_operating_system_profile: The Linux OS profile.
+        :param 'LinuxOperatingSystemProfileResponse' linux_operating_system_profile: The Linux OS profile.
         """
         if linux_operating_system_profile is not None:
             pulumi.set(__self__, "linux_operating_system_profile", linux_operating_system_profile)
@@ -1635,17 +1635,17 @@ class RoleResponse(dict):
                  virtual_network_profile: Optional['outputs.VirtualNetworkProfileResponse'] = None):
         """
         Describes a role on the cluster.
-        :param 'AutoscaleResponseArgs' autoscale_configuration: The autoscale configurations.
-        :param Sequence['DataDisksGroupsResponseArgs'] data_disks_groups: The data disks groups for the role.
+        :param 'AutoscaleResponse' autoscale_configuration: The autoscale configurations.
+        :param Sequence['DataDisksGroupsResponse'] data_disks_groups: The data disks groups for the role.
         :param bool encrypt_data_disks: Indicates whether encrypt the data disks.
-        :param 'HardwareProfileResponseArgs' hardware_profile: The hardware profile.
+        :param 'HardwareProfileResponse' hardware_profile: The hardware profile.
         :param int min_instance_count: The minimum instance count of the cluster.
         :param str name: The name of the role.
-        :param 'OsProfileResponseArgs' os_profile: The operating system profile.
-        :param Sequence['ScriptActionResponseArgs'] script_actions: The list of script actions on the role.
+        :param 'OsProfileResponse' os_profile: The operating system profile.
+        :param Sequence['ScriptActionResponse'] script_actions: The list of script actions on the role.
         :param int target_instance_count: The instance count of the cluster.
         :param str v_m_group_name: The name of the virtual machine group.
-        :param 'VirtualNetworkProfileResponseArgs' virtual_network_profile: The virtual network profile.
+        :param 'VirtualNetworkProfileResponse' virtual_network_profile: The virtual network profile.
         """
         if autoscale_configuration is not None:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
@@ -2012,7 +2012,7 @@ class SshProfileResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         The list of SSH public keys.
-        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys.
+        :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
@@ -2186,7 +2186,7 @@ class StorageProfileResponse(dict):
                  storageaccounts: Optional[Sequence['outputs.StorageAccountResponse']] = None):
         """
         The storage profile.
-        :param Sequence['StorageAccountResponseArgs'] storageaccounts: The list of storage accounts in the cluster.
+        :param Sequence['StorageAccountResponse'] storageaccounts: The list of storage accounts in the cluster.
         """
         if storageaccounts is not None:
             pulumi.set(__self__, "storageaccounts", storageaccounts)

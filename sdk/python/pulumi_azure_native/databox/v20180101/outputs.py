@@ -11,51 +11,51 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AccountCredentialDetailsResponseResult',
-    'ApplianceNetworkConfigurationResponseResult',
+    'AccountCredentialDetailsResponse',
+    'ApplianceNetworkConfigurationResponse',
     'ContactDetailsResponse',
     'CopyProgressResponse',
     'DataBoxAccountCopyLogDetailsResponse',
     'DataBoxDiskCopyLogDetailsResponse',
     'DataBoxDiskCopyProgressResponse',
     'DataBoxDiskJobDetailsResponse',
-    'DataBoxDiskJobSecretsResponseResult',
+    'DataBoxDiskJobSecretsResponse',
     'DataBoxHeavyAccountCopyLogDetailsResponse',
     'DataBoxHeavyJobDetailsResponse',
-    'DataBoxHeavyJobSecretsResponseResult',
-    'DataBoxHeavySecretResponseResult',
+    'DataBoxHeavyJobSecretsResponse',
+    'DataBoxHeavySecretResponse',
     'DataBoxJobDetailsResponse',
-    'DataBoxSecretResponseResult',
-    'DataboxJobSecretsResponseResult',
+    'DataBoxSecretResponse',
+    'DataboxJobSecretsResponse',
     'DestinationManagedDiskDetailsResponse',
     'DestinationStorageAccountDetailsResponse',
-    'DiskSecretResponseResult',
+    'DiskSecretResponse',
     'ErrorResponse',
     'JobErrorDetailsResponse',
     'JobStagesResponse',
     'NotificationPreferenceResponse',
     'PackageShippingDetailsResponse',
     'PreferencesResponse',
-    'ShareCredentialDetailsResponseResult',
+    'ShareCredentialDetailsResponse',
     'ShippingAddressResponse',
     'SkuResponse',
-    'UnencryptedCredentialsResponseResult',
+    'UnencryptedCredentialsResponse',
 ]
 
 @pulumi.output_type
-class AccountCredentialDetailsResponseResult(dict):
+class AccountCredentialDetailsResponse(dict):
     """
     Credential details of the account.
     """
     def __init__(__self__, *,
                  account_connection_string: str,
                  account_name: str,
-                 share_credential_details: Sequence['outputs.ShareCredentialDetailsResponseResult']):
+                 share_credential_details: Sequence['outputs.ShareCredentialDetailsResponse']):
         """
         Credential details of the account.
         :param str account_connection_string: Connection string of the account endpoint to use the account as a storage endpoint on the device.
         :param str account_name: Name of the account.
-        :param Sequence['ShareCredentialDetailsResponseArgs'] share_credential_details: Per share level unencrypted access credentials.
+        :param Sequence['ShareCredentialDetailsResponse'] share_credential_details: Per share level unencrypted access credentials.
         """
         pulumi.set(__self__, "account_connection_string", account_connection_string)
         pulumi.set(__self__, "account_name", account_name)
@@ -79,7 +79,7 @@ class AccountCredentialDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="shareCredentialDetails")
-    def share_credential_details(self) -> Sequence['outputs.ShareCredentialDetailsResponseResult']:
+    def share_credential_details(self) -> Sequence['outputs.ShareCredentialDetailsResponse']:
         """
         Per share level unencrypted access credentials.
         """
@@ -87,7 +87,7 @@ class AccountCredentialDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class ApplianceNetworkConfigurationResponseResult(dict):
+class ApplianceNetworkConfigurationResponse(dict):
     """
     The Network Adapter configuration of a DataBox.
     """
@@ -137,7 +137,7 @@ class ContactDetailsResponse(dict):
         :param Sequence[str] email_list: List of Email-ids to be notified about job progress.
         :param str phone: Phone number of the contact person.
         :param str mobile: Mobile number of the contact person.
-        :param Sequence['NotificationPreferenceResponseArgs'] notification_preference: Notification preference for a job stage.
+        :param Sequence['NotificationPreferenceResponse'] notification_preference: Notification preference for a job stage.
         :param str phone_extension: Phone extension number of the contact person.
         """
         pulumi.set(__self__, "contact_name", contact_name)
@@ -475,22 +475,22 @@ class DataBoxDiskJobDetailsResponse(dict):
         """
         DataBox Disk Job Details.
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
-        :param Sequence['DataBoxDiskCopyProgressResponseArgs'] copy_progress: Copy progress per disk.
-        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
+        :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
+        :param Sequence['DataBoxDiskCopyProgressResponse'] copy_progress: Copy progress per disk.
+        :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
+        :param Sequence[Union['DestinationManagedDiskDetailsResponse', 'DestinationStorageAccountDetailsResponse']] destination_account_details: Destination account details.
         :param Mapping[str, int] disks_and_size_details: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
-        :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param str passkey: User entered passkey for DataBox Disk job.
-        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param 'PreferencesResponse' preferences: Preferences for the order.
         :param Mapping[str, int] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
@@ -657,18 +657,18 @@ class DataBoxDiskJobDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxDiskJobSecretsResponseResult(dict):
+class DataBoxDiskJobSecretsResponse(dict):
     """
     The secrets related to disk job.
     """
     def __init__(__self__, *,
-                 disk_secrets: Sequence['outputs.DiskSecretResponseResult'],
+                 disk_secrets: Sequence['outputs.DiskSecretResponse'],
                  is_passkey_user_defined: bool,
                  job_secrets_type: str,
                  pass_key: str):
         """
         The secrets related to disk job.
-        :param Sequence['DiskSecretResponseArgs'] disk_secrets: Contains the list of secrets object for that device.
+        :param Sequence['DiskSecretResponse'] disk_secrets: Contains the list of secrets object for that device.
         :param bool is_passkey_user_defined: Whether passkey was provided by user.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxDisk'.
@@ -681,7 +681,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="diskSecrets")
-    def disk_secrets(self) -> Sequence['outputs.DiskSecretResponseResult']:
+    def disk_secrets(self) -> Sequence['outputs.DiskSecretResponse']:
         """
         Contains the list of secrets object for that device.
         """
@@ -785,20 +785,20 @@ class DataBoxHeavyJobDetailsResponse(dict):
         """
         DataBoxHeavy Device Job Details
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
-        :param Sequence['CopyProgressResponseArgs'] copy_progress: Copy progress per account.
-        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
+        :param Sequence['CopyProgressResponse'] copy_progress: Copy progress per account.
+        :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
+        :param Sequence[Union['DestinationManagedDiskDetailsResponse', 'DestinationStorageAccountDetailsResponse']] destination_account_details: Destination account details.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
-        :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
-        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param 'PreferencesResponse' preferences: Preferences for the order.
         """
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
@@ -935,16 +935,16 @@ class DataBoxHeavyJobDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxHeavyJobSecretsResponseResult(dict):
+class DataBoxHeavyJobSecretsResponse(dict):
     """
     The secrets related to a DataBoxHeavy job.
     """
     def __init__(__self__, *,
-                 cabinet_pod_secrets: Sequence['outputs.DataBoxHeavySecretResponseResult'],
+                 cabinet_pod_secrets: Sequence['outputs.DataBoxHeavySecretResponse'],
                  job_secrets_type: str):
         """
         The secrets related to a DataBoxHeavy job.
-        :param Sequence['DataBoxHeavySecretResponseArgs'] cabinet_pod_secrets: Contains the list of secret objects for a DataBoxHeavy job.
+        :param Sequence['DataBoxHeavySecretResponse'] cabinet_pod_secrets: Contains the list of secret objects for a DataBoxHeavy job.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxHeavy'.
         """
@@ -953,7 +953,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="cabinetPodSecrets")
-    def cabinet_pod_secrets(self) -> Sequence['outputs.DataBoxHeavySecretResponseResult']:
+    def cabinet_pod_secrets(self) -> Sequence['outputs.DataBoxHeavySecretResponse']:
         """
         Contains the list of secret objects for a DataBoxHeavy job.
         """
@@ -970,23 +970,23 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
 
 @pulumi.output_type
-class DataBoxHeavySecretResponseResult(dict):
+class DataBoxHeavySecretResponse(dict):
     """
     The secrets related to a DataBoxHeavy.
     """
     def __init__(__self__, *,
-                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponseResult'],
+                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponse'],
                  device_password: str,
                  device_serial_number: str,
                  encoded_validation_cert_pub_key: str,
-                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponseResult']):
+                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponse']):
         """
         The secrets related to a DataBoxHeavy.
-        :param Sequence['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param Sequence['AccountCredentialDetailsResponse'] account_credential_details: Per account level access credentials.
         :param str device_password: Password for out of the box experience on device.
         :param str device_serial_number: Serial number of the assigned device.
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
-        :param Sequence['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        :param Sequence['ApplianceNetworkConfigurationResponse'] network_configurations: Network configuration of the appliance.
         """
         pulumi.set(__self__, "account_credential_details", account_credential_details)
         pulumi.set(__self__, "device_password", device_password)
@@ -996,7 +996,7 @@ class DataBoxHeavySecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
-    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponseResult']:
+    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponse']:
         """
         Per account level access credentials.
         """
@@ -1028,7 +1028,7 @@ class DataBoxHeavySecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponseResult']:
+    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponse']:
         """
         Network configuration of the appliance.
         """
@@ -1058,20 +1058,20 @@ class DataBoxJobDetailsResponse(dict):
         """
         DataBox Job Details
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
-        :param Sequence['CopyProgressResponseArgs'] copy_progress: Copy progress per storage account.
-        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
+        :param Sequence['CopyProgressResponse'] copy_progress: Copy progress per storage account.
+        :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
+        :param Sequence[Union['DestinationManagedDiskDetailsResponse', 'DestinationStorageAccountDetailsResponse']] destination_account_details: Destination account details.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBox'.
-        :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
-        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param 'PreferencesResponse' preferences: Preferences for the order.
         """
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
@@ -1208,23 +1208,23 @@ class DataBoxJobDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxSecretResponseResult(dict):
+class DataBoxSecretResponse(dict):
     """
     The secrets related to a DataBox.
     """
     def __init__(__self__, *,
-                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponseResult'],
+                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponse'],
                  device_password: str,
                  device_serial_number: str,
                  encoded_validation_cert_pub_key: str,
-                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponseResult']):
+                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponse']):
         """
         The secrets related to a DataBox.
-        :param Sequence['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param Sequence['AccountCredentialDetailsResponse'] account_credential_details: Per account level access credentials.
         :param str device_password: Password for out of the box experience on device.
         :param str device_serial_number: Serial number of the assigned device.
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
-        :param Sequence['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        :param Sequence['ApplianceNetworkConfigurationResponse'] network_configurations: Network configuration of the appliance.
         """
         pulumi.set(__self__, "account_credential_details", account_credential_details)
         pulumi.set(__self__, "device_password", device_password)
@@ -1234,7 +1234,7 @@ class DataBoxSecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
-    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponseResult']:
+    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponse']:
         """
         Per account level access credentials.
         """
@@ -1266,7 +1266,7 @@ class DataBoxSecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponseResult']:
+    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponse']:
         """
         Network configuration of the appliance.
         """
@@ -1274,18 +1274,18 @@ class DataBoxSecretResponseResult(dict):
 
 
 @pulumi.output_type
-class DataboxJobSecretsResponseResult(dict):
+class DataboxJobSecretsResponse(dict):
     """
     The secrets related to a DataBox job.
     """
     def __init__(__self__, *,
                  job_secrets_type: str,
-                 pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponseResult']] = None):
+                 pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponse']] = None):
         """
         The secrets related to a DataBox job.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBox'.
-        :param Sequence['DataBoxSecretResponseArgs'] pod_secrets: Contains the list of secret objects for a job.
+        :param Sequence['DataBoxSecretResponse'] pod_secrets: Contains the list of secret objects for a job.
         """
         pulumi.set(__self__, "job_secrets_type", 'DataBox')
         if pod_secrets is not None:
@@ -1302,7 +1302,7 @@ class DataboxJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="podSecrets")
-    def pod_secrets(self) -> Optional[Sequence['outputs.DataBoxSecretResponseResult']]:
+    def pod_secrets(self) -> Optional[Sequence['outputs.DataBoxSecretResponse']]:
         """
         Contains the list of secret objects for a job.
         """
@@ -1421,7 +1421,7 @@ class DestinationStorageAccountDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DiskSecretResponseResult(dict):
+class DiskSecretResponse(dict):
     """
     Contains all the secrets of a Disk.
     """
@@ -1562,7 +1562,7 @@ class JobStagesResponse(dict):
         """
         Job stages.
         :param str display_name: Display name of the job stage.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for the stage.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for the stage.
         :param Any job_stage_details: Job Stage Details
         :param str stage_name: Name of the job stage.
         :param str stage_status: Status of the job stage.
@@ -1735,7 +1735,7 @@ class PreferencesResponse(dict):
 
 
 @pulumi.output_type
-class ShareCredentialDetailsResponseResult(dict):
+class ShareCredentialDetailsResponse(dict):
     """
     Credential details of the shares in account.
     """
@@ -1983,7 +1983,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class UnencryptedCredentialsResponseResult(dict):
+class UnencryptedCredentialsResponse(dict):
     """
     Unencrypted credentials for accessing device.
     """
@@ -1993,7 +1993,7 @@ class UnencryptedCredentialsResponseResult(dict):
         """
         Unencrypted credentials for accessing device.
         :param str job_name: Name of the job.
-        :param Union['DataBoxDiskJobSecretsResponseArgs', 'DataBoxHeavyJobSecretsResponseArgs', 'DataboxJobSecretsResponseArgs'] job_secrets: Secrets related to this job.
+        :param Union['DataBoxDiskJobSecretsResponse', 'DataBoxHeavyJobSecretsResponse', 'DataboxJobSecretsResponse'] job_secrets: Secrets related to this job.
         """
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "job_secrets", job_secrets)

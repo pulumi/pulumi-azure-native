@@ -293,7 +293,7 @@ __all__ = [
     'JsonWriteSettingsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
-    'LinkedIntegrationRuntimeResponseResult',
+    'LinkedIntegrationRuntimeResponse',
     'LinkedServiceReferenceResponse',
     'LogLocationSettingsResponse',
     'LogSettingsResponse',
@@ -302,11 +302,11 @@ __all__ = [
     'MagentoLinkedServiceResponse',
     'MagentoObjectDatasetResponse',
     'MagentoSourceResponse',
-    'ManagedIntegrationRuntimeErrorResponseResult',
-    'ManagedIntegrationRuntimeNodeResponseResult',
-    'ManagedIntegrationRuntimeOperationResultResponseResult',
+    'ManagedIntegrationRuntimeErrorResponse',
+    'ManagedIntegrationRuntimeNodeResponse',
+    'ManagedIntegrationRuntimeOperationResultResponse',
     'ManagedIntegrationRuntimeResponse',
-    'ManagedIntegrationRuntimeStatusResponseResult',
+    'ManagedIntegrationRuntimeStatusResponse',
     'ManagedPrivateEndpointResponse',
     'ManagedVirtualNetworkReferenceResponse',
     'MappingDataFlowResponse',
@@ -454,9 +454,9 @@ __all__ = [
     'ScriptActionResponse',
     'SecureStringResponse',
     'SelfDependencyTumblingWindowTriggerReferenceResponse',
-    'SelfHostedIntegrationRuntimeNodeResponseResult',
+    'SelfHostedIntegrationRuntimeNodeResponse',
     'SelfHostedIntegrationRuntimeResponse',
-    'SelfHostedIntegrationRuntimeStatusResponseResult',
+    'SelfHostedIntegrationRuntimeStatusResponse',
     'ServiceNowLinkedServiceResponse',
     'ServiceNowObjectDatasetResponse',
     'ServiceNowSourceResponse',
@@ -497,13 +497,13 @@ __all__ = [
     'SquareLinkedServiceResponse',
     'SquareObjectDatasetResponse',
     'SquareSourceResponse',
-    'SsisEnvironmentReferenceResponseResult',
-    'SsisEnvironmentResponseResult',
-    'SsisFolderResponseResult',
-    'SsisPackageResponseResult',
-    'SsisParameterResponseResult',
-    'SsisProjectResponseResult',
-    'SsisVariableResponseResult',
+    'SsisEnvironmentReferenceResponse',
+    'SsisEnvironmentResponse',
+    'SsisFolderResponse',
+    'SsisPackageResponse',
+    'SsisParameterResponse',
+    'SsisProjectResponse',
+    'SsisVariableResponse',
     'StagingSettingsResponse',
     'StoredProcedureParameterResponse',
     'SwitchActivityResponse',
@@ -526,7 +526,7 @@ __all__ = [
     'TumblingWindowTriggerDependencyReferenceResponse',
     'TumblingWindowTriggerResponse',
     'UntilActivityResponse',
-    'UserAccessPolicyResponseResult',
+    'UserAccessPolicyResponse',
     'UserPropertyResponse',
     'ValidationActivityResponse',
     'VariableSpecificationResponse',
@@ -733,12 +733,12 @@ class AmazonMWSLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AmazonMWS'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] mws_auth_token: The Amazon MWS authentication token.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_key: The secret key used to access data.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] mws_auth_token: The Amazon MWS authentication token.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_key: The secret key used to access data.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -911,13 +911,13 @@ class AmazonMWSObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Amazon Marketplace Web Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AmazonMWSObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -1033,7 +1033,7 @@ class AmazonMWSSourceResponse(dict):
         A copy activity Amazon Marketplace Web Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -1139,11 +1139,11 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AmazonRedshift'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password of the Amazon Redshift source.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Amazon Redshift source.
         :param Any port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
         :param Any username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
@@ -1278,11 +1278,11 @@ class AmazonRedshiftSourceResponse(dict):
         A copy activity source for Amazon Redshift Source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param 'RedshiftUnloadSettingsResponseArgs' redshift_unload_settings: The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
+        :param 'RedshiftUnloadSettingsResponse' redshift_unload_settings: The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -1389,13 +1389,13 @@ class AmazonRedshiftTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Amazon Redshift table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AmazonRedshiftTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The Amazon Redshift table name. Type: string (or Expression with resultType string).
@@ -1527,12 +1527,12 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
                Expected value is 'AmazonS3Compatible'.
         :param Any access_key_id: The access key identifier of the Amazon S3 Compatible Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any force_path_style: If true, use S3 path-style access instead of virtual hosted-style access. Default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Amazon S3 Compatible Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'AmazonS3Compatible')
@@ -1899,18 +1899,18 @@ class AmazonS3DatasetResponse(dict):
         """
         A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
         :param Any bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AmazonS3Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the Amazon S3 object.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the Amazon S3 object.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of files.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
         :param Any key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         :param Any modified_datetime_end: The end of S3 object's modified datetime. Type: string (or Expression with resultType string).
         :param Any modified_datetime_start: The start of S3 object's modified datetime. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any prefix: The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -2103,13 +2103,13 @@ class AmazonS3LinkedServiceResponse(dict):
         :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication_type: The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] session_token: The session token for the S3 temporary security credential.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] session_token: The session token for the S3 temporary security credential.
         """
         pulumi.set(__self__, "type", 'AmazonS3')
         if access_key_id is not None:
@@ -2478,9 +2478,9 @@ class AppendVariableActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any value: Value to be appended. Could be a static value or Expression
         :param str variable_name: Name of the variable whose value needs to be appended to.
         """
@@ -2598,14 +2598,14 @@ class AvroDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Avro dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the avro storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the avro storage.
         :param str type: Type of dataset.
                Expected value is 'Avro'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -2785,11 +2785,11 @@ class AvroSinkResponse(dict):
         A copy activity Avro sink.
         :param str type: Copy sink type.
                Expected value is 'AvroSink'.
-        :param 'AvroWriteSettingsResponseArgs' format_settings: Avro format settings.
+        :param 'AvroWriteSettingsResponse' format_settings: Avro format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponseArgs', 'AzureBlobStorageWriteSettingsResponseArgs', 'AzureDataLakeStoreWriteSettingsResponseArgs', 'AzureFileStorageWriteSettingsResponseArgs', 'FileServerWriteSettingsResponseArgs', 'SftpWriteSettingsResponseArgs'] store_settings: Avro store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Avro store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -2894,11 +2894,11 @@ class AvroSourceResponse(dict):
         A copy activity Avro source.
         :param str type: Copy source type.
                Expected value is 'AvroSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Avro store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Avro store settings.
         """
         pulumi.set(__self__, "type", 'AvroSource')
         if additional_columns is not None:
@@ -3099,16 +3099,16 @@ class AzureBatchLinkedServiceResponse(dict):
         Azure Batch linked service.
         :param Any account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
         :param Any batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: The Azure Storage linked service reference.
         :param Any pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureBatch'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_key: The Azure Batch account access key.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_key: The Azure Batch account access key.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "batch_uri", batch_uri)
@@ -3244,19 +3244,19 @@ class AzureBlobDatasetResponse(dict):
                  table_root_location: Optional[Any] = None):
         """
         The Azure Blob storage.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureBlob'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Azure Blob storage.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Azure Blob storage.
         :param Any modified_datetime_end: The end of Azure Blob's modified datetime. Type: string (or Expression with resultType string).
         :param Any modified_datetime_start: The start of Azure Blob's modified datetime. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_root_location: The root of blob path. Type: string (or Expression with resultType string).
@@ -3435,17 +3435,17 @@ class AzureBlobFSDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure Data Lake Storage Gen2 storage.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureBlobFSFile'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Any file_name: The name of the Azure Data Lake Storage Gen2. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: The path of the Azure Data Lake Storage Gen2 storage. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Azure Data Lake Storage Gen2 storage.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Azure Data Lake Storage Gen2 storage.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -3599,12 +3599,12 @@ class AzureBlobFSLinkedServiceResponse(dict):
         :param Any account_key: Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'AzureBlobFS')
@@ -4228,20 +4228,20 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         The azure blob storage linked service.
         :param str type: Type of linked service.
                Expected value is 'AzureBlobStorage'.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
+        :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
         :param str account_kind: Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' sas_token: The Azure key vault secret reference of sasToken in sas uri.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Blob Storage resource. It is mutually exclusive with connectionString, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str service_endpoint: Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'AzureBlobStorage')
@@ -4716,11 +4716,11 @@ class AzureDataExplorerCommandActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any command_timeout: Control command timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..)
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
@@ -4838,11 +4838,11 @@ class AzureDataExplorerLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureDataExplorer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Kusto.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Kusto.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
@@ -5090,7 +5090,7 @@ class AzureDataExplorerSourceResponse(dict):
         :param Any query: Database query. Should be a Kusto Query Language (KQL) query. Type: string (or Expression with resultType string).
         :param str type: Copy source type.
                Expected value is 'AzureDataExplorerSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any no_truncation: The name of the Boolean option that controls whether truncation is applied to result-sets that go beyond a certain row-count limit.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..
@@ -5198,13 +5198,13 @@ class AzureDataExplorerTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The Azure Data Explorer (Kusto) dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureDataExplorerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
@@ -5329,14 +5329,14 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureDataLakeAnalytics'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
         :param Any subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -5492,17 +5492,17 @@ class AzureDataLakeStoreDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Azure Data Lake Store dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureDataLakeStoreFile'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param str description: Dataset description.
         :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Data Lake Store.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Data Lake Store.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -5658,13 +5658,13 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         :param Any account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
         :param Any subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -6301,14 +6301,14 @@ class AzureDatabricksDeltaLakeDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         Azure Databricks Delta Lake dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureDatabricksDeltaLakeDataset'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any database: The database name of delta table. Type: string (or Expression with resultType string).
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The name of delta table. Type: string (or Expression with resultType string).
@@ -6539,13 +6539,13 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureDatabricksDeltaLake'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_id: The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "type", 'AzureDatabricksDeltaLake')
@@ -6659,7 +6659,7 @@ class AzureDatabricksDeltaLakeSinkResponse(dict):
         A copy activity Azure Databricks Delta Lake sink.
         :param str type: Copy sink type.
                Expected value is 'AzureDatabricksDeltaLakeSink'.
-        :param 'AzureDatabricksDeltaLakeImportCommandResponseArgs' import_settings: Azure Databricks Delta Lake import settings.
+        :param 'AzureDatabricksDeltaLakeImportCommandResponse' import_settings: Azure Databricks Delta Lake import settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -6768,7 +6768,7 @@ class AzureDatabricksDeltaLakeSourceResponse(dict):
         A copy activity Azure Databricks Delta Lake source.
         :param str type: Copy source type.
                Expected value is 'AzureDatabricksDeltaLakeSource'.
-        :param 'AzureDatabricksDeltaLakeExportCommandResponseArgs' export_settings: Azure Databricks Delta Lake export settings.
+        :param 'AzureDatabricksDeltaLakeExportCommandResponse' export_settings: Azure Databricks Delta Lake export settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Azure Databricks Delta Lake Sql query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -6873,10 +6873,10 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureDatabricks'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication: Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any existing_cluster_id: The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
@@ -6891,7 +6891,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Mapping[str, Any] new_cluster_spark_conf: A set of optional, user-specified Spark configuration key-value pairs.
         :param Mapping[str, Any] new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any policy_id: The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
         :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
@@ -7154,17 +7154,17 @@ class AzureFileStorageLinkedServiceResponse(dict):
         Azure File Storage linked service.
         :param str type: Type of linked service.
                Expected value is 'AzureFileStorage'.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
+        :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any file_share: The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).
         :param Any host: Host name of the server. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the server.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' sas_token: The Azure key vault secret reference of sasToken in sas uri.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the server.
+        :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure File resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any snapshot: The azure file share snapshot version. Type: string (or Expression with resultType string).
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
@@ -7610,12 +7610,12 @@ class AzureFunctionActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "method", method)
@@ -7749,11 +7749,11 @@ class AzureFunctionLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureFunction'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] function_key: Function or Host key for Azure Function App.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] function_key: Function or Host key for Azure Function App.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "function_app_url", function_app_url)
         pulumi.set(__self__, "type", 'AzureFunction')
@@ -7857,9 +7857,9 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureKeyVault'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "base_url", base_url)
         pulumi.set(__self__, "type", 'AzureKeyVault')
@@ -7938,7 +7938,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
         """
         Azure Key Vault secret reference.
         :param Any secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' store: The Azure Key Vault linked service reference.
+        :param 'LinkedServiceReferenceResponse' store: The Azure Key Vault linked service reference.
         :param str type: Type of the secret.
                Expected value is 'AzureKeyVaultSecret'.
         :param Any secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
@@ -8007,14 +8007,14 @@ class AzureMLBatchExecutionActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
-        :param Mapping[str, 'AzureMLWebServiceFileResponseArgs'] web_service_inputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
-        :param Mapping[str, 'AzureMLWebServiceFileResponseArgs'] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
+        :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_inputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
+        :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -8148,16 +8148,16 @@ class AzureMLExecutePipelineActivityResponse(dict):
                Expected value is 'Execution'.
         :param Any continue_on_step_failure: Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
         :param Any data_path_assignments: Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any experiment_name: Run history experiment name of the pipeline run. This information will be passed in the ExperimentName property of the published pipeline execution request. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any ml_parent_run_id: The parent Azure ML Service pipeline run id. This information will be passed in the ParentRunId property of the published pipeline execution request. Type: string (or Expression with resultType string).
         :param Any ml_pipeline_endpoint_id: ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
         :param Any ml_pipeline_id: ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
         :param Any ml_pipeline_parameters: Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published pipeline. Values will be passed in the ParameterAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any version: Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "name", name)
@@ -8334,17 +8334,17 @@ class AzureMLLinkedServiceResponse(dict):
                  update_resource_endpoint: Optional[Any] = None):
         """
         Azure ML Studio Web Service linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] api_key: The API key for accessing the Azure ML model endpoint.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_key: The API key for accessing the Azure ML model endpoint.
         :param Any ml_endpoint: The Batch Execution REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureML'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any update_resource_endpoint: The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         """
@@ -8497,12 +8497,12 @@ class AzureMLServiceLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureMLService'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "ml_workspace_name", ml_workspace_name)
@@ -8647,15 +8647,15 @@ class AzureMLUpdateResourceActivityResponse(dict):
         Azure ML Update Resource management activity.
         :param str name: Activity name.
         :param Any trained_model_file_path: The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
+        :param 'LinkedServiceReferenceResponse' trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
         :param Any trained_model_name: Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "trained_model_file_path", trained_model_file_path)
@@ -8769,7 +8769,7 @@ class AzureMLWebServiceFileResponse(dict):
         """
         Azure ML WebService Input/Output file
         :param Any file_path: The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
         """
         pulumi.set(__self__, "file_path", file_path)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -8813,12 +8813,12 @@ class AzureMariaDBLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureMariaDB'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' pwd: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'AzureMariaDB')
         if annotations is not None:
@@ -8922,7 +8922,7 @@ class AzureMariaDBSourceResponse(dict):
         A copy activity Azure MariaDB source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -9021,13 +9021,13 @@ class AzureMariaDBTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Azure Database for MariaDB dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureMariaDBTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -9146,11 +9146,11 @@ class AzureMySqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureMySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureMySql')
@@ -9352,7 +9352,7 @@ class AzureMySqlSourceResponse(dict):
         A copy activity Azure MySQL source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -9452,13 +9452,13 @@ class AzureMySqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure MySQL database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureMySqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The name of Azure MySQL database table. Type: string (or Expression with resultType string).
@@ -9587,12 +9587,12 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzurePostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSql')
         if annotations is not None:
@@ -9795,7 +9795,7 @@ class AzurePostgreSqlSourceResponse(dict):
         A copy activity Azure PostgreSQL source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -9895,13 +9895,13 @@ class AzurePostgreSqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Azure PostgreSQL dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzurePostgreSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Azure PostgreSQL database. Type: string (or Expression with resultType string).
@@ -10116,13 +10116,13 @@ class AzureSearchIndexDatasetResponse(dict):
         """
         The Azure Search Index.
         :param Any index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureSearchIndex'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -10338,11 +10338,11 @@ class AzureSearchLinkedServiceResponse(dict):
                Expected value is 'AzureSearch'.
         :param Any url: URL for Azure Search service. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] key: Admin Key for Azure Search service
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] key: Admin Key for Azure Search service
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'AzureSearch')
         pulumi.set(__self__, "url", url)
@@ -10453,13 +10453,13 @@ class AzureSqlDWLinkedServiceResponse(dict):
                Expected value is 'AzureSqlDW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -10604,13 +10604,13 @@ class AzureSqlDWTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure SQL Data Warehouse dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureSqlDWTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
@@ -10744,16 +10744,16 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'AzureSqlDatabase'.
-        :param 'SqlAlwaysEncryptedPropertiesResponseArgs' always_encrypted_settings: Sql always encrypted properties.
+        :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -10914,16 +10914,16 @@ class AzureSqlMILinkedServiceResponse(dict):
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'AzureSqlMI'.
-        :param 'SqlAlwaysEncryptedPropertiesResponseArgs' always_encrypted_settings: Sql always encrypted properties.
+        :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Managed Instance. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Managed Instance.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Managed Instance.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -11078,13 +11078,13 @@ class AzureSqlMITableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure SQL Managed Instance dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureSqlMITable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Azure SQL Managed Instance dataset. Type: string (or Expression with resultType string).
@@ -11222,7 +11222,7 @@ class AzureSqlSinkResponse(dict):
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -11375,17 +11375,17 @@ class AzureSqlSourceResponse(dict):
         A copy activity Azure SQL source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
-        :param 'SqlPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Sql source partitioning.
+        :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any produce_additional_types: Which additional types to produce.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'TabularSource')
         if additional_columns is not None:
@@ -11530,13 +11530,13 @@ class AzureSqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure SQL Server database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
@@ -11666,14 +11666,14 @@ class AzureStorageLinkedServiceResponse(dict):
         The storage account linked service.
         :param str type: Type of linked service.
                Expected value is 'AzureStorage'.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
+        :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' sas_token: The Azure key vault secret reference of sasToken in sas uri.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         pulumi.set(__self__, "type", 'AzureStorage')
@@ -11798,14 +11798,14 @@ class AzureTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure Table storage dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'AzureTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -12055,7 +12055,7 @@ class AzureTableSourceResponse(dict):
         A copy activity Azure Table source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any azure_table_source_ignore_table_not_found: Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
         :param Any azure_table_source_query: Azure Table source query. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -12168,14 +12168,14 @@ class AzureTableStorageLinkedServiceResponse(dict):
         The azure table storage linked service.
         :param str type: Type of linked service.
                Expected value is 'AzureTableStorage'.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
+        :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' sas_token: The Azure key vault secret reference of sasToken in sas uri.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         pulumi.set(__self__, "type", 'AzureTableStorage')
@@ -12301,15 +12301,15 @@ class BinaryDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Binary dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the Binary storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the Binary storage.
         :param str type: Type of dataset.
                Expected value is 'Binary'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the binary dataset.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the binary dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -12428,7 +12428,7 @@ class BinaryReadSettingsResponse(dict):
         Binary read settings.
         :param str type: The read setting type.
                Expected value is 'BinaryReadSettings'.
-        :param Union['TarGZipReadSettingsResponseArgs', 'TarReadSettingsResponseArgs', 'ZipDeflateReadSettingsResponseArgs'] compression_properties: Compression settings.
+        :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
         """
         pulumi.set(__self__, "type", 'BinaryReadSettings')
         if compression_properties is not None:
@@ -12475,7 +12475,7 @@ class BinarySinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponseArgs', 'AzureBlobStorageWriteSettingsResponseArgs', 'AzureDataLakeStoreWriteSettingsResponseArgs', 'AzureFileStorageWriteSettingsResponseArgs', 'FileServerWriteSettingsResponseArgs', 'SftpWriteSettingsResponseArgs'] store_settings: Binary store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Binary store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -12570,11 +12570,11 @@ class BinarySourceResponse(dict):
         A copy activity Binary source.
         :param str type: Copy source type.
                Expected value is 'BinarySource'.
-        :param 'BinaryReadSettingsResponseArgs' format_settings: Binary format settings.
+        :param 'BinaryReadSettingsResponse' format_settings: Binary format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Binary store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Binary store settings.
         """
         pulumi.set(__self__, "type", 'BinarySource')
         if format_settings is not None:
@@ -12669,7 +12669,7 @@ class BlobEventsTriggerResponse(dict):
         :param str blob_path_ends_with: The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
         :param str description: Trigger description.
         :param bool ignore_empty_blobs: If set to true, blobs with zero bytes will be ignored.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "runtime_state", runtime_state)
@@ -13024,14 +13024,14 @@ class BlobTriggerResponse(dict):
         """
         Trigger that runs every time the selected Blob container changes.
         :param str folder_path: The path of the container/folder that will trigger the pipeline.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service: The Azure Storage linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service: The Azure Storage linked service reference.
         :param int max_concurrency: The max number of parallel files to handle when it is triggered.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
                Expected value is 'MultiplePipelineTrigger'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "linked_service", linked_service)
@@ -13164,11 +13164,11 @@ class CassandraLinkedServiceResponse(dict):
                Expected value is 'Cassandra'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The port for the connection. Type: integer (or Expression with resultType integer).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -13304,7 +13304,7 @@ class CassandraSourceResponse(dict):
         A copy activity source for a Cassandra database.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param str consistency_level: The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Should be a SQL-92 query expression or Cassandra Query Language (CQL) command. Type: string (or Expression with resultType string).
@@ -13415,14 +13415,14 @@ class CassandraTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Cassandra database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CassandraTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name of the Cassandra database. Type: string (or Expression with resultType string).
@@ -13546,8 +13546,8 @@ class ChainingTriggerResponse(dict):
                  description: Optional[str] = None):
         """
         Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
-        :param Sequence['PipelineReferenceResponseArgs'] depends_on: Upstream Pipelines.
-        :param 'TriggerPipelineReferenceResponseArgs' pipeline: Pipeline for which runs are created when all upstream pipelines complete successfully.
+        :param Sequence['PipelineReferenceResponse'] depends_on: Upstream Pipelines.
+        :param 'TriggerPipelineReferenceResponse' pipeline: Pipeline for which runs are created when all upstream pipelines complete successfully.
         :param str run_dimension: Run Dimension property that needs to be emitted by upstream pipelines.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
@@ -13638,7 +13638,7 @@ class CmdkeySetupResponse(dict):
                  user_name: Any):
         """
         The custom setup of running cmdkey commands.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password of data source access.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of data source access.
         :param Any target_name: The server name of data source access.
         :param str type: The type of custom setup.
                Expected value is 'CmdkeySetup'.
@@ -13703,14 +13703,14 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Common Data Service for Apps entity dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CommonDataServiceForAppsEntity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -13838,15 +13838,15 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'CommonDataServiceForApps'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_name: The host name of the on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Common Data Service for Apps instance. The property is required for on-prem and required for online when there are more than one Common Data Service for Apps instances associated with the user. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Common Data Service for Apps instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the Common Data Service for Apps instance.
         :param Any port: The port of on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any service_uri: The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -14163,7 +14163,7 @@ class CommonDataServiceForAppsSourceResponse(dict):
         A copy activity Common Data Service for Apps source.
         :param str type: Copy source type.
                Expected value is 'CommonDataServiceForAppsSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Common Data Service for Apps (online & on-premises). Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -14248,7 +14248,7 @@ class ComponentSetupResponse(dict):
         :param str component_name: The name of the 3rd party component.
         :param str type: The type of custom setup.
                Expected value is 'ComponentSetup'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] license_key: The license key to activate the component.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] license_key: The license key to activate the component.
         """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "type", 'ComponentSetup')
@@ -14310,12 +14310,12 @@ class ConcurLinkedServiceResponse(dict):
                Expected value is 'Concur'.
         :param Any username: The user name that you use to access Concur Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username field.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username field.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -14470,13 +14470,13 @@ class ConcurObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Concur Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ConcurObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -14592,7 +14592,7 @@ class ConcurSourceResponse(dict):
         A copy activity Concur Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -14737,9 +14737,9 @@ class ControlActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Container')
@@ -14866,29 +14866,29 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AvroSinkResponseArgs', 'AzureBlobFSSinkResponseArgs', 'AzureDataExplorerSinkResponseArgs', 'AzureDataLakeStoreSinkResponseArgs', 'AzureDatabricksDeltaLakeSinkResponseArgs', 'AzureMySqlSinkResponseArgs', 'AzurePostgreSqlSinkResponseArgs', 'AzureQueueSinkResponseArgs', 'AzureSearchIndexSinkResponseArgs', 'AzureSqlSinkResponseArgs', 'AzureTableSinkResponseArgs', 'BinarySinkResponseArgs', 'BlobSinkResponseArgs', 'CommonDataServiceForAppsSinkResponseArgs', 'CosmosDbMongoDbApiSinkResponseArgs', 'CosmosDbSqlApiSinkResponseArgs', 'DelimitedTextSinkResponseArgs', 'DocumentDbCollectionSinkResponseArgs', 'DynamicsCrmSinkResponseArgs', 'DynamicsSinkResponseArgs', 'FileSystemSinkResponseArgs', 'InformixSinkResponseArgs', 'JsonSinkResponseArgs', 'MicrosoftAccessSinkResponseArgs', 'MongoDbAtlasSinkResponseArgs', 'MongoDbV2SinkResponseArgs', 'OdbcSinkResponseArgs', 'OracleSinkResponseArgs', 'OrcSinkResponseArgs', 'ParquetSinkResponseArgs', 'RestSinkResponseArgs', 'SalesforceServiceCloudSinkResponseArgs', 'SalesforceSinkResponseArgs', 'SapCloudForCustomerSinkResponseArgs', 'SnowflakeSinkResponseArgs', 'SqlDWSinkResponseArgs', 'SqlMISinkResponseArgs', 'SqlServerSinkResponseArgs', 'SqlSinkResponseArgs'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponseArgs', 'AmazonRedshiftSourceResponseArgs', 'AvroSourceResponseArgs', 'AzureBlobFSSourceResponseArgs', 'AzureDataExplorerSourceResponseArgs', 'AzureDataLakeStoreSourceResponseArgs', 'AzureDatabricksDeltaLakeSourceResponseArgs', 'AzureMariaDBSourceResponseArgs', 'AzureMySqlSourceResponseArgs', 'AzurePostgreSqlSourceResponseArgs', 'AzureSqlSourceResponseArgs', 'AzureTableSourceResponseArgs', 'BinarySourceResponseArgs', 'BlobSourceResponseArgs', 'CassandraSourceResponseArgs', 'CommonDataServiceForAppsSourceResponseArgs', 'ConcurSourceResponseArgs', 'CosmosDbMongoDbApiSourceResponseArgs', 'CosmosDbSqlApiSourceResponseArgs', 'CouchbaseSourceResponseArgs', 'Db2SourceResponseArgs', 'DelimitedTextSourceResponseArgs', 'DocumentDbCollectionSourceResponseArgs', 'DrillSourceResponseArgs', 'DynamicsAXSourceResponseArgs', 'DynamicsCrmSourceResponseArgs', 'DynamicsSourceResponseArgs', 'EloquaSourceResponseArgs', 'ExcelSourceResponseArgs', 'FileSystemSourceResponseArgs', 'GoogleAdWordsSourceResponseArgs', 'GoogleBigQuerySourceResponseArgs', 'GreenplumSourceResponseArgs', 'HBaseSourceResponseArgs', 'HdfsSourceResponseArgs', 'HiveSourceResponseArgs', 'HttpSourceResponseArgs', 'HubspotSourceResponseArgs', 'ImpalaSourceResponseArgs', 'InformixSourceResponseArgs', 'JiraSourceResponseArgs', 'JsonSourceResponseArgs', 'MagentoSourceResponseArgs', 'MariaDBSourceResponseArgs', 'MarketoSourceResponseArgs', 'MicrosoftAccessSourceResponseArgs', 'MongoDbAtlasSourceResponseArgs', 'MongoDbSourceResponseArgs', 'MongoDbV2SourceResponseArgs', 'MySqlSourceResponseArgs', 'NetezzaSourceResponseArgs', 'ODataSourceResponseArgs', 'OdbcSourceResponseArgs', 'Office365SourceResponseArgs', 'OracleServiceCloudSourceResponseArgs', 'OracleSourceResponseArgs', 'OrcSourceResponseArgs', 'ParquetSourceResponseArgs', 'PaypalSourceResponseArgs', 'PhoenixSourceResponseArgs', 'PostgreSqlSourceResponseArgs', 'PrestoSourceResponseArgs', 'QuickBooksSourceResponseArgs', 'RelationalSourceResponseArgs', 'ResponsysSourceResponseArgs', 'RestSourceResponseArgs', 'SalesforceMarketingCloudSourceResponseArgs', 'SalesforceServiceCloudSourceResponseArgs', 'SalesforceSourceResponseArgs', 'SapBwSourceResponseArgs', 'SapCloudForCustomerSourceResponseArgs', 'SapEccSourceResponseArgs', 'SapHanaSourceResponseArgs', 'SapOpenHubSourceResponseArgs', 'SapTableSourceResponseArgs', 'ServiceNowSourceResponseArgs', 'SharePointOnlineListSourceResponseArgs', 'ShopifySourceResponseArgs', 'SnowflakeSourceResponseArgs', 'SparkSourceResponseArgs', 'SqlDWSourceResponseArgs', 'SqlMISourceResponseArgs', 'SqlServerSourceResponseArgs', 'SqlSourceResponseArgs', 'SquareSourceResponseArgs', 'SybaseSourceResponseArgs', 'TabularSourceResponseArgs', 'TeradataSourceResponseArgs', 'VerticaSourceResponseArgs', 'WebSourceResponseArgs', 'XeroSourceResponseArgs', 'XmlSourceResponseArgs', 'ZohoSourceResponseArgs'] source: Copy activity source.
+        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any enable_skip_incompatible_row: Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any enable_staging: Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Sequence['DatasetReferenceResponseArgs'] inputs: List of inputs for the activity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'LogSettingsResponseArgs' log_settings: Log settings customer needs provide when enabling log.
-        :param 'LogStorageSettingsResponseArgs' log_storage_settings: (Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.
-        :param Sequence['DatasetReferenceResponseArgs'] outputs: List of outputs for the activity.
+        :param Sequence['DatasetReferenceResponse'] inputs: List of inputs for the activity.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'LogSettingsResponse' log_settings: Log settings customer needs provide when enabling log.
+        :param 'LogStorageSettingsResponse' log_storage_settings: (Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.
+        :param Sequence['DatasetReferenceResponse'] outputs: List of outputs for the activity.
         :param Any parallel_copies: Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Sequence[Any] preserve: Preserve rules.
         :param Sequence[Any] preserve_rules: Preserve Rules.
-        :param 'RedirectIncompatibleRowSettingsResponseArgs' redirect_incompatible_row_settings: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
-        :param 'SkipErrorFileResponseArgs' skip_error_file: Specify the fault tolerance for data consistency.
-        :param 'StagingSettingsResponseArgs' staging_settings: Specifies interim staging settings when EnableStaging is true.
+        :param 'RedirectIncompatibleRowSettingsResponse' redirect_incompatible_row_settings: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
+        :param 'SkipErrorFileResponse' skip_error_file: Specify the fault tolerance for data consistency.
+        :param 'StagingSettingsResponse' staging_settings: Specifies interim staging settings when EnableStaging is true.
         :param Any translator: Copy activity translator. If not specified, tabular translator is used.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any validate_data_consistency: Whether to enable Data Consistency validation. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "name", name)
@@ -15160,17 +15160,17 @@ class CosmosDbLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'CosmosDb'.
         :param Any account_endpoint: The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] account_key: The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] account_key: The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str connection_mode: The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: The name of the database. Type: string (or Expression with resultType string)
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
@@ -15358,13 +15358,13 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
         """
         The CosmosDB (MongoDB API) database dataset.
         :param Any collection: The collection name of the CosmosDB (MongoDB API) database. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CosmosDbMongoDbApiCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -15481,9 +15481,9 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'CosmosDbMongoDbApi'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "database", database)
@@ -15676,9 +15676,9 @@ class CosmosDbMongoDbApiSourceResponse(dict):
         A copy activity source for a CosmosDB (MongoDB API) database.
         :param str type: Copy source type.
                Expected value is 'CosmosDbMongoDbApiSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
-        :param 'MongoDbCursorMethodsPropertiesResponseArgs' cursor_methods: Cursor methods for Mongodb query.
+        :param 'MongoDbCursorMethodsPropertiesResponse' cursor_methods: Cursor methods for Mongodb query.
         :param Any filter: Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -15798,13 +15798,13 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
         """
         Microsoft Azure CosmosDB (SQL API) Collection dataset.
         :param Any collection_name: CosmosDB (SQL API) collection name. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CosmosDbSqlApiCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -16019,7 +16019,7 @@ class CosmosDbSqlApiSourceResponse(dict):
         A copy activity Azure CosmosDB (SQL API) Collection source.
         :param str type: Copy source type.
                Expected value is 'CosmosDbSqlApiSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any detect_datetime: Whether detect primitive values as datetime values. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any page_size: Page size of the result. Type: integer (or Expression with resultType integer).
@@ -16142,12 +16142,12 @@ class CouchbaseLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Couchbase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' cred_string: The Azure key vault secret reference of credString in connection string.
+        :param 'AzureKeyVaultSecretReferenceResponse' cred_string: The Azure key vault secret reference of credString in connection string.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Couchbase')
         if annotations is not None:
@@ -16251,7 +16251,7 @@ class CouchbaseSourceResponse(dict):
         A copy activity Couchbase server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -16350,13 +16350,13 @@ class CouchbaseTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Couchbase server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CouchbaseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -16465,8 +16465,8 @@ class CustomActivityReferenceObjectResponse(dict):
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None):
         """
         Reference objects for custom activity
-        :param Sequence['DatasetReferenceResponseArgs'] datasets: Dataset references.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] linked_services: Linked service references.
+        :param Sequence['DatasetReferenceResponse'] datasets: Dataset references.
+        :param Sequence['LinkedServiceReferenceResponse'] linked_services: Linked service references.
         """
         if datasets is not None:
             pulumi.set(__self__, "datasets", datasets)
@@ -16520,16 +16520,16 @@ class CustomActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any auto_user_specification: Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         :param Any folder_path: Folder path for resource files Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param 'CustomActivityReferenceObjectResponseArgs' reference_objects: Reference objects
-        :param 'LinkedServiceReferenceResponseArgs' resource_linked_service: Resource linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'CustomActivityReferenceObjectResponse' reference_objects: Reference objects
+        :param 'LinkedServiceReferenceResponse' resource_linked_service: Resource linked service reference.
         :param Any retention_time_in_days: The retention time for the files submitted for custom activity. Type: double (or Expression with resultType double).
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
@@ -16690,9 +16690,9 @@ class CustomDataSourceLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'CustomDataSource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'CustomDataSource')
         if annotations is not None:
@@ -16765,13 +16765,13 @@ class CustomDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The custom dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CustomDataset'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -16883,7 +16883,7 @@ class CustomEventsTriggerResponse(dict):
                Expected value is 'MultiplePipelineTrigger'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         :param str subject_begins_with: The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
         :param str subject_ends_with: The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
         """
@@ -17028,7 +17028,7 @@ class DWCopyCommandSettingsResponse(dict):
         """
         DW Copy Command settings.
         :param Mapping[str, str] additional_options: Additional options directly passed to SQL DW in Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalOptions": { "MAXERRORS": "1000", "DATEFORMAT": "'ymd'" }
-        :param Sequence['DWCopyCommandDefaultValueResponseArgs'] default_values: Specifies the default values for each target column in SQL DW. The default values in the property overwrite the DEFAULT constraint set in the DB, and identity column cannot have a default value. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['DWCopyCommandDefaultValueResponse'] default_values: Specifies the default values for each target column in SQL DW. The default values in the property overwrite the DEFAULT constraint set in the DB, and identity column cannot have a default value. Type: array of objects (or Expression with resultType array of objects).
         """
         if additional_options is not None:
             pulumi.set(__self__, "additional_options", additional_options)
@@ -17143,10 +17143,10 @@ class DataFlowSinkResponse(dict):
         """
         Transformation for data flow sink.
         :param str name: Transformation name.
-        :param 'DatasetReferenceResponseArgs' dataset: Dataset reference.
+        :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service: Linked service reference.
-        :param 'LinkedServiceReferenceResponseArgs' schema_linked_service: Schema linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -17216,10 +17216,10 @@ class DataFlowSourceResponse(dict):
         """
         Transformation for data flow source.
         :param str name: Transformation name.
-        :param 'DatasetReferenceResponseArgs' dataset: Dataset reference.
+        :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service: Linked service reference.
-        :param 'LinkedServiceReferenceResponseArgs' schema_linked_service: Schema linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -17286,7 +17286,7 @@ class DataFlowStagingInfoResponse(dict):
         """
         Staging info for execute data flow activity.
         :param Any folder_path: Folder path for staging blob. Type: string (or Expression with resultType string)
-        :param 'LinkedServiceReferenceResponseArgs' linked_service: Staging linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service: Staging linked service reference.
         """
         if folder_path is not None:
             pulumi.set(__self__, "folder_path", folder_path)
@@ -17336,20 +17336,20 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         """
         Data Lake Analytics U-SQL activity.
         :param str name: Activity name.
-        :param 'LinkedServiceReferenceResponseArgs' script_linked_service: Script linked service reference.
+        :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any compilation_mode: Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
         :param Any degree_of_parallelism: The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Mapping[str, Any] parameters: Parameters for U-SQL job request.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any priority: Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
         :param Any runtime_version: Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "script_linked_service", script_linked_service)
@@ -17516,12 +17516,12 @@ class DatabricksNotebookActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Mapping[str, Any] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "notebook_path", notebook_path)
@@ -17648,13 +17648,13 @@ class DatabricksSparkJarActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence[Any] parameters: Parameters that will be passed to the main method.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "main_class_name", main_class_name)
         pulumi.set(__self__, "name", name)
@@ -17781,13 +17781,13 @@ class DatabricksSparkPythonActivityResponse(dict):
         :param Any python_file: The URI of the Python file to be executed. DBFS paths are supported. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence[Any] parameters: Command line parameters that will be passed to the Python file.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "python_file", python_file)
@@ -18203,14 +18203,14 @@ class Db2LinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
         :param Any certificate_common_name: Certificate Common Name when TLS is enabled. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with server, database, authenticationType, userName, packageCollection and certificateCommonName property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: Database name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param Any package_collection: Under where packages are created when querying database. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any server: Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         """
@@ -18376,7 +18376,7 @@ class Db2SourceResponse(dict):
         A copy activity source for Db2 databases.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -18476,13 +18476,13 @@ class Db2TableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Db2 table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'Db2Table'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The Db2 table name. Type: string (or Expression with resultType string).
@@ -18613,20 +18613,20 @@ class DeleteActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Delete activity.
-        :param 'DatasetReferenceResponseArgs' dataset: Delete activity dataset reference.
+        :param 'DatasetReferenceResponse' dataset: Delete activity dataset reference.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any enable_logging: Whether to record detailed logs of delete-activity execution. Default value is false. Type: boolean (or Expression with resultType boolean).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'LogStorageSettingsResponseArgs' log_storage_settings: Log storage settings customer need to provide when enableLogging is true.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'LogStorageSettingsResponse' log_storage_settings: Log storage settings customer need to provide when enableLogging is true.
         :param int max_concurrent_connections: The max concurrent connections to connect data source at the same time.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any recursive: If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Delete activity store settings.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Delete activity store settings.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
@@ -18787,8 +18787,8 @@ class DelimitedTextDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Delimited text dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the delimited text storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the delimited text storage.
         :param str type: Type of dataset.
                Expected value is 'DelimitedText'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -18798,9 +18798,9 @@ class DelimitedTextDatasetResponse(dict):
         :param Any encoding_name: The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param Any escape_char: The escape character. Type: string (or Expression with resultType string).
         :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any null_value: The null value string. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any quote_char: The quote character. Type: string (or Expression with resultType string).
         :param Any row_delimiter: The row delimiter. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -18999,7 +18999,7 @@ class DelimitedTextReadSettingsResponse(dict):
         Delimited text read settings.
         :param str type: The read setting type.
                Expected value is 'DelimitedTextReadSettings'.
-        :param Union['TarGZipReadSettingsResponseArgs', 'TarReadSettingsResponseArgs', 'ZipDeflateReadSettingsResponseArgs'] compression_properties: Compression settings.
+        :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
         :param Any skip_line_count: Indicates the number of non-empty rows to skip when reading data from input files. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'DelimitedTextReadSettings')
@@ -19055,11 +19055,11 @@ class DelimitedTextSinkResponse(dict):
         A copy activity DelimitedText sink.
         :param str type: Copy sink type.
                Expected value is 'DelimitedTextSink'.
-        :param 'DelimitedTextWriteSettingsResponseArgs' format_settings: DelimitedText format settings.
+        :param 'DelimitedTextWriteSettingsResponse' format_settings: DelimitedText format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponseArgs', 'AzureBlobStorageWriteSettingsResponseArgs', 'AzureDataLakeStoreWriteSettingsResponseArgs', 'AzureFileStorageWriteSettingsResponseArgs', 'FileServerWriteSettingsResponseArgs', 'SftpWriteSettingsResponseArgs'] store_settings: DelimitedText store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: DelimitedText store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -19165,12 +19165,12 @@ class DelimitedTextSourceResponse(dict):
         A copy activity DelimitedText source.
         :param str type: Copy source type.
                Expected value is 'DelimitedTextSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
-        :param 'DelimitedTextReadSettingsResponseArgs' format_settings: DelimitedText format settings.
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param 'DelimitedTextReadSettingsResponse' format_settings: DelimitedText format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: DelimitedText store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: DelimitedText store settings.
         """
         pulumi.set(__self__, "type", 'DelimitedTextSource')
         if additional_columns is not None:
@@ -19387,13 +19387,13 @@ class DocumentDbCollectionDatasetResponse(dict):
         """
         Microsoft Azure Document Database Collection dataset.
         :param Any collection_name: Document Database collection name. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DocumentDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -19619,7 +19619,7 @@ class DocumentDbCollectionSourceResponse(dict):
         A copy activity Document Database Collection source.
         :param str type: Copy source type.
                Expected value is 'DocumentDbCollectionSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any nesting_separator: Nested properties separator. Type: string (or Expression with resultType string).
         :param Any query: Documents query. Type: string (or Expression with resultType string).
@@ -19731,12 +19731,12 @@ class DrillLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Drill'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' pwd: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'Drill')
         if annotations is not None:
@@ -19840,7 +19840,7 @@ class DrillSourceResponse(dict):
         A copy activity Drill server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -19940,13 +19940,13 @@ class DrillTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Drill server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DrillTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Drill. Type: string (or Expression with resultType string).
@@ -20077,16 +20077,16 @@ class DynamicsAXLinkedServiceResponse(dict):
         Dynamics AX linked service.
         :param Any aad_resource_id: Specify the resource you are requesting authorization. Type: string (or Expression with resultType string).
         :param Any service_principal_id: Specify the application's client ID. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or reference a secret stored in Azure Key Vault. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or reference a secret stored in Azure Key Vault. Type: string (or Expression with resultType string).
         :param Any tenant: Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'DynamicsAX'.
         :param Any url: The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "aad_resource_id", aad_resource_id)
         pulumi.set(__self__, "service_principal_id", service_principal_id)
@@ -20215,14 +20215,14 @@ class DynamicsAXResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the Dynamics AX OData entity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the Dynamics AX OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'DynamicsAXResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -20337,7 +20337,7 @@ class DynamicsAXSourceResponse(dict):
         A copy activity Dynamics AX source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -20447,14 +20447,14 @@ class DynamicsCrmEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Dynamics CRM entity dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DynamicsCrmEntity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -20582,15 +20582,15 @@ class DynamicsCrmLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'DynamicsCrm'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_name: The host name of the on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics CRM instance. The property is required for on-prem and required for online when there are more than one Dynamics CRM instances associated with the user. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Dynamics CRM instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the Dynamics CRM instance.
         :param Any port: The port of on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any service_uri: The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -20907,7 +20907,7 @@ class DynamicsCrmSourceResponse(dict):
         A copy activity Dynamics CRM source.
         :param str type: Copy source type.
                Expected value is 'DynamicsCrmSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics CRM (online & on-premises). Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -20995,14 +20995,14 @@ class DynamicsEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Dynamics entity dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DynamicsEntity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -21130,15 +21130,15 @@ class DynamicsLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Dynamics'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Dynamics instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the Dynamics instance.
         :param Any port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -21455,7 +21455,7 @@ class DynamicsSourceResponse(dict):
         A copy activity Dynamics source.
         :param str type: Copy source type.
                Expected value is 'DynamicsSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics (online & on-premises). Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -21551,11 +21551,11 @@ class EloquaLinkedServiceResponse(dict):
                Expected value is 'Eloqua'.
         :param Any username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -21700,13 +21700,13 @@ class EloquaObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Eloqua server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'EloquaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -21822,7 +21822,7 @@ class EloquaSourceResponse(dict):
         A copy activity Eloqua server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -21918,7 +21918,7 @@ class EncryptionConfigurationResponse(dict):
         Definition of CMK for the factory.
         :param str key_name: The name of the key in Azure Key Vault to use as Customer Managed Key.
         :param str vault_base_url: The url of the Azure Key Vault used for CMK.
-        :param 'CMKIdentityDefinitionResponseArgs' identity: User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+        :param 'CMKIdentityDefinitionResponse' identity: User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
         :param str key_version: The version of the key used for CMK. If not provided, latest version will be used.
         """
         pulumi.set(__self__, "key_name", key_name)
@@ -22073,18 +22073,18 @@ class ExcelDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Excel dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the excel storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the excel storage.
         :param Any sheet_name: The sheet of excel file. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'Excel'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the json dataset.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any null_value: The null value string. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any range: The partial data of one sheet. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -22247,11 +22247,11 @@ class ExcelSourceResponse(dict):
         A copy activity excel source.
         :param str type: Copy source type.
                Expected value is 'ExcelSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Excel store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Excel store settings.
         """
         pulumi.set(__self__, "type", 'ExcelSource')
         if additional_columns is not None:
@@ -22340,21 +22340,21 @@ class ExecuteDataFlowActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute data flow activity.
-        :param 'DataFlowReferenceResponseArgs' data_flow: Data flow reference.
+        :param 'DataFlowReferenceResponse' data_flow: Data flow reference.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param 'ExecuteDataFlowActivityTypePropertiesResponseComputeArgs' compute: Compute properties for data flow activity.
+        :param 'ExecuteDataFlowActivityTypePropertiesResponseCompute' compute: Compute properties for data flow activity.
         :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'IntegrationRuntimeReferenceResponseArgs' integration_runtime: The integration runtime reference.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'IntegrationRuntimeReferenceResponse' integration_runtime: The integration runtime reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
-        :param 'DataFlowStagingInfoResponseArgs' staging: Staging info for execute data flow activity.
+        :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "data_flow", data_flow)
         pulumi.set(__self__, "name", name)
@@ -22554,13 +22554,13 @@ class ExecutePipelineActivityResponse(dict):
         """
         Execute pipeline activity.
         :param str name: Activity name.
-        :param 'PipelineReferenceResponseArgs' pipeline: Pipeline reference.
+        :param 'PipelineReferenceResponse' pipeline: Pipeline reference.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] parameters: Pipeline parameters.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param bool wait_on_completion: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
         """
         pulumi.set(__self__, "name", name)
@@ -22673,26 +22673,26 @@ class ExecuteSSISPackageActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute SSIS package activity.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str name: Activity name.
-        :param 'SSISPackageLocationResponseArgs' package_location: SSIS package location.
+        :param 'SSISPackageLocationResponse' package_location: SSIS package location.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any environment_path: The environment path to execute the SSIS package. Type: string (or Expression with resultType string).
-        :param 'SSISExecutionCredentialResponseArgs' execution_credential: The package execution credential.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'SSISLogLocationResponseArgs' log_location: SSIS package execution log location.
+        :param 'SSISExecutionCredentialResponse' execution_credential: The package execution credential.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'SSISLogLocationResponse' log_location: SSIS package execution log location.
         :param Any logging_level: The logging level of SSIS package execution. Type: string (or Expression with resultType string).
-        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponseArgs']] package_connection_managers: The package level connection managers to execute the SSIS package.
-        :param Mapping[str, 'SSISExecutionParameterResponseArgs'] package_parameters: The package level parameters to execute the SSIS package.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponseArgs']] project_connection_managers: The project level connection managers to execute the SSIS package.
-        :param Mapping[str, 'SSISExecutionParameterResponseArgs'] project_parameters: The project level parameters to execute the SSIS package.
-        :param Mapping[str, 'SSISPropertyOverrideResponseArgs'] property_overrides: The property overrides to execute the SSIS package.
+        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponse']] package_connection_managers: The package level connection managers to execute the SSIS package.
+        :param Mapping[str, 'SSISExecutionParameterResponse'] package_parameters: The package level parameters to execute the SSIS package.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponse']] project_connection_managers: The project level connection managers to execute the SSIS package.
+        :param Mapping[str, 'SSISExecutionParameterResponse'] project_parameters: The project level parameters to execute the SSIS package.
+        :param Mapping[str, 'SSISPropertyOverrideResponse'] property_overrides: The property overrides to execute the SSIS package.
         :param Any runtime: Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "connect_via", connect_via)
         pulumi.set(__self__, "name", name)
@@ -22904,11 +22904,11 @@ class ExecutionActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -23301,11 +23301,11 @@ class FileServerLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'FileServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the server.
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
@@ -23686,20 +23686,20 @@ class FileShareDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         An on-premises file system dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'FileShare'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the file system.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the file system.
         :param str description: Dataset description.
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the files.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the files.
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
         :param Any modified_datetime_start: The start of file's modified datetime. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -23972,7 +23972,7 @@ class FileSystemSourceResponse(dict):
         A copy activity file system source.
         :param str type: Copy source type.
                Expected value is 'FileSystemSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -24058,14 +24058,14 @@ class FilterActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Filter and return results from input array based on the conditions.
-        :param 'ExpressionResponseArgs' condition: Condition to be used for filtering the input.
-        :param 'ExpressionResponseArgs' items: Input array on which filter should be applied.
+        :param 'ExpressionResponse' condition: Condition to be used for filtering the input.
+        :param 'ExpressionResponse' items: Input array on which filter should be applied.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "items", items)
@@ -24156,16 +24156,16 @@ class ForEachActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param Sequence[Union['AppendVariableActivityResponseArgs', 'AzureDataExplorerCommandActivityResponseArgs', 'AzureFunctionActivityResponseArgs', 'AzureMLBatchExecutionActivityResponseArgs', 'AzureMLExecutePipelineActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'DatabricksSparkJarActivityResponseArgs', 'DatabricksSparkPythonActivityResponseArgs', 'DeleteActivityResponseArgs', 'ExecuteDataFlowActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SetVariableActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'SwitchActivityResponseArgs', 'UntilActivityResponseArgs', 'ValidationActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs', 'WebHookActivityResponseArgs']] activities: List of activities to execute .
-        :param 'ExpressionResponseArgs' items: Collection to iterate.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
+        :param 'ExpressionResponse' items: Collection to iterate.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
         :param int batch_count: Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param bool is_sequential: Should the loop be executed in sequence or in parallel (max 50)
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "activities", activities)
         pulumi.set(__self__, "items", items)
@@ -24420,13 +24420,13 @@ class FtpServerLinkedServiceResponse(dict):
                Expected value is 'FtpServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the FTP server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the FTP server.
         :param Any port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
@@ -24634,18 +24634,18 @@ class GetMetadataActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Activity to get metadata of dataset
-        :param 'DatasetReferenceResponseArgs' dataset: GetMetadata activity dataset reference.
+        :param 'DatasetReferenceResponse' dataset: GetMetadata activity dataset reference.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Any] field_list: Fields of metadata to get from dataset.
-        :param Union['BinaryReadSettingsResponseArgs', 'DelimitedTextReadSettingsResponseArgs', 'JsonReadSettingsResponseArgs', 'XmlReadSettingsResponseArgs'] format_settings: GetMetadata activity format settings.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: GetMetadata activity store settings.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Union['BinaryReadSettingsResponse', 'DelimitedTextReadSettingsResponse', 'JsonReadSettingsResponse', 'XmlReadSettingsResponse'] format_settings: GetMetadata activity format settings.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: GetMetadata activity store settings.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
@@ -24822,19 +24822,19 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         Google AdWords service linked service.
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         :param Any client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param str type: Type of linked service.
                Expected value is 'GoogleAdWords'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of the google application used to acquire the refresh token.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of the google application used to acquire the refresh token.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -25017,13 +25017,13 @@ class GoogleAdWordsObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Google AdWords service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'GoogleAdWordsObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -25139,7 +25139,7 @@ class GoogleAdWordsSourceResponse(dict):
         A copy activity Google AdWords service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -25253,14 +25253,14 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of the google application used to acquire the refresh token.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of the google application used to acquire the refresh token.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
         :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -25457,14 +25457,14 @@ class GoogleBigQueryObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Google BigQuery service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'GoogleBigQueryObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any dataset: The database name of the Google BigQuery. Type: string (or Expression with resultType string).
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Google BigQuery. Type: string (or Expression with resultType string).
@@ -25601,7 +25601,7 @@ class GoogleBigQuerySourceResponse(dict):
         A copy activity Google BigQuery service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -25704,11 +25704,11 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
                Expected value is 'GoogleCloudStorage'.
         :param Any access_key_id: The access key identifier of the Google Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Google Cloud Storage Identity and Access Management (IAM) user.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Google Cloud Storage Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'GoogleCloudStorage')
@@ -26059,12 +26059,12 @@ class GreenplumLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Greenplum'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' pwd: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'Greenplum')
         if annotations is not None:
@@ -26168,7 +26168,7 @@ class GreenplumSourceResponse(dict):
         A copy activity Greenplum Database source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -26268,13 +26268,13 @@ class GreenplumTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Greenplum Database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'GreenplumTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of Greenplum. Type: string (or Expression with resultType string).
@@ -26415,13 +26415,13 @@ class HBaseLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any username: The user name used to connect to the HBase instance.
@@ -26606,13 +26606,13 @@ class HBaseObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         HBase server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HBaseObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -26728,7 +26728,7 @@ class HBaseSourceResponse(dict):
         A copy activity HBase server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -26838,16 +26838,16 @@ class HDInsightHiveActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for Hive job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param int query_timeout: Query timeout value (in minutes).  Effective when the HDInsight cluster is with ESP (Enterprise Security Package)
-        :param 'LinkedServiceReferenceResponseArgs' script_linked_service: Script linked service reference.
+        :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Sequence[Any] variables: User specified arguments under hivevar namespace.
         """
         pulumi.set(__self__, "name", name)
@@ -27029,15 +27029,15 @@ class HDInsightLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'HDInsight'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any file_system: Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
+        :param 'LinkedServiceReferenceResponse' hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
         :param Any is_esp_enabled: Specify if the HDInsight is created with ESP (Enterprise Security Package). Type: Boolean.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: HDInsight cluster password.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: The Azure Storage linked service reference.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: HDInsight cluster password.
         :param Any user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "cluster_uri", cluster_uri)
@@ -27204,15 +27204,15 @@ class HDInsightMapReduceActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for the MapReduce job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
         :param Sequence[Any] jar_libs: Jar libs.
-        :param 'LinkedServiceReferenceResponseArgs' jar_linked_service: Jar linked service reference.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' jar_linked_service: Jar linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "jar_file_path", jar_file_path)
@@ -27415,36 +27415,36 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Any cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
         :param Any host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
         :param Any tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'HDInsightOnDemand'.
         :param Any version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
-        :param Sequence['LinkedServiceReferenceResponseArgs'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
+        :param Sequence['LinkedServiceReferenceResponse'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_password: The password to access the cluster.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_password: The password to access the cluster.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
         :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
         :param Any cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
         :param Any data_node_size: Specifies the size of the data node for the HDInsight cluster.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
-        :param 'LinkedServiceReferenceResponseArgs' hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
+        :param 'LinkedServiceReferenceResponse' hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
         :param Any hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
         :param Any head_node_size: Specifies the size of the head node for the HDInsight cluster.
         :param Any hive_configuration: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
         :param Any map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         :param Any oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Sequence['ScriptActionResponseArgs'] script_actions: Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Sequence['ScriptActionResponse'] script_actions: Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
         :param Any service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key for the service principal id.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key for the service principal id.
         :param Any spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
         :param Any storm_configuration: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
         :param Any subnet_name: The ARM resource ID for the subnet in the vNet. If virtualNetworkId was specified, then this property is required. Type: string (or Expression with resultType string).
@@ -27856,15 +27856,15 @@ class HDInsightPigActivityResponse(dict):
                Expected value is 'Execution'.
         :param Any arguments: User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
         :param Mapping[str, Any] defines: Allows user to specify defines for Pig job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param 'LinkedServiceReferenceResponseArgs' script_linked_service: Script linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -28030,15 +28030,15 @@ class HDInsightSparkActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: The user-specified arguments to HDInsightSparkActivity.
         :param str class_name: The application's Java/Spark main class.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any proxy_user: The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] spark_config: Spark configuration property.
-        :param 'LinkedServiceReferenceResponseArgs' spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "entry_file_path", entry_file_path)
         pulumi.set(__self__, "name", name)
@@ -28231,14 +28231,14 @@ class HDInsightStreamingActivityResponse(dict):
         :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
         :param Sequence[Any] command_environment: Command line environment values.
         :param Mapping[str, Any] defines: Allows user to specify defines for streaming job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' file_linked_service: Linked service reference where the files are located.
+        :param 'LinkedServiceReferenceResponse' file_linked_service: Linked service reference where the files are located.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "file_paths", file_paths)
         pulumi.set(__self__, "input", input)
@@ -28452,11 +28452,11 @@ class HdfsLinkedServiceResponse(dict):
         :param Any url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Windows authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Windows authentication.
         :param Any user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Hdfs')
@@ -28637,7 +28637,7 @@ class HdfsReadSettingsResponse(dict):
         :param str type: The read setting type.
                Expected value is 'HdfsReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param 'DistcpSettingsResponseArgs' distcp_settings: Specifies Distcp-related settings.
+        :param 'DistcpSettingsResponse' distcp_settings: Specifies Distcp-related settings.
         :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -28789,7 +28789,7 @@ class HdfsSourceResponse(dict):
         A copy activity HDFS source.
         :param str type: Copy source type.
                Expected value is 'HdfsSource'.
-        :param 'DistcpSettingsResponseArgs' distcp_settings: Specifies Distcp-related settings.
+        :param 'DistcpSettingsResponse' distcp_settings: Specifies Distcp-related settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -28897,13 +28897,13 @@ class HiveLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the Hive server.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the Username field
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the Username field
         :param Any port: The TCP port that the Hive server uses to listen for client connections.
         :param str server_type: The type of Hive server.
         :param Any service_discovery_mode: true to indicate using the ZooKeeper service, false not.
@@ -29155,13 +29155,13 @@ class HiveObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Hive Server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HiveObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Hive. Type: string (or Expression with resultType string).
@@ -29288,7 +29288,7 @@ class HiveSourceResponse(dict):
         A copy activity Hive Server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -29392,18 +29392,18 @@ class HttpDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         A file in an HTTP web server.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HttpFile'.
         :param Any additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used on files.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used on files.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of files.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
         :param Any request_body: The body for the HTTP request. Type: string (or Expression with resultType string).
         :param Any request_method: The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
@@ -29585,13 +29585,13 @@ class HttpLinkedServiceResponse(dict):
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
         :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param Any enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
         :param Any user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'HttpServer')
@@ -30011,14 +30011,14 @@ class HubspotLinkedServiceResponse(dict):
         :param Any client_id: The client ID associated with your Hubspot application.
         :param str type: Type of linked service.
                Expected value is 'Hubspot'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token obtained when initially authenticating your OAuth integration.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token obtained when initially authenticating your OAuth integration.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Hubspot application.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your Hubspot application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -30174,13 +30174,13 @@ class HubspotObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Hubspot Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HubspotObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -30296,7 +30296,7 @@ class HubspotSourceResponse(dict):
         A copy activity Hubspot Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -30394,15 +30394,15 @@ class IfConditionActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
-        :param 'ExpressionResponseArgs' expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
+        :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence[Union['AppendVariableActivityResponseArgs', 'AzureDataExplorerCommandActivityResponseArgs', 'AzureFunctionActivityResponseArgs', 'AzureMLBatchExecutionActivityResponseArgs', 'AzureMLExecutePipelineActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'DatabricksSparkJarActivityResponseArgs', 'DatabricksSparkPythonActivityResponseArgs', 'DeleteActivityResponseArgs', 'ExecuteDataFlowActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SetVariableActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'SwitchActivityResponseArgs', 'UntilActivityResponseArgs', 'ValidationActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs', 'WebHookActivityResponseArgs']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence[Union['AppendVariableActivityResponseArgs', 'AzureDataExplorerCommandActivityResponseArgs', 'AzureFunctionActivityResponseArgs', 'AzureMLBatchExecutionActivityResponseArgs', 'AzureMLExecutePipelineActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'DatabricksSparkJarActivityResponseArgs', 'DatabricksSparkPythonActivityResponseArgs', 'DeleteActivityResponseArgs', 'ExecuteDataFlowActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SetVariableActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'SwitchActivityResponseArgs', 'UntilActivityResponseArgs', 'ValidationActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs', 'WebHookActivityResponseArgs']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -30518,12 +30518,12 @@ class ImpalaLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name when using UsernameAndPassword.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name when using UsernameAndPassword.
         :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -30710,13 +30710,13 @@ class ImpalaObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Impala server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ImpalaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Impala. Type: string (or Expression with resultType string).
@@ -30843,7 +30843,7 @@ class ImpalaSourceResponse(dict):
         A copy activity Impala server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -30949,12 +30949,12 @@ class InformixLinkedServiceResponse(dict):
                Expected value is 'Informix'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication_type: Type of authentication used to connect to the Informix as ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -31187,7 +31187,7 @@ class InformixSourceResponse(dict):
         A copy activity source for Informix.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -31286,13 +31286,13 @@ class InformixTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Informix table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'InformixTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The Informix table name. Type: string (or Expression with resultType string).
@@ -31405,12 +31405,12 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
-        :param 'IntegrationRuntimeDataFlowPropertiesResponseArgs' data_flow_properties: Data flow properties for managed integration runtime.
+        :param 'IntegrationRuntimeDataFlowPropertiesResponse' data_flow_properties: Data flow properties for managed integration runtime.
         :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
         :param int number_of_nodes: The required number of nodes for managed integration runtime.
-        :param 'IntegrationRuntimeVNetPropertiesResponseArgs' v_net_properties: VNet properties for managed integration runtime.
+        :param 'IntegrationRuntimeVNetPropertiesResponse' v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
             pulumi.set(__self__, "data_flow_properties", data_flow_properties)
@@ -31488,7 +31488,7 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         """
         Custom setup script properties for a managed dedicated integration runtime.
         :param str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
-        :param 'SecureStringResponseArgs' sas_token: The SAS token of the Azure blob container.
+        :param 'SecureStringResponse' sas_token: The SAS token of the Azure blob container.
         """
         if blob_container_uri is not None:
             pulumi.set(__self__, "blob_container_uri", blob_container_uri)
@@ -31576,9 +31576,9 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
                  staging_linked_service: Optional['outputs.EntityReferenceResponse'] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
-        :param 'EntityReferenceResponseArgs' connect_via: The self-hosted integration runtime reference.
+        :param 'EntityReferenceResponse' connect_via: The self-hosted integration runtime reference.
         :param str path: The path to contain the staged data in the Blob storage.
-        :param 'EntityReferenceResponseArgs' staging_linked_service: The staging linked service reference.
+        :param 'EntityReferenceResponse' staging_linked_service: The staging linked service reference.
         """
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
@@ -31676,7 +31676,7 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  dual_standby_pair_name: Optional[str] = None):
         """
         Catalog information for managed dedicated integration runtime.
-        :param 'SecureStringResponseArgs' catalog_admin_password: The password of the administrator user account of the catalog database.
+        :param 'SecureStringResponse' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param str catalog_admin_user_name: The administrator user name of catalog database.
         :param str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param str catalog_server_endpoint: The catalog database server URL.
@@ -31752,13 +31752,13 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  package_stores: Optional[Sequence['outputs.PackageStoreResponse']] = None):
         """
         SSIS properties for managed integration runtime.
-        :param 'IntegrationRuntimeSsisCatalogInfoResponseArgs' catalog_info: Catalog information for managed dedicated integration runtime.
-        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
-        :param 'IntegrationRuntimeDataProxyPropertiesResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeSsisCatalogInfoResponse' catalog_info: Catalog information for managed dedicated integration runtime.
+        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponse' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeDataProxyPropertiesResponse' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param str edition: The edition for the SSIS Integration Runtime
-        :param Sequence[Union['AzPowerShellSetupResponseArgs', 'CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param Sequence[Union['AzPowerShellSetupResponse', 'CmdkeySetupResponse', 'ComponentSetupResponse', 'EnvironmentVariableSetupResponse']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param str license_type: License type for bringing your own license scenario.
-        :param Sequence['PackageStoreResponseArgs'] package_stores: Package stores for the SSIS Integration Runtime.
+        :param Sequence['PackageStoreResponse'] package_stores: Package stores for the SSIS Integration Runtime.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
@@ -31911,11 +31911,11 @@ class JiraLinkedServiceResponse(dict):
                Expected value is 'Jira'.
         :param Any username: The user name that you use to access Jira Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username field.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username field.
         :param Any port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -32071,13 +32071,13 @@ class JiraObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Jira Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'JiraObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -32193,7 +32193,7 @@ class JiraSourceResponse(dict):
         A copy activity Jira Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -32294,16 +32294,16 @@ class JsonDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Json dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
         :param str type: Type of dataset.
                Expected value is 'Json'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the json dataset.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -32543,7 +32543,7 @@ class JsonReadSettingsResponse(dict):
         Json read settings.
         :param str type: The read setting type.
                Expected value is 'JsonReadSettings'.
-        :param Union['TarGZipReadSettingsResponseArgs', 'TarReadSettingsResponseArgs', 'ZipDeflateReadSettingsResponseArgs'] compression_properties: Compression settings.
+        :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
         """
         pulumi.set(__self__, "type", 'JsonReadSettings')
         if compression_properties is not None:
@@ -32588,11 +32588,11 @@ class JsonSinkResponse(dict):
         A copy activity Json sink.
         :param str type: Copy sink type.
                Expected value is 'JsonSink'.
-        :param 'JsonWriteSettingsResponseArgs' format_settings: Json format settings.
+        :param 'JsonWriteSettingsResponse' format_settings: Json format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponseArgs', 'AzureBlobStorageWriteSettingsResponseArgs', 'AzureDataLakeStoreWriteSettingsResponseArgs', 'AzureFileStorageWriteSettingsResponseArgs', 'FileServerWriteSettingsResponseArgs', 'SftpWriteSettingsResponseArgs'] store_settings: Json store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Json store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -32698,12 +32698,12 @@ class JsonSourceResponse(dict):
         A copy activity Json source.
         :param str type: Copy source type.
                Expected value is 'JsonSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
-        :param 'JsonReadSettingsResponseArgs' format_settings: Json format settings.
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param 'JsonReadSettingsResponse' format_settings: Json format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Json store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Json store settings.
         """
         pulumi.set(__self__, "type", 'JsonSource')
         if additional_columns is not None:
@@ -32831,7 +32831,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
         The key authorization type integration runtime.
         :param str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'Key'.
-        :param 'SecureStringResponseArgs' key: The key used for authorization.
+        :param 'SecureStringResponse' key: The key used for authorization.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
         pulumi.set(__self__, "key", key)
@@ -32896,7 +32896,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
 
 
 @pulumi.output_type
-class LinkedIntegrationRuntimeResponseResult(dict):
+class LinkedIntegrationRuntimeResponse(dict):
     """
     The linked integration runtime information.
     """
@@ -33019,7 +33019,7 @@ class LogLocationSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         Log location settings.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Log storage linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Log storage linked service reference.
         :param Any path: The path to storage for storing detailed logs of activity execution. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -33057,8 +33057,8 @@ class LogSettingsResponse(dict):
                  enable_copy_activity_log: Optional[Any] = None):
         """
         Log settings.
-        :param 'LogLocationSettingsResponseArgs' log_location_settings: Log location settings customer needs to provide when enabling log.
-        :param 'CopyActivityLogSettingsResponseArgs' copy_activity_log_settings: Specifies settings for copy activity log.
+        :param 'LogLocationSettingsResponse' log_location_settings: Log location settings customer needs to provide when enabling log.
+        :param 'CopyActivityLogSettingsResponse' copy_activity_log_settings: Specifies settings for copy activity log.
         :param Any enable_copy_activity_log: Specifies whether to enable copy activity log. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "log_location_settings", log_location_settings)
@@ -33107,7 +33107,7 @@ class LogStorageSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         (Deprecated. Please use LogSettings) Log storage settings.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Log storage linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Log storage linked service reference.
         :param Any enable_reliable_logging: Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
         :param Any log_level: Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
         :param Any path: The path to storage for storing detailed logs of activity execution. Type: string (or Expression with resultType string).
@@ -33174,17 +33174,17 @@ class LookupActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Lookup activity.
-        :param 'DatasetReferenceResponseArgs' dataset: Lookup activity dataset reference.
+        :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponseArgs', 'AmazonRedshiftSourceResponseArgs', 'AvroSourceResponseArgs', 'AzureBlobFSSourceResponseArgs', 'AzureDataExplorerSourceResponseArgs', 'AzureDataLakeStoreSourceResponseArgs', 'AzureDatabricksDeltaLakeSourceResponseArgs', 'AzureMariaDBSourceResponseArgs', 'AzureMySqlSourceResponseArgs', 'AzurePostgreSqlSourceResponseArgs', 'AzureSqlSourceResponseArgs', 'AzureTableSourceResponseArgs', 'BinarySourceResponseArgs', 'BlobSourceResponseArgs', 'CassandraSourceResponseArgs', 'CommonDataServiceForAppsSourceResponseArgs', 'ConcurSourceResponseArgs', 'CosmosDbMongoDbApiSourceResponseArgs', 'CosmosDbSqlApiSourceResponseArgs', 'CouchbaseSourceResponseArgs', 'Db2SourceResponseArgs', 'DelimitedTextSourceResponseArgs', 'DocumentDbCollectionSourceResponseArgs', 'DrillSourceResponseArgs', 'DynamicsAXSourceResponseArgs', 'DynamicsCrmSourceResponseArgs', 'DynamicsSourceResponseArgs', 'EloquaSourceResponseArgs', 'ExcelSourceResponseArgs', 'FileSystemSourceResponseArgs', 'GoogleAdWordsSourceResponseArgs', 'GoogleBigQuerySourceResponseArgs', 'GreenplumSourceResponseArgs', 'HBaseSourceResponseArgs', 'HdfsSourceResponseArgs', 'HiveSourceResponseArgs', 'HttpSourceResponseArgs', 'HubspotSourceResponseArgs', 'ImpalaSourceResponseArgs', 'InformixSourceResponseArgs', 'JiraSourceResponseArgs', 'JsonSourceResponseArgs', 'MagentoSourceResponseArgs', 'MariaDBSourceResponseArgs', 'MarketoSourceResponseArgs', 'MicrosoftAccessSourceResponseArgs', 'MongoDbAtlasSourceResponseArgs', 'MongoDbSourceResponseArgs', 'MongoDbV2SourceResponseArgs', 'MySqlSourceResponseArgs', 'NetezzaSourceResponseArgs', 'ODataSourceResponseArgs', 'OdbcSourceResponseArgs', 'Office365SourceResponseArgs', 'OracleServiceCloudSourceResponseArgs', 'OracleSourceResponseArgs', 'OrcSourceResponseArgs', 'ParquetSourceResponseArgs', 'PaypalSourceResponseArgs', 'PhoenixSourceResponseArgs', 'PostgreSqlSourceResponseArgs', 'PrestoSourceResponseArgs', 'QuickBooksSourceResponseArgs', 'RelationalSourceResponseArgs', 'ResponsysSourceResponseArgs', 'RestSourceResponseArgs', 'SalesforceMarketingCloudSourceResponseArgs', 'SalesforceServiceCloudSourceResponseArgs', 'SalesforceSourceResponseArgs', 'SapBwSourceResponseArgs', 'SapCloudForCustomerSourceResponseArgs', 'SapEccSourceResponseArgs', 'SapHanaSourceResponseArgs', 'SapOpenHubSourceResponseArgs', 'SapTableSourceResponseArgs', 'ServiceNowSourceResponseArgs', 'SharePointOnlineListSourceResponseArgs', 'ShopifySourceResponseArgs', 'SnowflakeSourceResponseArgs', 'SparkSourceResponseArgs', 'SqlDWSourceResponseArgs', 'SqlMISourceResponseArgs', 'SqlServerSourceResponseArgs', 'SqlSourceResponseArgs', 'SquareSourceResponseArgs', 'SybaseSourceResponseArgs', 'TabularSourceResponseArgs', 'TeradataSourceResponseArgs', 'VerticaSourceResponseArgs', 'WebSourceResponseArgs', 'XeroSourceResponseArgs', 'XmlSourceResponseArgs', 'ZohoSourceResponseArgs'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any first_row_only: Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
@@ -33310,12 +33310,12 @@ class MagentoLinkedServiceResponse(dict):
         :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param str type: Type of linked service.
                Expected value is 'Magento'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token from Magento.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token from Magento.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -33451,13 +33451,13 @@ class MagentoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Magento server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MagentoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -33573,7 +33573,7 @@ class MagentoSourceResponse(dict):
         A copy activity Magento server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -33656,7 +33656,7 @@ class MagentoSourceResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeErrorResponseResult(dict):
+class ManagedIntegrationRuntimeErrorResponse(dict):
     """
     Error definition for managed integration runtime.
     """
@@ -33711,19 +33711,19 @@ class ManagedIntegrationRuntimeErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeNodeResponseResult(dict):
+class ManagedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of integration runtime node.
     """
     def __init__(__self__, *,
                  node_id: str,
                  status: str,
-                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']] = None):
         """
         Properties of integration runtime node.
         :param str node_id: The managed integration runtime node id.
         :param str status: The managed integration runtime node status.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] errors: The errors that occurred on this integration runtime node.
         """
         pulumi.set(__self__, "node_id", node_id)
         pulumi.set(__self__, "status", status)
@@ -33748,7 +33748,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']]:
         """
         The errors that occurred on this integration runtime node.
         """
@@ -33756,7 +33756,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+class ManagedIntegrationRuntimeOperationResultResponse(dict):
     """
     Properties of managed integration runtime operation result.
     """
@@ -33849,10 +33849,10 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
-        :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
-        :param 'ManagedVirtualNetworkReferenceResponseArgs' managed_virtual_network: Managed Virtual Network reference.
-        :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
+        :param 'ManagedVirtualNetworkReferenceResponse' managed_virtual_network: Managed Virtual Network reference.
+        :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", 'Managed')
@@ -33919,25 +33919,25 @@ class ManagedIntegrationRuntimeResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeStatusResponseResult(dict):
+class ManagedIntegrationRuntimeStatusResponse(dict):
     """
     Managed integration runtime status.
     """
     def __init__(__self__, *,
                  create_time: str,
                  data_factory_name: str,
-                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
-                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
-                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponse',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponse'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponse'],
                  state: str,
                  type: str):
         """
         Managed integration runtime status.
         :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param str data_factory_name: The data factory name which the integration runtime belong to.
-        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
@@ -33968,7 +33968,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="lastOperation")
-    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponse':
         """
         The last operation result that occurred on this integration runtime.
         """
@@ -33976,7 +33976,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponse']:
         """
         The list of nodes for managed integration runtime.
         """
@@ -33984,7 +33984,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="otherErrors")
-    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']:
         """
         The errors that occurred on this integration runtime.
         """
@@ -34024,7 +34024,7 @@ class ManagedPrivateEndpointResponse(dict):
         Properties of a managed private endpoint
         :param bool is_reserved: Denotes whether the managed private endpoint is reserved
         :param str provisioning_state: The managed private endpoint provisioning state
-        :param 'ConnectionStatePropertiesResponseArgs' connection_state: The managed private endpoint connection state
+        :param 'ConnectionStatePropertiesResponse' connection_state: The managed private endpoint connection state
         :param Sequence[str] fqdns: Fully qualified domain names
         :param str group_id: The groupId to which the managed private endpoint is created
         :param str private_link_resource_id: The ARM resource ID of the resource to which the managed private endpoint is created
@@ -34146,11 +34146,11 @@ class MappingDataFlowResponse(dict):
         Mapping data flow.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param str description: The description of the data flow.
-        :param 'DataFlowResponseFolderArgs' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param str script: DataFlow script.
-        :param Sequence['DataFlowSinkResponseArgs'] sinks: List of sinks in data flow.
-        :param Sequence['DataFlowSourceResponseArgs'] sources: List of sources in data flow.
-        :param Sequence['TransformationResponseArgs'] transformations: List of transformations in data flow.
+        :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in data flow.
+        :param Sequence['DataFlowSourceResponse'] sources: List of sources in data flow.
+        :param Sequence['TransformationResponse'] transformations: List of transformations in data flow.
         :param str type: Type of data flow.
                Expected value is 'MappingDataFlow'.
         """
@@ -34259,12 +34259,12 @@ class MariaDBLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'MariaDB'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' pwd: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'MariaDB')
         if annotations is not None:
@@ -34368,7 +34368,7 @@ class MariaDBSourceResponse(dict):
         A copy activity MariaDB server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -34467,13 +34467,13 @@ class MariaDBTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         MariaDB server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MariaDBTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -34597,11 +34597,11 @@ class MarketoLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Marketo'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of your Marketo service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of your Marketo service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -34746,13 +34746,13 @@ class MarketoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Marketo server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MarketoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -34868,7 +34868,7 @@ class MarketoSourceResponse(dict):
         A copy activity Marketo server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -34974,12 +34974,12 @@ class MicrosoftAccessLinkedServiceResponse(dict):
                Expected value is 'MicrosoftAccess'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication_type: Type of authentication used to connect to the Microsoft Access as ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -35211,7 +35211,7 @@ class MicrosoftAccessSourceResponse(dict):
         A copy activity source for Microsoft Access.
         :param str type: Copy source type.
                Expected value is 'MicrosoftAccessSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -35299,13 +35299,13 @@ class MicrosoftAccessTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Microsoft Access table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MicrosoftAccessTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The Microsoft Access table name. Type: string (or Expression with resultType string).
@@ -35422,13 +35422,13 @@ class MongoDbAtlasCollectionDatasetResponse(dict):
         """
         The MongoDB Atlas database dataset.
         :param Any collection: The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MongoDbAtlasCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -35545,9 +35545,9 @@ class MongoDbAtlasLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'MongoDbAtlas'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "database", database)
@@ -35740,9 +35740,9 @@ class MongoDbAtlasSourceResponse(dict):
         A copy activity source for a MongoDB Atlas database.
         :param str type: Copy source type.
                Expected value is 'MongoDbAtlasSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
-        :param 'MongoDbCursorMethodsPropertiesResponseArgs' cursor_methods: Cursor methods for Mongodb query
+        :param 'MongoDbCursorMethodsPropertiesResponse' cursor_methods: Cursor methods for Mongodb query
         :param Any filter: Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -35862,13 +35862,13 @@ class MongoDbCollectionDatasetResponse(dict):
         """
         The MongoDB database dataset.
         :param Any collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MongoDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -36058,12 +36058,12 @@ class MongoDbLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
         :param str authentication_type: The authentication type to be used to connect to the MongoDB database.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -36236,7 +36236,7 @@ class MongoDbSourceResponse(dict):
         A copy activity source for a MongoDB database.
         :param str type: Copy source type.
                Expected value is 'MongoDbSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Should be a SQL-92 query expression. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -36325,13 +36325,13 @@ class MongoDbV2CollectionDatasetResponse(dict):
         """
         The MongoDB database dataset.
         :param Any collection: The collection name of the MongoDB database. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MongoDbV2Collection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -36448,9 +36448,9 @@ class MongoDbV2LinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'MongoDbV2'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "database", database)
@@ -36643,9 +36643,9 @@ class MongoDbV2SourceResponse(dict):
         A copy activity source for a MongoDB database.
         :param str type: Copy source type.
                Expected value is 'MongoDbV2Source'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
-        :param 'MongoDbCursorMethodsPropertiesResponseArgs' cursor_methods: Cursor methods for Mongodb query
+        :param 'MongoDbCursorMethodsPropertiesResponse' cursor_methods: Cursor methods for Mongodb query
         :param Any filter: Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -36765,7 +36765,7 @@ class MultiplePipelineTriggerResponse(dict):
                Expected value is 'MultiplePipelineTrigger'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "runtime_state", runtime_state)
         pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
@@ -36841,11 +36841,11 @@ class MySqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'MySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'MySql')
@@ -36948,7 +36948,7 @@ class MySqlSourceResponse(dict):
         A copy activity source for MySQL databases.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -37047,13 +37047,13 @@ class MySqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The MySQL table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MySqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The MySQL table name. Type: string (or Expression with resultType string).
@@ -37171,12 +37171,12 @@ class NetezzaLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Netezza'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' pwd: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'Netezza')
         if annotations is not None:
@@ -37332,10 +37332,10 @@ class NetezzaSourceResponse(dict):
         A copy activity Netezza source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Netezza read in parallel. Possible values include: "None", "DataSlice", "DynamicRange".
-        :param 'NetezzaPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Netezza source partitioning.
+        :param 'NetezzaPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Netezza source partitioning.
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -37454,13 +37454,13 @@ class NetezzaTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Netezza dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'NetezzaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Netezza. Type: string (or Expression with resultType string).
@@ -37606,15 +37606,15 @@ class ODataLinkedServiceResponse(dict):
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param str authentication_type: Type of authentication used to connect to the OData service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password of the OData service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_embedded_cert_password: Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password of the OData service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert_password: Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
         :param Any service_principal_id: Specify the application id of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: Specify the secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: Specify the secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         :param Any tenant: Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
         :param Any user_name: User name of the OData service. Type: string (or Expression with resultType string).
         """
@@ -37829,13 +37829,13 @@ class ODataResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Open Data Protocol (OData) resource dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ODataResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any path: The OData resource path. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -37951,7 +37951,7 @@ class ODataSourceResponse(dict):
         A copy activity source for OData source.
         :param str type: Copy source type.
                Expected value is 'ODataSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -38057,12 +38057,12 @@ class OdbcLinkedServiceResponse(dict):
                Expected value is 'Odbc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -38295,7 +38295,7 @@ class OdbcSourceResponse(dict):
         A copy activity source for ODBC databases.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -38394,13 +38394,13 @@ class OdbcTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The ODBC table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'OdbcTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The ODBC table name. Type: string (or Expression with resultType string).
@@ -38517,14 +38517,14 @@ class Office365DatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Office365 account.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'Office365Table'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any predicate: A predicate expression that can be used to filter the specific rows to extract from Office 365. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -38652,15 +38652,15 @@ class Office365LinkedServiceResponse(dict):
         Office365 linked service.
         :param Any office365_tenant_id: Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string).
         :param Any service_principal_id: Specify the application's client ID. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: Specify the application's key.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: Specify the application's key.
         :param Any service_principal_tenant_id: Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'Office365'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "office365_tenant_id", office365_tenant_id)
         pulumi.set(__self__, "service_principal_id", service_principal_id)
@@ -38919,11 +38919,11 @@ class OracleCloudStorageLinkedServiceResponse(dict):
                Expected value is 'OracleCloudStorage'.
         :param Any access_key_id: The access key identifier of the Oracle Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'OracleCloudStorage')
@@ -39275,11 +39275,11 @@ class OracleLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Oracle')
@@ -39448,15 +39448,15 @@ class OracleServiceCloudLinkedServiceResponse(dict):
         """
         Oracle Service Cloud linked service.
         :param Any host: The URL of the Oracle Service Cloud instance.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username key.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username key.
         :param str type: Type of linked service.
                Expected value is 'OracleServiceCloud'.
         :param Any username: The user name that you use to access Oracle Service Cloud server.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -39600,13 +39600,13 @@ class OracleServiceCloudObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Oracle Service Cloud dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'OracleServiceCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -39722,7 +39722,7 @@ class OracleServiceCloudSourceResponse(dict):
         A copy activity Oracle Service Cloud source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -39922,11 +39922,11 @@ class OracleSourceResponse(dict):
         A copy activity Oracle source.
         :param str type: Copy source type.
                Expected value is 'OracleSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any oracle_reader_query: Oracle reader query. Type: string (or Expression with resultType string).
         :param Any partition_option: The partition mechanism that will be used for Oracle read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
-        :param 'OraclePartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Oracle source partitioning.
+        :param 'OraclePartitionSettingsResponse' partition_settings: The settings that will be leveraged for Oracle source partitioning.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -40044,13 +40044,13 @@ class OracleTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The on-premises Oracle database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'OracleTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
@@ -40178,14 +40178,14 @@ class OrcDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         ORC dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the ORC data storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the ORC data storage.
         :param str type: Type of dataset.
                Expected value is 'Orc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -40358,11 +40358,11 @@ class OrcSinkResponse(dict):
         A copy activity ORC sink.
         :param str type: Copy sink type.
                Expected value is 'OrcSink'.
-        :param 'OrcWriteSettingsResponseArgs' format_settings: ORC format settings.
+        :param 'OrcWriteSettingsResponse' format_settings: ORC format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponseArgs', 'AzureBlobStorageWriteSettingsResponseArgs', 'AzureDataLakeStoreWriteSettingsResponseArgs', 'AzureFileStorageWriteSettingsResponseArgs', 'FileServerWriteSettingsResponseArgs', 'SftpWriteSettingsResponseArgs'] store_settings: ORC store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: ORC store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -40467,11 +40467,11 @@ class OrcSourceResponse(dict):
         A copy activity ORC source.
         :param str type: Copy source type.
                Expected value is 'OrcSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: ORC store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: ORC store settings.
         """
         pulumi.set(__self__, "type", 'OrcSource')
         if additional_columns is not None:
@@ -40600,7 +40600,7 @@ class PackageStoreResponse(dict):
         """
         Package store for the SSIS integration runtime.
         :param str name: The name of the package store
-        :param 'EntityReferenceResponseArgs' package_store_linked_service: The package store linked service reference.
+        :param 'EntityReferenceResponse' package_store_linked_service: The package store linked service reference.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "package_store_linked_service", package_store_linked_service)
@@ -40680,14 +40680,14 @@ class ParquetDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Parquet dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the parquet storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the parquet storage.
         :param str type: Type of dataset.
                Expected value is 'Parquet'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -40860,11 +40860,11 @@ class ParquetSinkResponse(dict):
         A copy activity Parquet sink.
         :param str type: Copy sink type.
                Expected value is 'ParquetSink'.
-        :param 'ParquetWriteSettingsResponseArgs' format_settings: Parquet format settings.
+        :param 'ParquetWriteSettingsResponse' format_settings: Parquet format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponseArgs', 'AzureBlobStorageWriteSettingsResponseArgs', 'AzureDataLakeStoreWriteSettingsResponseArgs', 'AzureFileStorageWriteSettingsResponseArgs', 'FileServerWriteSettingsResponseArgs', 'SftpWriteSettingsResponseArgs'] store_settings: Parquet store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Parquet store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -40969,11 +40969,11 @@ class ParquetSourceResponse(dict):
         A copy activity Parquet source.
         :param str type: Copy source type.
                Expected value is 'ParquetSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Parquet store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Parquet store settings.
         """
         pulumi.set(__self__, "type", 'ParquetSource')
         if additional_columns is not None:
@@ -41116,11 +41116,11 @@ class PaypalLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Paypal'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your PayPal application.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your PayPal application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -41265,13 +41265,13 @@ class PaypalObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Paypal Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PaypalObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -41387,7 +41387,7 @@ class PaypalSourceResponse(dict):
         A copy activity Paypal Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -41501,13 +41501,13 @@ class PhoenixLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -41704,13 +41704,13 @@ class PhoenixObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Phoenix server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PhoenixObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Phoenix. Type: string (or Expression with resultType string).
@@ -41837,7 +41837,7 @@ class PhoenixSourceResponse(dict):
         A copy activity Phoenix server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -41954,7 +41954,7 @@ class PipelinePolicyResponse(dict):
                  elapsed_time_metric: Optional['outputs.PipelineElapsedTimeMetricPolicyResponse'] = None):
         """
         Pipeline Policy.
-        :param 'PipelineElapsedTimeMetricPolicyResponseArgs' elapsed_time_metric: Pipeline ElapsedTime Metric Policy.
+        :param 'PipelineElapsedTimeMetricPolicyResponse' elapsed_time_metric: Pipeline ElapsedTime Metric Policy.
         """
         if elapsed_time_metric is not None:
             pulumi.set(__self__, "elapsed_time_metric", elapsed_time_metric)
@@ -42127,11 +42127,11 @@ class PostgreSqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'PostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'PostgreSql')
@@ -42234,7 +42234,7 @@ class PostgreSqlSourceResponse(dict):
         A copy activity source for PostgreSQL databases.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -42334,13 +42334,13 @@ class PostgreSqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The PostgreSQL table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PostgreSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The PostgreSQL table name. Type: string (or Expression with resultType string).
@@ -42486,12 +42486,12 @@ class PrestoLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
         :param Any time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
@@ -42707,13 +42707,13 @@ class PrestoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Presto server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PrestoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Presto. Type: string (or Expression with resultType string).
@@ -42840,7 +42840,7 @@ class PrestoSourceResponse(dict):
         A copy activity Presto server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -42996,18 +42996,18 @@ class QuickBooksLinkedServiceResponse(dict):
         QuickBooks server linked service.
         :param str type: Type of linked service.
                Expected value is 'QuickBooks'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for OAuth 1.0 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token_secret: The access token secret for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token_secret: The access token secret for OAuth 1.0 authentication.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any company_id: The company ID of the QuickBooks company to authorize.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to QuickBooks. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param Any consumer_key: The consumer key for OAuth 1.0 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         pulumi.set(__self__, "type", 'QuickBooks')
@@ -43172,13 +43172,13 @@ class QuickBooksObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         QuickBooks server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'QuickBooksObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -43294,7 +43294,7 @@ class QuickBooksSourceResponse(dict):
         A copy activity QuickBooks server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -43430,7 +43430,7 @@ class RecurrenceScheduleResponse(dict):
         :param Sequence[int] hours: The hours.
         :param Sequence[int] minutes: The minutes.
         :param Sequence[int] month_days: The month days.
-        :param Sequence['RecurrenceScheduleOccurrenceResponseArgs'] monthly_occurrences: The monthly occurrences.
+        :param Sequence['RecurrenceScheduleOccurrenceResponse'] monthly_occurrences: The monthly occurrences.
         :param Sequence[str] week_days: The days of the week.
         """
         if hours is not None:
@@ -43536,7 +43536,7 @@ class RedshiftUnloadSettingsResponse(dict):
         """
         The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
         :param Any bucket_name: The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' s3_linked_service_name: The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
+        :param 'LinkedServiceReferenceResponse' s3_linked_service_name: The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "s3_linked_service_name", s3_linked_service_name)
@@ -43577,7 +43577,7 @@ class RelationalSourceResponse(dict):
         A copy activity source for various relational databases.
         :param str type: Copy source type.
                Expected value is 'RelationalSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -43665,13 +43665,13 @@ class RelationalTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The relational table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'RelationalTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The relational table name. Type: string (or Expression with resultType string).
@@ -43781,8 +43781,8 @@ class RemotePrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None):
         """
         A remote private endpoint connection
-        :param 'ArmIdWrapperResponseArgs' private_endpoint: PrivateEndpoint of a remote private endpoint connection
-        :param 'PrivateLinkConnectionStateResponseArgs' private_link_service_connection_state: The state of a private link connection
+        :param 'ArmIdWrapperResponse' private_endpoint: PrivateEndpoint of a remote private endpoint connection
+        :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: The state of a private link connection
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -43946,11 +43946,11 @@ class ResponsysLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Responsys'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -44095,13 +44095,13 @@ class ResponsysObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Responsys dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ResponsysObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -44217,7 +44217,7 @@ class ResponsysSourceResponse(dict):
         A copy activity Responsys source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -44320,15 +44320,15 @@ class RestResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         A Rest service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'RestResource'.
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL to the resource that the RESTful API provides. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
         :param Any request_method: The HTTP method used to call the RESTful API. The default is GET. Type: string (or Expression with resultType string).
@@ -44502,14 +44502,14 @@ class RestServiceLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_server_certificate_validation: Whether to validate server side SSL certificate when connecting to the endpoint.The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password used in Basic authentication type.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password used in Basic authentication type.
         :param Any service_principal_id: The application's client ID used in AadServicePrincipal authentication type.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The application's key used in AadServicePrincipal authentication type.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The application's key used in AadServicePrincipal authentication type.
         :param Any tenant: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
         :param Any user_name: The user name used in Basic authentication type.
         """
@@ -44854,7 +44854,7 @@ class RestSourceResponse(dict):
         A copy activity Rest service source.
         :param str type: Copy source type.
                Expected value is 'RestSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -45030,7 +45030,7 @@ class SSISAccessCredentialResponse(dict):
         """
         SSIS access credential.
         :param Any domain: Domain for windows authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for windows authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for windows authentication.
         :param Any user_name: UseName for windows authentication.
         """
         pulumi.set(__self__, "domain", domain)
@@ -45137,7 +45137,7 @@ class SSISExecutionCredentialResponse(dict):
         """
         SSIS package execution credential.
         :param Any domain: Domain for windows authentication.
-        :param 'SecureStringResponseArgs' password: Password for windows authentication.
+        :param 'SecureStringResponse' password: Password for windows authentication.
         :param Any user_name: UseName for windows authentication.
         """
         pulumi.set(__self__, "domain", domain)
@@ -45211,7 +45211,7 @@ class SSISLogLocationResponse(dict):
         SSIS package execution log location
         :param Any log_path: The SSIS package execution log path. Type: string (or Expression with resultType string).
         :param str type: The type of SSIS log location.
-        :param 'SSISAccessCredentialResponseArgs' access_credential: The package execution log access credential.
+        :param 'SSISAccessCredentialResponse' access_credential: The package execution log access credential.
         :param Any log_refresh_interval: Specifies the interval to refresh log. The default interval is 5 minutes. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "log_path", log_path)
@@ -45275,14 +45275,14 @@ class SSISPackageLocationResponse(dict):
                  type: Optional[str] = None):
         """
         SSIS package location.
-        :param 'SSISAccessCredentialResponseArgs' access_credential: The package access credential.
-        :param Sequence['SSISChildPackageResponseArgs'] child_packages: The embedded child package list.
-        :param 'SSISAccessCredentialResponseArgs' configuration_access_credential: The configuration file access credential.
+        :param 'SSISAccessCredentialResponse' access_credential: The package access credential.
+        :param Sequence['SSISChildPackageResponse'] child_packages: The embedded child package list.
+        :param 'SSISAccessCredentialResponse' configuration_access_credential: The configuration file access credential.
         :param Any configuration_path: The configuration file of the package execution. Type: string (or Expression with resultType string).
         :param Any package_content: The embedded package content. Type: string (or Expression with resultType string).
         :param str package_last_modified_date: The embedded package last modified date.
         :param str package_name: The package name.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] package_password: Password of the package.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] package_password: Password of the package.
         :param Any package_path: The SSIS package path. Type: string (or Expression with resultType string).
         :param str type: The type of SSIS package location.
         """
@@ -45451,13 +45451,13 @@ class SalesforceLinkedServiceResponse(dict):
                Expected value is 'Salesforce'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication of the Salesforce instance.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] security_token: The security token is optional to remotely access Salesforce instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication of the Salesforce instance.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] security_token: The security token is optional to remotely access Salesforce instance.
         :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Salesforce')
@@ -45599,12 +45599,12 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
                Expected value is 'SalesforceMarketingCloud'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Salesforce Marketing Cloud. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -45751,13 +45751,13 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Salesforce Marketing Cloud dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SalesforceMarketingCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -45873,7 +45873,7 @@ class SalesforceMarketingCloudSourceResponse(dict):
         A copy activity Salesforce Marketing Cloud source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -45972,14 +45972,14 @@ class SalesforceObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce object dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SalesforceObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -46101,14 +46101,14 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
                Expected value is 'SalesforceServiceCloud'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any environment_url: The URL of Salesforce Service Cloud instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param Any extended_properties: Extended properties appended to the connection string. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication of the Salesforce instance.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] security_token: The security token is optional to remotely access Salesforce instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication of the Salesforce instance.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] security_token: The security token is optional to remotely access Salesforce instance.
         :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SalesforceServiceCloud')
@@ -46253,14 +46253,14 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce Service Cloud object dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SalesforceServiceCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any object_api_name: The Salesforce Service Cloud object API name. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -46498,7 +46498,7 @@ class SalesforceServiceCloudSourceResponse(dict):
         A copy activity Salesforce Service Cloud source.
         :param str type: Copy source type.
                Expected value is 'SalesforceServiceCloudSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param str read_behavior: The read behavior for the operation. Default is Query.
@@ -46721,7 +46721,7 @@ class SalesforceSourceResponse(dict):
         A copy activity Salesforce source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -46839,11 +46839,11 @@ class SapBWLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'SapBW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP BW server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP BW server.
         :param Any user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -46974,13 +46974,13 @@ class SapBwCubeDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The SAP BW cube dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SapBwCube'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -47085,7 +47085,7 @@ class SapBwSourceResponse(dict):
         A copy activity source for SapBW server via MDX.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: MDX query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -47188,11 +47188,11 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
                Expected value is 'SapCloudForCustomer'.
         :param Any url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapCloudForCustomer')
@@ -47306,14 +47306,14 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the SAP Cloud for Customer OData entity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SapCloudForCustomerResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -47539,7 +47539,7 @@ class SapCloudForCustomerSourceResponse(dict):
         A copy activity source for SAP Cloud for Customer source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: SAP Cloud for Customer OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -47653,11 +47653,11 @@ class SapEccLinkedServiceResponse(dict):
                Expected value is 'SapEcc'.
         :param str url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param str username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapEcc')
@@ -47771,14 +47771,14 @@ class SapEccResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the SAP ECC OData entity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SapEccResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -47893,7 +47893,7 @@ class SapEccSourceResponse(dict):
         A copy activity source for SAP ECC source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: SAP ECC OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -48009,12 +48009,12 @@ class SapHanaLinkedServiceResponse(dict):
                Expected value is 'SapHana'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the SAP HANA server.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: SAP HANA ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP HANA server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP HANA server.
         :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         :param Any user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
@@ -48179,11 +48179,11 @@ class SapHanaSourceResponse(dict):
         A copy activity source for SAP HANA source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any packet_size: The packet size of data read from SAP HANA. Type: integer(or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
-        :param 'SapHanaPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for SAP HANA source partitioning.
+        :param 'SapHanaPartitionSettingsResponse' partition_settings: The settings that will be leveraged for SAP HANA source partitioning.
         :param Any query: SAP HANA Sql query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -48311,13 +48311,13 @@ class SapHanaTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         SAP HANA Table properties.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SapHanaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of SAP HANA. Type: string (or Expression with resultType string).
@@ -48444,15 +48444,15 @@ class SapOpenHubLinkedServiceResponse(dict):
                Expected value is 'SapOpenHub'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: Client ID of the client on the BW system where the open hub destination is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any language: Language of the BW system where the open hub destination is located. The default value is EN. Type: string (or Expression with resultType string).
         :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
         :param Any message_server_service: The service name or port number of the Message Server. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP BW server where the open hub destination is located.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP BW server where the open hub destination is located.
         :param Any server: Host name of the SAP BW instance where the open hub destination is located. Type: string (or Expression with resultType string).
         :param Any system_id: SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         :param Any system_number: System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
@@ -48643,7 +48643,7 @@ class SapOpenHubSourceResponse(dict):
         A copy activity source for SAP Business Warehouse Open Hub Destination source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
         :param Any exclude_last_request: Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -48777,7 +48777,7 @@ class SapOpenHubTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Sap Business Warehouse Open Hub Destination Table properties.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any open_hub_destination_name: The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SapOpenHubTable'.
@@ -48785,8 +48785,8 @@ class SapOpenHubTableDatasetResponse(dict):
         :param Any base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param str description: Dataset description.
         :param Any exclude_last_request: Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -48936,15 +48936,15 @@ class SapTableLinkedServiceResponse(dict):
                Expected value is 'SapTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any language: Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
         :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
         :param Any message_server_service: The service name or port number of the Message Server. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP server where the table is located.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP server where the table is located.
         :param Any server: Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_library_path: External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_mode: SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
@@ -49249,14 +49249,14 @@ class SapTableResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         SAP Table Resource properties.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The name of the SAP Table. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SapTableResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -49378,12 +49378,12 @@ class SapTableSourceResponse(dict):
         A copy activity source for SAP Table source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for SAP table read in parallel. Possible values include: "None", "PartitionOnInt", "PartitionOnCalendarYear", "PartitionOnCalendarMonth", "PartitionOnCalendarDate", "PartitionOnTime".
-        :param 'SapTablePartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for SAP table source partitioning.
+        :param 'SapTablePartitionSettingsResponse' partition_settings: The settings that will be leveraged for SAP table source partitioning.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any rfc_table_fields: The fields of the SAP table that will be retrieved. For example, column0, column1. Type: string (or Expression with resultType string).
         :param Any rfc_table_options: The options for the filtering of the SAP Table. For example, COLUMN0 EQ SOME VALUE. Type: string (or Expression with resultType string).
@@ -49565,7 +49565,7 @@ class ScheduleTriggerRecurrenceResponse(dict):
         :param str end_time: The end time.
         :param str frequency: The frequency.
         :param int interval: The interval.
-        :param 'RecurrenceScheduleResponseArgs' schedule: The recurrence schedule.
+        :param 'RecurrenceScheduleResponse' schedule: The recurrence schedule.
         :param str start_time: The start time.
         :param str time_zone: The time zone.
         """
@@ -49648,13 +49648,13 @@ class ScheduleTriggerResponse(dict):
                  pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Trigger that creates pipeline runs periodically, on schedule.
-        :param 'ScheduleTriggerRecurrenceResponseArgs' recurrence: Recurrence schedule configuration.
+        :param 'ScheduleTriggerRecurrenceResponse' recurrence: Recurrence schedule configuration.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
                Expected value is 'MultiplePipelineTrigger'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "recurrence", recurrence)
         pulumi.set(__self__, "runtime_state", runtime_state)
@@ -49867,7 +49867,7 @@ class SelfDependencyTumblingWindowTriggerReferenceResponse(dict):
 
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+class SelfHostedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of Self-hosted integration runtime node.
     """
@@ -50089,7 +50089,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         :param str type: Type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
-        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationResponseArgs'] linked_info: The base definition of a linked integration runtime.
+        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponse', 'LinkedIntegrationRuntimeRbacAuthorizationResponse'] linked_info: The base definition of a linked integration runtime.
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -50127,7 +50127,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
 
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+class SelfHostedIntegrationRuntimeStatusResponse(dict):
     """
     Self-hosted integration runtime status.
     """
@@ -50149,8 +50149,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  update_delay_offset: str,
                  version: str,
                  version_status: str,
-                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
-                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None):
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None):
         """
         Self-hosted integration runtime status.
         :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
@@ -50171,8 +50171,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
-        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
-        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        :param Sequence['LinkedIntegrationRuntimeResponse'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for this integration runtime.
         """
         pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "auto_update_eta", auto_update_eta)
@@ -50335,7 +50335,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']]:
         """
         The list of linked integration runtimes that are created to share with this integration runtime.
         """
@@ -50343,7 +50343,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']]:
         """
         The list of nodes for this integration runtime.
         """
@@ -50379,12 +50379,12 @@ class ServiceNowLinkedServiceResponse(dict):
                Expected value is 'ServiceNow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: The client id for OAuth2 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret for OAuth2 authentication.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret for OAuth2 authentication.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -50560,13 +50560,13 @@ class ServiceNowObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         ServiceNow server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ServiceNowObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -50682,7 +50682,7 @@ class ServiceNowSourceResponse(dict):
         A copy activity ServiceNow server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -50782,9 +50782,9 @@ class SetVariableActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any value: Value to be set. Could be a static value or Expression
         :param str variable_name: Name of the variable whose value needs to be set.
         """
@@ -51089,15 +51089,15 @@ class SftpServerLinkedServiceResponse(dict):
                Expected value is 'Sftp'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the SFTP server for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the SFTP server for Basic authentication.
         :param Any port: The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] private_key_content: Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key_content: Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
         :param Any private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
         :param Any skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
@@ -51360,16 +51360,16 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         """
         SharePoint Online List linked service.
         :param Any service_principal_id: The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         :param Any site_url: The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         :param Any tenant_id: The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'SharePointOnlineList'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "service_principal_id", service_principal_id)
         pulumi.set(__self__, "service_principal_key", service_principal_key)
@@ -51489,14 +51489,14 @@ class SharePointOnlineListResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The sharepoint online list resource dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SharePointOnlineListResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any list_name: The name of the SharePoint Online list. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -51703,12 +51703,12 @@ class ShopifyLinkedServiceResponse(dict):
         :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param str type: Type of linked service.
                Expected value is 'Shopify'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -51844,13 +51844,13 @@ class ShopifyObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Shopify Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ShopifyObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -51966,7 +51966,7 @@ class ShopifySourceResponse(dict):
         A copy activity Shopify Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -52103,13 +52103,13 @@ class SnowflakeDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The snowflake dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SnowflakeTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Snowflake database. Type: string (or Expression with resultType string).
@@ -52330,11 +52330,11 @@ class SnowflakeLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Snowflake'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' password: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Snowflake')
@@ -52438,7 +52438,7 @@ class SnowflakeSinkResponse(dict):
         A copy activity snowflake sink.
         :param str type: Copy sink type.
                Expected value is 'SnowflakeSink'.
-        :param 'SnowflakeImportCopyCommandResponseArgs' import_settings: Snowflake import settings.
+        :param 'SnowflakeImportCopyCommandResponse' import_settings: Snowflake import settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -52547,7 +52547,7 @@ class SnowflakeSourceResponse(dict):
         A copy activity snowflake source.
         :param str type: Copy source type.
                Expected value is 'SnowflakeSource'.
-        :param 'SnowflakeExportCopyCommandResponseArgs' export_settings: Snowflake export settings.
+        :param 'SnowflakeExportCopyCommandResponse' export_settings: Snowflake export settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Snowflake Sql query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -52653,13 +52653,13 @@ class SparkLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the Spark server.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the Username field
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the Username field
         :param str server_type: The type of Spark server.
         :param str thrift_transport_protocol: The transport protocol to use in the Thrift layer.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
@@ -52876,13 +52876,13 @@ class SparkObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Spark Server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SparkObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Spark. Type: string (or Expression with resultType string).
@@ -53009,7 +53009,7 @@ class SparkSourceResponse(dict):
         A copy activity Spark Server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -53104,7 +53104,7 @@ class SqlAlwaysEncryptedPropertiesResponse(dict):
         Sql always encrypted properties.
         :param str always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
         """
         pulumi.set(__self__, "always_encrypted_akv_auth_type", always_encrypted_akv_auth_type)
         if service_principal_id is not None:
@@ -53164,9 +53164,9 @@ class SqlDWSinkResponse(dict):
                Expected value is 'SqlDWSink'.
         :param Any allow_copy_command: Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean).
         :param Any allow_poly_base: Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean).
-        :param 'DWCopyCommandSettingsResponseArgs' copy_command_settings: Specifies Copy Command related settings when allowCopyCommand is true.
+        :param 'DWCopyCommandSettingsResponse' copy_command_settings: Specifies Copy Command related settings when allowCopyCommand is true.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
-        :param 'PolybaseSettingsResponseArgs' poly_base_settings: Specifies PolyBase-related settings when allowPolyBase is true.
+        :param 'PolybaseSettingsResponse' poly_base_settings: Specifies PolyBase-related settings when allowPolyBase is true.
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -53320,10 +53320,10 @@ class SqlDWSourceResponse(dict):
         A copy activity SQL Data Warehouse source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
-        :param 'SqlPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Sql source partitioning.
+        :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -53474,7 +53474,7 @@ class SqlMISinkResponse(dict):
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -53627,17 +53627,17 @@ class SqlMISourceResponse(dict):
         A copy activity Azure SQL Managed Instance source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
-        :param 'SqlPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Sql source partitioning.
+        :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any produce_additional_types: Which additional types to produce.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a Azure SQL Managed Instance source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'TabularSource')
         if additional_columns is not None:
@@ -53835,13 +53835,13 @@ class SqlServerLinkedServiceResponse(dict):
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'SqlServer'.
-        :param 'SqlAlwaysEncryptedPropertiesResponseArgs' always_encrypted_settings: Sql always encrypted properties.
+        :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The on-premises Windows authentication password.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The on-premises Windows authentication password.
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -53976,7 +53976,7 @@ class SqlServerSinkResponse(dict):
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -54129,17 +54129,17 @@ class SqlServerSourceResponse(dict):
         A copy activity SQL server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
-        :param 'SqlPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Sql source partitioning.
+        :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any produce_additional_types: Which additional types to produce.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'TabularSource')
         if additional_columns is not None:
@@ -54283,16 +54283,16 @@ class SqlServerStoredProcedureActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         SQL stored procedure activity type.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
@@ -54404,13 +54404,13 @@ class SqlServerTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The on-premises SQL Server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SqlServerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
@@ -54548,7 +54548,7 @@ class SqlSinkResponse(dict):
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -54701,17 +54701,17 @@ class SqlSourceResponse(dict):
         A copy activity SQL source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
-        :param 'SqlPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for Sql source partitioning.
+        :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'TabularSource')
         if additional_columns is not None:
@@ -54864,13 +54864,13 @@ class SquareLinkedServiceResponse(dict):
                Expected value is 'Square'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: The client ID associated with your Square application.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Square application.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your Square application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Square. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host: The URL of the Square instance. (i.e. mystore.mysquare.com)
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -55038,13 +55038,13 @@ class SquareObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Square Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SquareObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -55160,7 +55160,7 @@ class SquareSourceResponse(dict):
         A copy activity Square Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -55243,7 +55243,7 @@ class SquareSourceResponse(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentReferenceResponseResult(dict):
+class SsisEnvironmentReferenceResponse(dict):
     """
     Ssis environment reference.
     """
@@ -55302,7 +55302,7 @@ class SsisEnvironmentReferenceResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentResponseResult(dict):
+class SsisEnvironmentResponse(dict):
     """
     Ssis environment.
     """
@@ -55312,7 +55312,7 @@ class SsisEnvironmentResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 variables: Optional[Sequence['outputs.SsisVariableResponseResult']] = None):
+                 variables: Optional[Sequence['outputs.SsisVariableResponse']] = None):
         """
         Ssis environment.
         :param str type: Type of metadata.
@@ -55321,7 +55321,7 @@ class SsisEnvironmentResponseResult(dict):
         :param float folder_id: Folder id which contains environment.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisVariableResponseArgs'] variables: Variable in environment
+        :param Sequence['SsisVariableResponse'] variables: Variable in environment
         """
         pulumi.set(__self__, "type", 'Environment')
         if description is not None:
@@ -55378,7 +55378,7 @@ class SsisEnvironmentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponseResult']]:
+    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponse']]:
         """
         Variable in environment
         """
@@ -55386,7 +55386,7 @@ class SsisEnvironmentResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisFolderResponseResult(dict):
+class SsisFolderResponse(dict):
     """
     Ssis folder.
     """
@@ -55446,7 +55446,7 @@ class SsisFolderResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisPackageResponseResult(dict):
+class SsisPackageResponse(dict):
     """
     Ssis Package.
     """
@@ -55456,7 +55456,7 @@ class SsisPackageResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponse']] = None,
                  project_id: Optional[float] = None,
                  project_version: Optional[float] = None):
         """
@@ -55467,7 +55467,7 @@ class SsisPackageResponseResult(dict):
         :param float folder_id: Folder id which contains package.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in package
+        :param Sequence['SsisParameterResponse'] parameters: Parameters in package
         :param float project_id: Project id which contains package.
         :param float project_version: Project version which contains package.
         """
@@ -55530,7 +55530,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponse']]:
         """
         Parameters in package
         """
@@ -55554,7 +55554,7 @@ class SsisPackageResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisParameterResponseResult(dict):
+class SsisParameterResponse(dict):
     """
     Ssis parameter.
     """
@@ -55709,29 +55709,29 @@ class SsisParameterResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisProjectResponseResult(dict):
+class SsisProjectResponse(dict):
     """
     Ssis project.
     """
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']] = None,
+                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponse']] = None,
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponse']] = None,
                  version: Optional[float] = None):
         """
         Ssis project.
         :param str type: Type of metadata.
                Expected value is 'Project'.
         :param str description: Metadata description.
-        :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
+        :param Sequence['SsisEnvironmentReferenceResponse'] environment_refs: Environment reference in project
         :param float folder_id: Folder id which contains project.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in project
+        :param Sequence['SsisParameterResponse'] parameters: Parameters in project
         :param float version: Project version.
         """
         pulumi.set(__self__, "type", 'Project')
@@ -55769,7 +55769,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter(name="environmentRefs")
-    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']]:
+    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponse']]:
         """
         Environment reference in project
         """
@@ -55801,7 +55801,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponse']]:
         """
         Parameters in project
         """
@@ -55817,7 +55817,7 @@ class SsisProjectResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisVariableResponseResult(dict):
+class SsisVariableResponse(dict):
     """
     Ssis variable.
     """
@@ -55922,7 +55922,7 @@ class StagingSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         Staging settings.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Staging linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Staging linked service reference.
         :param Any enable_compression: Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any path: The path to storage for storing the interim data. Type: string (or Expression with resultType string).
         """
@@ -56015,14 +56015,14 @@ class SwitchActivityResponse(dict):
         """
         This activity evaluates an expression and executes activities under the cases property that correspond to the expression evaluation expected in the equals property.
         :param str name: Activity name.
-        :param 'ExpressionResponseArgs' on: An expression that would evaluate to a string or integer. This is used to determine the block of activities in cases that will be executed.
+        :param 'ExpressionResponse' on: An expression that would evaluate to a string or integer. This is used to determine the block of activities in cases that will be executed.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['SwitchCaseResponseArgs'] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        :param Sequence[Union['AppendVariableActivityResponseArgs', 'AzureDataExplorerCommandActivityResponseArgs', 'AzureFunctionActivityResponseArgs', 'AzureMLBatchExecutionActivityResponseArgs', 'AzureMLExecutePipelineActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'DatabricksSparkJarActivityResponseArgs', 'DatabricksSparkPythonActivityResponseArgs', 'DeleteActivityResponseArgs', 'ExecuteDataFlowActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SetVariableActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'SwitchActivityResponseArgs', 'UntilActivityResponseArgs', 'ValidationActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs', 'WebHookActivityResponseArgs']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['SwitchCaseResponse'] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "on", on)
@@ -56117,7 +56117,7 @@ class SwitchCaseResponse(dict):
                  value: Optional[str] = None):
         """
         Switch cases with have a value and corresponding activities.
-        :param Sequence[Union['AppendVariableActivityResponseArgs', 'AzureDataExplorerCommandActivityResponseArgs', 'AzureFunctionActivityResponseArgs', 'AzureMLBatchExecutionActivityResponseArgs', 'AzureMLExecutePipelineActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'DatabricksSparkJarActivityResponseArgs', 'DatabricksSparkPythonActivityResponseArgs', 'DeleteActivityResponseArgs', 'ExecuteDataFlowActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SetVariableActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'SwitchActivityResponseArgs', 'UntilActivityResponseArgs', 'ValidationActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs', 'WebHookActivityResponseArgs']] activities: List of activities to execute for satisfied case condition.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
         :param str value: Expected value that satisfies the expression result of the 'on' property.
         """
         if activities is not None:
@@ -56171,11 +56171,11 @@ class SybaseLinkedServiceResponse(dict):
                Expected value is 'Sybase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -56319,7 +56319,7 @@ class SybaseSourceResponse(dict):
         A copy activity source for Sybase databases.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -56418,13 +56418,13 @@ class SybaseTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Sybase table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SybaseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The Sybase table name. Type: string (or Expression with resultType string).
@@ -56539,7 +56539,7 @@ class TabularSourceResponse(dict):
         Copy activity sources of tabular type.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -56711,12 +56711,12 @@ class TeradataLinkedServiceResponse(dict):
                Expected value is 'Teradata'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -56904,10 +56904,10 @@ class TeradataSourceResponse(dict):
         A copy activity Teradata source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for teradata read in parallel. Possible values include: "None", "Hash", "DynamicRange".
-        :param 'TeradataPartitionSettingsResponseArgs' partition_settings: The settings that will be leveraged for teradata source partitioning.
+        :param 'TeradataPartitionSettingsResponse' partition_settings: The settings that will be leveraged for teradata source partitioning.
         :param Any query: Teradata query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -57026,14 +57026,14 @@ class TeradataTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The Teradata database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'TeradataTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any database: The database name of Teradata. Type: string (or Expression with resultType string).
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of Teradata. Type: string (or Expression with resultType string).
@@ -57348,7 +57348,7 @@ class TriggerDependencyReferenceResponse(dict):
                  type: str):
         """
         Trigger referenced dependency.
-        :param 'TriggerReferenceResponseArgs' reference_trigger: Referenced trigger.
+        :param 'TriggerReferenceResponse' reference_trigger: Referenced trigger.
         :param str type: The type of dependency reference.
                Expected value is 'TriggerDependencyReference'.
         """
@@ -57387,7 +57387,7 @@ class TriggerPipelineReferenceResponse(dict):
         """
         Pipeline that needs to be triggered with the given parameters.
         :param Mapping[str, Any] parameters: Pipeline parameters.
-        :param 'PipelineReferenceResponseArgs' pipeline_reference: Pipeline reference.
+        :param 'PipelineReferenceResponse' pipeline_reference: Pipeline reference.
         """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -57462,7 +57462,7 @@ class TumblingWindowTriggerDependencyReferenceResponse(dict):
                  size: Optional[str] = None):
         """
         Referenced tumbling window trigger dependency.
-        :param 'TriggerReferenceResponseArgs' reference_trigger: Referenced trigger.
+        :param 'TriggerReferenceResponse' reference_trigger: Referenced trigger.
         :param str type: The type of dependency reference.
                Expected value is 'TriggerDependencyReference'.
         :param str offset: Timespan applied to the start time of a tumbling window when evaluating dependency.
@@ -57536,17 +57536,17 @@ class TumblingWindowTriggerResponse(dict):
         :param str frequency: The frequency of the time windows.
         :param int interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
         :param int max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
-        :param 'TriggerPipelineReferenceResponseArgs' pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
+        :param 'TriggerPipelineReferenceResponse' pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param str type: Trigger type.
                Expected value is 'TumblingWindowTrigger'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the trigger.
         :param Any delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Sequence[Union['SelfDependencyTumblingWindowTriggerReferenceResponseArgs', 'TriggerDependencyReferenceResponseArgs', 'TumblingWindowTriggerDependencyReferenceResponseArgs']] depends_on: Triggers that this trigger depends on. Only tumbling window triggers are supported.
+        :param Sequence[Union['SelfDependencyTumblingWindowTriggerReferenceResponse', 'TriggerDependencyReferenceResponse', 'TumblingWindowTriggerDependencyReferenceResponse']] depends_on: Triggers that this trigger depends on. Only tumbling window triggers are supported.
         :param str description: Trigger description.
         :param str end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
-        :param 'RetryPolicyResponseArgs' retry_policy: Retry policy that will be applied for failed pipeline runs.
+        :param 'RetryPolicyResponse' retry_policy: Retry policy that will be applied for failed pipeline runs.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "interval", interval)
@@ -57693,15 +57693,15 @@ class UntilActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param Sequence[Union['AppendVariableActivityResponseArgs', 'AzureDataExplorerCommandActivityResponseArgs', 'AzureFunctionActivityResponseArgs', 'AzureMLBatchExecutionActivityResponseArgs', 'AzureMLExecutePipelineActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'DatabricksSparkJarActivityResponseArgs', 'DatabricksSparkPythonActivityResponseArgs', 'DeleteActivityResponseArgs', 'ExecuteDataFlowActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SetVariableActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'SwitchActivityResponseArgs', 'UntilActivityResponseArgs', 'ValidationActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs', 'WebHookActivityResponseArgs']] activities: List of activities to execute.
-        :param 'ExpressionResponseArgs' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
+        :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "activities", activities)
         pulumi.set(__self__, "expression", expression)
@@ -57786,7 +57786,7 @@ class UntilActivityResponse(dict):
 
 
 @pulumi.output_type
-class UserAccessPolicyResponseResult(dict):
+class UserAccessPolicyResponse(dict):
     """
     Get Data Plane read only token request definition.
     """
@@ -57910,17 +57910,17 @@ class ValidationActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity verifies that an external resource exists.
-        :param 'DatasetReferenceResponseArgs' dataset: Validation activity dataset reference.
+        :param 'DatasetReferenceResponse' dataset: Validation activity dataset reference.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
         :param Any child_items: Can be used if dataset points to a folder. If set to true, the folder must have at least one file. If set to false, the folder must be empty. Type: boolean (or Expression with resultType boolean).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any minimum_size: Can be used if dataset points to a file. The file must be greater than or equal in size to the value specified. Type: integer (or Expression with resultType integer).
         :param Any sleep: A delay in seconds between validation attempts. If no value is specified, 10 seconds will be used as the default. Type: integer (or Expression with resultType integer).
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
@@ -58081,12 +58081,12 @@ class VerticaLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Vertica'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponseArgs' pwd: The Azure key vault secret reference of password in connection string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
         pulumi.set(__self__, "type", 'Vertica')
         if annotations is not None:
@@ -58190,7 +58190,7 @@ class VerticaSourceResponse(dict):
         A copy activity Vertica source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -58290,13 +58290,13 @@ class VerticaTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Vertica dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'VerticaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table: The table name of the Vertica. Type: string (or Expression with resultType string).
@@ -58424,9 +58424,9 @@ class WaitActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Container'.
         :param Any wait_time_in_seconds: Duration in seconds.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Container')
@@ -58506,8 +58506,8 @@ class WebActivityAuthenticationResponse(dict):
         """
         Web activity authentication properties.
         :param str type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
         :param Any resource: Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
         :param Any username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
@@ -58604,17 +58604,17 @@ class WebActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any url: Web activity target endpoint and path. Type: string (or Expression with resultType string).
-        :param 'WebActivityAuthenticationResponseArgs' authentication: Authentication method used for calling the endpoint.
+        :param 'WebActivityAuthenticationResponse' authentication: Authentication method used for calling the endpoint.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Sequence['DatasetReferenceResponseArgs'] datasets: List of datasets passed to web endpoint.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Sequence['DatasetReferenceResponse'] datasets: List of datasets passed to web endpoint.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] linked_services: List of linked services passed to web endpoint.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
@@ -58820,7 +58820,7 @@ class WebBasicAuthenticationResponse(dict):
         A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
         :param str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'Basic'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         :param Any username: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
@@ -58880,8 +58880,8 @@ class WebClientCertificateAuthenticationResponse(dict):
         A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
         :param str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'ClientCertificate'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for the PFX file.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pfx: Base64-encoded contents of a PFX file.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for the PFX file.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pfx: Base64-encoded contents of a PFX file.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'ClientCertificate')
@@ -58951,14 +58951,14 @@ class WebHookActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Container'.
         :param Any url: WebHook activity target endpoint and path. Type: string (or Expression with resultType string).
-        :param 'WebActivityAuthenticationResponseArgs' authentication: Authentication method used for calling the endpoint.
+        :param 'WebActivityAuthenticationResponse' authentication: Authentication method used for calling the endpoint.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         :param str timeout: The timeout within which the webhook should be called back. If there is no value specified, it defaults to 10 minutes. Type: string. Pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
@@ -59098,11 +59098,11 @@ class WebLinkedServiceResponse(dict):
         Web linked service.
         :param str type: Type of linked service.
                Expected value is 'Web'.
-        :param Union['WebAnonymousAuthenticationResponseArgs', 'WebBasicAuthenticationResponseArgs', 'WebClientCertificateAuthenticationResponseArgs'] type_properties: Web linked service properties.
+        :param Union['WebAnonymousAuthenticationResponse', 'WebBasicAuthenticationResponse', 'WebClientCertificateAuthenticationResponse'] type_properties: Web linked service properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Web')
         pulumi.set(__self__, "type_properties", type_properties)
@@ -59183,7 +59183,7 @@ class WebSourceResponse(dict):
         A copy activity source for web page table.
         :param str type: Copy source type.
                Expected value is 'WebSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -59262,13 +59262,13 @@ class WebTableDatasetResponse(dict):
         """
         The dataset points to a HTML table in the web page.
         :param Any index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'WebTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -59400,14 +59400,14 @@ class XeroLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Xero'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Xero. It is mutually exclusive with any other properties in the linked service. Type: object.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_key: The consumer key associated with the Xero application.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_key: The consumer key associated with the Xero application.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host: The endpoint of the Xero server. (i.e. api.xero.com)
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
                ).
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -59566,13 +59566,13 @@ class XeroObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Xero Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'XeroObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -59688,7 +59688,7 @@ class XeroSourceResponse(dict):
         A copy activity Xero Service source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -59790,17 +59790,17 @@ class XmlDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Xml dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
         :param str type: Type of dataset.
                Expected value is 'Xml'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the json dataset.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any null_value: The null value string. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -59943,7 +59943,7 @@ class XmlReadSettingsResponse(dict):
         Xml read settings.
         :param str type: The read setting type.
                Expected value is 'XmlReadSettings'.
-        :param Union['TarGZipReadSettingsResponseArgs', 'TarReadSettingsResponseArgs', 'ZipDeflateReadSettingsResponseArgs'] compression_properties: Compression settings.
+        :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
         :param Any detect_data_type: Indicates whether type detection is enabled when reading the xml files. Type: boolean (or Expression with resultType boolean).
         :param Any namespace_prefixes: Namespace uri to prefix mappings to override the prefixes in column names when namespace is enabled, if no prefix is defined for a namespace uri, the prefix of xml element/attribute name in the xml data file will be used. Example: "{"http://www.example.com/xml":"prefix"}" Type: object (or Expression with resultType object).
         :param Any namespaces: Indicates whether namespace is enabled when reading the xml files. Type: boolean (or Expression with resultType boolean).
@@ -60031,12 +60031,12 @@ class XmlSourceResponse(dict):
         A copy activity Xml source.
         :param str type: Copy source type.
                Expected value is 'XmlSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
-        :param 'XmlReadSettingsResponseArgs' format_settings: Xml format settings.
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param 'XmlReadSettingsResponse' format_settings: Xml format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Xml store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Xml store settings.
         """
         pulumi.set(__self__, "type", 'XmlSource')
         if additional_columns is not None:
@@ -60174,14 +60174,14 @@ class ZohoLinkedServiceResponse(dict):
         Zoho server linked service.
         :param str type: Type of linked service.
                Expected value is 'Zoho'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for Zoho authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for Zoho authentication.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Zoho. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -60328,13 +60328,13 @@ class ZohoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Zoho server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ZohoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
@@ -60450,7 +60450,7 @@ class ZohoSourceResponse(dict):
         A copy activity Zoho server source.
         :param str type: Copy source type.
                Expected value is 'TabularSource'.
-        :param Sequence['AdditionalColumnsResponseArgs'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Sequence['AdditionalColumnsResponse'] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).

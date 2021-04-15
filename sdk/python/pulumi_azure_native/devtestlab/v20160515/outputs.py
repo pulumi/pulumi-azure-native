@@ -31,7 +31,7 @@ __all__ = [
     'HourDetailsResponse',
     'IdentityPropertiesResponse',
     'InboundNatRuleResponse',
-    'LabVhdResponseResult',
+    'LabVhdResponse',
     'LabVirtualMachineCreationParameterResponse',
     'LinuxOsInfoResponse',
     'NetworkInterfacePropertiesResponse',
@@ -66,8 +66,8 @@ class ApplicableScheduleResponse(dict):
         :param str id: The identifier of the resource.
         :param str name: The name of the resource.
         :param str type: The type of the resource.
-        :param 'ScheduleResponseArgs' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        :param 'ScheduleResponseArgs' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
+        :param 'ScheduleResponse' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        :param 'ScheduleResponse' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
         :param str location: The location of the resource.
         :param Mapping[str, str] tags: The tags of the resource.
         """
@@ -248,7 +248,7 @@ class ArtifactInstallPropertiesResponse(dict):
         :param str artifact_id: The artifact's identifier.
         :param str deployment_status_message: The status message from the deployment.
         :param str install_time: The time that the artifact starts to install on the virtual machine.
-        :param Sequence['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
+        :param Sequence['ArtifactParameterPropertiesResponse'] parameters: The parameters of the artifact.
         :param str status: The status of the artifact.
         :param str vm_extension_status_message: The status message from the virtual machine extension.
         """
@@ -509,11 +509,11 @@ class ComputeVmPropertiesResponse(dict):
         """
         Properties of a virtual machine returned by the Microsoft.Compute API.
         :param Sequence[str] data_disk_ids: Gets data disks blob uri for the virtual machine.
-        :param Sequence['ComputeDataDiskResponseArgs'] data_disks: Gets all data disks attached to the virtual machine.
+        :param Sequence['ComputeDataDiskResponse'] data_disks: Gets all data disks attached to the virtual machine.
         :param str network_interface_id: Gets the network interface ID of the virtual machine.
         :param str os_disk_id: Gets OS disk blob uri for the virtual machine.
         :param str os_type: Gets the OS type of the virtual machine.
-        :param Sequence['ComputeVmInstanceViewStatusResponseArgs'] statuses: Gets the statuses of the virtual machine.
+        :param Sequence['ComputeVmInstanceViewStatusResponse'] statuses: Gets the statuses of the virtual machine.
         :param str vm_size: Gets the size of the virtual machine.
         """
         if data_disk_ids is not None:
@@ -651,9 +651,9 @@ class CustomImagePropertiesFromVmResponse(dict):
                  windows_os_info: Optional['outputs.WindowsOsInfoResponse'] = None):
         """
         Properties for creating a custom image from a virtual machine.
-        :param 'LinuxOsInfoResponseArgs' linux_os_info: The Linux OS information of the VM.
+        :param 'LinuxOsInfoResponse' linux_os_info: The Linux OS information of the VM.
         :param str source_vm_id: The source vm identifier.
-        :param 'WindowsOsInfoResponseArgs' windows_os_info: The Windows OS information of the VM.
+        :param 'WindowsOsInfoResponse' windows_os_info: The Windows OS information of the VM.
         """
         if linux_os_info is not None:
             pulumi.set(__self__, "linux_os_info", linux_os_info)
@@ -727,7 +727,7 @@ class EnvironmentDeploymentPropertiesResponse(dict):
         """
         Properties of an environment deployment.
         :param str arm_template_id: The Azure Resource Manager template's identifier.
-        :param Sequence['ArmTemplateParameterPropertiesResponseArgs'] parameters: The parameters of the Azure Resource Manager template.
+        :param Sequence['ArmTemplateParameterPropertiesResponse'] parameters: The parameters of the Azure Resource Manager template.
         """
         if arm_template_id is not None:
             pulumi.set(__self__, "arm_template_id", arm_template_id)
@@ -1057,7 +1057,7 @@ class InboundNatRuleResponse(dict):
 
 
 @pulumi.output_type
-class LabVhdResponseResult(dict):
+class LabVhdResponse(dict):
     """
     Properties of a VHD in the lab.
     """
@@ -1122,11 +1122,11 @@ class LabVirtualMachineCreationParameterResponse(dict):
         """
         Properties for creating a virtual machine.
         :param bool allow_claim: Indicates whether another user can take ownership of the virtual machine
-        :param 'ApplicableScheduleResponseArgs' applicable_schedule: The applicable schedule for the virtual machine.
-        :param 'ArtifactDeploymentStatusPropertiesResponseArgs' artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param Sequence['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
-        :param 'BulkCreationParametersResponseArgs' bulk_creation_parameters: The number of virtual machine instances to create.
-        :param 'ComputeVmPropertiesResponseArgs' compute_vm: The compute virtual machine properties.
+        :param 'ApplicableScheduleResponse' applicable_schedule: The applicable schedule for the virtual machine.
+        :param 'ArtifactDeploymentStatusPropertiesResponse' artifact_deployment_status: The artifact deployment status for the virtual machine.
+        :param Sequence['ArtifactInstallPropertiesResponse'] artifacts: The artifacts to be installed on the virtual machine.
+        :param 'BulkCreationParametersResponse' bulk_creation_parameters: The number of virtual machine instances to create.
+        :param 'ComputeVmPropertiesResponse' compute_vm: The compute virtual machine properties.
         :param str created_by_user: The email address of creator of the virtual machine.
         :param str created_by_user_id: The object identifier of the creator of the virtual machine.
         :param str created_date: The creation date of the virtual machine.
@@ -1135,13 +1135,13 @@ class LabVirtualMachineCreationParameterResponse(dict):
         :param str environment_id: The resource ID of the environment that contains this virtual machine, if any.
         :param str expiration_date: The expiration date for VM.
         :param str fqdn: The fully-qualified domain name of the virtual machine.
-        :param 'GalleryImageReferenceResponseArgs' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param 'GalleryImageReferenceResponse' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
         :param bool is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
         :param str lab_subnet_name: The lab subnet name of the virtual machine.
         :param str lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param str location: The location of the new virtual machine or environment
         :param str name: The name of the virtual machine or environment
-        :param 'NetworkInterfacePropertiesResponseArgs' network_interface: The network interface properties.
+        :param 'NetworkInterfacePropertiesResponse' network_interface: The network interface properties.
         :param str notes: The notes of the virtual machine.
         :param str os_type: The OS type of the virtual machine.
         :param str owner_object_id: The object identifier of the owner of the virtual machine.
@@ -1549,7 +1549,7 @@ class NetworkInterfacePropertiesResponse(dict):
         :param str public_ip_address: The public IP address.
         :param str public_ip_address_id: The resource ID of the public IP address.
         :param str rdp_authority: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-        :param 'SharedPublicIpAddressConfigurationResponseArgs' shared_public_ip_address_configuration: The configuration for sharing a public IP address across multiple virtual machines.
+        :param 'SharedPublicIpAddressConfigurationResponse' shared_public_ip_address_configuration: The configuration for sharing a public IP address across multiple virtual machines.
         :param str ssh_authority: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
         :param str subnet_id: The resource ID of the sub net.
         :param str virtual_network_id: The resource ID of the virtual network.
@@ -1765,10 +1765,10 @@ class ScheduleResponse(dict):
         :param str id: The identifier of the resource.
         :param str name: The name of the resource.
         :param str type: The type of the resource.
-        :param 'DayDetailsResponseArgs' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
-        :param 'HourDetailsResponseArgs' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        :param 'DayDetailsResponse' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
+        :param 'HourDetailsResponse' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param str location: The location of the resource.
-        :param 'NotificationSettingsResponseArgs' notification_settings: Notification settings.
+        :param 'NotificationSettingsResponse' notification_settings: Notification settings.
         :param str provisioning_state: The provisioning status of the resource.
         :param str status: The status of the schedule (i.e. Enabled, Disabled)
         :param Mapping[str, str] tags: The tags of the resource.
@@ -1776,7 +1776,7 @@ class ScheduleResponse(dict):
         :param str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
         :param str unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param 'WeekDetailsResponseArgs' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
+        :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "created_date", created_date)
         pulumi.set(__self__, "id", id)
@@ -1948,7 +1948,7 @@ class SharedPublicIpAddressConfigurationResponse(dict):
                  inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None):
         """
         Properties of a virtual machine that determine how it is connected to a load balancer.
-        :param Sequence['InboundNatRuleResponseArgs'] inbound_nat_rules: The incoming NAT rules
+        :param Sequence['InboundNatRuleResponse'] inbound_nat_rules: The incoming NAT rules
         """
         if inbound_nat_rules is not None:
             pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
@@ -1981,7 +1981,7 @@ class SubnetOverrideResponse(dict):
         Property overrides on a subnet of a virtual network.
         :param str lab_subnet_name: The name given to the subnet within the lab.
         :param str resource_id: The resource ID of the subnet.
-        :param 'SubnetSharedPublicIpAddressConfigurationResponseArgs' shared_public_ip_address_configuration: Properties that virtual machines on this subnet will share.
+        :param 'SubnetSharedPublicIpAddressConfigurationResponse' shared_public_ip_address_configuration: Properties that virtual machines on this subnet will share.
         :param str use_in_vm_creation_permission: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
         :param str use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         :param str virtual_network_pool_name: The virtual network pool associated with this subnet.
@@ -2110,7 +2110,7 @@ class SubnetSharedPublicIpAddressConfigurationResponse(dict):
                  allowed_ports: Optional[Sequence['outputs.PortResponse']] = None):
         """
         Configuration for public IP address sharing.
-        :param Sequence['PortResponseArgs'] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
+        :param Sequence['PortResponse'] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
         """
         if allowed_ports is not None:
             pulumi.set(__self__, "allowed_ports", allowed_ports)

@@ -88,7 +88,7 @@ class ConnectorCollectionInfoResponse(dict):
         :param str last_checked: Last time the data acquisition process initiated connecting to the external provider
         :param str last_updated: Last time the external data was updated into Azure
         :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-        :param 'ConnectorCollectionErrorInfoResponseArgs' error: Error information of last collection
+        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
         """
         pulumi.set(__self__, "last_checked", last_checked)
         pulumi.set(__self__, "last_updated", last_updated)

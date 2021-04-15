@@ -63,7 +63,7 @@ __all__ = [
     'AzureFirewallSkuArgs',
     'BackendAddressPoolArgs',
     'BastionHostIPConfigurationArgs',
-    'BastionShareableLinkArgs',
+    'BastionShareableLink',
     'BgpSettingsArgs',
     'BreakOutCategoryPoliciesArgs',
     'ConnectionMonitorDestinationArgs',
@@ -187,7 +187,7 @@ __all__ = [
     'TrafficAnalyticsConfigurationPropertiesArgs',
     'TrafficAnalyticsPropertiesArgs',
     'TrafficSelectorPolicyArgs',
-    'VMArgs',
+    'VM',
     'VirtualApplianceSkuPropertiesArgs',
     'VirtualHubIdArgs',
     'VirtualHubRouteArgs',
@@ -4645,25 +4645,25 @@ class BastionHostIPConfigurationArgs:
 
 
 @pulumi.input_type
-class BastionShareableLinkArgs:
+class BastionShareableLink:
     def __init__(__self__, *,
-                 vm: 'VMArgs'):
+                 vm: 'VM'):
         """
         Bastion Shareable Link.
-        :param 'VMArgs' vm: Reference of the virtual machine resource.
+        :param 'VM' vm: Reference of the virtual machine resource.
         """
         pulumi.set(__self__, "vm", vm)
 
     @property
     @pulumi.getter
-    def vm(self) -> 'VMArgs':
+    def vm(self) -> 'VM':
         """
         Reference of the virtual machine resource.
         """
         return pulumi.get(self, "vm")
 
     @vm.setter
-    def vm(self, value: 'VMArgs'):
+    def vm(self, value: 'VM'):
         pulumi.set(self, "vm", value)
 
 
@@ -13660,7 +13660,7 @@ class TrafficSelectorPolicyArgs:
 
 
 @pulumi.input_type
-class VMArgs:
+class VM:
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  location: Optional[str] = None,

@@ -9,11 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities, _tables
 
 __all__ = [
-    'ApiKeyResponseResult',
+    'ApiKeyResponse',
 ]
 
 @pulumi.output_type
-class ApiKeyResponseResult(dict):
+class ApiKeyResponse(dict):
     """
     An API key used for authenticating with a configuration store endpoint.
     """

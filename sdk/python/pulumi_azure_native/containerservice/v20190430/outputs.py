@@ -242,7 +242,7 @@ class OpenShiftManagedClusterAuthProfileResponse(dict):
                  identity_providers: Optional[Sequence['outputs.OpenShiftManagedClusterIdentityProviderResponse']] = None):
         """
         Defines all possible authentication profiles for the OpenShift cluster.
-        :param Sequence['OpenShiftManagedClusterIdentityProviderResponseArgs'] identity_providers: Type of authentication profile to use.
+        :param Sequence['OpenShiftManagedClusterIdentityProviderResponse'] identity_providers: Type of authentication profile to use.
         """
         if identity_providers is not None:
             pulumi.set(__self__, "identity_providers", identity_providers)
@@ -270,7 +270,7 @@ class OpenShiftManagedClusterIdentityProviderResponse(dict):
         """
         Defines the configuration of the identity providers to be used in the OpenShift cluster.
         :param str name: Name of the provider.
-        :param 'OpenShiftManagedClusterAADIdentityProviderResponseArgs' provider: Configuration of the provider.
+        :param 'OpenShiftManagedClusterAADIdentityProviderResponse' provider: Configuration of the provider.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)

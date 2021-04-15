@@ -329,8 +329,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: Gets or sets the name.
         :param str provisioning_state: The provisioning state.
         :param str type: Gets or sets the type.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint information.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: The private link service connection state.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint information.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)

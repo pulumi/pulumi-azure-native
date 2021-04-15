@@ -27,7 +27,7 @@ class GetVirtualNetworkGatewayAdvertisedRoutesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.GatewayRouteResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.GatewayRouteResponse']]:
         """
         List of gateway routes
         """

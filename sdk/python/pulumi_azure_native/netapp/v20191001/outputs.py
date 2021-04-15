@@ -438,7 +438,7 @@ class VolumePropertiesResponseDataProtection(dict):
                  replication: Optional['outputs.ReplicationObjectResponse'] = None):
         """
         DataProtection type volumes include an object containing details of the replication
-        :param 'ReplicationObjectResponseArgs' replication: Replication properties
+        :param 'ReplicationObjectResponse' replication: Replication properties
         """
         if replication is not None:
             pulumi.set(__self__, "replication", replication)
@@ -464,7 +464,7 @@ class VolumePropertiesResponseExportPolicy(dict):
                  rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
-        :param Sequence['ExportPolicyRuleResponseArgs'] rules: Export policy rule
+        :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)

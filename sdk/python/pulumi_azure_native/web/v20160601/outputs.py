@@ -23,7 +23,7 @@ __all__ = [
     'ConnectionGatewayReferenceResponse',
     'ConnectionParameterResponse',
     'ConnectionStatusDefinitionResponse',
-    'ConsentLinkDefinitionResponseResult',
+    'ConsentLinkDefinitionResponse',
     'CustomApiPropertiesDefinitionResponse',
     'WsdlDefinitionResponse',
     'WsdlServiceResponse',
@@ -48,8 +48,8 @@ class ApiConnectionDefinitionResponseProperties(dict):
         :param str display_name: Display name
         :param Mapping[str, str] non_secret_parameter_values: Dictionary of nonsecret parameter values
         :param Mapping[str, str] parameter_values: Dictionary of parameter values
-        :param Sequence['ConnectionStatusDefinitionResponseArgs'] statuses: Status of the connection
-        :param Sequence['ApiConnectionTestLinkResponseArgs'] test_links: Links to test the API connection
+        :param Sequence['ConnectionStatusDefinitionResponse'] statuses: Status of the connection
+        :param Sequence['ApiConnectionTestLinkResponse'] test_links: Links to test the API connection
         """
         if api is not None:
             pulumi.set(__self__, "api", api)
@@ -248,7 +248,7 @@ class ApiOAuthSettingsResponse(dict):
         OAuth settings for the connection provider
         :param str client_id: Resource provider client id
         :param str client_secret: Client Secret needed for OAuth
-        :param Mapping[str, 'ApiOAuthSettingsParameterResponseArgs'] custom_parameters: OAuth parameters key is the name of parameter
+        :param Mapping[str, 'ApiOAuthSettingsParameterResponse'] custom_parameters: OAuth parameters key is the name of parameter
         :param str identity_provider: Identity provider
         :param Any properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
@@ -618,7 +618,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
                  status: Optional[Any] = None):
         """
         :param str backend_uri: The URI of the backend
-        :param 'ConnectionGatewayReferenceResponseArgs' connection_gateway_installation: The gateway installation reference
+        :param 'ConnectionGatewayReferenceResponse' connection_gateway_installation: The gateway installation reference
         :param Sequence[str] contact_information: The gateway admin
         :param str description: The gateway description
         :param str display_name: The gateway display name
@@ -772,7 +772,7 @@ class ConnectionParameterResponse(dict):
                  type: Optional[str] = None):
         """
         Connection provider parameters
-        :param 'ApiOAuthSettingsResponseArgs' o_auth_settings: OAuth settings for the connection provider
+        :param 'ApiOAuthSettingsResponse' o_auth_settings: OAuth settings for the connection provider
         :param str type: Type of the parameter
         """
         if o_auth_settings is not None:
@@ -811,7 +811,7 @@ class ConnectionStatusDefinitionResponse(dict):
                  target: Optional[str] = None):
         """
         Connection status
-        :param 'ConnectionErrorResponseArgs' error: Connection error
+        :param 'ConnectionErrorResponse' error: Connection error
         :param str status: The gateway status
         :param str target: Target of the error
         """
@@ -851,7 +851,7 @@ class ConnectionStatusDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class ConsentLinkDefinitionResponseResult(dict):
+class ConsentLinkDefinitionResponse(dict):
     """
     A consent link
     """
@@ -929,18 +929,18 @@ class CustomApiPropertiesDefinitionResponse(dict):
                  wsdl_definition: Optional['outputs.WsdlDefinitionResponse'] = None):
         """
         Custom API properties
-        :param 'ApiResourceDefinitionsResponseArgs' api_definitions: API Definitions
+        :param 'ApiResourceDefinitionsResponse' api_definitions: API Definitions
         :param str api_type: The API type
-        :param 'ApiResourceBackendServiceResponseArgs' backend_service: The API backend service
+        :param 'ApiResourceBackendServiceResponse' backend_service: The API backend service
         :param str brand_color: Brand color
         :param Sequence[str] capabilities: The custom API capabilities
-        :param Mapping[str, 'ConnectionParameterResponseArgs'] connection_parameters: Connection parameters
+        :param Mapping[str, 'ConnectionParameterResponse'] connection_parameters: Connection parameters
         :param str description: The custom API description
         :param str display_name: The display name
         :param str icon_uri: The icon URI
         :param Sequence[str] runtime_urls: Runtime URLs
         :param Any swagger: The JSON representation of the swagger
-        :param 'WsdlDefinitionResponseArgs' wsdl_definition: The WSDL definition
+        :param 'WsdlDefinitionResponse' wsdl_definition: The WSDL definition
         """
         if api_definitions is not None:
             pulumi.set(__self__, "api_definitions", api_definitions)
@@ -1081,7 +1081,7 @@ class WsdlDefinitionResponse(dict):
         The WSDL definition
         :param str content: The WSDL content
         :param str import_method: The WSDL import method
-        :param 'WsdlServiceResponseArgs' service: The service with name and endpoint names
+        :param 'WsdlServiceResponse' service: The service with name and endpoint names
         :param str url: The WSDL URL
         """
         if content is not None:

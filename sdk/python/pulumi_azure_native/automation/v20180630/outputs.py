@@ -65,7 +65,7 @@ class ContentLinkResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content link.
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the hash.
         :param str uri: Gets or sets the uri of the runbook content.
         :param str version: Gets or sets the version of the content.
         """
@@ -153,11 +153,11 @@ class RunbookDraftResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
-        :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
+        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[str] output_types: Gets or sets the runbook output types.
-        :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
+        :param Mapping[str, 'RunbookParameterResponse'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)

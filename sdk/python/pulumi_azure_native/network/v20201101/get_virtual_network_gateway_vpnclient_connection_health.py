@@ -27,7 +27,7 @@ class GetVirtualNetworkGatewayVpnclientConnectionHealthResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.VpnClientConnectionHealthDetailResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.VpnClientConnectionHealthDetailResponse']]:
         """
         List of vpn client connection health.
         """

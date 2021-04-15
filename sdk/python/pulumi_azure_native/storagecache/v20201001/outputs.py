@@ -54,7 +54,7 @@ class CacheActiveDirectorySettingsResponse(dict):
         :param str domain_name: The fully qualified domain name of the Active Directory domain controller.
         :param str domain_net_bios_name: The Active Directory domain's NetBIOS name.
         :param str primary_dns_ip_address: Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-        :param 'CacheActiveDirectorySettingsResponseCredentialsArgs' credentials: Active Directory admin credentials used to join the HPC Cache to a domain.
+        :param 'CacheActiveDirectorySettingsResponseCredentials' credentials: Active Directory admin credentials used to join the HPC Cache to a domain.
         :param str secondary_dns_ip_address: Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
         """
         pulumi.set(__self__, "cache_net_bios_name", cache_net_bios_name)
@@ -173,8 +173,8 @@ class CacheDirectorySettingsResponse(dict):
                  username_download: Optional['outputs.CacheUsernameDownloadSettingsResponse'] = None):
         """
         Cache Directory Services settings.
-        :param 'CacheActiveDirectorySettingsResponseArgs' active_directory: Specifies settings for joining the HPC Cache to an Active Directory domain.
-        :param 'CacheUsernameDownloadSettingsResponseArgs' username_download: Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+        :param 'CacheActiveDirectorySettingsResponse' active_directory: Specifies settings for joining the HPC Cache to an Active Directory domain.
+        :param 'CacheUsernameDownloadSettingsResponse' username_download: Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
         """
         if active_directory is not None:
             pulumi.set(__self__, "active_directory", active_directory)
@@ -210,7 +210,7 @@ class CacheEncryptionSettingsResponse(dict):
                  key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
         """
         Cache encryption settings.
-        :param 'KeyVaultKeyReferenceResponseArgs' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
@@ -387,7 +387,7 @@ class CacheSecuritySettingsResponse(dict):
                  access_policies: Optional[Sequence['outputs.NfsAccessPolicyResponse']] = None):
         """
         Cache security settings.
-        :param Sequence['NfsAccessPolicyResponseArgs'] access_policies: NFS access policies defined for this cache.
+        :param Sequence['NfsAccessPolicyResponse'] access_policies: NFS access policies defined for this cache.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -496,7 +496,7 @@ class CacheUsernameDownloadSettingsResponse(dict):
         :param str username_downloaded: Indicates whether or not the HPC Cache has performed the username download successfully.
         :param bool auto_download_certificate: Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
         :param str ca_certificate_uri: The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
-        :param 'CacheUsernameDownloadSettingsResponseCredentialsArgs' credentials: When present, these are the credentials for the secure LDAP connection.
+        :param 'CacheUsernameDownloadSettingsResponseCredentials' credentials: When present, these are the credentials for the secure LDAP connection.
         :param bool encrypt_ldap_connection: Whether or not the LDAP connection should be encrypted.
         :param bool extended_groups: Whether or not Extended Groups is enabled.
         :param str group_file_uri: The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
@@ -707,7 +707,7 @@ class KeyVaultKeyReferenceResponse(dict):
         """
         Describes a reference to Key Vault Key.
         :param str key_url: The URL referencing a key encryption key in Key Vault.
-        :param 'KeyVaultKeyReferenceResponseSourceVaultArgs' source_vault: Describes a resource Id to source Key Vault.
+        :param 'KeyVaultKeyReferenceResponseSourceVault' source_vault: Describes a resource Id to source Key Vault.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -868,7 +868,7 @@ class NfsAccessPolicyResponse(dict):
                  name: str):
         """
         A set of rules describing access policies applied to NFSv3 clients of the cache.
-        :param Sequence['NfsAccessRuleResponseArgs'] access_rules: The set of rules describing client accesses allowed under this policy.
+        :param Sequence['NfsAccessRuleResponse'] access_rules: The set of rules describing client accesses allowed under this policy.
         :param str name: Name identifying this policy. Access Policy names are not case sensitive.
         """
         pulumi.set(__self__, "access_rules", access_rules)
