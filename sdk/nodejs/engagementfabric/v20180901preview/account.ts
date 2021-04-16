@@ -115,7 +115,7 @@ export interface AccountArgs {
     /**
      * The SKU of the resource
      */
-    readonly sku: pulumi.Input<inputs.engagementfabric.v20180901preview.SKU>;
+    readonly sku: pulumi.Input<inputs.engagementfabric.v20180901preview.SKUArgs>;
     /**
      * The tags of the resource
      */

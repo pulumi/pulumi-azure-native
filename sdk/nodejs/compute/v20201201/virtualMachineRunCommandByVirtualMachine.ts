@@ -180,11 +180,11 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * The parameters used by the script.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.compute.v20201201.RunCommandInputParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.compute.v20201201.RunCommandInputParameterArgs>[]>;
     /**
      * The parameters used by the script.
      */
-    readonly protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.v20201201.RunCommandInputParameter>[]>;
+    readonly protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.v20201201.RunCommandInputParameterArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -204,7 +204,7 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * The source of the run command script.
      */
-    readonly source?: pulumi.Input<inputs.compute.v20201201.VirtualMachineRunCommandScriptSource>;
+    readonly source?: pulumi.Input<inputs.compute.v20201201.VirtualMachineRunCommandScriptSourceArgs>;
     /**
      * Resource tags
      */

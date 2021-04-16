@@ -129,11 +129,11 @@ export interface SqlResourceSqlStoredProcedureArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.v20200901.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.v20200901.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a storedProcedure
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20200901.SqlStoredProcedureResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20200901.SqlStoredProcedureResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

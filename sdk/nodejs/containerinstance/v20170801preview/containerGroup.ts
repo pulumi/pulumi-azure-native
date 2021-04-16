@@ -152,15 +152,15 @@ export interface ContainerGroupArgs {
     /**
      * The containers within the container group.
      */
-    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20170801preview.Container>[]>;
+    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20170801preview.ContainerArgs>[]>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20170801preview.ImageRegistryCredential>[]>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20170801preview.ImageRegistryCredentialArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20170801preview.IpAddress>;
+    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20170801preview.IpAddressArgs>;
     /**
      * The resource location.
      */
@@ -184,5 +184,5 @@ export interface ContainerGroupArgs {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20170801preview.Volume>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20170801preview.VolumeArgs>[]>;
 }

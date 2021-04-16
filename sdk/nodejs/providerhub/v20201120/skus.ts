@@ -99,5 +99,5 @@ export interface SkusArgs {
      * The SKU.
      */
     readonly sku?: pulumi.Input<string>;
-    readonly skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.v20201120.SkuSetting>[]>;
+    readonly skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.v20201120.SkuSettingArgs>[]>;
 }

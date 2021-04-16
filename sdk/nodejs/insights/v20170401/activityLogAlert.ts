@@ -133,7 +133,7 @@ export interface ActivityLogAlertArgs {
     /**
      * The actions that will activate when the condition is met.
      */
-    readonly actions: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertActionList>;
+    readonly actions: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertActionListArgs>;
     /**
      * The name of the activity log alert.
      */
@@ -141,7 +141,7 @@ export interface ActivityLogAlertArgs {
     /**
      * The condition that will cause this alert to activate.
      */
-    readonly condition: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertAllOfCondition>;
+    readonly condition: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertAllOfConditionArgs>;
     /**
      * A description of this activity log alert.
      */

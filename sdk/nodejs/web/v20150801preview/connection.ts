@@ -167,7 +167,7 @@ export interface ConnectionArgs {
     /**
      * expanded connection provider name
      */
-    readonly api?: pulumi.Input<inputs.web.v20150801preview.ExpandedParentApiEntity>;
+    readonly api?: pulumi.Input<inputs.web.v20150801preview.ExpandedParentApiEntityArgs>;
     /**
      * Timestamp of last connection change.
      */
@@ -183,7 +183,7 @@ export interface ConnectionArgs {
     /**
      * Custom login setting values.
      */
-    readonly customParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20150801preview.ParameterCustomLoginSettingValues>}>;
+    readonly customParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20150801preview.ParameterCustomLoginSettingValuesArgs>}>;
     /**
      * display name
      */
@@ -228,7 +228,7 @@ export interface ConnectionArgs {
     /**
      * Status of the connection
      */
-    readonly statuses?: pulumi.Input<pulumi.Input<inputs.web.v20150801preview.ConnectionStatus>[]>;
+    readonly statuses?: pulumi.Input<pulumi.Input<inputs.web.v20150801preview.ConnectionStatusArgs>[]>;
     /**
      * Resource tags
      */

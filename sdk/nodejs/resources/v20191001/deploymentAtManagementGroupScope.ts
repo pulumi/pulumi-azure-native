@@ -115,7 +115,7 @@ export interface DeploymentAtManagementGroupScopeArgs {
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.v20191001.DeploymentProperties>;
+    readonly properties: pulumi.Input<inputs.resources.v20191001.DeploymentPropertiesArgs>;
     /**
      * Deployment tags
      */

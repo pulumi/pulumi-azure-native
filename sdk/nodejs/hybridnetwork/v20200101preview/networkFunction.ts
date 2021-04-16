@@ -160,7 +160,7 @@ export interface NetworkFunctionArgs {
     /**
      * The reference to the device resource.
      */
-    readonly device?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResource>;
+    readonly device?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResourceArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -180,7 +180,7 @@ export interface NetworkFunctionArgs {
     /**
      * The network function configurations from the user.
      */
-    readonly networkFunctionUserConfigurations?: pulumi.Input<pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionUserConfiguration>[]>;
+    readonly networkFunctionUserConfigurations?: pulumi.Input<pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionUserConfigurationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

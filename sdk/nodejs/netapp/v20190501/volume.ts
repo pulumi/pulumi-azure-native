@@ -185,7 +185,7 @@ export interface VolumeArgs {
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190501.VolumePropertiesExportPolicy>;
+    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190501.VolumePropertiesExportPolicyArgs>;
     /**
      * Resource location
      */
@@ -193,7 +193,7 @@ export interface VolumeArgs {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20190501.MountTargetProperties>[]>;
+    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20190501.MountTargetPropertiesArgs>[]>;
     /**
      * The name of the capacity pool
      */

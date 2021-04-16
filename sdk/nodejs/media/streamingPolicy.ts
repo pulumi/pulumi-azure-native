@@ -133,11 +133,11 @@ export interface StreamingPolicyArgs {
     /**
      * Configuration of CommonEncryptionCbcs
      */
-    readonly commonEncryptionCbcs?: pulumi.Input<inputs.media.CommonEncryptionCbcs>;
+    readonly commonEncryptionCbcs?: pulumi.Input<inputs.media.CommonEncryptionCbcsArgs>;
     /**
      * Configuration of CommonEncryptionCenc
      */
-    readonly commonEncryptionCenc?: pulumi.Input<inputs.media.CommonEncryptionCenc>;
+    readonly commonEncryptionCenc?: pulumi.Input<inputs.media.CommonEncryptionCencArgs>;
     /**
      * Default ContentKey used by current Streaming Policy
      */
@@ -145,11 +145,11 @@ export interface StreamingPolicyArgs {
     /**
      * Configuration of EnvelopeEncryption
      */
-    readonly envelopeEncryption?: pulumi.Input<inputs.media.EnvelopeEncryption>;
+    readonly envelopeEncryption?: pulumi.Input<inputs.media.EnvelopeEncryptionArgs>;
     /**
      * Configurations of NoEncryption
      */
-    readonly noEncryption?: pulumi.Input<inputs.media.NoEncryption>;
+    readonly noEncryption?: pulumi.Input<inputs.media.NoEncryptionArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */

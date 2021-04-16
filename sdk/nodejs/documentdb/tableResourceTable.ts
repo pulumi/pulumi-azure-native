@@ -116,11 +116,11 @@ export interface TableResourceTableArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a Table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.TableResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.TableResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

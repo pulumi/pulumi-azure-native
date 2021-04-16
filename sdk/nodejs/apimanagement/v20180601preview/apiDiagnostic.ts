@@ -137,7 +137,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    readonly backend?: pulumi.Input<inputs.apimanagement.v20180601preview.PipelineDiagnosticSettings>;
+    readonly backend?: pulumi.Input<inputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsArgs>;
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
@@ -149,7 +149,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    readonly frontend?: pulumi.Input<inputs.apimanagement.v20180601preview.PipelineDiagnosticSettings>;
+    readonly frontend?: pulumi.Input<inputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsArgs>;
     /**
      * Resource Id of a target logger.
      */
@@ -161,7 +161,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Sampling settings for Diagnostic.
      */
-    readonly sampling?: pulumi.Input<inputs.apimanagement.v20180601preview.SamplingSettings>;
+    readonly sampling?: pulumi.Input<inputs.apimanagement.v20180601preview.SamplingSettingsArgs>;
     /**
      * The name of the API Management service.
      */

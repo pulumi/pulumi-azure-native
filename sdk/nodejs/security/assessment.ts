@@ -139,15 +139,15 @@ export interface AssessmentArgs {
     /**
      * Describes properties of an assessment metadata.
      */
-    readonly metadata?: pulumi.Input<inputs.security.SecurityAssessmentMetadataProperties>;
+    readonly metadata?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPropertiesArgs>;
     /**
      * Data regarding 3rd party partner integration
      */
-    readonly partnersData?: pulumi.Input<inputs.security.SecurityAssessmentPartnerData>;
+    readonly partnersData?: pulumi.Input<inputs.security.SecurityAssessmentPartnerDataArgs>;
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: pulumi.Input<inputs.security.AzureResourceDetails | inputs.security.OnPremiseResourceDetails | inputs.security.OnPremiseSqlResourceDetails>;
+    readonly resourceDetails: pulumi.Input<inputs.security.AzureResourceDetailsArgs | inputs.security.OnPremiseResourceDetailsArgs | inputs.security.OnPremiseSqlResourceDetailsArgs>;
     /**
      * The identifier of the resource.
      */
@@ -155,5 +155,5 @@ export interface AssessmentArgs {
     /**
      * The result of the assessment
      */
-    readonly status: pulumi.Input<inputs.security.AssessmentStatus>;
+    readonly status: pulumi.Input<inputs.security.AssessmentStatusArgs>;
 }

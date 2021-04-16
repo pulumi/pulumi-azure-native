@@ -205,7 +205,7 @@ export interface SnapshotArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20200930.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20200930.CreationDataArgs>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -217,15 +217,15 @@ export interface SnapshotArgs {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: pulumi.Input<inputs.compute.v20200930.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.compute.v20200930.EncryptionArgs>;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20200930.EncryptionSettingsCollection>;
+    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20200930.EncryptionSettingsCollectionArgs>;
     /**
      * The extended location where the snapshot will be created. Extended location cannot be changed.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.compute.v20200930.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.compute.v20200930.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -249,7 +249,7 @@ export interface SnapshotArgs {
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.v20200930.PurchasePlan>;
+    readonly purchasePlan?: pulumi.Input<inputs.compute.v20200930.PurchasePlanArgs>;
     /**
      * The name of the resource group.
      */
@@ -257,7 +257,7 @@ export interface SnapshotArgs {
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20200930.SnapshotSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20200930.SnapshotSkuArgs>;
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */

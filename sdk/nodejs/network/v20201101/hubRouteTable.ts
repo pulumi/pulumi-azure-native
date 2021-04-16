@@ -143,7 +143,7 @@ export interface HubRouteTableArgs {
     /**
      * List of all routes.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20201101.HubRoute>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20201101.HubRouteArgs>[]>;
     /**
      * The name of the VirtualHub.
      */

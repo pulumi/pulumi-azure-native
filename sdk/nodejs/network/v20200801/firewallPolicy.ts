@@ -173,11 +173,11 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: pulumi.Input<inputs.network.v20200801.SubResource>;
+    readonly basePolicy?: pulumi.Input<inputs.network.v20200801.SubResourceArgs>;
     /**
      * DNS Proxy Settings definition.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20200801.DnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20200801.DnsSettingsArgs>;
     /**
      * The name of the Firewall Policy.
      */
@@ -189,11 +189,11 @@ export interface FirewallPolicyArgs {
     /**
      * The identity of the firewall policy.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20200801.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.network.v20200801.ManagedServiceIdentityArgs>;
     /**
      * The configuration for Intrusion detection.
      */
-    readonly intrusionDetection?: pulumi.Input<inputs.network.v20200801.FirewallPolicyIntrusionDetection>;
+    readonly intrusionDetection?: pulumi.Input<inputs.network.v20200801.FirewallPolicyIntrusionDetectionArgs>;
     /**
      * Resource location.
      */
@@ -205,7 +205,7 @@ export interface FirewallPolicyArgs {
     /**
      * The Firewall Policy SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20200801.FirewallPolicySku>;
+    readonly sku?: pulumi.Input<inputs.network.v20200801.FirewallPolicySkuArgs>;
     /**
      * Resource tags.
      */
@@ -217,9 +217,9 @@ export interface FirewallPolicyArgs {
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20200801.FirewallPolicyThreatIntelWhitelist>;
+    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20200801.FirewallPolicyThreatIntelWhitelistArgs>;
     /**
      * TLS Configuration definition.
      */
-    readonly transportSecurity?: pulumi.Input<inputs.network.v20200801.FirewallPolicyTransportSecurity>;
+    readonly transportSecurity?: pulumi.Input<inputs.network.v20200801.FirewallPolicyTransportSecurityArgs>;
 }

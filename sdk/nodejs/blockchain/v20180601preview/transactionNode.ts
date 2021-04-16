@@ -132,7 +132,7 @@ export interface TransactionNodeArgs {
     /**
      * Gets or sets the firewall rules.
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.v20180601preview.FirewallRule>[]>;
+    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.v20180601preview.FirewallRuleArgs>[]>;
     /**
      * Gets or sets the transaction node location.
      */

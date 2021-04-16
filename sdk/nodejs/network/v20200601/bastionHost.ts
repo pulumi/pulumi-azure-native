@@ -131,7 +131,7 @@ export interface BastionHostArgs {
     /**
      * IP configuration of the Bastion Host resource.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200601.BastionHostIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200601.BastionHostIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */

@@ -156,7 +156,7 @@ export interface CacheArgs {
     /**
      * SKU for the Cache.
      */
-    readonly sku?: pulumi.Input<inputs.storagecache.v20191101.CacheSku>;
+    readonly sku?: pulumi.Input<inputs.storagecache.v20191101.CacheSkuArgs>;
     /**
      * Subnet used for the Cache.
      */

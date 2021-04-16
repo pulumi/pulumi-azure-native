@@ -172,7 +172,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The input parameters to be passed to the patch run operation.
      */
-    readonly installPatches?: pulumi.Input<inputs.maintenance.v20210401preview.InputPatchConfiguration>;
+    readonly installPatches?: pulumi.Input<inputs.maintenance.v20210401preview.InputPatchConfigurationArgs>;
     /**
      * Gets or sets location of the resource
      */

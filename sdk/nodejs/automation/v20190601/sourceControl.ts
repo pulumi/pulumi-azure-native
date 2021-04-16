@@ -173,7 +173,7 @@ export interface SourceControlArgs {
     /**
      * The authorization token for the repo of the source control.
      */
-    readonly securityToken?: pulumi.Input<inputs.automation.v20190601.SourceControlSecurityTokenProperties>;
+    readonly securityToken?: pulumi.Input<inputs.automation.v20190601.SourceControlSecurityTokenPropertiesArgs>;
     /**
      * The source control name.
      */

@@ -142,7 +142,7 @@ export interface ResourceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.resources.v20160201.Identity>;
+    readonly identity?: pulumi.Input<inputs.resources.v20160201.IdentityArgs>;
     /**
      * The kind of the resource.
      */
@@ -162,7 +162,7 @@ export interface ResourceArgs {
     /**
      * The plan of the resource.
      */
-    readonly plan?: pulumi.Input<inputs.resources.v20160201.Plan>;
+    readonly plan?: pulumi.Input<inputs.resources.v20160201.PlanArgs>;
     /**
      * The resource properties.
      */
@@ -186,7 +186,7 @@ export interface ResourceArgs {
     /**
      * The sku of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.resources.v20160201.Sku>;
+    readonly sku?: pulumi.Input<inputs.resources.v20160201.SkuArgs>;
     /**
      * Resource tags
      */

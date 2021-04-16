@@ -117,7 +117,7 @@ export interface ApplicationArgs {
     /**
      * The properties of the application.
      */
-    readonly properties?: pulumi.Input<inputs.hdinsight.ApplicationProperties>;
+    readonly properties?: pulumi.Input<inputs.hdinsight.ApplicationPropertiesArgs>;
     /**
      * The name of the resource group.
      */

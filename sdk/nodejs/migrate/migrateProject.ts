@@ -119,7 +119,7 @@ export interface MigrateProjectArgs {
     /**
      * Gets or sets the nested properties.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.MigrateProjectProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.MigrateProjectPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that migrate project is part of.
      */
@@ -127,5 +127,5 @@ export interface MigrateProjectArgs {
     /**
      * Gets or sets the tags.
      */
-    readonly tags?: pulumi.Input<inputs.migrate.MigrateProjectTags>;
+    readonly tags?: pulumi.Input<inputs.migrate.MigrateProjectTagsArgs>;
 }

@@ -139,7 +139,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The publishing profile of a gallery image version.
      */
-    readonly publishingProfile: pulumi.Input<inputs.compute.v20190701.GalleryApplicationVersionPublishingProfile>;
+    readonly publishingProfile: pulumi.Input<inputs.compute.v20190701.GalleryApplicationVersionPublishingProfileArgs>;
     /**
      * The name of the resource group.
      */

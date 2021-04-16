@@ -106,5 +106,5 @@ export interface PatchScheduleArgs {
     /**
      * List of patch schedules for a Redis cache.
      */
-    readonly scheduleEntries: pulumi.Input<pulumi.Input<inputs.cache.v20180301.ScheduleEntry>[]>;
+    readonly scheduleEntries: pulumi.Input<pulumi.Input<inputs.cache.v20180301.ScheduleEntryArgs>[]>;
 }

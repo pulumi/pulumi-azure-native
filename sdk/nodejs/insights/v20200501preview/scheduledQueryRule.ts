@@ -202,11 +202,11 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledQueryRule resource.
  */
 export interface ScheduledQueryRuleArgs {
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20200501preview.Action>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20200501preview.ActionArgs>[]>;
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria: pulumi.Input<inputs.insights.v20200501preview.ScheduledQueryRuleCriteria>;
+    readonly criteria: pulumi.Input<inputs.insights.v20200501preview.ScheduledQueryRuleCriteriaArgs>;
     /**
      * The description of the scheduled query rule.
      */

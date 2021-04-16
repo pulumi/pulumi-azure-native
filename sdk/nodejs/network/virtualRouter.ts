@@ -138,11 +138,11 @@ export interface VirtualRouterArgs {
     /**
      * The Gateway on which VirtualRouter is hosted.
      */
-    readonly hostedGateway?: pulumi.Input<inputs.network.SubResource>;
+    readonly hostedGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The Subnet on which VirtualRouter is hosted.
      */
-    readonly hostedSubnet?: pulumi.Input<inputs.network.SubResource>;
+    readonly hostedSubnet?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * Resource ID.
      */

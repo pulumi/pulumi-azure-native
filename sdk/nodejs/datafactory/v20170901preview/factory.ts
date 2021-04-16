@@ -128,7 +128,7 @@ export interface FactoryArgs {
     /**
      * Managed service identity of the factory.
      */
-    readonly identity?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryIdentity>;
+    readonly identity?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryIdentityArgs>;
     /**
      * The resource location.
      */
@@ -144,5 +144,5 @@ export interface FactoryArgs {
     /**
      * VSTS repo information of the factory.
      */
-    readonly vstsConfiguration?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryVSTSConfiguration>;
+    readonly vstsConfiguration?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryVSTSConfigurationArgs>;
 }

@@ -128,7 +128,7 @@ export interface BotArgs {
     /**
      * SKU of the HealthBot.
      */
-    readonly sku: pulumi.Input<inputs.healthbot.Sku>;
+    readonly sku: pulumi.Input<inputs.healthbot.SkuArgs>;
     /**
      * Resource tags.
      */

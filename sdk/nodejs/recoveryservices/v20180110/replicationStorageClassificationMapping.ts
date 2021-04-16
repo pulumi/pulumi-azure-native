@@ -110,7 +110,7 @@ export interface ReplicationStorageClassificationMappingArgs {
     /**
      * Storage mapping input properties.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180110.StorageMappingInputProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180110.StorageMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

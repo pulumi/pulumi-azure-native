@@ -274,43 +274,43 @@ export interface JobArgs {
     /**
      * Settings for Caffe2 job.
      */
-    readonly caffe2Settings?: pulumi.Input<inputs.batchai.Caffe2Settings>;
+    readonly caffe2Settings?: pulumi.Input<inputs.batchai.Caffe2SettingsArgs>;
     /**
      * Settings for Caffe job.
      */
-    readonly caffeSettings?: pulumi.Input<inputs.batchai.CaffeSettings>;
+    readonly caffeSettings?: pulumi.Input<inputs.batchai.CaffeSettingsArgs>;
     /**
      * Settings for Chainer job.
      */
-    readonly chainerSettings?: pulumi.Input<inputs.batchai.ChainerSettings>;
+    readonly chainerSettings?: pulumi.Input<inputs.batchai.ChainerSettingsArgs>;
     /**
      * Resource ID of the cluster on which this job will run.
      */
-    readonly cluster: pulumi.Input<inputs.batchai.ResourceId>;
+    readonly cluster: pulumi.Input<inputs.batchai.ResourceIdArgs>;
     /**
      * Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
      */
-    readonly cntkSettings?: pulumi.Input<inputs.batchai.CNTKsettings>;
+    readonly cntkSettings?: pulumi.Input<inputs.batchai.CNTKsettingsArgs>;
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: pulumi.Input<inputs.batchai.JobBasePropertiesConstraints>;
+    readonly constraints?: pulumi.Input<inputs.batchai.JobBasePropertiesConstraintsArgs>;
     /**
      * Docker container settings for the job. If not provided, the job will run directly on the node.
      */
-    readonly containerSettings?: pulumi.Input<inputs.batchai.ContainerSettings>;
+    readonly containerSettings?: pulumi.Input<inputs.batchai.ContainerSettingsArgs>;
     /**
      * Settings for custom MPI job.
      */
-    readonly customMpiSettings?: pulumi.Input<inputs.batchai.CustomMpiSettings>;
+    readonly customMpiSettings?: pulumi.Input<inputs.batchai.CustomMpiSettingsArgs>;
     /**
      * Settings for custom tool kit job.
      */
-    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.CustomToolkitSettings>;
+    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.CustomToolkitSettingsArgs>;
     /**
      * A list of user defined environment variables which will be setup for the job.
      */
-    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.EnvironmentVariable>[]>;
+    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.EnvironmentVariableArgs>[]>;
     /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
@@ -318,11 +318,11 @@ export interface JobArgs {
     /**
      * Settings for Horovod job.
      */
-    readonly horovodSettings?: pulumi.Input<inputs.batchai.HorovodSettings>;
+    readonly horovodSettings?: pulumi.Input<inputs.batchai.HorovodSettingsArgs>;
     /**
      * A list of input directories for the job.
      */
-    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.InputDirectory>[]>;
+    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.InputDirectoryArgs>[]>;
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
@@ -330,11 +330,11 @@ export interface JobArgs {
     /**
      * A command line to be executed on each node allocated for the job before tool kit is launched.
      */
-    readonly jobPreparation?: pulumi.Input<inputs.batchai.JobPreparation>;
+    readonly jobPreparation?: pulumi.Input<inputs.batchai.JobPreparationArgs>;
     /**
      * Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
      */
-    readonly mountVolumes?: pulumi.Input<inputs.batchai.MountVolumes>;
+    readonly mountVolumes?: pulumi.Input<inputs.batchai.MountVolumesArgs>;
     /**
      * Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
      */
@@ -342,11 +342,11 @@ export interface JobArgs {
     /**
      * A list of output directories for the job.
      */
-    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.OutputDirectory>[]>;
+    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.OutputDirectoryArgs>[]>;
     /**
      * Settings for pyTorch job.
      */
-    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.PyTorchSettings>;
+    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.PyTorchSettingsArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -358,7 +358,7 @@ export interface JobArgs {
     /**
      * A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.EnvironmentVariableWithSecretValue>[]>;
+    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.EnvironmentVariableWithSecretValueArgs>[]>;
     /**
      * The path where the Batch AI service will store stdout, stderror and execution log of the job.
      */
@@ -366,7 +366,7 @@ export interface JobArgs {
     /**
      * Settings for Tensor Flow job.
      */
-    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.TensorFlowSettings>;
+    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.TensorFlowSettingsArgs>;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */

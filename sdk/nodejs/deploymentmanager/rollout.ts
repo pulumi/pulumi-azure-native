@@ -145,7 +145,7 @@ export interface RolloutArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity: pulumi.Input<inputs.deploymentmanager.Identity>;
+    readonly identity: pulumi.Input<inputs.deploymentmanager.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -161,7 +161,7 @@ export interface RolloutArgs {
     /**
      * The list of step groups that define the orchestration.
      */
-    readonly stepGroups: pulumi.Input<pulumi.Input<inputs.deploymentmanager.StepGroup>[]>;
+    readonly stepGroups: pulumi.Input<pulumi.Input<inputs.deploymentmanager.StepGroupArgs>[]>;
     /**
      * Resource tags.
      */

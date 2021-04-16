@@ -100,7 +100,7 @@ export interface DigitalTwinsEndpointArgs {
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */
-    readonly properties: pulumi.Input<inputs.digitaltwins.EventGrid | inputs.digitaltwins.EventHub | inputs.digitaltwins.ServiceBus>;
+    readonly properties: pulumi.Input<inputs.digitaltwins.EventGridArgs | inputs.digitaltwins.EventHubArgs | inputs.digitaltwins.ServiceBusArgs>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */

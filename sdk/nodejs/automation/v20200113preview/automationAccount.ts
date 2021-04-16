@@ -164,11 +164,11 @@ export interface AutomationAccountArgs {
     /**
      * Set the encryption properties for the automation account
      */
-    readonly encryption?: pulumi.Input<inputs.automation.v20200113preview.EncryptionProperties>;
+    readonly encryption?: pulumi.Input<inputs.automation.v20200113preview.EncryptionPropertiesArgs>;
     /**
      * Sets the identity property for automation account
      */
-    readonly identity?: pulumi.Input<inputs.automation.v20200113preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.automation.v20200113preview.IdentityArgs>;
     /**
      * Gets or sets the location of the resource.
      */
@@ -188,7 +188,7 @@ export interface AutomationAccountArgs {
     /**
      * Gets or sets account SKU.
      */
-    readonly sku?: pulumi.Input<inputs.automation.v20200113preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.automation.v20200113preview.SkuArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */

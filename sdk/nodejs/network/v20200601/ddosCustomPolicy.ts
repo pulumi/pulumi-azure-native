@@ -137,7 +137,7 @@ export interface DdosCustomPolicyArgs {
     /**
      * The protocol-specific DDoS policy customization parameters.
      */
-    readonly protocolCustomSettings?: pulumi.Input<pulumi.Input<inputs.network.v20200601.ProtocolCustomSettingsFormat>[]>;
+    readonly protocolCustomSettings?: pulumi.Input<pulumi.Input<inputs.network.v20200601.ProtocolCustomSettingsFormatArgs>[]>;
     /**
      * The name of the resource group.
      */

@@ -155,7 +155,7 @@ export interface PolicyArgs {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: pulumi.Input<inputs.cdn.CustomRuleList>;
+    readonly customRules?: pulumi.Input<inputs.cdn.CustomRuleListArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -167,7 +167,7 @@ export interface PolicyArgs {
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: pulumi.Input<inputs.cdn.ManagedRuleSetList>;
+    readonly managedRules?: pulumi.Input<inputs.cdn.ManagedRuleSetListArgs>;
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
@@ -175,11 +175,11 @@ export interface PolicyArgs {
     /**
      * Describes  policySettings for policy
      */
-    readonly policySettings?: pulumi.Input<inputs.cdn.PolicySettings>;
+    readonly policySettings?: pulumi.Input<inputs.cdn.PolicySettingsArgs>;
     /**
      * Describes rate limit rules inside the policy.
      */
-    readonly rateLimitRules?: pulumi.Input<inputs.cdn.RateLimitRuleList>;
+    readonly rateLimitRules?: pulumi.Input<inputs.cdn.RateLimitRuleListArgs>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -187,7 +187,7 @@ export interface PolicyArgs {
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
-    readonly sku: pulumi.Input<inputs.cdn.Sku>;
+    readonly sku: pulumi.Input<inputs.cdn.SkuArgs>;
     /**
      * Resource tags.
      */

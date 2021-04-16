@@ -132,7 +132,7 @@ export interface BackupVaultArgs {
     /**
      * Input Managed Identity Details
      */
-    readonly identity?: pulumi.Input<inputs.dataprotection.DppIdentityDetails>;
+    readonly identity?: pulumi.Input<inputs.dataprotection.DppIdentityDetailsArgs>;
     /**
      * Resource location.
      */
@@ -144,7 +144,7 @@ export interface BackupVaultArgs {
     /**
      * Storage Settings
      */
-    readonly storageSettings: pulumi.Input<pulumi.Input<inputs.dataprotection.StorageSetting>[]>;
+    readonly storageSettings: pulumi.Input<pulumi.Input<inputs.dataprotection.StorageSettingArgs>[]>;
     /**
      * Resource tags.
      */

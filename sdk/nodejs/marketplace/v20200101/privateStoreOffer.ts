@@ -159,7 +159,7 @@ export interface PrivateStoreOfferArgs {
     /**
      * Offer plans
      */
-    readonly plans?: pulumi.Input<pulumi.Input<inputs.marketplace.v20200101.Plan>[]>;
+    readonly plans?: pulumi.Input<pulumi.Input<inputs.marketplace.v20200101.PlanArgs>[]>;
     /**
      * The store ID - must use the tenant ID
      */

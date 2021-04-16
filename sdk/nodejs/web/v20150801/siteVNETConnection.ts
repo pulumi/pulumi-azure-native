@@ -178,7 +178,7 @@ export interface SiteVNETConnectionArgs {
     /**
      * The routes that this virtual network connection uses.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRoute>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRouteArgs>[]>;
     /**
      * Resource tags
      */

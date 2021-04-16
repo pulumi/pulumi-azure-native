@@ -102,7 +102,7 @@ export interface ManagementConfigurationArgs {
     /**
      * Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
      */
-    readonly properties?: pulumi.Input<inputs.operationsmanagement.v20151101preview.ManagementConfigurationProperties>;
+    readonly properties?: pulumi.Input<inputs.operationsmanagement.v20151101preview.ManagementConfigurationPropertiesArgs>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */

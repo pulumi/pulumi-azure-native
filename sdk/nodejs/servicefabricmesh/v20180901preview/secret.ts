@@ -107,7 +107,7 @@ export interface SecretArgs {
     /**
      * Describes the properties of a secret resource.
      */
-    readonly properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.SecretResourceProperties>;
+    readonly properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.SecretResourcePropertiesArgs>;
     /**
      * Azure resource group name
      */

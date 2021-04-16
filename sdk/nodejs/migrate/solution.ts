@@ -107,7 +107,7 @@ export interface SolutionArgs {
     /**
      * Gets or sets the properties of the solution.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.SolutionProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.SolutionPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that migrate project is part of.
      */

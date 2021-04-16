@@ -112,7 +112,7 @@ export interface MasterSiteArgs {
     /**
      * Nested properties of Master site.
      */
-    readonly properties?: pulumi.Input<inputs.offazure.v20200707.MasterSiteProperties>;
+    readonly properties?: pulumi.Input<inputs.offazure.v20200707.MasterSitePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

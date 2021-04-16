@@ -127,7 +127,7 @@ export interface VirtualApplianceSiteArgs {
     /**
      * Office 365 Policy.
      */
-    readonly o365Policy?: pulumi.Input<inputs.network.v20200801.Office365PolicyProperties>;
+    readonly o365Policy?: pulumi.Input<inputs.network.v20200801.Office365PolicyPropertiesArgs>;
     /**
      * The name of the resource group.
      */

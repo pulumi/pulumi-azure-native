@@ -200,7 +200,7 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbforpostgresql.v20171201.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.dbforpostgresql.v20171201.ResourceIdentityArgs>;
     /**
      * The location the resource resides in.
      */
@@ -208,7 +208,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.v20171201.ServerPropertiesForDefaultCreate | inputs.dbforpostgresql.v20171201.ServerPropertiesForGeoRestore | inputs.dbforpostgresql.v20171201.ServerPropertiesForReplica | inputs.dbforpostgresql.v20171201.ServerPropertiesForRestore>;
+    readonly properties: pulumi.Input<inputs.dbforpostgresql.v20171201.ServerPropertiesForDefaultCreateArgs | inputs.dbforpostgresql.v20171201.ServerPropertiesForGeoRestoreArgs | inputs.dbforpostgresql.v20171201.ServerPropertiesForReplicaArgs | inputs.dbforpostgresql.v20171201.ServerPropertiesForRestoreArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -220,7 +220,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20171201.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20171201.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */

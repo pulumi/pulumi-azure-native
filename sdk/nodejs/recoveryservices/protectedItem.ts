@@ -135,7 +135,7 @@ export interface ProtectedItemArgs {
     /**
      * ProtectedItemResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureFileshareProtectedItem | inputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItem | inputs.recoveryservices.AzureIaaSComputeVMProtectedItem | inputs.recoveryservices.AzureIaaSVMProtectedItem | inputs.recoveryservices.AzureSqlProtectedItem | inputs.recoveryservices.AzureVmWorkloadProtectedItem | inputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItem | inputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItem | inputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItem | inputs.recoveryservices.DPMProtectedItem | inputs.recoveryservices.GenericProtectedItem | inputs.recoveryservices.MabFileFolderProtectedItem>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureFileshareProtectedItemArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.AzureSqlProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.DPMProtectedItemArgs | inputs.recoveryservices.GenericProtectedItemArgs | inputs.recoveryservices.MabFileFolderProtectedItemArgs>;
     /**
      * Item name to be backed up.
      */

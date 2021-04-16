@@ -104,7 +104,7 @@ export interface AccountArgs {
     /**
      * The identity of the Automanage account.
      */
-    readonly identity?: pulumi.Input<inputs.automanage.v20200630preview.AccountIdentity>;
+    readonly identity?: pulumi.Input<inputs.automanage.v20200630preview.AccountIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

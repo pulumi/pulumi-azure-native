@@ -311,7 +311,7 @@ export interface VirtualMachineArgs {
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.ArtifactInstallProperties>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.ArtifactInstallPropertiesArgs>[]>;
     /**
      * The creation date of the virtual machine.
      */
@@ -323,7 +323,7 @@ export interface VirtualMachineArgs {
     /**
      * New or existing data disks to attach to the virtual machine after creation
      */
-    readonly dataDiskParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.DataDiskProperties>[]>;
+    readonly dataDiskParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.DataDiskPropertiesArgs>[]>;
     /**
      * Indicates whether the virtual machine is to be created without a public IP address.
      */
@@ -339,7 +339,7 @@ export interface VirtualMachineArgs {
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20180915.GalleryImageReference>;
+    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20180915.GalleryImageReferenceArgs>;
     /**
      * Indicates whether this virtual machine uses an SSH key for authentication.
      */
@@ -367,7 +367,7 @@ export interface VirtualMachineArgs {
     /**
      * The network interface properties.
      */
-    readonly networkInterface?: pulumi.Input<inputs.devtestlab.v20180915.NetworkInterfaceProperties>;
+    readonly networkInterface?: pulumi.Input<inputs.devtestlab.v20180915.NetworkInterfacePropertiesArgs>;
     /**
      * The notes of the virtual machine.
      */
@@ -395,7 +395,7 @@ export interface VirtualMachineArgs {
     /**
      * Virtual Machine schedules to be created
      */
-    readonly scheduleParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.ScheduleCreationParameter>[]>;
+    readonly scheduleParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.ScheduleCreationParameterArgs>[]>;
     /**
      * The size of the virtual machine.
      */

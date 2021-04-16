@@ -123,7 +123,7 @@ export interface NamedValueArgs {
     /**
      * KeyVault location details of the namedValue.
      */
-    readonly keyVault?: pulumi.Input<inputs.apimanagement.v20200601preview.KeyVaultContractCreateProperties>;
+    readonly keyVault?: pulumi.Input<inputs.apimanagement.v20200601preview.KeyVaultContractCreatePropertiesArgs>;
     /**
      * Identifier of the NamedValue.
      */

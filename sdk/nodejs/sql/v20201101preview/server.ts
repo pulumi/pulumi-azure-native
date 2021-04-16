@@ -181,11 +181,11 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ServerExternalAdministrator>;
+    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ServerExternalAdministratorArgs>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentities>;
+    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentitiesArgs>;
     /**
      * A CMK URI of the key to use for encryption.
      */

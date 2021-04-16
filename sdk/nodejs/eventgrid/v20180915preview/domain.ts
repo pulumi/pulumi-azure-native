@@ -126,7 +126,7 @@ export interface DomainArgs {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20180915preview.JsonInputSchemaMapping>;
+    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20180915preview.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource
      */

@@ -96,7 +96,7 @@ export interface ConfigurationProfileAssignmentArgs {
     /**
      * Properties of the configuration profile assignment.
      */
-    readonly properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfileAssignmentProperties>;
+    readonly properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfileAssignmentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

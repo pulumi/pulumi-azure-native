@@ -183,7 +183,7 @@ export interface TaskArgs {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.v20190601preview.AgentProperties>;
+    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.v20190601preview.AgentPropertiesArgs>;
     /**
      * The dedicated agent pool for the task.
      */
@@ -191,11 +191,11 @@ export interface TaskArgs {
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: pulumi.Input<inputs.containerregistry.v20190601preview.Credentials>;
+    readonly credentials?: pulumi.Input<inputs.containerregistry.v20190601preview.CredentialsArgs>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.v20190601preview.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.containerregistry.v20190601preview.IdentityPropertiesArgs>;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
@@ -211,7 +211,7 @@ export interface TaskArgs {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform?: pulumi.Input<inputs.containerregistry.v20190601preview.PlatformProperties>;
+    readonly platform?: pulumi.Input<inputs.containerregistry.v20190601preview.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
@@ -227,7 +227,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildStep | inputs.containerregistry.v20190601preview.EncodedTaskStep | inputs.containerregistry.v20190601preview.FileTaskStep>;
+    readonly step?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildStepArgs | inputs.containerregistry.v20190601preview.EncodedTaskStepArgs | inputs.containerregistry.v20190601preview.FileTaskStepArgs>;
     /**
      * The tags of the resource.
      */
@@ -243,5 +243,5 @@ export interface TaskArgs {
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: pulumi.Input<inputs.containerregistry.v20190601preview.TriggerProperties>;
+    readonly trigger?: pulumi.Input<inputs.containerregistry.v20190601preview.TriggerPropertiesArgs>;
 }

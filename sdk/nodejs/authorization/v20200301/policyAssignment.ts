@@ -159,7 +159,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The managed identity associated with the policy assignment.
      */
-    readonly identity?: pulumi.Input<inputs.authorization.v20200301.Identity>;
+    readonly identity?: pulumi.Input<inputs.authorization.v20200301.IdentityArgs>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -175,7 +175,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200301.ParameterValuesValue>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200301.ParameterValuesValueArgs>}>;
     /**
      * The name of the policy assignment.
      */
@@ -191,5 +191,5 @@ export interface PolicyAssignmentArgs {
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
-    readonly sku?: pulumi.Input<inputs.authorization.v20200301.PolicySku>;
+    readonly sku?: pulumi.Input<inputs.authorization.v20200301.PolicySkuArgs>;
 }

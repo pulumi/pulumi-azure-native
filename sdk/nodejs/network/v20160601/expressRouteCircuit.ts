@@ -171,7 +171,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Gets or sets list of authorizations
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitAuthorization>[]>;
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitAuthorizationArgs>[]>;
     /**
      * The name of the circuit.
      */
@@ -199,7 +199,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Gets or sets list of peerings
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitPeering>[]>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -219,7 +219,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Gets or sets ServiceProviderProperties
      */
-    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitServiceProviderProperties>;
+    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitServiceProviderPropertiesArgs>;
     /**
      * Gets or sets ServiceProviderProvisioningState state of the resource 
      */
@@ -227,7 +227,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Gets or sets sku
      */
-    readonly sku?: pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20160601.ExpressRouteCircuitSkuArgs>;
     /**
      * Resource tags
      */

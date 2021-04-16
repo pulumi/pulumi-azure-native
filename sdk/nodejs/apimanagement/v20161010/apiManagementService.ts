@@ -211,7 +211,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20161010.AdditionalRegion>[]>;
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20161010.AdditionalRegionArgs>[]>;
     /**
      * Addresser email.
      */
@@ -223,7 +223,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20161010.HostnameConfiguration>[]>;
+    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20161010.HostnameConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -251,7 +251,7 @@ export interface ApiManagementServiceArgs {
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: pulumi.Input<inputs.apimanagement.v20161010.ApiManagementServiceSkuProperties>;
+    readonly sku: pulumi.Input<inputs.apimanagement.v20161010.ApiManagementServiceSkuPropertiesArgs>;
     /**
      * Resource tags.
      */
@@ -263,5 +263,5 @@ export interface ApiManagementServiceArgs {
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly vpnconfiguration?: pulumi.Input<inputs.apimanagement.v20161010.VirtualNetworkConfiguration>;
+    readonly vpnconfiguration?: pulumi.Input<inputs.apimanagement.v20161010.VirtualNetworkConfigurationArgs>;
 }

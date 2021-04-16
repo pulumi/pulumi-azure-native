@@ -126,7 +126,7 @@ export interface WebAppPrivateEndpointConnectionSlotArgs {
     /**
      * The state of a private link connection
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -124,7 +124,7 @@ export interface CassandraResourceCassandraKeyspaceArgs {
     /**
      * The standard JSON format of a Cassandra keyspace
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.CassandraKeyspaceResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.CassandraKeyspaceResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

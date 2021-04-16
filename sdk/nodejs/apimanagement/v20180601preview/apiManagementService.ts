@@ -235,11 +235,11 @@ export interface ApiManagementServiceArgs {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180601preview.AdditionalLocation>[]>;
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180601preview.AdditionalLocationArgs>[]>;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180601preview.CertificateConfiguration>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180601preview.CertificateConfigurationArgs>[]>;
     /**
      * Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
      */
@@ -247,11 +247,11 @@ export interface ApiManagementServiceArgs {
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180601preview.HostnameConfiguration>[]>;
+    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180601preview.HostnameConfigurationArgs>[]>;
     /**
      * Managed service identity of the Api Management service.
      */
-    readonly identity?: pulumi.Input<inputs.apimanagement.v20180601preview.ApiManagementServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.apimanagement.v20180601preview.ApiManagementServiceIdentityArgs>;
     /**
      * Resource location.
      */
@@ -279,7 +279,7 @@ export interface ApiManagementServiceArgs {
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: pulumi.Input<inputs.apimanagement.v20180601preview.ApiManagementServiceSkuProperties>;
+    readonly sku: pulumi.Input<inputs.apimanagement.v20180601preview.ApiManagementServiceSkuPropertiesArgs>;
     /**
      * Resource tags.
      */
@@ -287,7 +287,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20180601preview.VirtualNetworkConfiguration>;
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20180601preview.VirtualNetworkConfigurationArgs>;
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */

@@ -108,7 +108,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.synapse.v20190601preview.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.synapse.v20190601preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

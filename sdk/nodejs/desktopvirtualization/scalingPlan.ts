@@ -188,12 +188,12 @@ export interface ScalingPlanArgs {
     /**
      * List of ScalingHostPoolReference definitions.
      */
-    readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingHostPoolReference>[]>;
+    readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingHostPoolReferenceArgs>[]>;
     /**
      * HostPool type for desktop.
      */
     readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentity>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -206,7 +206,7 @@ export interface ScalingPlanArgs {
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
     readonly managedBy?: pulumi.Input<string>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlan>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -222,8 +222,8 @@ export interface ScalingPlanArgs {
     /**
      * List of ScalingSchedule definitions.
      */
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingSchedule>[]>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSku>;
+    readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingScheduleArgs>[]>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */

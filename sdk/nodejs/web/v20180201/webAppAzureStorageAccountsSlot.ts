@@ -108,7 +108,7 @@ export interface WebAppAzureStorageAccountsSlotArgs {
     /**
      * Azure storage accounts.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20180201.AzureStorageInfoValue>}>;
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20180201.AzureStorageInfoValueArgs>}>;
     /**
      * Name of the resource group to which the resource belongs.
      */

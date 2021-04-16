@@ -221,7 +221,7 @@ export interface PredictionArgs {
     /**
      * The prediction grades.
      */
-    readonly grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.PredictionGrades>[]>;
+    readonly grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.PredictionGradesArgs>[]>;
     /**
      * The name of the hub.
      */
@@ -241,7 +241,7 @@ export interface PredictionArgs {
     /**
      * Definition of the link mapping of prediction.
      */
-    readonly mappings: pulumi.Input<inputs.customerinsights.PredictionMappings>;
+    readonly mappings: pulumi.Input<inputs.customerinsights.PredictionMappingsArgs>;
     /**
      * Negative outcome expression.
      */

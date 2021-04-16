@@ -152,15 +152,15 @@ export interface ActionGroupArgs {
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AutomationRunbookReceiver>[]>;
+    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AutomationRunbookReceiverArgs>[]>;
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AzureAppPushReceiver>[]>;
+    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AzureAppPushReceiverArgs>[]>;
     /**
      * The list of email receivers that are part of this action group.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.EmailReceiver>[]>;
+    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.EmailReceiverArgs>[]>;
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
@@ -172,7 +172,7 @@ export interface ActionGroupArgs {
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.ItsmReceiver>[]>;
+    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.ItsmReceiverArgs>[]>;
     /**
      * Resource location
      */
@@ -184,7 +184,7 @@ export interface ActionGroupArgs {
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.SmsReceiver>[]>;
+    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.SmsReceiverArgs>[]>;
     /**
      * Resource tags
      */
@@ -192,5 +192,5 @@ export interface ActionGroupArgs {
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.WebhookReceiver>[]>;
+    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.WebhookReceiverArgs>[]>;
 }

@@ -134,7 +134,7 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.v20200601preview.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.documentdb.v20200601preview.ManagedServiceIdentityArgs>;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -142,11 +142,11 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.v20200601preview.CreateUpdateOptions>;
+    readonly options: pulumi.Input<inputs.documentdb.v20200601preview.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a userDefinedFunction
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20200601preview.SqlUserDefinedFunctionResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20200601preview.SqlUserDefinedFunctionResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

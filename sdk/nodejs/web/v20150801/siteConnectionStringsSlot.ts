@@ -129,7 +129,7 @@ export interface SiteConnectionStringsSlotArgs {
     /**
      * Connection strings
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20150801.ConnStringValueTypePair>}>;
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20150801.ConnStringValueTypePairArgs>}>;
     /**
      * Name of resource group
      */

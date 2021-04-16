@@ -111,7 +111,7 @@ export interface ChapSettingArgs {
     /**
      * The chap password.
      */
-    readonly password: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecret>;
+    readonly password: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
     /**
      * The resource group name
      */

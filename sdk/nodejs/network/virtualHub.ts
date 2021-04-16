@@ -218,11 +218,11 @@ export interface VirtualHubArgs {
     /**
      * The azureFirewall associated with this VirtualHub.
      */
-    readonly azureFirewall?: pulumi.Input<inputs.network.SubResource>;
+    readonly azureFirewall?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The expressRouteGateway associated with this VirtualHub.
      */
-    readonly expressRouteGateway?: pulumi.Input<inputs.network.SubResource>;
+    readonly expressRouteGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * Resource ID.
      */
@@ -234,7 +234,7 @@ export interface VirtualHubArgs {
     /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
-    readonly p2SVpnGateway?: pulumi.Input<inputs.network.SubResource>;
+    readonly p2SVpnGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -242,11 +242,11 @@ export interface VirtualHubArgs {
     /**
      * The routeTable associated with this virtual hub.
      */
-    readonly routeTable?: pulumi.Input<inputs.network.VirtualHubRouteTable>;
+    readonly routeTable?: pulumi.Input<inputs.network.VirtualHubRouteTableArgs>;
     /**
      * The securityPartnerProvider associated with this VirtualHub.
      */
-    readonly securityPartnerProvider?: pulumi.Input<inputs.network.SubResource>;
+    readonly securityPartnerProvider?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The Security Provider name.
      */
@@ -266,7 +266,7 @@ export interface VirtualHubArgs {
     /**
      * List of all virtual hub route table v2s associated with this VirtualHub.
      */
-    readonly virtualHubRouteTableV2s?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableV2>[]>;
+    readonly virtualHubRouteTableV2s?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableV2Args>[]>;
     /**
      * VirtualRouter ASN.
      */
@@ -278,9 +278,9 @@ export interface VirtualHubArgs {
     /**
      * The VirtualWAN to which the VirtualHub belongs.
      */
-    readonly virtualWan?: pulumi.Input<inputs.network.SubResource>;
+    readonly virtualWan?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The VpnGateway associated with this VirtualHub.
      */
-    readonly vpnGateway?: pulumi.Input<inputs.network.SubResource>;
+    readonly vpnGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
 }

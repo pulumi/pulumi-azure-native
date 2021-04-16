@@ -123,7 +123,7 @@ export interface DataStoreArgs {
     /**
      * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
      */
-    readonly customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.CustomerSecret>[]>;
+    readonly customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.CustomerSecretArgs>[]>;
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */

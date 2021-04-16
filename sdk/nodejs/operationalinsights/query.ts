@@ -177,7 +177,7 @@ export interface QueryArgs {
     /**
      * The related metadata items for the function.
      */
-    readonly related?: pulumi.Input<inputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesRelated>;
+    readonly related?: pulumi.Input<inputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesRelatedArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

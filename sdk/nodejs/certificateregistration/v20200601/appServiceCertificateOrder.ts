@@ -225,7 +225,7 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * State of the Key Vault secret.
      */
-    readonly certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.v20200601.AppServiceCertificate>}>;
+    readonly certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.v20200601.AppServiceCertificateArgs>}>;
     /**
      * Last CSR that was created for this order.
      */

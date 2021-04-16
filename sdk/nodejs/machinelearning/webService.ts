@@ -108,7 +108,7 @@ export interface WebServiceArgs {
     /**
      * Contains the property payload that describes the web service.
      */
-    readonly properties: pulumi.Input<inputs.machinelearning.WebServicePropertiesForGraph>;
+    readonly properties: pulumi.Input<inputs.machinelearning.WebServicePropertiesForGraphArgs>;
     /**
      * Name of the resource group in which the web service is located.
      */

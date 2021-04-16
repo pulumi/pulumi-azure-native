@@ -233,7 +233,7 @@ export interface ServerGroupArgs {
     /**
      * The delegated subnet arguments for a server group.
      */
-    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesDelegatedSubnetArguments>;
+    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesDelegatedSubnetArgumentsArgs>;
     /**
      * If Citus MX is enabled or not for the server group.
      */
@@ -253,7 +253,7 @@ export interface ServerGroupArgs {
     /**
      * Maintenance window of a server group.
      */
-    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.MaintenanceWindow>;
+    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.MaintenanceWindowArgs>;
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
      */
@@ -273,7 +273,7 @@ export interface ServerGroupArgs {
     /**
      * The list of server role groups.
      */
-    readonly serverRoleGroups?: pulumi.Input<pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroup>[]>;
+    readonly serverRoleGroups?: pulumi.Input<pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs>[]>;
     /**
      * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */

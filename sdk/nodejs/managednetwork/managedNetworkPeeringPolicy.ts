@@ -111,7 +111,7 @@ export interface ManagedNetworkPeeringPolicyArgs {
     /**
      * Gets or sets the properties of a Managed Network Policy
      */
-    readonly properties?: pulumi.Input<inputs.managednetwork.ManagedNetworkPeeringPolicyProperties>;
+    readonly properties?: pulumi.Input<inputs.managednetwork.ManagedNetworkPeeringPolicyPropertiesArgs>;
     /**
      * The name of the resource group.
      */

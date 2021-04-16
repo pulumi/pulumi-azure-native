@@ -229,7 +229,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Actions to invoke when the alert fires.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20210201preview.Action>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20210201preview.ActionArgs>[]>;
     /**
      * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
      */
@@ -241,7 +241,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria: pulumi.Input<inputs.insights.v20210201preview.ScheduledQueryRuleCriteria>;
+    readonly criteria: pulumi.Input<inputs.insights.v20210201preview.ScheduledQueryRuleCriteriaArgs>;
     /**
      * The description of the scheduled query rule.
      */

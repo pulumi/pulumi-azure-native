@@ -121,7 +121,7 @@ export interface CassandraResourceCassandraTableArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.v20210301preview.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.documentdb.v20210301preview.ManagedServiceIdentityArgs>;
     /**
      * Cosmos DB keyspace name.
      */
@@ -133,11 +133,11 @@ export interface CassandraResourceCassandraTableArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.v20210301preview.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.v20210301preview.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a Cassandra table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20210301preview.CassandraTableResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20210301preview.CassandraTableResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -333,7 +333,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20190801.NameValuePair>[]>;
+    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20190801.NameValuePairArgs>[]>;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -382,7 +382,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Access control list for controlling traffic to the App Service Environment.
      */
-    readonly networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20190801.NetworkAccessControlEntry>[]>;
+    readonly networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20190801.NetworkAccessControlEntryArgs>[]>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -411,7 +411,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Description of the Virtual Network.
      */
-    readonly virtualNetwork: pulumi.Input<inputs.web.v20190801.VirtualNetworkProfile>;
+    readonly virtualNetwork: pulumi.Input<inputs.web.v20190801.VirtualNetworkProfileArgs>;
     /**
      * Name of the Virtual Network for the App Service Environment.
      */
@@ -427,5 +427,5 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
      */
-    readonly workerPools: pulumi.Input<pulumi.Input<inputs.web.v20190801.WorkerPool>[]>;
+    readonly workerPools: pulumi.Input<pulumi.Input<inputs.web.v20190801.WorkerPoolArgs>[]>;
 }

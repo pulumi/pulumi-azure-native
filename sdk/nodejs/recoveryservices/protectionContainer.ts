@@ -131,7 +131,7 @@ export interface ProtectionContainerArgs {
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureBackupServerContainer | inputs.recoveryservices.AzureIaaSClassicComputeVMContainer | inputs.recoveryservices.AzureIaaSComputeVMContainer | inputs.recoveryservices.AzureSQLAGWorkloadContainerProtectionContainer | inputs.recoveryservices.AzureSqlContainer | inputs.recoveryservices.AzureStorageContainer | inputs.recoveryservices.AzureVMAppContainerProtectionContainer | inputs.recoveryservices.AzureWorkloadContainer | inputs.recoveryservices.DpmContainer | inputs.recoveryservices.GenericContainer | inputs.recoveryservices.IaaSVMContainer | inputs.recoveryservices.MabContainer>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureBackupServerContainerArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.AzureSqlContainerArgs | inputs.recoveryservices.AzureStorageContainerArgs | inputs.recoveryservices.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.AzureWorkloadContainerArgs | inputs.recoveryservices.DpmContainerArgs | inputs.recoveryservices.GenericContainerArgs | inputs.recoveryservices.IaaSVMContainerArgs | inputs.recoveryservices.MabContainerArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

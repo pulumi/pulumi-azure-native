@@ -183,7 +183,7 @@ export interface DedicatedHostArgs {
     /**
      * SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
      */
-    readonly sku: pulumi.Input<inputs.compute.v20191201.Sku>;
+    readonly sku: pulumi.Input<inputs.compute.v20191201.SkuArgs>;
     /**
      * Resource tags
      */

@@ -123,7 +123,7 @@ export interface ExtensionArgs {
     /**
      * Extended information about the plan being purchased for this extension resource.
      */
-    readonly plan?: pulumi.Input<inputs.visualstudio.ExtensionResourcePlan>;
+    readonly plan?: pulumi.Input<inputs.visualstudio.ExtensionResourcePlanArgs>;
     /**
      * A dictionary of extended properties. This property is currently unused.
      */

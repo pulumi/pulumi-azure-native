@@ -162,7 +162,7 @@ export interface HanaInstanceArgs {
     /**
      * Specifies the hardware settings for the HANA instance.
      */
-    readonly hardwareProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.HardwareProfile>;
+    readonly hardwareProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.HardwareProfileArgs>;
     /**
      * Hardware revision of a HANA instance
      */
@@ -174,11 +174,11 @@ export interface HanaInstanceArgs {
     /**
      * Specifies the network settings for the HANA instance.
      */
-    readonly networkProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.NetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.NetworkProfileArgs>;
     /**
      * Specifies the operating system settings for the HANA instance.
      */
-    readonly osProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.OSProfile>;
+    readonly osProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.OSProfileArgs>;
     /**
      * ARM ID of another HanaInstance that will share a network with this HanaInstance
      */
@@ -202,7 +202,7 @@ export interface HanaInstanceArgs {
     /**
      * Specifies the storage settings for the HANA instance disks.
      */
-    readonly storageProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.StorageProfile>;
+    readonly storageProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.StorageProfileArgs>;
     /**
      * Resource tags
      */

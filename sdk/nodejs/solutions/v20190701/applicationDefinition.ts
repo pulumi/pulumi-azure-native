@@ -197,11 +197,11 @@ export interface ApplicationDefinitionArgs {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.ApplicationDefinitionArtifact>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.ApplicationDefinitionArtifactArgs>[]>;
     /**
      * The managed application provider authorizations.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.ApplicationAuthorization>[]>;
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.ApplicationAuthorizationArgs>[]>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -209,7 +209,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The managed application deployment policy.
      */
-    readonly deploymentPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationDeploymentPolicy>;
+    readonly deploymentPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationDeploymentPolicyArgs>;
     /**
      * The managed application definition description.
      */
@@ -233,7 +233,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The managed application locking policy.
      */
-    readonly lockingPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationPackageLockingPolicyDefinition>;
+    readonly lockingPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationPackageLockingPolicyDefinitionArgs>;
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
@@ -245,11 +245,11 @@ export interface ApplicationDefinitionArgs {
     /**
      * The managed application management policy that determines publisher's access to the managed resource group.
      */
-    readonly managementPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationManagementPolicy>;
+    readonly managementPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationManagementPolicyArgs>;
     /**
      * The managed application notification policy.
      */
-    readonly notificationPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationNotificationPolicy>;
+    readonly notificationPolicy?: pulumi.Input<inputs.solutions.v20190701.ApplicationNotificationPolicyArgs>;
     /**
      * The managed application definition package file Uri. Use this element
      */
@@ -257,7 +257,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The managed application provider policies.
      */
-    readonly policies?: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.ApplicationPolicy>[]>;
+    readonly policies?: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.ApplicationPolicyArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -265,7 +265,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20190701.Sku>;
+    readonly sku?: pulumi.Input<inputs.solutions.v20190701.SkuArgs>;
     /**
      * Resource tags
      */

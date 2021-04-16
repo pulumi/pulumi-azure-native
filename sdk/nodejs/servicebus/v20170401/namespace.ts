@@ -142,7 +142,7 @@ export interface NamespaceArgs {
     /**
      * Properties of Sku
      */
-    readonly sku?: pulumi.Input<inputs.servicebus.v20170401.SBSku>;
+    readonly sku?: pulumi.Input<inputs.servicebus.v20170401.SBSkuArgs>;
     /**
      * Resource tags
      */

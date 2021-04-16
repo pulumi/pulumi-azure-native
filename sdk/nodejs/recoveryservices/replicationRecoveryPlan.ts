@@ -102,7 +102,7 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * Recovery plan creation properties.
      */
-    readonly properties: pulumi.Input<inputs.recoveryservices.CreateRecoveryPlanInputProperties>;
+    readonly properties: pulumi.Input<inputs.recoveryservices.CreateRecoveryPlanInputPropertiesArgs>;
     /**
      * Recovery plan name.
      */

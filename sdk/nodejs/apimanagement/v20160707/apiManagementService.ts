@@ -211,7 +211,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20160707.AdditionalRegion>[]>;
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20160707.AdditionalRegionArgs>[]>;
     /**
      * Addresser email.
      */
@@ -227,7 +227,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20160707.HostnameConfiguration>[]>;
+    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20160707.HostnameConfigurationArgs>[]>;
     /**
      * Datacenter location of the API Management service.
      */
@@ -251,7 +251,7 @@ export interface ApiManagementServiceArgs {
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: pulumi.Input<inputs.apimanagement.v20160707.ApiManagementServiceSkuProperties>;
+    readonly sku: pulumi.Input<inputs.apimanagement.v20160707.ApiManagementServiceSkuPropertiesArgs>;
     /**
      * API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
      */
@@ -263,5 +263,5 @@ export interface ApiManagementServiceArgs {
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly vpnconfiguration?: pulumi.Input<inputs.apimanagement.v20160707.VirtualNetworkConfiguration>;
+    readonly vpnconfiguration?: pulumi.Input<inputs.apimanagement.v20160707.VirtualNetworkConfigurationArgs>;
 }

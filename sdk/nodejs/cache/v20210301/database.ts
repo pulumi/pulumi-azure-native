@@ -154,11 +154,11 @@ export interface DatabaseArgs {
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.v20210301.Module>[]>;
+    readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.v20210301.ModuleArgs>[]>;
     /**
      * Persistence settings
      */
-    readonly persistence?: pulumi.Input<inputs.cache.v20210301.Persistence>;
+    readonly persistence?: pulumi.Input<inputs.cache.v20210301.PersistenceArgs>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */

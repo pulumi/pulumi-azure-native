@@ -323,7 +323,7 @@ export interface AgentPoolArgs {
     /**
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
-    readonly kubeletConfig?: pulumi.Input<inputs.containerservice.KubeletConfig>;
+    readonly kubeletConfig?: pulumi.Input<inputs.containerservice.KubeletConfigArgs>;
     /**
      * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
      */
@@ -331,7 +331,7 @@ export interface AgentPoolArgs {
     /**
      * LinuxOSConfig specifies the OS configuration of linux agent nodes.
      */
-    readonly linuxOSConfig?: pulumi.Input<inputs.containerservice.LinuxOSConfig>;
+    readonly linuxOSConfig?: pulumi.Input<inputs.containerservice.LinuxOSConfigArgs>;
     /**
      * Maximum number of nodes for auto-scaling
      */
@@ -419,7 +419,7 @@ export interface AgentPoolArgs {
     /**
      * Settings for upgrading the agentpool
      */
-    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.AgentPoolUpgradeSettings>;
+    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.AgentPoolUpgradeSettingsArgs>;
     /**
      * Size of agent VMs.
      */

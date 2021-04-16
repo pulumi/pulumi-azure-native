@@ -79,5 +79,5 @@ export interface ConsoleArgs {
     /**
      * Cloud shell properties for creating a console.
      */
-    readonly properties: pulumi.Input<inputs.portal.v20181001.ConsoleCreateProperties>;
+    readonly properties: pulumi.Input<inputs.portal.v20181001.ConsoleCreatePropertiesArgs>;
 }

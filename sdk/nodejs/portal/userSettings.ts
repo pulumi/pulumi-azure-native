@@ -76,7 +76,7 @@ export interface UserSettingsArgs {
     /**
      * The cloud shell user settings properties.
      */
-    readonly properties: pulumi.Input<inputs.portal.UserProperties>;
+    readonly properties: pulumi.Input<inputs.portal.UserPropertiesArgs>;
     /**
      * The name of the user settings
      */

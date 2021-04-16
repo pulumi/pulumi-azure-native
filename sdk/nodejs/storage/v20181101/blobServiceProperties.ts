@@ -112,7 +112,7 @@ export interface BlobServicePropertiesArgs {
     /**
      * Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
      */
-    readonly cors?: pulumi.Input<inputs.storage.v20181101.CorsRules>;
+    readonly cors?: pulumi.Input<inputs.storage.v20181101.CorsRulesArgs>;
     /**
      * DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
      */
@@ -120,7 +120,7 @@ export interface BlobServicePropertiesArgs {
     /**
      * The blob service properties for soft delete.
      */
-    readonly deleteRetentionPolicy?: pulumi.Input<inputs.storage.v20181101.DeleteRetentionPolicy>;
+    readonly deleteRetentionPolicy?: pulumi.Input<inputs.storage.v20181101.DeleteRetentionPolicyArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

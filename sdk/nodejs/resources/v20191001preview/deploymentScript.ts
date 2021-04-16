@@ -118,7 +118,7 @@ export interface DeploymentScriptArgs {
     /**
      * Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
-    readonly identity: pulumi.Input<inputs.resources.v20191001preview.ManagedServiceIdentity>;
+    readonly identity: pulumi.Input<inputs.resources.v20191001preview.ManagedServiceIdentityArgs>;
     /**
      * Type of the script.
      */

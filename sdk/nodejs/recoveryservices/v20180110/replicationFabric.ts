@@ -102,7 +102,7 @@ export interface ReplicationFabricArgs {
     /**
      * Fabric creation input.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180110.FabricCreationInputProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180110.FabricCreationInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

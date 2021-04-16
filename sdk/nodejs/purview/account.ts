@@ -178,7 +178,7 @@ export interface AccountArgs {
     /**
      * Identity Info on the tracked resource
      */
-    readonly identity?: pulumi.Input<inputs.purview.Identity>;
+    readonly identity?: pulumi.Input<inputs.purview.IdentityArgs>;
     /**
      * Gets or sets the location.
      */
@@ -194,7 +194,7 @@ export interface AccountArgs {
     /**
      * Gets or sets the Sku.
      */
-    readonly sku?: pulumi.Input<inputs.purview.AccountSku>;
+    readonly sku?: pulumi.Input<inputs.purview.AccountSkuArgs>;
     /**
      * Tags on the azure resource.
      */

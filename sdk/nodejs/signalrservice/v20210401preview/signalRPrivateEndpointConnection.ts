@@ -110,7 +110,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
     /**
      * Private endpoint associated with the private endpoint connection
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.signalrservice.v20210401preview.PrivateEndpoint>;
+    readonly privateEndpoint?: pulumi.Input<inputs.signalrservice.v20210401preview.PrivateEndpointArgs>;
     /**
      * The name of the private endpoint connection
      */
@@ -118,7 +118,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
     /**
      * Connection state
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.v20210401preview.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.v20210401preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

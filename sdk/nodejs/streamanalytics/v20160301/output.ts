@@ -110,7 +110,7 @@ export interface OutputArgs {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: pulumi.Input<inputs.streamanalytics.v20160301.AzureDataLakeStoreOutputDataSource | inputs.streamanalytics.v20160301.AzureSqlDatabaseOutputDataSource | inputs.streamanalytics.v20160301.AzureTableOutputDataSource | inputs.streamanalytics.v20160301.BlobOutputDataSource | inputs.streamanalytics.v20160301.DocumentDbOutputDataSource | inputs.streamanalytics.v20160301.EventHubOutputDataSource | inputs.streamanalytics.v20160301.PowerBIOutputDataSource | inputs.streamanalytics.v20160301.ServiceBusQueueOutputDataSource | inputs.streamanalytics.v20160301.ServiceBusTopicOutputDataSource>;
+    readonly datasource?: pulumi.Input<inputs.streamanalytics.v20160301.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.v20160301.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.v20160301.AzureTableOutputDataSourceArgs | inputs.streamanalytics.v20160301.BlobOutputDataSourceArgs | inputs.streamanalytics.v20160301.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.v20160301.EventHubOutputDataSourceArgs | inputs.streamanalytics.v20160301.PowerBIOutputDataSourceArgs | inputs.streamanalytics.v20160301.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.v20160301.ServiceBusTopicOutputDataSourceArgs>;
     /**
      * The name of the streaming job.
      */
@@ -130,5 +130,5 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: pulumi.Input<inputs.streamanalytics.v20160301.AvroSerialization | inputs.streamanalytics.v20160301.CsvSerialization | inputs.streamanalytics.v20160301.JsonSerialization>;
+    readonly serialization?: pulumi.Input<inputs.streamanalytics.v20160301.AvroSerializationArgs | inputs.streamanalytics.v20160301.CsvSerializationArgs | inputs.streamanalytics.v20160301.JsonSerializationArgs>;
 }

@@ -109,7 +109,7 @@ export interface ManagementGroupArgs {
     /**
      * The details of a management group used during creation.
      */
-    readonly details?: pulumi.Input<inputs.management.CreateManagementGroupDetails>;
+    readonly details?: pulumi.Input<inputs.management.CreateManagementGroupDetailsArgs>;
     /**
      * The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
      */

@@ -206,7 +206,7 @@ export interface CertificateArgs {
     /**
      * Specification for the hosting environment (App Service Environment) to use for the certificate
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
     /**
      * Resource Id
      */

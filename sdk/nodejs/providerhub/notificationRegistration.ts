@@ -87,7 +87,7 @@ export interface NotificationRegistrationArgs {
      * The notification registration.
      */
     readonly notificationRegistrationName?: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.providerhub.NotificationRegistrationProperties>;
+    readonly properties?: pulumi.Input<inputs.providerhub.NotificationRegistrationPropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

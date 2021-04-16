@@ -213,23 +213,23 @@ export interface DomainArgs {
     /**
      * Legal agreement consent.
      */
-    readonly consent: pulumi.Input<inputs.domainregistration.v20190801.DomainPurchaseConsent>;
+    readonly consent: pulumi.Input<inputs.domainregistration.v20190801.DomainPurchaseConsentArgs>;
     /**
      * Administrative contact.
      */
-    readonly contactAdmin: pulumi.Input<inputs.domainregistration.v20190801.Contact>;
+    readonly contactAdmin: pulumi.Input<inputs.domainregistration.v20190801.ContactArgs>;
     /**
      * Billing contact.
      */
-    readonly contactBilling: pulumi.Input<inputs.domainregistration.v20190801.Contact>;
+    readonly contactBilling: pulumi.Input<inputs.domainregistration.v20190801.ContactArgs>;
     /**
      * Registrant contact.
      */
-    readonly contactRegistrant: pulumi.Input<inputs.domainregistration.v20190801.Contact>;
+    readonly contactRegistrant: pulumi.Input<inputs.domainregistration.v20190801.ContactArgs>;
     /**
      * Technical contact.
      */
-    readonly contactTech: pulumi.Input<inputs.domainregistration.v20190801.Contact>;
+    readonly contactTech: pulumi.Input<inputs.domainregistration.v20190801.ContactArgs>;
     /**
      * Current DNS type
      */

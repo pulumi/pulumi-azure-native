@@ -171,7 +171,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Virtual network gateway's BGP speaker settings
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20160601.BgpSettings>;
+    readonly bgpSettings?: pulumi.Input<inputs.network.v20160601.BgpSettingsArgs>;
     /**
      * EnableBgp Flag
      */
@@ -183,7 +183,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    readonly gatewayDefaultSite?: pulumi.Input<inputs.network.v20160601.SubResource>;
+    readonly gatewayDefaultSite?: pulumi.Input<inputs.network.v20160601.SubResourceArgs>;
     /**
      * The type of this virtual network gateway.
      */
@@ -195,7 +195,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * IpConfigurations for Virtual network gateway.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160601.VirtualNetworkGatewayIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160601.VirtualNetworkGatewayIPConfigurationArgs>[]>;
     /**
      * Resource location
      */
@@ -215,7 +215,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20160601.VirtualNetworkGatewaySku>;
+    readonly sku?: pulumi.Input<inputs.network.v20160601.VirtualNetworkGatewaySkuArgs>;
     /**
      * Resource tags
      */
@@ -227,7 +227,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<inputs.network.v20160601.VpnClientConfiguration>;
+    readonly vpnClientConfiguration?: pulumi.Input<inputs.network.v20160601.VpnClientConfigurationArgs>;
     /**
      * The type of this virtual network gateway.
      */

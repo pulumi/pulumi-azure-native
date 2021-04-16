@@ -117,7 +117,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * Managed private endpoint properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.ManagedPrivateEndpoint>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.ManagedPrivateEndpointArgs>;
     /**
      * The resource group name.
      */

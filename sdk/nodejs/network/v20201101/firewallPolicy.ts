@@ -185,11 +185,11 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: pulumi.Input<inputs.network.v20201101.SubResource>;
+    readonly basePolicy?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * DNS Proxy Settings definition.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20201101.DnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20201101.DnsSettingsArgs>;
     /**
      * The name of the Firewall Policy.
      */
@@ -201,15 +201,15 @@ export interface FirewallPolicyArgs {
     /**
      * The identity of the firewall policy.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20201101.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.network.v20201101.ManagedServiceIdentityArgs>;
     /**
      * Insights on Firewall Policy.
      */
-    readonly insights?: pulumi.Input<inputs.network.v20201101.FirewallPolicyInsights>;
+    readonly insights?: pulumi.Input<inputs.network.v20201101.FirewallPolicyInsightsArgs>;
     /**
      * The configuration for Intrusion detection.
      */
-    readonly intrusionDetection?: pulumi.Input<inputs.network.v20201101.FirewallPolicyIntrusionDetection>;
+    readonly intrusionDetection?: pulumi.Input<inputs.network.v20201101.FirewallPolicyIntrusionDetectionArgs>;
     /**
      * Resource location.
      */
@@ -221,11 +221,11 @@ export interface FirewallPolicyArgs {
     /**
      * The Firewall Policy SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20201101.FirewallPolicySku>;
+    readonly sku?: pulumi.Input<inputs.network.v20201101.FirewallPolicySkuArgs>;
     /**
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
-    readonly snat?: pulumi.Input<inputs.network.v20201101.FirewallPolicySNAT>;
+    readonly snat?: pulumi.Input<inputs.network.v20201101.FirewallPolicySNATArgs>;
     /**
      * Resource tags.
      */
@@ -237,9 +237,9 @@ export interface FirewallPolicyArgs {
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20201101.FirewallPolicyThreatIntelWhitelist>;
+    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20201101.FirewallPolicyThreatIntelWhitelistArgs>;
     /**
      * TLS Configuration definition.
      */
-    readonly transportSecurity?: pulumi.Input<inputs.network.v20201101.FirewallPolicyTransportSecurity>;
+    readonly transportSecurity?: pulumi.Input<inputs.network.v20201101.FirewallPolicyTransportSecurityArgs>;
 }

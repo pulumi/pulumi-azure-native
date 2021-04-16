@@ -123,7 +123,7 @@ export interface IotHubResourceArgs {
     /**
      * IotHub properties
      */
-    readonly properties?: pulumi.Input<inputs.devices.v20181201preview.IotHubProperties>;
+    readonly properties?: pulumi.Input<inputs.devices.v20181201preview.IotHubPropertiesArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
@@ -135,7 +135,7 @@ export interface IotHubResourceArgs {
     /**
      * IotHub SKU info
      */
-    readonly sku: pulumi.Input<inputs.devices.v20181201preview.IotHubSkuInfo>;
+    readonly sku: pulumi.Input<inputs.devices.v20181201preview.IotHubSkuInfoArgs>;
     /**
      * The resource tags.
      */

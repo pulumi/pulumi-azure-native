@@ -105,7 +105,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.insights.PrivateEndpointProperty>;
+    readonly privateEndpoint?: pulumi.Input<inputs.insights.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
@@ -113,7 +113,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStateProperty>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group.
      */

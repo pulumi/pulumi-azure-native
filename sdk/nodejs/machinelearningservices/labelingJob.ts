@@ -103,7 +103,7 @@ export interface LabelingJobArgs {
     /**
      * Definition of a labeling job.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.LabelingJobProperties>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.LabelingJobPropertiesArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

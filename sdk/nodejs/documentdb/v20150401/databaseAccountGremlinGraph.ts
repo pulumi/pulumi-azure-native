@@ -174,7 +174,7 @@ export interface DatabaseAccountGremlinGraphArgs {
     /**
      * The standard JSON format of a Gremlin graph
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20150401.GremlinGraphResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20150401.GremlinGraphResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

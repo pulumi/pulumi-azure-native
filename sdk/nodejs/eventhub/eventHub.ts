@@ -129,7 +129,7 @@ export interface EventHubArgs {
     /**
      * Properties of capture description
      */
-    readonly captureDescription?: pulumi.Input<inputs.eventhub.CaptureDescription>;
+    readonly captureDescription?: pulumi.Input<inputs.eventhub.CaptureDescriptionArgs>;
     /**
      * The Event Hub name
      */

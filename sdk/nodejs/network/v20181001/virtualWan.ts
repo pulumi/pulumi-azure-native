@@ -172,7 +172,7 @@ export interface VirtualWanArgs {
     /**
      * list of all P2SVpnServerConfigurations associated with the virtual wan.
      */
-    readonly p2SVpnServerConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfiguration>[]>;
+    readonly p2SVpnServerConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigurationArgs>[]>;
     /**
      * The resource group name of the VirtualWan.
      */

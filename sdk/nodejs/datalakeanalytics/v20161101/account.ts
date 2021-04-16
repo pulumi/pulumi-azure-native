@@ -260,11 +260,11 @@ export interface AccountArgs {
     /**
      * The list of compute policies associated with this account.
      */
-    readonly computePolicies?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.CreateComputePolicyWithAccountParameters>[]>;
+    readonly computePolicies?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.CreateComputePolicyWithAccountParametersArgs>[]>;
     /**
      * The list of Data Lake Store accounts associated with this account.
      */
-    readonly dataLakeStoreAccounts: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.AddDataLakeStoreWithAccountParameters>[]>;
+    readonly dataLakeStoreAccounts: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.AddDataLakeStoreWithAccountParametersArgs>[]>;
     /**
      * The default Data Lake Store account associated with this account.
      */
@@ -276,7 +276,7 @@ export interface AccountArgs {
     /**
      * The list of firewall rules associated with this account.
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.CreateFirewallRuleWithAccountParameters>[]>;
+    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.CreateFirewallRuleWithAccountParametersArgs>[]>;
     /**
      * The current state of the IP address firewall for this account.
      */
@@ -316,7 +316,7 @@ export interface AccountArgs {
     /**
      * The list of Azure Blob Storage accounts associated with this account.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.AddStorageAccountWithAccountParameters>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.AddStorageAccountWithAccountParametersArgs>[]>;
     /**
      * The resource tags.
      */

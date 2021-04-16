@@ -115,7 +115,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.cache.v20210201preview.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.cache.v20210201preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

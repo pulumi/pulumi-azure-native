@@ -114,7 +114,7 @@ export interface IntegrationServiceEnvironmentArgs {
     /**
      * The integration service environment properties.
      */
-    readonly properties?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentProperties>;
+    readonly properties?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentPropertiesArgs>;
     /**
      * The resource group.
      */
@@ -122,7 +122,7 @@ export interface IntegrationServiceEnvironmentArgs {
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentSku>;
+    readonly sku?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentSkuArgs>;
     /**
      * The resource tags.
      */

@@ -173,11 +173,11 @@ export interface FrontDoorArgs {
     /**
      * Backend pools available to routing rules.
      */
-    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.network.BackendPool>[]>;
+    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.network.BackendPoolArgs>[]>;
     /**
      * Settings for all backendPools
      */
-    readonly backendPoolsSettings?: pulumi.Input<inputs.network.BackendPoolsSettings>;
+    readonly backendPoolsSettings?: pulumi.Input<inputs.network.BackendPoolsSettingsArgs>;
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
@@ -193,15 +193,15 @@ export interface FrontDoorArgs {
     /**
      * Frontend endpoints available to routing rules.
      */
-    readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.FrontendEndpoint>[]>;
+    readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.FrontendEndpointArgs>[]>;
     /**
      * Health probe settings associated with this Front Door instance.
      */
-    readonly healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.network.HealthProbeSettingsModel>[]>;
+    readonly healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.network.HealthProbeSettingsModelArgs>[]>;
     /**
      * Load balancing settings associated with this Front Door instance.
      */
-    readonly loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancingSettingsModel>[]>;
+    readonly loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancingSettingsModelArgs>[]>;
     /**
      * Resource location.
      */
@@ -213,7 +213,7 @@ export interface FrontDoorArgs {
     /**
      * Routing rules associated with this Front Door.
      */
-    readonly routingRules?: pulumi.Input<pulumi.Input<inputs.network.RoutingRule>[]>;
+    readonly routingRules?: pulumi.Input<pulumi.Input<inputs.network.RoutingRuleArgs>[]>;
     /**
      * Resource tags.
      */

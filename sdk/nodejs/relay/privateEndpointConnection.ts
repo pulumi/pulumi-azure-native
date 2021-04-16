@@ -125,7 +125,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Properties of the private endpoint object.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.relay.PrivateEndpoint>;
+    readonly privateEndpoint?: pulumi.Input<inputs.relay.PrivateEndpointArgs>;
     /**
      * The PrivateEndpointConnection name.
      */
@@ -133,7 +133,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.relay.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.relay.PrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

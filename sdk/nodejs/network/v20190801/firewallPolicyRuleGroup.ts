@@ -135,5 +135,5 @@ export interface FirewallPolicyRuleGroupArgs {
     /**
      * Group of Firewall Policy rules.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.FirewallPolicyFilterRule | inputs.network.v20190801.FirewallPolicyNatRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.FirewallPolicyFilterRuleArgs | inputs.network.v20190801.FirewallPolicyNatRuleArgs>[]>;
 }

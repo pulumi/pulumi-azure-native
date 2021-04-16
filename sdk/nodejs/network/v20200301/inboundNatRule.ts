@@ -159,7 +159,7 @@ export interface InboundNatRuleArgs {
     /**
      * A reference to frontend IP addresses.
      */
-    readonly frontendIPConfiguration?: pulumi.Input<inputs.network.v20200301.SubResource>;
+    readonly frontendIPConfiguration?: pulumi.Input<inputs.network.v20200301.SubResourceArgs>;
     /**
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */

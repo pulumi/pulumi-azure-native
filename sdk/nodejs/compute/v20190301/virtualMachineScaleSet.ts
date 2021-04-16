@@ -196,11 +196,11 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    readonly additionalCapabilities?: pulumi.Input<inputs.compute.v20190301.AdditionalCapabilities>;
+    readonly additionalCapabilities?: pulumi.Input<inputs.compute.v20190301.AdditionalCapabilitiesArgs>;
     /**
      * Policy for automatic repairs.
      */
-    readonly automaticRepairsPolicy?: pulumi.Input<inputs.compute.v20190301.AutomaticRepairsPolicy>;
+    readonly automaticRepairsPolicy?: pulumi.Input<inputs.compute.v20190301.AutomaticRepairsPolicyArgs>;
     /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
@@ -208,7 +208,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.compute.v20190301.VirtualMachineScaleSetIdentity>;
+    readonly identity?: pulumi.Input<inputs.compute.v20190301.VirtualMachineScaleSetIdentityArgs>;
     /**
      * Resource location
      */
@@ -220,7 +220,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: pulumi.Input<inputs.compute.v20190301.Plan>;
+    readonly plan?: pulumi.Input<inputs.compute.v20190301.PlanArgs>;
     /**
      * Fault Domain count for each placement group.
      */
@@ -228,7 +228,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20190301.SubResource>;
+    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20190301.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
@@ -236,7 +236,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
      */
-    readonly scaleInPolicy?: pulumi.Input<inputs.compute.v20190301.ScaleInPolicy>;
+    readonly scaleInPolicy?: pulumi.Input<inputs.compute.v20190301.ScaleInPolicyArgs>;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
      */
@@ -244,7 +244,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20190301.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20190301.SkuArgs>;
     /**
      * Resource tags
      */
@@ -252,11 +252,11 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20190301.UpgradePolicy>;
+    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20190301.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20190301.VirtualMachineScaleSetVMProfile>;
+    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20190301.VirtualMachineScaleSetVMProfileArgs>;
     /**
      * The name of the VM scale set to create or update.
      */

@@ -145,7 +145,7 @@ export interface SnapshotArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20170330.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20170330.CreationDataArgs>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
@@ -153,7 +153,7 @@ export interface SnapshotArgs {
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20170330.EncryptionSettings>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20170330.EncryptionSettingsArgs>;
     /**
      * Resource location
      */
@@ -169,7 +169,7 @@ export interface SnapshotArgs {
     /**
      * The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20170330.DiskSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20170330.DiskSkuArgs>;
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */

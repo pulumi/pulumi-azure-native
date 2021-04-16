@@ -125,7 +125,7 @@ export interface ImageArgs {
     /**
      * The extended location of the Image.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
      * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
      */
@@ -145,11 +145,11 @@ export interface ImageArgs {
     /**
      * The source virtual machine from which Image is created.
      */
-    readonly sourceVirtualMachine?: pulumi.Input<inputs.compute.SubResource>;
+    readonly sourceVirtualMachine?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    readonly storageProfile?: pulumi.Input<inputs.compute.ImageStorageProfile>;
+    readonly storageProfile?: pulumi.Input<inputs.compute.ImageStorageProfileArgs>;
     /**
      * Resource tags
      */

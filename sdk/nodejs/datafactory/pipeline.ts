@@ -147,7 +147,7 @@ export interface PipelineArgs {
     /**
      * List of activities in pipeline.
      */
-    readonly activities?: pulumi.Input<pulumi.Input<inputs.datafactory.AppendVariableActivity | inputs.datafactory.AzureDataExplorerCommandActivity | inputs.datafactory.AzureFunctionActivity | inputs.datafactory.AzureMLBatchExecutionActivity | inputs.datafactory.AzureMLExecutePipelineActivity | inputs.datafactory.AzureMLUpdateResourceActivity | inputs.datafactory.ControlActivity | inputs.datafactory.CopyActivity | inputs.datafactory.CustomActivity | inputs.datafactory.DataLakeAnalyticsUSQLActivity | inputs.datafactory.DatabricksNotebookActivity | inputs.datafactory.DatabricksSparkJarActivity | inputs.datafactory.DatabricksSparkPythonActivity | inputs.datafactory.DeleteActivity | inputs.datafactory.ExecuteDataFlowActivity | inputs.datafactory.ExecutePipelineActivity | inputs.datafactory.ExecuteSSISPackageActivity | inputs.datafactory.ExecutionActivity | inputs.datafactory.FilterActivity | inputs.datafactory.ForEachActivity | inputs.datafactory.GetMetadataActivity | inputs.datafactory.HDInsightHiveActivity | inputs.datafactory.HDInsightMapReduceActivity | inputs.datafactory.HDInsightPigActivity | inputs.datafactory.HDInsightSparkActivity | inputs.datafactory.HDInsightStreamingActivity | inputs.datafactory.IfConditionActivity | inputs.datafactory.LookupActivity | inputs.datafactory.SetVariableActivity | inputs.datafactory.SqlServerStoredProcedureActivity | inputs.datafactory.SwitchActivity | inputs.datafactory.UntilActivity | inputs.datafactory.ValidationActivity | inputs.datafactory.WaitActivity | inputs.datafactory.WebActivity | inputs.datafactory.WebHookActivity>[]>;
+    readonly activities?: pulumi.Input<pulumi.Input<inputs.datafactory.AppendVariableActivityArgs | inputs.datafactory.AzureDataExplorerCommandActivityArgs | inputs.datafactory.AzureFunctionActivityArgs | inputs.datafactory.AzureMLBatchExecutionActivityArgs | inputs.datafactory.AzureMLExecutePipelineActivityArgs | inputs.datafactory.AzureMLUpdateResourceActivityArgs | inputs.datafactory.ControlActivityArgs | inputs.datafactory.CopyActivityArgs | inputs.datafactory.CustomActivityArgs | inputs.datafactory.DataLakeAnalyticsUSQLActivityArgs | inputs.datafactory.DatabricksNotebookActivityArgs | inputs.datafactory.DatabricksSparkJarActivityArgs | inputs.datafactory.DatabricksSparkPythonActivityArgs | inputs.datafactory.DeleteActivityArgs | inputs.datafactory.ExecuteDataFlowActivityArgs | inputs.datafactory.ExecutePipelineActivityArgs | inputs.datafactory.ExecuteSSISPackageActivityArgs | inputs.datafactory.ExecutionActivityArgs | inputs.datafactory.FilterActivityArgs | inputs.datafactory.ForEachActivityArgs | inputs.datafactory.GetMetadataActivityArgs | inputs.datafactory.HDInsightHiveActivityArgs | inputs.datafactory.HDInsightMapReduceActivityArgs | inputs.datafactory.HDInsightPigActivityArgs | inputs.datafactory.HDInsightSparkActivityArgs | inputs.datafactory.HDInsightStreamingActivityArgs | inputs.datafactory.IfConditionActivityArgs | inputs.datafactory.LookupActivityArgs | inputs.datafactory.SetVariableActivityArgs | inputs.datafactory.SqlServerStoredProcedureActivityArgs | inputs.datafactory.SwitchActivityArgs | inputs.datafactory.UntilActivityArgs | inputs.datafactory.ValidationActivityArgs | inputs.datafactory.WaitActivityArgs | inputs.datafactory.WebActivityArgs | inputs.datafactory.WebHookActivityArgs>[]>;
     /**
      * List of tags that can be used for describing the Pipeline.
      */
@@ -167,11 +167,11 @@ export interface PipelineArgs {
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    readonly folder?: pulumi.Input<inputs.datafactory.PipelineFolder>;
+    readonly folder?: pulumi.Input<inputs.datafactory.PipelineFolderArgs>;
     /**
      * List of parameters for pipeline.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.ParameterSpecification>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.ParameterSpecificationArgs>}>;
     /**
      * The pipeline name.
      */
@@ -179,7 +179,7 @@ export interface PipelineArgs {
     /**
      * Pipeline Policy.
      */
-    readonly policy?: pulumi.Input<inputs.datafactory.PipelinePolicy>;
+    readonly policy?: pulumi.Input<inputs.datafactory.PipelinePolicyArgs>;
     /**
      * The resource group name.
      */
@@ -191,5 +191,5 @@ export interface PipelineArgs {
     /**
      * List of variables for pipeline.
      */
-    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.VariableSpecification>}>;
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.VariableSpecificationArgs>}>;
 }

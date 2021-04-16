@@ -85,7 +85,7 @@ export interface VMwareCollectorArgs {
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.migrate.v20191001.CollectorProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.v20191001.CollectorPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

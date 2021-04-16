@@ -148,7 +148,7 @@ export interface PublicIpAddressArgs {
     /**
      * Gets or sets FQDN of the DNS record associated with the public IP address
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20150501preview.PublicIpAddressDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20150501preview.PublicIpAddressDnsSettingsArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -164,7 +164,7 @@ export interface PublicIpAddressArgs {
     /**
      * Gets a reference to the network interface IP configurations using this public IP address
      */
-    readonly ipConfiguration?: pulumi.Input<inputs.network.v20150501preview.SubResource>;
+    readonly ipConfiguration?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
     /**
      * Resource location
      */

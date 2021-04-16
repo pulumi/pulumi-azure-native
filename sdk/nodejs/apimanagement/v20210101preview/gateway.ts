@@ -106,7 +106,7 @@ export interface GatewayArgs {
     /**
      * Gateway location.
      */
-    readonly locationData?: pulumi.Input<inputs.apimanagement.v20210101preview.ResourceLocationDataContract>;
+    readonly locationData?: pulumi.Input<inputs.apimanagement.v20210101preview.ResourceLocationDataContractArgs>;
     /**
      * The name of the resource group.
      */

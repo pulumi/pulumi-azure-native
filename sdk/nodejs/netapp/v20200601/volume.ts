@@ -234,11 +234,11 @@ export interface VolumeArgs {
     /**
      * DataProtection type volumes include an object containing details of the replication
      */
-    readonly dataProtection?: pulumi.Input<inputs.netapp.v20200601.VolumePropertiesDataProtection>;
+    readonly dataProtection?: pulumi.Input<inputs.netapp.v20200601.VolumePropertiesDataProtectionArgs>;
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20200601.VolumePropertiesExportPolicy>;
+    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20200601.VolumePropertiesExportPolicyArgs>;
     /**
      * Restoring
      */

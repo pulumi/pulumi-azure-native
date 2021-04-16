@@ -119,7 +119,7 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The assembly properties.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20180701preview.AssemblyProperties>;
+    readonly properties: pulumi.Input<inputs.logic.v20180701preview.AssemblyPropertiesArgs>;
     /**
      * The resource group name.
      */

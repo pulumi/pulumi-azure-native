@@ -226,23 +226,23 @@ export interface ManagedClusterArgs {
     /**
      * Profile of Azure Active Directory configuration.
      */
-    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAADProfile>;
+    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAADProfileArgs>;
     /**
      * Profile of managed cluster add-on.
      */
-    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAddonProfile>}>;
+    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAddonProfileArgs>}>;
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAgentPoolProfile>[]>;
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAgentPoolProfileArgs>[]>;
     /**
      * Access profile for managed cluster API server.
      */
-    readonly apiServerAccessProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAPIServerAccessProfile>;
+    readonly apiServerAccessProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterAPIServerAccessProfileArgs>;
     /**
      * Parameters to be applied to the cluster-autoscaler when enabled
      */
-    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterPropertiesAutoScalerProfile>;
+    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterPropertiesAutoScalerProfileArgs>;
     /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
@@ -262,11 +262,11 @@ export interface ManagedClusterArgs {
     /**
      * The identity of the managed cluster, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterIdentity>;
+    readonly identity?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterIdentityArgs>;
     /**
      * Identities associated with the cluster.
      */
-    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterPropertiesIdentityProfile>}>;
+    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterPropertiesIdentityProfileArgs>}>;
     /**
      * Version of Kubernetes specified when creating the managed cluster.
      */
@@ -274,7 +274,7 @@ export interface ManagedClusterArgs {
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20200701.ContainerServiceLinuxProfile>;
+    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20200701.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
@@ -282,7 +282,7 @@ export interface ManagedClusterArgs {
     /**
      * Profile of network configuration.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20200701.ContainerServiceNetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20200701.ContainerServiceNetworkProfileArgs>;
     /**
      * Name of the resource group containing agent pool nodes.
      */
@@ -298,11 +298,11 @@ export interface ManagedClusterArgs {
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterServicePrincipalProfile>;
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterServicePrincipalProfileArgs>;
     /**
      * The managed cluster SKU.
      */
-    readonly sku?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterSKU>;
+    readonly sku?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterSKUArgs>;
     /**
      * Resource tags
      */
@@ -310,5 +310,5 @@ export interface ManagedClusterArgs {
     /**
      * Profile for Windows VMs in the container service cluster.
      */
-    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterWindowsProfile>;
+    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20200701.ManagedClusterWindowsProfileArgs>;
 }

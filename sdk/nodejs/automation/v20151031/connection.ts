@@ -130,7 +130,7 @@ export interface ConnectionArgs {
     /**
      * Gets or sets the connectionType of the connection.
      */
-    readonly connectionType: pulumi.Input<inputs.automation.v20151031.ConnectionTypeAssociationProperty>;
+    readonly connectionType: pulumi.Input<inputs.automation.v20151031.ConnectionTypeAssociationPropertyArgs>;
     /**
      * Gets or sets the description of the connection.
      */

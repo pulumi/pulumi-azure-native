@@ -230,7 +230,7 @@ export interface AppServicePlanArgs {
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20201201.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20201201.HostingEnvironmentProfileArgs>;
     /**
      * If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -250,7 +250,7 @@ export interface AppServicePlanArgs {
     /**
      * Specification for the Kubernetes Environment to use for the App Service plan.
      */
-    readonly kubeEnvironmentProfile?: pulumi.Input<inputs.web.v20201201.KubeEnvironmentProfile>;
+    readonly kubeEnvironmentProfile?: pulumi.Input<inputs.web.v20201201.KubeEnvironmentProfileArgs>;
     /**
      * Resource Location.
      */
@@ -279,7 +279,7 @@ export interface AppServicePlanArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20201201.SkuDescription>;
+    readonly sku?: pulumi.Input<inputs.web.v20201201.SkuDescriptionArgs>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */

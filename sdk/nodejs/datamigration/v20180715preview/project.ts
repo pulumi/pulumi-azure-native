@@ -146,7 +146,7 @@ export interface ProjectArgs {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20180715preview.DatabaseInfo>[]>;
+    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20180715preview.DatabaseInfoArgs>[]>;
     /**
      * Name of the resource group
      */
@@ -166,7 +166,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.MiSqlConnectionInfo | inputs.datamigration.v20180715preview.MongoDbConnectionInfo | inputs.datamigration.v20180715preview.MySqlConnectionInfo | inputs.datamigration.v20180715preview.OracleConnectionInfo | inputs.datamigration.v20180715preview.PostgreSqlConnectionInfo | inputs.datamigration.v20180715preview.SqlConnectionInfo>;
+    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.MiSqlConnectionInfoArgs | inputs.datamigration.v20180715preview.MongoDbConnectionInfoArgs | inputs.datamigration.v20180715preview.MySqlConnectionInfoArgs | inputs.datamigration.v20180715preview.OracleConnectionInfoArgs | inputs.datamigration.v20180715preview.PostgreSqlConnectionInfoArgs | inputs.datamigration.v20180715preview.SqlConnectionInfoArgs>;
     /**
      * Source platform for the project
      */
@@ -178,7 +178,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.MiSqlConnectionInfo | inputs.datamigration.v20180715preview.MongoDbConnectionInfo | inputs.datamigration.v20180715preview.MySqlConnectionInfo | inputs.datamigration.v20180715preview.OracleConnectionInfo | inputs.datamigration.v20180715preview.PostgreSqlConnectionInfo | inputs.datamigration.v20180715preview.SqlConnectionInfo>;
+    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.MiSqlConnectionInfoArgs | inputs.datamigration.v20180715preview.MongoDbConnectionInfoArgs | inputs.datamigration.v20180715preview.MySqlConnectionInfoArgs | inputs.datamigration.v20180715preview.OracleConnectionInfoArgs | inputs.datamigration.v20180715preview.PostgreSqlConnectionInfoArgs | inputs.datamigration.v20180715preview.SqlConnectionInfoArgs>;
     /**
      * Target platform for the project
      */

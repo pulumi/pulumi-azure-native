@@ -131,7 +131,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.PrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the resource group that contains the key vault.
      */

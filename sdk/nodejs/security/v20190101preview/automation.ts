@@ -136,7 +136,7 @@ export interface AutomationArgs {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationActionEventHub | inputs.security.v20190101preview.AutomationActionLogicApp | inputs.security.v20190101preview.AutomationActionWorkspace>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationActionEventHubArgs | inputs.security.v20190101preview.AutomationActionLogicAppArgs | inputs.security.v20190101preview.AutomationActionWorkspaceArgs>[]>;
     /**
      * The security automation name.
      */
@@ -168,11 +168,11 @@ export interface AutomationArgs {
     /**
      * A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationScope>[]>;
+    readonly scopes?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationScopeArgs>[]>;
     /**
      * A collection of the source event types which evaluate the security automation set of rules.
      */
-    readonly sources?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationSource>[]>;
+    readonly sources?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationSourceArgs>[]>;
     /**
      * A list of key value pairs that describe the resource.
      */

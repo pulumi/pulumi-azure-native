@@ -150,7 +150,7 @@ export interface ConnectivityConfigurationArgs {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectivityGroupItem>[]>;
+    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectivityGroupItemArgs>[]>;
     /**
      * The name of the network manager connectivity configuration.
      */

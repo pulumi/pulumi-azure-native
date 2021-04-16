@@ -97,7 +97,7 @@ export interface ConfigurationProfileArgs {
     /**
      * The identity block returned by ARM resource that supports managed identity.
      */
-    readonly identity?: pulumi.Input<inputs.changeanalysis.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.changeanalysis.ResourceIdentityArgs>;
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
@@ -105,5 +105,5 @@ export interface ConfigurationProfileArgs {
     /**
      * The properties of a configuration profile.
      */
-    readonly properties?: pulumi.Input<inputs.changeanalysis.ConfigurationProfileResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.changeanalysis.ConfigurationProfileResourcePropertiesArgs>;
 }

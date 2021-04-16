@@ -161,11 +161,11 @@ export interface LoadBalancerArgs {
     /**
      * Collection of backend address pools used by a load balancer.
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20200501.BackendAddressPool>[]>;
+    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20200501.BackendAddressPoolArgs>[]>;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200501.FrontendIPConfiguration>[]>;
+    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200501.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource ID.
      */
@@ -173,11 +173,11 @@ export interface LoadBalancerArgs {
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20200501.InboundNatPool>[]>;
+    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20200501.InboundNatPoolArgs>[]>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.InboundNatRule>[]>;
+    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.InboundNatRuleArgs>[]>;
     /**
      * The name of the load balancer.
      */
@@ -185,7 +185,7 @@ export interface LoadBalancerArgs {
     /**
      * Object collection representing the load balancing rules Gets the provisioning.
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.LoadBalancingRule>[]>;
+    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.LoadBalancingRuleArgs>[]>;
     /**
      * Resource location.
      */
@@ -193,11 +193,11 @@ export interface LoadBalancerArgs {
     /**
      * The outbound rules.
      */
-    readonly outboundRules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.OutboundRule>[]>;
+    readonly outboundRules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.OutboundRuleArgs>[]>;
     /**
      * Collection of probe objects used in the load balancer.
      */
-    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20200501.Probe>[]>;
+    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20200501.ProbeArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -205,7 +205,7 @@ export interface LoadBalancerArgs {
     /**
      * The load balancer SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20200501.LoadBalancerSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20200501.LoadBalancerSkuArgs>;
     /**
      * Resource tags.
      */

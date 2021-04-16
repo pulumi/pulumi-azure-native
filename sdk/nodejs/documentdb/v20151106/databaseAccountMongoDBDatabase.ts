@@ -118,7 +118,7 @@ export interface DatabaseAccountMongoDBDatabaseArgs {
     /**
      * The standard JSON format of a MongoDB database
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20151106.MongoDBDatabaseResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20151106.MongoDBDatabaseResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

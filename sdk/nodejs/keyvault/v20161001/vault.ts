@@ -107,7 +107,7 @@ export interface VaultArgs {
     /**
      * Properties of the vault
      */
-    readonly properties: pulumi.Input<inputs.keyvault.v20161001.VaultProperties>;
+    readonly properties: pulumi.Input<inputs.keyvault.v20161001.VaultPropertiesArgs>;
     /**
      * The name of the Resource Group to which the server belongs.
      */

@@ -131,7 +131,7 @@ export interface ProtectionPolicyArgs {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160601.AzureIaaSVMProtectionPolicy | inputs.recoveryservices.v20160601.AzureSqlProtectionPolicy | inputs.recoveryservices.v20160601.MabProtectionPolicy>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160601.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.v20160601.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.v20160601.MabProtectionPolicyArgs>;
     /**
      * The name of the resource group associated with the Recovery Services vault.
      */

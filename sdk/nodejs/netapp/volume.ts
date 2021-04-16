@@ -259,7 +259,7 @@ export interface VolumeArgs {
     /**
      * DataProtection type volumes include an object containing details of the replication
      */
-    readonly dataProtection?: pulumi.Input<inputs.netapp.VolumePropertiesDataProtection>;
+    readonly dataProtection?: pulumi.Input<inputs.netapp.VolumePropertiesDataProtectionArgs>;
     /**
      * Encryption Key Source. Possible values are: 'Microsoft.NetApp'
      */
@@ -267,7 +267,7 @@ export interface VolumeArgs {
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.VolumePropertiesExportPolicy>;
+    readonly exportPolicy?: pulumi.Input<inputs.netapp.VolumePropertiesExportPolicyArgs>;
     /**
      * Restoring
      */

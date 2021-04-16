@@ -161,11 +161,11 @@ export interface DscpConfigurationArgs {
     /**
      * Destination IP ranges.
      */
-    readonly destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosIpRange>[]>;
+    readonly destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosIpRangeArgs>[]>;
     /**
      * Destination port ranges.
      */
-    readonly destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosPortRange>[]>;
+    readonly destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosPortRangeArgs>[]>;
     /**
      * The name of the resource.
      */
@@ -193,11 +193,11 @@ export interface DscpConfigurationArgs {
     /**
      * Source IP ranges.
      */
-    readonly sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosIpRange>[]>;
+    readonly sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosIpRangeArgs>[]>;
     /**
      * Sources port ranges.
      */
-    readonly sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosPortRange>[]>;
+    readonly sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20201101.QosPortRangeArgs>[]>;
     /**
      * Resource tags.
      */

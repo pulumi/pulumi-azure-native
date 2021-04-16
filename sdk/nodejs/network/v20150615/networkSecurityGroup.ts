@@ -137,7 +137,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * The default security rules of network security group.
      */
-    readonly defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.SecurityRule>[]>;
+    readonly defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.SecurityRuleArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -153,7 +153,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * A collection of references to network interfaces.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20150615.NetworkInterface>[]>;
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20150615.NetworkInterfaceArgs>[]>;
     /**
      * The name of the network security group.
      */
@@ -173,11 +173,11 @@ export interface NetworkSecurityGroupArgs {
     /**
      * A collection of security rules of the network security group.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.SecurityRule>[]>;
+    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.SecurityRuleArgs>[]>;
     /**
      * A collection of references to subnets.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150615.Subnet>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150615.SubnetArgs>[]>;
     /**
      * Resource tags.
      */

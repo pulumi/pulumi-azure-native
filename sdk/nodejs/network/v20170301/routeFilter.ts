@@ -135,7 +135,7 @@ export interface RouteFilterArgs {
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20170301.RouteFilterRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20170301.RouteFilterRuleArgs>[]>;
     /**
      * Resource tags.
      */

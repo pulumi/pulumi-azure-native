@@ -157,7 +157,7 @@ export interface ContainerServiceArgs {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.v20170131.ContainerServiceAgentPoolProfile>[]>;
+    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.v20170131.ContainerServiceAgentPoolProfileArgs>[]>;
     /**
      * The name of the container service in the specified subscription and resource group.
      */
@@ -165,15 +165,15 @@ export interface ContainerServiceArgs {
     /**
      * Properties for custom clusters.
      */
-    readonly customProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceCustomProfile>;
+    readonly customProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceCustomProfileArgs>;
     /**
      * Properties of the diagnostic agent.
      */
-    readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceDiagnosticsProfile>;
+    readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceDiagnosticsProfileArgs>;
     /**
      * Properties of Linux VMs.
      */
-    readonly linuxProfile: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceLinuxProfile>;
+    readonly linuxProfile: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
@@ -181,11 +181,11 @@ export interface ContainerServiceArgs {
     /**
      * Properties of master agents.
      */
-    readonly masterProfile: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceMasterProfile>;
+    readonly masterProfile: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceMasterProfileArgs>;
     /**
      * Properties of the orchestrator.
      */
-    readonly orchestratorProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceOrchestratorProfile>;
+    readonly orchestratorProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceOrchestratorProfileArgs>;
     /**
      * The name of the resource group.
      */
@@ -193,7 +193,7 @@ export interface ContainerServiceArgs {
     /**
      * Properties for cluster service principals.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceServicePrincipalProfile>;
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceServicePrincipalProfileArgs>;
     /**
      * Resource tags
      */
@@ -201,5 +201,5 @@ export interface ContainerServiceArgs {
     /**
      * Properties of Windows VMs.
      */
-    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceWindowsProfile>;
+    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20170131.ContainerServiceWindowsProfileArgs>;
 }

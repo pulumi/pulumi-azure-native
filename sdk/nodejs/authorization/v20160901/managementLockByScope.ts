@@ -115,7 +115,7 @@ export interface ManagementLockByScopeArgs {
     /**
      * The owners of the lock.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.v20160901.ManagementLockOwner>[]>;
+    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.v20160901.ManagementLockOwnerArgs>[]>;
     /**
      * The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
      */

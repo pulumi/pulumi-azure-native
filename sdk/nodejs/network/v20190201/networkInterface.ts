@@ -179,7 +179,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20190201.NetworkInterfaceDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20190201.NetworkInterfaceDnsSettingsArgs>;
     /**
      * If the network interface is accelerated networking enabled.
      */
@@ -199,7 +199,7 @@ export interface NetworkInterfaceArgs {
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190201.NetworkInterfaceIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190201.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -215,7 +215,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20190201.NetworkSecurityGroup>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20190201.NetworkSecurityGroupArgs>;
     /**
      * Gets whether this is a primary network interface on a virtual machine.
      */
@@ -239,5 +239,5 @@ export interface NetworkInterfaceArgs {
     /**
      * A list of TapConfigurations of the network interface.
      */
-    readonly tapConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190201.NetworkInterfaceTapConfiguration>[]>;
+    readonly tapConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190201.NetworkInterfaceTapConfigurationArgs>[]>;
 }

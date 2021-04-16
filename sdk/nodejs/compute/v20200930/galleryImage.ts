@@ -195,7 +195,7 @@ export interface GalleryImageArgs {
     /**
      * Describes the disallowed disk types.
      */
-    readonly disallowed?: pulumi.Input<inputs.compute.v20200930.Disallowed>;
+    readonly disallowed?: pulumi.Input<inputs.compute.v20200930.DisallowedArgs>;
     /**
      * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
@@ -207,7 +207,7 @@ export interface GalleryImageArgs {
     /**
      * A list of gallery image features.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.compute.v20200930.GalleryImageFeature>[]>;
+    readonly features?: pulumi.Input<pulumi.Input<inputs.compute.v20200930.GalleryImageFeatureArgs>[]>;
     /**
      * The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
      */
@@ -223,7 +223,7 @@ export interface GalleryImageArgs {
     /**
      * This is the gallery image definition identifier.
      */
-    readonly identifier: pulumi.Input<inputs.compute.v20200930.GalleryImageIdentifier>;
+    readonly identifier: pulumi.Input<inputs.compute.v20200930.GalleryImageIdentifierArgs>;
     /**
      * Resource location
      */
@@ -243,11 +243,11 @@ export interface GalleryImageArgs {
     /**
      * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.v20200930.ImagePurchasePlan>;
+    readonly purchasePlan?: pulumi.Input<inputs.compute.v20200930.ImagePurchasePlanArgs>;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    readonly recommended?: pulumi.Input<inputs.compute.v20200930.RecommendedMachineConfiguration>;
+    readonly recommended?: pulumi.Input<inputs.compute.v20200930.RecommendedMachineConfigurationArgs>;
     /**
      * The release note uri.
      */

@@ -207,11 +207,11 @@ export interface BigDataPoolArgs {
     /**
      * Auto-pausing properties
      */
-    readonly autoPause?: pulumi.Input<inputs.synapse.v20210301.AutoPauseProperties>;
+    readonly autoPause?: pulumi.Input<inputs.synapse.v20210301.AutoPausePropertiesArgs>;
     /**
      * Auto-scaling properties
      */
-    readonly autoScale?: pulumi.Input<inputs.synapse.v20210301.AutoScaleProperties>;
+    readonly autoScale?: pulumi.Input<inputs.synapse.v20210301.AutoScalePropertiesArgs>;
     /**
      * Big Data pool name
      */
@@ -227,7 +227,7 @@ export interface BigDataPoolArgs {
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.LibraryInfo>[]>;
+    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.LibraryInfoArgs>[]>;
     /**
      * The default folder where Spark logs will be written.
      */
@@ -235,7 +235,7 @@ export interface BigDataPoolArgs {
     /**
      * Dynamic Executor Allocation
      */
-    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20210301.DynamicExecutorAllocation>;
+    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20210301.DynamicExecutorAllocationArgs>;
     /**
      * Whether to stop any running jobs in the Big Data pool
      */
@@ -247,7 +247,7 @@ export interface BigDataPoolArgs {
     /**
      * Library version requirements
      */
-    readonly libraryRequirements?: pulumi.Input<inputs.synapse.v20210301.LibraryRequirements>;
+    readonly libraryRequirements?: pulumi.Input<inputs.synapse.v20210301.LibraryRequirementsArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -279,7 +279,7 @@ export interface BigDataPoolArgs {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20210301.LibraryRequirements>;
+    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20210301.LibraryRequirementsArgs>;
     /**
      * The Spark events folder
      */

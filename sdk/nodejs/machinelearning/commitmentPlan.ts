@@ -129,7 +129,7 @@ export interface CommitmentPlanArgs {
     /**
      * The commitment plan SKU.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearning.ResourceSku>;
+    readonly sku?: pulumi.Input<inputs.machinelearning.ResourceSkuArgs>;
     /**
      * User-defined tags for the resource.
      */

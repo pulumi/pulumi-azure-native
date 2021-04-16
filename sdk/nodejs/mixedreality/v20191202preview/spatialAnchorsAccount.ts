@@ -116,7 +116,7 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * The identity associated with this account
      */
-    readonly identity?: pulumi.Input<inputs.mixedreality.v20191202preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.mixedreality.v20191202preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

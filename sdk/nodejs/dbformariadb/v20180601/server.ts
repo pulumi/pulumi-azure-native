@@ -186,7 +186,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601.ServerPropertiesForDefaultCreate | inputs.dbformariadb.v20180601.ServerPropertiesForGeoRestore | inputs.dbformariadb.v20180601.ServerPropertiesForReplica | inputs.dbformariadb.v20180601.ServerPropertiesForRestore>;
+    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601.ServerPropertiesForDefaultCreateArgs | inputs.dbformariadb.v20180601.ServerPropertiesForGeoRestoreArgs | inputs.dbformariadb.v20180601.ServerPropertiesForReplicaArgs | inputs.dbformariadb.v20180601.ServerPropertiesForRestoreArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,7 +198,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbformariadb.v20180601.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbformariadb.v20180601.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */

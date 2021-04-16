@@ -184,7 +184,7 @@ export interface SignalRArgs {
     /**
      * Cross-Origin Resource Sharing (CORS) settings.
      */
-    readonly cors?: pulumi.Input<inputs.signalrservice.v20200501.SignalRCorsSettings>;
+    readonly cors?: pulumi.Input<inputs.signalrservice.v20200501.SignalRCorsSettingsArgs>;
     /**
      * List of SignalR featureFlags. e.g. ServiceMode.
      * 
@@ -193,7 +193,7 @@ export interface SignalRArgs {
      * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.signalrservice.v20200501.SignalRFeature>[]>;
+    readonly features?: pulumi.Input<pulumi.Input<inputs.signalrservice.v20200501.SignalRFeatureArgs>[]>;
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
@@ -205,7 +205,7 @@ export interface SignalRArgs {
     /**
      * Network ACLs
      */
-    readonly networkACLs?: pulumi.Input<inputs.signalrservice.v20200501.SignalRNetworkACLs>;
+    readonly networkACLs?: pulumi.Input<inputs.signalrservice.v20200501.SignalRNetworkACLsArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -217,7 +217,7 @@ export interface SignalRArgs {
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
-    readonly sku?: pulumi.Input<inputs.signalrservice.v20200501.ResourceSku>;
+    readonly sku?: pulumi.Input<inputs.signalrservice.v20200501.ResourceSkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
@@ -225,5 +225,5 @@ export interface SignalRArgs {
     /**
      * Upstream settings when the Azure SignalR is in server-less mode.
      */
-    readonly upstream?: pulumi.Input<inputs.signalrservice.v20200501.ServerlessUpstreamSettings>;
+    readonly upstream?: pulumi.Input<inputs.signalrservice.v20200501.ServerlessUpstreamSettingsArgs>;
 }

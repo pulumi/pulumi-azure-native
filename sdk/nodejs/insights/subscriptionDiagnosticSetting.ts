@@ -132,7 +132,7 @@ export interface SubscriptionDiagnosticSettingArgs {
     /**
      * The list of logs settings.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.SubscriptionLogSettings>[]>;
+    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.SubscriptionLogSettingsArgs>[]>;
     /**
      * The name of the diagnostic setting.
      */

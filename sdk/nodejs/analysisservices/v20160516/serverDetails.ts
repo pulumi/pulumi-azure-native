@@ -145,7 +145,7 @@ export interface ServerDetailsArgs {
     /**
      * A collection of AS server administrators
      */
-    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.v20160516.ServerAdministrators>;
+    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.v20160516.ServerAdministratorsArgs>;
     /**
      * The container URI of backup blob.
      */
@@ -173,7 +173,7 @@ export interface ServerDetailsArgs {
     /**
      * The SKU of the Analysis Services resource.
      */
-    readonly sku: pulumi.Input<inputs.analysisservices.v20160516.ResourceSku>;
+    readonly sku: pulumi.Input<inputs.analysisservices.v20160516.ResourceSkuArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

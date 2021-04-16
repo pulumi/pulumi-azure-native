@@ -136,7 +136,7 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
     /**
      * The standard JSON format of a userDefinedFunction
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlUserDefinedFunctionResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlUserDefinedFunctionResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

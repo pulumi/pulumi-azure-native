@@ -130,11 +130,11 @@ export interface ProfileArgs {
     /**
      * The DNS settings of the Traffic Manager profile.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.network.v20180201.DnsConfig>;
+    readonly dnsConfig?: pulumi.Input<inputs.network.v20180201.DnsConfigArgs>;
     /**
      * The list of endpoints in the Traffic Manager profile.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180201.Endpoint>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180201.EndpointArgs>[]>;
     /**
      * The Azure Region where the resource lives
      */
@@ -142,7 +142,7 @@ export interface ProfileArgs {
     /**
      * The endpoint monitoring settings of the Traffic Manager profile.
      */
-    readonly monitorConfig?: pulumi.Input<inputs.network.v20180201.MonitorConfig>;
+    readonly monitorConfig?: pulumi.Input<inputs.network.v20180201.MonitorConfigArgs>;
     /**
      * The name of the Traffic Manager profile.
      */

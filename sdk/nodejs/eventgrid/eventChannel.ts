@@ -137,7 +137,7 @@ export interface EventChannelArgs {
     /**
      * Represents the destination of an event channel.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.EventChannelDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.EventChannelDestinationArgs>;
     /**
      * Name of the event channel.
      */
@@ -150,7 +150,7 @@ export interface EventChannelArgs {
     /**
      * Information about the filter for the event channel.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.EventChannelFilter>;
+    readonly filter?: pulumi.Input<inputs.eventgrid.EventChannelFilterArgs>;
     /**
      * Name of the partner namespace.
      */
@@ -167,5 +167,5 @@ export interface EventChannelArgs {
     /**
      * Source of the event channel. This represents a unique resource in the partner's resource model.
      */
-    readonly source?: pulumi.Input<inputs.eventgrid.EventChannelSource>;
+    readonly source?: pulumi.Input<inputs.eventgrid.EventChannelSourceArgs>;
 }

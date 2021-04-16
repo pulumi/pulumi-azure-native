@@ -131,7 +131,7 @@ export interface EncryptionScopeArgs {
     /**
      * The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.storage.EncryptionScopeKeyVaultProperties>;
+    readonly keyVaultProperties?: pulumi.Input<inputs.storage.EncryptionScopeKeyVaultPropertiesArgs>;
     /**
      * A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
      */

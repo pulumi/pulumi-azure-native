@@ -119,7 +119,7 @@ export interface NotificationHubArgs {
     /**
      * Gets or sets properties of the NotificationHub.
      */
-    readonly properties: pulumi.Input<inputs.notificationhubs.v20140901.NotificationHubProperties>;
+    readonly properties: pulumi.Input<inputs.notificationhubs.v20140901.NotificationHubPropertiesArgs>;
     /**
      * The name of the resource group.
      */

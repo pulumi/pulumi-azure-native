@@ -119,7 +119,7 @@ export interface ManagerArgs {
     /**
      * Represents the type of StorSimple Manager.
      */
-    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.ManagerIntrinsicSettings>;
+    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.ManagerIntrinsicSettingsArgs>;
     /**
      * The etag of the manager.
      */
@@ -143,7 +143,7 @@ export interface ManagerArgs {
     /**
      * Specifies the Sku.
      */
-    readonly sku?: pulumi.Input<inputs.storsimple.ManagerSku>;
+    readonly sku?: pulumi.Input<inputs.storsimple.ManagerSkuArgs>;
     /**
      * The tags attached to the resource.
      */

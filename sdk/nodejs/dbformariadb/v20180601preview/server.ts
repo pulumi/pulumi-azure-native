@@ -180,7 +180,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601preview.ServerPropertiesForDefaultCreate | inputs.dbformariadb.v20180601preview.ServerPropertiesForGeoRestore | inputs.dbformariadb.v20180601preview.ServerPropertiesForReplica | inputs.dbformariadb.v20180601preview.ServerPropertiesForRestore>;
+    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601preview.ServerPropertiesForDefaultCreateArgs | inputs.dbformariadb.v20180601preview.ServerPropertiesForGeoRestoreArgs | inputs.dbformariadb.v20180601preview.ServerPropertiesForReplicaArgs | inputs.dbformariadb.v20180601preview.ServerPropertiesForRestoreArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -192,7 +192,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbformariadb.v20180601preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbformariadb.v20180601preview.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */

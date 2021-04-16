@@ -166,7 +166,7 @@ export interface ApplicationArgs {
     /**
      * Describes the diagnostics definition and usage for an application resource.
      */
-    readonly diagnostics?: pulumi.Input<inputs.servicefabricmesh.v20180901preview.DiagnosticsDescription>;
+    readonly diagnostics?: pulumi.Input<inputs.servicefabricmesh.v20180901preview.DiagnosticsDescriptionArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -178,7 +178,7 @@ export interface ApplicationArgs {
     /**
      * Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
      */
-    readonly services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180901preview.ServiceResourceDescription>[]>;
+    readonly services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180901preview.ServiceResourceDescriptionArgs>[]>;
     /**
      * Resource tags.
      */

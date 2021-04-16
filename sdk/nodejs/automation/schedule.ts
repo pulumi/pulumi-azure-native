@@ -180,7 +180,7 @@ export interface ScheduleArgs {
     /**
      * Gets or sets the AdvancedSchedule.
      */
-    readonly advancedSchedule?: pulumi.Input<inputs.automation.AdvancedSchedule>;
+    readonly advancedSchedule?: pulumi.Input<inputs.automation.AdvancedScheduleArgs>;
     /**
      * The name of the automation account.
      */

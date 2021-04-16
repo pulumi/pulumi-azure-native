@@ -154,7 +154,7 @@ export interface LoadBalancerArgs {
     /**
      * Gets or sets Pools of backend IP addresses
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.BackendAddressPool>[]>;
+    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.BackendAddressPoolArgs>[]>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -162,15 +162,15 @@ export interface LoadBalancerArgs {
     /**
      * Gets or sets frontend IP addresses of the load balancer
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.FrontendIpConfiguration>[]>;
+    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.FrontendIpConfigurationArgs>[]>;
     /**
      * Gets or sets inbound NAT pools
      */
-    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.InboundNatPool>[]>;
+    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.InboundNatPoolArgs>[]>;
     /**
      * Gets or sets list of inbound rules
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.InboundNatRule>[]>;
+    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.InboundNatRuleArgs>[]>;
     /**
      * The name of the loadBalancer.
      */
@@ -178,7 +178,7 @@ export interface LoadBalancerArgs {
     /**
      * Gets or sets load balancing rules
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.LoadBalancingRule>[]>;
+    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.LoadBalancingRuleArgs>[]>;
     /**
      * Resource location
      */
@@ -186,11 +186,11 @@ export interface LoadBalancerArgs {
     /**
      * Gets or sets outbound NAT rules
      */
-    readonly outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.OutboundNatRule>[]>;
+    readonly outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.OutboundNatRuleArgs>[]>;
     /**
      * Gets or sets list of Load balancer probes
      */
-    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.Probe>[]>;
+    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ProbeArgs>[]>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

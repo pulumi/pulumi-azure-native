@@ -166,7 +166,7 @@ export interface SignalRArgs {
     /**
      * Settings used to provision or configure the resource
      */
-    readonly properties?: pulumi.Input<inputs.signalrservice.v20181001.SignalRCreateOrUpdateProperties>;
+    readonly properties?: pulumi.Input<inputs.signalrservice.v20181001.SignalRCreateOrUpdatePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -178,7 +178,7 @@ export interface SignalRArgs {
     /**
      * The billing information of the resource.(e.g. basic vs. standard)
      */
-    readonly sku?: pulumi.Input<inputs.signalrservice.v20181001.ResourceSku>;
+    readonly sku?: pulumi.Input<inputs.signalrservice.v20181001.ResourceSkuArgs>;
     /**
      * A list of key value pairs that describe the resource.
      */

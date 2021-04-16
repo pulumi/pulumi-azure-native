@@ -90,7 +90,7 @@ export interface ComponentCurrentBillingFeatureArgs {
     /**
      * An Application Insights component daily data volume cap
      */
-    readonly dataVolumeCap?: pulumi.Input<inputs.insights.ApplicationInsightsComponentDataVolumeCap>;
+    readonly dataVolumeCap?: pulumi.Input<inputs.insights.ApplicationInsightsComponentDataVolumeCapArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -224,7 +224,7 @@ export interface AppServicePlanArgs {
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20190801.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20190801.HostingEnvironmentProfileArgs>;
     /**
      * If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -269,7 +269,7 @@ export interface AppServicePlanArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20190801.SkuDescription>;
+    readonly sku?: pulumi.Input<inputs.web.v20190801.SkuDescriptionArgs>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */

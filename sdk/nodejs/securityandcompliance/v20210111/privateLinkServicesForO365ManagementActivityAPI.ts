@@ -131,7 +131,7 @@ export interface PrivateLinkServicesForO365ManagementActivityAPIArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: pulumi.Input<inputs.securityandcompliance.v20210111.ServicesResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.securityandcompliance.v20210111.ServicesResourceIdentityArgs>;
     /**
      * The kind of the service.
      */
@@ -143,7 +143,7 @@ export interface PrivateLinkServicesForO365ManagementActivityAPIArgs {
     /**
      * The common properties of a service.
      */
-    readonly properties?: pulumi.Input<inputs.securityandcompliance.v20210111.ServicesProperties>;
+    readonly properties?: pulumi.Input<inputs.securityandcompliance.v20210111.ServicesPropertiesArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */

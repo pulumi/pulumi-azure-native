@@ -153,23 +153,23 @@ export interface NotificationHubArgs {
     /**
      * The AdmCredential of the created NotificationHub
      */
-    readonly admCredential?: pulumi.Input<inputs.notificationhubs.AdmCredential>;
+    readonly admCredential?: pulumi.Input<inputs.notificationhubs.AdmCredentialArgs>;
     /**
      * The ApnsCredential of the created NotificationHub
      */
-    readonly apnsCredential?: pulumi.Input<inputs.notificationhubs.ApnsCredential>;
+    readonly apnsCredential?: pulumi.Input<inputs.notificationhubs.ApnsCredentialArgs>;
     /**
      * The AuthorizationRules of the created NotificationHub
      */
-    readonly authorizationRules?: pulumi.Input<pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRuleProperties>[]>;
+    readonly authorizationRules?: pulumi.Input<pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>[]>;
     /**
      * The BaiduCredential of the created NotificationHub
      */
-    readonly baiduCredential?: pulumi.Input<inputs.notificationhubs.BaiduCredential>;
+    readonly baiduCredential?: pulumi.Input<inputs.notificationhubs.BaiduCredentialArgs>;
     /**
      * The GcmCredential of the created NotificationHub
      */
-    readonly gcmCredential?: pulumi.Input<inputs.notificationhubs.GcmCredential>;
+    readonly gcmCredential?: pulumi.Input<inputs.notificationhubs.GcmCredentialArgs>;
     /**
      * Resource location
      */
@@ -177,7 +177,7 @@ export interface NotificationHubArgs {
     /**
      * The MpnsCredential of the created NotificationHub
      */
-    readonly mpnsCredential?: pulumi.Input<inputs.notificationhubs.MpnsCredential>;
+    readonly mpnsCredential?: pulumi.Input<inputs.notificationhubs.MpnsCredentialArgs>;
     /**
      * The NotificationHub name.
      */
@@ -201,7 +201,7 @@ export interface NotificationHubArgs {
     /**
      * The sku of the created namespace
      */
-    readonly sku?: pulumi.Input<inputs.notificationhubs.Sku>;
+    readonly sku?: pulumi.Input<inputs.notificationhubs.SkuArgs>;
     /**
      * Resource tags
      */
@@ -209,5 +209,5 @@ export interface NotificationHubArgs {
     /**
      * The WnsCredential of the created NotificationHub
      */
-    readonly wnsCredential?: pulumi.Input<inputs.notificationhubs.WnsCredential>;
+    readonly wnsCredential?: pulumi.Input<inputs.notificationhubs.WnsCredentialArgs>;
 }

@@ -155,7 +155,7 @@ export interface LoadBalancerArgs {
     /**
      * Collection of backend address pools used by a load balancer
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20150615.BackendAddressPool>[]>;
+    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20150615.BackendAddressPoolArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -163,7 +163,7 @@ export interface LoadBalancerArgs {
     /**
      * Object representing the frontend IPs to be used for the load balancer
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150615.FrontendIPConfiguration>[]>;
+    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150615.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource Identifier.
      */
@@ -171,11 +171,11 @@ export interface LoadBalancerArgs {
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20150615.InboundNatPool>[]>;
+    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20150615.InboundNatPoolArgs>[]>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.InboundNatRule>[]>;
+    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.InboundNatRuleArgs>[]>;
     /**
      * The name of the load balancer.
      */
@@ -183,7 +183,7 @@ export interface LoadBalancerArgs {
     /**
      * Object collection representing the load balancing rules Gets the provisioning 
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.LoadBalancingRule>[]>;
+    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.LoadBalancingRuleArgs>[]>;
     /**
      * Resource location.
      */
@@ -191,11 +191,11 @@ export interface LoadBalancerArgs {
     /**
      * The outbound NAT rules.
      */
-    readonly outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.OutboundNatRule>[]>;
+    readonly outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20150615.OutboundNatRuleArgs>[]>;
     /**
      * Collection of probe objects used in the load balancer
      */
-    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20150615.Probe>[]>;
+    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20150615.ProbeArgs>[]>;
     /**
      * Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

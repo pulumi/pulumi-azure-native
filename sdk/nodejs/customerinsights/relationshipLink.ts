@@ -181,15 +181,15 @@ export interface RelationshipLinkArgs {
     /**
      * The mappings between Interaction and Relationship fields.
      */
-    readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipLinkFieldMapping>[]>;
+    readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipLinkFieldMappingArgs>[]>;
     /**
      * The property references for the Profile of the Relationship.
      */
-    readonly profilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReference>[]>;
+    readonly profilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReferenceArgs>[]>;
     /**
      * The property references for the Related Profile of the Relationship.
      */
-    readonly relatedProfilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReference>[]>;
+    readonly relatedProfilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReferenceArgs>[]>;
     /**
      * The name of the relationship link.
      */

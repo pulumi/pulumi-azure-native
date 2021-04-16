@@ -274,11 +274,11 @@ export interface AgentPoolArgs {
     /**
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
-    readonly kubeletConfig?: pulumi.Input<inputs.containerservice.v20201101.KubeletConfig>;
+    readonly kubeletConfig?: pulumi.Input<inputs.containerservice.v20201101.KubeletConfigArgs>;
     /**
      * LinuxOSConfig specifies the OS configuration of linux agent nodes.
      */
-    readonly linuxOSConfig?: pulumi.Input<inputs.containerservice.v20201101.LinuxOSConfig>;
+    readonly linuxOSConfig?: pulumi.Input<inputs.containerservice.v20201101.LinuxOSConfigArgs>;
     /**
      * Maximum number of nodes for auto-scaling
      */
@@ -358,7 +358,7 @@ export interface AgentPoolArgs {
     /**
      * Settings for upgrading the agentpool
      */
-    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.v20201101.AgentPoolUpgradeSettings>;
+    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.v20201101.AgentPoolUpgradeSettingsArgs>;
     /**
      * Size of agent VMs.
      */

@@ -179,7 +179,7 @@ export interface BackupPolicyArgs {
     /**
      * A list of volumes assigned to this policy
      */
-    readonly volumeBackups?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeBackups>[]>;
+    readonly volumeBackups?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeBackupsArgs>[]>;
     /**
      * Volumes using current backup policy
      */

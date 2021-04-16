@@ -161,7 +161,7 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Gets or sets the reference of the remote virtual network
      */
-    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20160601.SubResource>;
+    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20160601.SubResourceArgs>;
     /**
      * The name of the resource group.
      */

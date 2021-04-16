@@ -191,7 +191,7 @@ export interface AccountArgs {
     /**
      * The properties of the storage account for the machine learning team account.
      */
-    readonly storageAccount: pulumi.Input<inputs.machinelearningexperimentation.v20170501preview.StorageAccountProperties>;
+    readonly storageAccount: pulumi.Input<inputs.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesArgs>;
     /**
      * The tags of the resource.
      */

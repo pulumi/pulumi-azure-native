@@ -162,7 +162,7 @@ export interface AFDOriginArgs {
     /**
      * Resource reference to the Azure origin resource.
      */
-    readonly azureOrigin?: pulumi.Input<inputs.cdn.v20200901.ResourceReference>;
+    readonly azureOrigin?: pulumi.Input<inputs.cdn.v20200901.ResourceReferenceArgs>;
     /**
      * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
      */
@@ -206,7 +206,7 @@ export interface AFDOriginArgs {
     /**
      * The properties of the private link resource for private origin.
      */
-    readonly sharedPrivateLinkResource?: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.SharedPrivateLinkResourceProperties>[]>;
+    readonly sharedPrivateLinkResource?: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesArgs>[]>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */

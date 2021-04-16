@@ -126,15 +126,15 @@ export interface StorageTargetArgs {
     /**
      * Properties when clfs target.
      */
-    readonly clfs?: pulumi.Input<inputs.storagecache.v20190801preview.ClfsTarget>;
+    readonly clfs?: pulumi.Input<inputs.storagecache.v20190801preview.ClfsTargetArgs>;
     /**
      * List of cache namespace to target namespace associations.
      */
-    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20190801preview.NamespaceJunction>[]>;
+    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20190801preview.NamespaceJunctionArgs>[]>;
     /**
      * Properties when nfs3 target.
      */
-    readonly nfs3?: pulumi.Input<inputs.storagecache.v20190801preview.Nfs3Target>;
+    readonly nfs3?: pulumi.Input<inputs.storagecache.v20190801preview.Nfs3TargetArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -154,5 +154,5 @@ export interface StorageTargetArgs {
     /**
      * Properties when unknown target.
      */
-    readonly unknown?: pulumi.Input<inputs.storagecache.v20190801preview.UnknownTarget>;
+    readonly unknown?: pulumi.Input<inputs.storagecache.v20190801preview.UnknownTargetArgs>;
 }

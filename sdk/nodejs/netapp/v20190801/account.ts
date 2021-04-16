@@ -110,7 +110,7 @@ export interface AccountArgs {
     /**
      * Active Directories
      */
-    readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20190801.ActiveDirectory>[]>;
+    readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20190801.ActiveDirectoryArgs>[]>;
     /**
      * Resource location
      */

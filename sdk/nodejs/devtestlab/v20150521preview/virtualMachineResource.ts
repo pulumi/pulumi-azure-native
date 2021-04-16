@@ -218,11 +218,11 @@ export interface VirtualMachineResourceArgs {
     /**
      * The artifact deployment status for the virtual machine.
      */
-    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactDeploymentStatusProperties>;
+    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactDeploymentStatusPropertiesArgs>;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactInstallProperties>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactInstallPropertiesArgs>[]>;
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
@@ -250,7 +250,7 @@ export interface VirtualMachineResourceArgs {
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20150521preview.GalleryImageReference>;
+    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20150521preview.GalleryImageReferenceArgs>;
     /**
      * The identifier of the resource.
      */

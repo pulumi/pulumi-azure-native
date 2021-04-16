@@ -111,7 +111,7 @@ export interface OutputArgs {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: pulumi.Input<inputs.streamanalytics.AzureDataLakeStoreOutputDataSource | inputs.streamanalytics.AzureSqlDatabaseOutputDataSource | inputs.streamanalytics.AzureTableOutputDataSource | inputs.streamanalytics.BlobOutputDataSource | inputs.streamanalytics.DocumentDbOutputDataSource | inputs.streamanalytics.EventHubOutputDataSource | inputs.streamanalytics.PowerBIOutputDataSource | inputs.streamanalytics.ServiceBusQueueOutputDataSource | inputs.streamanalytics.ServiceBusTopicOutputDataSource>;
+    readonly datasource?: pulumi.Input<inputs.streamanalytics.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.AzureTableOutputDataSourceArgs | inputs.streamanalytics.BlobOutputDataSourceArgs | inputs.streamanalytics.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.EventHubOutputDataSourceArgs | inputs.streamanalytics.PowerBIOutputDataSourceArgs | inputs.streamanalytics.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.ServiceBusTopicOutputDataSourceArgs>;
     /**
      * The name of the streaming job.
      */
@@ -131,5 +131,5 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: pulumi.Input<inputs.streamanalytics.AvroSerialization | inputs.streamanalytics.CsvSerialization | inputs.streamanalytics.JsonSerialization>;
+    readonly serialization?: pulumi.Input<inputs.streamanalytics.AvroSerializationArgs | inputs.streamanalytics.CsvSerializationArgs | inputs.streamanalytics.JsonSerializationArgs>;
 }

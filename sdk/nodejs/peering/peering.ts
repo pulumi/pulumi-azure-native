@@ -137,11 +137,11 @@ export interface PeeringArgs {
     /**
      * The properties that define a direct peering.
      */
-    readonly direct?: pulumi.Input<inputs.peering.PeeringPropertiesDirect>;
+    readonly direct?: pulumi.Input<inputs.peering.PeeringPropertiesDirectArgs>;
     /**
      * The properties that define an exchange peering.
      */
-    readonly exchange?: pulumi.Input<inputs.peering.PeeringPropertiesExchange>;
+    readonly exchange?: pulumi.Input<inputs.peering.PeeringPropertiesExchangeArgs>;
     /**
      * The kind of the peering.
      */
@@ -165,7 +165,7 @@ export interface PeeringArgs {
     /**
      * The SKU that defines the tier and kind of the peering.
      */
-    readonly sku: pulumi.Input<inputs.peering.PeeringSku>;
+    readonly sku: pulumi.Input<inputs.peering.PeeringSkuArgs>;
     /**
      * The resource tags.
      */

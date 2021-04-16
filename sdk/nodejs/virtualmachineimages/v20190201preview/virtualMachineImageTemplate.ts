@@ -133,11 +133,11 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190201preview.ImageTemplatePowerShellCustomizer | inputs.virtualmachineimages.v20190201preview.ImageTemplateRestartCustomizer | inputs.virtualmachineimages.v20190201preview.ImageTemplateShellCustomizer>[]>;
+    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190201preview.ImageTemplatePowerShellCustomizerArgs | inputs.virtualmachineimages.v20190201preview.ImageTemplateRestartCustomizerArgs | inputs.virtualmachineimages.v20190201preview.ImageTemplateShellCustomizerArgs>[]>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageDistributor | inputs.virtualmachineimages.v20190201preview.ImageTemplateSharedImageDistributor | inputs.virtualmachineimages.v20190201preview.ImageTemplateVhdDistributor>[]>;
+    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageDistributorArgs | inputs.virtualmachineimages.v20190201preview.ImageTemplateSharedImageDistributorArgs | inputs.virtualmachineimages.v20190201preview.ImageTemplateVhdDistributorArgs>[]>;
     /**
      * The name of the image Template
      */
@@ -153,7 +153,7 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: pulumi.Input<inputs.virtualmachineimages.v20190201preview.ImageTemplateIsoSource | inputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageSource | inputs.virtualmachineimages.v20190201preview.ImageTemplatePlatformImageSource>;
+    readonly source: pulumi.Input<inputs.virtualmachineimages.v20190201preview.ImageTemplateIsoSourceArgs | inputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageSourceArgs | inputs.virtualmachineimages.v20190201preview.ImageTemplatePlatformImageSourceArgs>;
     /**
      * Resource tags
      */

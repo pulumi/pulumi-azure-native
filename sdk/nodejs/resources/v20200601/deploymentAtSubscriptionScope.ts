@@ -107,7 +107,7 @@ export interface DeploymentAtSubscriptionScopeArgs {
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.v20200601.DeploymentProperties>;
+    readonly properties: pulumi.Input<inputs.resources.v20200601.DeploymentPropertiesArgs>;
     /**
      * Deployment tags
      */

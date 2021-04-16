@@ -104,7 +104,7 @@ export interface FunctionArgs {
     /**
      * The properties that are associated with a function.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20160301.ScalarFunctionProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.v20160301.ScalarFunctionPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

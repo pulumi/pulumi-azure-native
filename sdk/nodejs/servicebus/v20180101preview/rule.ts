@@ -118,11 +118,11 @@ export interface RuleArgs {
     /**
      * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
      */
-    readonly action?: pulumi.Input<inputs.servicebus.v20180101preview.Action>;
+    readonly action?: pulumi.Input<inputs.servicebus.v20180101preview.ActionArgs>;
     /**
      * Properties of correlationFilter
      */
-    readonly correlationFilter?: pulumi.Input<inputs.servicebus.v20180101preview.CorrelationFilter>;
+    readonly correlationFilter?: pulumi.Input<inputs.servicebus.v20180101preview.CorrelationFilterArgs>;
     /**
      * Filter type that is evaluated against a BrokeredMessage.
      */
@@ -142,7 +142,7 @@ export interface RuleArgs {
     /**
      * Properties of sqlFilter
      */
-    readonly sqlFilter?: pulumi.Input<inputs.servicebus.v20180101preview.SqlFilter>;
+    readonly sqlFilter?: pulumi.Input<inputs.servicebus.v20180101preview.SqlFilterArgs>;
     /**
      * The subscription name.
      */

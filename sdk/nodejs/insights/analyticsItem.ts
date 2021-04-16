@@ -144,7 +144,7 @@ export interface AnalyticsItemArgs {
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    readonly properties?: pulumi.Input<inputs.insights.ApplicationInsightsComponentAnalyticsItemProperties>;
+    readonly properties?: pulumi.Input<inputs.insights.ApplicationInsightsComponentAnalyticsItemPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

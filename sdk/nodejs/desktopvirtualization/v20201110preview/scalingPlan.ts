@@ -148,7 +148,7 @@ export interface ScalingPlanArgs {
     /**
      * List of ScalingHostPoolReference definitions.
      */
-    readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingHostPoolReference>[]>;
+    readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingHostPoolReferenceArgs>[]>;
     /**
      * HostPool type for scaling plan.
      */
@@ -168,7 +168,7 @@ export interface ScalingPlanArgs {
     /**
      * List of ScalingSchedule definitions.
      */
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingSchedule>[]>;
+    readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingScheduleArgs>[]>;
     /**
      * Resource tags.
      */

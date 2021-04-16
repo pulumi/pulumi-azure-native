@@ -186,7 +186,7 @@ export interface WorkspaceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20191101.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20191101.IdentityArgs>;
     /**
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
@@ -202,7 +202,7 @@ export interface WorkspaceArgs {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20191101.Sku>;
+    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20191101.SkuArgs>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

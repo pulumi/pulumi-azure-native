@@ -141,7 +141,7 @@ export interface WebAppSourceControlArgs {
     /**
      * If GitHub Action is selected, than the associated configuration.
      */
-    readonly gitHubActionConfiguration?: pulumi.Input<inputs.web.GitHubActionConfiguration>;
+    readonly gitHubActionConfiguration?: pulumi.Input<inputs.web.GitHubActionConfigurationArgs>;
     /**
      * <code>true</code> if this is deployed via GitHub action.
      */

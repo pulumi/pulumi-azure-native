@@ -180,7 +180,7 @@ export interface RelationshipArgs {
     /**
      * The properties of the Relationship.
      */
-    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinition>[]>;
+    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[]>;
     /**
      * The name of the hub.
      */
@@ -188,7 +188,7 @@ export interface RelationshipArgs {
     /**
      * Optional property to be used to map fields in profile to their strong ids in related profile.
      */
-    readonly lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipTypeMapping>[]>;
+    readonly lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipTypeMappingArgs>[]>;
     /**
      * Profile type.
      */

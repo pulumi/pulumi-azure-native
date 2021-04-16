@@ -165,7 +165,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The list of tags associated with the public IP prefix.
      */
-    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20191101.IpTag>[]>;
+    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20191101.IpTagArgs>[]>;
     /**
      * Resource location.
      */
@@ -189,7 +189,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The public IP prefix SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20191101.PublicIPPrefixSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20191101.PublicIPPrefixSkuArgs>;
     /**
      * Resource tags.
      */

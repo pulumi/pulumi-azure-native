@@ -137,7 +137,7 @@ export interface InterfaceEndpointArgs {
     /**
      * A reference to the service being brought into the virtual network.
      */
-    readonly endpointService?: pulumi.Input<inputs.network.v20181001.EndpointService>;
+    readonly endpointService?: pulumi.Input<inputs.network.v20181001.EndpointServiceArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -165,7 +165,7 @@ export interface InterfaceEndpointArgs {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: pulumi.Input<inputs.network.v20181001.Subnet>;
+    readonly subnet?: pulumi.Input<inputs.network.v20181001.SubnetArgs>;
     /**
      * Resource tags.
      */

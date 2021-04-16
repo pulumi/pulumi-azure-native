@@ -134,7 +134,7 @@ export interface OrganizationArgs {
     /**
      * Confluent offer detail
      */
-    readonly offerDetail?: pulumi.Input<inputs.confluent.v20200301.OrganizationResourcePropertiesOfferDetail>;
+    readonly offerDetail?: pulumi.Input<inputs.confluent.v20200301.OrganizationResourcePropertiesOfferDetailArgs>;
     /**
      * Organization resource name
      */
@@ -150,5 +150,5 @@ export interface OrganizationArgs {
     /**
      * Subscriber detail
      */
-    readonly userDetail?: pulumi.Input<inputs.confluent.v20200301.OrganizationResourcePropertiesUserDetail>;
+    readonly userDetail?: pulumi.Input<inputs.confluent.v20200301.OrganizationResourcePropertiesUserDetailArgs>;
 }

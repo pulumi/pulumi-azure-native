@@ -143,7 +143,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20150615.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20150615.SkuArgs>;
     /**
      * Resource tags
      */
@@ -151,9 +151,9 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20150615.UpgradePolicy>;
+    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20150615.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20150615.VirtualMachineScaleSetVMProfile>;
+    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20150615.VirtualMachineScaleSetVMProfileArgs>;
 }

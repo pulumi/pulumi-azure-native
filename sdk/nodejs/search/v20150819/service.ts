@@ -146,7 +146,7 @@ export interface ServiceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.search.v20150819.Identity>;
+    readonly identity?: pulumi.Input<inputs.search.v20150819.IdentityArgs>;
     /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
      */
@@ -170,7 +170,7 @@ export interface ServiceArgs {
     /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
-    readonly sku?: pulumi.Input<inputs.search.v20150819.Sku>;
+    readonly sku?: pulumi.Input<inputs.search.v20150819.SkuArgs>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */

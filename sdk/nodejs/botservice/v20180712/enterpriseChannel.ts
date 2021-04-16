@@ -130,7 +130,7 @@ export interface EnterpriseChannelArgs {
     /**
      * The set of properties specific to an Enterprise Channel resource.
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20180712.EnterpriseChannelProperties>;
+    readonly properties?: pulumi.Input<inputs.botservice.v20180712.EnterpriseChannelPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
@@ -142,7 +142,7 @@ export interface EnterpriseChannelArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.v20180712.Sku>;
+    readonly sku?: pulumi.Input<inputs.botservice.v20180712.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

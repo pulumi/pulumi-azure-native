@@ -129,7 +129,7 @@ export interface VirtualHubArgs {
     /**
      * list of all vnet connections with this VirtualHub.
      */
-    readonly hubVirtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.HubVirtualNetworkConnection>[]>;
+    readonly hubVirtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.HubVirtualNetworkConnectionArgs>[]>;
     /**
      * Resource ID.
      */
@@ -153,5 +153,5 @@ export interface VirtualHubArgs {
     /**
      * The VirtualWAN to which the VirtualHub belongs
      */
-    readonly virtualWan?: pulumi.Input<inputs.network.v20180601.SubResource>;
+    readonly virtualWan?: pulumi.Input<inputs.network.v20180601.SubResourceArgs>;
 }

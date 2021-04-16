@@ -185,7 +185,7 @@ export interface ServiceArgs {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly correlationScheme?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServiceCorrelationDescription>[]>;
+    readonly correlationScheme?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServiceCorrelationDescriptionArgs>[]>;
     /**
      * Specifies the move cost for the service.
      */
@@ -197,7 +197,7 @@ export interface ServiceArgs {
     /**
      * Describes how the service is partitioned.
      */
-    readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20200301.NamedPartitionSchemeDescription | inputs.servicefabric.v20200301.SingletonPartitionSchemeDescription | inputs.servicefabric.v20200301.UniformInt64RangePartitionSchemeDescription>;
+    readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20200301.NamedPartitionSchemeDescriptionArgs | inputs.servicefabric.v20200301.SingletonPartitionSchemeDescriptionArgs | inputs.servicefabric.v20200301.UniformInt64RangePartitionSchemeDescriptionArgs>;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */
@@ -217,7 +217,7 @@ export interface ServiceArgs {
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
-    readonly serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServiceLoadMetricDescription>[]>;
+    readonly serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServiceLoadMetricDescriptionArgs>[]>;
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
@@ -229,7 +229,7 @@ export interface ServiceArgs {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly servicePlacementPolicies?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServicePlacementPolicyDescription>[]>;
+    readonly servicePlacementPolicies?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServicePlacementPolicyDescriptionArgs>[]>;
     /**
      * The name of the service type
      */

@@ -209,15 +209,15 @@ export interface ClusterArgs {
     /**
      * The identity of the cluster, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.kusto.v20200215.Identity>;
+    readonly identity?: pulumi.Input<inputs.kusto.v20200215.IdentityArgs>;
     /**
      * KeyVault properties for the cluster encryption.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.kusto.v20200215.KeyVaultProperties>;
+    readonly keyVaultProperties?: pulumi.Input<inputs.kusto.v20200215.KeyVaultPropertiesArgs>;
     /**
      * List of the cluster's language extensions.
      */
-    readonly languageExtensions?: pulumi.Input<inputs.kusto.v20200215.LanguageExtensionsList>;
+    readonly languageExtensions?: pulumi.Input<inputs.kusto.v20200215.LanguageExtensionsListArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -225,7 +225,7 @@ export interface ClusterArgs {
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.v20200215.OptimizedAutoscale>;
+    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.v20200215.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -233,7 +233,7 @@ export interface ClusterArgs {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.v20200215.AzureSku>;
+    readonly sku: pulumi.Input<inputs.kusto.v20200215.AzureSkuArgs>;
     /**
      * Resource tags.
      */
@@ -241,11 +241,11 @@ export interface ClusterArgs {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20200215.TrustedExternalTenant>[]>;
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20200215.TrustedExternalTenantArgs>[]>;
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20200215.VirtualNetworkConfiguration>;
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20200215.VirtualNetworkConfigurationArgs>;
     /**
      * The availability zones of the cluster.
      */

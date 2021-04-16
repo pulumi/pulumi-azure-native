@@ -123,7 +123,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The Private Endpoint resource for this Connection.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.eventgrid.v20200401preview.PrivateEndpoint>;
+    readonly privateEndpoint?: pulumi.Input<inputs.eventgrid.v20200401preview.PrivateEndpointArgs>;
     /**
      * The name of the private endpoint connection connection.
      */
@@ -131,7 +131,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.eventgrid.v20200401preview.ConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.eventgrid.v20200401preview.ConnectionStateArgs>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */

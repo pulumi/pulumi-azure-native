@@ -148,7 +148,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Encrypted storage key.
      */
-    readonly accountKey?: pulumi.Input<inputs.databoxedge.v20200901.AsymmetricEncryptedSecret>;
+    readonly accountKey?: pulumi.Input<inputs.databoxedge.v20200901.AsymmetricEncryptedSecretArgs>;
     /**
      * Type of storage accessed on the storage account.
      */

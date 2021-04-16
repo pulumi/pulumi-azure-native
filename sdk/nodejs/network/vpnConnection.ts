@@ -234,7 +234,7 @@ export interface VpnConnectionArgs {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicy>[]>;
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -242,7 +242,7 @@ export interface VpnConnectionArgs {
     /**
      * Id of the connected vpn site.
      */
-    readonly remoteVpnSite?: pulumi.Input<inputs.network.SubResource>;
+    readonly remoteVpnSite?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -250,7 +250,7 @@ export interface VpnConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: pulumi.Input<inputs.network.RoutingConfiguration>;
+    readonly routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
     /**
      * Routing weight for vpn connection.
      */
@@ -262,7 +262,7 @@ export interface VpnConnectionArgs {
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.TrafficSelectorPolicy>[]>;
+    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.TrafficSelectorPolicyArgs>[]>;
     /**
      * Use local azure ip to initiate connection.
      */
@@ -278,5 +278,5 @@ export interface VpnConnectionArgs {
     /**
      * List of all vpn site link connections to the gateway.
      */
-    readonly vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnection>[]>;
+    readonly vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnectionArgs>[]>;
 }

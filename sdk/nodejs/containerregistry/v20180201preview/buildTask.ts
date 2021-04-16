@@ -161,7 +161,7 @@ export interface BuildTaskArgs {
     /**
      * The platform properties against which the build has to happen.
      */
-    readonly platform: pulumi.Input<inputs.containerregistry.v20180201preview.PlatformProperties>;
+    readonly platform: pulumi.Input<inputs.containerregistry.v20180201preview.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
@@ -173,7 +173,7 @@ export interface BuildTaskArgs {
     /**
      * The properties that describes the source(code) for the build task.
      */
-    readonly sourceRepository: pulumi.Input<inputs.containerregistry.v20180201preview.SourceRepositoryProperties>;
+    readonly sourceRepository: pulumi.Input<inputs.containerregistry.v20180201preview.SourceRepositoryPropertiesArgs>;
     /**
      * The current status of build task.
      */

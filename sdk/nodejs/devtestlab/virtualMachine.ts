@@ -312,7 +312,7 @@ export interface VirtualMachineArgs {
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.ArtifactInstallProperties>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.ArtifactInstallPropertiesArgs>[]>;
     /**
      * The creation date of the virtual machine.
      */
@@ -324,7 +324,7 @@ export interface VirtualMachineArgs {
     /**
      * New or existing data disks to attach to the virtual machine after creation
      */
-    readonly dataDiskParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.DataDiskProperties>[]>;
+    readonly dataDiskParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.DataDiskPropertiesArgs>[]>;
     /**
      * Indicates whether the virtual machine is to be created without a public IP address.
      */
@@ -340,7 +340,7 @@ export interface VirtualMachineArgs {
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.GalleryImageReference>;
+    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.GalleryImageReferenceArgs>;
     /**
      * Indicates whether this virtual machine uses an SSH key for authentication.
      */
@@ -368,7 +368,7 @@ export interface VirtualMachineArgs {
     /**
      * The network interface properties.
      */
-    readonly networkInterface?: pulumi.Input<inputs.devtestlab.NetworkInterfaceProperties>;
+    readonly networkInterface?: pulumi.Input<inputs.devtestlab.NetworkInterfacePropertiesArgs>;
     /**
      * The notes of the virtual machine.
      */
@@ -396,7 +396,7 @@ export interface VirtualMachineArgs {
     /**
      * Virtual Machine schedules to be created
      */
-    readonly scheduleParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.ScheduleCreationParameter>[]>;
+    readonly scheduleParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.ScheduleCreationParameterArgs>[]>;
     /**
      * The size of the virtual machine.
      */

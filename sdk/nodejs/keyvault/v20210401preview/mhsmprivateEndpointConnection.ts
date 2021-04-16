@@ -149,7 +149,7 @@ export interface MHSMPrivateEndpointConnectionArgs {
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20210401preview.MHSMPrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20210401preview.MHSMPrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
@@ -157,7 +157,7 @@ export interface MHSMPrivateEndpointConnectionArgs {
     /**
      * SKU details
      */
-    readonly sku?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmSku>;
+    readonly sku?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmSkuArgs>;
     /**
      * Resource tags
      */

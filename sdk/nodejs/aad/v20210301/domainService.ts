@@ -204,7 +204,7 @@ export interface DomainServiceArgs {
     /**
      * DomainSecurity Settings
      */
-    readonly domainSecuritySettings?: pulumi.Input<inputs.aad.v20210301.DomainSecuritySettings>;
+    readonly domainSecuritySettings?: pulumi.Input<inputs.aad.v20210301.DomainSecuritySettingsArgs>;
     /**
      * The name of the domain service.
      */
@@ -220,7 +220,7 @@ export interface DomainServiceArgs {
     /**
      * Secure LDAP Settings
      */
-    readonly ldapsSettings?: pulumi.Input<inputs.aad.v20210301.LdapsSettings>;
+    readonly ldapsSettings?: pulumi.Input<inputs.aad.v20210301.LdapsSettingsArgs>;
     /**
      * Resource location
      */
@@ -228,15 +228,15 @@ export interface DomainServiceArgs {
     /**
      * Notification Settings
      */
-    readonly notificationSettings?: pulumi.Input<inputs.aad.v20210301.NotificationSettings>;
+    readonly notificationSettings?: pulumi.Input<inputs.aad.v20210301.NotificationSettingsArgs>;
     /**
      * List of ReplicaSets
      */
-    readonly replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.v20210301.ReplicaSet>[]>;
+    readonly replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.v20210301.ReplicaSetArgs>[]>;
     /**
      * Resource Forest Settings
      */
-    readonly resourceForestSettings?: pulumi.Input<inputs.aad.v20210301.ResourceForestSettings>;
+    readonly resourceForestSettings?: pulumi.Input<inputs.aad.v20210301.ResourceForestSettingsArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

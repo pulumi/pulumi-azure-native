@@ -179,19 +179,19 @@ export interface SqlVirtualMachineArgs {
     /**
      * Auto backup settings for SQL Server.
      */
-    readonly autoBackupSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoBackupSettings>;
+    readonly autoBackupSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoBackupSettingsArgs>;
     /**
      * Auto patching settings for applying critical security updates to SQL virtual machine.
      */
-    readonly autoPatchingSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoPatchingSettings>;
+    readonly autoPatchingSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoPatchingSettingsArgs>;
     /**
      * Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sqlvirtualmachine.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.sqlvirtualmachine.ResourceIdentityArgs>;
     /**
      * Key vault credential settings.
      */
-    readonly keyVaultCredentialSettings?: pulumi.Input<inputs.sqlvirtualmachine.KeyVaultCredentialSettings>;
+    readonly keyVaultCredentialSettings?: pulumi.Input<inputs.sqlvirtualmachine.KeyVaultCredentialSettingsArgs>;
     /**
      * Resource location.
      */
@@ -203,7 +203,7 @@ export interface SqlVirtualMachineArgs {
     /**
      * SQL Server configuration management settings.
      */
-    readonly serverConfigurationsManagementSettings?: pulumi.Input<inputs.sqlvirtualmachine.ServerConfigurationsManagementSettings>;
+    readonly serverConfigurationsManagementSettings?: pulumi.Input<inputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs>;
     /**
      * SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
      */
@@ -231,7 +231,7 @@ export interface SqlVirtualMachineArgs {
     /**
      * Storage Configuration Settings.
      */
-    readonly storageConfigurationSettings?: pulumi.Input<inputs.sqlvirtualmachine.StorageConfigurationSettings>;
+    readonly storageConfigurationSettings?: pulumi.Input<inputs.sqlvirtualmachine.StorageConfigurationSettingsArgs>;
     /**
      * Resource tags.
      */
@@ -243,5 +243,5 @@ export interface SqlVirtualMachineArgs {
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    readonly wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentials>;
+    readonly wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentialsArgs>;
 }

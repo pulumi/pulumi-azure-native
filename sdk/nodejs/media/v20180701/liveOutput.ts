@@ -172,7 +172,7 @@ export interface LiveOutputArgs {
     /**
      * The HLS configuration.
      */
-    readonly hls?: pulumi.Input<inputs.media.v20180701.Hls>;
+    readonly hls?: pulumi.Input<inputs.media.v20180701.HlsArgs>;
     /**
      * The name of the Live Event.
      */

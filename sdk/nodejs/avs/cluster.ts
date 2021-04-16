@@ -139,5 +139,5 @@ export interface ClusterArgs {
     /**
      * The cluster SKU
      */
-    readonly sku: pulumi.Input<inputs.avs.Sku>;
+    readonly sku: pulumi.Input<inputs.avs.SkuArgs>;
 }

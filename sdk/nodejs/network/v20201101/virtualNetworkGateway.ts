@@ -213,11 +213,11 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Virtual network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20201101.BgpSettings>;
+    readonly bgpSettings?: pulumi.Input<inputs.network.v20201101.BgpSettingsArgs>;
     /**
      * The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
      */
-    readonly customRoutes?: pulumi.Input<inputs.network.v20201101.AddressSpace>;
+    readonly customRoutes?: pulumi.Input<inputs.network.v20201101.AddressSpaceArgs>;
     /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
@@ -233,7 +233,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    readonly gatewayDefaultSite?: pulumi.Input<inputs.network.v20201101.SubResource>;
+    readonly gatewayDefaultSite?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * The type of this virtual network gateway.
      */
@@ -245,7 +245,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * IP configurations for virtual network gateway.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewayIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewayIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -257,7 +257,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewaySku>;
+    readonly sku?: pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewaySkuArgs>;
     /**
      * Resource tags.
      */
@@ -269,7 +269,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The extended location of type local virtual network gateway.
      */
-    readonly virtualNetworkExtendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocation>;
+    readonly virtualNetworkExtendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocationArgs>;
     /**
      * The name of the virtual network gateway.
      */
@@ -277,7 +277,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<inputs.network.v20201101.VpnClientConfiguration>;
+    readonly vpnClientConfiguration?: pulumi.Input<inputs.network.v20201101.VpnClientConfigurationArgs>;
     /**
      * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
      */

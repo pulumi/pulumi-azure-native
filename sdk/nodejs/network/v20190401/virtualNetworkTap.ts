@@ -137,11 +137,11 @@ export interface VirtualNetworkTapArgs {
     /**
      * The reference to the private IP address on the internal Load Balancer that will receive the tap.
      */
-    readonly destinationLoadBalancerFrontEndIPConfiguration?: pulumi.Input<inputs.network.v20190401.FrontendIPConfiguration>;
+    readonly destinationLoadBalancerFrontEndIPConfiguration?: pulumi.Input<inputs.network.v20190401.FrontendIPConfigurationArgs>;
     /**
      * The reference to the private IP Address of the collector nic that will receive the tap.
      */
-    readonly destinationNetworkInterfaceIPConfiguration?: pulumi.Input<inputs.network.v20190401.NetworkInterfaceIPConfiguration>;
+    readonly destinationNetworkInterfaceIPConfiguration?: pulumi.Input<inputs.network.v20190401.NetworkInterfaceIPConfigurationArgs>;
     /**
      * The VXLAN destination port that will receive the tapped traffic.
      */

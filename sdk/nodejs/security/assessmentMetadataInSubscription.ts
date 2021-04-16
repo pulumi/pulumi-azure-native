@@ -175,7 +175,7 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * Describes the partner that created the assessment
      */
-    readonly partnerData?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPartnerData>;
+    readonly partnerData?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPartnerDataArgs>;
     /**
      * True if this assessment is in preview release status
      */

@@ -244,7 +244,7 @@ export interface StreamingJobArgs {
     /**
      * The cluster which streaming jobs will run on.
      */
-    readonly cluster?: pulumi.Input<inputs.streamanalytics.v20170401preview.ClusterInfo>;
+    readonly cluster?: pulumi.Input<inputs.streamanalytics.v20170401preview.ClusterInfoArgs>;
     /**
      * Controls certain runtime behaviors of the streaming job.
      */
@@ -272,19 +272,19 @@ export interface StreamingJobArgs {
     /**
      * The storage account where the custom code artifacts are located.
      */
-    readonly externals?: pulumi.Input<inputs.streamanalytics.v20170401preview.External>;
+    readonly externals?: pulumi.Input<inputs.streamanalytics.v20170401preview.ExternalArgs>;
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20170401preview.Function>[]>;
+    readonly functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20170401preview.FunctionArgs>[]>;
     /**
      * Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
      */
-    readonly identity?: pulumi.Input<inputs.streamanalytics.v20170401preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.streamanalytics.v20170401preview.IdentityArgs>;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
-    readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20170401preview.Input>[]>;
+    readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20170401preview.InputArgs>[]>;
     /**
      * The name of the streaming job.
      */
@@ -292,7 +292,7 @@ export interface StreamingJobArgs {
     /**
      * The properties that are associated with an Azure Storage account with MSI
      */
-    readonly jobStorageAccount?: pulumi.Input<inputs.streamanalytics.v20170401preview.JobStorageAccount>;
+    readonly jobStorageAccount?: pulumi.Input<inputs.streamanalytics.v20170401preview.JobStorageAccountArgs>;
     /**
      * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
      */
@@ -316,7 +316,7 @@ export interface StreamingJobArgs {
     /**
      * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20170401preview.Output>[]>;
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20170401preview.OutputArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -324,7 +324,7 @@ export interface StreamingJobArgs {
     /**
      * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
      */
-    readonly sku?: pulumi.Input<inputs.streamanalytics.v20170401preview.StreamingJobSku>;
+    readonly sku?: pulumi.Input<inputs.streamanalytics.v20170401preview.StreamingJobSkuArgs>;
     /**
      * Resource tags.
      */
@@ -332,5 +332,5 @@ export interface StreamingJobArgs {
     /**
      * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly transformation?: pulumi.Input<inputs.streamanalytics.v20170401preview.Transformation>;
+    readonly transformation?: pulumi.Input<inputs.streamanalytics.v20170401preview.TransformationArgs>;
 }

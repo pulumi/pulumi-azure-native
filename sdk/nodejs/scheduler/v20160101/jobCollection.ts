@@ -109,7 +109,7 @@ export interface JobCollectionArgs {
     /**
      * Gets or sets the job collection properties.
      */
-    readonly properties?: pulumi.Input<inputs.scheduler.v20160101.JobCollectionProperties>;
+    readonly properties?: pulumi.Input<inputs.scheduler.v20160101.JobCollectionPropertiesArgs>;
     /**
      * The resource group name.
      */

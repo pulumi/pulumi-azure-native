@@ -104,7 +104,7 @@ export interface FunctionArgs {
     /**
      * The properties that are associated with a function.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20170401preview.AggregateFunctionProperties | inputs.streamanalytics.v20170401preview.ScalarFunctionProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.v20170401preview.AggregateFunctionPropertiesArgs | inputs.streamanalytics.v20170401preview.ScalarFunctionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

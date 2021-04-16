@@ -157,7 +157,7 @@ export interface MachineExtensionArgs {
     /**
      * The machine extension instance view.
      */
-    readonly instanceView?: pulumi.Input<inputs.hybridcompute.v20191212.MachineExtensionPropertiesInstanceView>;
+    readonly instanceView?: pulumi.Input<inputs.hybridcompute.v20191212.MachineExtensionPropertiesInstanceViewArgs>;
     /**
      * The geo-location where the resource lives
      */

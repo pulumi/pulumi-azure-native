@@ -108,7 +108,7 @@ export interface StepArgs {
     /**
      * The properties that define the step.
      */
-    readonly properties: pulumi.Input<inputs.deploymentmanager.HealthCheckStepProperties | inputs.deploymentmanager.WaitStepProperties>;
+    readonly properties: pulumi.Input<inputs.deploymentmanager.HealthCheckStepPropertiesArgs | inputs.deploymentmanager.WaitStepPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

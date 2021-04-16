@@ -167,19 +167,19 @@ export interface ContainerGroupArgs {
     /**
      * The containers within the container group.
      */
-    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.Container>[]>;
+    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.ContainerArgs>[]>;
     /**
      * The diagnostic information for a container group.
      */
-    readonly diagnostics?: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupDiagnostics>;
+    readonly diagnostics?: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupDiagnosticsArgs>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.ImageRegistryCredential>[]>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.ImageRegistryCredentialArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20180901.IpAddress>;
+    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20180901.IpAddressArgs>;
     /**
      * The resource location.
      */
@@ -187,7 +187,7 @@ export interface ContainerGroupArgs {
     /**
      * The network profile information for a container group.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupNetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupNetworkProfileArgs>;
     /**
      * The operating system type required by the containers in the container group.
      */
@@ -210,5 +210,5 @@ export interface ContainerGroupArgs {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.Volume>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.VolumeArgs>[]>;
 }

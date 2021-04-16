@@ -122,7 +122,7 @@ export interface AccountArgs {
     /**
      * The type of identity used for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.deviceupdate.v20200301preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.deviceupdate.v20200301preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

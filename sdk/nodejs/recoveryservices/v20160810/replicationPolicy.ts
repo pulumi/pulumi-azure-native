@@ -102,7 +102,7 @@ export interface ReplicationPolicyArgs {
     /**
      * Policy creation properties.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.CreatePolicyInputProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.CreatePolicyInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

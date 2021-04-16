@@ -216,7 +216,7 @@ export interface DeviceArgs {
     /**
      * The SKU type.
      */
-    readonly sku?: pulumi.Input<inputs.databoxedge.v20190301.Sku>;
+    readonly sku?: pulumi.Input<inputs.databoxedge.v20190301.SkuArgs>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

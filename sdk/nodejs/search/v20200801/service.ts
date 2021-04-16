@@ -170,7 +170,7 @@ export interface ServiceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.search.v20200801.Identity>;
+    readonly identity?: pulumi.Input<inputs.search.v20200801.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -178,7 +178,7 @@ export interface ServiceArgs {
     /**
      * Network specific rules that determine how the Azure Cognitive Search service may be reached.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.search.v20200801.NetworkRuleSet>;
+    readonly networkRuleSet?: pulumi.Input<inputs.search.v20200801.NetworkRuleSetArgs>;
     /**
      * The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
@@ -202,7 +202,7 @@ export interface ServiceArgs {
     /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
-    readonly sku?: pulumi.Input<inputs.search.v20200801.Sku>;
+    readonly sku?: pulumi.Input<inputs.search.v20200801.SkuArgs>;
     /**
      * Resource tags.
      */

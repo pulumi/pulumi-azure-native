@@ -104,7 +104,7 @@ export interface SaasSubscriptionLevelArgs {
     /**
      * Properties of the SaaS resource that are relevant for creation.
      */
-    readonly properties?: pulumi.Input<inputs.saas.SaasCreationProperties>;
+    readonly properties?: pulumi.Input<inputs.saas.SaasCreationPropertiesArgs>;
     /**
      * The name of the resource group.
      */

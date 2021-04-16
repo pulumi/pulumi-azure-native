@@ -173,7 +173,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The list of tags associated with the public IP prefix.
      */
-    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20190401.IpTag>[]>;
+    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20190401.IpTagArgs>[]>;
     /**
      * Resource location.
      */
@@ -193,7 +193,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The list of all referenced PublicIPAddresses.
      */
-    readonly publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20190401.ReferencedPublicIpAddress>[]>;
+    readonly publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20190401.ReferencedPublicIpAddressArgs>[]>;
     /**
      * The name of the public IP prefix.
      */
@@ -209,7 +209,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The public IP prefix SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20190401.PublicIPPrefixSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20190401.PublicIPPrefixSkuArgs>;
     /**
      * Resource tags.
      */

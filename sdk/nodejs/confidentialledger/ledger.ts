@@ -115,7 +115,7 @@ export interface LedgerArgs {
     /**
      * Properties of Confidential Ledger Resource.
      */
-    readonly properties?: pulumi.Input<inputs.confidentialledger.LedgerProperties>;
+    readonly properties?: pulumi.Input<inputs.confidentialledger.LedgerPropertiesArgs>;
     /**
      * The name of the resource group.
      */

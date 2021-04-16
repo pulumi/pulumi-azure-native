@@ -127,7 +127,7 @@ export interface RouteFilterArgs {
     /**
      * A collection of references to express route circuit peerings.
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20180101.ExpressRouteCircuitPeering>[]>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20180101.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -139,7 +139,7 @@ export interface RouteFilterArgs {
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20180101.RouteFilterRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20180101.RouteFilterRuleArgs>[]>;
     /**
      * Resource tags.
      */

@@ -136,7 +136,7 @@ export interface WorkspaceArgs {
     /**
      * Managed Identity information.
      */
-    readonly identity?: pulumi.Input<inputs.quantum.v20191104preview.QuantumWorkspaceIdentity>;
+    readonly identity?: pulumi.Input<inputs.quantum.v20191104preview.QuantumWorkspaceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -144,7 +144,7 @@ export interface WorkspaceArgs {
     /**
      * List of Providers selected for this Workspace
      */
-    readonly providers?: pulumi.Input<pulumi.Input<inputs.quantum.v20191104preview.Provider>[]>;
+    readonly providers?: pulumi.Input<pulumi.Input<inputs.quantum.v20191104preview.ProviderArgs>[]>;
     /**
      * The name of the resource group.
      */

@@ -155,7 +155,7 @@ export interface SavedSearchArgs {
     /**
      * The tags attached to the saved search.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20150320.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20150320.TagArgs>[]>;
     /**
      * The version number of the query language. The current version is 2 and is the default.
      */

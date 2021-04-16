@@ -185,15 +185,15 @@ export interface PublicIPAddressArgs {
     /**
      * The DDoS protection custom policy associated with the public IP address.
      */
-    readonly ddosSettings?: pulumi.Input<inputs.network.v20201101.DdosSettings>;
+    readonly ddosSettings?: pulumi.Input<inputs.network.v20201101.DdosSettingsArgs>;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20201101.PublicIPAddressDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20201101.PublicIPAddressDnsSettingsArgs>;
     /**
      * The extended location of the public ip address.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
@@ -209,7 +209,7 @@ export interface PublicIPAddressArgs {
     /**
      * The list of tags associated with the public IP address.
      */
-    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20201101.IpTag>[]>;
+    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20201101.IpTagArgs>[]>;
     /**
      * Resource location.
      */
@@ -225,7 +225,7 @@ export interface PublicIPAddressArgs {
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */
-    readonly publicIPPrefix?: pulumi.Input<inputs.network.v20201101.SubResource>;
+    readonly publicIPPrefix?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * The name of the public IP address.
      */
@@ -237,7 +237,7 @@ export interface PublicIPAddressArgs {
     /**
      * The public IP address SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20201101.PublicIPAddressSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20201101.PublicIPAddressSkuArgs>;
     /**
      * Resource tags.
      */

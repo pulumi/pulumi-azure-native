@@ -130,7 +130,7 @@ export interface SystemTopicArgs {
     /**
      * Identity information for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.eventgrid.v20201015preview.IdentityInfo>;
+    readonly identity?: pulumi.Input<inputs.eventgrid.v20201015preview.IdentityInfoArgs>;
     /**
      * Location of the resource.
      */

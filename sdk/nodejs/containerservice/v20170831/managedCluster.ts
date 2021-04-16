@@ -136,7 +136,7 @@ export interface ManagedClusterArgs {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20170831.ContainerServiceAgentPoolProfile>[]>;
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20170831.ContainerServiceAgentPoolProfileArgs>[]>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -148,7 +148,7 @@ export interface ManagedClusterArgs {
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceLinuxProfile>;
+    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
@@ -164,7 +164,7 @@ export interface ManagedClusterArgs {
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceServicePrincipalProfile>;
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceServicePrincipalProfileArgs>;
     /**
      * Resource tags
      */

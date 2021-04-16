@@ -151,7 +151,7 @@ export interface ManagedNetworkGroupArgs {
     /**
      * The collection of management groups covered by the Managed Network
      */
-    readonly managementGroups?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceId>[]>;
+    readonly managementGroups?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -159,13 +159,13 @@ export interface ManagedNetworkGroupArgs {
     /**
      * The collection of  subnets covered by the Managed Network
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceId>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
     /**
      * The collection of subscriptions covered by the Managed Network
      */
-    readonly subscriptions?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceId>[]>;
+    readonly subscriptions?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
     /**
      * The collection of virtual nets covered by the Managed Network
      */
-    readonly virtualNetworks?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceId>[]>;
+    readonly virtualNetworks?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
 }

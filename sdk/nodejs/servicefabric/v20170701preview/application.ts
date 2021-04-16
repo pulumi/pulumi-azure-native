@@ -162,7 +162,7 @@ export interface ApplicationArgs {
     /**
      * List of application capacity metric description.
      */
-    readonly metrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ApplicationMetricDescription>[]>;
+    readonly metrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ApplicationMetricDescriptionArgs>[]>;
     /**
      * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
      */
@@ -190,5 +190,5 @@ export interface ApplicationArgs {
     /**
      * Describes the policy for a monitored application upgrade.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.servicefabric.v20170701preview.ApplicationUpgradePolicy>;
+    readonly upgradePolicy?: pulumi.Input<inputs.servicefabric.v20170701preview.ApplicationUpgradePolicyArgs>;
 }

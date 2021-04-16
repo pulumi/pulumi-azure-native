@@ -177,7 +177,7 @@ export interface Python2PackageArgs {
     /**
      * Gets or sets the module content link.
      */
-    readonly contentLink: pulumi.Input<inputs.automation.v20180630.ContentLink>;
+    readonly contentLink: pulumi.Input<inputs.automation.v20180630.ContentLinkArgs>;
     /**
      * The name of python package.
      */

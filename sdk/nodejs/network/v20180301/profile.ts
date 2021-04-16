@@ -131,11 +131,11 @@ export interface ProfileArgs {
     /**
      * The DNS settings of the Traffic Manager profile.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.network.v20180301.DnsConfig>;
+    readonly dnsConfig?: pulumi.Input<inputs.network.v20180301.DnsConfigArgs>;
     /**
      * The list of endpoints in the Traffic Manager profile.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180301.Endpoint>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180301.EndpointArgs>[]>;
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
      */
@@ -147,7 +147,7 @@ export interface ProfileArgs {
     /**
      * The endpoint monitoring settings of the Traffic Manager profile.
      */
-    readonly monitorConfig?: pulumi.Input<inputs.network.v20180301.MonitorConfig>;
+    readonly monitorConfig?: pulumi.Input<inputs.network.v20180301.MonitorConfigArgs>;
     /**
      * The name of the resource
      */

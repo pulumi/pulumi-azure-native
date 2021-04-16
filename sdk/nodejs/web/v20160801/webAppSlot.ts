@@ -307,7 +307,7 @@ export interface WebAppSlotArgs {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20160801.CloningInfo>;
+    readonly cloningInfo?: pulumi.Input<inputs.web.v20160801.CloningInfoArgs>;
     /**
      * Size of the function container.
      */
@@ -327,7 +327,7 @@ export interface WebAppSlotArgs {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20160801.HostNameSslState>[]>;
+    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20160801.HostNameSslStateArgs>[]>;
     /**
      * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
      *  If <code>true</code>, the app is only accessible via API management process.
@@ -336,7 +336,7 @@ export interface WebAppSlotArgs {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160801.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160801.HostingEnvironmentProfileArgs>;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -345,7 +345,7 @@ export interface WebAppSlotArgs {
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20160801.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.web.v20160801.ManagedServiceIdentityArgs>;
     /**
      * Kind of resource.
      */
@@ -377,7 +377,7 @@ export interface WebAppSlotArgs {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20160801.SiteConfig>;
+    readonly siteConfig?: pulumi.Input<inputs.web.v20160801.SiteConfigArgs>;
     /**
      * If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
      */
@@ -394,7 +394,7 @@ export interface WebAppSlotArgs {
     /**
      * If specified during app creation, the app is created from a previous snapshot.
      */
-    readonly snapshotInfo?: pulumi.Input<inputs.web.v20160801.SnapshotRecoveryRequest>;
+    readonly snapshotInfo?: pulumi.Input<inputs.web.v20160801.SnapshotRecoveryRequestArgs>;
     /**
      * Resource tags.
      */

@@ -128,7 +128,7 @@ export interface PipelineRunArgs {
     /**
      * The request parameters for a pipeline run.
      */
-    readonly request?: pulumi.Input<inputs.containerregistry.v20191201preview.PipelineRunRequest>;
+    readonly request?: pulumi.Input<inputs.containerregistry.v20191201preview.PipelineRunRequestArgs>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

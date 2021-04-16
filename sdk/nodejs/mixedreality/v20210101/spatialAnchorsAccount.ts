@@ -146,11 +146,11 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * The identity associated with this account
      */
-    readonly identity?: pulumi.Input<inputs.mixedreality.v20210101.Identity>;
+    readonly identity?: pulumi.Input<inputs.mixedreality.v20210101.IdentityArgs>;
     /**
      * The kind of account, if supported
      */
-    readonly kind?: pulumi.Input<inputs.mixedreality.v20210101.Sku>;
+    readonly kind?: pulumi.Input<inputs.mixedreality.v20210101.SkuArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -158,7 +158,7 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * The plan associated with this account
      */
-    readonly plan?: pulumi.Input<inputs.mixedreality.v20210101.Identity>;
+    readonly plan?: pulumi.Input<inputs.mixedreality.v20210101.IdentityArgs>;
     /**
      * Name of an Azure resource group.
      */
@@ -166,7 +166,7 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * The sku associated with this account
      */
-    readonly sku?: pulumi.Input<inputs.mixedreality.v20210101.Sku>;
+    readonly sku?: pulumi.Input<inputs.mixedreality.v20210101.SkuArgs>;
     /**
      * The name of the storage account associated with this accountId
      */

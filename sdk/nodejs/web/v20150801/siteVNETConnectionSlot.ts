@@ -182,7 +182,7 @@ export interface SiteVNETConnectionSlotArgs {
     /**
      * The routes that this virtual network connection uses.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRoute>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRouteArgs>[]>;
     /**
      * The name of the slot for this web app.
      */

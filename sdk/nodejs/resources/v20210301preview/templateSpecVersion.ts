@@ -138,7 +138,7 @@ export interface TemplateSpecVersionArgs {
     /**
      * An array of linked template artifacts.
      */
-    readonly linkedTemplates?: pulumi.Input<pulumi.Input<inputs.resources.v20210301preview.LinkedTemplateArtifact>[]>;
+    readonly linkedTemplates?: pulumi.Input<pulumi.Input<inputs.resources.v20210301preview.LinkedTemplateArtifactArgs>[]>;
     /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */

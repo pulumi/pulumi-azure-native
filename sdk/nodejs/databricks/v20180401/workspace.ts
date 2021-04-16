@@ -169,7 +169,7 @@ export interface WorkspaceArgs {
     /**
      * The workspace provider authorizations.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20180401.WorkspaceProviderAuthorization>[]>;
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20180401.WorkspaceProviderAuthorizationArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -181,7 +181,7 @@ export interface WorkspaceArgs {
     /**
      * The workspace's custom parameters.
      */
-    readonly parameters?: pulumi.Input<inputs.databricks.v20180401.WorkspaceCustomParameters>;
+    readonly parameters?: pulumi.Input<inputs.databricks.v20180401.WorkspaceCustomParametersArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -189,7 +189,7 @@ export interface WorkspaceArgs {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.databricks.v20180401.Sku>;
+    readonly sku?: pulumi.Input<inputs.databricks.v20180401.SkuArgs>;
     /**
      * Resource tags.
      */

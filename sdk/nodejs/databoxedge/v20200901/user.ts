@@ -113,7 +113,7 @@ export interface UserArgs {
     /**
      * The password details.
      */
-    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.v20200901.AsymmetricEncryptedSecret>;
+    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.v20200901.AsymmetricEncryptedSecretArgs>;
     /**
      * The user name.
      */

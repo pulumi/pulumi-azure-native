@@ -127,7 +127,7 @@ export interface ProfileArgs {
     /**
      * Profile SKU
      */
-    readonly sku: pulumi.Input<inputs.cdn.v20150601.Sku>;
+    readonly sku: pulumi.Input<inputs.cdn.v20150601.SkuArgs>;
     /**
      * Profile tags
      */

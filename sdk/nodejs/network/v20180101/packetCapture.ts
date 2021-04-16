@@ -135,7 +135,7 @@ export interface PacketCaptureArgs {
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
     readonly bytesToCapturePerPacket?: pulumi.Input<number>;
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.network.v20180101.PacketCaptureFilter>[]>;
+    readonly filters?: pulumi.Input<pulumi.Input<inputs.network.v20180101.PacketCaptureFilterArgs>[]>;
     /**
      * The name of the network watcher.
      */
@@ -151,7 +151,7 @@ export interface PacketCaptureArgs {
     /**
      * Describes the storage location for a packet capture session.
      */
-    readonly storageLocation: pulumi.Input<inputs.network.v20180101.PacketCaptureStorageLocation>;
+    readonly storageLocation: pulumi.Input<inputs.network.v20180101.PacketCaptureStorageLocationArgs>;
     /**
      * The ID of the targeted resource, only VM is currently supported.
      */

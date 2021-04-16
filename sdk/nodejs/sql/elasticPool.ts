@@ -179,7 +179,7 @@ export interface ElasticPoolArgs {
     /**
      * The per database settings for the elastic pool.
      */
-    readonly perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettings>;
+    readonly perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettingsArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -197,7 +197,7 @@ export interface ElasticPoolArgs {
      * az sql elastic-pool list-editions -l <location> -o table
      * ````
      */
-    readonly sku?: pulumi.Input<inputs.sql.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
      * Resource tags.
      */

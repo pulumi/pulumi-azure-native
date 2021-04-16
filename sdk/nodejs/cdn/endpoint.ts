@@ -226,11 +226,11 @@ export interface EndpointArgs {
     /**
      * A reference to the origin group.
      */
-    readonly defaultOriginGroup?: pulumi.Input<inputs.cdn.ResourceReference>;
+    readonly defaultOriginGroup?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersDeliveryPolicy>;
+    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersDeliveryPolicyArgs>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
@@ -238,7 +238,7 @@ export interface EndpointArgs {
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
-    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.GeoFilter>[]>;
+    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.GeoFilterArgs>[]>;
     /**
      * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
      */
@@ -262,7 +262,7 @@ export interface EndpointArgs {
     /**
      * The origin groups comprising of origins that are used for load balancing the traffic based on availability.
      */
-    readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cdn.DeepCreatedOriginGroup>[]>;
+    readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cdn.DeepCreatedOriginGroupArgs>[]>;
     /**
      * The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
      */
@@ -274,7 +274,7 @@ export interface EndpointArgs {
     /**
      * The source of the content being delivered via CDN.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.DeepCreatedOrigin>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.DeepCreatedOriginArgs>[]>;
     /**
      * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
      */
@@ -298,9 +298,9 @@ export interface EndpointArgs {
     /**
      * List of keys used to validate the signed URL hashes.
      */
-    readonly urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.UrlSigningKey>[]>;
+    readonly urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.UrlSigningKeyArgs>[]>;
     /**
      * Defines the Web Application Firewall policy for the endpoint (if applicable)
      */
-    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink>;
+    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs>;
 }

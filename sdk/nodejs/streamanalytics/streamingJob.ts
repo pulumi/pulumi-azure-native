@@ -229,11 +229,11 @@ export interface StreamingJobArgs {
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.Function>[]>;
+    readonly functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionArgs>[]>;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
-    readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.Input>[]>;
+    readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.InputArgs>[]>;
     /**
      * The name of the streaming job.
      */
@@ -257,7 +257,7 @@ export interface StreamingJobArgs {
     /**
      * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.Output>[]>;
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.OutputArgs>[]>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -265,7 +265,7 @@ export interface StreamingJobArgs {
     /**
      * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
      */
-    readonly sku?: pulumi.Input<inputs.streamanalytics.Sku>;
+    readonly sku?: pulumi.Input<inputs.streamanalytics.SkuArgs>;
     /**
      * Resource tags
      */
@@ -273,5 +273,5 @@ export interface StreamingJobArgs {
     /**
      * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly transformation?: pulumi.Input<inputs.streamanalytics.Transformation>;
+    readonly transformation?: pulumi.Input<inputs.streamanalytics.TransformationArgs>;
 }

@@ -96,7 +96,7 @@ export interface QueueServicePropertiesArgs {
     /**
      * Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
      */
-    readonly cors?: pulumi.Input<inputs.storage.v20210101.CorsRules>;
+    readonly cors?: pulumi.Input<inputs.storage.v20210101.CorsRulesArgs>;
     /**
      * The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
      */

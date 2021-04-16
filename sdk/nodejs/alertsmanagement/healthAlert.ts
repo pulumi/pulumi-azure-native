@@ -140,11 +140,11 @@ export interface HealthAlertArgs {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.alertsmanagement.HealthAlertAction>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.alertsmanagement.HealthAlertActionArgs>[]>;
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: pulumi.Input<inputs.alertsmanagement.HealthAlertCriteria>;
+    readonly criteria: pulumi.Input<inputs.alertsmanagement.HealthAlertCriteriaArgs>;
     /**
      * the description of the health alert that will be included in the alert email.
      */

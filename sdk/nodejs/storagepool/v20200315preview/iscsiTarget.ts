@@ -129,5 +129,5 @@ export interface IscsiTargetArgs {
     /**
      * List of iSCSI target portal groups. Can have 1 portal group at most.
      */
-    readonly tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.v20200315preview.TargetPortalGroupCreate>[]>;
+    readonly tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.v20200315preview.TargetPortalGroupCreateArgs>[]>;
 }

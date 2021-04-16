@@ -167,19 +167,19 @@ export interface VirtualNetworkArgs {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    readonly addressSpace?: pulumi.Input<inputs.network.v20200601.AddressSpace>;
+    readonly addressSpace?: pulumi.Input<inputs.network.v20200601.AddressSpaceArgs>;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
-    readonly bgpCommunities?: pulumi.Input<inputs.network.v20200601.VirtualNetworkBgpCommunities>;
+    readonly bgpCommunities?: pulumi.Input<inputs.network.v20200601.VirtualNetworkBgpCommunitiesArgs>;
     /**
      * The DDoS protection plan associated with the virtual network.
      */
-    readonly ddosProtectionPlan?: pulumi.Input<inputs.network.v20200601.SubResource>;
+    readonly ddosProtectionPlan?: pulumi.Input<inputs.network.v20200601.SubResourceArgs>;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    readonly dhcpOptions?: pulumi.Input<inputs.network.v20200601.DhcpOptions>;
+    readonly dhcpOptions?: pulumi.Input<inputs.network.v20200601.DhcpOptionsArgs>;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
      */
@@ -195,7 +195,7 @@ export interface VirtualNetworkArgs {
     /**
      * Array of IpAllocation which reference this VNET.
      */
-    readonly ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.v20200601.SubResource>[]>;
+    readonly ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.v20200601.SubResourceArgs>[]>;
     /**
      * Resource location.
      */
@@ -207,7 +207,7 @@ export interface VirtualNetworkArgs {
     /**
      * A list of subnets in a Virtual Network.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20200601.Subnet>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20200601.SubnetArgs>[]>;
     /**
      * Resource tags.
      */
@@ -219,5 +219,5 @@ export interface VirtualNetworkArgs {
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20200601.VirtualNetworkPeering>[]>;
+    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20200601.VirtualNetworkPeeringArgs>[]>;
 }

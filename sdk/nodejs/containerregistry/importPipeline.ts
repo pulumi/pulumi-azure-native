@@ -132,7 +132,7 @@ export interface ImportPipelineArgs {
     /**
      * The identity of the import pipeline.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The name of the import pipeline.
      */
@@ -156,9 +156,9 @@ export interface ImportPipelineArgs {
     /**
      * The source properties of the import pipeline.
      */
-    readonly source: pulumi.Input<inputs.containerregistry.ImportPipelineSourceProperties>;
+    readonly source: pulumi.Input<inputs.containerregistry.ImportPipelineSourcePropertiesArgs>;
     /**
      * The properties that describe the trigger of the import pipeline.
      */
-    readonly trigger?: pulumi.Input<inputs.containerregistry.PipelineTriggerProperties>;
+    readonly trigger?: pulumi.Input<inputs.containerregistry.PipelineTriggerPropertiesArgs>;
 }

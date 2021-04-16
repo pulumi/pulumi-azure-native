@@ -112,7 +112,7 @@ export interface IntegrationAccountArgs {
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountSku>;
+    readonly sku?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountSkuArgs>;
     /**
      * The resource tags.
      */

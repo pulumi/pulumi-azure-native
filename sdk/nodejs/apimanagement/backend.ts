@@ -151,7 +151,7 @@ export interface BackendArgs {
     /**
      * Backend Credentials Contract Properties
      */
-    readonly credentials?: pulumi.Input<inputs.apimanagement.BackendCredentialsContract>;
+    readonly credentials?: pulumi.Input<inputs.apimanagement.BackendCredentialsContractArgs>;
     /**
      * Backend Description.
      */
@@ -159,7 +159,7 @@ export interface BackendArgs {
     /**
      * Backend Properties contract
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.BackendProperties>;
+    readonly properties?: pulumi.Input<inputs.apimanagement.BackendPropertiesArgs>;
     /**
      * Backend communication protocol.
      */
@@ -167,7 +167,7 @@ export interface BackendArgs {
     /**
      * Backend Proxy Contract Properties
      */
-    readonly proxy?: pulumi.Input<inputs.apimanagement.BackendProxyContract>;
+    readonly proxy?: pulumi.Input<inputs.apimanagement.BackendProxyContractArgs>;
     /**
      * The name of the resource group.
      */
@@ -187,7 +187,7 @@ export interface BackendArgs {
     /**
      * Backend TLS Properties
      */
-    readonly tls?: pulumi.Input<inputs.apimanagement.BackendTlsProperties>;
+    readonly tls?: pulumi.Input<inputs.apimanagement.BackendTlsPropertiesArgs>;
     /**
      * Runtime Url of the Backend.
      */

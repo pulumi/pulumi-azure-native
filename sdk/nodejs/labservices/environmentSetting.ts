@@ -198,7 +198,7 @@ export interface EnvironmentSettingArgs {
     /**
      * The resource specific settings
      */
-    readonly resourceSettings: pulumi.Input<inputs.labservices.ResourceSettings>;
+    readonly resourceSettings: pulumi.Input<inputs.labservices.ResourceSettingsArgs>;
     /**
      * The tags of the resource.
      */

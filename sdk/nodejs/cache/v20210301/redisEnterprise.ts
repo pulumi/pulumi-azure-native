@@ -161,7 +161,7 @@ export interface RedisEnterpriseArgs {
     /**
      * The SKU to create, which affects price, performance, and features.
      */
-    readonly sku: pulumi.Input<inputs.cache.v20210301.EnterpriseSku>;
+    readonly sku: pulumi.Input<inputs.cache.v20210301.EnterpriseSkuArgs>;
     /**
      * Resource tags.
      */

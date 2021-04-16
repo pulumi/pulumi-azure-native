@@ -166,7 +166,7 @@ export interface ApplicationArgs {
     /**
      * Describes the diagnostics definition and usage for an application resource.
      */
-    readonly diagnostics?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.DiagnosticsDescription>;
+    readonly diagnostics?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.DiagnosticsDescriptionArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -178,7 +178,7 @@ export interface ApplicationArgs {
     /**
      * describes the services in the application.
      */
-    readonly services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180701preview.ServiceResourceDescription>[]>;
+    readonly services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180701preview.ServiceResourceDescriptionArgs>[]>;
     /**
      * Resource tags.
      */

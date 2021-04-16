@@ -144,7 +144,7 @@ export interface AppArgs {
     /**
      * A valid instance SKU.
      */
-    readonly sku: pulumi.Input<inputs.iotcentral.AppSkuInfo>;
+    readonly sku: pulumi.Input<inputs.iotcentral.AppSkuInfoArgs>;
     /**
      * The subdomain of the application.
      */

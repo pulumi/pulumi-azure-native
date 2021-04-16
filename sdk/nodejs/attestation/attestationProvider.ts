@@ -133,7 +133,7 @@ export interface AttestationProviderArgs {
     /**
      * Properties of the attestation provider
      */
-    readonly properties: pulumi.Input<inputs.attestation.AttestationServiceCreationSpecificParams>;
+    readonly properties: pulumi.Input<inputs.attestation.AttestationServiceCreationSpecificParamsArgs>;
     /**
      * Name of the attestation provider.
      */

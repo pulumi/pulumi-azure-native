@@ -128,7 +128,7 @@ export interface AvailabilityGroupListenerArgs {
     /**
      * List of load balancer configurations for an availability group listener.
      */
-    readonly loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.v20170301preview.LoadBalancerConfiguration>[]>;
+    readonly loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.v20170301preview.LoadBalancerConfigurationArgs>[]>;
     /**
      * Listener port.
      */

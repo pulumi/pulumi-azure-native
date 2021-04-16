@@ -179,7 +179,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20200301.NetworkInterfaceDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20200301.NetworkInterfaceDnsSettingsArgs>;
     /**
      * If the network interface is accelerated networking enabled.
      */
@@ -195,7 +195,7 @@ export interface NetworkInterfaceArgs {
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200301.NetworkInterfaceIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200301.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -207,7 +207,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20200301.NetworkSecurityGroup>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20200301.NetworkSecurityGroupArgs>;
     /**
      * The name of the resource group.
      */

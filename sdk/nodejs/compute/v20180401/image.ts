@@ -124,11 +124,11 @@ export interface ImageArgs {
     /**
      * The source virtual machine from which Image is created.
      */
-    readonly sourceVirtualMachine?: pulumi.Input<inputs.compute.v20180401.SubResource>;
+    readonly sourceVirtualMachine?: pulumi.Input<inputs.compute.v20180401.SubResourceArgs>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    readonly storageProfile?: pulumi.Input<inputs.compute.v20180401.ImageStorageProfile>;
+    readonly storageProfile?: pulumi.Input<inputs.compute.v20180401.ImageStorageProfileArgs>;
     /**
      * Resource tags
      */

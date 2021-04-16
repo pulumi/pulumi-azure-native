@@ -131,11 +131,11 @@ export interface MediaServiceArgs {
     /**
      * The account encryption properties.
      */
-    readonly encryption?: pulumi.Input<inputs.media.v20200501.AccountEncryption>;
+    readonly encryption?: pulumi.Input<inputs.media.v20200501.AccountEncryptionArgs>;
     /**
      * The Managed Identity for the Media Services account.
      */
-    readonly identity?: pulumi.Input<inputs.media.v20200501.MediaServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.media.v20200501.MediaServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -147,7 +147,7 @@ export interface MediaServiceArgs {
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StorageAccountArgs>[]>;
     readonly storageAuthentication?: pulumi.Input<string | enums.media.v20200501.StorageAuthentication>;
     /**
      * Resource tags.

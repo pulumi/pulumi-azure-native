@@ -153,7 +153,7 @@ export interface AttestationAtSubscriptionArgs {
     /**
      * The evidence supporting the compliance state set in this attestation.
      */
-    readonly evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.v20210101.AttestationEvidence>[]>;
+    readonly evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.v20210101.AttestationEvidenceArgs>[]>;
     /**
      * The time the compliance state should expire.
      */

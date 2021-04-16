@@ -161,7 +161,7 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
     /**
      * The virtual machine extension instance view.
      */
-    readonly instanceView?: pulumi.Input<inputs.compute.VirtualMachineExtensionInstanceView>;
+    readonly instanceView?: pulumi.Input<inputs.compute.VirtualMachineExtensionInstanceViewArgs>;
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */

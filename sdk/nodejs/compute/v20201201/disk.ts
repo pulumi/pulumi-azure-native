@@ -281,7 +281,7 @@ export interface DiskArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20201201.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20201201.CreationDataArgs>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -313,15 +313,15 @@ export interface DiskArgs {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: pulumi.Input<inputs.compute.v20201201.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.compute.v20201201.EncryptionArgs>;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20201201.EncryptionSettingsCollection>;
+    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20201201.EncryptionSettingsCollectionArgs>;
     /**
      * The extended location where the disk will be created. Extended location cannot be changed.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.compute.v20201201.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.compute.v20201201.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -345,7 +345,7 @@ export interface DiskArgs {
     /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.v20201201.PurchasePlan>;
+    readonly purchasePlan?: pulumi.Input<inputs.compute.v20201201.PurchasePlanArgs>;
     /**
      * The name of the resource group.
      */
@@ -353,11 +353,11 @@ export interface DiskArgs {
     /**
      * Contains the security related information for the resource.
      */
-    readonly securityProfile?: pulumi.Input<inputs.compute.v20201201.DiskSecurityProfile>;
+    readonly securityProfile?: pulumi.Input<inputs.compute.v20201201.DiskSecurityProfileArgs>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20201201.DiskSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20201201.DiskSkuArgs>;
     /**
      * Indicates the OS on a disk supports hibernation.
      */

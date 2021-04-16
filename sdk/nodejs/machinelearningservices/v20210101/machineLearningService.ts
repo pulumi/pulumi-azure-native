@@ -138,11 +138,11 @@ export interface MachineLearningServiceArgs {
     /**
      * The Environment, models and assets needed for inferencing.
      */
-    readonly environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestEnvironmentImageRequest>;
+    readonly environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestEnvironmentImageRequestArgs>;
     /**
      * The authentication keys.
      */
-    readonly keys?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestKeys>;
+    readonly keys?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestKeysArgs>;
     /**
      * The service tag dictionary. Tags are mutable.
      */

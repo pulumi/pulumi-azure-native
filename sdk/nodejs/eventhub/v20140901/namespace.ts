@@ -170,7 +170,7 @@ export interface NamespaceArgs {
     /**
      * SKU parameters supplied to the create Namespace operation
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20140901.Sku>;
+    readonly sku?: pulumi.Input<inputs.eventhub.v20140901.SkuArgs>;
     /**
      * State of the Namespace.
      */

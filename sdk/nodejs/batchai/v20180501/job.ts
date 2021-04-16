@@ -273,43 +273,43 @@ export interface JobArgs {
     /**
      * Settings for Caffe2 job.
      */
-    readonly caffe2Settings?: pulumi.Input<inputs.batchai.v20180501.Caffe2Settings>;
+    readonly caffe2Settings?: pulumi.Input<inputs.batchai.v20180501.Caffe2SettingsArgs>;
     /**
      * Settings for Caffe job.
      */
-    readonly caffeSettings?: pulumi.Input<inputs.batchai.v20180501.CaffeSettings>;
+    readonly caffeSettings?: pulumi.Input<inputs.batchai.v20180501.CaffeSettingsArgs>;
     /**
      * Settings for Chainer job.
      */
-    readonly chainerSettings?: pulumi.Input<inputs.batchai.v20180501.ChainerSettings>;
+    readonly chainerSettings?: pulumi.Input<inputs.batchai.v20180501.ChainerSettingsArgs>;
     /**
      * Resource ID of the cluster on which this job will run.
      */
-    readonly cluster: pulumi.Input<inputs.batchai.v20180501.ResourceId>;
+    readonly cluster: pulumi.Input<inputs.batchai.v20180501.ResourceIdArgs>;
     /**
      * Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
      */
-    readonly cntkSettings?: pulumi.Input<inputs.batchai.v20180501.CNTKsettings>;
+    readonly cntkSettings?: pulumi.Input<inputs.batchai.v20180501.CNTKsettingsArgs>;
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: pulumi.Input<inputs.batchai.v20180501.JobBasePropertiesConstraints>;
+    readonly constraints?: pulumi.Input<inputs.batchai.v20180501.JobBasePropertiesConstraintsArgs>;
     /**
      * Docker container settings for the job. If not provided, the job will run directly on the node.
      */
-    readonly containerSettings?: pulumi.Input<inputs.batchai.v20180501.ContainerSettings>;
+    readonly containerSettings?: pulumi.Input<inputs.batchai.v20180501.ContainerSettingsArgs>;
     /**
      * Settings for custom MPI job.
      */
-    readonly customMpiSettings?: pulumi.Input<inputs.batchai.v20180501.CustomMpiSettings>;
+    readonly customMpiSettings?: pulumi.Input<inputs.batchai.v20180501.CustomMpiSettingsArgs>;
     /**
      * Settings for custom tool kit job.
      */
-    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.v20180501.CustomToolkitSettings>;
+    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.v20180501.CustomToolkitSettingsArgs>;
     /**
      * A list of user defined environment variables which will be setup for the job.
      */
-    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.EnvironmentVariable>[]>;
+    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.EnvironmentVariableArgs>[]>;
     /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
@@ -317,11 +317,11 @@ export interface JobArgs {
     /**
      * Settings for Horovod job.
      */
-    readonly horovodSettings?: pulumi.Input<inputs.batchai.v20180501.HorovodSettings>;
+    readonly horovodSettings?: pulumi.Input<inputs.batchai.v20180501.HorovodSettingsArgs>;
     /**
      * A list of input directories for the job.
      */
-    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.InputDirectory>[]>;
+    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.InputDirectoryArgs>[]>;
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
@@ -329,11 +329,11 @@ export interface JobArgs {
     /**
      * A command line to be executed on each node allocated for the job before tool kit is launched.
      */
-    readonly jobPreparation?: pulumi.Input<inputs.batchai.v20180501.JobPreparation>;
+    readonly jobPreparation?: pulumi.Input<inputs.batchai.v20180501.JobPreparationArgs>;
     /**
      * Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
      */
-    readonly mountVolumes?: pulumi.Input<inputs.batchai.v20180501.MountVolumes>;
+    readonly mountVolumes?: pulumi.Input<inputs.batchai.v20180501.MountVolumesArgs>;
     /**
      * Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
      */
@@ -341,11 +341,11 @@ export interface JobArgs {
     /**
      * A list of output directories for the job.
      */
-    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.OutputDirectory>[]>;
+    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.OutputDirectoryArgs>[]>;
     /**
      * Settings for pyTorch job.
      */
-    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.v20180501.PyTorchSettings>;
+    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.v20180501.PyTorchSettingsArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -357,7 +357,7 @@ export interface JobArgs {
     /**
      * A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.EnvironmentVariableWithSecretValue>[]>;
+    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.EnvironmentVariableWithSecretValueArgs>[]>;
     /**
      * The path where the Batch AI service will store stdout, stderror and execution log of the job.
      */
@@ -365,7 +365,7 @@ export interface JobArgs {
     /**
      * Settings for Tensor Flow job.
      */
-    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.v20180501.TensorFlowSettings>;
+    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.v20180501.TensorFlowSettingsArgs>;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */

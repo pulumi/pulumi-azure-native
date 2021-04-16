@@ -188,23 +188,23 @@ export interface ActionGroupArgs {
     /**
      * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
      */
-    readonly armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.ArmRoleReceiver>[]>;
+    readonly armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.ArmRoleReceiverArgs>[]>;
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.AutomationRunbookReceiver>[]>;
+    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.AutomationRunbookReceiverArgs>[]>;
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.AzureAppPushReceiver>[]>;
+    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.AzureAppPushReceiverArgs>[]>;
     /**
      * The list of azure function receivers that are part of this action group.
      */
-    readonly azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.AzureFunctionReceiver>[]>;
+    readonly azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.AzureFunctionReceiverArgs>[]>;
     /**
      * The list of email receivers that are part of this action group.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.EmailReceiver>[]>;
+    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.EmailReceiverArgs>[]>;
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
@@ -216,7 +216,7 @@ export interface ActionGroupArgs {
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.ItsmReceiver>[]>;
+    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.ItsmReceiverArgs>[]>;
     /**
      * Resource location
      */
@@ -224,7 +224,7 @@ export interface ActionGroupArgs {
     /**
      * The list of logic app receivers that are part of this action group.
      */
-    readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.LogicAppReceiver>[]>;
+    readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.LogicAppReceiverArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -232,7 +232,7 @@ export interface ActionGroupArgs {
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.SmsReceiver>[]>;
+    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.SmsReceiverArgs>[]>;
     /**
      * Resource tags
      */
@@ -240,9 +240,9 @@ export interface ActionGroupArgs {
     /**
      * The list of voice receivers that are part of this action group.
      */
-    readonly voiceReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.VoiceReceiver>[]>;
+    readonly voiceReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.VoiceReceiverArgs>[]>;
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.WebhookReceiver>[]>;
+    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.WebhookReceiverArgs>[]>;
 }

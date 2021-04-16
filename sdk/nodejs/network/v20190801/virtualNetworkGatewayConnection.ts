@@ -255,11 +255,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190801.IpsecPolicy>[]>;
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190801.IpsecPolicyArgs>[]>;
     /**
      * The reference to local network gateway resource.
      */
-    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20190801.LocalNetworkGateway>;
+    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20190801.LocalNetworkGatewayArgs>;
     /**
      * Resource location.
      */
@@ -267,7 +267,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: pulumi.Input<inputs.network.v20190801.SubResource>;
+    readonly peer?: pulumi.Input<inputs.network.v20190801.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
@@ -291,7 +291,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190801.TrafficSelectorPolicy>[]>;
+    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190801.TrafficSelectorPolicyArgs>[]>;
     /**
      * Enable policy-based traffic selectors.
      */
@@ -299,11 +299,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20190801.VirtualNetworkGateway>;
+    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20190801.VirtualNetworkGatewayArgs>;
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20190801.VirtualNetworkGateway>;
+    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20190801.VirtualNetworkGatewayArgs>;
     /**
      * The name of the virtual network gateway connection.
      */

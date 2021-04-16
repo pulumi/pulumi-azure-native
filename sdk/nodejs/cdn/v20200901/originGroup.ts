@@ -139,7 +139,7 @@ export interface OriginGroupArgs {
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.v20200901.HealthProbeParameters>;
+    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.v20200901.HealthProbeParametersArgs>;
     /**
      * Name of the origin group which is unique within the endpoint.
      */
@@ -147,7 +147,7 @@ export interface OriginGroupArgs {
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.ResourceReference>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.ResourceReferenceArgs>[]>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
@@ -159,7 +159,7 @@ export interface OriginGroupArgs {
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    readonly responseBasedOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParameters>;
+    readonly responseBasedOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */

@@ -133,7 +133,7 @@ export interface PolicyArgs {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: pulumi.Input<inputs.network.v20191001.CustomRuleList>;
+    readonly customRules?: pulumi.Input<inputs.network.v20191001.CustomRuleListArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -145,7 +145,7 @@ export interface PolicyArgs {
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: pulumi.Input<inputs.network.v20191001.ManagedRuleSetList>;
+    readonly managedRules?: pulumi.Input<inputs.network.v20191001.ManagedRuleSetListArgs>;
     /**
      * The name of the Web Application Firewall Policy.
      */
@@ -153,7 +153,7 @@ export interface PolicyArgs {
     /**
      * Describes settings for the policy.
      */
-    readonly policySettings?: pulumi.Input<inputs.network.v20191001.FrontDoorPolicySettings>;
+    readonly policySettings?: pulumi.Input<inputs.network.v20191001.FrontDoorPolicySettingsArgs>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

@@ -108,7 +108,7 @@ export interface ActionRuleByNameArgs {
     /**
      * Action rule properties defining scope, conditions, suppression logic for action rule
      */
-    readonly properties?: pulumi.Input<inputs.alertsmanagement.v20181102privatepreview.ActionRuleProperties>;
+    readonly properties?: pulumi.Input<inputs.alertsmanagement.v20181102privatepreview.ActionRulePropertiesArgs>;
     /**
      * Resource group name where the resource is created.
      */

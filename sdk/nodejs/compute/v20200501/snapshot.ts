@@ -187,7 +187,7 @@ export interface SnapshotArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20200501.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20200501.CreationDataArgs>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -199,11 +199,11 @@ export interface SnapshotArgs {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: pulumi.Input<inputs.compute.v20200501.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.compute.v20200501.EncryptionArgs>;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20200501.EncryptionSettingsCollection>;
+    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20200501.EncryptionSettingsCollectionArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -231,7 +231,7 @@ export interface SnapshotArgs {
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20200501.SnapshotSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20200501.SnapshotSkuArgs>;
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */

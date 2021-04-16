@@ -131,7 +131,7 @@ export interface AccountArgs {
     /**
      * Identity Info on the Account
      */
-    readonly identity: pulumi.Input<inputs.datashare.v20191101.Identity>;
+    readonly identity: pulumi.Input<inputs.datashare.v20191101.IdentityArgs>;
     /**
      * Location of the azure resource.
      */

@@ -222,7 +222,7 @@ export interface ManagedClusterArgs {
     /**
      * Azure active directory.
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectory>;
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectoryArgs>;
     /**
      * The port used for client connections to the cluster.
      */
@@ -230,7 +230,7 @@ export interface ManagedClusterArgs {
     /**
      * client certificates for the cluster.
      */
-    readonly clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificate>[]>;
+    readonly clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateArgs>[]>;
     /**
      * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
@@ -246,7 +246,7 @@ export interface ManagedClusterArgs {
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescription>[]>;
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionArgs>[]>;
     /**
      * The port used for http connections to the cluster.
      */
@@ -254,7 +254,7 @@ export interface ManagedClusterArgs {
     /**
      * Describes load balancing rules.
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.LoadBalancingRule>[]>;
+    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.LoadBalancingRuleArgs>[]>;
     /**
      * Azure resource location.
      */
@@ -266,7 +266,7 @@ export interface ManagedClusterArgs {
     /**
      * The sku of the managed cluster
      */
-    readonly sku?: pulumi.Input<inputs.servicefabric.Sku>;
+    readonly sku?: pulumi.Input<inputs.servicefabric.SkuArgs>;
     /**
      * Azure resource tags.
      */

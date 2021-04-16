@@ -225,7 +225,7 @@ export interface ApiArgs {
     /**
      * Version set details
      */
-    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20191201.ApiVersionSetContractDetails>;
+    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20191201.ApiVersionSetContractDetailsArgs>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
@@ -233,7 +233,7 @@ export interface ApiArgs {
     /**
      * Collection of authentication settings included into this API.
      */
-    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20191201.AuthenticationSettingsContract>;
+    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20191201.AuthenticationSettingsContractArgs>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -283,7 +283,7 @@ export interface ApiArgs {
     /**
      * Protocols over which API is made available.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20191201.SubscriptionKeyParameterNamesContract>;
+    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20191201.SubscriptionKeyParameterNamesContractArgs>;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
@@ -295,5 +295,5 @@ export interface ApiArgs {
     /**
      * Criteria to limit import of WSDL to a subset of the document.
      */
-    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20191201.ApiCreateOrUpdatePropertiesWsdlSelector>;
+    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20191201.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
 }

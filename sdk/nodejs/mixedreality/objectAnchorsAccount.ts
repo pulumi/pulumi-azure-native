@@ -123,7 +123,7 @@ export interface ObjectAnchorsAccountArgs {
      * Name of an Mixed Reality Account.
      */
     readonly accountName?: pulumi.Input<string>;
-    readonly identity?: pulumi.Input<inputs.mixedreality.ObjectAnchorsAccountIdentity>;
+    readonly identity?: pulumi.Input<inputs.mixedreality.ObjectAnchorsAccountIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

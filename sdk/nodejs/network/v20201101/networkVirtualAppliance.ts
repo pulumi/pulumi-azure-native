@@ -189,7 +189,7 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20201101.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.network.v20201101.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */
@@ -201,7 +201,7 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * Network Virtual Appliance SKU.
      */
-    readonly nvaSku?: pulumi.Input<inputs.network.v20201101.VirtualApplianceSkuProperties>;
+    readonly nvaSku?: pulumi.Input<inputs.network.v20201101.VirtualApplianceSkuPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -217,5 +217,5 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20201101.SubResource>;
+    readonly virtualHub?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
 }

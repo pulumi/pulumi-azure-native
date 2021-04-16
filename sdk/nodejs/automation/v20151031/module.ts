@@ -177,7 +177,7 @@ export interface ModuleArgs {
     /**
      * Gets or sets the module content link.
      */
-    readonly contentLink: pulumi.Input<inputs.automation.v20151031.ContentLink>;
+    readonly contentLink: pulumi.Input<inputs.automation.v20151031.ContentLinkArgs>;
     /**
      * Gets or sets the location of the resource.
      */

@@ -158,7 +158,7 @@ export interface WorkflowArgs {
     /**
      * The integration account.
      */
-    readonly integrationAccount?: pulumi.Input<inputs.logic.v20180701preview.ResourceReference>;
+    readonly integrationAccount?: pulumi.Input<inputs.logic.v20180701preview.ResourceReferenceArgs>;
     /**
      * The resource location.
      */
@@ -166,7 +166,7 @@ export interface WorkflowArgs {
     /**
      * The parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20180701preview.WorkflowParameter>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20180701preview.WorkflowParameterArgs>}>;
     /**
      * The resource group name.
      */
@@ -174,7 +174,7 @@ export interface WorkflowArgs {
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20180701preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.logic.v20180701preview.SkuArgs>;
     /**
      * The state.
      */

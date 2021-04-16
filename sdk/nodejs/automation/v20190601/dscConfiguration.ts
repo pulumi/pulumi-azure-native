@@ -196,7 +196,7 @@ export interface DscConfigurationArgs {
     /**
      * Gets or sets the configuration parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20190601.DscConfigurationParameter>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20190601.DscConfigurationParameterArgs>}>;
     /**
      * Name of an Azure Resource group.
      */
@@ -204,7 +204,7 @@ export interface DscConfigurationArgs {
     /**
      * Gets or sets the source.
      */
-    readonly source: pulumi.Input<inputs.automation.v20190601.ContentSource>;
+    readonly source: pulumi.Input<inputs.automation.v20190601.ContentSourceArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */

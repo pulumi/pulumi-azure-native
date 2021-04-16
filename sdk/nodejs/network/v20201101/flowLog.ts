@@ -163,7 +163,7 @@ export interface FlowLogArgs {
     /**
      * Parameters that define the configuration of traffic analytics.
      */
-    readonly flowAnalyticsConfiguration?: pulumi.Input<inputs.network.v20201101.TrafficAnalyticsProperties>;
+    readonly flowAnalyticsConfiguration?: pulumi.Input<inputs.network.v20201101.TrafficAnalyticsPropertiesArgs>;
     /**
      * The name of the flow log.
      */
@@ -171,7 +171,7 @@ export interface FlowLogArgs {
     /**
      * Parameters that define the flow log format.
      */
-    readonly format?: pulumi.Input<inputs.network.v20201101.FlowLogFormatParameters>;
+    readonly format?: pulumi.Input<inputs.network.v20201101.FlowLogFormatParametersArgs>;
     /**
      * Resource ID.
      */
@@ -191,7 +191,7 @@ export interface FlowLogArgs {
     /**
      * Parameters that define the retention policy for flow log.
      */
-    readonly retentionPolicy?: pulumi.Input<inputs.network.v20201101.RetentionPolicyParameters>;
+    readonly retentionPolicy?: pulumi.Input<inputs.network.v20201101.RetentionPolicyParametersArgs>;
     /**
      * ID of the storage account which is used to store the flow log.
      */

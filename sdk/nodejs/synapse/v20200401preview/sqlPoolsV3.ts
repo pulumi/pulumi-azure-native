@@ -148,7 +148,7 @@ export interface SqlPoolsV3Args {
     /**
      * The sql pool SKU. The list of SKUs may vary by region and support offer.
      */
-    readonly sku?: pulumi.Input<inputs.synapse.v20200401preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.synapse.v20200401preview.SkuArgs>;
     /**
      * The name of the sql pool.
      */

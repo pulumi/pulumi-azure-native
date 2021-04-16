@@ -141,7 +141,7 @@ export interface EnvironmentArgs {
     /**
      * The deployment properties of the environment.
      */
-    readonly deploymentProperties?: pulumi.Input<inputs.devtestlab.v20160515.EnvironmentDeploymentProperties>;
+    readonly deploymentProperties?: pulumi.Input<inputs.devtestlab.v20160515.EnvironmentDeploymentPropertiesArgs>;
     /**
      * The name of the lab.
      */

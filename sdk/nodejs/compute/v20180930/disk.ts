@@ -175,7 +175,7 @@ export interface DiskArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20180930.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20180930.CreationDataArgs>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
@@ -195,7 +195,7 @@ export interface DiskArgs {
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20180930.EncryptionSettingsCollection>;
+    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20180930.EncryptionSettingsCollectionArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -215,7 +215,7 @@ export interface DiskArgs {
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20180930.DiskSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20180930.DiskSkuArgs>;
     /**
      * Resource tags
      */
