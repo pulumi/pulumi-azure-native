@@ -1,13 +1,7 @@
 CHANGELOG
 =========
 
-## HEAD (Unreleased)
-
-(None)
-
----
-
-## 0.9.0 (2020-04-16)
+## 1.0.0 RC (Head)
 
 #### Breaking Changes
 - Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance, Node SDK performance, general availability of Automation API, and more.
